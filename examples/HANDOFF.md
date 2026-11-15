@@ -1,22 +1,22 @@
 # Shift handoff
 
-Written Sun, 15 Nov 2026 21:05:29 GMT (run-20261115210528-d9d1). Account data is sample data, no account connected.
+Written Sun, 15 Nov 2026 21:32:53 GMT (run-20261115213251-f024). Account data is sample data, no account connected.
 
 ## Tickets (12)
-- T01 (non-technical): Says published, but the post is not on the platform. Status: reply ready.
-- T02 (non-technical): Posts show CANCELED. Status: reply ready.
-- T03 (non-technical): Post to a LinkedIn company Page instead of a profile. Status: reply ready.
-- T04 (billing): Charged after making an API key during the trial. Status: reply ready + escalated.
-- T05 (billing): How to cancel (or pause) the subscription. Status: reply ready.
-- T06 (technical): API answers 401 Unauthorized. Status: reply ready.
-- T07 (technical): "Too many requests" from a workflow. Status: reply ready.
-- T08 (technical): invalid_grant from the Blotato connector in Claude. Status: reply ready.
-- T09 (technical): Timeout after creating a post: send it again. Status: reply ready.
-- T10 (technical): Status stuck on in-progress. Status: reply ready.
-- T11 (technical): Schedule lookup answers 500 "invalid input syntax for type bigint". Status: reply ready + escalated.
-- T12 (technical): Is there a test mode for the API. Status: holding reply + escalated.
+- T01 (non-technical): Says published, but the post is not on the platform. Status: reply: cleared to send (the fresh checker passed this exact text).
+- T02 (non-technical): Posts show CANCELED. Status: reply: cleared to send (the fresh checker passed this exact text).
+- T03 (non-technical): Post to a LinkedIn company Page instead of a profile. Status: reply: cleared to send (the fresh checker passed this exact text).
+- T04 (billing): Charged after making an API key during the trial. Status: reply: cleared to send (the fresh checker passed this exact text) + escalated.
+- T05 (billing): How to cancel (or pause) the subscription. Status: reply: cleared to send (the fresh checker passed this exact text).
+- T06 (technical): API answers 401 Unauthorized. Status: reply: cleared to send (the fresh checker passed this exact text).
+- T07 (technical): "Too many requests" from a workflow. Status: reply: cleared to send (the fresh checker passed this exact text).
+- T08 (technical): invalid_grant from the Blotato connector in Claude. Status: reply: cleared to send (the fresh checker passed this exact text).
+- T09 (technical): Timeout after creating a post: send it again. Status: reply: cleared to send (the fresh checker passed this exact text).
+- T10 (technical): Status stuck on in-progress. Status: reply: cleared to send (the fresh checker passed this exact text).
+- T11 (technical): Schedule lookup answers 500 "invalid input syntax for type bigint". Status: reply: cleared to send (the fresh checker passed this exact text) + escalated.
+- T12 (technical): Is there a test mode for the API. Status: holding reply: cleared to send (the fresh checker passed this exact text) + escalated.
 
-## Ready to send, checked (12)
+## Cleared to send: the fresh checker passed this exact text (12)
 - T01 (non-technical). Next step for the customer: Open the post link above and tell me what you see.
 - T02 (non-technical). Next step for the customer: Open the post and schedule it again if you still want it to go out.
 - T03 (non-technical). Next step for the customer: Check both ids are in the right fields, then send one test post.
@@ -29,6 +29,9 @@ Written Sun, 15 Nov 2026 21:05:29 GMT (run-20261115210528-d9d1). Account data is
 - T10 (technical). Next step for the customer: Send me the time you created it and the account, and I will check the post list.
 - T11 (technical). Next step for the customer: Copy an id from your own GET /v2/schedules list, try that, and tell me what you get.
 - T12 (technical). Next step for the customer: Nothing to do on your side yet. I will reply here when I hear back.
+
+## Script check passed, waiting on the fresh check (0)
+- none
 
 ## Blocked by the checker (0)
 - none
@@ -43,4 +46,4 @@ Written Sun, 15 Nov 2026 21:05:29 GMT (run-20261115210528-d9d1). Account data is
 - https://help.blotato.com/settings/api-keys: new entry "Is there a test mode for the API?"
 
 ## Next step
-Send the 3 escalation packet(s) to the founder, then the checked replies.
+Send the 3 escalation packet(s) to the founder, then the cleared replies.

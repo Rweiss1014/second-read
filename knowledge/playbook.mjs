@@ -103,7 +103,7 @@ export const PLAYBOOK = [
     steps: [
       action('I am passing your message about the charge to a person on the team, with what you told me.'),
       fact('Payments and refunds go through Stripe, the payment processor Blotato uses.', 'billing', 'Stripe is the payment processor Blotato uses for payments and refunds.'),
-      fact('You can see every payment yourself: open Settings > Billing, select View Billing Portal, then scroll to INVOICE HISTORY.', 'billing', 'Open Settings > Billing, select View Billing Portal, then scroll to INVOICE HISTORY.'),
+      fact('You can see all your invoices yourself: open Settings > Billing, select View Billing Portal, then scroll to INVOICE HISTORY.', 'billing', 'Open Settings > Billing, select View Billing Portal, then scroll to INVOICE HISTORY.'),
       fact('Please do not pay again while this is open.', 'faqs', 'Do not pay again'),
     ],
     next: 'Reply here with the date of the charge and the email on your account, so the team can find the payment.',
