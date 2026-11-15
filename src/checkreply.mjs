@@ -19,7 +19,7 @@ const MODAL = String.raw`(?:will|'ll|shall|should|going to)`;
 const UNIT = String.raw`(?:minutes?|hours?|days?|weeks?|months?|business days?)`;
 const COUNT = String.raw`(?:a|an|one|two|three|four|five|a few|\d+(?:\s?-\s?\d+)?)`;
 const DAY = String.raw`(?:today|tonight|tomorrow|this week|next week|monday|tuesday|wednesday|thursday|friday|saturday|sunday|end of (?:the )?(?:day|week|month))`;
-const OUTCOME = String.raw`(?:fix|resolv|solv|work(?:s|ed)?\b|sorted|go(?:es)? through|process|publish|post(?:ed)?\b|succeed|arriv|appear|back\b|come back|stop|clear)`;
+const OUTCOME = String.raw`(?:(?:fix|resolv|solv|process|publish|succeed|arriv|appear|clear|stop)\w*|work(?:s|ed)?\b|sorted\b|go(?:es)? through|post(?:ed)?\b|back\b|come back)`;
 export const PROMISES = [
   { why: 'a promise or a guarantee', re: /\b(?:promise[sd]?|guarantee[sd]?|assure you|you have my word)\b/i },
   { why: 'a refund or credit', re: /\b(?:refund(?:ed)?|credit(?:ed)?|reimburse[sd]?|compensate[sd]?)\s+(?:you|your)\b/i },
@@ -94,7 +94,7 @@ export function checkReply(d, { reviewsDir, requireReview = false } = {}) {
     const at = stepAt.get(line);
     const hits = findPromises(line, { quote: at?.s.type === 'fact' ? at.s.cite?.quote : undefined });
     for (const h of hits) problems.push(at
-      ? `Step ${at.n} makes ${h.why} ("${h.words}") that its source does not say.`
+      ? `Step ${at.n} makes ${h.why} ("${h.words}")${at.s.type === 'fact' ? ', and its quote does not say that' : ''}.`
       : `The line "${line}" makes ${h.why} ("${h.words}").`);
   }
 
