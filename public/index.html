@@ -4,332 +4,119 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Support Desk</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='4' fill='%232f5bd3'/%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' stroke='white' stroke-width='2' fill='none'/%3E%3C/svg%3E">
-<style>
-  :root {
-    --bg: #f6f5f2; --panel: #ffffff; --ink: #1d1f23; --muted: #5d636e; --line: #e2e0da;
-    --accent: #2f5bd3; --accent-ink: #ffffff; --ok: #1f7a4d; --ok-bg: #e6f4ec; --bad: #b4232c; --bad-bg: #fbeaea;
-    --warn: #8a5a00; --warn-bg: #fff3d6; --code-bg: #f1efe9; --focus: #2f5bd3;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #15171b; --panel: #1d2026; --ink: #e9eaee; --muted: #a2a8b3; --line: #30343c;
-      --accent: #7d9cff; --accent-ink: #10131a; --ok: #6fd3a0; --ok-bg: #173226; --bad: #ff8a8f; --bad-bg: #3a1c1f;
-      --warn: #ffd27a; --warn-bg: #3a2f14; --code-bg: #262a31; --focus: #7d9cff;
-    }
-  }
-  :root[data-theme="dark"] {
-    --bg: #15171b; --panel: #1d2026; --ink: #e9eaee; --muted: #a2a8b3; --line: #30343c;
-    --accent: #7d9cff; --accent-ink: #10131a; --ok: #6fd3a0; --ok-bg: #173226; --bad: #ff8a8f; --bad-bg: #3a1c1f;
-    --warn: #ffd27a; --warn-bg: #3a2f14; --code-bg: #262a31; --focus: #7d9cff;
-  }
-  * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
-  a { color: var(--accent); }
-  :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
-  .wrap { max-width: 1240px; margin: 0 auto; padding: 24px 16px 64px; }
-  header h1 { margin: 0; font-size: 1.6rem; letter-spacing: -0.01em; }
-  header p { margin: 4px 0 12px; color: var(--muted); }
-  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
-  .chip { font-size: .85rem; padding: 4px 10px; border: 1px solid var(--line); border-radius: 999px; background: var(--panel); color: var(--muted); }
-  .chip strong { color: var(--ink); font-weight: 600; }
-  .chip.sample { border-color: var(--warn); color: var(--warn); background: var(--warn-bg); }
-  nav.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); margin-bottom: 20px; overflow-x: auto; }
-  nav.tabs button { font: inherit; background: none; border: 0; padding: 10px 14px; color: var(--muted); cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; }
-  nav.tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); font-weight: 600; }
-  .grid { display: grid; grid-template-columns: 340px 1fr; gap: 20px; align-items: start; }
-  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
-  .panel h2 { font-size: 1rem; margin: 0 0 10px; }
-  .tickets { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
-  .tickets button { width: 100%; text-align: left; font: inherit; font-size: .92rem; background: var(--bg); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; cursor: pointer; }
-  .tickets button:hover, .tickets button[aria-pressed="true"] { border-color: var(--accent); }
-  .kind { display: inline-block; font-size: .72rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin-right: 6px; }
-  textarea { width: 100%; min-height: 96px; font: inherit; padding: 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); resize: vertical; }
-  .btn { font: inherit; font-weight: 600; border: 0; border-radius: 8px; padding: 9px 14px; cursor: pointer; background: var(--accent); color: var(--accent-ink); }
-  .btn.ghost { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
-  .btn:disabled { opacity: .45; cursor: not-allowed; }
-  .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 10px; }
-  .badge { display: inline-block; font-size: .8rem; font-weight: 700; padding: 3px 9px; border-radius: 6px; }
-  .badge.ok { background: var(--ok-bg); color: var(--ok); }
-  .badge.bad { background: var(--bad-bg); color: var(--bad); }
-  .badge.warn { background: var(--warn-bg); color: var(--warn); }
-  .badge.neutral { background: var(--bg); color: var(--ink); border: 1px solid var(--line); font-weight: 600; }
-  .result h3 { font-size: .95rem; margin: 18px 0 6px; }
-  .quote { margin: 6px 0; padding: 8px 10px; border-left: 3px solid var(--line); background: var(--bg); border-radius: 0 6px 6px 0; font-size: .9rem; }
-  .quote .meta { color: var(--muted); font-size: .8rem; display: block; margin-top: 2px; }
-  pre.reply { white-space: pre-wrap; word-break: break-word; font: inherit; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 12px; margin: 0; }
-  pre.reply.blocked { opacity: .55; }
-  .problems { background: var(--bad-bg); color: var(--bad); border-radius: 8px; padding: 10px 12px; margin: 8px 0; }
-  .problems ul { margin: 4px 0 0 18px; padding: 0; }
-  .note { color: var(--muted); font-size: .9rem; }
-  .fresh { margin: 8px 0 0; padding: 8px 10px; border-radius: 8px; font-size: .9rem; background: var(--bg); border: 1px solid var(--line); }
-  .fresh.ok { background: var(--ok-bg); border-color: transparent; color: var(--ink); }
-  .fresh.ok strong { color: var(--ok); }
-  .fresh.bad { background: var(--bad-bg); border-color: transparent; }
-  .fresh.bad strong { color: var(--bad); }
-  code { font-size: .85em; background: var(--code-bg); padding: 1px 5px; border-radius: 4px; word-break: break-word; }
-  .built { font-size: .9rem; color: var(--muted); margin: 0 0 12px; }
-  .md { font-size: .93rem; }
-  .md h2 { font-size: 1rem; margin: 6px 0; }
-  .md h3 { font-size: .95rem; margin: 6px 0; }
-  .md pre { background: var(--code-bg); padding: 10px; border-radius: 6px; overflow-x: auto; }
-  .md blockquote { margin: 6px 0; padding-left: 10px; border-left: 3px solid var(--line); color: var(--muted); }
-  .md ul { padding-left: 20px; }
-  .md .add { color: var(--ok); } .md .del { color: var(--bad); }
-  details { margin-top: 12px; border-top: 1px solid var(--line); padding-top: 8px; }
-  summary { cursor: pointer; font-weight: 600; }
-  .empty { color: var(--muted); padding: 30px 8px; text-align: center; }
-  /* practice */
-  .game { max-width: 760px; }
-  .progress { display: flex; gap: 6px; margin: 6px 0 14px; }
-  .progress span { flex: 1; height: 6px; border-radius: 3px; background: var(--line); }
-  .progress span.done { background: var(--accent); }
-  .ticket-card { font-size: 1.05rem; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 14px; margin-bottom: 12px; }
-  .choices { display: grid; gap: 8px; }
-  .choice { text-align: left; font: inherit; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); cursor: pointer; min-height: 48px; }
-  .choice:hover:not(:disabled) { border-color: var(--accent); }
-  .choice .key { display: inline-block; min-width: 22px; font-weight: 700; color: var(--muted); }
-  .choice.right { border-color: var(--ok); background: var(--ok-bg); }
-  .choice.wrong { border-color: var(--bad); background: var(--bad-bg); }
-  .outcome { margin-top: 12px; padding: 12px; border-radius: 10px; }
-  .outcome.right { background: var(--ok-bg); } .outcome.wrong { background: var(--bad-bg); }
-  .score { font-size: 2rem; font-weight: 700; margin: 6px 0; }
-  @media (hover: none) { .keyhint { display: none; } }
-  @media (max-width: 560px) {
-    nav.tabs { flex-wrap: wrap; overflow-x: visible; }
-    nav.tabs button { padding: 8px 10px; }
-  }
-  @media (max-width: 860px) {
-    .grid { grid-template-columns: 1fr; }
-    .wrap { padding-top: 16px; }
-  }
-</style>
+<meta name="description" content="Paste what a customer said. The desk writes a kind reply where every step shows its proof from Blotato's help pages, and a second checker tries to find a mistake.">
+<meta name="color-scheme" content="light">
+<link rel="preload" href="/fonts/newsreader-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/source-sans-3-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/app.css">
+<script type="module" src="/app.js"></script>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <h1>Support Desk</h1>
-    <p>Paste a customer's message. Get the documented diagnosis, a checked reply, and the packet the founder needs when a person has to decide.</p>
-    <p class="built">Built on Blotato's own pieces: its help docs, read through its docs MCP server, and its REST API, read-only. It adds the checked reply, the escalation packet, the doc-edit proposal and a practice shift.</p>
-    <div class="chips" id="chips"><span class="chip">Loading...</span></div>
-  </header>
+<a class="skip-link" href="#main">Skip to the main part</a>
+<!-- Ink for the stamp: a little uneven, like a real press. Only the stamp uses it. -->
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+  <filter id="ink" x="-4%" y="-8%" width="108%" height="116%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="11" result="n"/>
+    <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.4 2.25" result="a"/>
+    <feComposite in="SourceGraphic" in2="a" operator="in"/>
+  </filter>
+</svg>
 
-  <nav class="tabs" role="tablist">
-    <button role="tab" id="tab-desk" aria-selected="true" aria-controls="view-desk">Desk</button>
-    <button role="tab" id="tab-practice" aria-selected="false" aria-controls="view-practice">Practice: your first support shift</button>
-    <button role="tab" id="tab-handoff" aria-selected="false" aria-controls="view-handoff">Shift handoff</button>
+<header class="top">
+  <a class="brand" href="#answer" id="brand"><span class="brand-name">Support Desk</span> <span class="brand-for">for Blotato's support team</span></a>
+  <nav class="nav" aria-label="Main">
+    <a href="#answer" id="nav-answer" aria-current="page">Answer a customer</a>
+    <a href="#practice" id="nav-practice">Play the practice game</a>
   </nav>
+</header>
 
-  <section id="view-desk" role="tabpanel" aria-labelledby="tab-desk">
-    <div class="grid">
-      <aside class="panel">
-        <h2>Sample tickets</h2>
-        <p class="note" style="margin-top:0">Made-up customers, real Blotato docs.</p>
-        <ul class="tickets" id="tickets"></ul>
-        <h2 style="margin-top:18px">Or paste a message</h2>
-        <label for="paste" class="note">The customer's words, as they wrote them.</label>
-        <textarea id="paste" placeholder="Hi, my post says published but..."></textarea>
-        <div class="row"><button class="btn" id="diagnose">Diagnose</button></div>
-      </aside>
-      <main class="panel result" id="result" aria-live="polite">
-        <div class="empty">Pick a ticket on the left to see how the desk handles it.</div>
-      </main>
+<main id="main" tabindex="-1">
+
+  <!-- 1. Answer a customer -->
+  <section id="view-answer" aria-labelledby="ask-h">
+    <div class="ask" id="ask">
+      <h1 id="ask-h">What did the customer say?</h1>
+      <p class="lede">Paste their message. The desk reads Blotato's help pages, looks at their account, and writes a kind reply. Every step shows where it came from.</p>
+
+      <form class="box" id="ask-form" novalidate>
+        <label for="msg">Their message, in their own words</label>
+        <textarea id="msg" name="msg" rows="3" maxlength="2000" placeholder="Hi, my post says published but I can't find it..." aria-describedby="box-note"></textarea>
+        <div class="go">
+          <p id="box-note">The desk writes the reply. It never sends anything. You copy it and send it yourself.</p>
+          <button class="btn" type="submit" id="answer-btn">Answer it</button>
+        </div>
+        <p class="filled" id="filled" aria-live="polite"></p>
+      </form>
+
+      <div class="tries">
+        <h2 id="tries-h">Not sure what to type? Try one of these.</h2>
+        <p class="tries-hint">Tapping one puts it in the box. Nothing is answered until you press "Answer it".</p>
+        <ul class="tries-list" id="tries" aria-labelledby="tries-h">
+          <li><button type="button" data-id="T01" data-who="A creator"><span class="q" aria-hidden="true">&ldquo;</span><span class="t">Hi! Blotato says my Instagram post is published, but I can't find it on my profile. Did it actually go out?</span><span class="who">A creator</span></button></li>
+          <li><button type="button" data-id="T02" data-who="A small business owner"><span class="q" aria-hidden="true">&ldquo;</span><span class="t">Three of my posts show CANCELED in the calendar. Are they failing? I'm worried something is broken.</span><span class="who">A small business owner</span></button></li>
+          <li><button type="button" data-id="T04" data-who="A coach on the free trial"><span class="q" aria-hidden="true">&ldquo;</span><span class="t">I was still on my free trial, I made an API key to try n8n, and now I've been charged. Why?</span><span class="who">A coach on the free trial</span></button></li>
+          <li><button type="button" data-id="T05" data-who="A podcaster"><span class="q" aria-hidden="true">&ldquo;</span><span class="t">How do I cancel my subscription? Or can I pause it for two months while I travel?</span><span class="who">A podcaster</span></button></li>
+        </ul>
+        <button type="button" class="more-btn" id="more-btn" aria-expanded="false" aria-controls="more">Show more examples</button>
+        <div id="more" class="more" hidden>
+          <ul class="tries-list" id="more-list" aria-label="More examples"></ul>
+          <p class="stopped-line">What happens when the second checker finds a mistake? <button type="button" class="link" id="stopped-btn">See a reply it stopped</button></p>
+        </div>
+      </div>
+
+      <div class="ask-foot">
+        <p class="sample" id="sample-note">This is a practice account. Its posts are made up. The help pages are Blotato's real ones.</p>
+        <div class="switch-row">
+          <button type="button" class="switch" role="switch" aria-checked="false" data-tech-switch aria-describedby="switch-hint-1"><span class="track" aria-hidden="true"><span class="knob"></span></span><span class="switch-label">Show the technical details</span></button>
+          <span class="switch-hint" id="switch-hint-1">For engineers: the calls the desk makes, their ids, and the checkers' notes.</span>
+        </div>
+      </div>
+
+      <section class="tech tech-home" id="tech-home" aria-labelledby="tech-home-h">
+        <h2 id="tech-home-h">Technical details</h2>
+        <dl class="kv" id="tech-state"><dt>Loading</dt><dd>Reading the desk's state...</dd></dl>
+        <h3>The whole sample shift</h3>
+        <p>Runs all 12 sample messages, then writes the handoff a teammate reads at the start of the next shift.</p>
+        <div class="row"><button type="button" class="btn btn-small" id="shift-btn">Run all 12 sample messages</button><button type="button" class="btn-quiet" id="logs-btn">Show the last run's log</button></div>
+        <div class="md" id="handoff" aria-live="polite"></div>
+        <h3>What the page calls</h3>
+        <ul class="mono-list">
+          <li><code>POST /api/ticket/live</code> one ticket, each read reported as it happens (one JSON object per line), the result last</li>
+          <li><code>POST /api/ticket</code> the same ticket, one JSON answer</li>
+          <li><code>GET /api/example/stopped</code> the saved reply the fresh checker blocked, with its verdict and hash check</li>
+          <li><code>GET /api/state</code>, <code>/api/practice</code>, <code>/api/handoff</code>, <code>/api/logs</code>, <code>/api/art</code>; <code>POST /api/shift</code></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="result" id="result" hidden></div>
+  </section>
+
+  <!-- 2. The practice game -->
+  <section id="view-practice" class="game" aria-labelledby="game-h" hidden>
+    <div class="game-head">
+      <h1 id="game-h">Your first support shift</h1>
+      <p class="lede" id="game-intro">Five customers will write in, one at a time. For each one, choose your first move. You will see what happens next, and what Blotato's help page says.</p>
+    </div>
+    <div class="game-bar" id="game-bar" hidden>
+      <ol class="pips" id="pips" aria-label="Your progress"></ol>
+      <p class="score-now" id="score-now" aria-live="polite"></p>
+    </div>
+    <div id="game-stage" class="game-stage">
+      <div class="game-start" id="game-start">
+        <div class="desk-queue">
+          <h2 class="queue-h">On your desk today</h2>
+          <ol class="queue" id="game-queue" aria-label="The five customers waiting"></ol>
+        </div>
+        <p class="game-how">Use the mouse, a finger, or the keys <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> to choose, and <kbd>Enter</kbd> to go on.</p>
+        <button type="button" class="btn" id="game-go">Start my shift</button>
+      </div>
     </div>
   </section>
+</main>
 
-  <section id="view-practice" role="tabpanel" aria-labelledby="tab-practice" hidden>
-    <div class="panel game" id="game"></div>
-  </section>
+<p class="sr-only" id="live" aria-live="polite" aria-atomic="true"></p>
 
-  <section id="view-handoff" role="tabpanel" aria-labelledby="tab-handoff" hidden>
-    <div class="panel">
-      <p class="note" style="margin-top:0">Runs all 12 sample tickets, then writes the handoff a teammate reads at the start of the next shift.</p>
-      <div class="row" style="margin-top:0"><button class="btn" id="shift">Run the whole shift</button><button class="btn ghost" id="logs">Show the last run's log</button></div>
-      <div class="md" id="handoff" style="margin-top:14px"></div>
-    </div>
-  </section>
-</div>
-
-<script>
-const $ = (s) => document.querySelector(s);
-const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const day = (t) => t ? new Date(t).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
-let state = null;
-
-// A small Markdown renderer for the packets: headings, bold, lists, quotes, diff blocks.
-function md(text) {
-  const out = []; let inCode = false; let list = false;
-  for (const raw of String(text || '').split('\n')) {
-    if (raw.startsWith('```')) { if (list) { out.push('</ul>'); list = false; } out.push(inCode ? '</pre>' : '<pre>'); inCode = !inCode; continue; }
-    if (inCode) { const cls = raw.startsWith('+') ? 'add' : raw.startsWith('-') ? 'del' : ''; out.push(`<span class="${cls}">${esc(raw)}</span>\n`); continue; }
-    let l = esc(raw).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/(https:\/\/[^\s)"&]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
-    if (/^- /.test(raw)) { if (!list) { out.push('<ul>'); list = true; } out.push(`<li>${l.slice(2)}</li>`); continue; }
-    if (list) { out.push('</ul>'); list = false; }
-    if (/^### /.test(raw)) out.push(`<h3>${l.slice(4)}</h3>`);
-    else if (/^## /.test(raw)) out.push(`<h2>${l.slice(3)}</h2>`);
-    else if (/^# /.test(raw)) out.push(`<h2>${l.slice(2)}</h2>`);
-    else if (/^&gt; /.test(l)) out.push(`<blockquote>${l.slice(5)}</blockquote>`);
-    else if (raw.trim()) out.push(`<p>${l}</p>`);
-  }
-  if (list) out.push('</ul>');
-  return out.join('');
-}
-
-async function api(path, body) {
-  const r = await fetch(path, body ? { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) } : {});
-  const j = await r.json();
-  if (!r.ok) throw new Error(j.error || `HTTP ${r.status}`);
-  return j;
-}
-
-function chips() {
-  const c = [];
-  c.push(state.mock ? '<span class="chip sample"><strong>Sample data, no account connected.</strong> Account lookups use made-up posts.</span>'
-                    : '<span class="chip"><strong>Account connected</strong>, read-only</span>');
-  c.push(`<span class="chip">Docs: <strong>${state.docs.pages}</strong> Blotato help pages${state.docs.newest ? `, fetched ${day(state.docs.newest)}` : ''}${state.docs.via.length ? ` via ${esc(state.docs.via.join(', '))}` : ''}</span>`);
-  c.push(`<span class="chip"><strong>${state.failures}</strong> problems on file, checked first on every ticket</span>`);
-  c.push('<span class="chip">The desk only reads. It never posts.</span>');
-  $('#chips').innerHTML = c.join('');
-}
-
-// Green and "ready to send" only when the fresh checker passed this exact text. Before that, the badge is neutral.
-const cleared = (r) => r.check.pass && r.fresh?.state === 'passed';
-function badge(r) {
-  if (!r.entry) return '<span class="badge warn">No documented answer: refused</span>';
-  if (!r.check.pass) return '<span class="badge bad">Blocked by the checker</span>';
-  const escalated = r.outcome === 'reply' ? '' : ' <span class="badge warn">Escalated</span>';
-  const what = r.outcome === 'no-answer' ? 'Holding reply' : 'Reply';
-  if (cleared(r)) return `<span class="badge ok">${what} cleared: ready to send</span>${escalated}`;
-  return `<span class="badge neutral">Script check passed. Fresh check not run on this text yet.</span>${escalated}`;
-}
-
-// The CLI command for this ticket, as it really runs: a sample ticket by id, a pasted message by its own words.
-function cliTicket(r) {
-  const words = String(r.ticket.text || '').replace(/["\\$`]/g, c => '\\' + c);
-  return `node bin/support-desk.mjs ticket ${r.ticket.id ? `--id ${r.ticket.id}` : `"${words}"`} --save-reply${r.mock ? ' --mock' : ''}`;
-}
-
-// Two checkers: the script (every quote on its page, every status step backed, the promise patterns) and a
-// fresh AI checker that reads only the reply, the cited page text and the evidence. This line shows the second one.
-function freshLine(r) {
-  const f = r.fresh; if (!f) return '';
-  const cmd = (s) => `<code>${esc(s)}</code>`;
-  const how = `Run ${cmd(cliTicket(r))}, then start the reply-checker subagent with the packet path it prints. The reply is ready to send only when that checker passes this exact text.`;
-  if (f.state === 'passed') return `<p class="fresh ok"><strong>Fresh checker: passed this exact text</strong>${f.checkedAt ? ` on ${day(f.checkedAt)}` : ''}.${f.notes?.length ? ` Notes: ${esc(f.notes.join(' '))}` : ''}</p>`;
-  if (f.state === 'passed-saved') return `<p class="fresh"><strong>Fresh checker: passed the saved copy, not this text.</strong>${f.checkedAt ? ` Checked ${day(f.checkedAt)}.` : ''} A live lookup changed this run's text. Send the saved copy (${cmd(`node bin/support-desk.mjs cleared ${f.name}`)}), or check this one: ${how}</p>`;
-  if (f.state === 'blocked') return `<p class="fresh bad"><strong>Fresh checker: blocked.</strong> ${esc(f.why)}</p>`;
-  if (f.state === 'stale') return `<p class="fresh"><strong>Fresh checker: its verdict is for an older text.</strong> ${how}</p>`;
-  return `<p class="fresh"><strong>Fresh checker: not run yet.</strong> ${how}</p>`;
-}
-
-function renderResult(r) {
-  const h = [];
-  h.push(`<div class="row" style="margin-top:0">${badge(r)}</div>`);
-  h.push(`<h2 style="margin:10px 0 2px">${esc(r.entry ? r.entry.title : 'No playbook entry matches')}</h2>`);
-  h.push(`<p class="note" style="margin:0">${esc(r.entry ? r.entry.kind : 'unknown kind')}${r.ticket.id ? ` · ticket ${esc(r.ticket.id)}` : ''}</p>`);
-  h.push(`<div class="quote">${esc(r.ticket.text)}<span class="meta">The customer's message</span></div>`);
-  if (r.seenBefore?.length) h.push(`<p class="note">Seen before: ${r.seenBefore.map(f => `${esc(f.title || f.id)} (${f.times} time${f.times > 1 ? 's' : ''}, last ${esc(f.lastSeen)}). Last time: ${esc(f.fix)}`).join(' ')}</p>`);
-
-  h.push('<h3>What I checked</h3>');
-  if (r.evidence) {
-    h.push(`<div class="quote">${esc(r.evidence.summary)}<span class="meta">${esc((r.evidence.calls || []).join(' · ') || 'no calls')}${state.mock && r.evidence.kind !== 'docs-search' ? ' · sample account data' : ''}</span></div>`);
-    for (const s of r.evidence.searched || []) h.push(`<p class="note">Searched the docs for "${esc(s.query)}". Top results: ${s.results.slice(0, 3).map(x => `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title || x.url)}</a>`).join(', ') || 'none'}. The desk has no checked answer in them, so open them before you answer.</p>`);
-  }
-  for (const c of r.check.citations || []) {
-    const q = /^["“]/.test(c.quote) ? c.quote : `"${c.quote}"`;
-    h.push(`<div class="quote">${esc(q.replace(/`/g, ''))}<span class="meta">Step ${c.step}: ${c.found ? 'found on' : '<strong>not found</strong> on'} <a href="${esc(c.url)}" target="_blank" rel="noopener">${esc(c.url.replace('https://help.blotato.com', 'help.blotato.com'))}</a>${c.fetchedAt ? `, fetched ${day(c.fetchedAt)}` : ''}</span></div>`);
-  }
-  if (!r.evidence && !(r.check.citations || []).length) h.push('<p class="note">Nothing.</p>');
-
-  if (r.reply) {
-    h.push('<h3>Reply</h3>');
-    if (!r.check.pass) h.push(`<div class="problems"><strong>Do not send. The checker blocked it:</strong><ul>${r.check.problems.map(p => `<li>${esc(p)}</li>`).join('')}</ul></div>`);
-    h.push(`<pre class="reply${r.check.pass ? '' : ' blocked'}" id="reply-text">${esc(r.reply)}</pre>`);
-    h.push(freshLine(r));
-    h.push(`<div class="row"><button class="btn${cleared(r) ? '' : ' ghost'}" id="copy" ${r.check.pass ? '' : 'disabled'}>${!r.check.pass ? 'Blocked' : cleared(r) ? 'Copy reply' : 'Copy draft (not cleared yet)'}</button><span class="note" id="copied"></span></div>`);
-  }
-  if (r.refused) h.push(`<h3>Reply</h3><div class="problems">${esc(r.refused)}</div>`);
-  if (r.escalationText) h.push(`<details open><summary>Escalation packet for the founder</summary><div class="md">${md(r.escalationText.replace(/^## Escalation\n/, ''))}</div></details>`);
-  if (r.docEditText) h.push(`<details open><summary>Proposed help-doc edit</summary><div class="md">${md(r.docEditText.replace(/^## Proposed help-doc edit\n/, ''))}</div></details>`);
-  $('#result').innerHTML = h.join('');
-  const copy = $('#copy');
-  if (copy && r.check.pass) copy.onclick = async () => { try { await navigator.clipboard.writeText(r.reply); $('#copied').textContent = 'Copied.'; } catch { $('#copied').textContent = 'Select the text above to copy it.'; } };
-}
-
-async function run(body, button) {
-  document.querySelectorAll('.tickets button').forEach(b => b.setAttribute('aria-pressed', String(b === button)));
-  $('#result').innerHTML = '<div class="empty">Reading Blotato\'s docs and checking...</div>';
-  try {
-    const r = await api('/api/ticket', body);
-    renderResult(r);
-    // One column (phones): the answer is below the ticket list, so bring it into view.
-    if (window.matchMedia('(max-width: 860px)').matches) $('#result').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    state = await api('/api/state'); chips();
-  } catch (e) { $('#result').innerHTML = `<div class="problems">${esc(e.message)}</div>`; }
-}
-
-// ---- practice
-const game = { data: null, i: 0, score: 0, answered: false };
-function renderGame() {
-  const g = game.data; const el = $('#game');
-  const bar = `<div class="progress" aria-hidden="true">${g.decisions.map((_, k) => `<span class="${k < game.i || (k === game.i && game.answered) ? 'done' : ''}"></span>`).join('')}</div>`;
-  if (game.i >= g.decisions.length) {
-    el.innerHTML = `<h2>${esc(g.title)}</h2>${bar}<p class="score">${game.score} of ${g.decisions.length}</p>
-      <p>${game.score === g.decisions.length ? 'A clean shift. Every customer got the right first check.' : 'Every wrong pick above was a real way a ticket goes sideways. Here is the right first check for each:'}</p>
-      <ol>${g.decisions.map(d => `<li>${esc(d.firstCheck)} <a href="${esc(d.source.url)}" target="_blank" rel="noopener">Source</a></li>`).join('')}</ol>
-      <div class="row"><button class="btn" id="again">Play the shift again</button></div>`;
-    $('#again').onclick = () => { game.i = 0; game.score = 0; game.answered = false; renderGame(); $('#game .choice')?.focus(); };
-    $('#again').focus();
-    return;
-  }
-  const d = g.decisions[game.i];
-  el.innerHTML = `<h2>${esc(g.title)}</h2><p class="note">${esc(g.intro)}</p>${bar}
-    <p class="note" style="margin-bottom:4px">Customer ${game.i + 1} of ${g.decisions.length}</p>
-    <div class="ticket-card">${esc(d.ticket)}</div>
-    <p style="margin:0 0 8px"><strong>Your first move?</strong> <span class="note keyhint">(keys 1, 2, 3)</span></p>
-    <div class="choices">${d.choices.map((c, k) => `<button class="choice" data-k="${k}"><span class="key">${k + 1}</span>${esc(c.text)}</button>`).join('')}</div>
-    <div id="outcome" aria-live="polite"></div>`;
-  el.querySelectorAll('.choice').forEach(b => b.onclick = () => answer(Number(b.dataset.k)));
-}
-function answer(k) {
-  if (game.answered) return;
-  const d = game.data.decisions[game.i]; const c = d.choices[k];
-  game.answered = true; if (c.right) game.score++;
-  $('#game').querySelectorAll('.choice').forEach((b, idx) => { b.disabled = true; if (d.choices[idx].right) b.classList.add('right'); else if (idx === k) b.classList.add('wrong'); });
-  $('#outcome').innerHTML = `<div class="outcome ${c.right ? 'right' : 'wrong'}"><strong>${c.right ? 'Right first check.' : 'Not quite.'}</strong> ${esc(c.consequence)}
-    <div class="quote" style="margin-top:8px">${esc(/^["“]/.test(d.source.quote) ? d.source.quote : `"${d.source.quote}"`)}<span class="meta"><a href="${esc(d.source.url)}" target="_blank" rel="noopener">${esc(d.source.url.replace('https://help.blotato.com', 'help.blotato.com'))}</a></span></div>
-    <div class="row"><button class="btn" id="next">${game.i + 1 < game.data.decisions.length ? 'Next customer' : 'See my score'}</button><span class="note keyhint">(Enter)</span></div></div>`;
-  $('#game').querySelectorAll('.progress span')[game.i].classList.add('done');
-  $('#next').onclick = () => { game.i++; game.answered = false; renderGame(); $('#game .choice, #again')?.focus(); };
-  $('#next').focus();
-}
-document.addEventListener('keydown', (e) => {
-  if ($('#view-practice').hidden || e.target.tagName === 'TEXTAREA') return;
-  if (!game.answered && ['1', '2', '3'].includes(e.key)) answer(Number(e.key) - 1);
-});
-
-// ---- tabs
-document.querySelectorAll('nav.tabs button').forEach(t => t.onclick = () => {
-  document.querySelectorAll('nav.tabs button').forEach(b => { b.setAttribute('aria-selected', String(b === t)); $('#' + b.getAttribute('aria-controls')).hidden = b !== t; });
-  if (t.id === 'tab-practice' && !game.data) api('/api/practice').then(p => { game.data = p; renderGame(); });
-  if (t.id === 'tab-handoff') api('/api/handoff').then(h => { $('#handoff').innerHTML = md(h.text); });
-});
-
-$('#shift').onclick = async () => {
-  $('#shift').disabled = true; $('#handoff').innerHTML = '<p class="note">Running 12 tickets...</p>';
-  try { const s = await api('/api/shift', {}); $('#handoff').innerHTML = md(s.handoff); state = await api('/api/state'); chips(); }
-  catch (e) { $('#handoff').innerHTML = `<div class="problems">${esc(e.message)}</div>`; }
-  $('#shift').disabled = false;
-};
-$('#logs').onclick = async () => { const l = await api('/api/logs'); $('#handoff').innerHTML = `<pre class="reply">${esc(l.text)}</pre>`; };
-$('#diagnose').onclick = () => { const text = $('#paste').value.trim(); if (text) run({ text }); else $('#paste').focus(); };
-
-(async () => {
-  state = await api('/api/state');
-  chips();
-  $('#tickets').innerHTML = state.tickets.map(t => `<li><button data-id="${esc(t.id)}" aria-pressed="false"><span class="kind">${esc(t.id)} · ${esc(t.kind)}</span><br>${esc(t.text)}</button></li>`).join('');
-  document.querySelectorAll('.tickets button').forEach(b => b.onclick = () => run({ id: b.dataset.id }, b));
-})();
-</script>
+<noscript><p class="noscript">This page needs JavaScript to ask the desk. Everything the desk does is also in the README.</p></noscript>
 </body>
 </html>

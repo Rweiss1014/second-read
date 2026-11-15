@@ -1,0 +1,56 @@
+{
+ "about": "The first reply the desk wrote for sample ticket T07, on Nov 15, 2026, rebuilt byte for byte from commit 7db5607 (knowledge/playbook.mjs). Its sha256 matches the replySha256 in examples/reviews/T07.round1-verdict-block.json, the fresh checker's block. The playbook was fixed after this verdict; today's T07 reply is different and passed.",
+ "builtFrom": "7db5607",
+ "verdictFile": "examples/reviews/T07.round1-verdict-block.json",
+ "ticket": {
+  "id": "T07",
+  "kind": "technical",
+  "from": "an n8n user (made up)",
+  "text": "My n8n workflow posts 50 videos at once and half of them fail with 'The service is receiving too many requests from you'."
+ },
+ "entry": {
+  "id": "rate-limit",
+  "kind": "technical",
+  "title": "\"Too many requests\" from a workflow"
+ },
+ "reply": "Hi,\n\nYour workflow is sending faster than Blotato accepts. The fix is to slow it down.\n\n1. That message means too many requests in one minute. Publishing allows 30 a minute.\n2. Stop sending to that step for a moment.\n3. Then send fewer posts at a time before you turn the workflow back on.\n4. If it is an n8n workflow, the Fix My Automation button in Logs can help repair it.\n\nNext step: Add a pause between posts and run the workflow again.\nYou will know it worked when the workflow runs through with no \"too many requests\" errors.\nHelp page: https://help.blotato.com/support/errors\n\nThanks,\nSupport",
+ "next": "Add a pause between posts and run the workflow again.",
+ "steps": [
+  {
+   "type": "fact",
+   "text": "That message means too many requests in one minute. Publishing allows 30 a minute.",
+   "url": "https://help.blotato.com/support/errors",
+   "quote": "Rate limit exceeded. Upload Media: 30 requests/minute. Publish Post: 30 requests/minute."
+  },
+  {
+   "type": "fact",
+   "text": "Stop sending to that step for a moment.",
+   "url": "https://help.blotato.com/api-and-mcp-concepts/rate-limits",
+   "quote": "Stop requests to the limited route after `429`."
+  },
+  {
+   "type": "fact",
+   "text": "Then send fewer posts at a time before you turn the workflow back on.",
+   "url": "https://help.blotato.com/api-and-mcp-concepts/rate-limits",
+   "quote": "Reduce concurrency and request frequency before resuming."
+  },
+  {
+   "type": "fact",
+   "text": "If it is an n8n workflow, the Fix My Automation button in Logs can help repair it.",
+   "url": "https://help.blotato.com/api-and-mcp-concepts/error-handling",
+   "quote": "For n8n requests, the dashboard's FIX MY AUTOMATION action helps repair the workflow."
+  }
+ ],
+ "plain": {
+  "why": "The next step could make the customer post the same videos twice. The help page says to check which posts already went out before sending anything again.",
+  "names": [
+   "next",
+   2,
+   1
+  ],
+  "more": [
+   "Step 2 is vaguer than the help page. It leaves out waiting for the retry time.",
+   "Step 1 names one limit, but the page lists two that a workflow like this can hit."
+  ]
+ }
+}
