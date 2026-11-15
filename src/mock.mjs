@@ -22,7 +22,13 @@ const acct = (id) => {
   return a ? { id: a.id, name: a.fullname, subaccount: null } : null;
 };
 
-export function createMockApi({ now = () => Date.now() } = {}) {
+// Sample post times are anchored to the start of the current six-hour block, not to this exact second.
+// A real post's time never moves, so a sample post's time should not move between two runs either.
+// Otherwise the reply text changes on every run, and no checker verdict could ever match it.
+const SIX_HOURS = 6 * H;
+const steadyNow = () => Math.floor(Date.now() / SIX_HOURS) * SIX_HOURS;
+
+export function createMockApi({ now = steadyNow } = {}) {
   const t0 = now();
   // Scheduled posts live here (the schedules list). The docs show ids like "sch_abc123", but the real API
   // treats schedule ids as numbers (checked Nov 15, 2026), so the mock uses number strings.
