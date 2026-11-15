@@ -1,0 +1,24 @@
+{
+  "name": "support-desk",
+  "version": "0.1.0",
+  "description": "A support desk for Blotato tickets: diagnose from Blotato's own docs and read-only status, write a checked reply, escalate with evidence, or propose a help-doc edit.",
+  "type": "module",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "support-desk": "bin/support-desk.mjs"
+  },
+  "scripts": {
+    "test": "node --test \"test/*.test.mjs\"",
+    "start": "node bin/support-desk.mjs serve",
+    "mock": "node bin/support-desk.mjs serve --mock",
+    "shift": "node bin/support-desk.mjs shift",
+    "docs": "node bin/support-desk.mjs docs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2"
+  }
+}
