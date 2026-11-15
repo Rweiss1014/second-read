@@ -12,8 +12,9 @@
     "support-desk": "bin/support-desk.mjs"
   },
   "scripts": {
+    "start": "node bin/support-desk.mjs serve --mock",
+    "serve": "node bin/support-desk.mjs serve",
     "test": "node --test \"test/*.test.mjs\"",
-    "start": "node bin/support-desk.mjs serve",
     "mock": "node bin/support-desk.mjs serve --mock",
     "shift": "node bin/support-desk.mjs shift",
     "docs": "node bin/support-desk.mjs docs"

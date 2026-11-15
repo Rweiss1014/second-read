@@ -39,6 +39,8 @@ node bin/support-desk.mjs serve --mock
 
 Then open http://localhost:5610. If that port is busy, add `--port 5611` to the last line.
 
+Or run `npm start`: it opens the same page with sample data and prints the link. `npm run serve` opens it on a real account (it needs your key).
+
 `--mock` means account lookups use made-up posts. The page says so at the top. The help docs are always the real ones.
 
 ## The commands
