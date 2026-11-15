@@ -6,7 +6,6 @@ import { ROOT, deskPaths, isMock } from './config.mjs';
 import { openDesk, handleTicket, runShift } from './desk.mjs';
 import { readFailures } from './failures.mjs';
 import { summarizeLastRun } from './log.mjs';
-import { clearedToSend, reviewName, replyHash } from './checkreply.mjs';
 import { TICKETS } from '../knowledge/playbook.mjs';
 import { PRACTICE } from '../knowledge/practice.mjs';
 
@@ -21,19 +20,11 @@ function readBody(req, limit = 10000) {
 }
 
 // What the page needs from a result (never the full cached pages).
-// The fresh checker's verdict, if one exists for this ticket's saved reply.
-function freshState(r, env) {
-  if (!r.reply) return null;
-  const name = reviewName(r.ticket);
-  const c = clearedToSend(deskPaths(env).reviews, name);
-  if (!c.ok && /No saved reply|No fresh-checker verdict/.test(c.why)) return { state: 'none', name };
-  if (!c.ok) return { state: c.blocked ? 'blocked' : 'stale', name, why: c.why };
-  return { state: replyHash(c.reply) === replyHash(r.reply) ? 'passed' : 'passed-saved', name, checkedAt: c.checkedAt, notes: c.notes };
-}
-
+// r.fresh is where the fresh checker stands on this exact text (see freshState in checkreply.mjs).
 function view(r, env) {
   return {
-    fresh: freshState(r, env),
+    fresh: r.fresh,
+    mock: isMock(env),
     ticket: r.ticket, entry: r.entry, status: r.status, outcome: r.outcome, seenBefore: r.seenBefore,
     evidence: r.evidence ? { kind: r.evidence.kind, ok: r.evidence.ok, summary: r.evidence.summary, calls: r.evidence.calls, searched: r.evidence.searched } : null,
     steps: (r.steps || []).map(s => ({ type: s.type, text: s.text, url: s.cite?.url, quote: s.cite?.quote })),

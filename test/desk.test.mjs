@@ -38,8 +38,57 @@ test('a full shift in mock mode: 12 tickets, every reply checked, a handoff writ
     assert.equal(r.reply.split('\n').filter(l => l.startsWith('Next step:')).length, 1);
   }
   const handoff = fs.readFileSync(path.join(env.SUPPORT_DESK_DIR, 'HANDOFF.md'), 'utf8');
-  for (const h of ['## Tickets (12)', '## Ready to send, checked (12)', '## Blocked by the checker (0)', '## Waiting on the founder (3)', '## Help-doc edits proposed (2)', '## Next step']) assert.ok(handoff.includes(h), h);
+  // No fresh-checker verdicts in a new desk, so nothing is "cleared to send" yet.
+  for (const h of ['## Tickets (12)', '## Cleared to send: the fresh checker passed this exact text (0)', '## Script check passed, waiting on the fresh check (12)', '## Blocked by the checker (0)', '## Waiting on the founder (3)', '## Help-doc edits proposed (2)', '## Next step']) assert.ok(handoff.includes(h), h);
   assert.ok(handoff.includes('sample data'));
+  assert.ok(!/ready to send/i.test(handoff));
+});
+
+// The reviewer's exact message, and other ways people say "you took my money".
+const MONEY_MESSAGES = [
+  'I canceled my plan last month but you charged me again. I want a refund.',
+  'You billed me twice this month. Please fix it.',
+  'How do I cancel? I also want my money back for this month.',
+  'There is a duplicate payment from Blotato on my card statement.',
+  'I was double charged for the Creator plan.',
+];
+
+test('a charge or refund message always goes to a person: a holding reply and an escalation, never cancel steps', async () => {
+  const { env } = tempDesk();
+  const desk = openDesk({ env });
+  for (const text of MONEY_MESSAGES) {
+    const r = await handleTicket(desk, { id: null, text });
+    assert.equal(r.entry?.id, 'charge-or-refund', text);
+    assert.equal(r.outcome, 'escalate', text);
+    assert.ok(r.escalation, text);
+    assert.equal(r.check.pass, true, `${text}: ${r.check.problems.join(' | ')}`);
+    assert.ok(!/cancel/i.test(r.reply), `${text}: the reply should not be cancel steps`);
+    assert.ok(!/refund you|will .*refund|full refund/i.test(r.reply), `${text}: the reply must not promise a refund`);
+    assert.match(r.reply, /^Still open: the charge itself/m);
+    assert.match(r.status, /escalated/);
+    assert.doesNotMatch(r.status, /cleared/);
+  }
+  // The billing sample tickets still land where they did.
+  assert.equal((await handleTicket(desk, TICKETS.find(t => t.id === 'T04'))).entry.id, 'trial-api-key-charge');
+  assert.equal((await handleTicket(desk, TICKETS.find(t => t.id === 'T05'))).entry.id, 'cancel-subscription');
+  await desk.close();
+});
+
+test('a reply is "cleared to send" only after the fresh checker passed this exact text', async () => {
+  const { env } = tempDesk();
+  const desk = openDesk({ env });
+  const t = TICKETS.find(x => x.id === 'T02');
+  const before = await handleTicket(desk, t);
+  assert.equal(before.fresh.state, 'none');
+  assert.match(before.status, /script check passed, waiting on the fresh check/);
+  const reviews = path.join(env.SUPPORT_DESK_DIR, 'reviews');
+  fs.mkdirSync(reviews, { recursive: true });
+  fs.writeFileSync(path.join(reviews, 'T02.reply.txt'), before.reply);
+  fs.writeFileSync(path.join(reviews, 'T02.json'), JSON.stringify({ verdict: 'pass', replySha256: replyHash(before.reply) }));
+  const after = await handleTicket(desk, t);
+  assert.equal(after.fresh.state, 'passed');
+  assert.match(after.status, /cleared to send/);
+  await desk.close();
 });
 
 test('a status ticket rests on a real lookup: in-progress for an unknown id, as the docs warn', async () => {
@@ -90,7 +139,11 @@ test('mistakes teach: a solved ticket is recorded, a repeat is "seen before", an
   await desk.close();
   let list = readFailures(path.join(env.SUPPORT_DESK_DIR, 'known-failures.md'));
   assert.equal(list.find(f => f.id === 'api-401').times, 2);
-  assert.match(list.find(f => f.id === 'api-401').error, /401/);
+  // A solved ticket records the words that matched it, labeled as such. It is not an error.
+  assert.match(list.find(f => f.id === 'api-401').matched, /401/);
+  const fileText = fs.readFileSync(path.join(env.SUPPORT_DESK_DIR, 'known-failures.md'), 'utf8');
+  assert.match(fileText, /- Matched words: "401"/);
+  assert.doesNotMatch(fileText, /Exact error/);
 
   // Now break the auth page in the cache so the cited sentence is gone: the reply must be blocked and recorded.
   const broken = tempDesk({ extraPages: { [PAGES.auth]: '# Access and authentication\nThis page changed.' } });

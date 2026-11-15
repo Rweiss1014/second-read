@@ -53,6 +53,7 @@
   .badge.ok { background: var(--ok-bg); color: var(--ok); }
   .badge.bad { background: var(--bad-bg); color: var(--bad); }
   .badge.warn { background: var(--warn-bg); color: var(--warn); }
+  .badge.neutral { background: var(--bg); color: var(--ink); border: 1px solid var(--line); font-weight: 600; }
   .result h3 { font-size: .95rem; margin: 18px 0 6px; }
   .quote { margin: 6px 0; padding: 8px 10px; border-left: 3px solid var(--line); background: var(--bg); border-radius: 0 6px 6px 0; font-size: .9rem; }
   .quote .meta { color: var(--muted); font-size: .8rem; display: block; margin-top: 2px; }
@@ -191,24 +192,34 @@ function chips() {
   $('#chips').innerHTML = c.join('');
 }
 
+// Green and "ready to send" only when the fresh checker passed this exact text. Before that, the badge is neutral.
+const cleared = (r) => r.check.pass && r.fresh?.state === 'passed';
 function badge(r) {
   if (!r.entry) return '<span class="badge warn">No documented answer: refused</span>';
   if (!r.check.pass) return '<span class="badge bad">Blocked by the checker</span>';
-  if (r.outcome === 'escalate') return '<span class="badge ok">Reply checked</span> <span class="badge warn">Escalated</span>';
-  if (r.outcome === 'no-answer') return '<span class="badge ok">Holding reply checked</span> <span class="badge warn">Escalated</span>';
-  return '<span class="badge ok">Reply checked, ready to send</span>';
+  const escalated = r.outcome === 'reply' ? '' : ' <span class="badge warn">Escalated</span>';
+  const what = r.outcome === 'no-answer' ? 'Holding reply' : 'Reply';
+  if (cleared(r)) return `<span class="badge ok">${what} cleared: ready to send</span>${escalated}`;
+  return `<span class="badge neutral">Script check passed. Fresh check not run on this text yet.</span>${escalated}`;
 }
 
-// Two checkers: the script (every quote on its page, every status step backed) and a fresh AI checker that
-// reads only the reply, the cited page text and the evidence. This line shows the second one.
+// The CLI command for this ticket, as it really runs: a sample ticket by id, a pasted message by its own words.
+function cliTicket(r) {
+  const words = String(r.ticket.text || '').replace(/["\\$`]/g, c => '\\' + c);
+  return `node bin/support-desk.mjs ticket ${r.ticket.id ? `--id ${r.ticket.id}` : `"${words}"`} --save-reply${r.mock ? ' --mock' : ''}`;
+}
+
+// Two checkers: the script (every quote on its page, every status step backed, the promise patterns) and a
+// fresh AI checker that reads only the reply, the cited page text and the evidence. This line shows the second one.
 function freshLine(r) {
   const f = r.fresh; if (!f) return '';
   const cmd = (s) => `<code>${esc(s)}</code>`;
+  const how = `Run ${cmd(cliTicket(r))}, then start the reply-checker subagent with the packet path it prints. The reply is ready to send only when that checker passes this exact text.`;
   if (f.state === 'passed') return `<p class="fresh ok"><strong>Fresh checker: passed this exact text</strong>${f.checkedAt ? ` on ${day(f.checkedAt)}` : ''}.${f.notes?.length ? ` Notes: ${esc(f.notes.join(' '))}` : ''}</p>`;
-  if (f.state === 'passed-saved') return `<p class="fresh ok"><strong>Fresh checker: passed the saved copy</strong>${f.checkedAt ? ` on ${day(f.checkedAt)}` : ''}. This run's text is different, because a live lookup changed it. Send the saved copy (${cmd(`support-desk cleared ${f.name}`)}) or check this one again.</p>`;
+  if (f.state === 'passed-saved') return `<p class="fresh"><strong>Fresh checker: passed the saved copy, not this text.</strong>${f.checkedAt ? ` Checked ${day(f.checkedAt)}.` : ''} A live lookup changed this run's text. Send the saved copy (${cmd(`node bin/support-desk.mjs cleared ${f.name}`)}), or check this one: ${how}</p>`;
   if (f.state === 'blocked') return `<p class="fresh bad"><strong>Fresh checker: blocked.</strong> ${esc(f.why)}</p>`;
-  if (f.state === 'stale') return `<p class="fresh bad"><strong>Fresh checker: not this version.</strong> ${esc(f.why)}</p>`;
-  return `<p class="fresh"><strong>Fresh checker: not run yet.</strong> Run ${cmd(`support-desk ticket --id ${f.name} --save-reply`)}, then the reply-checker subagent.</p>`;
+  if (f.state === 'stale') return `<p class="fresh"><strong>Fresh checker: its verdict is for an older text.</strong> ${how}</p>`;
+  return `<p class="fresh"><strong>Fresh checker: not run yet.</strong> ${how}</p>`;
 }
 
 function renderResult(r) {
@@ -217,7 +228,7 @@ function renderResult(r) {
   h.push(`<h2 style="margin:10px 0 2px">${esc(r.entry ? r.entry.title : 'No playbook entry matches')}</h2>`);
   h.push(`<p class="note" style="margin:0">${esc(r.entry ? r.entry.kind : 'unknown kind')}${r.ticket.id ? ` · ticket ${esc(r.ticket.id)}` : ''}</p>`);
   h.push(`<div class="quote">${esc(r.ticket.text)}<span class="meta">The customer's message</span></div>`);
-  if (r.seenBefore?.length) h.push(`<p class="note">Seen before: ${r.seenBefore.map(f => `${esc(f.title || f.id)} (${f.times} time${f.times > 1 ? 's' : ''}, last ${esc(f.lastSeen)}). Last fix: ${esc(f.fix)}`).join(' ')}</p>`);
+  if (r.seenBefore?.length) h.push(`<p class="note">Seen before: ${r.seenBefore.map(f => `${esc(f.title || f.id)} (${f.times} time${f.times > 1 ? 's' : ''}, last ${esc(f.lastSeen)}). Last time: ${esc(f.fix)}`).join(' ')}</p>`);
 
   h.push('<h3>What I checked</h3>');
   if (r.evidence) {
@@ -235,7 +246,7 @@ function renderResult(r) {
     if (!r.check.pass) h.push(`<div class="problems"><strong>Do not send. The checker blocked it:</strong><ul>${r.check.problems.map(p => `<li>${esc(p)}</li>`).join('')}</ul></div>`);
     h.push(`<pre class="reply${r.check.pass ? '' : ' blocked'}" id="reply-text">${esc(r.reply)}</pre>`);
     h.push(freshLine(r));
-    h.push(`<div class="row"><button class="btn" id="copy" ${r.check.pass ? '' : 'disabled'}>${r.check.pass ? 'Copy reply' : 'Blocked'}</button><span class="note" id="copied"></span></div>`);
+    h.push(`<div class="row"><button class="btn${cleared(r) ? '' : ' ghost'}" id="copy" ${r.check.pass ? '' : 'disabled'}>${!r.check.pass ? 'Blocked' : cleared(r) ? 'Copy reply' : 'Copy draft (not cleared yet)'}</button><span class="note" id="copied"></span></div>`);
   }
   if (r.refused) h.push(`<h3>Reply</h3><div class="problems">${esc(r.refused)}</div>`);
   if (r.escalationText) h.push(`<details open><summary>Escalation packet for the founder</summary><div class="md">${md(r.escalationText.replace(/^## Escalation\n/, ''))}</div></details>`);

@@ -1,7 +1,7 @@
 // The desk's playbook: one entry per kind of ticket.
 // Every "fact" step cites an exact sentence on a Blotato help page. The checker refuses the reply if that
 // sentence is not on the page as fetched. "evidence" steps must rest on a status lookup made for this ticket.
-// "action" steps say what we will do, and may not promise anything.
+// "action" steps say what we will do. The script checker blocks any line that matches its promise patterns.
 // Quotes copied from Blotato's help center, read Nov 15, 2026.
 
 const D = 'https://help.blotato.com';
@@ -23,6 +23,11 @@ export const PAGES = {
 const fact = (text, page, quote) => ({ type: 'fact', text, cite: { url: PAGES[page], quote } });
 const evidence = (text, ref = 'status') => ({ type: 'evidence', text, ref });
 const action = (text) => ({ type: 'action', text });
+
+// Money taken, or money asked back. Any message that says so goes to a person (the charge-or-refund entry),
+// even when it also asks something easy, like how to cancel. Found by review: "I canceled my plan last month
+// but you charged me again. I want a refund." used to get cancel steps and no escalation.
+export const MONEY = /\b(?:charg(?:e|ed|es|ing)|re-?charged|refunds?|refunded|(?:double|over|re)-?(?:billed|charged)|billed|paid (?:twice|two times|double)|(?:double|duplicate|extra|unexpected|unauthori[sz]ed|surprise) (?:payment|charge|invoice)s?|money (?:back|was taken|taken|out of)|took (?:my )?money|taken (?:my )?money|(?:payment|money) (?:was|got) (?:taken|deducted)|deducted|chargeback)\b/i;
 
 export const PLAYBOOK = [
   {
@@ -69,7 +74,7 @@ export const PLAYBOOK = [
   },
   {
     id: 'trial-api-key-charge', kind: 'billing', title: 'Charged after making an API key during the trial',
-    any: [/trial/i], all: [/(charg|bill|paid|payment|invoice)/i],
+    any: [/trial/i], all: [/(charg|bill|paid|payment|invoice)/i], priority: 2,
     opening: 'I\'m sorry for the surprise. Here is what happened, and who will look at the charge.',
     steps: [
       fact('Making an API key ends the free trial right away and starts the paid plan, even with trial days left.', 'billing', 'your free trial ends at that moment and your paid subscription begins. This applies even if you have days remaining in your trial.'),
@@ -84,6 +89,30 @@ export const PLAYBOOK = [
       causes: [
         { text: 'An API key was made during the trial, which starts the paid plan at once (documented).', cite: { url: PAGES.billing, quote: 'If you go to Settings > API and generate an API key, your free trial ends at that moment and your paid subscription begins.' } },
         { text: 'A payment problem such as a duplicate charge, which support refunds (documented).', cite: { url: PAGES.faqs, quote: 'If a duplicate payment went through, support refunds it.' } },
+      ],
+      ruledOut: ['Nothing ruled out yet: the desk cannot see payments. A person needs to open the billing record.'],
+    },
+  },
+  {
+    // Any message about money taken goes to a person, even when it also asks an easy question (how to cancel).
+    // Blotato's triage page: "Separate published policy from the customer's verified subscription and payment state."
+    // The desk cannot see payments, so it never promises a refund or a credit. It holds, and hands it over.
+    id: 'charge-or-refund', kind: 'billing', title: 'A charge, a refund, or money taken',
+    any: [MONEY], priority: 1,
+    opening: 'I\'m sorry about the charge. A person on the team needs to look at your payment record, so I am handing this over.',
+    steps: [
+      action('I am passing your message about the charge to a person on the team, with what you told me.'),
+      fact('Payments and refunds go through Stripe, the payment processor Blotato uses.', 'billing', 'Stripe is the payment processor Blotato uses for payments and refunds.'),
+      fact('You can see every payment yourself: open Settings > Billing, select View Billing Portal, then scroll to INVOICE HISTORY.', 'billing', 'Open Settings > Billing, select View Billing Portal, then scroll to INVOICE HISTORY.'),
+      fact('Please do not pay again while this is open.', 'faqs', 'Do not pay again'),
+    ],
+    next: 'Reply here with the date of the charge and the email on your account, so the team can find the payment.',
+    proof: 'Still open: the charge itself, and what happens to it. That is a decision for a person on the team, not for me.',
+    escalate: {
+      why: 'A charge or refund is a person\'s decision. The desk cannot see payments, so it explains, holds, and hands it over. It never promises a refund or a credit.',
+      causes: [
+        { text: 'Stripe is still billing an older Incomplete or Expired subscription, which can charge again after a cancel (documented).', cite: { url: PAGES.faqs, quote: 'Stripe keeps trying to bill a previously Incomplete or Expired subscription on your account.' } },
+        { text: 'A duplicate payment, which support refunds (documented).', cite: { url: PAGES.faqs, quote: 'If a duplicate payment went through, support refunds it.' } },
       ],
       ruledOut: ['Nothing ruled out yet: the desk cannot see payments. A person needs to open the billing record.'],
     },
@@ -232,6 +261,8 @@ export const PLAYBOOK = [
 ];
 
 // Pick the entry whose patterns match best. "any": at least one must match; "all": every one must match; "none": none may match.
+// "priority" wins over score: a message about money taken always goes to a money entry (2: the trial charge,
+// 1: any other charge or refund), never to a how-to entry that answers only the easy part.
 export function matchEntry(text, playbook = PLAYBOOK) {
   let best = null;
   for (const e of playbook) {
@@ -240,7 +271,8 @@ export function matchEntry(text, playbook = PLAYBOOK) {
     if ((e.all || []).some(re => !re.test(text))) continue;
     if ((e.none || []).some(re => re.test(text))) continue;
     const score = any + (e.all || []).length;
-    if (!best || score > best.score) best = { entry: e, score };
+    const priority = e.priority || 0;
+    if (!best || priority > best.priority || (priority === best.priority && score > best.score)) best = { entry: e, score, priority };
   }
   return best?.entry || null;
 }

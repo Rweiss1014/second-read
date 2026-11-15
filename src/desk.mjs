@@ -6,7 +6,7 @@ import { createLogger, newRunId } from './log.mjs';
 import { createClient, listPosts } from './api.mjs';
 import { createDocs } from './docs.mjs';
 import { diagnose, renderEscalation, renderDocEdit, nice } from './diagnose.mjs';
-import { checkReply } from './checkreply.mjs';
+import { checkReply, freshState } from './checkreply.mjs';
 import { readFailures, recordFailure, ensureFailuresFile, unknownId } from './failures.mjs';
 import { explain } from './explain.mjs';
 import { matchEntry, TICKETS, PLAYBOOK } from '../knowledge/playbook.mjs';
@@ -44,24 +44,37 @@ export async function handleTicket(desk, ticket, { requireReview = false } = {})
   // 4. Mistakes teach: record what happened.
   let recorded;
   if (!entry) {
-    recorded = recordFailure(paths.failures, { id: unknownId(ticket.text), title: 'A question the docs could not answer', error: 'No playbook entry matched, and the docs search found no answer.', fix: 'Get the answer from the founder, add it to the help docs (see the proposed edit), then add a playbook entry.', source: 'docs MCP searchDocumentation' });
+    recorded = recordFailure(paths.failures, { id: unknownId(ticket.text), title: 'A question the playbook could not answer', why: 'No playbook entry matched, so the desk wrote no reply. It ran a docs search for a person to read.', fix: 'Get the answer from the founder, add it to the help docs (see the proposed edit), then add a playbook entry.', source: 'docs MCP searchDocumentation' });
   } else if (!check.pass) {
-    recorded = recordFailure(paths.failures, { id: `blocked-${entry.id}`, title: `A reply about "${entry.title}" was blocked`, error: check.problems[0], fix: 'Fix the playbook step or its citation, then run the ticket again. Never send the blocked version.' });
+    recorded = recordFailure(paths.failures, { id: `blocked-${entry.id}`, title: `A reply about "${entry.title}" was blocked`, why: check.problems[0], fix: 'Fix the playbook step or its citation, then run the ticket again. Never send the blocked version.' });
   } else {
     const src = entry.steps.find(s => s.cite)?.cite.url;
-    recorded = recordFailure(paths.failures, { id: entry.id, title: entry.title, error: signal(entry, ticket.text) || entry.title, fix: entry.next, source: src });
+    recorded = recordFailure(paths.failures, { id: entry.id, title: entry.title, matched: signal(entry, ticket.text) || undefined, fix: `Answered with the "${entry.id}" playbook entry. Next step given to the customer: ${entry.next}`, source: src });
   }
   logger.write({ action: 'ticket-done', ticket: ticket.id || 'pasted', entry: entry?.id || null, outcome: d.outcome, checked: check.pass, ok: check.pass || !entry, error: check.pass ? undefined : check.problems[0] });
 
+  // Two checkers. The script's check is above. The fresh checker's verdict (if any) is read from the saved copy.
+  const fresh = check.pass ? freshState(paths.reviews, d) : null;
   return {
     ...d,
     check,
+    fresh,
     seenBefore,
     recorded: recorded?.entry?.id,
     escalationText: renderEscalation(d.escalation),
     docEditText: renderDocEdit(d.docEdit),
-    status: !entry ? 'refused: no documented answer' : !check.pass ? 'blocked' : d.outcome === 'escalate' ? 'reply ready + escalated' : d.outcome === 'no-answer' ? 'holding reply + escalated' : 'reply ready',
+    status: statusLine(entry, check, d.outcome, fresh),
   };
+}
+
+// "Ready to send" only when the fresh checker passed this exact text. Before that, the script check passed and
+// the reply waits for the fresh check.
+function statusLine(entry, check, outcome, fresh) {
+  if (!entry) return 'refused: no documented answer';
+  if (!check.pass) return 'blocked';
+  const what = outcome === 'no-answer' ? 'holding reply' : 'reply';
+  const where = fresh?.state === 'passed' ? 'cleared to send (the fresh checker passed this exact text)' : 'script check passed, waiting on the fresh check';
+  return `${what}: ${where}${outcome === 'reply' ? '' : ' + escalated'}`;
 }
 
 export async function runShift(desk, tickets = TICKETS, opts) {
@@ -73,14 +86,17 @@ export async function runShift(desk, tickets = TICKETS, opts) {
 }
 
 export function renderShiftHandoff(results, { mock, run } = {}) {
-  const ready = results.filter(r => r.check.pass);
+  const cleared = results.filter(r => r.check.pass && r.fresh?.state === 'passed');
+  const waiting = results.filter(r => r.check.pass && r.fresh?.state !== 'passed');
   const blocked = results.filter(r => r.entry && !r.check.pass);
   const esc = results.filter(r => r.escalation);
   const edits = results.filter(r => r.docEdit);
   const line = (r) => `${r.ticket.id || 'pasted'} (${r.entry?.kind || 'unknown'})`;
-  let next = 'Send the checked replies.';
+  const freshWord = { none: 'not run yet', 'passed-saved': 'passed the saved copy, not this text', stale: 'its verdict is for an older text', blocked: 'blocked' };
+  let next = 'Send the cleared replies.';
   if (blocked.length) next = `Fix the blocked reply for ${line(blocked[0])} first: ${blocked[0].check.problems[0]}`;
-  else if (esc.length) next = `Send the ${esc.length} escalation packet(s) to the founder, then the checked replies.`;
+  else if (waiting.length) next = `Get a fresh-checker verdict for ${waiting.map(r => r.ticket.id || 'pasted').join(', ')}: run each with --save-reply, then start the reply-checker subagent on the packet it writes.${esc.length ? ` Send the ${esc.length} escalation packet(s) to the founder.` : ''}`;
+  else if (esc.length) next = `Send the ${esc.length} escalation packet(s) to the founder, then the cleared replies.`;
   return [
     '# Shift handoff',
     '',
@@ -89,8 +105,11 @@ export function renderShiftHandoff(results, { mock, run } = {}) {
     `## Tickets (${results.length})`,
     ...results.map(r => `- ${line(r)}: ${(r.entry?.title || 'no playbook entry').replace(/[.?!]$/, '')}. Status: ${r.status}.`),
     '',
-    `## Ready to send, checked (${ready.length})`,
-    ...(ready.length ? ready.map(r => `- ${line(r)}. Next step for the customer: ${r.next}`) : ['- none']),
+    `## Cleared to send: the fresh checker passed this exact text (${cleared.length})`,
+    ...(cleared.length ? cleared.map(r => `- ${line(r)}. Next step for the customer: ${r.next}`) : ['- none']),
+    '',
+    `## Script check passed, waiting on the fresh check (${waiting.length})`,
+    ...(waiting.length ? waiting.map(r => `- ${line(r)}. Fresh checker: ${freshWord[r.fresh?.state] || 'not run yet'}.`) : ['- none']),
     '',
     `## Blocked by the checker (${blocked.length})`,
     ...(blocked.length ? blocked.map(r => `- ${line(r)}: ${r.check.problems.join(' ')}`) : ['- none']),

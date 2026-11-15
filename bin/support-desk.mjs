@@ -31,9 +31,13 @@ function printResult(r) {
   if (r.seenBefore?.length) console.log(`Seen before: ${r.seenBefore.map(f => `${f.id} x${f.times} (last ${f.lastSeen})`).join(', ')}`);
   if (r.evidence) console.log(`Lookup: ${r.evidence.calls.join(' | ') || 'none'}\n  ${r.evidence.summary}`);
   if (r.reply) console.log(`\n${r.reply}`);
-  console.log(`\nChecker: ${r.check.pass ? 'PASS' : 'BLOCKED'}`);
+  console.log(`\nScript checker: ${r.check.pass ? 'PASS' : 'BLOCKED'}`);
   for (const p of r.check.problems) console.log(`  - ${p}`);
   for (const c of r.check.citations) console.log(`  step ${c.step}: ${c.found ? 'found' : 'NOT FOUND'} on ${c.url}${c.fetchedAt ? ` (fetched ${c.fetchedAt.slice(0, 10)})` : ''}`);
+  if (r.fresh) {
+    const words = { passed: 'PASSED this exact text. Cleared to send.', 'passed-saved': 'passed the saved copy, not this run\'s text. Not cleared.', blocked: 'BLOCKED the saved copy. Not cleared.', stale: 'its verdict is for an older text. Not cleared.', none: 'not run yet. Not cleared to send.' };
+    console.log(`Fresh checker: ${words[r.fresh.state]}`);
+  }
   if (r.refused) console.log(`\n${r.refused}`);
   if (r.escalationText) console.log(`\n${r.escalationText}`);
   if (r.docEditText) console.log(`\n${r.docEditText}`);
@@ -53,7 +57,7 @@ async function main() {
         // Mistakes teach: a reply the fresh checker blocked goes on the list, so the next run starts from it.
         const { recordFailure, ensureFailuresFile } = await import('../src/failures.mjs');
         ensureFailuresFile(deskPaths().failures);
-        recordFailure(deskPaths().failures, { id: `checker-blocked-${positional[0]}`, title: `The fresh checker blocked the reply to ${positional[0]}`, error: c.findings[0] || 'no reason given', fix: 'Fix the playbook step or its quote, run the ticket again with --save-reply, and get a new verdict. Never send the blocked version.' });
+        recordFailure(deskPaths().failures, { id: `checker-blocked-${positional[0]}`, title: `The fresh checker blocked the reply to ${positional[0]}`, why: c.findings[0] || 'no reason given', fix: 'Fix the playbook step or its quote, run the ticket again with --save-reply, and get a new verdict. Never send the blocked version.' });
         console.log('Recorded in known-failures.md.');
       }
       process.exitCode = 1; return;
@@ -96,7 +100,7 @@ ${c.reply}`);
     } else if (cmd === 'shift') {
       const results = await runShift(desk);
       for (const r of results) printResult(r);
-      console.log(`\nShift done: ${results.length} tickets, ${results.filter(r => r.check.pass).length} replies passed the checker. Handoff: ${desk.paths.handoff}`);
+      console.log(`\nShift done: ${results.length} tickets, ${results.filter(r => r.check.pass).length} replies passed the script check, ${results.filter(r => r.fresh?.state === 'passed').length} cleared by the fresh checker. Handoff: ${desk.paths.handoff}`);
     } else if (cmd === 'morning') {
       const m = await morning(desk);
       console.log(m.text);
