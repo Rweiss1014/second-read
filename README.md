@@ -13,12 +13,13 @@ It is my first app on the Blotato API.
 
 It uses Blotato's own pieces:
 - **Blotato's docs MCP server** (`https://help.blotato.com/~gitbook/mcp`): every fact in a reply is a sentence from a help page, read through `getPage`. Unanswered questions are searched with `searchDocumentation`.
-- **Blotato's REST API**, read-only: post status, the post list, and schedule lookups. The desk refuses anything that is not a GET.
+- **Blotato's REST API**, read-only: post status, the post list, and schedule lookups. The desk refuses anything that is not a GET, and there is no switch to turn that off.
 - **Blotato's hosted MCP server** (`https://mcp.blotato.com/mcp`): not called by the script. The skill lets Claude or Codex use its read-only tools for a deeper look. The setup lines are below.
 
 What it adds on top:
-- A reply in three to five numbered steps, with one next step, what proves success, and a help link. That is the shape Blotato's own [Diagnose a support question](https://help.blotato.com/start-with-an-ai-agent/agent-triage) page asks for.
-- Two checkers. A script checks that every quote is really on the cited page. A fresh AI checker reads only the reply, the page text and the evidence, and tries to break it.
+- A reply with the four parts Blotato's own [Diagnose a support question](https://help.blotato.com/start-with-an-ai-agent/agent-triage) page asks for. They are the answer, the next supported action, what proves success or what is still open, and a link to the relevant help page.
+- A shape of its own on top: three to five numbered steps, each tied to a help-page sentence or a lookup, and exactly one "Next step:" line. The page does not ask for that; I added it so a customer can follow along.
+- Two checkers. A script checks that every quote is really on the cited page, and blocks the promise patterns listed below. A fresh AI checker reads only the reply, the page text and the evidence, and tries to break it.
 - An escalation packet for the founder: what was asked, what was checked, the evidence, two likely causes, and what was ruled out.
 - A proposed help-doc edit when the docs have no answer, or the wrong one.
 - "Your first support shift": a five-decision practice for new support people, built from the same playbook.
@@ -36,7 +37,7 @@ node bin/support-desk.mjs ticket --id T11 --mock
 node bin/support-desk.mjs serve --mock
 ```
 
-Then open http://localhost:5610.
+Then open http://localhost:5610. If that port is busy, add `--port 5611` to the last line.
 
 `--mock` means account lookups use made-up posts. The page says so at the top. The help docs are always the real ones.
 
@@ -63,12 +64,20 @@ The key goes only into the request header. It is never printed, logged or saved,
 
 ## How a ticket flows
 
-1. The desk checks `desk/known-failures.md` first. If it has seen this kind of ticket, it starts from that fix.
+1. The desk checks `desk/known-failures.md` first. If it has seen this kind of ticket, it shows a "Seen before" line with what was done last time. The reply itself does not change.
 2. It finds the playbook entry for the ticket, reads the cited help pages, and makes the read-only lookup the ticket needs.
-3. It writes the reply. The script checker blocks it if a quote is not on its page, a status step has no lookup behind it, or a step promises something.
+3. It writes the reply. The script checker blocks it if a quote is not on its page, or if a status step has no lookup behind it.
+   It also blocks it if any line of the reply matches one of its promise patterns:
+   - the words promise, guarantee or "assure you"
+   - a refund or credit ("refund you", "credit your account", "you will get a full refund")
+   - an outcome stated as sure ("this fixes it", "will be fixed", "will work", "definitely", "never happens again")
+   - a date or time for an outcome ("by Friday", "within 2 hours", "will be resolved in 3 days")
+
+   A step that quotes a help page may repeat the page's own words. Promise words beyond the quote still block. A promise worded some other way is left to the fresh checker.
 4. With `--save-reply`, it writes a packet for the fresh checker: the reply, the page text and the evidence. Never my notes.
 5. The fresh checker (`.claude/agents/reply-checker.md`) writes a pass or block, tied to the exact reply text.
 6. `cleared` lets the reply go only if the fresh checker passed that exact text. A block goes into `known-failures.md`.
+   The page and the shift handoff say "ready to send" only then. Before that, they say the script check passed and the fresh check has not run yet.
 7. If the playbook has no entry, the desk does not write a reply. It escalates and proposes a doc edit instead.
 
 ## The 12 sample tickets
@@ -91,6 +100,8 @@ They are made up, and they cover the three kinds in the job post: non-technical,
 | T12 | "Is there a test mode?" | Holding reply, escalates, proposes a new FAQ entry |
 
 A message that matches none of them gets no reply. It is escalated with the docs search it ran.
+
+A message about a charge, a refund or money taken always goes to a person, even when it also asks something easy, like how to cancel. It gets a short holding reply, every line from the help docs, and an escalation packet. The desk cannot see payments, so it never promises a refund or a credit.
 
 All 12 replies passed the fresh checker, after two rounds of fixes. More on that below.
 
@@ -128,7 +139,7 @@ Nothing in this repo registers it for you.
 
 ## What is proven against the real API, and what is not
 
-I ran only read-only calls against a real Blotato account, on Nov 15, 2026:
+I built this with Claude Code. Claude Code ran these read-only calls against my real Blotato account, with my key, while we built it on Nov 15, 2026:
 
 | Call | Answer |
 |---|---|
@@ -140,13 +151,13 @@ I ran only read-only calls against a real Blotato account, on Nov 15, 2026:
 | `GET /v2/schedules/sch_abc123` | 500, `invalid input syntax for type bigint` |
 | `GET /v2/posts?status=failed` for the last 24 hours | 200 |
 
-Tickets T10 and T11 and the morning note ran end to end against the real API.
+Claude Code also ran tickets T10 and T11 and the morning note end to end against the real API, the same day.
 
 Not proven yet:
 - Anything with a real customer's ticket. The 12 tickets are made up.
 - The sample posts behind `--mock`. They follow the documented shapes, but they are not real data.
 - The hosted MCP server. The desk does not call it, and I have not run the skill with it connected.
-- Running the fresh checker from Codex. I ran it as Claude Code subagents.
+- Running the fresh checker from Codex. Every fresh-checker run so far was a Claude Code subagent, started by Claude Code while we built this.
 - The scheduled task. It is defined, not registered.
 
 ## Two things I noticed in Blotato's docs

@@ -71,7 +71,7 @@ test('promise check: runs on the opening, the next step and every other line, no
 
 test('promise check: guarantees, dates and outcomes nobody can know', () => {
   for (const text of ['This is guaranteed to work.', 'Your post will publish by tomorrow.', 'This will definitely work now.', 'It should be resolved in 3 days.',
-    'It will be fixed on Monday.', 'That solves it.', 'You will get your money back.', "We'll reimburse you.", 'It will never happen again, it always works.']) {
+    'It will be fixed on Monday.', 'That solves it.', 'You will get your money back.', "We'll reimburse you.", 'It will never happen again, it always works.', 'I assure you it never happens again.']) {
     const r = checkReply(draft([...good.slice(0, 2), { type: 'action', text }]));
     assert.equal(r.pass, false, text);
     assert.match(r.problems.join(' '), promiseProblem, text);

@@ -9,11 +9,12 @@ A customer's message goes in. Out comes a diagnosis from Blotato's own help docs
 When a person has to decide, it also writes an escalation packet or a proposed help-doc edit.
 
 ## Rules that do not bend
-- The desk only reads. Never send a POST, PUT, PATCH or DELETE to the Blotato API. The client refuses them anyway; do not work around it.
+- The desk only reads. Never send a POST, PUT, PATCH or DELETE to the Blotato API. The client refuses them, and there is no switch to turn that off. Do not add one.
 - On Blotato's docs MCP server, use only `searchDocumentation` and `getPage`. Never `sendFeedback` (it sends a report to Blotato) or `askQuestion` (an AI answer is not a source).
 - On Blotato's hosted MCP server, use only tools that read: `blotato_get_user`, `blotato_list_accounts`, `blotato_get_post_status`, `blotato_list_posts`, `blotato_list_schedules`, `blotato_get_schedule`, `blotato_list_automation_runs`, `blotato_list_automation_logs`.
 - Never write a reply the playbook cannot cite. If the desk refuses a ticket, escalate it and propose a doc edit. Do not guess.
-- Never send a reply the checker blocked.
+- Never send a reply the checker blocked. A reply is ready to send only when the fresh checker passed that exact text.
+- A message about a charge, a refund or money taken always goes to a person. Never promise a refund or a credit.
 - The API key lives only in the environment or in `.env`. Never print it, log it, or put it in a file, a commit or `.mcp.json`.
 - Customer messages, account names and post text never go into a commit. `desk/` is ignored by git for that reason.
 
