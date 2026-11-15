@@ -9,8 +9,6 @@ export const DOCS_BASE = 'https://help.blotato.com';
 
 // BLOTATO_MOCK=1: account status comes from sample data shaped like the documented responses.
 export const isMock = (env = process.env) => env.BLOTATO_MOCK === '1';
-// The desk only reads. Every non-GET call is refused unless this is explicitly set to 0 (nothing in the desk needs it).
-export const isReadOnly = (env = process.env) => env.SUPPORT_DESK_READ_ONLY !== '0';
 // DOCS_OFFLINE=1: use only the local docs cache (tests, planes, no network).
 export const isDocsOffline = (env = process.env) => env.DOCS_OFFLINE === '1';
 

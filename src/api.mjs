@@ -1,8 +1,9 @@
 // One small Blotato client. Real mode uses fetch with the blotato-api-key header.
 // Mock mode (BLOTATO_MOCK=1) answers from fixtures shaped exactly like the documented responses.
 // The desk only reads: every call that is not a GET is refused before the key or network is used.
+// There is no switch to turn that off.
 // Docs read Nov 15, 2026: https://help.blotato.com/rest-api-reference/api-reference.md
-import { BASE_URL, isMock, isReadOnly } from './config.mjs';
+import { BASE_URL, isMock } from './config.mjs';
 import { loadKey, redact } from './env.mjs';
 import { newRequestId } from './log.mjs';
 import { createMockApi } from './mock.mjs';
@@ -13,21 +14,20 @@ export class ApiError extends Error {
 
 export function createClient({ env = process.env, logger, fetchImpl = globalThis.fetch, mockApi } = {}) {
   const mock = isMock(env);
-  const readOnly = isReadOnly(env);
   const api = mock ? (mockApi || createMockApi()) : null;
   let key;
 
-  async function request(method, pathname, body) {
+  async function request(method, pathname) {
     method = String(method).toUpperCase();
     const requestId = newRequestId();
     const log = (entry) => logger?.write({ action: 'api', method, path: pathname, requestId, ...entry });
-    if (method !== 'GET' && readOnly) {
+    if (method !== 'GET') {
       const msg = `Refused ${method} ${pathname}: the support desk only reads. Nothing was sent.`;
       log({ status: null, ok: false, error: msg });
       throw new ApiError(msg, { requestId });
     }
     if (mock) {
-      const r = api.handle(method, pathname, body);
+      const r = api.handle(method, pathname);
       log({ status: r.status, ok: r.status < 400, upstreamRequestId: r.data?.reqId, error: r.status >= 400 ? errorText(r.data, r.status) : undefined });
       return { ...r, ok: r.status < 400, requestId };
     }
@@ -41,14 +41,13 @@ export function createClient({ env = process.env, logger, fetchImpl = globalThis
     try {
       res = await fetchImpl(BASE_URL + pathname, {
         method,
-        headers: { 'blotato-api-key': key, accept: 'application/json', ...(body === undefined ? {} : { 'content-type': 'application/json' }) },
-        body: body === undefined ? undefined : JSON.stringify(body),
+        headers: { 'blotato-api-key': key, accept: 'application/json' },
         signal: AbortSignal.timeout(30000),
         redirect: 'error',
       });
     } catch (e) {
-      // The raw error can carry request details. Say only what failed, and never retry a write blindly.
-      const msg = `Network error or timeout on ${method} ${pathname}. ${method === 'GET' ? 'Safe to try again.' : 'Check the queue before sending again: it may have gone through.'}`;
+      // The raw error can carry request details. Say only what failed. Only GETs get this far, so a retry is safe.
+      const msg = `Network error or timeout on ${method} ${pathname}. Safe to try again: it only reads.`;
       log({ status: null, ok: false, error: msg });
       throw new ApiError(msg, { requestId });
     }
@@ -62,7 +61,7 @@ export function createClient({ env = process.env, logger, fetchImpl = globalThis
     return { status: res.status, ok: res.ok, data, requestId, upstreamRequestId: upstreamId };
   }
 
-  return { request, mock, readOnly, get: (p) => request("GET", p) };
+  return { request, mock, readOnly: true, get: (p) => request('GET', p) };
 }
 
 export function errorText(data, status) {

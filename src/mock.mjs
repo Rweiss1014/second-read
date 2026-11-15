@@ -1,11 +1,11 @@
 // Mock mode: an in-memory stand-in for the Blotato API, shaped exactly like the documented responses.
 // Every name and id here is made up. Times are set relative to "now" so the sample never goes stale.
 // Shapes from (read Nov 15, 2026):
-//   GET  /users/me/accounts      https://help.blotato.com/rest-api-reference/accounts.md
-//   GET  /posts                  https://help.blotato.com/rest-api-reference/publish-post/list-posts.md
-//   GET  /posts/:submissionId    https://help.blotato.com/rest-api-reference/publish-post/get-post.md
-//   POST /posts                  https://help.blotato.com/rest-api-reference/publish-post.md
-//   GET/DELETE /schedules[/:id]  https://help.blotato.com/rest-api-reference/schedules.md
+//   GET /users/me/accounts      https://help.blotato.com/rest-api-reference/accounts.md
+//   GET /posts                  https://help.blotato.com/rest-api-reference/publish-post/list-posts.md
+//   GET /posts/:submissionId    https://help.blotato.com/rest-api-reference/publish-post/get-post.md
+//   GET /schedules[/:id]        https://help.blotato.com/rest-api-reference/schedules.md
+// Like the desk, the mock only reads. Any other method answers 405, so sample data can never be changed.
 
 const H = 3600 * 1000;
 const iso = (ms) => new Date(ms).toISOString();
@@ -55,12 +55,11 @@ export function createMockApi({ now = steadyNow } = {}) {
       state: { type: 'failed', errorMessage: 'Unsupported media type' } },
   ];
 
-  // Submission ids from POST /posts, for GET /posts/:id.
+  // Submission ids, for GET /posts/:id.
   const submissions = new Map([
     ['b7d1c0de-0000-4000-8000-000000000001', { status: 'published', publicUrl: 'https://example.com/sample-published-post' }],
     ['b7d1c0de-0000-4000-8000-000000000002', { status: 'failed', errorMessage: 'Account 98499 not found' }],
   ]);
-  let seq = 0;
 
   function listPosts(query) {
     const q = new URLSearchParams(query);
@@ -77,57 +76,26 @@ export function createMockApi({ now = steadyNow } = {}) {
     return { status: 200, data: { items } }; // one page: no cursor means the end of the list
   }
 
-  function createPost(body) {
-    const p = body?.post;
-    const problems = [];
-    if (!p || typeof p !== 'object') problems.push('post is required');
-    else {
-      if (!p.accountId) problems.push('post.accountId is required');
-      if (typeof p.content?.text !== 'string') problems.push('post.content.text is required');
-      if (!Array.isArray(p.content?.mediaUrls)) problems.push('post.content.mediaUrls must be an array');
-      if (!p.content?.platform) problems.push('post.content.platform is required');
-      if (!p.target?.targetType) problems.push('post.target.targetType is required');
-      if (p.content?.platform && p.target?.targetType && p.content.platform !== p.target.targetType) problems.push('content.platform must match target.targetType');
-    }
-    // "Validation error, often 422" (error-handling docs). The mock's message wording is our own.
-    if (problems.length) return { status: 422, data: { message: problems.join('; ') } };
-    seq++;
-    const postSubmissionId = `b7d1c0de-0000-4000-8000-${String(100 + seq).padStart(12, '0')}`;
-    if (!body.scheduledTime) {
-      // Docs: with no scheduledTime and no useNextFreeSlot, the post publishes immediately.
-      submissions.set(postSubmissionId, { status: 'published', publicUrl: 'https://example.com/sample-published-post' });
-      return { status: 201, data: { postSubmissionId } };
-    }
-    const at = Date.parse(body.scheduledTime);
-    const id = String(5100100 + seq);
-    addSchedule(id, at, String(p.accountId), p.content.platform, p.content.text);
-    submissions.set(postSubmissionId, { status: 'scheduled', scheduledTime: iso(at), scheduleId: id });
-    return { status: 201, data: { postSubmissionId, scheduledTime: iso(at) } };
-  }
-
-  function handle(method, pathname, body) {
+  function handle(method, pathname) {
+    if (method !== 'GET') return { status: 405, data: { message: 'The sample data only reads.' } };
     const [p, query = ''] = pathname.split('?');
-    if (method === 'GET' && p === '/users/me/accounts') {
+    if (p === '/users/me/accounts') {
       const platform = new URLSearchParams(query).get('platform');
       return { status: 200, data: { items: MOCK_ACCOUNTS.filter(a => !platform || a.platform === platform) } };
     }
-    if (method === 'GET' && p === '/posts') return listPosts(query);
-    if (method === 'POST' && p === '/posts') return createPost(body);
+    if (p === '/posts') return listPosts(query);
     let m = p.match(/^\/posts\/([^/]+)$/);
-    if (method === 'GET' && m) {
+    if (m) {
       const s = submissions.get(m[1]);
       // Docs: when nothing matches, the lookup returns in-progress. That is not proof the post exists.
       if (!s) return { status: 200, data: { postSubmissionId: m[1], status: 'in-progress' } };
-      const { scheduleId, ...rest } = s;
-      if (rest.status === 'scheduled' && scheduleId && !schedules.has(scheduleId)) return { status: 200, data: { postSubmissionId: m[1], status: 'in-progress' } };
-      return { status: 200, data: { postSubmissionId: m[1], ...rest } };
+      return { status: 200, data: { postSubmissionId: m[1], ...s } };
     }
-    if (method === 'GET' && p === '/schedules') { const items = [...schedules.values()].filter(s => Date.parse(s.scheduledAt) > now()).sort((a, b) => Date.parse(a.scheduledAt) - Date.parse(b.scheduledAt)); return { status: 200, data: { items, count: String(items.length) } }; }
+    if (p === '/schedules') { const items = [...schedules.values()].filter(s => Date.parse(s.scheduledAt) > now()).sort((a, b) => Date.parse(a.scheduledAt) - Date.parse(b.scheduledAt)); return { status: 200, data: { items, count: String(items.length) } }; }
     m = p.match(/^\/schedules\/([^/]+)$/);
     // Seen on the real API (Nov 15, 2026), not in the docs: a non-number schedule id answers 500, not 404.
     if (m && !/^\d+$/.test(m[1])) return { status: 500, data: { statusCode: 500, message: `invalid input syntax for type bigint: "${m[1]}"`, reqId: 'mock-req-0001' } };
-    if (m && method === 'GET') return schedules.has(m[1]) ? { status: 200, data: { schedule: schedules.get(m[1]) } } : { status: 404, data: null };
-    if (m && method === 'DELETE') { if (!schedules.has(m[1])) return { status: 404, data: null }; schedules.delete(m[1]); return { status: 204, data: null }; }
+    if (m) return schedules.has(m[1]) ? { status: 200, data: { schedule: schedules.get(m[1]) } } : { status: 404, data: null };
     return { status: 404, data: null };
   }
 

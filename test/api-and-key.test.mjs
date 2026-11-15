@@ -34,6 +34,20 @@ test('the desk only reads: a write is refused before the key is read or the netw
   assert.equal(calls, 0);
 });
 
+test('there is no switch to turn the read-only guard off, and the sample data refuses writes too', async () => {
+  let calls = 0;
+  const env = { BLOTATO_API_KEY: FAKE, SUPPORT_DESK_READ_ONLY: '0' };
+  const client = createClient({ env, fetchImpl: async () => { calls++; throw new Error('network used'); } });
+  for (const m of ['POST', 'DELETE', 'PATCH', 'PUT']) await assert.rejects(client.request(m, '/posts', {}), /only reads\. Nothing was sent/);
+  assert.equal(calls, 0);
+  const mockClient = createClient({ env: { BLOTATO_MOCK: '1', SUPPORT_DESK_READ_ONLY: '0' }, mockApi: createMockApi() });
+  await assert.rejects(mockClient.request('POST', '/posts', {}), /only reads/);
+  const api = createMockApi();
+  assert.equal(api.handle('POST', '/posts').status, 405);
+  assert.equal(api.handle('DELETE', '/schedules/5100001').status, 405);
+  assert.ok(api.schedules.has('5100001'), 'the sample schedule is still there');
+});
+
 test('the key goes only into the request header: never into logs, errors or summaries', async () => {
   const dir = tmp();
   const logger = createLogger({ dir, key: FAKE });
