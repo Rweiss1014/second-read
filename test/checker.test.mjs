@@ -73,3 +73,18 @@ test('quotes match the words, not the Markdown around them', () => {
   assert.equal(quoteOnPage('Include the key in a header', { text: 'Include the key in the `blotato-api-key` header.' }), false);
   assert.equal(quoteOnPage('anything', null), false);
 });
+
+test('the send gate clears only the saved reply text the fresh checker passed', async () => {
+  const fs = await import('node:fs'); const os = await import('node:os'); const path = await import('node:path');
+  const { clearedToSend, replyHash } = await import('../src/checkreply.mjs');
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'sd-gate-'));
+  assert.match(clearedToSend(dir, 'T1').why, /No saved reply/);
+  fs.writeFileSync(path.join(dir, 'T1.reply.txt'), 'Hi,\n1. a\n');
+  assert.match(clearedToSend(dir, 'T1').why, /No fresh-checker verdict/);
+  fs.writeFileSync(path.join(dir, 'T1.json'), JSON.stringify({ verdict: 'pass', replySha256: replyHash('something else') }));
+  assert.match(clearedToSend(dir, 'T1').why, /different version/);
+  fs.writeFileSync(path.join(dir, 'T1.json'), JSON.stringify({ verdict: 'block', replySha256: replyHash('Hi,\n1. a\n'), findings: ['step 1 overstates'] }));
+  assert.match(clearedToSend(dir, 'T1').why, /step 1 overstates/);
+  fs.writeFileSync(path.join(dir, 'T1.json'), JSON.stringify({ verdict: 'pass', replySha256: replyHash('Hi,\n1. a\n') }));
+  assert.equal(clearedToSend(dir, 'T1').ok, true);
+});

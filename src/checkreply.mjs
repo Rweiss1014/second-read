@@ -22,6 +22,8 @@ const VOICE = [
 ];
 
 export const replyHash = (reply) => crypto.createHash('sha256').update(String(reply || '').trim()).digest('hex');
+// The file name a review is saved under: the sample ticket's id, or a short hash of a pasted message.
+export const reviewName = (ticket) => ticket?.id || `pasted-${replyHash(ticket?.text).slice(0, 12)}`;
 
 export function checkReply(d, { reviewsDir, requireReview = false } = {}) {
   const problems = [];
@@ -59,7 +61,7 @@ export function checkReply(d, { reviewsDir, requireReview = false } = {}) {
   // The subagent's verdict (written by .claude/agents/reply-checker.md), bound to this exact reply text.
   let review = null;
   if (reviewsDir) {
-    const f = path.join(reviewsDir, `${d.ticket.id || replyHash(d.ticket.text).slice(0, 12)}.json`);
+    const f = path.join(reviewsDir, `${reviewName(d.ticket)}.json`);
     try { review = JSON.parse(fs.readFileSync(f, 'utf8')); } catch { review = null; }
     if (review) {
       if (review.replySha256 !== replyHash(d.reply)) problems.push('The fresh checker reviewed a different version of this reply. Review it again.');
@@ -68,4 +70,15 @@ export function checkReply(d, { reviewsDir, requireReview = false } = {}) {
   }
 
   return { pass: !problems.length, problems, citations, review: review ? { verdict: review.verdict, checkedAt: review.checkedAt } : null };
+}
+
+// The send gate. Live evidence (times, search results) can change between runs, so the gate reads the reply
+// exactly as it was saved for the checker, and passes only if the checker's verdict is a pass for that text.
+export function clearedToSend(reviewsDir, name) {
+  let reply; let review;
+  try { reply = fs.readFileSync(path.join(reviewsDir, `${name}.reply.txt`), 'utf8'); } catch { return { ok: false, why: `No saved reply for ${name}. Run the ticket with --save-reply first.` }; }
+  try { review = JSON.parse(fs.readFileSync(path.join(reviewsDir, `${name}.json`), 'utf8')); } catch { return { ok: false, why: `No fresh-checker verdict for ${name} yet.` }; }
+  if (review.replySha256 !== replyHash(reply)) return { ok: false, why: 'The fresh checker reviewed a different version of this reply. Check it again.' };
+  if (review.verdict !== 'pass') return { ok: false, blocked: true, findings: review.findings || [], why: `The fresh checker blocked it: ${(review.findings || []).join('; ') || 'no reason given'}` };
+  return { ok: true, reply, notes: review.findings || [], checkedAt: review.checkedAt };
 }

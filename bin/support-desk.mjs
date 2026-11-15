@@ -3,8 +3,10 @@
 // and the escalation packet or help-doc edit when a person has to decide.
 //
 //   support-desk ticket "<customer message>"   one ticket (or: ticket --id T06 for a sample ticket)
-//        --save-reply      also save the reply text for the fresh checker (desk/reviews/<id>.reply.txt)
+//        --save-reply      also write the fresh checker's packet (desk/reviews/<id>.packet.md): the reply,
+//                          the cited page text and the status evidence, nothing else
 //        --require-review  block the reply until the fresh checker's verdict for this exact text is in
+//   support-desk cleared T10                   may the saved reply be sent? (needs a fresh-checker pass)
 //   support-desk hash <reply.txt>              the hash a checker verdict must carry
 //   support-desk shift                         all 12 sample tickets, then HANDOFF.md
 //   support-desk morning                       what broke overnight, written to MORNING.md
@@ -40,6 +42,28 @@ function printResult(r) {
 async function main() {
   if (cmd === 'serve') { const { startServer } = await import('../src/server.mjs'); await startServer({ port: Number(flag('--port') || process.env.PORT || 5610) }); return; }
   if (cmd === 'logs') { console.log(summarizeLastRun(deskPaths().logs).text); return; }
+  if (cmd === 'cleared') {
+    // support-desk cleared T10: may this saved reply be sent? Only with a fresh-checker pass for this exact text.
+    const { clearedToSend } = await import('../src/checkreply.mjs');
+    if (!positional[0]) { console.error('usage: support-desk cleared <ticket id>'); process.exitCode = 2; return; }
+    const c = clearedToSend(deskPaths().reviews, positional[0]);
+    if (!c.ok) {
+      console.log(`NOT CLEARED: ${c.why}`);
+      if (c.blocked) {
+        // Mistakes teach: a reply the fresh checker blocked goes on the list, so the next run starts from it.
+        const { recordFailure, ensureFailuresFile } = await import('../src/failures.mjs');
+        ensureFailuresFile(deskPaths().failures);
+        recordFailure(deskPaths().failures, { id: `checker-blocked-${positional[0]}`, title: `The fresh checker blocked the reply to ${positional[0]}`, error: c.findings[0] || 'no reason given', fix: 'Fix the playbook step or its quote, run the ticket again with --save-reply, and get a new verdict. Never send the blocked version.' });
+        console.log('Recorded in known-failures.md.');
+      }
+      process.exitCode = 1; return;
+    }
+    console.log(`CLEARED to send (fresh checker passed it ${c.checkedAt || ''}).${c.notes.length ? `
+Checker notes: ${c.notes.join(' | ')}` : ''}
+
+${c.reply}`);
+    return;
+  }
   if (cmd === 'hash') {
     // The fresh checker binds its verdict to the exact reply text: support-desk hash <reply.txt>
     const { readFileSync } = await import('node:fs');
@@ -56,7 +80,18 @@ async function main() {
       if (!t || !t.text) { console.error('usage: support-desk ticket "<customer message>"  or  support-desk ticket --id T01'); process.exitCode = 2; return; }
       const r = await handleTicket(desk, t, { requireReview: args.includes('--require-review') });
       printResult(r);
-      if (args.includes('--save-reply') && r.reply) { const { writeFileSync, mkdirSync } = await import('node:fs'); mkdirSync(desk.paths.reviews, { recursive: true }); const f = `${desk.paths.reviews}/${t.id || 'pasted'}.reply.txt`; writeFileSync(f, r.reply); console.log(`Reply saved for the fresh checker: ${f}`); }
+      if (args.includes('--save-reply') && r.reply) {
+        // The packet holds only the reply, the cited page text and the status evidence. Never the writer's notes.
+        const { writeFileSync, mkdirSync } = await import('node:fs');
+        const { join } = await import('node:path');
+        const { buildPacket } = await import('../src/packet.mjs');
+        const p = buildPacket(r, { mock: desk.mock });
+        mkdirSync(desk.paths.reviews, { recursive: true });
+        writeFileSync(join(desk.paths.reviews, `${p.name}.reply.txt`), r.reply);
+        writeFileSync(join(desk.paths.reviews, `${p.name}.packet.md`), p.text);
+        console.log(`\nFor the fresh checker: ${join(desk.paths.reviews, `${p.name}.packet.md`)}`);
+        console.log(`Its verdict goes in:   ${join(desk.paths.reviews, `${p.name}.json`)}  (reply hash ${p.hash})`);
+      }
       process.exitCode = r.entry && !r.check.pass ? 1 : 0;
     } else if (cmd === 'shift') {
       const results = await runShift(desk);
@@ -69,7 +104,7 @@ async function main() {
     } else if (cmd === 'docs') {
       for (const p of await refreshDocs(desk)) console.log(`${p.ok ? 'ok  ' : 'FAIL'} ${p.url}${p.ok ? ` (${p.via}, ${p.fetchedAt})` : ''}`);
     } else {
-      console.log('commands: ticket "<message>" | ticket --id T01 | shift | morning | logs | docs | serve   (add --mock for sample account data)');
+      console.log('commands: ticket "<message>" | ticket --id T01 [--save-reply] | cleared T01 | shift | morning | logs | docs | serve   (add --mock for sample account data)');
       process.exitCode = cmd ? 2 : 0;
     }
   } finally { await desk.close(); }

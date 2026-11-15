@@ -132,3 +132,21 @@ test('the morning note explains what failed in the last 24 hours, read-only', as
   assert.match(note, /I do not recognize this error yet/);
   assert.match(note, /Exact error: "Unsupported media type"/);
 });
+
+test('the fresh checker\'s packet holds the reply, the cited page text and the evidence, never the writer\'s notes', async () => {
+  const { buildPacket, around } = await import('../src/packet.mjs');
+  const { env } = tempDesk();
+  const desk = openDesk({ env });
+  const r = await handleTicket(desk, TICKETS.find(t => t.id === 'T11'));
+  await desk.close();
+  const p = buildPacket(r, { mock: true });
+  assert.equal(p.hash, replyHash(r.reply));
+  assert.ok(p.text.includes(r.reply.trim()));
+  assert.match(p.text, /Quoted sentence: "\\"id\\": \\"sch_abc123\\""|Quoted sentence: ""id": "sch_abc123""/);
+  assert.match(p.text, /What it found: GET \/v2\/schedules\/sch_abc123 answers HTTP 500/);
+  assert.match(p.text, /Escalation packet written for the founder: yes/);
+  // The writer's notes stay out: the playbook's reasons, causes, ruled-out list and doc-edit note.
+  for (const note of ['Only the founder can say which one is right', 'Two most likely causes', 'Ruled out', 'Confirm with the founder before publishing', 'schedule-id-500']) assert.ok(!p.text.includes(note), note);
+  // Ids keep their underscores in the page text the checker reads.
+  assert.match(around('Example: `"id": "sch\_abc123"` in the list.', '"id": "sch_abc123"'), /sch_abc123/);
+});

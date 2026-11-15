@@ -11,16 +11,16 @@ export const pageUrl = (u) => String(u).replace(/[#?].*$/, '').replace(/\.md$/, 
 const slug = (u) => pageUrl(u).replace(/^https?:\/\/[^/]+\//, '').replace(/[^a-z0-9]+/gi, '_') || 'index';
 
 // Markdown and typography are stripped so a quote matches the words, not the formatting.
-export function normalizeText(s) {
+export function cleanText(s) {
   return String(s ?? '')
     .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
     .replace(/[*_`\\]/g, '')
     .replace(/[‘’]/g, "'").replace(/[“”]/g, '"')
     .replace(/\s*\|\s*/g, ' ')
     .replace(/\s+/g, ' ')
-    .trim()
-    .toLowerCase();
+    .trim();
 }
+export const normalizeText = (s) => cleanText(s).toLowerCase();
 
 export function createDocs({ cacheDir, env = process.env, logger, fetchImpl = globalThis.fetch } = {}) {
   const offline = isDocsOffline(env);

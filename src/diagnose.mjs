@@ -10,6 +10,8 @@ import { explain } from './explain.mjs';
 
 const PLATFORM_WORDS = ['instagram', 'linkedin', 'twitter', 'facebook', 'tiktok', 'youtube', 'threads', 'bluesky', 'pinterest', 'slack'];
 const when = (t) => new Date(t).toUTCString().replace(' GMT', ' UTC');
+const NAMES = { instagram: 'Instagram', linkedin: 'LinkedIn', twitter: 'X (Twitter)', facebook: 'Facebook', tiktok: 'TikTok', youtube: 'YouTube', threads: 'Threads', bluesky: 'Bluesky', pinterest: 'Pinterest', slack: 'Slack' };
+const nice = (p) => NAMES[p] || p;
 
 async function lookup(kind, ticket, { client, docs, entry }) {
   const text = ticket.text;
@@ -23,8 +25,8 @@ async function lookup(kind, ticket, { client, docs, entry }) {
       const mine = items.filter(i => !platform || i.platform === platform);
       const p = mine[0];
       ev.summary = p
-        ? `Blotato shows a published ${p.platform} post at ${when(p.postTime)} (post ${p.id})${p.state?.postUrl ? `, with this link: ${p.state.postUrl}` : ', with no platform link returned'}.`
-        : `Blotato shows no published ${platform || ''} post in the last 7 days.`.replace('  ', ' ');
+        ? `Blotato shows ${mine.length} published ${nice(p.platform)} post${mine.length === 1 ? '' : 's'} in the last 7 days. The newest is from ${when(p.postTime)} (post ${p.id})${p.state?.postUrl ? `, with this link: ${p.state.postUrl}` : ', with no platform link returned'}.`
+        : `Blotato shows no published ${platform ? nice(platform) + ' ' : ''}post in the last 7 days.`;
       ev.ok = true;
     }
     if (kind === 'recent-activity') {
@@ -35,9 +37,9 @@ async function lookup(kind, ticket, { client, docs, entry }) {
       const platform = PLATFORM_WORDS.find(p => new RegExp(`\\b${p}\\b`, 'i').test(text));
       const same = platform ? items.filter(i => i.platform === platform) : items;
       const count = (t) => same.filter(i => i.state?.type === t).length;
-      const where = platform ? `${platform} ` : '';
+      const where = platform ? `${nice(platform)} ` : '';
       ev.summary = same.length
-        ? `from 2 days ago to 2 weeks ahead I see ${count('scheduled')} scheduled, ${count('published')} published and ${count('failed')} failed ${where}post(s). The newest is ${same[0].state?.type} for ${when(same[0].postTime)} (id ${same[0].id}).`
+        ? `from 2 days ago to 2 weeks ahead I see ${same.length} ${where}post${same.length === 1 ? '' : 's'}: ${count('scheduled')} scheduled, ${count('published')} published and ${count('failed')} failed. The newest is ${same[0].state?.type} for ${when(same[0].postTime)} (id ${same[0].id}).`
         : `I see no ${where}posts from 2 days ago to 2 weeks ahead.`;
       ev.ok = true;
     }
@@ -69,7 +71,9 @@ async function lookup(kind, ticket, { client, docs, entry }) {
         ev.searched = [...(ev.searched || []), { query: q, offline: s.offline, results: s.results.slice(0, 5) }];
       }
       ev.ok = ev.searched.every(s => !s.offline);
-      ev.summary = ev.ok ? 'searched the help docs; none of the top results answers the question.' : 'the docs search was offline, so nothing was searched.';
+      ev.summary = ev.ok
+        ? `Searches: ${ev.searched.map(s => `"${s.query}" (top results: ${s.results.slice(0, 3).map(r => `"${r.title || r.url}"`).join(', ') || 'none'})`).join('; ')}.`
+        : 'the docs search was offline, so nothing was searched.';
     }
   } catch (e) {
     ev.ok = false;
