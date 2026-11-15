@@ -104,7 +104,8 @@ export const PLAYBOOK = [
       action('I am passing your message about the charge to a person on the team, with what you told me.'),
       fact('Payments and refunds go through Stripe, the payment processor Blotato uses.', 'billing', 'Stripe is the payment processor Blotato uses for payments and refunds.'),
       fact('You can see all your invoices yourself: open Settings > Billing, select View Billing Portal, then scroll to INVOICE HISTORY.', 'billing', 'Open Settings > Billing, select View Billing Portal, then scroll to INVOICE HISTORY.'),
-      fact('Please do not pay again while this is open.', 'faqs', 'Do not pay again'),
+      // Not here on purpose: "Please do not pay again." The FAQ says that only when a charge is known to have
+      // succeeded, and the desk cannot see payments. A fresh checker blocked it on Nov 15, 2026.
     ],
     next: 'Reply here with the date of the charge and the email on your account, so the team can find the payment.',
     proof: 'Still open: the charge itself, and what happens to it. That is a decision for a person on the team, not for me.',
