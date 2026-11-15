@@ -7,8 +7,8 @@ const URL = 'https://help.blotato.com/support/faqs';
 const page = { url: URL, fetchedAt: '2026-11-15T15:00:00.000Z', via: 'test', text: 'No. CANCELED is a post status, not a publishing failure. Nothing went wrong on the social platform. If you meant the post to go out, open it and schedule it again.' };
 const fact = (text, quote) => ({ type: 'fact', text, cite: { url: URL, quote } });
 
-function draft(steps, { next = 'Open the post.', pages = { [URL]: page }, evidence = null, extra = '' } = {}) {
-  const reply = ['Hi,', '', ...steps.map((s, i) => `${i + 1}. ${s.text}`), '', `Next step: ${next}`, extra].join('\n');
+function draft(steps, { next = 'Open the post.', pages = { [URL]: page }, evidence = null, extra = '', proof = 'You will know it worked when it shows as scheduled.', link = `Help page: ${URL}` } = {}) {
+  const reply = ['Hi,', '', ...steps.map((s, i) => `${i + 1}. ${s.text}`), '', `Next step: ${next}`, proof, link, extra].filter(l => l !== null).join('\n');
   return { ticket: { id: 'X', text: 'x' }, steps, next, reply, pages, evidence };
 }
 const good = [
@@ -54,6 +54,12 @@ test('voice: no em dash, no "simply", no easy-sounding "just", no hype; 3 to 5 s
   assert.match(checkReply(draft(good, { extra: 'A game-changer.' })).problems.join(' '), /hype/);
   assert.match(checkReply(draft(good.slice(0, 2))).problems.join(' '), /2 steps/);
   assert.match(checkReply(draft(good, { extra: 'Next step: and another.' })).problems.join(' '), /exactly one "Next step:"/);
+});
+
+test('Blotato\'s response contract: the reply says what proves success (or what is open) and links a help page', () => {
+  assert.match(checkReply(draft(good, { proof: null })).problems.join(' '), /proves success/);
+  assert.match(checkReply(draft(good, { link: null })).problems.join(' '), /no link to a help page/);
+  assert.equal(checkReply(draft(good, { proof: 'Still open: the charge itself.' })).pass, true);
 });
 
 test('no reply at all is never a pass', () => {

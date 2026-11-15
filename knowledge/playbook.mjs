@@ -38,6 +38,7 @@ export const PLAYBOOK = [
       fact('Please hold off on posting a replacement until we know what happened to this one.', 'faqs', 'Do not publish a replacement until the original result is understood.'),
     ],
     next: 'Open the post link above and tell me what you see.',
+    proof: 'You will know it worked when you can open the post on the account it was meant for.',
   },
   {
     id: 'canceled-status', kind: 'non-technical', title: 'Posts show CANCELED',
@@ -50,6 +51,7 @@ export const PLAYBOOK = [
       fact('If you meant it to go out, open the post and schedule it again.', 'faqs', 'If you meant the post to go out, open it and schedule it again.'),
     ],
     next: 'Open the post and schedule it again if you still want it to go out.',
+    proof: 'You will know it worked when the post shows as scheduled again in your calendar.',
   },
   {
     id: 'linkedin-company-page', kind: 'non-technical', title: 'Post to a LinkedIn company Page instead of a profile',
@@ -62,6 +64,7 @@ export const PLAYBOOK = [
       fact('If you leave pageId out, the post goes to your personal profile.', 'publish', 'Omit to post to personal profile.'),
     ],
     next: 'Add the Page id as pageId and send one test post.',
+    proof: 'You will know it worked when the test post shows on the company Page, not on your profile.',
   },
   {
     id: 'trial-api-key-charge', kind: 'billing', title: 'Charged after making an API key during the trial',
@@ -74,6 +77,7 @@ export const PLAYBOOK = [
       fact('If you would rather not keep the plan, you can cancel in Settings > Billing > View Billing Portal.', 'faqs', 'Go to Settings > Billing and click "View Billing Portal" to cancel your subscription.'),
     ],
     next: 'Reply here if you want to cancel, and I will walk you through it.',
+    proof: 'Still open: the charge itself. A person on the team will look at it.',
     escalate: {
       why: 'A charge or refund is a person\'s decision. The desk explains and hands it over.',
       causes: [
@@ -94,6 +98,7 @@ export const PLAYBOOK = [
       fact('Before you confirm, check the date the cancellation takes effect. That is when access ends.', 'faqs', 'Check the cancellation\'s effective date before confirming when access ends.'),
     ],
     next: 'Open Settings > Billing > View Billing Portal.',
+    proof: 'You will know it worked when the Billing Portal shows the cancellation and its end date.',
   },
   {
     id: 'api-401', kind: 'technical', title: 'API answers 401 Unauthorized',
@@ -107,6 +112,7 @@ export const PLAYBOOK = [
       fact('If you are still on the free trial, the API is not included yet.', 'auth', 'The free trial does not include API or MCP access.'),
     ],
     next: 'Run that one read-only call and tell me the status code you get.',
+    proof: 'You will know it worked when that call answers 200 and lists your accounts.',
   },
   {
     id: 'rate-limit', kind: 'technical', title: '"Too many requests" from a workflow',
@@ -119,6 +125,7 @@ export const PLAYBOOK = [
       fact('If it is an n8n workflow, the Fix My Automation button in Logs can help repair it.', 'errorHandling', 'For n8n requests, the dashboard\'s FIX MY AUTOMATION action helps repair the workflow.'),
     ],
     next: 'Add a pause between posts and run the workflow again.',
+    proof: 'You will know it worked when the workflow runs through with no "too many requests" errors.',
   },
   {
     id: 'mcp-invalid-grant', kind: 'technical', title: 'invalid_grant from the Blotato connector in Claude',
@@ -131,6 +138,7 @@ export const PLAYBOOK = [
       fact('The Fix My Automation button will not help with this one. It only works for n8n.', 'n8nFaqs', 'it does not work for Make.com, Claude, MCP, or direct REST API calls.'),
     ],
     next: 'Re-add the connector, then ask Claude to list your Blotato accounts.',
+    proof: 'You will know it worked when Claude lists your Blotato accounts.',
   },
   {
     id: 'unknown-outcome-resend', kind: 'technical', title: 'Timeout after creating a post: send it again?',
@@ -145,6 +153,7 @@ export const PLAYBOOK = [
       fact('Only send it again once you know the first one is not there.', 'errors', 'Check the original submission or creation before retrying a write.'),
     ],
     next: 'Look for the post in your queue, then tell me whether it is there.',
+    proof: 'You will know it is safe to send again once you have confirmed the first post is not in your queue.',
   },
   {
     id: 'in-progress', kind: 'technical', title: 'Status stuck on in-progress',
@@ -159,6 +168,7 @@ export const PLAYBOOK = [
       fact('Check Posts > Failed in the dashboard too.', 'getPost', 'Failed posts are also visible at'),
     ],
     next: 'Send me the time you created it and the account, and I will check the post list.',
+    proof: 'Still open: whether this id belongs to a real post. The post list will tell us.',
   },
   {
     id: 'schedule-id-500', kind: 'technical', title: 'Schedule lookup answers 500 "invalid input syntax for type bigint"',
@@ -172,6 +182,7 @@ export const PLAYBOOK = [
       action('I have sent this to the founder with the steps to reproduce it, and a fix for the docs.'),
     ],
     next: 'Try the number id from your own schedules list and tell me what you get.',
+    proof: 'Still open: whether the API or the docs need to change. The founder has the details.',
     escalate: {
       why: 'The API and the docs disagree. Only the founder can say which one is right.',
       causes: [
@@ -202,6 +213,7 @@ export const PLAYBOOK = [
       action('In the meantime, read-only calls like listing your accounts do not post anything.'),
     ],
     next: 'Nothing to do on your side yet. I will reply here.',
+    proof: 'Still open: the answer itself. I will reply here when I have it.',
     noDocAnswer: true,
     escalate: {
       why: 'The docs do not answer this. The founder decides what the answer is.',

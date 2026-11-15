@@ -112,6 +112,10 @@ export async function diagnose(ticket, { client, docs, agent = 'Support' }) {
   const name = (ticket.name || '').trim();
   out.steps = steps;
   out.next = entry.next;
+  out.proof = entry.proof;
+  // Blotato's own response contract (start-with-an-ai-agent/agent-triage): answer, the next supported action,
+  // what proves success or what is still open, and a link to the relevant section.
+  out.helpLink = (steps.find(s => s.cite) || {}).cite?.url || (entry.docEdit?.article ?? null);
   out.reply = [
     `Hi${name ? ' ' + name : ''},`,
     '',
@@ -120,6 +124,8 @@ export async function diagnose(ticket, { client, docs, agent = 'Support' }) {
     ...steps.map((s, i) => `${i + 1}. ${s.text}`),
     '',
     `Next step: ${entry.next}`,
+    entry.proof,
+    ...(out.helpLink ? [`Help page: ${out.helpLink}`] : []),
     '',
     `Thanks,`,
     agent,
@@ -135,7 +141,7 @@ function buildEscalation(ticket, entry, out, esc) {
   const checked = [];
   for (const [u, p] of Object.entries(out.pages || {})) checked.push(p ? `Read ${u} (${p.via}, fetched ${p.fetchedAt.slice(0, 10)})` : `Could not read ${u}`);
   for (const c of out.evidence?.calls || []) checked.push(c);
-  const cite = (c) => typeof c === 'string' ? c : `${c.text}${c.cite ? ` Source: ${c.cite.url} ("${c.cite.quote}")` : ' (not documented; a guess to confirm)'}`;
+  const cite = (c) => typeof c === 'string' ? c : `${c.text}${c.cite ? ` Source: ${c.cite.url}, which says: ${c.cite.quote.replace(/`/g, '')}` : ' (Not documented: a guess to confirm.)'}`;
   return {
     asked: ticket.text,
     kind: entry?.kind || 'unknown',

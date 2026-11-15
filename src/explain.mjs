@@ -96,7 +96,7 @@ export const KNOWN_ERRORS = [
     match: [/Invalid JSON Error/i],
     title: 'The request was not valid JSON',
     plain: 'The docs say a wrong JSON shape is the most common cause of failed posts.',
-    next: 'Compare the body with the Publish Post docs. Post Desk builds the body for you, so this points at a hand-made request.',
+    next: 'Compare the body with the Publish Post docs. Check it field by field.',
     source: `${DOCS}/rest-api-reference/publish-post.md`,
   },
   {

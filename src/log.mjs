@@ -1,4 +1,4 @@
-// Plain JSON lines, one per event, in <desk>/logs/post-desk-YYYY-MM-DD.jsonl.
+// Plain JSON lines, one per event, in <desk>/logs/support-desk-YYYY-MM-DD.jsonl.
 // Each line: time, run, action, method, path, requestId, status, ok, error. Never the key, never the post text.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -6,14 +6,14 @@ import crypto from 'node:crypto';
 import { redact } from './env.mjs';
 
 export function newRunId() { return `run-${new Date().toISOString().replace(/[-:.TZ]/g, '').slice(0, 14)}-${crypto.randomBytes(2).toString('hex')}`; }
-export function newRequestId() { return `pd-${crypto.randomUUID()}`; }
+export function newRequestId() { return `sd-${crypto.randomUUID()}`; }
 
 export function createLogger({ dir, run = newRunId(), key, mock = false }) {
   const write = (entry) => {
     const line = { time: new Date().toISOString(), run, mock, ...entry };
     if (line.error) line.error = redact(line.error, key);
     fs.mkdirSync(dir, { recursive: true });
-    const file = path.join(dir, `post-desk-${line.time.slice(0, 10)}.jsonl`);
+    const file = path.join(dir, `support-desk-${line.time.slice(0, 10)}.jsonl`);
     fs.appendFileSync(file, redact(JSON.stringify(line), key) + '\n');
     return line;
   };
@@ -22,7 +22,7 @@ export function createLogger({ dir, run = newRunId(), key, mock = false }) {
 
 export function readLogLines(dir) {
   if (!fs.existsSync(dir)) return [];
-  const files = fs.readdirSync(dir).filter(f => /^post-desk-\d{4}-\d{2}-\d{2}\.jsonl$/.test(f)).sort();
+  const files = fs.readdirSync(dir).filter(f => /^support-desk-\d{4}-\d{2}-\d{2}\.jsonl$/.test(f)).sort();
   const lines = [];
   for (const f of files) {
     for (const l of fs.readFileSync(path.join(dir, f), 'utf8').split('\n')) {

@@ -32,6 +32,9 @@ export function checkReply(d, { reviewsDir, requireReview = false } = {}) {
   if (steps.length < 3 || steps.length > 5) problems.push(`The reply has ${steps.length} steps. Customers follow 3 to 5.`);
   const nextLines = d.reply.split('\n').filter(l => /^Next step:/.test(l));
   if (nextLines.length !== 1) problems.push('The reply needs exactly one "Next step:" line.');
+  // Blotato's response contract also asks for what proves success (or what is still open) and a link.
+  if (!/^(You will know it|Still open:)/m.test(d.reply)) problems.push('The reply does not say what proves success or what is still open.');
+  if (!/https:\/\/help\.blotato\.com\//.test(d.reply)) problems.push('The reply has no link to a help page.');
 
   steps.forEach((s, i) => {
     const n = i + 1;
