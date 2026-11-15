@@ -3,16 +3,48 @@
 // status evidence, and tries to break it. Any problem blocks the reply and says why.
 //
 // What this script can prove: every cited sentence is really on the cited page (as fetched, with the date),
-// every evidence step rests on a lookup that succeeded, no step promises what nobody checked, and the reply
-// has the shape customers can follow (3 to 5 numbered steps, one next step).
-// What it cannot prove: that a step's own wording is faithful to its quote. That deeper read is the job of the
-// reply-checker subagent (.claude/agents/reply-checker.md). Its verdict, when present, is required to pass.
+// every evidence step rests on a lookup that succeeded, no line of the reply matches the promise patterns
+// below, and the reply has the shape customers can follow (3 to 5 numbered steps, one next step).
+// What it cannot prove: that a step's own wording is faithful to its quote, or that a promise worded some
+// other way is absent. That deeper read is the job of the reply-checker subagent (.claude/agents/reply-checker.md).
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
-import { quoteOnPage } from './docs.mjs';
+import { quoteOnPage, normalizeText } from './docs.mjs';
 
-const PROMISE = /\b(guarantee[ds]?|always|never fails?|will be (fixed|refunded|credited|resolved)|refund(ed)? (you|your)|within \d+|by (tomorrow|monday|tonight)|\d+\s?(hours?|days?|minutes?) )\b/i;
+// The promise check runs on every line of the reply: greeting, opening, every step, next step, proof line.
+// Each pattern names one kind of promise. A step that quotes a help page may repeat the page's own words
+// (a faithful quote is the page speaking, not us), but any promise words beyond the quote still block.
+const MODAL = String.raw`(?:will|'ll|shall|should|going to)`;
+const UNIT = String.raw`(?:minutes?|hours?|days?|weeks?|months?|business days?)`;
+const COUNT = String.raw`(?:a|an|one|two|three|four|five|a few|\d+(?:\s?-\s?\d+)?)`;
+const DAY = String.raw`(?:today|tonight|tomorrow|this week|next week|monday|tuesday|wednesday|thursday|friday|saturday|sunday|end of (?:the )?(?:day|week|month))`;
+const OUTCOME = String.raw`(?:fix|resolv|solv|work(?:s|ed)?\b|sorted|go(?:es)? through|process|publish|post(?:ed)?\b|succeed|arriv|appear|back\b|come back|stop|clear)`;
+export const PROMISES = [
+  { why: 'a promise or a guarantee', re: /\b(?:promise[sd]?|guarantee[sd]?|assure you|you have my word)\b/i },
+  { why: 'a refund or credit', re: /\b(?:refund(?:ed)?|credit(?:ed)?|reimburse[sd]?|compensate[sd]?)\s+(?:you|your)\b/i },
+  { why: 'a refund or credit', re: new RegExp(String.raw`\b${MODAL}\b[^.!?\n]*?\b(?:refund|credit|reimburs|money back|compensat)\w*`, 'i') },
+  { why: 'an outcome nobody has checked', re: new RegExp(String.raw`\b${MODAL}\s+(?:(?:definitely|certainly|surely|now|soon|then)\s+)?(?:be\s+|have\s+(?:it|this|that)\s+)?${OUTCOME}`, 'i') },
+  { why: 'an outcome nobody has checked', re: /\b(?:this|that|it|which)\s+(?:fixes|solves|resolves)\b/i },
+  { why: 'an outcome nobody has checked', re: /\b(?:definitely|certainly|for sure|100%|never (?:fails?|happens?)|won'?t happen again|always works?)\b/i },
+  { why: 'a date or time nobody can promise', re: new RegExp(String.raw`\bby\s+${DAY}\b`, 'i') },
+  { why: 'a date or time nobody can promise', re: new RegExp(String.raw`\bwithin\s+${COUNT}\s*${UNIT}\b`, 'i') },
+  { why: 'a date or time nobody can promise', re: new RegExp(String.raw`\b${MODAL}\b[^.!?\n]*?\b(?:in\s+${COUNT}\s*${UNIT}|on\s+${DAY}|${DAY})\b`, 'i') },
+];
+
+// Every promise in a piece of text. With `quote` (a cited help-page sentence), words the quote itself says are allowed.
+export function findPromises(text, { quote } = {}) {
+  const q = quote ? normalizeText(quote) : null;
+  const hits = [];
+  for (const p of PROMISES) {
+    for (const m of String(text || '').matchAll(new RegExp(p.re.source, 'gi'))) {
+      if (q && q.includes(normalizeText(m[0]))) continue;
+      hits.push({ words: m[0], why: p.why });
+    }
+  }
+  return hits;
+}
+
 const VOICE = [
   { re: /—/, why: 'an em dash' },
   { re: /\bsimply\b/i, why: '"simply"' },
@@ -50,13 +82,23 @@ export function checkReply(d, { reviewsDir, requireReview = false } = {}) {
     } else if (s.type === 'evidence') {
       if (!d.evidence) problems.push(`Step ${n} rests on a lookup, but no lookup was made.`);
       else if (!d.evidence.ok) problems.push(`Step ${n} rests on a lookup that did not succeed: ${d.evidence.summary}`);
-    } else if (s.type === 'action') {
-      if (PROMISE.test(s.text)) problems.push(`Step ${n} makes a promise or a claim with no source: "${s.text}"`);
-    } else problems.push(`Step ${n} has an unknown type.`);
+    } else if (s.type !== 'action') problems.push(`Step ${n} has an unknown type.`);
   });
 
+  // Promises, on every line. A step line is checked against its own quote; every other line has no quote.
+  const stepAt = new Map(steps.map((s, i) => [`${i + 1}. ${s.text}`, { s, n: i + 1 }]));
+  const seen = new Set();
+  for (const line of [...d.reply.split('\n'), ...stepAt.keys()]) {
+    if (seen.has(line)) continue;
+    seen.add(line);
+    const at = stepAt.get(line);
+    const hits = findPromises(line, { quote: at?.s.type === 'fact' ? at.s.cite?.quote : undefined });
+    for (const h of hits) problems.push(at
+      ? `Step ${at.n} makes ${h.why} ("${h.words}") that its source does not say.`
+      : `The line "${line}" makes ${h.why} ("${h.words}").`);
+  }
+
   for (const v of VOICE) if (v.re.test(d.reply)) problems.push(`The reply uses ${v.why}.`);
-  if (PROMISE.test(d.next || '')) problems.push(`The next step makes a promise: "${d.next}"`);
 
   // The subagent's verdict (written by .claude/agents/reply-checker.md), bound to this exact reply text.
   let review = null;
@@ -83,4 +125,19 @@ export function clearedToSend(reviewsDir, name) {
   if (review.replySha256 !== replyHash(reply)) return { ok: false, why: 'The fresh checker reviewed a different version of this reply. Check it again.' };
   if (review.verdict !== 'pass') return { ok: false, blocked: true, findings: review.findings || [], why: `The fresh checker blocked it: ${(review.findings || []).join('; ') || 'no reason given'}` };
   return { ok: true, reply, notes: review.findings || [], checkedAt: review.checkedAt };
+}
+
+// Where the fresh checker stands on this run's reply:
+//   passed        it passed this exact text, so the reply is cleared to send
+//   passed-saved  it passed the saved copy, but this run's text is different (a live lookup changed it)
+//   blocked       it blocked the saved copy
+//   stale         its verdict is for an older saved copy
+//   none          no saved copy or no verdict yet
+export function freshState(reviewsDir, d) {
+  if (!d?.reply) return null;
+  const name = reviewName(d.ticket);
+  const c = clearedToSend(reviewsDir, name);
+  if (!c.ok && /No saved reply|No fresh-checker verdict/.test(c.why)) return { state: 'none', name };
+  if (!c.ok) return { state: c.blocked ? 'blocked' : 'stale', name, why: c.why };
+  return { state: replyHash(c.reply) === replyHash(d.reply) ? 'passed' : 'passed-saved', name, checkedAt: c.checkedAt, notes: c.notes };
 }
