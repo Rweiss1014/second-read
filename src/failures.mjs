@@ -42,7 +42,7 @@ export function recordFailure(file, failure, { now = new Date() } = {}) {
   const day = now.toISOString().slice(0, 10);
   const list = readFailures(file);
   const hit = list.find(f => f.id === failure.id);
-  if (hit) { hit.lastSeen = day; hit.times += 1; hit.error = failure.error || hit.error; }
+  if (hit) { hit.lastSeen = day; hit.times += 1; hit.error = failure.error || hit.error; hit.fix = failure.fix || hit.fix; hit.title = failure.title || hit.title; }
   else list.push({ ...failure, firstSeen: day, lastSeen: day, times: 1 });
   fs.writeFileSync(file, render(list));
   return { added: !hit, entry: hit || list[list.length - 1] };

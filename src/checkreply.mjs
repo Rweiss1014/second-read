@@ -64,7 +64,9 @@ export function checkReply(d, { reviewsDir, requireReview = false } = {}) {
     const f = path.join(reviewsDir, `${reviewName(d.ticket)}.json`);
     try { review = JSON.parse(fs.readFileSync(f, 'utf8')); } catch { review = null; }
     if (review) {
-      if (review.replySha256 !== replyHash(d.reply)) problems.push('The fresh checker reviewed a different version of this reply. Review it again.');
+      // A verdict for an older text does not apply to this one. It blocks only when this run requires a review
+      // (a live lookup can change the text from run to run; the saved copy is what "cleared" checks).
+      if (review.replySha256 !== replyHash(d.reply)) { if (requireReview) problems.push('The fresh checker reviewed a different version of this reply. Review it again.'); review = null; }
       else if (review.verdict !== 'pass') problems.push(`The fresh checker blocked it: ${(review.findings || []).join('; ') || 'no reason given'}`);
     } else if (requireReview) problems.push('No fresh-checker verdict yet, and this run requires one.');
   }

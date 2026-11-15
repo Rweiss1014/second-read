@@ -1,0 +1,13 @@
+{
+  "ticket": "T07",
+  "replySha256": "9173eb9339b72f768b186e80cc466050a46a87db0c14bd7d196b514dc756a772",
+  "verdict": "block",
+  "findings": [
+    "Next step 'Add a pause between posts and run the workflow again' could double-post anything that already went out before the limit hit; the error-handling page says to 'inspect the dashboard and existing posts or schedules before creating another item', and the reply never asks the customer to check which posts succeeded first.",
+    "Step 2 'Stop sending to that step for a moment' drops the page's next step, 'Wait for the retry interval when the response supplies one', and 'for a moment' is vaguer than the page.",
+    "Step 1 'Publishing allows 30 a minute' names only the publish limit; the quoted page text also says 'Upload Media: 30 requests/minute', so a workflow that uploads media and publishes can hit the limit through uploads too.",
+    "Style note, step 4: the Fix My Automation line matches the page ('For n8n requests ... helps repair the workflow'), but the page does not say it fixes a rate limit, so it may not help here."
+  ],
+  "checkedAt": "2026-11-15T20:54:48Z",
+  "checker": "reply-checker"
+}

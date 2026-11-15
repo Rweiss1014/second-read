@@ -5,7 +5,8 @@ Claude Code reads the same file through `CLAUDE.md`.
 
 ## What this repo is
 Support Desk: a tool for the person answering Blotato support tickets.
-A customer's message goes in. Out comes a diagnosis from Blotato's own help docs and read-only account status, a reply in three to five numbered steps, and, when a person has to decide, an escalation packet or a proposed help-doc edit.
+A customer's message goes in. Out comes a diagnosis from Blotato's own help docs and read-only account status, and a reply in three to five numbered steps.
+When a person has to decide, it also writes an escalation packet or a proposed help-doc edit.
 
 ## Rules that do not bend
 - The desk only reads. Never send a POST, PUT, PATCH or DELETE to the Blotato API. The client refuses them anyway; do not work around it.

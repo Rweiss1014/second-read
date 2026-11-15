@@ -114,7 +114,8 @@ test('the fresh checker\'s verdict counts only for the exact reply it read', asy
   fs.writeFileSync(path.join(reviews, 'T02.json'), JSON.stringify({ verdict: 'pass', replySha256: replyHash(r.reply) }));
   assert.equal((await handleTicket(desk, t)).check.pass, true);
   fs.writeFileSync(path.join(reviews, 'T02.json'), JSON.stringify({ verdict: 'pass', replySha256: replyHash(r.reply + ' changed') }));
-  assert.match((await handleTicket(desk, t)).check.problems.join(' '), /different version/);
+  assert.equal((await handleTicket(desk, t)).check.pass, true, 'an old verdict does not block a new text by itself');
+  assert.match((await handleTicket(desk, t, { requireReview: true })).check.problems.join(' '), /different version/);
   fs.writeFileSync(path.join(reviews, 'T02.json'), JSON.stringify({ verdict: 'block', replySha256: replyHash(r.reply), findings: ['step 2 says more than the quote'] }));
   assert.match((await handleTicket(desk, t)).check.problems.join(' '), /step 2 says more than the quote/);
   await desk.close();

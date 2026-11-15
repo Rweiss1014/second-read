@@ -225,7 +225,7 @@ export const PLAYBOOK = [
       article: PAGES.apiKeys,
       kind: 'new',
       heading: 'Is there a test mode for the API?',
-      add: '[Answer to confirm with the founder.] Until then: read-only calls such as GET /v2/users/me/accounts and GET /v2/posts do not publish anything.',
+      add: '[Answer to confirm with the founder: is there a test mode, and if not, how should developers test safely?]',
       note: 'Two docs searches on Nov 15, 2026 found no page about a sandbox or test mode.',
     },
   },

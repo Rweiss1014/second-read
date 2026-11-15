@@ -1,8 +1,15 @@
 node_modules/
+
+# The API key. Only .env.example is shared.
 .env
 .env.*
 !.env.example
+
+# The desk's working files: customer messages, replies, checker packets, handoffs and logs.
 desk/
-.cache/
 logs/
 *.log
+
+# Copies of Blotato's help pages, fetched through its docs MCP server on first run.
+# They are Blotato's to publish, so they are not republished here.
+.cache/

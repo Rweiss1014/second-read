@@ -28,10 +28,10 @@ export const PRACTICE = {
       choices: [
         { text: 'Send it again right away.', right: false, consequence: 'The first request had gone through. They now have two copies scheduled.' },
         { text: 'Tell them a 504 means it failed.', right: false, consequence: 'Not true. A timeout does not say whether the post was created. They resend, and it posts twice.' },
-        { text: 'Check their scheduled and published posts for it first.', right: true, consequence: 'Good. You found it in the queue, so nothing needs to be sent again.' },
+        { text: 'Check their scheduled, published and failed posts for it first.', right: true, consequence: 'Good. You found it in their scheduled posts, so nothing needs to be sent again.' },
       ],
       source: cite('unknown-outcome-resend', 0),
-      firstCheck: 'Check the queue for the post before anything is sent again.',
+      firstCheck: 'Check scheduled, published and failed posts before anything is sent again.',
     },
     {
       entry: 'mcp-invalid-grant',

@@ -11,7 +11,7 @@ import { explain } from './explain.mjs';
 const PLATFORM_WORDS = ['instagram', 'linkedin', 'twitter', 'facebook', 'tiktok', 'youtube', 'threads', 'bluesky', 'pinterest', 'slack'];
 const when = (t) => new Date(t).toUTCString().replace(' GMT', ' UTC');
 const NAMES = { instagram: 'Instagram', linkedin: 'LinkedIn', twitter: 'X (Twitter)', facebook: 'Facebook', tiktok: 'TikTok', youtube: 'YouTube', threads: 'Threads', bluesky: 'Bluesky', pinterest: 'Pinterest', slack: 'Slack' };
-const nice = (p) => NAMES[p] || p;
+export const nice = (p) => NAMES[p] || p;
 
 async function lookup(kind, ticket, { client, docs, entry }) {
   const text = ticket.text;
@@ -159,8 +159,8 @@ function buildEscalation(ticket, entry, out, esc) {
 
 export function renderEscalation(e) {
   if (!e) return '';
-  const list = (a) => a.length ? a.map(x => `- ${x}`).join('\n') : '- nothing';
-  return `## Escalation\n\n**What was asked**\n> ${e.asked}\n\n**Why it needs a person**\n${e.why}\n\n**What was checked**\n${list(e.checked)}\n\n**Evidence**\n${list(e.evidence)}\n\n**Two most likely causes**\n${list(e.causes)}\n\n**Ruled out**\n${list(e.ruledOut)}\n`;
+  const list = (a, none) => a.length ? a.map(x => `- ${x}`).join('\n') : `- ${none}`;
+  return `## Escalation\n\n**What was asked**\n> ${e.asked}\n\n**Why it needs a person**\n${e.why}\n\n**What was checked**\n${list(e.checked, 'Nothing could be checked.')}\n\n**Evidence**\n${list(e.evidence, 'No account lookup for this kind of ticket. The pages above are the evidence.')}\n\n**Two most likely causes**\n${list(e.causes, 'Not known yet. The docs have no answer, so the desk will not guess.')}\n\n**Ruled out**\n${list(e.ruledOut, 'Nothing ruled out yet.')}\n`;
 }
 
 export function renderDocEdit(d) {
@@ -170,7 +170,7 @@ export function renderDocEdit(d) {
     lines.push('```diff', `- ${d.before}`, `+ ${d.after}`, '```', '', 'Add under the response table:', '', `> ${d.add}`);
     if (d.beforeFound === false) lines.push('', '(The "before" line was not found on the page as fetched. Check the page again before editing.)');
   } else {
-    lines.push('New entry:', '', `> ### ${d.heading}`, `> ${d.add}`);
+    lines.push('New entry:', '', `> **${d.heading}**`, `> ${d.add}`);
   }
   lines.push('', `Why: ${d.note}`, '', 'Status: a proposal for a person to approve. Nothing is published by the desk.');
   return lines.join('\n') + '\n';

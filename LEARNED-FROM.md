@@ -16,4 +16,5 @@ Every source is public, and each one was checked against its original post or pa
 | A support answer has four parts: the answer, the next supported action, what proves success or what is still open, and a link. | Blotato help center, [Diagnose a support question](https://help.blotato.com/start-with-an-ai-agent/agent-triage) | read Nov 15, 2026 | The reply shape in `src/diagnose.mjs`, enforced in `src/checkreply.mjs` |
 | "Unknown outcome is not permission to create again." | Blotato help center, [Diagnose a support question](https://help.blotato.com/start-with-an-ai-agent/agent-triage) | read Nov 15, 2026 | Tickets T09 and T10, and the practice shift |
 
-What is my own: turning the playbook into a practice shift ("Your first support shift"), because I build learning games and I would rather people practice a decision than read about it.
+What is my own: the practice shift, "Your first support shift", made from the same playbook.
+I build learning games, and I would rather people practice a decision than read about it.

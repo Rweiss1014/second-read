@@ -61,6 +61,13 @@
   .problems { background: var(--bad-bg); color: var(--bad); border-radius: 8px; padding: 10px 12px; margin: 8px 0; }
   .problems ul { margin: 4px 0 0 18px; padding: 0; }
   .note { color: var(--muted); font-size: .9rem; }
+  .fresh { margin: 8px 0 0; padding: 8px 10px; border-radius: 8px; font-size: .9rem; background: var(--bg); border: 1px solid var(--line); }
+  .fresh.ok { background: var(--ok-bg); border-color: transparent; color: var(--ink); }
+  .fresh.ok strong { color: var(--ok); }
+  .fresh.bad { background: var(--bad-bg); border-color: transparent; }
+  .fresh.bad strong { color: var(--bad); }
+  code { font-size: .85em; background: var(--code-bg); padding: 1px 5px; border-radius: 4px; word-break: break-word; }
+  .built { font-size: .9rem; color: var(--muted); margin: 0 0 12px; }
   .md { font-size: .93rem; }
   .md h2 { font-size: 1rem; margin: 6px 0; }
   .md h3 { font-size: .95rem; margin: 6px 0; }
@@ -87,6 +94,10 @@
   .outcome.right { background: var(--ok-bg); } .outcome.wrong { background: var(--bad-bg); }
   .score { font-size: 2rem; font-weight: 700; margin: 6px 0; }
   @media (hover: none) { .keyhint { display: none; } }
+  @media (max-width: 560px) {
+    nav.tabs { flex-wrap: wrap; overflow-x: visible; }
+    nav.tabs button { padding: 8px 10px; }
+  }
   @media (max-width: 860px) {
     .grid { grid-template-columns: 1fr; }
     .wrap { padding-top: 16px; }
@@ -98,6 +109,7 @@
   <header>
     <h1>Support Desk</h1>
     <p>Paste a customer's message. Get the documented diagnosis, a checked reply, and the packet the founder needs when a person has to decide.</p>
+    <p class="built">Built on Blotato's own pieces: its help docs, read through its docs MCP server, and its REST API, read-only. It adds the checked reply, the escalation packet, the doc-edit proposal and a practice shift.</p>
     <div class="chips" id="chips"><span class="chip">Loading...</span></div>
   </header>
 
@@ -187,6 +199,18 @@ function badge(r) {
   return '<span class="badge ok">Reply checked, ready to send</span>';
 }
 
+// Two checkers: the script (every quote on its page, every status step backed) and a fresh AI checker that
+// reads only the reply, the cited page text and the evidence. This line shows the second one.
+function freshLine(r) {
+  const f = r.fresh; if (!f) return '';
+  const cmd = (s) => `<code>${esc(s)}</code>`;
+  if (f.state === 'passed') return `<p class="fresh ok"><strong>Fresh checker: passed this exact text</strong>${f.checkedAt ? ` on ${day(f.checkedAt)}` : ''}.${f.notes?.length ? ` Notes: ${esc(f.notes.join(' '))}` : ''}</p>`;
+  if (f.state === 'passed-saved') return `<p class="fresh ok"><strong>Fresh checker: passed the saved copy</strong>${f.checkedAt ? ` on ${day(f.checkedAt)}` : ''}. This run's text is different, because a live lookup changed it. Send the saved copy (${cmd(`support-desk cleared ${f.name}`)}) or check this one again.</p>`;
+  if (f.state === 'blocked') return `<p class="fresh bad"><strong>Fresh checker: blocked.</strong> ${esc(f.why)}</p>`;
+  if (f.state === 'stale') return `<p class="fresh bad"><strong>Fresh checker: not this version.</strong> ${esc(f.why)}</p>`;
+  return `<p class="fresh"><strong>Fresh checker: not run yet.</strong> Run ${cmd(`support-desk ticket --id ${f.name} --save-reply`)}, then the reply-checker subagent.</p>`;
+}
+
 function renderResult(r) {
   const h = [];
   h.push(`<div class="row" style="margin-top:0">${badge(r)}</div>`);
@@ -198,10 +222,11 @@ function renderResult(r) {
   h.push('<h3>What I checked</h3>');
   if (r.evidence) {
     h.push(`<div class="quote">${esc(r.evidence.summary)}<span class="meta">${esc((r.evidence.calls || []).join(' · ') || 'no calls')}${state.mock && r.evidence.kind !== 'docs-search' ? ' · sample account data' : ''}</span></div>`);
-    for (const s of r.evidence.searched || []) h.push(`<p class="note">Searched the docs for "${esc(s.query)}". Top results: ${s.results.slice(0, 3).map(x => `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title || x.url)}</a>`).join(', ') || 'none'}. None answers the question.</p>`);
+    for (const s of r.evidence.searched || []) h.push(`<p class="note">Searched the docs for "${esc(s.query)}". Top results: ${s.results.slice(0, 3).map(x => `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title || x.url)}</a>`).join(', ') || 'none'}. The desk has no checked answer in them, so open them before you answer.</p>`);
   }
   for (const c of r.check.citations || []) {
-    h.push(`<div class="quote">"${esc(c.quote)}"<span class="meta">Step ${c.step}: ${c.found ? 'found on' : '<strong>not found</strong> on'} <a href="${esc(c.url)}" target="_blank" rel="noopener">${esc(c.url.replace('https://help.blotato.com', 'help.blotato.com'))}</a>${c.fetchedAt ? `, fetched ${day(c.fetchedAt)}` : ''}</span></div>`);
+    const q = /^["“]/.test(c.quote) ? c.quote : `"${c.quote}"`;
+    h.push(`<div class="quote">${esc(q.replace(/`/g, ''))}<span class="meta">Step ${c.step}: ${c.found ? 'found on' : '<strong>not found</strong> on'} <a href="${esc(c.url)}" target="_blank" rel="noopener">${esc(c.url.replace('https://help.blotato.com', 'help.blotato.com'))}</a>${c.fetchedAt ? `, fetched ${day(c.fetchedAt)}` : ''}</span></div>`);
   }
   if (!r.evidence && !(r.check.citations || []).length) h.push('<p class="note">Nothing.</p>');
 
@@ -209,6 +234,7 @@ function renderResult(r) {
     h.push('<h3>Reply</h3>');
     if (!r.check.pass) h.push(`<div class="problems"><strong>Do not send. The checker blocked it:</strong><ul>${r.check.problems.map(p => `<li>${esc(p)}</li>`).join('')}</ul></div>`);
     h.push(`<pre class="reply${r.check.pass ? '' : ' blocked'}" id="reply-text">${esc(r.reply)}</pre>`);
+    h.push(freshLine(r));
     h.push(`<div class="row"><button class="btn" id="copy" ${r.check.pass ? '' : 'disabled'}>${r.check.pass ? 'Copy reply' : 'Blocked'}</button><span class="note" id="copied"></span></div>`);
   }
   if (r.refused) h.push(`<h3>Reply</h3><div class="problems">${esc(r.refused)}</div>`);
@@ -260,7 +286,7 @@ function answer(k) {
   game.answered = true; if (c.right) game.score++;
   $('#game').querySelectorAll('.choice').forEach((b, idx) => { b.disabled = true; if (d.choices[idx].right) b.classList.add('right'); else if (idx === k) b.classList.add('wrong'); });
   $('#outcome').innerHTML = `<div class="outcome ${c.right ? 'right' : 'wrong'}"><strong>${c.right ? 'Right first check.' : 'Not quite.'}</strong> ${esc(c.consequence)}
-    <div class="quote" style="margin-top:8px">"${esc(d.source.quote)}"<span class="meta"><a href="${esc(d.source.url)}" target="_blank" rel="noopener">${esc(d.source.url.replace('https://help.blotato.com', 'help.blotato.com'))}</a></span></div>
+    <div class="quote" style="margin-top:8px">${esc(/^["“]/.test(d.source.quote) ? d.source.quote : `"${d.source.quote}"`)}<span class="meta"><a href="${esc(d.source.url)}" target="_blank" rel="noopener">${esc(d.source.url.replace('https://help.blotato.com', 'help.blotato.com'))}</a></span></div>
     <div class="row"><button class="btn" id="next">${game.i + 1 < game.data.decisions.length ? 'Next customer' : 'See my score'}</button><span class="note keyhint">(Enter)</span></div></div>`;
   $('#game').querySelectorAll('.progress span')[game.i].classList.add('done');
   $('#next').onclick = () => { game.i++; game.answered = false; renderGame(); $('#game .choice, #again')?.focus(); };

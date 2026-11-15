@@ -5,7 +5,7 @@ import { loadKey } from './env.mjs';
 import { createLogger, newRunId } from './log.mjs';
 import { createClient, listPosts } from './api.mjs';
 import { createDocs } from './docs.mjs';
-import { diagnose, renderEscalation, renderDocEdit } from './diagnose.mjs';
+import { diagnose, renderEscalation, renderDocEdit, nice } from './diagnose.mjs';
 import { checkReply } from './checkreply.mjs';
 import { readFailures, recordFailure, ensureFailuresFile, unknownId } from './failures.mjs';
 import { explain } from './explain.mjs';
@@ -87,7 +87,7 @@ export function renderShiftHandoff(results, { mock, run } = {}) {
     `Written ${new Date().toUTCString()} (${run || 'run'}).${mock ? ' Account data is sample data, no account connected.' : ''}`,
     '',
     `## Tickets (${results.length})`,
-    ...results.map(r => `- ${line(r)}: ${r.entry?.title || 'no playbook entry'}. ${r.status}.`),
+    ...results.map(r => `- ${line(r)}: ${(r.entry?.title || 'no playbook entry').replace(/[.?!]$/, '')}. Status: ${r.status}.`),
     '',
     `## Ready to send, checked (${ready.length})`,
     ...(ready.length ? ready.map(r => `- ${line(r)}. Next step for the customer: ${r.next}`) : ['- none']),
@@ -118,9 +118,9 @@ export async function morning(desk, { now = Date.now() } = {}) {
     `# Morning note: what broke overnight (${new Date(now).toDateString()})`,
     '',
     desk.mock ? '(Sample data, no account connected.)' : '',
-    error ? `I could not read the post list: ${error}` : failed.length ? `${failed.length} post(s) failed in the last 24 hours.` : 'Nothing failed in the last 24 hours.',
+    error ? `I could not read the post list: ${error}` : failed.length ? `${failed.length} post${failed.length === 1 ? '' : 's'} failed in the last 24 hours.` : 'Nothing failed in the last 24 hours.',
     '',
-    ...failed.map(f => { const x = explain(f.state?.errorMessage); return `- ${f.platform}, ${new Date(f.postTime).toUTCString()}: ${x.title}.\n  Exact error: "${x.raw}"\n  Next: ${x.next}\n  Source: ${x.source}`; }),
+    ...failed.map(f => { const x = explain(f.state?.errorMessage); return `- ${nice(f.platform)}, ${new Date(f.postTime).toUTCString().replace(' GMT', ' UTC')}: ${x.title}.\n  Exact error: "${x.raw}"\n  Next: ${x.next}\n  Source: ${x.source}`; }),
     '',
     `Problems on file: ${readFailures(desk.paths.failures).length}. Last shift: HANDOFF.md.`,
     '',
