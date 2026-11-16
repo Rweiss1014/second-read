@@ -135,7 +135,7 @@ The result of every ticket has a `reader` field: backend, model, candidates, the
 
 ## The composer: an answer from any help page, every sentence proven, then a second read (off by default)
 
-The saved entries quote only 36 of Blotato's 278 help pages, so for most questions no saved reply holds the answer.
+The saved entries quote only 39 of Blotato's 278 help pages, so for most questions no saved reply holds the answer.
 The composer writes one from the pages themselves, and the script proves every step before anyone sees it.
 
 It runs only when the guards and the hand-over signals did not take the message, and no saved entry answered it (the matcher or the reader).
@@ -146,7 +146,7 @@ It runs only when the guards and the hand-over signals did not take the message,
 4. **The second read** (a fresh call, another prompt, no memory of the first) sees the message, the assembled reply and the full help-page sections cited, and tries to break it. Any real objection hands the message to a person.
 5. The greeting, the opening line, the fixed lines that keep the 3-to-5-step shape, the next step, the "Still open:" line, the help-page links and the sign-off are the script's. Only the step sentences are the model's.
 
-A composed reply is never one of the saved, pre-checked replies. Its result says `path: "composed"`, carries every step with its sentences and pages, the script checks and the second reader's verdict, and its state is `checked-live` (the second read passed it just now), never the fresh checker's `passed`.
+A composed reply is never one of the saved, pre-checked replies. Its result says `path: "composed"`, carries every step with its sentences and pages, the script checks and the second reader's verdict, and its state is `checked-live` (the second read passed these exact words, just now or in an earlier run of the same message), never the fresh checker's `passed`.
 Two reason codes are new: `compose-unverified` and `second-read-objected`.
 
 | Variable | Values | Default |
@@ -178,7 +178,7 @@ Composed answers: 37 of 40 right. Saved answers: 5 of 17 right, most of the rest
 With writing over saved entries on, right answers on the held-out sets went from 42 to 56, and wrong ones from 3 to 2.
 These sets have now been used several times, so treat the numbers as a direction, not a final score.
 
-A written reply takes three model calls, about 12 to 16 seconds. The page says which one it is waiting on. A message seen before reuses its saved verdicts and answers in about 3 seconds.
+A written reply takes three model calls, about 12 to 20 seconds. The page says which one it is waiting on. A message seen before reuses its saved verdicts and answers in about 3 seconds.
 
 The calls go through the same backends and the same kind of verdict cache as the reader: no tools, and files named by a hash of the prompt version, the model, the message and the passages. A saved file never holds the message itself, but it does hold the model's own words (what it found asked, its steps, its search queries), which can paraphrase the message. Keep the cache folder as private as `desk/`.
 

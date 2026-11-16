@@ -43,7 +43,7 @@ function printResult(r) {
     if (r.path === 'composed') {
       // A composed reply never has a saved fresh-checker pass; say what checked it instead (src/composer.mjs).
       const sr = r.composed?.secondRead;
-      console.log(`Composed, not a saved reply. ${r.fresh.state === 'checked-live' ? `Second reader (${sr?.model}): passed it just now.` : r.fresh.state === 'script-checked' ? 'Second read: off.' : 'Blocked.'} Fresh checker: none for composed text.`);
+      console.log(`Composed, not a saved reply. ${r.fresh.state === 'checked-live' ? `Second reader (${sr?.model}): passed it${sr?.cached ? ' (its verdict on these exact words, from an earlier run)' : ' just now'}.` : r.fresh.state === 'script-checked' ? 'Second read: off.' : 'Blocked.'} Fresh checker: none for composed text.`);
       for (const [i, s] of (r.composed?.steps || []).entries()) for (const q of s.quotes) console.log(`  step ${i + 1} rests on ${q.id}: "${q.sentence}" (${q.url})`);
     } else console.log(`Fresh checker: ${words[r.fresh.state]}`);
   }

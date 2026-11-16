@@ -328,7 +328,7 @@ export function createComposer({ router, env = process.env, call, cacheDir, page
   // Who wants to hear about model calls as they happen (the page server, to say what the desk is doing while it
   // waits). Reporting only: a listener that throws changes nothing about the answer.
   const hooks = { onModel: null };
-  const tell = (ev) => { try { hooks.onModel?.(ev); } catch { /* reporting only */ } };
+  const tell = (ev) => { try { const p = hooks.onModel?.(ev); if (p && typeof p.catch === 'function') p.catch(() => {}); } catch { /* reporting only */ } };
 
   async function ask(kind, key, args, version) {
     const hit = cache.get(key);
@@ -478,7 +478,7 @@ export function createComposer({ router, env = process.env, call, cacheDir, page
     const state = cfg.secondRead ? 'checked-live' : 'script-checked';
     return {
       ...r, decision: 'answer', path: 'composed', entry: COMPOSED_ENTRY, holding: undefined, signals: [], why: null, whyDetail: null, silent: undefined, questions: [],
-      reason: `No saved entry answers it. Composed ${d.steps.length} step(s) from ${assembled.links.length} help page(s); every step quotes its sentence(s), the script's checks passed${cfg.secondRead ? ', and the second reader passed it just now' : ''}.`,
+      reason: `No saved entry answers it. Composed ${d.steps.length} step(s) from ${assembled.links.length} help page(s); every step quotes its sentence(s), the script's checks passed${cfg.secondRead ? `, and the second reader passed it${info.secondReadResult?.cached ? ' (its verdict on these exact words, from an earlier run)' : ' just now'}` : ''}.`,
       composed: { steps: d.steps, links: assembled.links },
       composer: { ...info, state },
     };
