@@ -86,6 +86,19 @@ The key goes only into the request header. It is never printed, logged or saved,
    The page and the shift handoff say "ready to send" only then. Before that, they say the script check passed and the fresh check has not run yet.
 7. If no entry is a clear match, the desk does not write a reply. It hands the message to a person with its top three candidates, and proposes a doc edit.
 
+## Answers that come from the customer's own account
+
+Some questions are about the customer's own account, not about how Blotato works.
+"Did my posts go out?" and "Which accounts do I have connected?" are two of them.
+
+For these, the desk reads the answer straight from Blotato, read-only:
+- **Did my posts go out?** It lists the last 7 days of posts. It says how many went out and how many failed, gives the newest one with its link, and gives the error text of the newest failure. If nothing went out in 7 days, it looks back 60 days, so "none" is never the whole answer. It also says what is still scheduled.
+- **Which accounts are connected?** It names each connected account by platform. Ask about one platform ("is my Pinterest connected?") and it says yes or no plainly.
+
+The words around the facts were passed once by the fresh checker, as a template.
+The facts are filled in from the account each time, so no model writes them and they cannot drift.
+The page says both: "A second checker read the words of this reply" and "The facts in step 1 come straight from the customer's own account."
+
 ## The reader: a model that picks an entry, or says none (off by default)
 
 Word matching misses a question asked in new words. The reader puts a language model where it helps, and keeps it from writing anything.
@@ -192,6 +205,10 @@ I built this with Claude Code. Claude Code ran these read-only calls against my 
 | `GET /v2/posts?status=failed` for the last 24 hours | 200 |
 
 Claude Code also ran tickets T10 and T11 and the morning note end to end against the real API, the same day.
+
+On Nov 16, 2026, the two account answers ran against my real account, read-only.
+"Which accounts do I have connected?" named all 7 connected accounts.
+"Did my posts go out?" said none went out in the last 7 days, then gave my newest post, from earlier in the month, with its link.
 
 Not proven yet:
 - Anything with a real customer's ticket. The 12 tickets are made up.
