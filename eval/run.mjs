@@ -9,8 +9,8 @@
 //
 // The reader (src/reader.mjs), off by default:
 //   --reader claude-cli|anthropic     pick-or-abstain with a model (claude-cli: the signed-in Claude Code CLI)
-//   --model haiku|sonnet|<full id>    the reader's model (default haiku)
-//   --refuter on|new [--refuter-model m]  the refuter on each verified pick (on), or only on picks the matcher
+//   --model haiku|sonnet|<full id>    the reader's model (default sonnet, the chosen one)
+//   --refuter off|on|new [--refuter-model m]   (default new)  the refuter on each verified pick (on), or only on picks the matcher
 //                                     would not have made itself (new)
 //   --prompt pick-r2                  which pick prompt (default: PICK_VERSION in src/reader.mjs)
 //   --k 5                             candidates from each script retriever (matcher, BM25)
@@ -42,8 +42,8 @@ const slice = Number(opt('slice', 0));
 const concurrency = Math.max(1, Number(opt('concurrency', 5)));
 const readerEnv = (set) => readerBackend === 'off' ? {} : {
   SUPPORT_DESK_READER: readerBackend,
-  SUPPORT_DESK_READER_MODEL: opt('model', 'haiku'),
-  SUPPORT_DESK_REFUTER: opt('refuter', 'off'),
+  SUPPORT_DESK_READER_MODEL: opt('model', 'sonnet'),
+  SUPPORT_DESK_REFUTER: opt('refuter', 'new'),
   ...(opt('refuter-model') ? { SUPPORT_DESK_REFUTER_MODEL: opt('refuter-model') } : {}),
   SUPPORT_DESK_READER_K: opt('k', '5'),
   ...(opt('prompt') ? { SUPPORT_DESK_READER_PROMPT: opt('prompt') } : {}),

@@ -1,0 +1,21 @@
+{
+ "kind": "refute",
+ "version": "refute-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9295,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "not-answered",
+    "about": "The customer asked directly whether 1080x1920 PNGs are too tall and whether to shrink the long side to 1080, but the reply never states a yes or no on either question and never says whether these images will be accepted as they are."
+   },
+   {
+    "kind": "wrong-for-customer",
+    "about": "The reply states as fact that the image limit is area-based and that Blotato converts PNGs before submission, with no support shown; if either is wrong, the customer may skip the resize that would fix the 'post info is empty or incorrect' error."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:57:56.548Z"
+}

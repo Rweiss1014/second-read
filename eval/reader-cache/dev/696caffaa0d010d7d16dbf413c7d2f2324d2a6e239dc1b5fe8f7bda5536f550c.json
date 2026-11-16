@@ -1,0 +1,17 @@
+{
+ "kind": "refute",
+ "version": "refute-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 10324,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "wrong-for-customer",
+    "about": "The customer said they have already been going back and forth in the in-app chat for two days, but the reply tells them to open the in-app chat and describe what they are trying to do, which asks them to repeat what they already did and does not acknowledge the stalled support or name the specific problem still unresolved."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:56:04.532Z"
+}

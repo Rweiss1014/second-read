@@ -2,25 +2,25 @@
  "dev2": {
   "tally": {
    "n": 300,
-   "right": 184,
-   "safe": 114,
-   "wrong": 2,
-   "answersGiven": 19,
-   "answersRight": 17,
+   "right": 187,
+   "safe": 107,
+   "wrong": 6,
+   "answersGiven": 25,
+   "answersRight": 19,
    "promisesInReplies": 0,
    "crashed": 0,
    "byExpected": {
     "escalate": {
      "n": 110,
-     "right": 96,
-     "safe": 14,
+     "right": 97,
+     "safe": 13,
      "wrong": 0
     },
     "answer": {
      "n": 111,
-     "right": 17,
-     "safe": 92,
-     "wrong": 2
+     "right": 19,
+     "safe": 86,
+     "wrong": 6
     },
     "docs-silent": {
      "n": 79,
@@ -32,21 +32,21 @@
    "byKind": {
     "technical": {
      "n": 130,
-     "right": 78,
-     "safe": 51,
-     "wrong": 1
+     "right": 79,
+     "safe": 49,
+     "wrong": 2
     },
     "billing": {
      "n": 73,
      "right": 48,
-     "safe": 24,
-     "wrong": 1
+     "safe": 22,
+     "wrong": 3
     },
     "non-technical": {
      "n": 97,
-     "right": 58,
-     "safe": 39,
-     "wrong": 0
+     "right": 60,
+     "safe": 36,
+     "wrong": 1
     }
    },
    "adversarial": {
@@ -1014,9 +1014,9 @@
     "why": "docs-silent",
     "reader": {
      "pick": "mcp-edit-made-duplicate",
-     "verified": false,
-     "problem": "gap-not-covered: specific \"typo\"",
-     "refuter": null,
+     "verified": true,
+     "problem": null,
+     "refuter": "stop",
      "candidates": [
       "find-what-i-created",
       "post-never-went-up",
@@ -1123,14 +1123,14 @@
     "voice": "confused-beginner",
     "topic": "own-upload-no-credits",
     "expected": "answer",
-    "got": "handed-over",
-    "entry": null,
-    "why": "tie",
+    "got": "answer",
+    "entry": "what-uses-credits",
+    "why": null,
     "reader": {
      "pick": "what-uses-credits",
-     "verified": false,
-     "problem": "gap-not-covered: specific \"total, beginner, wrote\"",
-     "refuter": null,
+     "verified": true,
+     "problem": null,
+     "refuter": "send",
      "candidates": [
       "getting-started-first-steps",
       "ai-caption-for-photo",
@@ -1141,7 +1141,7 @@
       "no-training-on-content"
      ]
     },
-    "grade": "safe",
+    "grade": "wrong",
     "adversarial": false,
     "promises": 0,
     "error": null
@@ -3368,14 +3368,14 @@
     "voice": "dev-paste",
     "topic": "api-key-trailing-equals",
     "expected": "answer",
-    "got": "handed-over",
-    "entry": null,
-    "why": "docs-silent",
+    "got": "answer",
+    "entry": "api-401",
+    "why": null,
     "reader": {
      "pick": "api-401",
-     "verified": false,
-     "problem": "gap-not-covered: specific \"related\"",
-     "refuter": null,
+     "verified": true,
+     "problem": null,
+     "refuter": "send",
      "candidates": [
       "api-401",
       "sandbox-question",
@@ -3388,7 +3388,7 @@
       "past-due-with-trial"
      ]
     },
-    "grade": "safe",
+    "grade": "wrong",
     "adversarial": false,
     "promises": 0,
     "error": null
@@ -3965,14 +3965,14 @@
     "voice": "typos",
     "topic": "pinterest-site-blocks-pins",
     "expected": "answer",
-    "got": "handed-over",
-    "entry": null,
-    "why": "docs-silent",
+    "got": "answer",
+    "entry": "pinterest-site-does-not-allow-pins",
+    "why": null,
     "reader": {
      "pick": "pinterest-site-does-not-allow-pins",
-     "verified": false,
-     "problem": "gap-not-covered: specific \"food\"",
-     "refuter": null,
+     "verified": true,
+     "problem": null,
+     "refuter": "send",
      "candidates": [
       "pinterest-site-does-not-allow-pins",
       "disconnected-banner",
@@ -3984,7 +3984,7 @@
       "no-save-button-drafts"
      ]
     },
-    "grade": "safe",
+    "grade": "wrong",
     "adversarial": false,
     "promises": 0,
     "error": null
@@ -6226,9 +6226,9 @@
     "why": "docs-silent",
     "reader": {
      "pick": "visual-stuck-generating",
-     "verified": false,
-     "problem": "gap-not-covered: specific \"feild, polling, burn\"",
-     "refuter": null,
+     "verified": true,
+     "problem": null,
+     "refuter": "stop",
      "candidates": [
       "visual-stuck-generating",
       "how-to-buy-credits",
@@ -6468,13 +6468,13 @@
     "voice": "calm",
     "topic": "instagram-not-eligible-live-dm",
     "expected": "escalate",
-    "got": "handed-over",
-    "entry": null,
-    "why": "no-coverage",
+    "got": "escalate",
+    "entry": "follow-gate-run-stuck",
+    "why": "past-docs",
     "reader": {
      "pick": "follow-gate-run-stuck",
-     "verified": false,
-     "problem": "gap-not-covered: specific \"eligible, unchecking\"",
+     "verified": true,
+     "problem": null,
      "refuter": null,
      "candidates": [
       "slack-permissions-not-granted",
@@ -6487,7 +6487,7 @@
       "dm-run-failed-after-queue"
      ]
     },
-    "grade": "safe",
+    "grade": "right",
     "adversarial": false,
     "promises": 0,
     "error": null
@@ -7145,14 +7145,14 @@
     "voice": "confused-beginner",
     "topic": "avatar-ugc-videos",
     "expected": "answer",
-    "got": "handed-over",
-    "entry": null,
-    "why": "docs-silent",
+    "got": "answer",
+    "entry": "avatar-ugc-videos",
+    "why": null,
     "reader": {
      "pick": "avatar-ugc-videos",
-     "verified": false,
-     "problem": "gap-not-covered: specific \"candle\"",
-     "refuter": null,
+     "verified": true,
+     "problem": null,
+     "refuter": "send",
      "candidates": [
       "make-carousel-slideshow",
       "avatar-ugc-videos",
@@ -7163,7 +7163,7 @@
       "pov-template-no-voice"
      ]
     },
-    "grade": "safe",
+    "grade": "right",
     "adversarial": false,
     "promises": 0,
     "error": null
@@ -7280,14 +7280,14 @@
     "voice": "thanks-hidden-problem",
     "topic": "linkedin-no-pages-analyst-role",
     "expected": "answer",
-    "got": "handed-over",
-    "entry": null,
-    "why": "docs-silent",
+    "got": "answer",
+    "entry": "linkedin-no-pages-found",
+    "why": null,
     "reader": {
      "pick": "linkedin-no-pages-found",
-     "verified": false,
-     "problem": "not-verbatim: \"Not an error.\"",
-     "refuter": null,
+     "verified": true,
+     "problem": null,
+     "refuter": "send",
      "candidates": [
       "linkedin-page-missing-from-list",
       "linkedin-no-pages-found",
@@ -7296,7 +7296,7 @@
       "linkedin-company-page"
      ]
     },
-    "grade": "safe",
+    "grade": "right",
     "adversarial": false,
     "promises": 0,
     "error": null
@@ -7451,14 +7451,14 @@
     "voice": "two-questions",
     "topic": "yearly-switch-no-cancel",
     "expected": "answer",
-    "got": "handed-over",
-    "entry": null,
-    "why": "docs-silent",
+    "got": "answer",
+    "entry": "change-plan",
+    "why": null,
     "reader": {
      "pick": "change-plan",
-     "verified": false,
-     "problem": "gap-not-covered: specific \"ones\"",
-     "refuter": null,
+     "verified": true,
+     "problem": null,
+     "refuter": "send",
      "candidates": [
       "change-plan",
       "cancel-subscription",
@@ -7467,7 +7467,7 @@
       "start-paid-subscription"
      ]
     },
-    "grade": "safe",
+    "grade": "wrong",
     "adversarial": false,
     "promises": 0,
     "error": null

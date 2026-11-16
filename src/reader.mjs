@@ -29,7 +29,7 @@ import { stripDeskInstructions } from './signals.mjs';
 import { findPromises } from './checkreply.mjs';
 
 // The pick prompt in use by default; every version stays below so a cached run can be reproduced.
-export const PICK_VERSION = 'pick-r1';
+export const PICK_VERSION = 'pick-r2';
 export const REFUTE_VERSION = 'refute-r2';
 export const BACKENDS = ['off', 'claude-cli', 'anthropic'];
 // Model names: the short names the CLI takes, and the full ids both backends send. The cache keys on the full id.
@@ -169,8 +169,10 @@ const normWs = (s) => String(s || '').replace(/[‘’]/g, "'").replace(/[“”
 // normalized, a trailing full stop ignored), and long enough to say something (four words or more).
 export function sentenceIn(entry, sentence) {
   const s = normWs(sentence).replace(/^\d+\.\s+/, '').replace(/[.!?]+$/, '');
-  if (rawWords(s).length < 4) return false;
-  return entryLines(entry).some(l => normWs(l).includes(s));
+  if (!rawWords(s).length) return false;
+  // Four words or more anywhere in a line; a shorter one only as a whole sentence of a line ("Not an error.").
+  if (rawWords(s).length >= 4) return entryLines(entry).some(l => normWs(l).includes(s));
+  return entryLines(entry).some(l => normWs(l).split(/(?<=[.!?])\s+/).some(x => x.replace(/[.!?]+$/, '') === s));
 }
 // A soft gap's words must each be named by a point the reader covered: "renew" in "does it auto-renew".
 function wordNamed(w, pointWords) {
@@ -187,6 +189,7 @@ export function gapClosed(gap, points) {
   return words.every(w => wordNamed(w, pw));
 }
 
+export const ADVISORY_RULES = new Set(['coverage:word', 'coverage:short']);
 // Check one pick. Returns { ok, problem, points } where points carry ok flags.
 export function verifyPick(verdict, candidates, review) {
   const pick = String(verdict?.pick || '').trim();
@@ -201,7 +204,11 @@ export function verifyPick(verdict, candidates, review) {
   if (off) return { ok: false, problem: `not-verbatim: "${off.sentence.slice(0, 120)}"`, points };
   const hard = (review?.gaps || []).find(g => g.hard);
   if (hard) return { ok: false, problem: `hard-gap: ${hard.kind} "${hard.term}"`, points };
-  const soft = (review?.gaps || []).find(g => !g.hard && !gapClosed(g, points));
+  // The two rare-word rules (coverage:word, coverage:short) were built to keep a word matcher from answering a
+  // message's background. The reader lists the points itself, and on the dev sets those rules blocked only
+  // background words ("my candle shop", "my food blog", "total beginner"). For a reader pick they are advisory:
+  // recorded in reader.gaps for the person, not blocking. Capitalized names and every hard gap still block.
+  const soft = (review?.gaps || []).find(g => !g.hard && !ADVISORY_RULES.has(g.rule) && !gapClosed(g, points));
   if (soft) return { ok: false, problem: `gap-not-covered: ${soft.kind} "${soft.term}"`, points };
   return { ok: true, problem: null, points };
 }
@@ -291,15 +298,17 @@ function parseJson(text) {
 
 export function readerConfig(env = process.env) {
   const backend = env.SUPPORT_DESK_READER || 'off';
-  const model = fullModel(env.SUPPORT_DESK_READER_MODEL || 'haiku');
+  // The defaults are the configuration chosen on the dev sets (READER-REPORT.md): sonnet, prompt r2, the refuter
+  // on the picks the matcher would not make itself. They apply only once a backend is turned on.
+  const model = fullModel(env.SUPPORT_DESK_READER_MODEL || 'sonnet');
   // on: every verified pick. new: only a pick the matcher would not have answered with itself (when the two
   // agree, the answer is the one the desk gives with the reader off). off: never.
-  const rv = String(env.SUPPORT_DESK_REFUTER || 'off').toLowerCase();
+  const rv = String(env.SUPPORT_DESK_REFUTER || 'new').toLowerCase();
   const refuter = rv === 'new' ? 'new' : /^(?:1|on|true|yes)$/.test(rv);
   return {
     backend, model, refuter,
     prompt: PICK_PROMPTS[env.SUPPORT_DESK_READER_PROMPT] ? env.SUPPORT_DESK_READER_PROMPT : PICK_VERSION,
-    refuterModel: fullModel(env.SUPPORT_DESK_REFUTER_MODEL || env.SUPPORT_DESK_READER_MODEL || 'haiku'),
+    refuterModel: fullModel(env.SUPPORT_DESK_REFUTER_MODEL || env.SUPPORT_DESK_READER_MODEL || 'sonnet'),
     k: Number(env.SUPPORT_DESK_READER_K || 5),
     timeoutMs: Number(env.SUPPORT_DESK_READER_TIMEOUT_MS || 120000),
     cacheDir: env.SUPPORT_DESK_READER_CACHE || null,

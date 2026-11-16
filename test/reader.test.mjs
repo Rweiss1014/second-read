@@ -42,7 +42,7 @@ test('the matcher alone hands this message over; a verified pick answers it with
   const r0 = routeMessage(TRIAL);
   assert.equal(r0.decision, 'abstain');
   const f = fake(pickOf(ENTRY));
-  const rd = createReader({ router: ROUTER, call: f.call, cacheDir: null });
+  const rd = createReader({ router: ROUTER, call: f.call, cacheDir: null, refuter: false });
   const r = await rd.decide(TRIAL, r0);
   assert.equal(r.decision, 'answer');
   assert.equal(r.entry.id, ENTRY);
@@ -104,17 +104,19 @@ test('verbatim means the entry\'s own words: whitespace and curly quotes may dif
   assert.ok(sentenceIn(e, 'The free  trial includes 60 AI credits'));
   assert.ok(sentenceIn(e, 'Creator includes 5,000 credits per month, and Agency includes 28,000.'));
   assert.ok(!sentenceIn(e, 'The free trial includes 70 AI credits.'));
-  assert.ok(!sentenceIn(e, 'free trial'), 'too short to say anything');
+  assert.ok(!sentenceIn(e, 'free trial'), 'too short to say anything, and not a whole sentence');
 });
 
 test('a hard gap cannot be closed by any sentence; a soft gap needs a covered point that names it', () => {
   const cands = [ENTRY_BY_ID.get(ENTRY)];
   const hard = { gaps: [{ kind: 'platform', term: 'pinterest', hard: true }] };
   assert.match(verifyPick(pickOf(ENTRY), cands, hard).problem, /^hard-gap/);
-  const soft = { gaps: [{ kind: 'specific', term: 'allotment', hard: false }] };
+  const soft = { gaps: [{ kind: 'name', term: 'Allotment', hard: false, rule: 'coverage:name' }] };
   assert.match(verifyPick(pickOf(ENTRY), cands, soft).problem, /^gap-not-covered/);
   assert.equal(verifyPick(pickOf(ENTRY, SENTENCE, 'the trial allotment of AI credits'), cands, soft).ok, true);
   assert.ok(gapClosed({ term: 'true' }, []), 'a yes-or-no word names no topic');
+  // The rare-word rules are advisory for a reader pick: recorded, not blocking.
+  assert.equal(verifyPick(pickOf(ENTRY), cands, { gaps: [{ kind: 'specific', term: 'lemonade', hard: false, rule: 'coverage:word' }] }).ok, true);
 });
 
 test('the picked entry\'s own hand-over signals still apply: a holding reply, not the answer', async () => {
@@ -156,6 +158,22 @@ test('the refuter can stop a verified pick (reader-refuted), and lets a clean on
   assert.equal(ok.reader.refuter.verdict, 'send');
 });
 
+test('refuter "new" (the default once a reader is on) checks only the picks the matcher would not make', async () => {
+  assert.equal(readerConfig({ SUPPORT_DESK_READER: 'claude-cli' }).refuter, 'new');
+  assert.equal(readerConfig({ SUPPORT_DESK_READER: 'claude-cli' }).model, 'claude-sonnet-5-5');
+  const both = () => fake((a) => a.system.startsWith('You check') ? { objections: [], verdict: 'send' } : pickOf(ENTRY));
+  // The matcher abstained, so this pick is new: the refuter is asked.
+  const n = both();
+  await createReader({ router: ROUTER, call: n.call, cacheDir: null, refuter: 'new' }).decide(TRIAL, routeMessage(TRIAL));
+  assert.equal(n.calls.length, 2);
+  // The matcher would have answered with the same entry: the answer is what the desk gives with the reader off, so no refuter call.
+  const a = both();
+  const r = await createReader({ router: ROUTER, call: a.call, cacheDir: null, refuter: 'new' }).decide(TRIAL, { decision: 'answer', entry: ENTRY_BY_ID.get(ENTRY), why: null, candidates: [] });
+  assert.equal(a.calls.length, 1);
+  assert.equal(r.decision, 'answer');
+  assert.equal(r.reader.refuter, null);
+});
+
 test('fail closed: an error, a timeout or an answer in the wrong shape leaves route()\'s decision exactly as it was', async () => {
   const r0 = routeMessage(TRIAL);
   for (const answer of [new Error('spawn claude ENOENT'), new Error('timed out after 120000 ms'), { hello: 'world' }, { pick: ENTRY }]) {
@@ -180,9 +198,9 @@ test('fail closed: an error, a timeout or an answer in the wrong shape leaves ro
 test('the verdict cache: a second run makes no call and gives the same answer; it holds no customer text', async () => {
   const dir = tmp();
   const f = fake(pickOf(ENTRY));
-  const one = await createReader({ router: ROUTER, call: f.call, cacheDir: dir }).decide(TRIAL, routeMessage(TRIAL));
+  const one = await createReader({ router: ROUTER, call: f.call, cacheDir: dir, refuter: false }).decide(TRIAL, routeMessage(TRIAL));
   const g = fake(new Error('must not be called'));
-  const two = await createReader({ router: ROUTER, call: g.call, cacheDir: dir }).decide(TRIAL, routeMessage(TRIAL));
+  const two = await createReader({ router: ROUTER, call: g.call, cacheDir: dir, refuter: false }).decide(TRIAL, routeMessage(TRIAL));
   assert.equal(g.calls.length, 0);
   assert.equal(two.reader.cached, true);
   assert.equal(two.entry.id, one.entry.id);
@@ -192,6 +210,6 @@ test('the verdict cache: a second run makes no call and gives the same answer; i
   assert.ok(!fs.readFileSync(path.join(dir, files[0]), 'utf8').includes('On the free trial, what number'));
   // A different model is a different key.
   const h = fake(pickOf(ENTRY));
-  await createReader({ router: ROUTER, call: h.call, cacheDir: dir, model: 'claude-sonnet-5-5' }).decide(TRIAL, routeMessage(TRIAL));
+  await createReader({ router: ROUTER, call: h.call, cacheDir: dir, model: 'claude-haiku-5-5', refuter: false }).decide(TRIAL, routeMessage(TRIAL));
   assert.equal(h.calls.length, 1);
 });

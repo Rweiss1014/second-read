@@ -1,0 +1,21 @@
+{
+ "kind": "refute",
+ "version": "refute-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3930,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "not-answered",
+    "about": "The customer asked whether the video is dead after 3 hours on \"exporting\" with no error field, and the reply never says whether that is normal or stuck, or what to do next."
+   },
+   {
+    "kind": "wrong-for-customer",
+    "about": "The reply tells them to look up the status and error, and to open the visual. They already polled the status endpoint every 20 seconds and reported no error field. It also talks about \"generating\" and a visual, not the \"exporting\" video they described."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:52:59.067Z"
+}

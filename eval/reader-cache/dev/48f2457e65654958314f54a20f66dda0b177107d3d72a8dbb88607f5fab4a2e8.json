@@ -1,0 +1,17 @@
+{
+ "kind": "refute",
+ "version": "refute-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8065,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "wrong-for-customer",
+    "about": "The customer sent the post through POST /v2/posts with target.mediaType set to story, but the reply tells them to pick Story from a media type dropdown when scheduling, which is a UI step they already took in effect through the API call, and it never addresses the API request."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:56:02.172Z"
+}

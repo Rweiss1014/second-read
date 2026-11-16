@@ -1,0 +1,25 @@
+{
+ "kind": "refute",
+ "version": "refute-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7689,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "wrong-for-customer",
+    "about": "The reply opens with \"Yes\" to \"Is my connection broken?\", which contradicts its own step 5 saying an empty list means the connection works, so the customer gets a misleading answer."
+   },
+   {
+    "kind": "wrong-for-customer",
+    "about": "The customer already ran blotato_list_accounts in Claude, which shows the connector is installed, yet the reply tells them to add the custom connector and confirm their subscription as if setup had not been done."
+   },
+   {
+    "kind": "not-answered",
+    "about": "The reply never addresses the actual cause of an empty list, which is that no social accounts are connected to Blotato, and does not say how to connect one."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:58:14.430Z"
+}

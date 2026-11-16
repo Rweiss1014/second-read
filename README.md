@@ -103,9 +103,10 @@ Turn it on with environment variables (or the same flags on `eval/run.mjs`):
 | Variable | Values | Default |
 |---|---|---|
 | `SUPPORT_DESK_READER` | `off`, `claude-cli` (the Claude Code CLI, signed in on this machine), `anthropic` (the Messages API) | `off` |
-| `SUPPORT_DESK_READER_MODEL` | `haiku`, `sonnet`, or a full model id | `haiku` |
-| `SUPPORT_DESK_REFUTER` | `on` or `off` | `off` |
+| `SUPPORT_DESK_READER_MODEL` | `haiku`, `sonnet`, or a full model id | `sonnet` |
+| `SUPPORT_DESK_REFUTER` | `new` (only picks the matcher would not make itself), `on` (every pick), `off` | `new` |
 | `SUPPORT_DESK_REFUTER_MODEL` | as above | the reader's model |
+| `SUPPORT_DESK_READER_PROMPT` | `pick-r1`, `pick-r2` | `pick-r2` |
 | `SUPPORT_DESK_READER_CACHE` | a folder for saved verdicts | `desk/reader-cache` |
 | `ANTHROPIC_API_KEY` | your key, for the `anthropic` backend only | none |
 

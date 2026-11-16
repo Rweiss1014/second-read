@@ -1,0 +1,21 @@
+{
+ "kind": "refute",
+ "version": "refute-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 10307,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "wrong-for-customer",
+    "about": "The customer says this is their own food blog, but the reply treats it as a generic site block and never mentions that the owner can check and change the site's no-pin setting (the nopin meta tag, often controlled by a blog plugin or SEO settings), which is the likely cause and the real fix."
+   },
+   {
+    "kind": "wrong-for-customer",
+    "about": "The suggested workaround of appending ?ref=pin&v=111 to the link is an unverified guess presented as a fix with a promised result; it will not clear a site-level no-pin setting, and the v=111 parameter is unexplained."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:58:12.877Z"
+}
