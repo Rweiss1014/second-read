@@ -120,9 +120,19 @@ async function lookup(kind, ticket, { client, docs, entry, now = Date.now }) {
       const accts = await listAccounts(client);
       ev.calls.push(`GET /v2/users/me/accounts: ${accts.length} account(s)`);
       const groups = {};
-      for (const a of accts) (groups[a.platform] ||= []).push(a.username || a.fullname || 'no name returned');
+      for (const a of accts) (groups[a.platform] ||= []).push(a);
       const platform = PLATFORM_WORDS.find(p => new RegExp(`\\b${p}\\b`, 'i').test(text));
-      const list =Object.entries(groups).map(([pl, names]) => `${nice(pl)} (${names.join(', ')})`);
+      // One account per item, in plain words: a handle reads as @handle; YouTube's "Name (Channel)" becomes
+      // "Name, with no channel" or "the Channel channel", so nothing is nested in brackets.
+      const label = (a) => {
+        if (a.username) return `@${String(a.username).replace(/^@/, '')}`;
+        const full = String(a.fullname || '').trim();
+        const yt = a.platform === 'youtube' && full.match(/^(.*?)\s*\((.*)\)$/);
+        if (yt) return /^<?\s*no channel\s*>?$/i.test(yt[2].trim()) ? `${yt[1]}, with no channel` : `the ${yt[2]} channel`;
+        return full.replace(/[<>]/g, '') || 'no name returned';
+      };
+      const short = (pl) => (pl === 'twitter' ? 'X' : nice(pl));
+      const list = Object.entries(groups).flatMap(([pl, as]) => as.map(a => `${short(pl)} (${label(a)})`));
       ev.summary = !accts.length ? 'I see no connected accounts.'
         : `I see ${accts.length} connected account${accts.length === 1 ? '' : 's'}: ${list.join('; ')}.`
           + (platform ? (groups[platform] ? ` Yes, ${nice(platform)} is connected.` : ` I do not see a ${nice(platform)} account.`) : '');

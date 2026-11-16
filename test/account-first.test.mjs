@@ -37,6 +37,10 @@ test('"which accounts are connected?" lists them from the account, by platform',
   assert.equal(r.evidence.kind, 'connected-accounts');
   assert.ok(r.evidence.calls.some(c => /^GET \/v2\/users\/me\/accounts: \d+ account/.test(c)));
   assert.match(r.reply, /I see \d+ connected accounts?: /);
+  // one account per item, handles as @handle, no brackets inside brackets, no raw placeholders
+  assert.match(r.reply, /LinkedIn \(@samplecreator\)/);
+  const line = r.reply.split('\n').find(l => /connected accounts?:/.test(l));
+  assert.doesNotMatch(line, /\([^)]*\(|[<>]/);
 });
 
 test('asking about one platform says plainly whether it is connected', async () => {

@@ -134,7 +134,9 @@ function termify(h) {
   const parts = [];
   const keep = (s) => { parts.push(s); return `\u0000${parts.length - 1}\u0000`; };
   let t = String(h);
-  t = t.replace(/\b(?:GET|POST|PUT|PATCH|DELETE) (?:https?:\/\/[^\s<]+|\/[^\s<]+?)(?=[.,;:]?(?:\s|$|<))/g, (m) => keep(`<code class="term">${m}</code>`));
+  // A social handle (@name_with_underscores) is a name, not a code term: it stays plain text.
+  t = t.replace(/(^|[\s(])(@[A-Za-z0-9_.]*[A-Za-z0-9_])/g, (m, a, s) => a + keep(s));
+  t = t.replace(/\b(?:GET|POST|PUT|PATCH|DELETE)(?:https?:\/\/[^\s<]+|\/[^\s<]+?)(?=[.,;:]?(?:\s|$|<))/g, (m) => keep(`<code class="term">${m}</code>`));
   // A help-page address stays one whole piece of text (never broken into code spans).
   t = t.replace(/https?:\/\/help\.blotato\.com[^\s<]*?(?=[.,;:)]?(?:\s|$|<))/g, (m) => keep(`<span class="url">${m}</span>`));
   t = t.replace(/\bhelp\.blotato\.com(?:\/[^\s<]*?)?(?=[.,;:)]?(?:\s|$|<))/g, (m) => keep(`<span class="url">${m}</span>`));
@@ -163,7 +165,8 @@ function letterText(s) {
       return Number.isNaN(ms) ? m : `<span class="plain-only">${esc(when(ms))}</span><span class="tech-only">${m}</span>`;
     })
     // A post's link reads as a short link in the letter; the copied reply keeps the full address.
-    .replace(/Here it is: (https?:\/\/[^\s<]+)/g, (m, u) => `Here it is: <a class="postlink" href="${u}" target="_blank" rel="noopener">open the post</a>`);
+    // (termify has already wrapped the address as a web link by now, so match it in either form)
+    .replace(/Here it is: (?:<span class="url weblink">(https?:\/\/[^\s<]+)<\/span>|(https?:\/\/[^\s<]+))/g, (m, a, b) => `Here it is: <a class="postlink" href="${a || b}" target="_blank" rel="noopener">open the post</a>`);
   return t;
 }
 
