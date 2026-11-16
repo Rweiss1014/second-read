@@ -243,14 +243,14 @@
         },
         {
           "type": "fact",
-          "text": "After you disconnect and reconnect an account, get its current ID before you try again.",
+          "text": "After you disconnect and reconnect an account, look up its current ID before you use it again.",
           "cite": {
             "url": "https://help.blotato.com/api-and-mcp-concepts/accounts-and-identifiers",
             "quote": "After disconnecting and reconnecting an account, retrieve the current ID before retrying."
           }
         }
       ],
-      "next": "Call the list accounts lookup, copy the current account id into your workflow, and publish again.",
+      "next": "Call the list accounts lookup and copy the current account id into your workflow.",
       "proof": "You will know it worked when the publish request is accepted with the new account id."
     },
     {
@@ -419,7 +419,7 @@
           }
         }
       ],
-      "next": "Look up both IDs, put each in its own field, and send the post again.",
+      "next": "Look up both IDs and put each in its own field in your request.",
       "proof": "You will know it worked when the post is accepted and goes to the company page."
     },
     {
@@ -768,7 +768,7 @@
           }
         }
       ],
-      "next": "If your Reel is portrait, export it at 1080 x 1920 or 720 x 1280 before you publish it again.",
+      "next": "If your Reel is portrait, export it at 1080 x 1920 or 720 x 1280.",
       "proof": "You will know it worked when the post with the new export shows as published, without the dimensions message."
     },
     {
@@ -1091,7 +1091,7 @@
         },
         {
           "type": "fact",
-          "text": "Check whether a visual already exists before you try again.",
+          "text": "Check whether a visual already exists before you generate it again.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
             "quote": "Check for an existing visual before repeating generation, then inspect the selected template's inputs and any returned error."
@@ -1194,7 +1194,7 @@
         },
         {
           "type": "fact",
-          "text": "Check the status of the original submission before you try again.",
+          "text": "Check the status of the original submission first.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
             "quote": "Check the original submission's status before retrying."
@@ -1541,7 +1541,7 @@
         },
         {
           "type": "fact",
-          "text": "Check the status of the original post before you try again.",
+          "text": "Check the status of the original post first.",
           "cite": {
             "url": "https://help.blotato.com/api-and-mcp-concepts/media-uploads-and-conversion",
             "quote": "Verify the original submission's status before retrying."
@@ -1620,10 +1620,18 @@
         },
         {
           "type": "fact",
-          "text": "After a write, look for work that already exists before you send it again.",
+          "text": "After a write, check first for work that already exists.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
             "quote": "After a write, check for existing work first."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "For a post, that means opening any platform link Blotato returned and checking the intended account on the platform itself.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
+            "quote": "Open any returned platform URL and check the intended account on the platform."
           }
         },
         {
@@ -1635,7 +1643,7 @@
           }
         }
       ],
-      "next": "Save the response body and request ID, then check whether the earlier post already exists before you retry.",
+      "next": "Save the response body and request ID, then check the platform itself for the earlier post before you send it again.",
       "proof": "You will know it worked when the request succeeds. Still open if it keeps returning 503: the request ID for a person to check."
     },
     {
@@ -1707,6 +1715,14 @@
         },
         {
           "type": "fact",
+          "text": "For a post, open any platform link Blotato returned and check the intended account on the platform itself.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
+            "quote": "Open any returned platform URL and check the intended account on the platform."
+          }
+        },
+        {
+          "type": "fact",
           "text": "Check the original submission or creation before you retry a write.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
@@ -1722,7 +1738,7 @@
           }
         }
       ],
-      "next": "Look up the status of the original submission before you send the request again.",
+      "next": "Look up the status of the original submission and check the platform itself for the post before you send the request again.",
       "proof": "You will know it worked when you can see the post or schedule you created, or a clear error for it."
     },
     {
@@ -2189,6 +2205,14 @@
         },
         {
           "type": "fact",
+          "text": "Before you retry, check your YouTube channel or LinkedIn page itself for each post, so you do not post one twice.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
+            "quote": "Read the error and check the destination before retrying."
+          }
+        },
+        {
+          "type": "fact",
           "text": "Wait an hour and retry the posts from Posts > Failed.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
@@ -2212,7 +2236,7 @@
           }
         }
       ],
-      "next": "Wait an hour, then retry the failed posts from the Posts page, Failed tab.",
+      "next": "Check your channel or page for the posts, then wait an hour and retry the ones that are not there from the Posts page, Failed tab.",
       "proof": "You will know it worked when the retried posts show as published."
     },
     {
@@ -2436,18 +2460,18 @@
         },
         {
           "type": "fact",
-          "text": "Retry the post once.",
+          "text": "Before you retry, check the account on the platform itself, so you know the post is not already there.",
           "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "Retry the post once."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
+            "quote": "Read the error and check the destination before retrying."
           }
         },
         {
           "type": "fact",
-          "text": "If the same error returns, contact support with the request ID so the team can look at the queue results.",
+          "text": "If it is not there, retry the post once. If the same error returns, contact support with the request ID so the team can look at the queue results.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
-            "quote": "If the same error returns, contact support with the request ID so the team can inspect the queue results."
+            "quote": "Retry the post once. If the same error returns, contact support with the request ID so the team can inspect the queue results."
           }
         },
         {
@@ -2459,7 +2483,7 @@
           }
         }
       ],
-      "next": "Check that your Create Visual job shows done and that each media URL opens as a file, then retry once.",
+      "next": "Check that your Create Visual job shows done and each media URL opens as a file, and check the platform for the post, then retry once if it is not there.",
       "proof": "You will know it worked when the post publishes. Still open if it repeats: the request ID for a person to check."
     },
     {
@@ -2506,7 +2530,7 @@
           "still"
         ]
       },
-      "opening": "This error means the social platform did not send an answer back.",
+      "opening": "This error means the social platform did not send an answer back, so first let's find out whether the post went out.",
       "steps": [
         {
           "type": "fact",
@@ -2518,39 +2542,39 @@
         },
         {
           "type": "fact",
-          "text": "Before you retry, check the Scheduled, Published and Failed filters in Posts for the same destination and content.",
+          "text": "First, check the Scheduled, Published and Failed filters in Posts for the same account and content. If you do not find it, check the platform and time-window filters too.",
           "cite": {
             "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
-            "quote": "Check the Scheduled, Published, and Failed filters in Posts for the same destination and content."
+            "quote": "Check the Scheduled, Published, and Failed filters in Posts for the same destination and content. Check the platform and time-window filters if a record is missing."
           }
         },
         {
           "type": "fact",
-          "text": "Retry a temporary failure only after you have checked for an existing post.",
+          "text": "Then check your account on the platform itself for the post. If Blotato shows a link to the post, open it.",
           "cite": {
             "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
-            "quote": "Retry a temporary failure only after checking for an existing post."
+            "quote": "Open any returned platform URL and check the intended account on the platform."
           }
         },
         {
           "type": "fact",
-          "text": "If the post is not there, retry it in the web app from the Posts > Failed screen.",
+          "text": "If those checks do not show whether the post went out, please do not send it again. Reply to us with what you found instead.",
           "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "In the web app, retry from the Posts > Failed screen."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
+            "quote": "If those records do not establish the result, contact support with the evidence below. Do not submit a replacement while the original outcome is unknown."
           }
         },
         {
           "type": "fact",
-          "text": "If the error keeps coming back, check that your media file is in a supported format.",
+          "text": "If the post is under Failed and it is not on the platform, wait a few minutes and retry it from the Posts > Failed screen in the web app. If the error keeps coming back, check that your media file is in a supported format.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
-            "quote": "If the error persists, check that your media file is in a supported format"
+            "quote": "Wait a few minutes and retry. If the error persists, check that your media file is in a supported format: Social Platform Requirements. In the web app, retry from the Posts > Failed screen."
           }
         }
       ],
-      "next": "Check the Scheduled, Published and Failed filters in Posts for this post, and retry it from Posts > Failed only if it did not go out.",
-      "proof": "You will know it worked when the post shows once under Published in Posts for that destination."
+      "next": "Check Posts and your account on the platform for this post. Retry it from Posts > Failed only if it shows under Failed and is not on the platform.",
+      "proof": "You will know it worked when the post shows once on your account on the platform."
     },
     {
       "id": "media-storage-upload-failed",
@@ -2713,7 +2737,7 @@
           }
         }
       ],
-      "next": "Check what your media URL really returns, and look at the submission status before you send it again.",
+      "next": "Check what your media URL really returns, and look at the submission status.",
       "proof": "You will know it worked when the URL returns the media file and the post goes through."
     },
     {
@@ -2841,39 +2865,47 @@
       "steps": [
         {
           "type": "fact",
-          "text": "The error is directly from TikTok.",
+          "text": "This error is directly from TikTok. It happens now and then when TikTok servers have an issue, when TikTok failed to process your post, or when you are posting too much.",
           "cite": {
             "url": "https://help.blotato.com/start-with-an-ai-agent/faqs",
-            "quote": "This error is directly from TikTok."
+            "quote": "This error is directly from TikTok. It happens occasionally when TikTok servers have an issue, failed to process your post, or you are posting too much."
           }
         },
         {
           "type": "fact",
-          "text": "It happens occasionally when TikTok servers have an issue, when TikTok failed to process the post, or when you post too much.",
-          "cite": {
-            "url": "https://help.blotato.com/start-with-an-ai-agent/faqs",
-            "quote": "It happens occasionally when TikTok servers have an issue, failed to process your post, or you are posting too much."
-          }
-        },
-        {
-          "type": "fact",
-          "text": "Before you retry, check the Scheduled, Published and Failed filters in Posts for the same destination and content.",
+          "text": "First, check the Scheduled, Published and Failed filters in Posts for the same account and content. If you do not find it, check the platform and time-window filters too.",
           "cite": {
             "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
-            "quote": "Check the Scheduled, Published, and Failed filters in Posts for the same destination and content."
+            "quote": "Check the Scheduled, Published, and Failed filters in Posts for the same destination and content. Check the platform and time-window filters if a record is missing."
           }
         },
         {
           "type": "fact",
-          "text": "If the post is not there, wait, then retry.",
+          "text": "Then check your TikTok account itself for the post. If Blotato shows a link to the post, open it.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
+            "quote": "Open any returned platform URL and check the intended account on the platform."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If those checks do not show whether the post went out, please do not send it again. Reply to us with what you found instead.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
+            "quote": "If those records do not establish the result, contact support with the evidence below. Do not submit a replacement while the original outcome is unknown."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If the post is under Failed and it is not on TikTok, wait a little while, then retry it.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
             "quote": "Wait and retry."
           }
         }
       ],
-      "next": "Check the Scheduled, Published and Failed filters in Posts for this post, and only if it did not go out, wait a little while and retry it.",
-      "proof": "You will know it worked when the post shows once under Published in Posts for that TikTok account."
+      "next": "Check Posts and your TikTok account for this post. Only if it shows under Failed and is not on TikTok, wait a little while and retry it.",
+      "proof": "You will know it worked when the post shows once on your TikTok account."
     },
     {
       "id": "tiktok-token-refresh-unavailable",
@@ -2935,7 +2967,15 @@
         },
         {
           "type": "fact",
-          "text": "Wait 15 to 30 minutes and retry.",
+          "text": "Before you retry, check your TikTok account itself, so you know the post is not already there.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
+            "quote": "Read the error and check the destination before retrying."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If it is not there, wait 15 to 30 minutes and retry.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
             "quote": "Wait 15-30 minutes and retry."
@@ -2950,7 +2990,7 @@
           }
         }
       ],
-      "next": "Wait 15 to 30 minutes, then retry the post.",
+      "next": "Check your TikTok account for the post. If it is not there, wait 15 to 30 minutes, then retry it.",
       "proof": "You will know it worked when the post publishes. Still open if it repeats after you reconnect: the error text for a person to check."
     },
     {
@@ -3002,47 +3042,47 @@
       "steps": [
         {
           "type": "fact",
-          "text": "TikTok's API returned an HTML error page instead of a JSON response.",
+          "text": "TikTok's API returned an HTML error page instead of a JSON response. The help page calls this a temporary TikTok server issue, such as an outage, rate limiting or maintenance, and says your post payload is valid.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
-            "quote": "TikTok's API returned an HTML error page instead of a JSON response."
+            "quote": "TikTok's API returned an HTML error page instead of a JSON response. This is a temporary TikTok server issue (outage, rate limiting, or maintenance). Your post payload is valid."
           }
         },
         {
           "type": "fact",
-          "text": "The help page calls this a temporary TikTok server issue, such as an outage, rate limiting or maintenance, and says your post payload is valid.",
-          "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "This is a temporary TikTok server issue (outage, rate limiting, or maintenance). Your post payload is valid."
-          }
-        },
-        {
-          "type": "fact",
-          "text": "Before you retry, check the Scheduled, Published and Failed filters in Posts for the same destination and content.",
+          "text": "First, check the Scheduled, Published and Failed filters in Posts for the same account and content. If you do not find it, check the platform and time-window filters too.",
           "cite": {
             "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
-            "quote": "Check the Scheduled, Published, and Failed filters in Posts for the same destination and content."
+            "quote": "Check the Scheduled, Published, and Failed filters in Posts for the same destination and content. Check the platform and time-window filters if a record is missing."
           }
         },
         {
           "type": "fact",
-          "text": "Retry a temporary failure only after you have checked for an existing post.",
+          "text": "Then check your TikTok account itself for the post. If Blotato shows a link to the post, open it.",
           "cite": {
             "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
-            "quote": "Retry a temporary failure only after checking for an existing post."
+            "quote": "Open any returned platform URL and check the intended account on the platform."
           }
         },
         {
           "type": "fact",
-          "text": "If the post is not there, retry after a few minutes. If it keeps failing, reconnect your TikTok account in Accounts.",
+          "text": "If those checks do not show whether the post went out, please do not send it again. Reply to us with what you found instead.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
+            "quote": "If those records do not establish the result, contact support with the evidence below. Do not submit a replacement while the original outcome is unknown."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If the post is under Failed and it is not on TikTok, retry it after a few minutes. If it keeps failing, reconnect your TikTok account in Accounts.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
             "quote": "Retry after a few minutes. If it keeps failing, reconnect your TikTok account in Accounts."
           }
         }
       ],
-      "next": "Check the Scheduled, Published and Failed filters in Posts for this post, and retry it after a few minutes only if it did not go out.",
-      "proof": "You will know it worked when the post shows once under Published in Posts for that TikTok account. Still open if it keeps failing after you reconnect: the error text for a person to check."
+      "next": "Check Posts and your TikTok account for this post. Retry it after a few minutes only if it shows under Failed and is not on TikTok.",
+      "proof": "You will know it worked when the post shows once on your TikTok account. Still open if it keeps failing after you reconnect: the error text for a person to check."
     },
     {
       "id": "threads-api-feature-not-available",
@@ -3539,7 +3579,7 @@
           "still"
         ]
       },
-      "opening": "This message looks odd, because the post failed but the error says there was none.",
+      "opening": "This message looks odd: Blotato reports an error, but the error text says there was none. Let's find out whether the video went up before you do anything else.",
       "steps": [
         {
           "type": "fact",
@@ -3551,39 +3591,39 @@
         },
         {
           "type": "fact",
-          "text": "The page's general advice is to reduce the number of hashtags.",
+          "text": "For this error, the page recommends fewer hashtags, a shorter caption, and more time between posts.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
-            "quote": "reduce the number of hashtags"
+            "quote": "reduce the number of hashtags</li><li>reducing the length of caption</li><li>increasing time between posts"
           }
         },
         {
           "type": "fact",
-          "text": "It also suggests a shorter caption.",
-          "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "reducing the length of caption"
-          }
-        },
-        {
-          "type": "fact",
-          "text": "And it suggests more time between posts.",
-          "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "increasing time between posts"
-          }
-        },
-        {
-          "type": "fact",
-          "text": "Before you post it again, check the Scheduled, Published and Failed filters in Posts for the same destination and content.",
+          "text": "Check the Scheduled, Published and Failed filters in Posts for the same account and content. If you do not find it, check the platform and time-window filters too.",
           "cite": {
             "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
-            "quote": "Check the Scheduled, Published, and Failed filters in Posts for the same destination and content."
+            "quote": "Check the Scheduled, Published, and Failed filters in Posts for the same destination and content. Check the platform and time-window filters if a record is missing."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Then check your Instagram account itself for the video. If Blotato shows a link to the post, open it.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
+            "quote": "Open any returned platform URL and check the intended account on the platform."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If those checks do not show whether the video went out, please do not post it again. Reply to us with what you found instead.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
+            "quote": "If those records do not establish the result, contact support with the evidence below. Do not submit a replacement while the original outcome is unknown."
           }
         }
       ],
-      "next": "Check Posts for this post under Published first, and only if it did not go out, make those three changes before you post it again.",
-      "proof": "Still open: why Instagram returned No error, which the help page puts down to a glitch on Instagram's side."
+      "next": "Check Posts and your Instagram account for this video. If it is not on Instagram, make the three changes in step 2 before you post it again.",
+      "proof": "You will know it worked when the video shows once on your Instagram account."
     },
     {
       "id": "instagram-internal-server-error",
@@ -3659,15 +3699,23 @@
         },
         {
           "type": "fact",
-          "text": "Wait a few hours, then retry the post from Posts > Failed.",
+          "text": "Before you retry, check your Instagram account itself, so you know the post is not already there.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
+            "quote": "Read the error and check the destination before retrying."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If it is not there, wait a few hours, then retry the post from Posts > Failed.",
           "cite": {
             "url": "https://help.blotato.com/social-accounts-and-platform-faqs/instagram/faqs",
             "quote": "Wait a few hours, then retry the post from"
           }
         }
       ],
-      "next": "Wait a few hours, then retry the post from the Failed tab on the Posts page.",
-      "proof": "You will know it worked when the retried post is published."
+      "next": "Check your Instagram account for the post. If it is not there, wait a few hours and retry it from the Failed tab on the Posts page.",
+      "proof": "You will know it worked when the retried post shows once on your Instagram account."
     },
     {
       "id": "instagram-rejected-your-post",
@@ -3871,7 +3919,7 @@
       "steps": [
         {
           "type": "fact",
-          "text": "The error comes from Instagram and Meta, and the Instagram account session is not confirmed.",
+          "text": "This error comes from Instagram and Meta. It means the Instagram account's session is not confirmed.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
             "quote": "This error comes from Instagram/Meta. The Instagram account session is not confirmed."
@@ -3887,31 +3935,31 @@
         },
         {
           "type": "fact",
-          "text": "Before you disconnect, know that disconnecting removes the connection and its Page links, archives its DM automations, removes its future scheduled entries, and turns those scheduled posts into drafts.",
-          "cite": {
-            "url": "https://help.blotato.com/settings/social-accounts",
-            "quote": "Disconnect is different: it removes the connection and its Page or channel links, archives its DM automations, removes future scheduled entries for the account, and creates drafts from those scheduled posts."
-          }
-        },
-        {
-          "type": "fact",
-          "text": "Then reconnect the account in Blotato: go to Accounts, disconnect it, and reconnect it using an incognito browser logged into only that Instagram account.",
-          "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "Reconnect the account in Blotato: go to Accounts, disconnect and reconnect using an incognito browser logged into only that Instagram account."
-          }
-        },
-        {
-          "type": "fact",
           "text": "Check that the account is a Professional or Business account, because personal accounts have issues with third-party publishing.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
             "quote": "Verify the account is a Professional or Business account (personal accounts have issues with third-party publishing)."
           }
+        },
+        {
+          "type": "fact",
+          "text": "The next fix is to disconnect and reconnect the account. Before you do, know what disconnecting does: it removes the connection and its Page links, archives its DM automations, removes its future scheduled entries and turns those scheduled posts into drafts, and removes its recurring-slot targets.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/social-accounts",
+            "quote": "Disconnect is different: it removes the connection and its Page or channel links, archives its DM automations, removes future scheduled entries for the account, and creates drafts from those scheduled posts. It also removes the account's recurring-slot targets."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If you go ahead, reconnect the account in Blotato: go to Accounts, disconnect it, and reconnect it using an incognito browser logged into only that Instagram account.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Reconnect the account in Blotato: go to Accounts, disconnect and reconnect using an incognito browser logged into only that Instagram account."
+          }
         }
       ],
-      "next": "Log into the Instagram account in a browser and finish any prompts it shows, then disconnect and reconnect it in Accounts from an incognito window logged into only that account.",
-      "proof": "You will know it worked when the account shows as connected in Accounts and your next post to it publishes. Still open if it fails again: the full error text for a person to check."
+      "next": "Log into the Instagram account in a browser, finish any prompts it shows, and check that it is a Professional or Business account before you disconnect anything.",
+      "proof": "You will know it worked when the account shows as connected in Accounts. If you disconnected it, its old scheduled posts are in your drafts and its recurring slots need setting again."
     },
     {
       "id": "instagram-five-hashtag-limit",
@@ -3972,14 +4020,14 @@
         },
         {
           "type": "fact",
-          "text": "Trim your caption to 5 hashtags or fewer and republish.",
+          "text": "Trim your caption to 5 hashtags or fewer.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
             "quote": "Fix: trim your caption to 5 hashtags or fewer and republish."
           }
         }
       ],
-      "next": "Cut the caption down to 5 hashtags or fewer and publish again.",
+      "next": "Cut the caption down to 5 hashtags or fewer.",
       "proof": "You will know it worked when the post is accepted without the hashtag message."
     },
     {
@@ -4032,10 +4080,18 @@
       "steps": [
         {
           "type": "fact",
-          "text": "Check the account list in Accounts for the username you meant to connect.",
+          "text": "First, check the account list in Accounts for the username you meant to connect.",
           "cite": {
             "url": "https://help.blotato.com/settings/social-accounts/instagram",
             "quote": "Check the account list in Accounts for the intended username."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Next, write down the error text, the time it happened, and the failing page's hostname and path. Leave out any query parameters that hold authorization codes or state values.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/social-accounts/instagram",
+            "quote": "Record the error text, timestamp, and failing page's hostname and path. Omit query parameters containing authorization codes or state values."
           }
         },
         {
@@ -4055,19 +4111,11 @@
           }
         },
         {
-          "type": "fact",
-          "text": "Please keep the error text, the time it happened and the failing page's hostname and path, without any query parameters that hold codes.",
-          "cite": {
-            "url": "https://help.blotato.com/settings/social-accounts/instagram",
-            "quote": "Record the error text, timestamp, and failing page's hostname and path. Omit query parameters containing authorization codes or state values."
-          }
-        },
-        {
           "type": "action",
           "text": "I am passing your message to a person on the team, with the error you pasted."
         }
       ],
-      "next": "Check Accounts for the username, and reply with the error text, the time it happened and the failing page's hostname and path.",
+      "next": "Write down the error text, the time and the failing page's hostname and path, check Accounts for the username, and reply here with what you wrote down.",
       "proof": "Still open: why the connection returned a 400. A person on the team has your message.",
       "escalate": {
         "why": "The Error Reference says to test with a post first, and the Instagram connection page says not to publish a test post to diagnose this 400.",
@@ -4483,18 +4531,10 @@
       "steps": [
         {
           "type": "fact",
-          "text": "Blotato needs every permission it requests.",
+          "text": "Blotato needs every permission it requests. Go to Accounts > Connect account > Slack and allow all permissions on the Slack screen.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
-            "quote": "Blotato needs every permission it requests."
-          }
-        },
-        {
-          "type": "fact",
-          "text": "Go to Accounts > Connect account > Slack and allow all permissions on the Slack screen.",
-          "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "Go to Accounts > Connect account > Slack and allow all permissions on the Slack screen."
+            "quote": "Blotato needs every permission it requests. Go to Accounts > Connect account > Slack and allow all permissions on the Slack screen."
           }
         },
         {
@@ -4507,18 +4547,26 @@
         },
         {
           "type": "fact",
-          "text": "Connecting again clears the workspace's channel selection, so check every channel you want, including the ones you already use.",
+          "text": "Each channel you connect counts as 1 account toward your plan's account limit. The workspace itself does not count.",
           "cite": {
             "url": "https://help.blotato.com/settings/social-accounts/slack",
-            "quote": "Reconnecting clears the workspace's channel selection. Check every channel you want, including the channels you already use."
+            "quote": "Each connected channel counts as 1 account toward your plan's account limit. The workspace itself does not count."
           }
         },
         {
           "type": "fact",
-          "text": "If the dialog shows you are over your plan limit, Finish stays turned off.",
+          "text": "If the dialog shows you are over your plan limit, Finish stays turned off. To go on, check fewer channels, disconnect another account, or upgrade your plan.",
           "cite": {
             "url": "https://help.blotato.com/settings/social-accounts/slack",
-            "quote": "If the dialog shows you are over your plan limit, Finish stays disabled."
+            "quote": "If the dialog shows you are over your plan limit, Finish stays disabled. Check fewer channels, disconnect another account, or upgrade your plan."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Before you disconnect another account to make room, know what it does: it removes that connection and its Page or channel links, archives its DM automations, removes its future scheduled entries and turns those posts into drafts, and removes its recurring-slot targets.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/social-accounts",
+            "quote": "Disconnect is different: it removes the connection and its Page or channel links, archives its DM automations, removes future scheduled entries for the account, and creates drafts from those scheduled posts. It also removes the account's recurring-slot targets."
           }
         }
       ],
@@ -4589,18 +4637,10 @@
             "url": "https://help.blotato.com/support/errors",
             "quote": "This error often causes follow-on \"mediaUrl\" TypeErrors -- fix the token first."
           }
-        },
-        {
-          "type": "fact",
-          "text": "After the reconnect, retry your request.",
-          "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "click Reconnect on the Instagram account, then retry your request."
-          }
         }
       ],
-      "next": "Click Reconnect on the Instagram account in Accounts, then retry the request.",
-      "proof": "You will know it worked when your retried request goes through."
+      "next": "Click Reconnect on the Instagram account in Accounts.",
+      "proof": "You will know it worked when the account no longer asks for a reconnect and your next request goes through."
     },
     {
       "id": "claude-connected-but-oauth-error",
