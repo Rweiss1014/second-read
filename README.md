@@ -9,6 +9,17 @@ When a person has to decide, you also get an escalation packet or a proposed hel
 I built this new for my application to the Customer Support AI Engineer role, with Claude Code.
 It is my first app on the Blotato API.
 
+![A customer asks how to connect TikTok. Second Read answers in four numbered steps, and each step is shown beside the help-page sentence it comes from.](docs/second-read.webp)
+
+## What is in this repo
+
+- **The app**: paste a customer's message into the page at `localhost:5610` and get a checked reply. Start with "Try it in 60 seconds" below.
+- **An n8n flow** (`examples/n8n/`): a webhook takes a support message, Second Read drafts the reply, and anything a person must decide is handed over. See "Use it from n8n".
+- **A Claude Code skill and a checker subagent** (`.claude/`), and the same steps for Codex (`AGENTS.md`).
+- **A daily "what broke overnight" check** (`scheduled/`).
+- **"Your first support shift"**: a five-decision practice for new support people, on the page's Practice tab.
+- **The exam** (`eval/`): made-up tickets the desk was tuned and graded on, with the numbers below.
+
 ## What it builds on, and what it adds
 
 It uses Blotato's own pieces:
@@ -24,7 +35,7 @@ What it adds on top:
 - A proposed help-doc edit when the docs have no answer, or the wrong one.
 - "Your first support shift": a five-decision practice for new support people, built from the same playbook.
 
-Blotato's "Fix My Automation" button covers n8n. This desk is for the tickets it does not cover: MCP, REST and plain questions.
+Blotato's "Fix My Automation" button covers broken n8n automations. This desk is for the tickets it does not cover: MCP, REST and plain questions. It can also run as one step inside n8n (see "Use it from n8n").
 
 ## Try it in 60 seconds (sample data, no key)
 

@@ -459,7 +459,8 @@ function sentence(page) {
   let b = e;
   if (!/[.!?:]["')\]]?$/.test(t.slice(s, e).trim())) {
     const f = t.slice(e).match(/^[^.!?:]{0,160}?[.!?:]["')\]]?(?=\s|$)/);
-    if (f) b = e + f[0].length;
+    // A list item with no stop of its own: the next item's number ("2.") is not the end of this sentence.
+    if (f && !/^\s*\d+[.)]$/.test(f[0])) b = e + f[0].length;
   }
   return { pre: t.slice(a, s).replace(/^\d+\.\s+/, ''), mark: t.slice(s, e), post: t.slice(e, b) };
 }

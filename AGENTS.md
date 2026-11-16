@@ -4,7 +4,7 @@ Instructions for any coding agent working in this repo (Codex, Claude Code, or a
 Claude Code reads the same file through `CLAUDE.md`.
 
 ## What this repo is
-Support Desk: a tool for the person answering Blotato support tickets.
+Second Read, a support desk: a tool for the person answering Blotato support tickets.
 A customer's message goes in. Out comes a diagnosis from Blotato's own help docs and read-only account status, and a reply in three to five numbered steps.
 When a person has to decide, it also writes an escalation packet or a proposed help-doc edit.
 
