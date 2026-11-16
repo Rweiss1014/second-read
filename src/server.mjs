@@ -202,6 +202,32 @@ function artSlots() {
   try { return fs.readdirSync(path.join(PUBLIC, 'art')).filter(f => /^[a-z0-9-]+\.webp$/.test(f)).map(f => f.replace(/\.webp$/, '')); } catch { return []; }
 }
 
+// The practice game, plus where each help-page sentence sits on its page (added for the page; the
+// original fields are unchanged). The page uses it to show the whole sentence, never a cut one.
+async function practiceView(env) {
+  const desk = openDesk({ env });
+  try {
+    return {
+      ...PRACTICE,
+      decisions: PRACTICE.decisions.map(d => {
+        let page = null;
+        try { const p = desk.docs.readCache(pageUrl(d.source.url)); page = p ? pageContext(p, d.source.quote) : null; } catch { page = null; }
+        return { ...d, source: { ...d.source, page } };
+      }),
+    };
+  } finally { await desk.close(); }
+}
+
+// The first page, with the app's mark in the header only when its picture exists. A missing
+// picture leaves nothing behind, and nothing moves when it loads (its size is set here).
+function indexHtml(file) {
+  let html = fs.readFileSync(file, 'utf8');
+  const mark = artSlots().includes('app-mark');
+  html = html.replace('<!--app-mark-->', mark ? '<img class="brand-mark" src="/art/app-mark.webp" alt="" width="34" height="34" decoding="async">' : '');
+  html = html.replace('<!--app-icon-->', mark ? '<link rel="icon" href="/art/app-mark.webp" type="image/webp">' : '');
+  return html;
+}
+
 export function createServer({ env = process.env } = {}) {
   return http.createServer(async (req, res) => {
     const url = new URL(req.url, 'http://localhost');
@@ -239,7 +265,7 @@ export function createServer({ env = process.env } = {}) {
         try { text = fs.readFileSync(deskPaths(env).handoff, 'utf8'); } catch { /* none */ }
         return json(res, 200, { text });
       }
-      if (req.method === 'GET' && url.pathname === '/api/practice') return json(res, 200, PRACTICE);
+      if (req.method === 'GET' && url.pathname === '/api/practice') return json(res, 200, await practiceView(env));
       if (req.method === 'GET' && url.pathname === '/api/logs') return json(res, 200, { text: summarizeLastRun(deskPaths(env).logs).text });
       if (req.method === 'GET' && !url.pathname.startsWith('/api/')) {
         const file = publicFile(url.pathname);
@@ -247,6 +273,7 @@ export function createServer({ env = process.env } = {}) {
           const ext = path.extname(file).toLowerCase();
           const long = ext === '.woff2';
           res.writeHead(200, { 'content-type': TYPES[ext], 'cache-control': long ? 'public, max-age=31536000, immutable' : 'no-cache' });
+          if (path.basename(file) === 'index.html') return res.end(indexHtml(file));
           return res.end(fs.readFileSync(file));
         }
       }
