@@ -650,6 +650,8 @@
         "I reached my limit of connected accounts, what now",
         "does each facebook page count as an account",
         "do linkedin company pages count toward my account limit",
+        "does my linkedin profile count as an account too, or only the company pages",
+        "are a linkedin profile and its company pages counted separately on my plan",
         "how many accounts on agency plan",
         "max number of connected social acounts",
         "can I connect more than 20 accounts"
@@ -681,6 +683,7 @@
           "allowed",
           "count",
           "counts",
+          "counted",
           "more than",
           "20",
           "40",
@@ -720,6 +723,14 @@
           "cite": {
             "url": "https://help.blotato.com/settings/billing-and-credits",
             "quote": "Facebook: Each connected Page counts as one account (the Facebook login does not count)."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "On LinkedIn, your profile and each connected company Page count toward the total.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "LinkedIn: Your profile and each connected company Page count toward your total"
           }
         },
         {
@@ -2361,7 +2372,8 @@
         "why is my draft in the remix screen",
         "why dont my drafts show up on my phone",
         "how do I view my scheduled posts",
-        "my video was deleted"
+        "my video was deleted",
+        "blotato says my post is published but it is not on my instagram profile or feed"
       ],
       "anchors": [
         [

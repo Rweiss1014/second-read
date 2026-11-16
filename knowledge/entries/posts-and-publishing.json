@@ -36,7 +36,7 @@
           "publshed"
         ],
         [
-          "/(can'?t|cannot|can not|don'?t|do not|not|isn'?t|no|never|nowhere)\\b.{0,25}\\b(see|find|show|showing|there|appear|appeared|visible|open|opens|found)\\b/",
+          "/(can'?t|cannot|can not|don'?t|do not|doesn'?t|does not|didn'?t|did not|isn'?t|aren'?t|wasn'?t|won'?t|not|no|never|nowhere)\\b.{0,25}\\b(see|find|show|showing|there|appear|appeared|visible|open|opens|found)\\b/",
           "/\\b(link|url)\\b.{0,30}\\b404\\b|\\b404\\b.{0,30}\\b(link|url)\\b/",
           "page not found",
           "gone",

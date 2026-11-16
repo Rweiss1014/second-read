@@ -2903,6 +2903,14 @@
         },
         {
           "type": "fact",
+          "text": "Instagram itself allows more, but Blotato caps posts at 5 on purpose.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Instagram itself allows more hashtags, but Blotato caps posts at 5 on purpose because more than 5 hashtags reduces your reach on Instagram, TikTok, and Facebook."
+          }
+        },
+        {
+          "type": "fact",
           "text": "You do not need hashtags on other platforms.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",

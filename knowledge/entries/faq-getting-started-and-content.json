@@ -2019,14 +2019,6 @@
       "steps": [
         {
           "type": "fact",
-          "text": "AI credits pay for AI image and video generation.",
-          "cite": {
-            "url": "https://help.blotato.com/support/faqs",
-            "quote": "AI credits pay for AI image and video generation."
-          }
-        },
-        {
-          "type": "fact",
           "text": "On the website, open Settings > Billing, find AI Credits and Usage, and choose a quantity.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
@@ -2039,6 +2031,14 @@
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
             "quote": "Review and complete Stripe Checkout, then verify the balance after payment processing."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Through the API, you can check your balance with GET /v2/credits and buy more with POST /v2/credits.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Via the API, check your balance with `GET /v2/credits` and buy more with `POST /v2/credits`."
           }
         },
         {
