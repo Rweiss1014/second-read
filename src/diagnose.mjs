@@ -39,7 +39,10 @@ async function lookup(kind, ticket, { client, docs, entry, now = Date.now }) {
       // (it said "2 published Instagram posts" for one Instagram and one LinkedIn post).
       const newest = platform ? 'from ' : `${/^(?:[AEIOU]|X\b)/.test(nice(p?.platform)) ? 'an' : 'a'} ${nice(p?.platform)} post from `;
       const head = p ? `Blotato shows ${mine.length} published ${platform ? nice(platform) + ' ' : ''}post${mine.length === 1 ? '' : 's'} in the last 7 days. The newest is ${newest}` : '';
-      const tail = p ? `${p.state?.postUrl ? `, with this link: ${p.state.postUrl}` : ', with no platform link returned'}.` : '';
+      // Sample mode never puts a made-up web address into a reply (a live tester copied one, Nov 15, 2026). It says
+      // plainly that this is the practice account, in words that never change, so a saved check keeps matching.
+      const tail = !p ? '' : client?.mock ? '. This is the practice account, with made-up sample posts, so there is no real post link to open.'
+        : `${p.state?.postUrl ? `, with this link: ${p.state.postUrl}` : ', with no platform link returned'}.`;
       // summary is what the customer reads: a date a person would write, no internal post id.
       // technical is for the escalation packet and the checker: the raw stamp and the post id.
       ev.summary = p ? `${head}${when(p.postTime, t0)}${tail}` : `Blotato shows no published ${platform ? nice(platform) + ' ' : ''}post in the last 7 days.`;

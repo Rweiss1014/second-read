@@ -40,3 +40,18 @@ test('with no platform named, the published-post lookup does not give every post
     assert.match(t.reply, /Blotato shows 1 published Instagram post in the last 7 days\. The newest is from/);
   } finally { await desk.close(); }
 });
+
+test('sample mode never puts a made-up post link into a reply, and every sample reply is the same on every run', async () => {
+  const { TICKETS } = await import('../knowledge/playbook.mjs');
+  const runOnce = async () => {
+    const { env } = tempDesk();
+    const desk = openDesk({ env });
+    try { const out = {}; for (const t of TICKETS) out[t.id] = (await handleTicket(desk, t)).reply; return out; } finally { await desk.close(); }
+  };
+  const a = await runOnce();
+  const b = await runOnce();
+  assert.deepEqual(a, b);
+  for (const [id, reply] of Object.entries(a)) assert.doesNotMatch(reply || '', /SAMPLE-POST|instagram\.com\/p\/|linkedin\.com\/feed/i, id);
+  assert.match(a.T01, /This is the practice account, with made-up sample posts, so there is no real post link to open\./);
+  assert.doesNotMatch(a.T01, /post link above/);
+});
