@@ -35,7 +35,7 @@
           "publshed"
         ],
         [
-          "/(can'?t|cannot|can not|don'?t|do not|not|isn'?t|no|never|nowhere)\\b.{0,25}\\b(see|find|show|showing|there|appear|appeared|visible|open|opens)\\b/",
+          "/(can'?t|cannot|can not|don'?t|do not|not|isn'?t|no|never|nowhere)\\b.{0,25}\\b(see|find|show|showing|there|appear|appeared|visible|open|opens|found)\\b/",
           "/\\b(link|url)\\b.{0,30}\\b404\\b|\\b404\\b.{0,30}\\b(link|url)\\b/",
           "missing",
           "page not found",
@@ -116,8 +116,7 @@
       "anchors": [
         [
           "canceled",
-          "cancelled",
-          "canceld"
+          "cancelled"
         ],
         [
           "post",
@@ -139,7 +138,11 @@
           "didn't delete",
           "never deleted",
           "did not remove",
-          "never touched"
+          "never touched",
+          "never removed",
+          "didn't remove",
+          "did not cancel",
+          "didn't cancel"
         ]
       },
       "opening": "Good news first: nothing is broken.",

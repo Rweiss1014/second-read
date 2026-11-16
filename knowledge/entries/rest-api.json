@@ -12,7 +12,8 @@
         "a 401 error when calling the Blotato API",
         "getting unauthorized from GET /v2/users/me/accounts",
         "my key doesnt work, it says unautorized",
-        "which header do I put the API key in"
+        "which header do I put the API key in",
+        "every endpoint answers 401 even with a new key"
       ],
       "not_this": [
         "403 with a subscription message",
