@@ -1,0 +1,12 @@
+{
+  "replySha256": "b5bab79f2a8fe83ee1d5aeefcca97e1f55a5da1d68d2d6912be83b450391ea91",
+  "verdict": "pass",
+  "findings": [
+    "Style note only: step 3, \"If one you expect is missing or not working, reconnect it from that account's actions menu\", fits a listed account that is not working better than a missing one, but step 2 gives the add path and the help text supports Connect account and Reconnect, so nobody is misled.",
+    "Checked {evidence} filled with a list of connected accounts, or a count of zero: \"Here is what it shows: I see 4 connected accounts: ...\" reads correctly, and the reply makes no claim that the accounts are working."
+  ],
+  "checkedAt": "2026-11-16T13:26:08Z",
+  "checker": "reply-checker",
+  "model": "Claude Sonnet 5.5",
+  "entry": "which-accounts-connected"
+}

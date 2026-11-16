@@ -1,0 +1,13 @@
+{
+  "replySha256": "d2551fbdb0818fd97e7bebed4a2e4604e5a9267cc83e23a7d30d54bd024d0373",
+  "verdict": "pass",
+  "findings": [
+    "Style note only: the closing line \"You will know it went out when the post opens on the platform from its link\" relies on a link that the filled-in evidence supplies for real accounts; the help text does not say where the link appears, so the reply should keep relying on the evidence for it.",
+    "Style note only: step 3 \"Any post that failed is also listed with its error details\" is supported by \"Failed posts also appear at my.blotato.com/failed with the error details\" and by Posts > Failed; the reply never tells the customer to send a post again, so it cannot make things worse.",
+    "Checked {evidence} filled with the example (2 went out, 3 failed, 2 scheduled, with a stated 7-day window): \"Here is what your account shows: In the last 7 days, ...\" reads correctly, and the stated window keeps a customer from concluding an older post is missing."
+  ],
+  "checkedAt": "2026-11-16T13:26:08Z",
+  "checker": "reply-checker",
+  "model": "Claude Sonnet 5.5",
+  "entry": "did-my-posts-go-out"
+}

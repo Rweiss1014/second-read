@@ -9,7 +9,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { diagnose } from './diagnose.mjs';
-import { checkReply, replyHash, lookupCheck, recordCheck } from './checkreply.mjs';
+import { checkReply, replyHash, lookupCheck, recordCheck, accountTemplate } from './checkreply.mjs';
 import { buildPacket } from './packet.mjs';
 import { PLAYBOOK, TICKETS } from '../knowledge/playbook.mjs';
 
@@ -54,6 +54,9 @@ export async function buildAllPackets(desk, { outDir, entries = PLAYBOOK, mock =
       bySha.set(`blocked:${entry.id}`, { entry: entry.id, requested: entry.id, message, kind: 'script-blocked', problem: check.problems[0] });
       continue;
     }
+    // An account answer is packed as its words, with the account facts as "{evidence}" (see accountTemplate).
+    const template = accountTemplate(d);
+    if (template) d = { ...d, reply: template, evidence: { ...d.evidence, summary: `{evidence} is filled in at the moment of the reply with facts read from the customer's own Blotato account (read-only). An example from the practice account: ${d.evidence.summary}` } };
     const sha = replyHash(d.reply);
     // Which kind of reply the customer gets: the entry's own answer, or a holding reply that hands the message over.
     const kind = d.match?.decision === 'answer' ? 'answer' : d.match?.decision === 'partial' ? 'partial (answer plus hand-over)' : 'holding reply (hand-over)';

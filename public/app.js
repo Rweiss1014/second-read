@@ -161,7 +161,9 @@ function letterText(s) {
     .replace(/\b(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday), (\w{3}) (\d{1,2}), at (\d{1,2}):(\d\d) (am|pm) UTC\b/g, (m, mon, d, h, mi, ap) => {
       const ms = Date.parse(`${mon} ${d}, ${new Date().getFullYear()} ${(+h % 12) + (ap === 'pm' ? 12 : 0)}:${mi}:00 GMT`);
       return Number.isNaN(ms) ? m : `<span class="plain-only">${esc(when(ms))}</span><span class="tech-only">${m}</span>`;
-    });
+    })
+    // A post's link reads as a short link in the letter; the copied reply keeps the full address.
+    .replace(/Here it is: (https?:\/\/[^\s<]+)/g, (m, u) => `Here it is: <a class="postlink" href="${u}" target="_blank" rel="noopener">open the post</a>`);
   return t;
 }
 
@@ -430,6 +432,12 @@ function plainEvidence(ev) {
   // On the practice account the same lookup gives back the answer Blotato's real API gave on Nov 15, 2026 (src/diagnose.mjs).
   if (ev.kind === 'reproduce-schedule') return ev.missing ? 'There was nothing in the message the desk could try again.' : ev.ok ? (/^The practice account answers/.test(s) ? "The desk tried the same lookup on the practice account. It gives back the error Blotato's real system gave on Nov 15, 2026." : 'The desk tried the same thing on the account and got the same error back.') : 'The desk tried the same thing and got a different answer back.';
   if (ev.kind === 'docs-search') return "The desk searched Blotato's help pages for the question.";
+  // Account first: the same facts as the reply, with the time in the reader's own time zone and no raw link.
+  if (ev.kind === 'publish-check' || ev.kind === 'connected-accounts') return s.replace(/ Here it is: \S+/g, '')
+    .replace(/\b(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday), (\w{3}) (\d{1,2}), at (\d{1,2}):(\d\d) (am|pm) UTC\b/g, (m, mon, d, h, mi, ap) => {
+      const ms = Date.parse(`${mon} ${d}, ${new Date().getFullYear()} ${(+h % 12) + (ap === 'pm' ? 12 : 0)}:${mi}:00 GMT`);
+      return Number.isNaN(ms) ? m : when(ms);
+    });
   return s;
 }
 
@@ -793,7 +801,8 @@ const VLINE = {
 function practiceHTML(r, st) {
   const at = r.fresh?.checkedAt ? ` on ${day(r.fresh.checkedAt)}` : '';
   const acct = r.mock ? 'This is a practice account with made-up customers and posts. The help pages and their sentences are real.' : '';
-  const words = st === 'checked' ? `A second checker read these exact words${at} and passed them, so the same words do not need checking twice.`
+  const words = st === 'checked' && r.fresh?.scope === 'words' ? `A second checker read the words of this reply${at} and passed them. The facts in step 1 come straight from the customer's own account, just now.`
+    : st === 'checked' ? `A second checker read these exact words${at} and passed them, so the same words do not need checking twice.`
     : st === 'stopped' && r.fresh?.state === 'blocked' ? `A second checker read these exact words${at} and stopped them.` : '';
   const s = [acct, words].filter(Boolean).join(' ');
   return s ? `<p class="plainline practice">${esc(s)}</p>` : '';

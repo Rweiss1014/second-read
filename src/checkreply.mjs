@@ -208,9 +208,25 @@ export function clearedToSend(reviewsDir, name, { checksDir = defaultChecksDir()
 //   blocked       it blocked the saved copy
 //   stale         its verdict is for an older saved copy
 //   none          no saved copy or no verdict yet
+// Account first (Nov 16, 2026): a reply whose facts are read from the customer's own account changes with the account,
+// so its exact text can never have a stored pass. Its WORDS can: the reply with the account facts replaced by
+// "{evidence}" is checked once, and the facts come from Blotato's records each time.
+export const ACCOUNT_KINDS = ['publish-check', 'connected-accounts'];
+export function accountTemplate(d) {
+  const s = d?.evidence?.summary;
+  if (!d?.reply || !s || !ACCOUNT_KINDS.includes(d.evidence.kind) || !d.reply.includes(s)) return null;
+  return d.reply.split(s).join('{evidence}');
+}
+
 export function freshState(reviewsDir, d, { checksDir = defaultChecksDir() } = {}) {
   if (!d?.reply) return null;
   const name = reviewName(d.ticket);
+  const template = accountTemplate(d);
+  if (template) {
+    const t = lookupCheck(template, { reviewsDir, checksDir });
+    if (t.state === 'pass') return { state: 'passed', scope: 'words', name, checkedAt: t.checkedAt, notes: t.findings || [], checker: t.checker, model: t.model, source: t.source };
+    if (t.state === 'block') return { state: 'blocked', scope: 'words', name, why: `The fresh checker blocked these words: ${(t.findings || []).join('; ') || 'no reason given'}`, findings: t.findings || [], checkedAt: t.checkedAt };
+  }
   // The exact text first: a pass in the shipped store or in desk/reviews clears it, even for a typed message
   // whose saved copy was never written on this machine.
   const hit = lookupCheck(d.reply, { reviewsDir, checksDir });
