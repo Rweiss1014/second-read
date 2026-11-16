@@ -264,7 +264,7 @@
         "GET /v2/schedules/{id} gives a 500 invalid input syntax for type bigint",
         "the schedule lookup fails with a bigint error",
         "invalid input syntax for type bigint",
-        "a 500 error when I update a schedule with the id from the docs",
+        "a 500 bigint error when I update a schedule with the id from the docs",
         "a schedule id like sch_ answers a server error"
       ],
       "anchors": [

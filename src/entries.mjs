@@ -1,6 +1,7 @@
 // Entries as data: knowledge/entries/*.json, one file per help-center area.
 // loadEntries() reads and checks their shape at start (it throws, naming the entry and the reason).
-// checkEntries() adds the checks that need the cached help pages: every quote is on its page.
+// checkEntries() adds the checks that need the cached help pages (every quote is on its page) and the
+// routing check (every phrasing reaches its own entry).
 // The command `node bin/support-desk.mjs check-entries` runs both and prints every problem.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -8,7 +9,8 @@ import { ROOT } from './config.mjs';
 import { pageUrl, quoteOnPage, readCacheDir } from './docs.mjs';
 import { findPromises, findVoice } from './checkreply.mjs';
 import { SIGNAL_NAMES } from './signals.mjs';
-import { contentStems } from './match.mjs';
+import { contentStems, anchorsMet } from './match.mjs';
+import { createRouter } from './route.mjs';
 
 export const ENTRIES_DIR = path.join(ROOT, 'knowledge', 'entries');
 export const KINDS = ['non-technical', 'billing', 'technical'];
@@ -164,6 +166,26 @@ export function validateQuotes(entries, pages) {
   return problems;
 }
 
+// Every phrasing must be able to reach its own entry: it meets the entry's anchors, no guard takes it first,
+// and the router does not send it to a different entry. (Run by check-entries, not at start: it routes every
+// phrasing once.)
+export function validateRouting(entries) {
+  const problems = [];
+  const router = createRouter(entries);
+  for (const e of entries) {
+    if (e.guard) continue;
+    const where = `${e.file ? e.file + ': ' : ''}${e.id}`;
+    for (const p of e.phrasings || []) {
+      if (!isText(p)) continue;
+      if (!anchorsMet(p, e.anchors).ok) { problems.push(`${where}: the phrasing "${p}" does not meet this entry's own anchors, so a message worded like it can never match. Add a word to the anchors or reword the phrasing.`); continue; }
+      const r = router.route(p);
+      if (r.decision === 'guard') problems.push(`${where}: the phrasing "${p}" is taken by the ${r.guard} guard before matching (words: "${r.words}"). Reword it as a question, not a request.`);
+      else if (r.entry && r.entry.id !== e.id && r.entry.guard !== 'needs-person') problems.push(`${where}: the phrasing "${p}" routes to "${r.entry.id}" instead. The two entries overlap: make the phrasings more distinct, or add a "not_this".`);
+    }
+  }
+  return problems;
+}
+
 // Load at start: read, check the shape, and throw if anything is wrong.
 export function loadEntries(dir = ENTRIES_DIR) {
   const { entries, files, problems } = readEntryFiles(dir);
@@ -182,6 +204,8 @@ export function checkEntries({ dir = ENTRIES_DIR, cacheDir } = {}) {
   problems.push(...validateShape(entries));
   const pages = readCacheDir(cacheDir);
   problems.push(...validateQuotes(entries, pages));
+  // Routing needs a sound set of entries, so it runs only when the shape is right.
+  if (!problems.length) problems.push(...validateRouting(entries));
   const cited = new Set(); for (const e of entries) for (const u of citedPages(e)) cited.add(u);
   return { ok: !problems.length, problems, entries: entries.length, files: files.length, pagesCited: cited.size, pagesCached: Object.keys(pages).length };
 }

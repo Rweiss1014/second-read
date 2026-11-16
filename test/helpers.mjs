@@ -13,7 +13,7 @@ export function tempDesk({ extraPages = {}, drop = [] } = {}) {
   const pages = {};
   const add = (url, quote) => { const u = pageUrl(url); pages[u] = (pages[u] || `# Test copy of ${u}\n`) + `\nSome words before. ${quote} Some words after.\n`; };
   for (const e of PLAYBOOK) {
-    for (const s of e.steps) if (s.cite) add(s.cite.url, s.cite.quote);
+    for (const s of [...e.steps, ...(e.holding?.steps || [])]) if (s.cite) add(s.cite.url, s.cite.quote);
     for (const c of [...(e.escalate?.causes || []), ...(e.escalate?.ruledOut || [])]) if (c?.cite) add(c.cite.url, c.cite.quote);
     if (e.docEdit) add(e.docEdit.article, e.docEdit.before || '');
   }
