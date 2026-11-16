@@ -1,4 +1,4 @@
-# Support Desk
+# Second Read
 
 A desk for the person answering Blotato support tickets.
 

@@ -347,6 +347,6 @@ export function createServer({ env = process.env } = {}) {
 export async function startServer({ port = 5610, env = process.env } = {}) {
   const server = createServer({ env });
   await new Promise((resolve, reject) => { server.once('error', reject); server.listen(port, '127.0.0.1', resolve); });
-  console.log(`Support Desk is open at http://localhost:${port}${isMock(env) ? '  (practice account: made-up posts, real help pages)' : ''}`);
+  console.log(`Second Read is open at http://localhost:${port}${isMock(env) ? '  (practice account: made-up posts, real help pages)' : ''}`);
   return server;
 }

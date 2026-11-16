@@ -313,7 +313,7 @@ function route() {
   $('#nav-answer').toggleAttribute('aria-current', !practice);
   $('#nav-practice').toggleAttribute('aria-current', practice);
   if (!practice) $('#nav-answer').setAttribute('aria-current', 'page'); else $('#nav-practice').setAttribute('aria-current', 'page');
-  document.title = practice ? 'Practice game, Support Desk' : 'Support Desk';
+  document.title = practice ? 'Practice game, Second Read' : 'Second Read';
   if (practice) { demo.cancel(); game.open(); }
 }
 
