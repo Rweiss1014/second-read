@@ -213,6 +213,7 @@ const WHY_PLAIN = {
   'docs-wrong': 'The customer says the help pages are wrong, so a person on the team will check them.',
   'access-blocked': 'The customer cannot reach the screen the steps need, so a person on the team will help.',
   'past-docs': 'This goes past what the help pages cover, so a person on the team will answer it.',
+  pressure: 'The customer is upset and has set a deadline, so a person on the team will answer this one, quickly.',
   'docs-silent': 'The help pages do not cover this yet, so the desk will not guess.',
   tie: 'The desk could not tell which of two questions this is, so it will not guess.',
   'partly-covered': 'The message asks more than one thing. The desk answers the part the help pages cover, and a person on the team takes the rest.',
