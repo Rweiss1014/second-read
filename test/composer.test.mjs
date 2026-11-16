@@ -125,7 +125,7 @@ test('a draft that passes every check becomes a composed reply, in the saved rep
   assert.match(f.calls[1].user, /<reply>[\s\S]*1\. Each workspace can hold up to 7 lantern widgets\.[\s\S]*<help-page-sections>[\s\S]*Choose Add Lantern\./);
   // The frame is the script's; the reply passes the script checker.
   const a = assembleReply(r.composed.steps);
-  assert.ok(a.reply.includes(FRAME.opening) && a.reply.includes(`Next step: ${FRAME.next}`) && a.reply.includes(FRAME.proof) && a.reply.includes(`Help page: ${URL}`));
+  assert.ok(a.reply.includes(FRAME.opening) && [FRAME.next, FRAME.nextUi].includes(a.next) && a.reply.includes(`Next step: ${a.next}`) && a.reply.includes(FRAME.proof) && a.reply.includes(`Help page: ${URL}`));
   assert.equal(a.steps.length, 3);   // two written steps, one fixed line to keep the 3-to-5-step shape
   assert.equal(checkReply({ reply: a.reply, steps: a.steps, pages }, { reviewsDir: null, checksDir: null }).pass, true);
 });
@@ -324,4 +324,10 @@ test('over a saved entry: an entry that reads the account keeps its own reply', 
   const r = await composer(f, { overSaved: true }).compose(MSG, savedRoute([{ type: 'status', text: 'What your account shows.' }]));
   assert.equal(r.entry.id, 'lantern-saved');
   assert.equal(f.calls.length, 0);
+});
+
+test('the next step fits the answer: steps to click get "check against your screen", a plain fact gets "tell us what you are trying to do"', () => {
+  const q = [{ id: 'S1', url: 'https://help.blotato.com/x', text: 'x' }];
+  assert.equal(assembleReply([{ text: 'Credits are non-transferable.', quotes: q }]).next, FRAME.next);
+  assert.equal(assembleReply([{ text: 'Open Settings and choose Billing.', quotes: q }]).next, FRAME.nextUi);
 });

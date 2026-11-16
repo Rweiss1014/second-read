@@ -121,12 +121,18 @@ const SECOND_SCHEMA = {
 export const FRAME = Object.freeze({
   opening: 'Here is what Blotato\'s help pages say about this.',
   // Added only when the writer gave fewer than 3 steps, so the reply keeps the 3-to-5-step shape customers follow.
+  // Nov 16, 2026 (frame f2): no line about the reply itself ("these steps come from"), no hedge on whether it answers
+  // the question (the script already ties every thing asked to a step), and the one thing a help-page reply really
+  // leaves open said plainly: it did not look at the customer's own account.
   pad: [
-    'The help page linked below has the whole section these steps come from.',
-    'If your screen or your plan looks different from this, reply here and a person on the team will look at your account.',
+    'You can read the full section on the help page linked below.',
+    'If something here does not fit your situation, a person on the team can check your account.',
   ],
-  next: 'Check these steps against what you see, and reply here if anything does not match.',
-  proof: 'Still open: whether this answers everything you asked. Each step above comes from the help page linked below.',
+  // The next step fits the answer (a blind A/B, Nov 16): steps to click or open get "check these against what you
+  // see"; a plain fact gets an invitation to say what they are trying to do.
+  next: 'If this is not what you were hoping for, reply and tell us what you are trying to do.',
+  nextUi: 'Follow these steps, and reply here if anything on your screen does not match.',
+  proof: 'Still open: anything specific to your own account. This answer comes from the help pages, not from your account.',
   signoff: 'Thanks,',
 });
 
@@ -137,6 +143,9 @@ export function deskSteps(steps) {
   return out;
 }
 export const helpLinks = (steps) => [...new Set(steps.flatMap(s => (s.cites || (s.cite ? [s.cite] : [])).map(c => c.url)))].slice(0, 3);
+// Steps that send the customer somewhere on screen (open, click, go to, select, turn on...).
+const UI_STEP = /\b(?:open|click|tap|go to|select|choose|turn (?:on|off)|toggle|press|enable|disable|navigate|fill in|upload|connect|reconnect|disconnect|sign in|log in|paste|copy)\b/i;
+export const nextOf = (steps) => (steps.some(s => UI_STEP.test(s.text)) ? FRAME.nextUi : FRAME.next);
 // The whole reply, as the customer reads it.
 export function assembleReply(steps, { name = '', agent = 'Support' } = {}) {
   const ds = deskSteps(steps);
@@ -145,12 +154,12 @@ export function assembleReply(steps, { name = '', agent = 'Support' } = {}) {
     `Hi${name ? ' ' + name : ''},`, '',
     FRAME.opening, '',
     ...ds.map((s, i) => `${i + 1}. ${s.text}`), '',
-    `Next step: ${FRAME.next}`,
+    `Next step: ${nextOf(steps)}`,
     FRAME.proof,
     ...links.map(u => `Help page: ${u}`), '',
     FRAME.signoff, agent,
   ].join('\n');
-  return { reply, steps: ds, links, opening: FRAME.opening, next: FRAME.next, proof: FRAME.proof };
+  return { reply, steps: ds, links, opening: FRAME.opening, next: nextOf(steps), proof: FRAME.proof };
 }
 
 // ---------------------------------------------------------------- the script's checks
