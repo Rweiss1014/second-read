@@ -243,3 +243,36 @@ test('number questions: the customer\'s own count is a where-to-look question; a
   ], 'should answer');
   expectAll(['How long does a post stay in progress before it fails?'], (r) => !answered(r), 'no documented duration');
 });
+
+test('ties: broken only when the docs-silent check stops one of the two on a named item; never on a missing number', () => {
+  const m = 'I want to connect my Mastodon account the same way I connected Bluesky. Which button do I press?';
+  const r = routeMessage(m);
+  assert.equal(r.entry?.id, 'supported-platforms', show(m, r));
+  assert.equal(r.tie?.chose, 'supported-platforms');
+  expectAll([
+    'Is there a limit on how many first comments I can schedule per day?',
+    'How many social profiles can I link on the Creator plan?',
+  ], (x) => !answered(x), 'a missing number must not hand the question to a neighbor');
+});
+
+test('ties: the entry the help page gives the question to wins (TikTok drafts, brand kits tied to accounts)', () => {
+  answersWith([
+    ['draft-in-remix', 'my tiktok draft is not in blotato anywhere, not in remix either'],
+    ['draft-in-remix', 'I sent a TikTok to my drafts with Blotato and it is gone, it is not in the agent or remix. Where is it?'],
+    ['find-what-i-created', 'where did the draft I wrote this morning go?'],
+    ['group-accounts-by-brand', 'I have two brands in one login. Can each brand kit be linked to its own social accounts?'],
+    ['brand-kit-setup', 'how do I set up my brand kit?'],
+  ], 'owner should answer');
+});
+
+test('the docs-silent check reads the whole message when the question is short, but not pasted code or links', () => {
+  expectAll([
+    'For a client I manage, the LinkedIn org page post fails: I put the subaccount id in accountId. Is that wrong?',
+    'We send the YouTube channel id in every call. Is that right?',
+  ], (r) => !(answered(r) && r.entry.id === 'agency-multiple-clients'), 'short question leans on the message');
+  const m = 'Sent POST /v2/posts: {"post":{"accountId":"1","content":{"platform":"facebook"},"target":{"targetType":"facebook","pageId":"2","mediaType":"story"}}}. Only one photo showed up as a story. Where are the others?';
+  const r = routeMessage(m);
+  assert.ok(!r.silent, show('pasted JSON', r));
+  const t = routeMessage('n8n credential test passes but the account dropdown in the node is empty.');
+  assert.ok(t.entry?.id !== 'sandbox-question', show('credential test', t));
+});

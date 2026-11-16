@@ -364,7 +364,11 @@
           "staging",
           "without posting",
           "without publishing",
-          "test"
+          "test environment",
+          "test post",
+          "test posts",
+          "test my integration",
+          "test the api"
         ]
       ],
       "lookup": "docs-search",

@@ -70,6 +70,31 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
     return null;
   }
 
+  // What the customer asks: the question sentences, or the whole message when it has none, or when its
+  // questions are too short to stand alone ("Is that wrong?" leans on the sentences before it).
+  // Pasted code (a JSON payload) and links are what the customer sent, not what they ask about, so they are
+  // left out: a "pageId" inside a pasted request body is not a question about page ids.
+  function askedText(text) {
+    const asked = splitSentences(text).filter(s => QUESTION.test(s.trim()));
+    if (asked.length && contentStems(asked.join(' ')).length >= 3) return asked.join(' ');
+    return text.replace(/\{[^\n]*\}/g, ' ').replace(/`[^`\n]*`/g, ' ').replace(/https?:\/\/\S+/g, ' ');
+  }
+
+  function breakTie(a, b, text) {
+    const q = askedText(text);
+    const [ea, eb] = [index.byId.get(a.id), index.byId.get(b.id)];
+    // Only a named item or platform breaks a tie. A missing number does not: when the entry that owns the
+    // topic gives no number, the docs are silent, and a neighbor with some other number is not the answer
+    // ("how many first comments a day" is not answered by the posts-per-day limits).
+    const sa = silentOn(ea, q); const sb = silentOn(eb, q);
+    if (sa?.kind === 'number' || sb?.kind === 'number') return null;
+    if (sa && !sb) return { c: b, why: `"${a.id}" never mentions "${sa.term}"` };
+    if (sb && !sa) return { c: a, why: `"${b.id}" never mentions "${sb.term}"` };
+    // Tried and dropped: preferring the entry that names more of the message's platforms. It sent "the pin
+    // shows published, the link gives a 404" to the connect-accounts entry because that one names Pinterest.
+    return null;
+  }
+
   function pickMoneyEntry(text) {
     const money = entries.filter(e => e.guard === 'money').filter(e => anchorsMet(text, e.anchors).ok);
     money.sort((a, b) => (b.priority || 0) - (a.priority || 0));
@@ -96,9 +121,21 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
     const scored = scoreEntries(index, real);
     const live = scored.filter(c => !c.excluded);
     base.candidates = live.slice(0, 3).map(c => ({ id: c.id, score: round(c.score), phrasing: c.phrasing }));
-    const [best, second] = live;
+    let [best, second] = live;
+    const needOf = (c) => (c?.anchored ? threshold : thresholdUnanchored);
+    // Two entries too close to choose between: if the docs-silent check stops exactly one of them (it never
+    // mentions the item or number asked about), the other is the candidate. It must still reach the threshold
+    // and beat the third entry by the margin, and it then goes through every other check.
+    if (best && second && best.score - second.score < margin) {
+      const pick = breakTie(best, second, real);
+      const third = live[2];
+      if (pick && pick.c.score >= needOf(pick.c) && pick.c.score - (third?.score || 0) >= margin) {
+        base.tie = { chose: pick.c.id, over: (pick.c === best ? second : best).id, why: pick.why };
+        [best, second] = [pick.c, third];
+      }
+    }
     const gap = best ? best.score - (second?.score || 0) : 0;
-    const need = best?.anchored ? threshold : thresholdUnanchored;
+    const need = needOf(best);
     if (!best || best.score < need || gap < margin) {
       const why = !best ? 'No entry is a candidate for this message.'
         : best.score < need ? `The best match, "${best.id}", scored ${round(best.score)}, below the ${need} the desk needs to answer.`
@@ -123,10 +160,10 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
     }
 
     // The thing asked about must be something the entry speaks about. Only the questions are read (the whole
-    // message when it has none), so "I make my images in Canva. How do I schedule a post?" is not blocked.
+    // message when it has none, or only short ones), so "I make my images in Canva. How do I schedule a post?"
+    // is not blocked.
     if (!entry.escalate && !entry.noDocAnswer) {
-      const asked = splitSentences(real).filter(s => QUESTION.test(s.trim()));
-      const silent = silentOn(entry, asked.length ? asked.join(' ') : real);
+      const silent = silentOn(entry, askedText(real));
       if (silent) {
         const what = silent.kind === 'number' ? `asks for a number ("${silent.term}"), and its steps give none`
           : `asks about ${silent.kind === 'name' ? '' : `${/^[aeiou]/.test(silent.kind) ? 'an' : 'a'} ${silent.kind}, `}"${silent.term}", which it never mentions`;
