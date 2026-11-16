@@ -1,0 +1,12 @@
+{
+  "replySha256": "ef349d2d8835e0faaa9402eab58e80fe68b83c67283d9125c3b7e58c0fdb7066",
+  "verdict": "pass",
+  "findings": [
+    "Note, not blocking: the opening says \"Here is what happened\", but no account lookup was made, so the desk has not confirmed that an API key was generated on this account. Step 1 states the rule from the billing page accurately, so it does not mislead, but \"Here is the most likely reason\" would claim less.",
+    "Note, not blocking: step 3 says \"with what I checked\", while the status evidence shows no account lookup. It can only mean the help pages; the escalation packet exists, so the hand-off itself is true.",
+    "Note, not blocking: step 4 offers cancelling without saying what cancelling gives up. The FAQ page says keeping the subscription is how you \"retain your credits, scheduled posts, and access\". The Next step asks the customer to reply first, so this can be covered in the walk-through."
+  ],
+  "checkedAt": "2026-11-15T20:59:30Z",
+  "checker": "reply-checker",
+  "entry": "trial-api-key-charge"
+}

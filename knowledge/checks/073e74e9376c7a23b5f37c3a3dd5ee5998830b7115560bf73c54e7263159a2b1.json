@@ -1,0 +1,10 @@
+{
+  "replySha256": "073e74e9376c7a23b5f37c3a3dd5ee5998830b7115560bf73c54e7263159a2b1",
+  "verdict": "pass",
+  "findings": [
+    "Note: step 1 says 'the top results do not cover a test mode', but the status evidence lists only result titles ('API keys', 'Website modes and navigation', 'FAQs', and others), not their text; it does not mislead the customer because the reply makes no claim either way and escalates, but the desk should confirm those pages were read."
+  ],
+  "checkedAt": "2026-11-15T20:59:52Z",
+  "checker": "reply-checker",
+  "entry": "sandbox-question"
+}
