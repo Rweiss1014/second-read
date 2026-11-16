@@ -1,0 +1,9 @@
+{
+  "replySha256": "6d654a541f834e3d22cfff69a6755867e0440cbf94048e07dcbef6bdc1eb4d0b",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T03:18:28Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "remix-youtube-video"
+}

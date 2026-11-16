@@ -1,0 +1,11 @@
+{
+  "replySha256": "8e3bcc2c18581ce366a667a1d5f582d03fb6dc70dce96e4e184b5ed1d701fe62",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the success line \"You will know it worked when the post appears in the Slack channel\" covers only the \"could not display\" branch; for \"Slack rejected the post\" (step 3) nothing says what is still open."
+  ],
+  "checkedAt": "2026-11-16T03:18:30Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "slack-rejected-or-cannot-display-33005"
+}

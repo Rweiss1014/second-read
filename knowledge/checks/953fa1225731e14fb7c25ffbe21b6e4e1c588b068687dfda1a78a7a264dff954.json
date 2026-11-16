@@ -1,0 +1,9 @@
+{
+  "replySha256": "953fa1225731e14fb7c25ffbe21b6e4e1c588b068687dfda1a78a7a264dff954",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T03:18:30Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "instagram-user-not-authorized-application"
+}

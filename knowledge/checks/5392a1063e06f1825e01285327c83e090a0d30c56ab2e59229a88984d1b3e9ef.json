@@ -1,0 +1,11 @@
+{
+  "replySha256": "5392a1063e06f1825e01285327c83e090a0d30c56ab2e59229a88984d1b3e9ef",
+  "verdict": "pass",
+  "findings": [
+    "Style note: step 2 (paste as Text context) comes before step 3 (how to open Context), so the order reads backward, though the Next step line puts it right."
+  ],
+  "checkedAt": "2026-11-16T03:19:58Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "instagram-posts-as-context"
+}

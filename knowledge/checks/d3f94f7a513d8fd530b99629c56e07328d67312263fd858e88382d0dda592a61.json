@@ -1,0 +1,9 @@
+{
+  "replySha256": "d3f94f7a513d8fd530b99629c56e07328d67312263fd858e88382d0dda592a61",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T03:18:32Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "dm-automation-email-no-button"
+}

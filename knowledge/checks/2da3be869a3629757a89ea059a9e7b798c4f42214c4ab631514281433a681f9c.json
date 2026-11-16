@@ -1,0 +1,9 @@
+{
+  "replySha256": "2da3be869a3629757a89ea059a9e7b798c4f42214c4ab631514281433a681f9c",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T03:18:25Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "dm-automation-buttons-missing"
+}

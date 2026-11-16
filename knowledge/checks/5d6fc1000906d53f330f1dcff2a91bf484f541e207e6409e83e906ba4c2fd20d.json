@@ -1,0 +1,11 @@
+{
+  "replySha256": "5d6fc1000906d53f330f1dcff2a91bf484f541e207e6409e83e906ba4c2fd20d",
+  "verdict": "pass",
+  "findings": [
+    "Style note, step 4: \"The codes match the messaging errors\" drops the page's \"above\" and does not say these are listed on the linked errors page, so a customer may not know where to look them up."
+  ],
+  "checkedAt": "2026-11-16T03:19:58Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "dm-run-failed-after-queue"
+}

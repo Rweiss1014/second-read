@@ -1,0 +1,9 @@
+{
+  "replySha256": "1473c4e43d5069943f94a60bd2cd6fa7cb7c40c2d685e5ac196a7f02a297ff44",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T03:19:30Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "substack-not-supported"
+}

@@ -1,0 +1,11 @@
+{
+  "replySha256": "6274f56f5d99db020da87932c1b29bdead94a69e9b8415031981229ff1b0ec97",
+  "verdict": "pass",
+  "findings": [
+    "Style note, step 5: \"keep the exact response and request ID\" comes only after the error returns; the page says to retain them from the first failure, so asking for them up front would be safer, though nothing here misleads."
+  ],
+  "checkedAt": "2026-11-16T03:19:58Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "facebook-reduce-amount-of-data"
+}

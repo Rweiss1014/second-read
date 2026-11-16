@@ -1,0 +1,12 @@
+{
+  "replySha256": "c574ffdb4a07c531de6b6b554411892450714400acaa6f76442081ea56188245",
+  "verdict": "pass",
+  "findings": [
+    "Style note only: the opening says Instagram Reels \"have a known set of sizes that work\" while the page calls 1080 x 1920 or 720 x 1280 \"a compatible export preset\"; step 2 states it correctly, so this does not mislead.",
+    "Style note only: the steps explain rather than act, and the reply could add the page's advice to inspect the file metadata, since an .mp4 name does not prove the resolution."
+  ],
+  "checkedAt": "2026-11-16T03:18:32Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "invalid-video-dimensions"
+}

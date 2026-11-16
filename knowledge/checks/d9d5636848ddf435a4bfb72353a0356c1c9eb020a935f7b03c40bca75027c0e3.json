@@ -1,0 +1,11 @@
+{
+  "replySha256": "d9d5636848ddf435a4bfb72353a0356c1c9eb020a935f7b03c40bca75027c0e3",
+  "verdict": "pass",
+  "findings": [
+    "Style note only: the success line could add the page's fallback, \"review its runs and logs if no message arrives\", so the customer knows where to look if the test fails."
+  ],
+  "checkedAt": "2026-11-16T03:18:32Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "dm-automation-comments-and-dms"
+}

@@ -1,0 +1,9 @@
+{
+  "replySha256": "232a2132b0fda063ebcf5a5cc92472497aa6225c6be53cd42255d1e4d2c956b9",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T03:19:30Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "instagram-comment-permission-20203"
+}

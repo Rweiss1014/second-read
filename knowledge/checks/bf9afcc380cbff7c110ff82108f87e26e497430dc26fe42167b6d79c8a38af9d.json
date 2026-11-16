@@ -1,0 +1,11 @@
+{
+  "replySha256": "bf9afcc380cbff7c110ff82108f87e26e497430dc26fe42167b6d79c8a38af9d",
+  "verdict": "pass",
+  "findings": [
+    "Style note: step 1 \"One common reason is that you generated an API key\" can read as a statement about this customer; \"if you generated an API key\" would be gentler."
+  ],
+  "checkedAt": "2026-11-16T03:19:24Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "past-due-with-trial"
+}

@@ -1,0 +1,11 @@
+{
+  "replySha256": "abccac05747a725e4a102cf504ba1567843b3e45e0d92bf35bd777cc5fc193c8",
+  "verdict": "pass",
+  "findings": [
+    "Style note: step 3 leaves out the page's \"If none match, direct the user to Accounts\", which would help a customer whose account was disconnected."
+  ],
+  "checkedAt": "2026-11-16T03:18:30Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "account-not-found-5000"
+}

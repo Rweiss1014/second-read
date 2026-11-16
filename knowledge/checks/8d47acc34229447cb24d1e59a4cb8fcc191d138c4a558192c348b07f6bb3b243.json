@@ -1,0 +1,11 @@
+{
+  "replySha256": "8d47acc34229447cb24d1e59a4cb8fcc191d138c4a558192c348b07f6bb3b243",
+  "verdict": "pass",
+  "findings": [
+    "Style note: step 3 says \"Click Done for an existing source\" but leaves out the page's next line, \"Submitting an existing source requests reprocessing\", which a customer could find useful to know."
+  ],
+  "checkedAt": "2026-11-16T03:18:30Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "save-source-to-library"
+}

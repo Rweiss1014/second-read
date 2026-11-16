@@ -1,0 +1,9 @@
+{
+  "replySha256": "71e1a9b6b58c8055262d58beccfe720cc6fb0e469b50980265ccf0b956c98a26",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T03:18:28Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "app-client-side-exception"
+}

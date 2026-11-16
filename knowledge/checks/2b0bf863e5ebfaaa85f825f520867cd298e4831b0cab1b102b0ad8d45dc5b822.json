@@ -1,0 +1,11 @@
+{
+  "replySha256": "2b0bf863e5ebfaaa85f825f520867cd298e4831b0cab1b102b0ad8d45dc5b822",
+  "verdict": "pass",
+  "findings": [
+    "Style note, step 1: \"before you treat a cancellation at the end of your paid period as lost access\" is stiff wording carried over from the page, but it matches the page and would not mislead."
+  ],
+  "checkedAt": "2026-11-16T03:18:25Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "old-videos-after-cancel"
+}

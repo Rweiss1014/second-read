@@ -1,0 +1,9 @@
+{
+  "replySha256": "ef4ccdd0e95212067fd5eead2c3d5c380aafaaf3e42eff2dab840dbc64e194e0",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T03:20:11Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "group-accounts-by-brand"
+}

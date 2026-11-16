@@ -1,0 +1,9 @@
+{
+  "replySha256": "2aeac5f8afa6c618bd501f6662f5e2a89e4a4f7626009f5fd9f10a4dcd1c58e8",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T03:19:30Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "adult-content-shadowban"
+}
