@@ -1,0 +1,9 @@
+{
+  "replySha256": "29c5ff0d18dc292647a1b0059e81a1c776ffa59eef2e736b2323a64b5fd938b6",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T04:45:01Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "published-not-visible"
+}
