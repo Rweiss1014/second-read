@@ -27,6 +27,19 @@ const SIGNAL_WHY = {
 };
 const whyOfSignals = (hits) => ({ why: SIGNAL_WHY[hits[0].signal] || 'tried-already', whyDetail: { signal: hits[0].signal, words: hits[0].words } });
 
+// The same test as isErrorEntry in entries.mjs (kept here so route.mjs does not import entries.mjs, which imports it).
+const isErrorEntryLike = (e) => !!e && ((e.steps || []).some(s => /\/errors?\b|error-handling|limitations/.test(s?.cite?.url || '')) || /\b(?:error|errors|failed|fails|rejected|not found|invalid|exceeded|unsupported)\b/i.test(e.title || ''));
+
+// "25 posts" in the title, "26 posts" in the message and no "25 posts" there: the counts disagree.
+export function countMismatch(title, text) {
+  const t = String(text || '').toLowerCase().replace(/,(?=\d{3}\b)/g, '');
+  for (const [, n, word] of String(title || '').toLowerCase().matchAll(/\b(\d{2,})\s+([a-z]{3,})/g)) {
+    const said = [...t.matchAll(new RegExp(`\\b(\\d{2,})\\s+${word}\\b`, 'g'))].map(m => m[1]);
+    if (said.length && !said.includes(n)) return { title: `${n} ${word}`, said: `${said[0]} ${word}` };
+  }
+  return null;
+}
+
 // A sentence that only thanks or agrees ("Thanks for the scheduling help!") is background, not the question:
 // it is left out of matching, so the topic it names cannot pull the message to its entry. A sentence that goes
 // on to say something ("Thanks, but it still fails") is kept.
@@ -113,6 +126,16 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
     if (sa?.kind === 'number' || sb?.kind === 'number') return null;
     if (sa && !sb) return { c: b, why: `"${a.id}" never mentions "${sa.term}"` };
     if (sb && !sa) return { c: a, why: `"${b.id}" never mentions "${sb.term}"` };
+    // An error the customer pasted decides a tie: when the message carries an exact error text or code, and only
+    // one of the two is an error entry whose title shares at least two words with the message, that one is
+    // about this error and the other only shares the background. (Second tuner.)
+    if (specificError(text)) {
+      const msg = new Set(contentStems(text));
+      const fits = (e) => isErrorEntryLike(e) && contentStems(e.title || '').filter(w => msg.has(w)).length >= 2;
+      const [fa, fb] = [fits(ea), fits(eb)];
+      if (fa && !fb && !isErrorEntryLike(eb)) return { c: a, why: `the message gives an error, and only "${a.id}" is about that error` };
+      if (fb && !fa && !isErrorEntryLike(ea)) return { c: b, why: `the message gives an error, and only "${b.id}" is about that error` };
+    }
     // Tried and dropped: preferring the entry that names more of the message's platforms. It sent "the pin
     // shows published, the link gives a 404" to the connect-accounts entry because that one names Pinterest.
     return null;
@@ -201,6 +224,13 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
     if (entry.symptom_only) {
       const err = specificError(real);
       if (err) return { ...base, decision: 'abstain', entry: null, why: 'no-coverage', whyDetail: { error: err, nearest: entry.id }, reason: `"${entry.id}" is for a failure with no error text, but the message gives one ("${err}"), and no entry is a clear match for it.` };
+    }
+
+    // A count in an error entry's title is part of that error: "the maximum number of 25 posts". A message that
+    // gives the same thing with another count ("26 posts") is quoting a different error, or none the docs list.
+    if (isErrorEntryLike(entry)) {
+      const wrongCount = countMismatch(entry.title, real);
+      if (wrongCount) return { ...base, decision: 'abstain', entry: null, silent: { kind: 'number', term: wrongCount.said }, why: 'docs-silent', whyDetail: { kind: 'number', item: wrongCount.said, nearest: entry.id }, reason: `"${entry.id}" is about "${wrongCount.title}", but the message says "${wrongCount.said}". The docs may not list that error.` };
     }
 
     // The thing asked about must be something the entry speaks about. Only the questions are read (the whole

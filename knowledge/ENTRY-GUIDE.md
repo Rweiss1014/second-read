@@ -216,7 +216,7 @@ Your entry does not answer when the customer asks about a specific thing your en
 "Mentions" means anywhere in your title, phrasings, anchors, steps or quotes.
 The desk hands the message to a person instead (the docs may be silent on it).
 
-- **Named things**: a payment method (PayPal, Apple Pay), a platform or service outside Blotato's list (Reddit, Shopify), or a tool (Zapier, Canva, Google Drive). Also a platform feature (analytics, polls, alt text, retweets), a language (Japanese), a file type (GIF, PDF) or an identifier (page id, account id, channel id). The lists are `NAMED_ITEMS` in `src/signals.mjs`. They match exactly, with no typo allowance.
+- **Named things**: a payment method (PayPal, Apple Pay), a platform or service outside Blotato's list (Reddit, Shopify), or a tool (Zapier, Canva, Google Drive). Also a platform feature (analytics, polls, alt text, retweets, Stories, DM automations), a language (Japanese), a file type (GIF, PDF) or an identifier (page id, account id, channel id). The lists are `NAMED_ITEMS` in `src/signals.mjs`. They match exactly, with no typo allowance.
 - **Another platform**: if your title names a platform ("...for Instagram Reels"), a question about a platform you never mention is not yours.
 - **A number**: "how many", "how long", "what is the limit" need a number in your steps. "How many do I have left?" is a where-to-look question and does not.
 - **A capitalized name** after "with", "to", "via" ("pay with Payoneer") that no entry uses anywhere.
@@ -234,6 +234,10 @@ When two entries are too close to call and this check stops exactly one of them 
 
 An anchor, a phrase or a near miss with a digit in it (an error code, a status, an amount, a count) matches only that exact token.
 "20005" never matches "20003", and "504" never matches "500". You do not need a regex anchor for that.
+
+A count in an error entry's title is part of the error: when your title says "the maximum number of 25 posts" and the message says "26 posts" (and never "25 posts"), your entry does not answer. Put the error's exact count in your title, written as digits followed by its word ("25 posts", "120 seconds").
+
+When two entries tie and the message pastes an error text or code, an error entry whose title shares two or more words with the message wins over an entry that is not about an error.
 
 ## Quoted text is not a request
 

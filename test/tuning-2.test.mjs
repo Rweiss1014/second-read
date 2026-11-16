@@ -200,3 +200,32 @@ test('a tie names both candidates; candidates shown to a person are entries with
   const tie = PLAYBOOK.length && routeMessage('my tiktok wont upload');
   if (tie.why === 'tie') assert.equal(tie.whyDetail.candidates.length, 2);
 });
+
+test('a count one off from the error entry\'s own count is not that error; the right count still is', () => {
+  expectAll([
+    'Facebook says I reached the maximum number of 26 posts for the last 24 hours.',
+    'Slack says I reached the maximum number of 101 posts for the last 24 hours.',
+    'LinkedIn says reached the maximum number of 49 posts for the last 24 hours.',
+    'YouTube: reached the maximum number of 11 posts for the last 24 hours. What does it mean?',
+    'My Instagram post failed with error 20004.',
+    'Slack post failed with error 33006.',
+  ], (r) => !answered(r), 'should not be answered');
+  for (const [id, m] of [
+    ['facebook-25-posts-limit', 'Facebook says I reached the maximum number of 25 posts for the last 24 hours. When can I post again?'],
+    ['video-over-120-seconds', 'This video is 130 seconds long, but we can only automatically fix videos up to 120 seconds. What now?'],
+  ]) { const r = routeMessage(m); assert.ok(answered(r) && r.entry.id === id, show(m, r)); }
+});
+
+test('a tie: a pasted error picks the error entry over one that only shares the background', () => {
+  const r = routeMessage('POST /v2/posts returned Account 55512 not found, 55512 is our LinkedIn company Page id from the subaccounts list.');
+  assert.ok(answered(r) && r.entry.id === 'account-not-found-linkedin', show('', r));
+});
+
+test('docs-silent knows Stories and DM automations as named features', () => {
+  expectAll([
+    'Can I add music to my Instagram Stories?',
+    'Can I schedule an Instagram Story with music from Blotato?',
+    'How do I change the email my DM automation sends to?',
+    'Can I change the email address my DM automation collects from people?',
+  ], (r) => !answered(r), 'should not be answered');
+});
