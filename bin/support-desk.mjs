@@ -12,6 +12,8 @@
 //   support-desk morning                       what broke overnight, written to MORNING.md
 //   support-desk logs                          a summary of the last run
 //   support-desk docs                          refresh the cited help pages through Blotato's docs MCP
+//   support-desk docs --all [--refresh]        read every page in the help index into the cache, politely
+//   support-desk check-entries                 check every entry in knowledge/entries/ (shape and quotes)
 //   support-desk serve [--port 5610]           the local page
 //
 // Add --mock (or BLOTATO_MOCK=1) to use sample account data. The desk only reads; it never posts.
@@ -45,6 +47,17 @@ function printResult(r) {
 
 async function main() {
   if (cmd === 'serve') { const { startServer } = await import('../src/server.mjs'); await startServer({ port: Number(flag('--port') || process.env.PORT || 5610) }); return; }
+  if (cmd === 'check-entries') {
+    // Every writer runs this before a commit: the shape of every entry, and every quote against its cached page.
+    const { checkEntries } = await import('../src/entries.mjs');
+    const r = checkEntries({ cacheDir: deskPaths().docsCache });
+    for (const p of r.problems) console.log(`FAIL ${p}`);
+    console.log(`
+${r.ok ? 'All entries pass.' : `${r.problems.length} problem(s). Nothing above is optional: fix each one, then run this again.`}`);
+    console.log(`Entries: ${r.entries} in ${r.files} file(s). Help pages cited: ${r.pagesCited}. Help pages cached: ${r.pagesCached}.`);
+    process.exitCode = r.ok ? 0 : 1;
+    return;
+  }
   if (cmd === 'logs') { console.log(summarizeLastRun(deskPaths().logs).text); return; }
   if (cmd === 'cleared') {
     // support-desk cleared T10: may this saved reply be sent? Only with a fresh-checker pass for this exact text.
@@ -105,10 +118,17 @@ ${c.reply}`);
       const m = await morning(desk);
       console.log(m.text);
       process.exitCode = m.error ? 1 : 0;
+    } else if (cmd === 'docs' && args.includes('--all')) {
+      // Every page in https://help.blotato.com/llms.txt, one at a time, into .cache/docs.
+      const { cacheAllDocs } = await import('../src/desk.mjs');
+      const r = await cacheAllDocs(desk, { refresh: args.includes('--refresh'), onPage: (p) => { if (!p.skipped) console.log(`${p.ok ? 'ok  ' : 'FAIL'} ${p.url}${p.via ? ` (${p.via})` : ''}`); } });
+      console.log(`\nHelp index: ${r.total} pages. Newly cached: ${r.cached}. Already cached: ${r.skipped}. Failed: ${r.failed.length}.${r.stopped ? ' Stopped early after repeated errors.' : ''}`);
+      for (const u of r.failed) console.log(`  failed: ${u}`);
+      process.exitCode = r.failed.length ? 1 : 0;
     } else if (cmd === 'docs') {
       for (const p of await refreshDocs(desk)) console.log(`${p.ok ? 'ok  ' : 'FAIL'} ${p.url}${p.ok ? ` (${p.via}, ${p.fetchedAt})` : ''}`);
     } else {
-      console.log('commands: ticket "<message>" | ticket --id T01 [--save-reply] | cleared T01 | shift | morning | logs | docs | serve   (add --mock for sample account data)');
+      console.log('commands: ticket "<message>" | ticket --id T01 [--save-reply] | cleared T01 | shift | morning | logs | docs [--all] | check-entries | serve   (add --mock for sample account data)');
       process.exitCode = cmd ? 2 : 0;
     }
   } finally { await desk.close(); }

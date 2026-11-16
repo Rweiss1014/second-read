@@ -1,0 +1,93 @@
+{
+  "area": "MCP and AI clients (Claude, ChatGPT, Codex)",
+  "entries": [
+    {
+      "id": "mcp-invalid-grant",
+      "kind": "technical",
+      "title": "invalid_grant from the Blotato connector in Claude",
+      "phrasings": [
+        "the Blotato connector in Claude says invalid_grant",
+        "invalid_grant error from the MCP connector",
+        "Claude connector stopped working, the oauth expired",
+        "my Blotato MCP sign in expired",
+        "the ChatGPT connector to Blotato says invalid grant",
+        "how do I reconnect the Blotato connector in Claude",
+        "claude cant connect to blotato anymore, oauth error"
+      ],
+      "not_this": [
+        "Claude posted to the wrong social account",
+        "Claude made a duplicate post",
+        "the MCP cannot attach my local file"
+      ],
+      "anchors": [
+        [
+          "invalid grant",
+          "oauth",
+          "connector",
+          "sign in",
+          "expired"
+        ],
+        [
+          "claude",
+          "chatgpt",
+          "mcp",
+          "cowork",
+          "connector",
+          "codex",
+          "cursor"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "removed and re-added",
+          "re-added the connector",
+          "re-added it",
+          "re-approved",
+          "added it again",
+          "reconnected the connector"
+        ]
+      },
+      "opening": "This one is about the connector's sign-in, not your social accounts.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "invalid_grant here means your Blotato MCP sign-in expired.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Your Blotato MCP OAuth connection expired."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "First, log into your Blotato account in your browser. The approval needs it.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/mcp/setup",
+            "quote": "Make sure you are logged into your Blotato account in the browser. The OAuth approval requires an active Blotato session."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Then in Claude, open Customize > Connectors, remove the Blotato connector, add it again, and approve access.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "In Claude, open Customize > Connectors, remove and re-add the Blotato custom connector, and re-approve access via OAuth."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The Fix My Automation button will not help with this one. It only works for n8n.",
+          "cite": {
+            "url": "https://help.blotato.com/integrations-and-automation-templates/n8n/faqs",
+            "quote": "it does not work for Make.com, Claude, MCP, or direct REST API calls."
+          }
+        }
+      ],
+      "next": "Re-add the connector, then ask Claude to list your Blotato accounts.",
+      "proof": "You will know it worked when Claude answers with your account list. An empty list still counts: it means no social accounts are connected yet."
+    }
+  ]
+}

@@ -4,7 +4,7 @@
 //    a post or an id, a read-only status lookup through the Blotato API.
 // 3. Compose: a numbered reply, an escalation packet when a person must decide, a help-doc edit when the docs
 //    have no answer or the wrong one.
-import { matchEntry, PAGES } from '../knowledge/playbook.mjs';
+import { routeMessage, PAGES } from '../knowledge/playbook.mjs';
 import { listPosts, getSubmission, errorText } from './api.mjs';
 import { explain } from './explain.mjs';
 
@@ -84,59 +84,77 @@ async function lookup(kind, ticket, { client, docs, entry }) {
   return ev;
 }
 
-export async function diagnose(ticket, { client, docs, agent = 'Support' }) {
-  const entry = matchEntry(ticket.text);
-  const out = { ticket, entry: entry ? { id: entry.id, kind: entry.kind, title: entry.title } : null, pages: {}, evidence: null };
+export async function diagnose(ticket, { client, docs, agent = 'Support', route = routeMessage }) {
+  const r = route(ticket.text);
+  const entry = r.entry;
+  const match = { decision: r.decision, guard: r.guard, reason: r.reason, words: r.words, score: r.score, margin: r.margin, candidates: r.candidates, signals: r.signals, questions: r.questions, stripped: r.stripped };
+  const out = { ticket, entry: entry ? { id: entry.id, kind: entry.kind, title: entry.title } : null, match, pages: {}, evidence: null };
 
   if (!entry) {
-    // No playbook entry: search the docs, refuse to guess, propose a help-doc edit and hand it to a person.
+    // No entry the desk trusts: search the docs, refuse to guess, propose a help-doc edit and hand it to a person,
+    // with the matcher's top three candidates so the person can start there.
     const ev = await lookup('docs-search', ticket, { client, docs, entry: { searchQueries: [ticket.text.slice(0, 120)] } });
     out.evidence = ev;
     out.outcome = 'no-answer';
     out.reply = null;
-    out.refused = 'No playbook entry matches, so the desk will not write a reply. See the docs search and the proposed help-doc edit.';
+    const cands = (r.candidates || []).map(c => `${c.id} (${c.score})`).join(', ');
+    out.refused = `The desk will not write a reply: ${r.reason}${cands ? ` Top candidates: ${cands}.` : ''} See the docs search and the proposed help-doc edit.`;
     out.docEdit = {
       article: PAGES.faqs, kind: 'new', heading: ticket.text.split(/[.?!]/)[0].slice(0, 90) + '?',
       add: '[Answer to confirm with the founder.]',
       note: `No playbook entry matched. ${ev.summary}`,
     };
-    out.escalation = buildEscalation(ticket, null, out, { why: 'The desk has no documented answer for this ticket.', causes: [], ruledOut: [] });
+    const causes = (r.candidates || []).length ? [`Not an answer, only where to start: the matcher's top candidates were ${cands}.`] : [];
+    out.escalation = buildEscalation(ticket, null, out, { why: `The desk has no documented answer it trusts for this ticket. ${r.reason}`, causes, ruledOut: [] });
     return out;
   }
 
-  // Read every page the entry cites (once), so the checker can verify each quote.
-  const urls = new Set(entry.steps.filter(s => s.cite).map(s => s.cite.url));
-  for (const c of [...(entry.escalate?.causes || []), ...(entry.escalate?.ruledOut || [])]) if (c?.cite) urls.add(c.cite.url);
+  // What the customer gets: the entry's own reply, a holding reply, or the entry plus a hand-over line.
+  let reply = entry;
+  let esc = entry.escalate || null;
+  if (r.decision === 'guard' && !esc) esc = { why: r.reason, causes: [], ruledOut: [] };
+  if (r.decision === 'needs-person') {
+    reply = r.holding;
+    esc = { why: `A person needs to take this: ${r.reason}`, causes: entry.escalate?.causes || [], ruledOut: entry.escalate?.ruledOut || [] };
+  }
+  if (r.decision === 'partial') {
+    reply = { ...entry, steps: [...entry.steps, { type: 'action', text: 'Your other question needs a person on the team, so I am passing that part over with your message.' }] };
+    esc = { why: r.reason, causes: [], ruledOut: [] };
+  }
+
+  // Read every page the reply cites (once), so the checker can verify each quote.
+  const urls = new Set(reply.steps.filter(s => s.cite).map(s => s.cite.url));
+  for (const c of [...(esc?.causes || []), ...(esc?.ruledOut || [])]) if (c?.cite) urls.add(c.cite.url);
   if (entry.docEdit) urls.add(entry.docEdit.article);
   for (const u of urls) out.pages[u] = await docs.getPage(u);
 
   if (entry.lookup) out.evidence = await lookup(entry.lookup, ticket, { client, docs, entry });
 
-  const steps = entry.steps.map(s => ({ ...s, text: s.text.replace('{evidence}', out.evidence?.summary || 'no lookup was made') }));
+  const steps = reply.steps.map(s => ({ ...s, text: s.text.replace('{evidence}', out.evidence?.summary || 'no lookup was made') }));
   const name = (ticket.name || '').trim();
   out.steps = steps;
-  out.next = entry.next;
-  out.proof = entry.proof;
+  out.next = reply.next;
+  out.proof = reply.proof;
   // Blotato's own response contract (start-with-an-ai-agent/agent-triage): answer, the next supported action,
   // what proves success or what is still open, and a link to the relevant section.
   out.helpLink = (steps.find(s => s.cite) || {}).cite?.url || (entry.docEdit?.article ?? null);
   out.reply = [
     `Hi${name ? ' ' + name : ''},`,
     '',
-    entry.opening,
+    reply.opening,
     '',
     ...steps.map((s, i) => `${i + 1}. ${s.text}`),
     '',
-    `Next step: ${entry.next}`,
-    entry.proof,
+    `Next step: ${reply.next}`,
+    reply.proof,
     ...(out.helpLink ? [`Help page: ${out.helpLink}`] : []),
     '',
     `Thanks,`,
     agent,
   ].join('\n');
-  out.outcome = entry.escalate ? 'escalate' : 'reply';
+  out.outcome = esc ? 'escalate' : 'reply';
   if (entry.noDocAnswer) out.outcome = 'no-answer';
-  if (entry.escalate) out.escalation = buildEscalation(ticket, entry, out, entry.escalate);
+  if (esc) out.escalation = buildEscalation(ticket, entry, out, esc);
   if (entry.docEdit) out.docEdit = { ...entry.docEdit, pageFetchedAt: out.pages[entry.docEdit.article]?.fetchedAt, beforeFound: entry.docEdit.before ? (out.pages[entry.docEdit.article]?.text || '').includes(entry.docEdit.before) : undefined };
   return out;
 }

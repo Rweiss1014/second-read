@@ -1,0 +1,161 @@
+{
+  "area": "Hand-overs: messages a person must take, whatever else they ask",
+  "entries": [
+    {
+      "id": "needs-person",
+      "kind": "non-technical",
+      "title": "The customer already tried the documented steps, or the case is past what the docs cover",
+      "guard": "needs-person",
+      "note": "The default holding reply when an entry matches but one of its needs_person_if signals fires. An entry can give its own in \"holding\".",
+      "opening": "Thank you for telling me what you have already tried. That helps a lot.",
+      "steps": [
+        {
+          "type": "action",
+          "text": "Since the usual steps have not solved it, I am passing your message to a person on the team, with everything you have already tried."
+        },
+        {
+          "type": "fact",
+          "text": "You will not get the same checklist from us again. The next step builds on what you already did.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Do not resend the same checklist without new evidence."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Until then, please hold off on anything that could post twice, cost credits, or change your account.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Stop if the next action risks another charge, duplicate post, wrong destination, or unauthorized account change."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Please do not send your API key or any login codes here.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Do not include API keys, OAuth codes, signed upload URLs, or unrelated customer data."
+          }
+        }
+      ],
+      "next": "If you have them, reply with the exact error, the time it happened with your time zone, and any id you see.",
+      "proof": "Still open: what is causing this. A person on the team has your message and what you tried."
+    },
+    {
+      "id": "staff-action",
+      "kind": "non-technical",
+      "title": "A request for us to post, delete or change something on an account",
+      "guard": "staff-action",
+      "opening": "Thanks for writing in. What you asked for is a change on your account, so a person on the team needs to handle it.",
+      "steps": [
+        {
+          "type": "action",
+          "text": "I am passing your request to a person on the team, with what you told me."
+        },
+        {
+          "type": "fact",
+          "text": "A change to an account needs someone with the right access, and a confirmed result.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Account changes need authorized execution and a confirmed result."
+          }
+        },
+        {
+          "type": "action",
+          "text": "I will not tell you it is done until a person on the team has confirmed it."
+        },
+        {
+          "type": "fact",
+          "text": "Please do not send your API key or any login codes here.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Do not include API keys, OAuth codes, signed upload URLs, or unrelated customer data."
+          }
+        }
+      ],
+      "next": "Nothing to do on your side for now. I will reply here when I hear back.",
+      "proof": "Still open: your request. A person on the team decides it, not me."
+    },
+    {
+      "id": "others-data",
+      "kind": "non-technical",
+      "title": "A request for someone else's data or account",
+      "guard": "others-data",
+      "opening": "Thanks for writing in. This is about an account that is not yours, so I am passing it to a person on the team.",
+      "steps": [
+        {
+          "type": "action",
+          "text": "I am not able to share details from another person's account here."
+        },
+        {
+          "type": "action",
+          "text": "I am passing your message to a person on the team, with what you told me."
+        },
+        {
+          "type": "fact",
+          "text": "Please do not send API keys or login codes, yours or anyone else's.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Do not include API keys, OAuth codes, signed upload URLs, or unrelated customer data."
+          }
+        }
+      ],
+      "next": "If this is about your own account, reply from the email on that account and tell me what you need.",
+      "proof": "Still open: your request. A person on the team decides it, not me."
+    },
+    {
+      "id": "secret-request",
+      "kind": "technical",
+      "title": "A request for a key, a password, or the desk's own settings",
+      "guard": "secret",
+      "opening": "Thanks for writing in.",
+      "steps": [
+        {
+          "type": "action",
+          "text": "I can't share keys, passwords or how our tools are set up."
+        },
+        {
+          "type": "fact",
+          "text": "We never share API keys or login codes in a support message, and we will not ask for yours.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Never request the secret in chat."
+          }
+        },
+        {
+          "type": "action",
+          "text": "I am passing your message to a person on the team, in case there is something else you need."
+        }
+      ],
+      "next": "If you have a question about your own account, reply with it here, with the exact error if there is one.",
+      "proof": "Still open: anything else you need. A person on the team has your message."
+    },
+    {
+      "id": "desk-instructions",
+      "kind": "non-technical",
+      "title": "A message that gives the desk instructions and asks no real question",
+      "guard": "desk-instructions",
+      "opening": "Thanks for writing in.",
+      "steps": [
+        {
+          "type": "action",
+          "text": "I can answer questions about your Blotato account from our help pages, but I can't follow instructions to change how support works."
+        },
+        {
+          "type": "action",
+          "text": "I am passing your message to a person on the team."
+        },
+        {
+          "type": "fact",
+          "text": "Please do not send your API key or any login codes here.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Do not include API keys, OAuth codes, signed upload URLs, or unrelated customer data."
+          }
+        }
+      ],
+      "next": "If you have a question about your account, reply with it here, with the exact error if there is one.",
+      "proof": "Still open: your message. A person on the team has it."
+    }
+  ]
+}

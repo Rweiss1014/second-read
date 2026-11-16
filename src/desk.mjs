@@ -9,7 +9,8 @@ import { diagnose, renderEscalation, renderDocEdit, nice } from './diagnose.mjs'
 import { checkReply, freshState } from './checkreply.mjs';
 import { readFailures, recordFailure, ensureFailuresFile, unknownId } from './failures.mjs';
 import { explain } from './explain.mjs';
-import { matchEntry, TICKETS, PLAYBOOK } from '../knowledge/playbook.mjs';
+import { citedPages } from './entries.mjs';
+import { TICKETS, PLAYBOOK, ENTRY_BY_ID } from '../knowledge/playbook.mjs';
 
 export function openDesk({ env = process.env, run = newRunId(), fetchImpl, mockApi } = {}) {
   const paths = deskPaths(env);
@@ -22,34 +23,30 @@ export function openDesk({ env = process.env, run = newRunId(), fetchImpl, mockA
   return { env, paths, mock, logger, client, docs, run, agent: env.SUPPORT_AGENT_NAME || 'Support', close: () => docs.close() };
 }
 
-// The words that triggered the match (an error string, a status), so known-failures records the error, not the customer.
-function signal(entry, text) {
-  for (const re of [...(entry?.any || []), ...(entry?.all || [])]) { const m = text.match(re); if (m) return m[0]; }
-  return '';
-}
-
 export async function handleTicket(desk, ticket, { requireReview = false } = {}) {
   const { paths, logger } = desk;
   logger.write({ action: 'ticket', ticket: ticket.id || 'pasted' });
 
-  // 1. Known failures first.
+  // 1. Known failures first (read before this ticket is recorded).
   const known = readFailures(paths.failures);
-  const entry = matchEntry(ticket.text);
-  const seenBefore = entry ? known.filter(f => f.id === entry.id || f.id === `blocked-${entry.id}`) : known.filter(f => f.id === unknownId(ticket.text));
 
-  // 2. Diagnose from the docs and the account, 3. check the reply.
+  // 2. Route and diagnose from the docs and the account, 3. check the reply.
   const d = await diagnose(ticket, desk);
+  const entry = d.entry ? ENTRY_BY_ID.get(d.entry.id) : null;
+  const seenBefore = entry ? known.filter(f => f.id === entry.id || f.id === `blocked-${entry.id}`) : known.filter(f => f.id === unknownId(ticket.text));
   const check = checkReply(d, { reviewsDir: paths.reviews, requireReview });
 
-  // 4. Mistakes teach: record what happened.
+  // 4. Mistakes teach: record what happened. "Matched words" are the entry's own anchor words or phrasing,
+  // never the customer's text.
   let recorded;
   if (!entry) {
-    recorded = recordFailure(paths.failures, { id: unknownId(ticket.text), title: 'A question the playbook could not answer', why: 'No playbook entry matched, so the desk wrote no reply. It ran a docs search for a person to read.', fix: 'Get the answer from the founder, add it to the help docs (see the proposed edit), then add a playbook entry.', source: 'docs MCP searchDocumentation' });
+    recorded = recordFailure(paths.failures, { id: unknownId(ticket.text), title: 'A question the playbook could not answer', why: `No entry the desk trusts matched, so it wrote no reply. ${d.match?.reason || ''} It ran a docs search for a person to read.`.replace(/s+/g, ' '), fix: 'Get the answer from the founder, add it to the help docs (see the proposed edit), then add an entry in knowledge/entries/.', source: 'docs MCP searchDocumentation' });
   } else if (!check.pass) {
-    recorded = recordFailure(paths.failures, { id: `blocked-${entry.id}`, title: `A reply about "${entry.title}" was blocked`, why: check.problems[0], fix: 'Fix the playbook step or its citation, then run the ticket again. Never send the blocked version.' });
+    recorded = recordFailure(paths.failures, { id: `blocked-${entry.id}`, title: `A reply about "${entry.title}" was blocked`, why: check.problems[0], fix: 'Fix the entry step or its citation, then run the ticket again. Never send the blocked version.' });
   } else {
-    const src = entry.steps.find(s => s.cite)?.cite.url;
-    recorded = recordFailure(paths.failures, { id: entry.id, title: entry.title, matched: signal(entry, ticket.text) || undefined, fix: `Answered with the "${entry.id}" playbook entry. Next step given to the customer: ${entry.next}`, source: src });
+    const src = d.steps.find(s => s.cite)?.cite.url;
+    const how = d.match?.decision === 'answer' || d.match?.decision === 'guard' ? `Answered with the "${entry.id}" entry.` : `Matched "${entry.id}", handed to a person (${d.match?.decision}).`;
+    recorded = recordFailure(paths.failures, { id: entry.id, title: entry.title, matched: d.match?.words || undefined, fix: `${how} Next step given to the customer: ${d.next}`, source: src });
   }
   logger.write({ action: 'ticket-done', ticket: ticket.id || 'pasted', entry: entry?.id || null, outcome: d.outcome, checked: check.pass, ok: check.pass || !entry, error: check.pass ? undefined : check.problems[0] });
 
@@ -149,14 +146,31 @@ export async function morning(desk, { now = Date.now() } = {}) {
   return { failed, error, text: lines.join('\n') };
 }
 
+// Read every page in Blotato's help index into the cache, politely: one page at a time, a short pause between
+// pages, and a stop after several errors in a row. Only getPage is used. Pages already cached are skipped
+// unless refresh is set.
+export async function cacheAllDocs(desk, { refresh = false, pauseMs = 400, maxErrorsInRow = 5, urls, onPage = () => {} } = {}) {
+  const { readHelpIndex } = await import('./docs.mjs');
+  const list = urls || await readHelpIndex();
+  const out = { total: list.length, cached: 0, skipped: 0, failed: [], stopped: false };
+  let inRow = 0;
+  for (const u of list) {
+    if (!refresh && desk.docs.readCache(u)) { out.skipped++; onPage({ url: u, ok: true, skipped: true }); continue; }
+    const before = desk.docs.readCache(u)?.fetchedAt;
+    const p = await desk.docs.getPage(u, { refresh: true });
+    const ok = !!p && p.fetchedAt !== before;
+    if (ok) { out.cached++; inRow = 0; } else { out.failed.push(u); inRow++; }
+    onPage({ url: u, ok, via: p?.via });
+    if (inRow >= maxErrorsInRow) { out.stopped = true; break; }
+    await new Promise(r => setTimeout(r, pauseMs));
+  }
+  return out;
+}
+
 // Refresh every page the playbook cites, through the docs MCP server.
 export async function refreshDocs(desk) {
   const urls = new Set();
-  for (const e of PLAYBOOK) {
-    for (const s of e.steps) if (s.cite) urls.add(s.cite.url);
-    for (const c of [...(e.escalate?.causes || []), ...(e.escalate?.ruledOut || [])]) if (c?.cite) urls.add(c.cite.url);
-    if (e.docEdit) urls.add(e.docEdit.article);
-  }
+  for (const e of PLAYBOOK) for (const u of citedPages(e)) urls.add(u);
   const out = [];
   for (const u of urls) { const p = await desk.docs.getPage(u, { refresh: true }); out.push({ url: u, ok: !!p, via: p?.via, fetchedAt: p?.fetchedAt }); }
   return out;

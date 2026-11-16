@@ -53,7 +53,10 @@ const VOICE = [
   { re: /\b(game.?changer|revolutionary|10x|seamless(ly)?|effortless(ly)?|leverage)\b/i, why: 'a hype word' },
 ];
 
-export const replyHash = (reply) => crypto.createHash('sha256').update(String(reply || '').trim()).digest('hex');
+// The house-voice problems in a piece of text (an em dash, "simply", an easy-sounding "just", a hype word).
+export const findVoice = (text) => VOICE.filter(v => v.re.test(String(text || ''))).map(v => v.why);
+
+export const replyHash =(reply) => crypto.createHash('sha256').update(String(reply || '').trim()).digest('hex');
 // The file name a review is saved under: the sample ticket's id, or a short hash of a pasted message.
 export const reviewName = (ticket) => ticket?.id || `pasted-${replyHash(ticket?.text).slice(0, 12)}`;
 

@@ -1,0 +1,241 @@
+{
+  "area": "Billing, plans and money",
+  "entries": [
+    {
+      "id": "trial-api-key-charge",
+      "kind": "billing",
+      "title": "Charged after making an API key during the trial",
+      "guard": "money",
+      "priority": 2,
+      "phrasings": [
+        "I was charged after making an API key during the free trial",
+        "made an api key on my trial and got billed",
+        "my trial ended when I generated an API key and I paid",
+        "trial ended early and I was charged"
+      ],
+      "anchors": [
+        [
+          "trial"
+        ],
+        [
+          "charge",
+          "charged",
+          "charges",
+          "bill",
+          "billed",
+          "billing",
+          "paid",
+          "payment",
+          "invoice",
+          "pay",
+          "took",
+          "money"
+        ]
+      ],
+      "opening": "I'm sorry for the surprise. Here is what happened, and who will look at the charge.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Making an API key ends the free trial right away and starts the paid plan, even with trial days left.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "your free trial ends at that moment and your paid subscription begins. This applies even if you have days remaining in your trial."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The free trial does not include API or MCP access.",
+          "cite": {
+            "url": "https://help.blotato.com/api-and-mcp-concepts/authentication",
+            "quote": "The free trial does not include API or MCP access."
+          }
+        },
+        {
+          "type": "action",
+          "text": "I am passing the charge question to a person on the team, with what I checked."
+        },
+        {
+          "type": "fact",
+          "text": "If you would rather not keep the plan, you can cancel in Settings > Billing > View Billing Portal.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Go to Settings > Billing and click \"View Billing Portal\" to cancel your subscription."
+          }
+        }
+      ],
+      "next": "Reply here if you want to cancel, and I will walk you through it.",
+      "proof": "Still open: the charge itself. That is a decision for a person on the team, not for me.",
+      "escalate": {
+        "why": "A charge or refund is a person's decision. The desk explains and hands it over.",
+        "causes": [
+          {
+            "text": "An API key was made during the trial, which starts the paid plan at once (documented).",
+            "cite": {
+              "url": "https://help.blotato.com/settings/billing-and-credits",
+              "quote": "If you go to Settings > API and generate an API key, your free trial ends at that moment and your paid subscription begins."
+            }
+          },
+          {
+            "text": "A payment problem such as a duplicate charge, which support refunds (documented).",
+            "cite": {
+              "url": "https://help.blotato.com/support/faqs",
+              "quote": "If a duplicate payment went through, support refunds it."
+            }
+          }
+        ],
+        "ruledOut": [
+          "Nothing ruled out yet: the desk cannot see payments. A person needs to open the billing record."
+        ]
+      }
+    },
+    {
+      "id": "charge-or-refund",
+      "kind": "billing",
+      "title": "A charge, a refund, or money taken",
+      "guard": "money",
+      "priority": 1,
+      "phrasings": [
+        "I was charged and I want a refund",
+        "you billed me twice",
+        "I want my money back",
+        "there is a charge I do not recognize"
+      ],
+      "opening": "I'm sorry about the charge. A person on the team needs to look at your payment record, so I am handing this over.",
+      "steps": [
+        {
+          "type": "action",
+          "text": "I am passing your message about the charge to a person on the team, with what you told me."
+        },
+        {
+          "type": "fact",
+          "text": "Payments and refunds go through Stripe, the payment processor Blotato uses.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "Stripe is the payment processor Blotato uses for payments and refunds."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "You can see all your invoices yourself: open Settings > Billing, select View Billing Portal, then scroll to INVOICE HISTORY.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "Open Settings > Billing, select View Billing Portal, then scroll to INVOICE HISTORY."
+          }
+        }
+      ],
+      "next": "Reply here with the date of the charge and the email on your account, so the team can find the payment.",
+      "proof": "Still open: the charge itself, and what happens to it. That is a decision for a person on the team, not for me.",
+      "escalate": {
+        "why": "A charge or refund is a person's decision. The desk cannot see payments, so it explains, holds, and hands it over. It never promises a refund or a credit.",
+        "causes": [
+          {
+            "text": "Stripe is still billing an older Incomplete or Expired subscription, which can charge again after a cancel (documented).",
+            "cite": {
+              "url": "https://help.blotato.com/support/faqs",
+              "quote": "Stripe keeps trying to bill a previously Incomplete or Expired subscription on your account."
+            }
+          },
+          {
+            "text": "A duplicate payment, which support refunds (documented).",
+            "cite": {
+              "url": "https://help.blotato.com/support/faqs",
+              "quote": "If a duplicate payment went through, support refunds it."
+            }
+          }
+        ],
+        "ruledOut": [
+          "Nothing ruled out yet: the desk cannot see payments. A person needs to open the billing record."
+        ]
+      }
+    },
+    {
+      "id": "cancel-subscription",
+      "kind": "billing",
+      "title": "How to cancel (or pause) the subscription",
+      "phrasings": [
+        "how do I cancel my subscription",
+        "how to cancel my plan",
+        "I want to stop paying for Blotato",
+        "can I pause my plan for a few months",
+        "is there a freeze option for my subscription",
+        "do I have a contract or can I cancel anytime",
+        "where do i cancel my membership",
+        "cancle my subscribtion how",
+        "can i put my account on hold while im away",
+        "when does my access end if I cancel",
+        "freeze my plan for a few months",
+        "pause billing while I am not using it"
+      ],
+      "not_this": [
+        "upgrade or downgrade my plan",
+        "switch from monthly to yearly billing",
+        "how do I start paying after my trial",
+        "reactivate my subscription after it lapsed",
+        "how do I cancel a scheduled post",
+        "my posts show canceled",
+        "remove my saved card"
+      ],
+      "anchors": [
+        [
+          "cancel",
+          "canceling",
+          "cancelling",
+          "cancellation",
+          "cancle",
+          "pause",
+          "freeze",
+          "stop paying",
+          "contract",
+          "commitment",
+          "unsubscribe",
+          "on hold"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "access-blocked",
+          "records-disagree"
+        ]
+      },
+      "opening": "Of course. Here is how, and one thing to check first.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Go to Settings > Billing and click \"View Billing Portal\". You can cancel there.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Go to Settings > Billing and click \"View Billing Portal\" to cancel your subscription."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "There is no long-term commitment, so you can cancel anytime.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "There are no long-term commitments. You can cancel anytime."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "There is no pause option, so the choice is to keep the plan or cancel it.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato does not have a pause or freeze feature."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Before you confirm, check the date the cancellation takes effect. That is when access ends.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Check the cancellation's effective date before confirming when access ends."
+          }
+        }
+      ],
+      "next": "Open Settings > Billing > View Billing Portal.",
+      "proof": "You will know it worked when the Billing Portal shows the cancellation and its end date."
+    }
+  ]
+}

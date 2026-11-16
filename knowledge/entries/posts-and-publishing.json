@@ -1,0 +1,356 @@
+{
+  "area": "Posts and publishing: statuses, missing posts, timeouts",
+  "entries": [
+    {
+      "id": "published-not-visible",
+      "kind": "non-technical",
+      "title": "Says published, but the post is not on the platform",
+      "phrasings": [
+        "Blotato says my post is published but I cannot find it on the platform",
+        "post shows published but it is not on my page",
+        "it says published but nothing appeared on my feed",
+        "the status is published but the post is missing",
+        "published in Blotato but not showing on Instagram",
+        "says posted but i dont see it anywere on my profile",
+        "did my published post actually go out",
+        "the link to my published post shows page not found",
+        "marked as publshed but my followers cant see it",
+        "the published post url does not open"
+      ],
+      "not_this": [
+        "I cannot find the draft I made",
+        "where do I find the visuals I created",
+        "my scheduled post did not go out at its time",
+        "my post failed to publish",
+        "Blotato shows a label under my published posts",
+        "analytics are missing for a published post"
+      ],
+      "anchors": [
+        [
+          "published",
+          "publish",
+          "posted",
+          "went out",
+          "go out",
+          "publshed"
+        ],
+        [
+          "/(can'?t|cannot|can not|don'?t|do not|not|isn'?t|no|never|nowhere)\\b.{0,25}\\b(see|find|show|showing|there|appear|appeared|visible|open|opens)\\b/",
+          "/\\b(link|url)\\b.{0,30}\\b404\\b|\\b404\\b.{0,30}\\b(link|url)\\b/",
+          "missing",
+          "page not found",
+          "gone",
+          "anywhere",
+          "anywere"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ]
+      },
+      "lookup": "recent-published",
+      "opening": "Thanks for flagging this. Let's find out where the post went.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "\"Published\" means Blotato recorded a publishing result. On its own, that does not tell us why the post is missing from the feed.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Published means Blotato recorded a publishing result. It does not establish why the post is absent from a feed or why a platform URL is inaccessible."
+          }
+        },
+        {
+          "type": "evidence",
+          "text": "I checked your account: {evidence} If that is not the post you mean, tell me which one.",
+          "ref": "status"
+        },
+        {
+          "type": "fact",
+          "text": "Open Posts > Published and confirm it went to the account or Page you meant.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Open Posts > Published and confirm the intended destination."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Then check that same account or Page on the platform itself.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Check the same account or Page on the social platform."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Please hold off on posting a replacement until we know what happened to this one.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Do not publish a replacement until the original result is understood."
+          }
+        }
+      ],
+      "next": "Open the post link above and tell me what you see.",
+      "proof": "You will know it worked when you can open the post on the account it was meant for."
+    },
+    {
+      "id": "canceled-status",
+      "kind": "non-technical",
+      "title": "Posts show CANCELED",
+      "phrasings": [
+        "my posts show canceled in the calendar",
+        "why does my post say CANCELED",
+        "the post status changed to canceled, is it failing",
+        "several scheduled posts are marked cancelled",
+        "what does the canceled status mean on a post",
+        "my post got cancelled and never went out",
+        "calender shows canceld on my posts"
+      ],
+      "not_this": [
+        "how do I cancel my subscription",
+        "I canceled my plan",
+        "how do I cancel a scheduled post"
+      ],
+      "anchors": [
+        [
+          "canceled",
+          "cancelled",
+          "canceld"
+        ],
+        [
+          "post",
+          "posts",
+          "status",
+          "calendar",
+          "calender",
+          "scheduled"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "did not delete",
+          "didn't delete",
+          "never deleted",
+          "did not remove",
+          "never touched"
+        ]
+      },
+      "opening": "Good news first: nothing is broken.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "CANCELED is not a failure. It is a status.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "No. CANCELED is a post status, not a publishing failure."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "It means the schedule was removed before the post went out: deleted from the calendar, moved back to drafts, or removed through the API.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "A post is marked canceled when its schedule was removed before it published"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Nothing went wrong on the social platform.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Nothing went wrong on the social platform."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If you meant it to go out, open the post and schedule it again.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "If you meant the post to go out, open it and schedule it again."
+          }
+        }
+      ],
+      "next": "Open the post and schedule it again if you still want it to go out.",
+      "proof": "You will know it worked when the post shows as scheduled again in your calendar."
+    },
+    {
+      "id": "in-progress",
+      "kind": "technical",
+      "title": "Status stuck on in-progress",
+      "phrasings": [
+        "my submission has said in-progress for an hour",
+        "the post status is stuck on in-progress",
+        "is my post stuck, it says in progress",
+        "the status never changes from in-progress",
+        "how long does in-progress last",
+        "the submission id is pending, should I post again",
+        "GET /v2/posts/{id} keeps answering in-progress"
+      ],
+      "not_this": [
+        "my video is stuck generating",
+        "the AI agent is loading and makes no post"
+      ],
+      "anchors": [
+        [
+          "in progress",
+          "inprogress",
+          "stuck",
+          "pending",
+          "processing"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps"
+        ],
+        "phrases": [
+          "id came from the create response",
+          "checked the post list"
+        ]
+      },
+      "lookup": "submission",
+      "opening": "Let's look at that id together. In-progress is a tricky status.",
+      "steps": [
+        {
+          "type": "evidence",
+          "text": "I looked it up: {evidence}",
+          "ref": "status"
+        },
+        {
+          "type": "fact",
+          "text": "In-progress can also mean Blotato found no record for that id, so it does not prove the post exists or failed.",
+          "cite": {
+            "url": "https://help.blotato.com/rest-api-reference/publish-post/get-post",
+            "quote": "This fallback does not confirm a live queue job or validate a guessed submission ID."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Please check that the id came from the original create response.",
+          "cite": {
+            "url": "https://help.blotato.com/rest-api-reference/publish-post/get-post",
+            "quote": "Verify the ID came from the original create response."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A long wait is not proof it failed, so please do not post it again yet.",
+          "cite": {
+            "url": "https://help.blotato.com/rest-api-reference/publish-post/get-post",
+            "quote": "A polling deadline is not proof of failure."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Failed posts are also listed at https://my.blotato.com/posts?status=failed, so please look there too.",
+          "cite": {
+            "url": "https://help.blotato.com/rest-api-reference/publish-post/get-post",
+            "quote": "Failed posts are also visible at <https://my.blotato.com/posts?status=failed>"
+          }
+        }
+      ],
+      "next": "Send me the time you created it and the account, and I will check the post list.",
+      "proof": "Still open: whether this id belongs to a real post. The post list will tell us."
+    },
+    {
+      "id": "unknown-outcome-resend",
+      "kind": "technical",
+      "title": "Timeout after creating a post: send it again?",
+      "phrasings": [
+        "my create post call timed out, should I send it again",
+        "504 gateway timeout when creating a post, did it post",
+        "the request timed out, is it safe to retry",
+        "a 502 when creating a post, will retrying make a duplicate",
+        "timeout from the API, do i resend the post",
+        "the publish request timed out, should I run the workflow again"
+      ],
+      "not_this": [
+        "my post is stuck in progress",
+        "too many requests error"
+      ],
+      "anchors": [
+        [
+          "timeout",
+          "timed out",
+          "time out",
+          "504",
+          "502",
+          "503",
+          "gateway"
+        ],
+        [
+          "again",
+          "resend",
+          "retry",
+          "re run",
+          "rerun",
+          "twice",
+          "duplicate",
+          "did it post",
+          "safe"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "posted twice",
+          "now there are two",
+          "two copies"
+        ]
+      },
+      "lookup": "recent-activity",
+      "opening": "Good call asking before sending it again.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "A timeout does not tell us whether the post was created, so please do not send it again yet.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The downstream operation's outcome is not established by this response."
+          }
+        },
+        {
+          "type": "evidence",
+          "text": "I checked your account: {evidence}",
+          "ref": "status"
+        },
+        {
+          "type": "fact",
+          "text": "Check your scheduled, published and failed posts for it first.",
+          "cite": {
+            "url": "https://help.blotato.com/api-and-mcp-concepts/error-handling",
+            "quote": "Check existing work before submitting again"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Blotato has no documented way to mark a second send as the same post, so a resend can make a copy.",
+          "cite": {
+            "url": "https://help.blotato.com/api-and-mcp-concepts/error-handling",
+            "quote": "Blotato does not expose a documented client-supplied idempotency header for create-post requests."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If it shows as failed, fix the error first. Sending it again unchanged often fails the same way.",
+          "cite": {
+            "url": "https://help.blotato.com/api-and-mcp-concepts/error-handling",
+            "quote": "For a failed post, correct the error before a new submission. An unchanged retry often fails for the same reason."
+          }
+        }
+      ],
+      "next": "Look for the post in your scheduled, published and failed posts, then tell me what you find.",
+      "proof": "You will know it is safe to send again once the first post is in none of those lists, or once its error is fixed."
+    }
+  ]
+}

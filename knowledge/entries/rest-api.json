@@ -1,0 +1,413 @@
+{
+  "area": "REST API: keys, limits, ids and endpoints",
+  "entries": [
+    {
+      "id": "api-401",
+      "kind": "technical",
+      "title": "API answers 401 Unauthorized",
+      "phrasings": [
+        "the API returns 401 unauthorized",
+        "my API key is not accepted",
+        "invalid api key error from the REST API",
+        "a 401 error when calling the Blotato API",
+        "getting unauthorized from GET /v2/users/me/accounts",
+        "my key doesnt work, it says unautorized",
+        "which header do I put the API key in"
+      ],
+      "not_this": [
+        "403 with a subscription message",
+        "invalid_grant in the Claude connector",
+        "the AI connector says invalid API key or auth session",
+        "my API key leaked, how do I make a new one"
+      ],
+      "anchors": [
+        [
+          "401",
+          "unauthorized",
+          "unauthorised",
+          "invalid key",
+          "invalid api key",
+          "wrong key",
+          "not accepted",
+          "header",
+          "authentication"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ]
+      },
+      "opening": "Let's check the key, one step at a time.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "A 401 means Blotato did not accept the key.",
+          "cite": {
+            "url": "https://help.blotato.com/api-and-mcp-concepts/authentication",
+            "quote": "`401` or invalid credentials"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Copy the full key again from Settings > API, including any = at the end.",
+          "cite": {
+            "url": "https://help.blotato.com/api-and-mcp-concepts/authentication",
+            "quote": "Copy the full key, including any trailing `=` characters."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Send it in the blotato-api-key header.",
+          "cite": {
+            "url": "https://help.blotato.com/api-and-mcp-concepts/authentication",
+            "quote": "Include the key in the `blotato-api-key` header of each request."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Test it with one read-only call: GET https://backend.blotato.com/v2/users/me/accounts.",
+          "cite": {
+            "url": "https://help.blotato.com/api-and-mcp-concepts/authentication",
+            "quote": "Call `GET https://backend.blotato.com/v2/users/me/accounts` to verify access."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A plan problem looks different: it answers 403 with a message about the subscription, not 401.",
+          "cite": {
+            "url": "https://help.blotato.com/api-and-mcp-concepts/authentication",
+            "quote": "`403` with a subscription message"
+          }
+        }
+      ],
+      "next": "Run that one read-only call and tell me the status code you get.",
+      "proof": "You will know it worked when that call answers 200. An empty list still counts: it means no social accounts are connected yet."
+    },
+    {
+      "id": "rate-limit",
+      "kind": "technical",
+      "title": "\"Too many requests\" from a workflow",
+      "phrasings": [
+        "too many requests error",
+        "rate limit exceeded when publishing",
+        "my workflow fails with 429",
+        "the service is receiving too many requests from you",
+        "how many posts can I send per minute through the API",
+        "n8n gets rate limited when posting lots of videos",
+        "polling the post status too often gives 429",
+        "too many request eror from blotato",
+        "checking the status over and over gets rate limited"
+      ],
+      "not_this": [
+        "the daily post limit for one social account",
+        "TikTok says reached_active_user_cap"
+      ],
+      "anchors": [
+        [
+          "too many requests",
+          "too many request",
+          "rate limit",
+          "rate limited",
+          "429",
+          "429s",
+          "per minute",
+          "throttled"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "disputes-count"
+        ]
+      },
+      "opening": "Your workflow is sending faster than Blotato accepts. The fix is to slow it down.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "That message means too many requests in one minute. Publishing and media uploads each allow 30 a minute.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Rate limit exceeded. Upload Media: 30 requests/minute. Publish Post: 30 requests/minute."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Stop sending to that step, and if the error gives a time to wait, wait that long.",
+          "cite": {
+            "url": "https://help.blotato.com/api-and-mcp-concepts/rate-limits",
+            "quote": "Wait for the retry interval when the response supplies one."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Before you run it again, check which posts already went out, so none are sent twice.",
+          "cite": {
+            "url": "https://help.blotato.com/api-and-mcp-concepts/error-handling",
+            "quote": "Retain the submission ID, inspect existing work"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Then send fewer posts at a time when you turn the workflow back on.",
+          "cite": {
+            "url": "https://help.blotato.com/api-and-mcp-concepts/rate-limits",
+            "quote": "Reduce concurrency and request frequency before resuming."
+          }
+        }
+      ],
+      "next": "Check which posts already went out, then turn the workflow back on with fewer at a time.",
+      "proof": "You will know it worked when the workflow runs through with no \"too many requests\" errors."
+    },
+    {
+      "id": "linkedin-company-page",
+      "kind": "non-technical",
+      "title": "Post to a LinkedIn company Page instead of a profile",
+      "phrasings": [
+        "post to a LinkedIn company page instead of my personal profile",
+        "how do I publish to our LinkedIn business page with the API",
+        "my LinkedIn posts go to my profile, not the company page",
+        "which id do I use for a LinkedIn organization page",
+        "LinkedIn page id and account id for the API",
+        "account not found when I use our LinkedIn page id as the account id",
+        "can i post on linkdin brand page not my own profile"
+      ],
+      "not_this": [
+        "how many accounts does a LinkedIn page count as on my plan",
+        "where do I find my Facebook page id",
+        "LinkedIn analytics for my posts",
+        "does each LinkedIn page count as a separate account",
+        "how many social accounts can I connect on my plan"
+      ],
+      "anchors": [
+        [
+          "linkedin",
+          "linkdin",
+          "linked in"
+        ],
+        [
+          "company page",
+          "company pages",
+          "business page",
+          "organization page",
+          "organisation page",
+          "brand page",
+          "page id",
+          "pageid",
+          "page",
+          "pages",
+          "personal profile"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ]
+      },
+      "opening": "Yes, you can. It takes two ids instead of one.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "A LinkedIn company Page needs both your account id and the Page id.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "For LinkedIn company pages, you need both an accountId and a pageId."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Get the account id from GET /v2/users/me/accounts, then the Page id from GET /v2/users/me/accounts/{accountId}/subaccounts.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Use `GET /v2/users/me/accounts` to get the accountId, then `GET /v2/users/me/accounts/{accountId}/subaccounts` to get the pageId."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Put the account id in post.accountId and the Page id in post.target.pageId.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Pass accountId in `post.accountId` and pageId in `post.target.pageId`."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Watch for one common mix-up: the Page id going where the account id belongs.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "A common mistake is passing the pageId where accountId is expected."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If pageId is left out, the post goes to your personal profile.",
+          "cite": {
+            "url": "https://help.blotato.com/rest-api-reference/publish-post",
+            "quote": "Omit to post to personal profile."
+          }
+        }
+      ],
+      "next": "Check both ids are in the right fields, then send one test post.",
+      "proof": "You will know it worked when the test post shows on the company Page, not on your profile."
+    },
+    {
+      "id": "schedule-id-500",
+      "kind": "technical",
+      "title": "Schedule lookup answers 500 \"invalid input syntax for type bigint\"",
+      "phrasings": [
+        "GET /v2/schedules/{id} gives a 500 invalid input syntax for type bigint",
+        "the schedule lookup fails with a bigint error",
+        "invalid input syntax for type bigint",
+        "a 500 error when I update a schedule with the id from the docs",
+        "a schedule id like sch_ answers a server error"
+      ],
+      "anchors": [
+        [
+          "bigint",
+          "invalid input syntax",
+          "sch"
+        ]
+      ],
+      "lookup": "reproduce-schedule",
+      "opening": "Thank you for the exact error. I could reproduce it.",
+      "steps": [
+        {
+          "type": "evidence",
+          "text": "Same result here: {evidence}",
+          "ref": "status"
+        },
+        {
+          "type": "fact",
+          "text": "Our docs show schedule ids like \"sch_abc123\" in their examples.",
+          "cite": {
+            "url": "https://help.blotato.com/rest-api-reference/schedules",
+            "quote": "\"id\": \"sch_abc123\""
+          }
+        },
+        {
+          "type": "evidence",
+          "text": "The error says the server expected a number (a bigint), so the id from the docs example will not work there.",
+          "ref": "status"
+        },
+        {
+          "type": "action",
+          "text": "I am passing this to the founder with the steps to reproduce it and a suggested change to the docs."
+        }
+      ],
+      "next": "Copy an id from your own GET /v2/schedules list, try that, and tell me what you get.",
+      "proof": "Still open: whether the API or the docs example is the one to change. The founder decides.",
+      "escalate": {
+        "why": "The API and the docs disagree. Only the founder can say which one is right.",
+        "causes": [
+          {
+            "text": "The schedule endpoints expect a number id, while the docs examples show a text id.",
+            "cite": {
+              "url": "https://help.blotato.com/rest-api-reference/schedules",
+              "quote": "\"id\": \"sch_abc123\""
+            }
+          },
+          {
+            "text": "The customer copied an id from a docs example instead of from their own GET /v2/schedules list."
+          }
+        ],
+        "ruledOut": [
+          {
+            "text": "A bad key: a bad key answers 401, not 500.",
+            "cite": {
+              "url": "https://help.blotato.com/api-and-mcp-concepts/authentication",
+              "quote": "`401` or invalid credentials"
+            }
+          }
+        ]
+      },
+      "docEdit": {
+        "article": "https://help.blotato.com/rest-api-reference/schedules",
+        "kind": "change",
+        "before": "\"id\": \"sch_abc123\",",
+        "after": "\"id\": \"5100001\",",
+        "add": "Schedule ids are numbers, sent as strings. Copy the id from GET /v2/schedules. An id that is not a number is rejected.",
+        "note": "Seen on the real API on Nov 15, 2026 (GET /v2/schedules/<text id> answered 500 \"invalid input syntax for type bigint\"). The OpenAPI file types the id as a plain string. Confirm with the founder before publishing."
+      }
+    },
+    {
+      "id": "sandbox-question",
+      "kind": "technical",
+      "title": "Is there a test mode for the API?",
+      "phrasings": [
+        "is there a sandbox or test mode for the API",
+        "can I test the api without posting to my real account",
+        "is there a test api key",
+        "a dry run mode so nothing gets published",
+        "test my integration without publishing anything",
+        "a staging environment for the blotato api"
+      ],
+      "anchors": [
+        [
+          "sandbox",
+          "test mode",
+          "test key",
+          "test api",
+          "testing",
+          "test account",
+          "dry run",
+          "staging",
+          "without posting",
+          "without publishing",
+          "test"
+        ]
+      ],
+      "lookup": "docs-search",
+      "searchQueries": [
+        "sandbox test mode API key that does not publish",
+        "test API without posting to real account"
+      ],
+      "opening": "Good question.",
+      "steps": [
+        {
+          "type": "evidence",
+          "text": "I searched our help docs, and the top results do not cover a test mode, so I will not guess.",
+          "ref": "docs-search"
+        },
+        {
+          "type": "action",
+          "text": "I am passing your question to the team."
+        },
+        {
+          "type": "fact",
+          "text": "One thing to know before you test: making an API key during the free trial ends the trial and starts billing.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/mcp/setup",
+            "quote": "Generating a key during a trial ends the trial and starts billing."
+          }
+        }
+      ],
+      "next": "Nothing to do on your side yet. I will reply here when I hear back.",
+      "proof": "Still open: the answer itself.",
+      "noDocAnswer": true,
+      "escalate": {
+        "why": "The docs do not answer this. The founder decides what the answer is.",
+        "causes": [
+          {
+            "text": "There is no test mode, and the docs should say so."
+          },
+          {
+            "text": "There is a way to test that is not documented yet."
+          }
+        ],
+        "ruledOut": []
+      },
+      "docEdit": {
+        "article": "https://help.blotato.com/settings/api-keys",
+        "kind": "new",
+        "heading": "Is there a test mode for the API?",
+        "add": "[Answer to confirm with the founder: is there a test mode, and if not, how should developers test safely?]",
+        "note": "Two docs searches on Nov 15, 2026 found no page about a sandbox or test mode."
+      }
+    }
+  ]
+}

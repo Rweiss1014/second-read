@@ -95,6 +95,34 @@ export function createDocs({ cacheDir, env = process.env, logger, fetchImpl = gl
   return { getPage, search, close, readCache, offline, base: DOCS_BASE };
 }
 
+// The help center's index (https://help.blotato.com/llms.txt): every page it lists, as page urls.
+// The index is a public text file, so it is read with a plain GET. The pages themselves go through getPage.
+export const HELP_INDEX_URL = 'https://help.blotato.com/llms.txt';
+export function parseHelpIndex(text, base = 'https://help.blotato.com') {
+  const urls = [];
+  for (const m of String(text || '').matchAll(/\]\((https?:\/\/[^)\s]+)\)/g)) {
+    const u = pageUrl(m[1]);
+    if (u.startsWith(base) && !urls.includes(u)) urls.push(u);
+  }
+  return urls;
+}
+export async function readHelpIndex({ fetchImpl = globalThis.fetch } = {}) {
+  const res = await fetchImpl(HELP_INDEX_URL, { signal: AbortSignal.timeout(20000) });
+  if (!res.ok) throw new Error(`The help index answered HTTP ${res.status}.`);
+  return parseHelpIndex(await res.text());
+}
+
+// Every page in the cache, as { url, text, fetchedAt, via }.
+export function readCacheDir(cacheDir) {
+  const out = {};
+  let files = [];
+  try { files = fs.readdirSync(cacheDir).filter(f => f.endsWith('.json')); } catch { return out; }
+  for (const f of files) {
+    try { const p = JSON.parse(fs.readFileSync(path.join(cacheDir, f), 'utf8')); if (p?.url) out[pageUrl(p.url)] = p; } catch { /* skip a broken file */ }
+  }
+  return out;
+}
+
 // Is this exact quote on this page? (After stripping formatting.)
 export function quoteOnPage(quote, page) {
   if (!page?.text) return false;
