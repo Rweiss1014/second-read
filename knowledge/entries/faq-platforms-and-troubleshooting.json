@@ -3249,7 +3249,7 @@
         "article": "https://help.blotato.com/support/faqs",
         "kind": "change",
         "before": "BUT not a photo slideshow for TikTok or Reels (see below).",
-        "after": "[Confirm with the founder whether TikTok photo slideshows are supported, and say so in one place.]",
+        "after": "[Confirm with a person on the team whether TikTok photo slideshows are supported, and say so in one place.]",
         "note": "The same FAQ page says photo slideshows are not supported for TikTok, and also describes TikTok slideshow posts with autoAddMusic through the API. Confirm and make the page agree."
       }
     },

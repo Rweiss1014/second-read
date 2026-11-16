@@ -29,7 +29,7 @@ export const PRACTICE = {
       ticket: 'I sent a post to Blotato, and my request timed out with a 504 error. Should I send it again?',
       choices: [
         { text: 'Yes, send it again right away.', right: false, consequence: 'Oh no. The first try had actually gone through, so now they have two copies scheduled.' },
-        { text: 'Tell them a 504 means the post failed.', right: false, consequence: 'That is not true. A timeout does not tell you whether the post was made. They send it again, and it posts twice.' },
+        { text: 'Tell them a 504 (the "took too long" error) means the post failed.', right: false, consequence: 'That is not true. A timeout does not tell you whether the post was made. They send it again, and it posts twice.' },
         { text: 'First look through their scheduled, published and failed posts to see if it is already there.', right: true, consequence: 'Good. You found it in their scheduled posts, so nothing needs to be sent again.' },
       ],
       source: {
@@ -43,9 +43,9 @@ export const PRACTICE = {
       entry: 'mcp-invalid-grant',
       ticket: 'My AI assistant (Claude) stopped working with Blotato. It shows an error that says invalid_grant. What do I do?',
       choices: [
-        { text: 'Take the Blotato connector out of Claude, then add it back.', right: true, consequence: 'Good. The sign-in link between Claude and Blotato had run out. Adding the connector back makes a fresh one.' },
+        { text: 'Take the Blotato connector (the link to Blotato inside Claude) out of Claude, then add it back.', right: true, consequence: 'Good. The sign-in link between Claude and Blotato had run out. Adding the connector back makes a fresh one.' },
         { text: 'Reconnect their Instagram account in Accounts.', right: false, consequence: 'Their Instagram was fine. The error is about the link between Claude and Blotato, so nothing changes.' },
-        { text: 'Send them to the Fix My Automation button in Logs.', right: false, consequence: 'That button only works for n8n. They click it, nothing happens, and they write back more frustrated.' },
+        { text: 'Send them to the Fix My Automation button in Logs.', right: false, consequence: 'That button only works for n8n, a different automation tool. They click it, nothing happens, and they write back more frustrated.' },
       ],
       source: {
         url: `${D}/support/errors`,

@@ -4673,7 +4673,7 @@
         "kind": "change",
         "before": "The Starter error still mentions 10 posts per account.",
         "after": "[Confirm the intended TikTok per-account limit, update the error text or the table so they agree, and say so in one place.]",
-        "note": "The Platform Posting Limits row says 25 posts per account per rolling 24h in the current validator, while the Starter destination-limit error still says 10 posts per account. The TikTok FAQ also says the intended limit is under review. Confirm the number with the founder and make the pages agree."
+        "note": "The Platform Posting Limits row says 25 posts per account per rolling 24h in the current validator, while the Starter destination-limit error still says 10 posts per account. The TikTok FAQ also says the intended limit is under review. Confirm the number with a person on the team and make the pages agree."
       }
     }
   ]

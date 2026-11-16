@@ -17,7 +17,7 @@
 //      of the message's questions, it matched only the background, and the desk does not answer.
 import { buildIndex, scoreEntries, scoreAgainst, splitSentences, contentStems, allStems, hasTerm, anchorsMet, anchorRegex, rawWords } from './match.mjs';
 import { createCoverage, groundedLines } from './coverage.mjs';
-import { runGuards, stripDeskInstructions, needsPerson, TROUBLE, NAMED_ITEMS, PLATFORMS, ASKS_NUMBER, ASKS_OWN_COUNT, GIVES_NUMBER, INTRODUCER, COMMON_CAPS, notEnglish, specificError, isNonsense } from './signals.mjs';
+import { runGuards, stripDeskInstructions, needsPerson, saidTried, TROUBLE, NAMED_ITEMS, PLATFORMS, ASKS_NUMBER, ASKS_OWN_COUNT, GIVES_NUMBER, INTRODUCER, COMMON_CAPS, notEnglish, specificError, isNonsense } from './signals.mjs';
 
 // Every hand-over carries a stable, machine-readable reason in "why" (and the details in "whyDetail"), beside
 // the human "reason" text, so a page can say it plainly. The codes are listed in knowledge/ENTRY-GUIDE.md.
@@ -30,7 +30,12 @@ const SIGNAL_WHY = {
   'tried-steps': 'tried-already', 'still-broken': 'tried-already', retried: 'tried-already', 'follow-on': 'tried-already', 'cause-ruled-out': 'tried-already',
   'many-accounts': 'outage', 'records-disagree': 'records-disagree', 'disputes-count': 'records-disagree', 'docs-wrong': 'docs-wrong', 'access-blocked': 'access-blocked', phrase: 'past-docs', pressure: 'pressure',
 };
-const whyOfSignals = (hits) => ({ why: SIGNAL_WHY[hits[0].signal] || 'tried-already', whyDetail: { signal: hits[0].signal, words: hits[0].words } });
+// tried-already sends the reply that thanks the customer for what they tried, so it needs their own words saying
+// they did something (saidTried). Otherwise, and for a signal not in the map, the reason is the neutral past-docs.
+const whyOfSignals = (hits, text) => {
+  const why = SIGNAL_WHY[hits[0].signal] || 'past-docs';
+  return { why: why === 'tried-already' && !saidTried(text) ? 'past-docs' : why, whyDetail: { signal: hits[0].signal, words: hits[0].words } };
+};
 // Which holding reply a hand-over sends, by its reason code (guard names in knowledge/entries/guards.json).
 // needs-person opens "Thank you for telling me what you have already tried", which is true only for tried-already.
 // An outage question gets the possible-outage reply. Every other reason gets the neutral handover reply.
@@ -240,7 +245,7 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
       // their own; the rest need a trouble word.
       const hits = needsPerson(full, { signals: TROUBLE.test(full) ? GENERAL_SIGNALS : [] }, { hasTerm, allStems }, { defaults: true });
       if (hits.length) {
-        const w = whyOfSignals(hits);
+        const w = whyOfSignals(hits, full);
         const holding = guardEntry(holdingGuardFor(w.why));
         return { ...base, decision: 'needs-person', entry: holding, holding, signals: hits, ...w, reason: `${why} And: ${hits[0].about} ("${hits[0].words}")` };
       }
@@ -258,7 +263,7 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
     // The entry's own signals, plus the default ones every answering entry has (signals.mjs DEFAULT_SIGNALS).
     const hits = needsPerson(full, entry.needs_person_if, { hasTerm, allStems }, { defaults: true });
     if (hits.length && !entry.escalate && !entry.noDocAnswer) {
-      const w = whyOfSignals(hits);
+      const w = whyOfSignals(hits, full);
       return { ...base, decision: 'needs-person', entry, signals: hits, holding: entry.holding || guardEntry(holdingGuardFor(w.why)), ...w, reason: `${hits[0].about} ("${hits[0].words}")` };
     }
 
@@ -361,7 +366,7 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
     let signals = null;
     const hits = needsPerson(full, entry.needs_person_if, { hasTerm, allStems }, { defaults: true });
     if (hits.length && !entry.escalate && !entry.noDocAnswer) {
-      const w = whyOfSignals(hits);
+      const w = whyOfSignals(hits, full);
       signals = { hits, ...w, holding: entry.holding || guardEntry(holdingGuardFor(w.why)), reason: `${hits[0].about} ("${hits[0].words}")` };
     }
     const gaps = [];
