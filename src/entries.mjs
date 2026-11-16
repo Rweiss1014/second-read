@@ -8,15 +8,15 @@ import path from 'node:path';
 import { ROOT } from './config.mjs';
 import { pageUrl, quoteOnPage, readCacheDir } from './docs.mjs';
 import { findPromises, findVoice } from './checkreply.mjs';
-import { SIGNAL_NAMES, DEFAULT_SIGNALS } from './signals.mjs';
-import { contentStems, anchorsMet } from './match.mjs';
+import { SIGNAL_NAMES, DEFAULT_SIGNALS, GENERIC_WORDS, STATUS_MEANING } from './signals.mjs';
+import { contentStems, anchorsMet, anchorRegex, foldText } from './match.mjs';
 import { createRouter } from './route.mjs';
 
 export const ENTRIES_DIR = path.join(ROOT, 'knowledge', 'entries');
 export const KINDS = ['non-technical', 'billing', 'technical'];
 export const LOOKUPS = ['recent-published', 'recent-activity', 'submission', 'reproduce-schedule', 'docs-search'];
 export const GUARDS = ['money', 'others-data', 'staff-action', 'secret', 'desk-instructions', 'needs-person'];
-const ENTRY_KEYS = ['id', 'kind', 'title', 'phrasings', 'not_this', 'anchors', 'needs_person_if', 'lookup', 'searchQueries', 'opening', 'steps', 'next', 'proof', 'escalate', 'docEdit', 'noDocAnswer', 'guard', 'priority', 'holding', 'note'];
+const ENTRY_KEYS = ['id', 'kind', 'title', 'phrasings', 'not_this', 'anchors', 'needs_person_if', 'lookup', 'searchQueries', 'opening', 'steps', 'next', 'proof', 'escalate', 'docEdit', 'noDocAnswer', 'guard', 'priority', 'holding', 'note', 'symptom_only'];
 const REPLY_KEYS = ['opening', 'steps', 'next', 'proof'];
 const STEP_KEYS = ['type', 'text', 'cite', 'ref'];
 
@@ -120,6 +120,7 @@ export function validateShape(entries) {
       if (/[\u0000-\u001f]/.test(term)) problems.push(`${where}: the anchor "${term.replace(/[\u0000-\u001f]/g, '?')}" has a control character. In JSON, write a regex word boundary as "\\\\b".`);
       else if (/^\/.+\/$/.test(term)) { try { const re = new RegExp(term.slice(1, -1), 'i'); if (['', 'a', 'hello there', 'thanks for the help'].some(x => re.test(x))) problems.push(`${where}: the anchor ${term} matches almost any message, so it guards nothing.`); } catch (err) { problems.push(`${where}: the anchor ${term} is not a valid regular expression (${err.message}).`); } }
     }
+    if (e.symptom_only !== undefined && typeof e.symptom_only !== 'boolean') problems.push(`${where}: "symptom_only" must be true or false.`);
     const np = e.needs_person_if;
     if (np !== undefined) {
       if (typeof np !== 'object' || Array.isArray(np)) problems.push(`${where}: "needs_person_if" must be { "signals": [...], "phrases": [...] }.`);
@@ -204,6 +205,36 @@ export function validateRouting(entries) {
   return problems;
 }
 
+// An entry that explains one error or one cause must not be reachable on words many problems share. Each of its
+// anchor groups must not ALL be meetable by generic words: a status code, a platform name, or a common symptom
+// word (GENERIC_WORDS in signals.mjs). At least one group must name the error's own text or code.
+// Error entries: those citing an Errors or limitations page, or whose title says error, failed, rejected and
+// the like. Not checked: entries for a symptom with no error text ("symptom_only", generic on purpose), and
+// entries whose title is itself only generic words ("YouTube Unauthorized error when posting").
+// A bare status code counts as distinctive when the title gives that status's meaning ("503 Service Unavailable").
+const GENERIC_SAMPLES = [...GENERIC_WORDS, ...Array.from({ length: 500 }, (_, i) => String(100 + i))];
+const GENERIC_STEMS = new Set([...GENERIC_WORDS].flatMap(contentStems));
+const TITLE_FILLER = new Set(contentStems('when while from on in the to with posting error errors service unavailable gateway timeout unauthorized unauthorised too many requests internal server bad request forbidden not found'));
+export const isErrorEntry = (e) => (e.steps || []).some(s => /\/errors?\b|error-handling|limitations/.test(s?.cite?.url || '')) || /\b(?:error|errors|failed|fails|rejected|not found|invalid|exceeded|unsupported)\b/i.test(e.title || '');
+export function genericTerm(term, title = '') {
+  const re = anchorRegex(term);
+  if (re) return GENERIC_SAMPLES.some(x => re.test(x));
+  const t = foldText(term).trim();
+  if (/^\d{3}$/.test(t)) return !(STATUS_MEANING[t] && foldText(title).includes(STATUS_MEANING[t]));
+  return GENERIC_WORDS.has(t);
+}
+export function validateAnchors(entries) {
+  const problems = [];
+  for (const e of entries) {
+    if (e.guard || e.symptom_only || !(e.anchors || []).length || !isErrorEntry(e)) continue;
+    if (contentStems(e.title).every(w => GENERIC_STEMS.has(w) || TITLE_FILLER.has(w) || /^\d+$/.test(w))) continue;
+    if (!e.anchors.every(g => g.some(t => genericTerm(t, e.title)))) continue;
+    const loose = e.anchors.map(g => g.filter(t => genericTerm(t, e.title))[0]);
+    problems.push(`${e.file ? e.file + ': ' : ''}${e.id}: the anchors can all be met by words many problems share (for example "${loose.join('" + "')}"), so a message with only a status code, a platform name or a common symptom word could get this entry. Make one anchor group hold only this error's own text or code.`);
+  }
+  return problems;
+}
+
 // Load at start: read, check the shape, and throw if anything is wrong.
 export function loadEntries(dir = ENTRIES_DIR) {
   const { entries, files, problems } = readEntryFiles(dir);
@@ -225,7 +256,7 @@ export function checkEntries({ dir = ENTRIES_DIR, cacheDir } = {}) {
   const pages = readCacheDir(cacheDir);
   problems.push(...validateQuotes(entries, pages));
   // Routing needs a sound set of entries, so it runs only when the shape is right.
-  if (!problems.length) problems.push(...validateRouting(entries));
+  if (!problems.length) problems.push(...validateAnchors(entries), ...validateRouting(entries));
   const cited = new Set(); for (const e of entries) for (const u of citedPages(e)) cited.add(u);
   return { ok: !problems.length, problems, warnings, entries: entries.length, files: files.length, pagesCited: cited.size, pagesCached: Object.keys(pages).length };
 }

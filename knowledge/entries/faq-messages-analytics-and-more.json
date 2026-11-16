@@ -460,9 +460,13 @@
           "dms",
           "direct message",
           "direct messages",
-          "messages",
-          "message",
-          "mesages"
+          "direct mesages",
+          "instagram messages",
+          "facebook messages",
+          "/(reply|replying|respond|answer) (to )?(instagram |facebook |twitter |linkedin |customer |follower )?messages?/",
+          "/(read|send|sending) (instagram |facebook )?(direct )?messages? (with|from|in|through) blotato/",
+          "/window for replying/",
+          "/message people/"
         ],
         [
           "support",
@@ -2480,11 +2484,11 @@
           "ip address",
           "ip adress",
           "vpn",
-          "servers",
-          "server",
           "location",
           "country",
-          "geo"
+          "geo",
+          "/(from|through|via) blotato servers?/",
+          "/servers? location/"
         ],
         [
           "post",
@@ -2637,12 +2641,12 @@
           "adult",
           "nsfw",
           "explicit",
-          "shadowban",
-          "shadowbans",
-          "shadowbanned",
-          "shadow ban",
-          "shadow banned",
-          "flagged"
+          "/avoid (getting )?(a |any )?shadow ?bann?(s|ed|ing)?/",
+          "/(setting|feature|option) .{0,15}shadow ?bann?(s|ed|ing)?/",
+          "/shadow ?bann?(s|ed|ing)? setting/",
+          "/flagged as (a )?bot/",
+          "/(not|dont|don.?t|never|wont|won.?t) get (shadow ?banned|flagged)/",
+          "/automation get .{0,20}flagged/"
         ],
         [
           "content",
@@ -3178,16 +3182,15 @@
         ],
         [
           "board list",
-          "empty",
-          "items",
           "no boards",
-          "blank",
           "missing boards",
           "boards missing",
-          "not showing",
           "returns no boards",
           "no pinterest boards",
-          "shows no"
+          "boards",
+          "board",
+          "boards empty",
+          "board list empty"
         ]
       ],
       "needs_person_if": {

@@ -83,7 +83,9 @@ test('docs-silent: a named item (payment method, feature, tool, language, file t
     'Can I add alt text to the images in my carousel?',
     'Can I write my posts in Japanese with the AI?',
     'Can I upload a GIF and schedule it to X?',
-    'Does Blotato show analytics for my TikTok posts?',
+    // Was "for my TikTok posts?": out of date since the FAQ entry analytics-youtube-tiktok-missing quotes
+    // "YouTube and TikTok analytics are supported." The docs are not silent on TikTok any more.
+    'Does Blotato show analytics for my Tumblr posts?',
     'Can I connect Zapier to send new posts to Blotato?',
     'Where do I find the channel id for my YouTube account?',
     'Can I bulk upload my posts from a Notion database?',

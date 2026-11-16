@@ -698,8 +698,7 @@
           "paste",
           "repurpose",
           "draft",
-          "drafts",
-          "video"
+          "drafts"
         ]
       ],
       "opening": "A YouTube link works as context in the AI Agent.",

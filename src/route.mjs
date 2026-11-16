@@ -14,16 +14,39 @@
 //   5. A second question the entry does not cover: answer the part it can cite and hand over the rest,
 //      or hand over the whole message when the entry has no room for that line. If the entry covers none
 //      of the message's questions, it matched only the background, and the desk does not answer.
-import { buildIndex, scoreEntries, scoreAgainst, splitSentences, contentStems, allStems, hasTerm, anchorsMet, anchorRegex } from './match.mjs';
-import { runGuards, stripDeskInstructions, needsPerson, TROUBLE, NAMED_ITEMS, PLATFORMS, ASKS_NUMBER, ASKS_OWN_COUNT, GIVES_NUMBER, INTRODUCER, COMMON_CAPS } from './signals.mjs';
+import { buildIndex, scoreEntries, scoreAgainst, splitSentences, contentStems, allStems, hasTerm, anchorsMet, anchorRegex, rawWords } from './match.mjs';
+import { runGuards, stripDeskInstructions, needsPerson, TROUBLE, NAMED_ITEMS, PLATFORMS, ASKS_NUMBER, ASKS_OWN_COUNT, GIVES_NUMBER, INTRODUCER, COMMON_CAPS, notEnglish, specificError, isNonsense } from './signals.mjs';
+
+// Every hand-over carries a stable, machine-readable reason in "why" (and the details in "whyDetail"), beside
+// the human "reason" text, so a page can say it plainly. The codes are listed in knowledge/ENTRY-GUIDE.md.
+// An answer has why: null. A "partial" answer has why: 'partly-covered' for the part it hands over.
+export const WHY_CODES = ['money', 'others-data', 'secret', 'staff-action', 'desk-instructions', 'tried-already', 'outage', 'records-disagree', 'docs-wrong', 'access-blocked', 'past-docs', 'docs-silent', 'tie', 'partly-covered', 'not-english', 'no-coverage', 'nonsense'];
+const SIGNAL_WHY = {
+  'tried-steps': 'tried-already', 'still-broken': 'tried-already', retried: 'tried-already', 'follow-on': 'tried-already', 'cause-ruled-out': 'tried-already',
+  'many-accounts': 'outage', 'records-disagree': 'records-disagree', 'disputes-count': 'records-disagree', 'docs-wrong': 'docs-wrong', 'access-blocked': 'access-blocked', phrase: 'past-docs',
+};
+const whyOfSignals = (hits) => ({ why: SIGNAL_WHY[hits[0].signal] || 'tried-already', whyDetail: { signal: hits[0].signal, words: hits[0].words } });
+
+// A sentence that only thanks or agrees ("Thanks for the scheduling help!") is background, not the question:
+// it is left out of matching, so the topic it names cannot pull the message to its entry. A sentence that goes
+// on to say something ("Thanks, but it still fails") is kept.
+const PLEASANTRY = /^(?:thanks|thank you|thank u|thx|ty|tysm|cheers|many thanks|much appreciated|appreciate (?:it|the|your|you)|great|awesome|perfect|cool|nice|ok(?:ay)?|got it|that worked|that helped|you(?:'re| are) (?:great|awesome|the best|amazing))\b[^?]*$/i;
+const GOES_ON = /\b(?:but|however|still|now|except|although|though|yet|problem|issue|error|fail\w*|can'?t|cannot|won'?t|doesn'?t|didn'?t|not)\b/i;
+export function withoutPleasantries(text) {
+  const sents = splitSentences(text);
+  const kept = sents.filter(x => !(PLEASANTRY.test(x) && !GOES_ON.test(x) && x.split(/\s+/).length <= 12));
+  if (kept.length === sents.length || contentStems(kept.join(' ')).length < 2) return text;
+  return kept.join(' ');
+}
 
 // Tuned on the dev set only (eval/tickets.dev.jsonl). See BUILD-LOG.md for how.
 export const THRESHOLD = 0.25;   // the best entry's score must reach this, when the entry has anchors and they are met
 export const THRESHOLD_UNANCHORED = 0.45; // an entry with no anchors has only its phrasings to go on, so it needs more
 export const MARGIN = 0.06;      // and beat the runner-up by this much
 export const COVERED = 0.30;     // a second question this close to the chosen entry counts as the same topic
+export const CANDIDATE_FLOOR = 0.1; // a candidate shown to a person must at least share real words with the message
 // Signals strong enough to hand a message over even when no entry matches it.
-export const GENERAL_SIGNALS = ['tried-steps', 'still-broken', 'retried', 'disputes-count', 'records-disagree', 'many-accounts'];
+export const GENERAL_SIGNALS = ['tried-steps', 'still-broken', 'retried', 'disputes-count', 'records-disagree', 'many-accounts', 'cause-ruled-out', 'docs-wrong'];
 // A question: ends with "?", starts like one, starts a second ask ("Also, ..."), or asks indirectly
 // ("I also want to know whether ...").
 const QUESTION = /\?\s*$|^(?:how|what|why|where|when|which|who|can|could|does|do|is|are|will|would|should|did|has|have|may|also|and also|plus|p\.?s\.?|another thing|one more thing)\b|\b(?:want to know|wondering|wonder|need to know|curious|tell me|let me know)\b(?:\s+\w+){0,2}?\s+(?:if|whether|how|what|when|why|where|which)\b/i;
@@ -108,19 +131,28 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
     const g = runGuards(original);
     if (g) {
       const entry = g.guard === 'money' ? pickMoneyEntry(original) : guardEntry(g.guard);
-      return { ...base, decision: 'guard', guard: g.guard, words: g.words, entry, reason: guardReason(g) };
+      return { ...base, decision: 'guard', guard: g.guard, words: g.words, entry, why: g.guard, whyDetail: { words: g.words }, reason: guardReason(g) };
     }
 
     const cut = stripDeskInstructions(original);
     base.stripped = cut.found;
-    const real = cut.text;
-    if (cut.found.length && contentStems(real).length < 2) {
-      return { ...base, decision: 'guard', guard: 'desk-instructions', words: cut.found[0], entry: guardEntry('desk-instructions'), reason: 'The message gives the desk instructions and asks no real question.' };
+    // "full" is what the customer wrote (minus the desk instructions): the signals read it. "real" also leaves
+    // out sentences that only thank or agree; matching, the docs-silent check and the questions read it.
+    const full = cut.text;
+    const real = withoutPleasantries(full);
+    if (cut.found.length && contentStems(full).length < 2) {
+      return { ...base, decision: 'guard', guard: 'desk-instructions', words: cut.found[0], entry: guardEntry('desk-instructions'), why: 'desk-instructions', whyDetail: { words: cut.found[0] }, reason: 'The message gives the desk instructions and asks no real question.' };
     }
+    // A message not in English goes to a person. The entries, the quotes and the checkers are all English, so
+    // the desk cannot tell what it asks, let alone answer it.
+    const lang = notEnglish(cut.text);
+    if (lang) return { ...base, decision: 'abstain', entry: null, why: 'not-english', whyDetail: { language: lang.language }, reason: `The message is not in English (it reads as ${lang.language}). A person who reads it should answer.` };
 
     const scored = scoreEntries(index, real);
     const live = scored.filter(c => !c.excluded);
-    base.candidates = live.slice(0, 3).map(c => ({ id: c.id, score: round(c.score), phrasing: c.phrasing }));
+    // The top candidates a person can start from: entries only (guards are never matched), and only ones with
+    // some real overlap, so a person reads them as close.
+    base.candidates = live.slice(0, 3).filter(c => c.score >= CANDIDATE_FLOOR).map(c => ({ id: c.id, title: index.byId.get(c.id)?.title, score: round(c.score), phrasing: c.phrasing }));
     let [best, second] = live;
     const needOf = (c) => (c?.anchored ? threshold : thresholdUnanchored);
     // Two entries too close to choose between: if the docs-silent check stops exactly one of them (it never
@@ -144,9 +176,13 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
       // records disagree: whatever the topic, a person takes it, and the customer gets the holding reply.
       // The strong default signals ("three days in a row", "is something down", "I only posted 3") count on
       // their own; the rest need a trouble word.
-      const hits = needsPerson(real, { signals: TROUBLE.test(real) ? GENERAL_SIGNALS : [] }, { hasTerm, allStems }, { defaults: true });
-      if (hits.length) return { ...base, decision: 'needs-person', entry: guardEntry('needs-person'), holding: guardEntry('needs-person'), signals: hits, reason: `${why} And: ${hits[0].about} ("${hits[0].words}")` };
-      return { ...base, decision: 'abstain', entry: null, reason: why };
+      const hits = needsPerson(full, { signals: TROUBLE.test(full) ? GENERAL_SIGNALS : [] }, { hasTerm, allStems }, { defaults: true });
+      if (hits.length) return { ...base, decision: 'needs-person', entry: guardEntry('needs-person'), holding: guardEntry('needs-person'), signals: hits, ...whyOfSignals(hits), reason: `${why} And: ${hits[0].about} ("${hits[0].words}")` };
+      const tied = best && second && best.score >= need && gap < margin;
+      const code = tied ? { why: 'tie', whyDetail: { candidates: [best, second].map(c => ({ id: c.id, title: index.byId.get(c.id)?.title, score: round(c.score) })) } }
+        : isNonsense(real, { contentStems, rawWords, known: (w) => everyWord.has(w) }) ? { why: 'nonsense', whyDetail: null }
+          : { why: 'no-coverage', whyDetail: null };
+      return { ...base, decision: 'abstain', entry: null, ...code, reason: code.why === 'nonsense' ? `${why} The message has no words the desk knows, or no question.` : why };
     }
     const entry = index.byId.get(best.id);
     base.words = best.anchorHits?.[0] || best.phrasing;
@@ -154,9 +190,17 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
     base.margin = round(gap);
 
     // The entry's own signals, plus the default ones every answering entry has (signals.mjs DEFAULT_SIGNALS).
-    const hits = needsPerson(real, entry.needs_person_if, { hasTerm, allStems }, { defaults: true });
+    const hits = needsPerson(full, entry.needs_person_if, { hasTerm, allStems }, { defaults: true });
     if (hits.length && !entry.escalate && !entry.noDocAnswer) {
-      return { ...base, decision: 'needs-person', entry, signals: hits, holding: entry.holding || guardEntry('needs-person'), reason: `${hits[0].about} ("${hits[0].words}")` };
+      return { ...base, decision: 'needs-person', entry, signals: hits, holding: entry.holding || guardEntry('needs-person'), ...whyOfSignals(hits), reason: `${hits[0].about} ("${hits[0].words}")` };
+    }
+
+    // An entry for a symptom with no error text ("my post failed", "it never went up") gives the first steps
+    // and asks for the error. When the customer does give an exact error or code, that error decides the fix,
+    // and this entry is not about it: a person takes it (or that error's own entry, when it wins the match).
+    if (entry.symptom_only) {
+      const err = specificError(real);
+      if (err) return { ...base, decision: 'abstain', entry: null, why: 'no-coverage', whyDetail: { error: err, nearest: entry.id }, reason: `"${entry.id}" is for a failure with no error text, but the message gives one ("${err}"), and no entry is a clear match for it.` };
     }
 
     // The thing asked about must be something the entry speaks about. Only the questions are read (the whole
@@ -167,7 +211,7 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
       if (silent) {
         const what = silent.kind === 'number' ? `asks for a number ("${silent.term}"), and its steps give none`
           : `asks about ${silent.kind === 'name' ? '' : `${/^[aeiou]/.test(silent.kind) ? 'an' : 'a'} ${silent.kind}, `}"${silent.term}", which it never mentions`;
-        return { ...base, decision: 'abstain', entry: null, silent, reason: `"${entry.id}" matched the message, but the message ${what}. The docs may be silent on it.` };
+        return { ...base, decision: 'abstain', entry: null, silent, why: 'docs-silent', whyDetail: { kind: silent.kind, item: silent.term, nearest: entry.id }, reason: `"${entry.id}" matched the message, but the message ${what}. The docs may be silent on it.` };
       }
     }
 
@@ -199,15 +243,15 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
       }
       base.questions = open;
       if (open.length && open.length === qs.length) {
-        return { ...base, decision: 'abstain', entry: null, reason: `"${entry.id}" matched the message, but not its question: "${open[0].question}"` };
+        return { ...base, decision: 'abstain', entry: null, why: 'no-coverage', whyDetail: { question: open[0].question, nearest: entry.id }, reason: `"${entry.id}" matched the message, but not its question: "${open[0].question}"` };
       }
       if (open.length) {
         const room = (entry.steps || []).length < 5 && !entry.escalate && !entry.noDocAnswer;
-        if (room) return { ...base, decision: 'partial', entry, reason: `The message asks more than one thing. "${entry.id}" answers one part; this part needs a person: "${open[0].question}"` };
-        return { ...base, decision: 'abstain', entry: null, reason: `The message asks more than one thing, and "${entry.id}" covers only part of it: "${open[0].question}"` };
+        if (room) return { ...base, decision: 'partial', entry, why: 'partly-covered', whyDetail: { question: open[0].question }, reason: `The message asks more than one thing. "${entry.id}" answers one part; this part needs a person: "${open[0].question}"` };
+        return { ...base, decision: 'abstain', entry: null, why: 'partly-covered', whyDetail: { question: open[0].question, nearest: entry.id }, reason: `The message asks more than one thing, and "${entry.id}" covers only part of it: "${open[0].question}"` };
       }
     }
-    return { ...base, decision: 'answer', entry, reason: `Matched "${entry.id}" (${round(best.score)}, ahead by ${round(gap)}).` };
+    return { ...base, decision: 'answer', entry, why: null, whyDetail: null, reason: `Matched "${entry.id}" (${round(best.score)}, ahead by ${round(gap)}).` };
   }
 
   return { route, index, entries };

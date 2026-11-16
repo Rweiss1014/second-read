@@ -388,6 +388,286 @@
       ],
       "next": "Look for the post in your scheduled, published and failed posts, then tell me what you find.",
       "proof": "You will know it is safe to send again once the first post is in none of those lists, or once its error is fixed."
+    },
+    {
+      "id": "post-failed-no-error-text",
+      "kind": "non-technical",
+      "title": "A post failed, and the customer has not given the error text",
+      "phrasings": [
+        "my post failed and I do not know why",
+        "the post shows failed, what do I do now",
+        "why did my post fail to publish",
+        "it says failed next to my post in blotato",
+        "post failed help",
+        "my reel failed to go out, how do I fix it",
+        "my video would not post, it is marked failed",
+        "how do I find out why a post failed",
+        "the post has a failed status on the calendar",
+        "my post faild what now",
+        "blotato could not post my picture, it failed",
+        "blotato did not post it",
+        "my post did not work",
+        "my post did not go through",
+        "my video will not upload"
+      ],
+      "not_this": [
+        "my post shows published but it is not on my page",
+        "my posts show canceled",
+        "my scheduled post disappeared and is not in failed posts",
+        "my post failed with error 20003"
+      ],
+      "anchors": [
+        [
+          "failed",
+          "fail",
+          "fails",
+          "faild",
+          "failde",
+          "failing",
+          "failure",
+          "would not post",
+          "wouldnt post",
+          "wouldn't post",
+          "wont post",
+          "won't post",
+          "will not post",
+          "did not post",
+          "didn't post",
+          "didnt post",
+          "could not post",
+          "couldn't post",
+          "couldnt post",
+          "not posting",
+          "wont publish",
+          "won't publish",
+          "not publishing",
+          "did not publish",
+          "didn't publish",
+          "did not work",
+          "didn't work",
+          "didnt work",
+          "not working",
+          "didnt go through",
+          "didn't go through",
+          "did not go through",
+          "didnt go thru",
+          "didn't go thru",
+          "not go through",
+          "wont go",
+          "won't go",
+          "will not go",
+          "wont upload",
+          "won't upload",
+          "will not upload",
+          "didnt upload",
+          "didn't upload",
+          "did not upload",
+          "not posted",
+          "not publish",
+          "not published",
+          "is not posting",
+          "isnt posting",
+          "isn't posting",
+          "not going out",
+          "not going through"
+        ],
+        [
+          "post",
+          "posts",
+          "posted",
+          "video",
+          "videos",
+          "reel",
+          "reels",
+          "picture",
+          "photo",
+          "image",
+          "pin",
+          "tweet",
+          "publish",
+          "published",
+          "upload",
+          "go",
+          "tiktok",
+          "instagram",
+          "carousel",
+          "story"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": []
+      },
+      "symptom_only": true,
+      "opening": "I'm sorry your post didn't go out. The error on the post itself tells us why, so let's find it first.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Open Posts and look under Failed for that post, for the same account and content.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
+            "quote": "Check the Scheduled, Published, and Failed filters in Posts for the same destination and content."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Read the exact error on the post before you change the media, reconnect the account, or try again.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
+            "quote": "Read the exact error before changing media, reconnecting an account, or retrying."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Before you post it again, check the account it was meant for.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
+            "quote": "Read the error and check the destination before retrying."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "When you write to us, include the exact error text.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Preserve the error text, request ID, and submission ID when asking support."
+          }
+        }
+      ],
+      "next": "Open Posts, find the post under Failed, and send us the exact error text it shows.",
+      "proof": "Still open: the cause. The exact error on the post decides which fix is the right one.",
+      "note": "For a failed post with no error text. With an error text or code in the message (symptom_only), this entry hands over, so that error's own entry or a person takes it."
+    },
+    {
+      "id": "post-never-went-up",
+      "kind": "non-technical",
+      "title": "A scheduled post never went up, and the customer does not know where it went",
+      "phrasings": [
+        "my scheduled post never went up",
+        "where did my scheduled post go",
+        "I scheduled a post and it never showed up on my page",
+        "the post was meant to go out this morning but nothing went out",
+        "my post never appeared at the time I set",
+        "I set a post for 9am and it never went out, where is it",
+        "nothing went out today even though I scheduled it",
+        "my post never posted to my account",
+        "post never apeared after I scheduled it",
+        "where is the post I scheduled for yesterday, it is not on my profile",
+        "it was supposed to go out and never did",
+        "it never got posted",
+        "why did my post not go out"
+      ],
+      "not_this": [
+        "my post failed",
+        "my post shows published but I cannot see it",
+        "how do I view my scheduled posts",
+        "my posts show canceled",
+        "I want to change the time of a scheduled post"
+      ],
+      "anchors": [
+        [
+          "never went up",
+          "never went out",
+          "never posted",
+          "never published",
+          "never appeared",
+          "never apeared",
+          "never showed up",
+          "never showed",
+          "never came out",
+          "never went live",
+          "did not go out",
+          "didn't go out",
+          "didnt go out",
+          "did not go up",
+          "didn't go up",
+          "didnt go up",
+          "nothing went out",
+          "nothing was posted",
+          "nothing posted",
+          "where did my post go",
+          "where did my scheduled post go",
+          "where did it go",
+          "not on my page",
+          "not on my profile",
+          "is not on my account",
+          "never did",
+          "never got posted",
+          "never got published",
+          "never got sent",
+          "never went",
+          "/(didn.?t|did not|why did ?n.?t) (my |the |our )?(\\w+ ){0,3}(go out|go up|go live|get posted|get published)/",
+          "not go out",
+          "not go up",
+          "not gone out"
+        ],
+        [
+          "post",
+          "posts",
+          "posted",
+          "scheduled",
+          "schedule",
+          "video",
+          "reel",
+          "pin",
+          "tweet",
+          "went up",
+          "went out",
+          "go out",
+          "go up"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": []
+      },
+      "symptom_only": true,
+      "opening": "Let's find out what happened to that post before anything else. A post that did not show up has not always failed.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Open Posts and check the Scheduled, Published and Failed lists for that account and that post.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
+            "quote": "Check the Scheduled, Published, and Failed filters in Posts for the same destination and content."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If Blotato shows a link to the post, open it and check the account on the platform.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
+            "quote": "Open any returned platform URL and check the intended account on the platform."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If it is under Failed, read the exact error before you change anything or try again.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
+            "quote": "Read the exact error before changing media, reconnecting an account, or retrying."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Please do not post a replacement until we know what happened to the first one.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
+            "quote": "Do not submit a replacement while the original outcome is unknown."
+          }
+        }
+      ],
+      "next": "Check Posts under Scheduled, Published and Failed for that post, and send us what you find, with the exact error if it shows one.",
+      "proof": "You will know it worked when you find the post in one of those three lists or on the platform itself.",
+      "note": "For a missing post with no error text and no known platform symptom. Neighbors: scheduled-posts-disappear-no-error (left Upcoming, YouTube, Facebook, Instagram), tiktok-post-disappears-buffering, published-not-visible."
     }
   ]
 }
