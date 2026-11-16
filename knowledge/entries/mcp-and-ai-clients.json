@@ -10,7 +10,7 @@
         "invalid_grant error from the MCP connector in Claude",
         "Claude connector stopped working, the oauth expired",
         "my Blotato MCP sign in for Claude expired",
-        "the Blotato connector in Claude Cowork says invalid grant",
+        "my Blotato connector in the Claude desktop app says invalid grant",
         "how do I reconnect the Blotato connector in Claude",
         "claude cant connect to blotato anymore, oauth error"
       ],
@@ -170,6 +170,17 @@
         "ignore": [
           "follow-on"
         ]
+      },
+      "scope": {
+        "covers": [
+          "chatgpt",
+          "claude",
+          "codex",
+          "cursor",
+          "gemini",
+          "copilot"
+        ],
+        "why": "The quotes speak of 'your AI tool' and name the MCP tools it calls, so they hold for any AI client that uses the Blotato MCP server."
       },
       "opening": "This one has a known cause, and a short instruction for your AI tool.",
       "steps": [

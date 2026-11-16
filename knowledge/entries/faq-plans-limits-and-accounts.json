@@ -989,6 +989,13 @@
         ],
         "phrases": []
       },
+      "scope": {
+        "covers": [
+          "excel",
+          "numbers"
+        ],
+        "why": "Excel and Numbers are spreadsheets. The quote says you cannot upload a spreadsheet of captions, links and dates in the web app."
+      },
       "opening": "There is no direct import, but there is a way to do it with an automation tool.",
       "steps": [
         {

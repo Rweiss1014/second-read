@@ -16,7 +16,7 @@ const replyText = (e) => [e.opening, ...e.steps.map(s => s.text), e.next, e.proo
 //   guard:   a guard's own reply.  holding: a holding reply chosen by HOLDING_FOR.  none: no reply is written.
 const KIND = {
   money: 'guard', 'others-data': 'guard', secret: 'guard', 'staff-action': 'guard', 'desk-instructions': 'guard',
-  'tried-already': 'holding', outage: 'holding', 'records-disagree': 'holding', 'docs-wrong': 'holding', 'access-blocked': 'holding', 'past-docs': 'holding',
+  'tried-already': 'holding', outage: 'holding', 'records-disagree': 'holding', 'docs-wrong': 'holding', 'access-blocked': 'holding', 'past-docs': 'holding', pressure: 'holding',
   'docs-silent': 'none', tie: 'none', 'partly-covered': 'none', 'not-english': 'none', 'no-coverage': 'none', nonsense: 'none',
 };
 
@@ -32,6 +32,7 @@ const SAMPLES = {
   'records-disagree': 'The billing page shows active, but the app says my subscription is not active.',
   'docs-wrong': 'Your help page example is invalid JSON. Which one is right?',
   'access-blocked': 'How do I cancel my subscription? The reactivate screen blocks Settings.',
+  pressure: 'How do I reconnect my Instagram account? Fix this today or we will cancel and switch tools.',
   'past-docs': 'Why do my posts show CANCELED? I did not delete them.',
   'docs-silent': 'how many first comments can I add per day?',
   'not-english': '¿Cómo cancelo mi suscripción en Blotato?',
@@ -44,7 +45,7 @@ test('every reason code is listed, and each holding reason maps to a holding rep
   for (const why of WHY_CODES.filter(w => KIND[w] === 'holding')) assert.ok(guard(holdingGuardFor(why)), why);
   assert.equal(holdingGuardFor('tried-already'), 'needs-person');
   assert.equal(holdingGuardFor('outage'), 'possible-outage');
-  for (const why of ['records-disagree', 'docs-wrong', 'access-blocked', 'past-docs']) assert.equal(holdingGuardFor(why), 'handover', why);
+  for (const why of ['records-disagree', 'docs-wrong', 'access-blocked', 'past-docs', 'pressure']) assert.equal(holdingGuardFor(why), 'handover', why);
 });
 
 test('only the tried-already reason gets the reply that thanks the customer for what they tried', () => {

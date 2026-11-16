@@ -395,13 +395,13 @@
       "id": "mobile-app",
       "title": "Is there a Blotato mobile app",
       "phrasings": [
-        "is there a blotato app for iphone",
+        "is there a blotato app in the app store",
         "how do I use blotato on mobile",
-        "do you have an android app",
+        "do you have an app for my phone",
         "can I create posts from my phone",
         "is there a mobile version of the video editor",
         "blotato app store",
-        "does blotato work on a tablet or phone browser",
+        "does blotato work in a phone browser",
         "is there a mobile aplication for blotato",
         "how I use blotato in my telephone"
       ],
@@ -493,7 +493,7 @@
         "how do I post a video I keep in Google Drive",
         "can blotato read files from my cloud storage",
         "I store my images on dropbox how do I use them in a post",
-        "does blotato work with onedrive or icloud",
+        "does blotato connect to my cloud storage folder",
         "can I link my cloud drive as an account",
         "how do I use a file from dropbox as media in the api",
         "conect google drive to blotato to post my videos"

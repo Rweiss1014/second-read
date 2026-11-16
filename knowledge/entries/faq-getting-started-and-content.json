@@ -13,6 +13,12 @@
           "no menu button"
         ]
       },
+      "scope": {
+        "covers": [
+          "write posts about"
+        ],
+        "why": "The same FAQ paragraph the entry quotes says the empty Post editor shows a Write posts about... box and that you do not need to generate a draft."
+      },
       "id": "navigation-menu-missing",
       "kind": "non-technical",
       "title": "How to get back to the main page, or a blank Post editor with no calendar or settings in sight",
@@ -863,6 +869,12 @@
           "tried-steps",
           "still-broken"
         ]
+      },
+      "scope": {
+        "coversKinds": [
+          "platform or service"
+        ],
+        "why": "The FAQ says the list is exhaustive and that Blotato does not publish to platforms outside it, so the reply answers for any other platform or service."
       },
       "id": "supported-platforms",
       "kind": "non-technical",

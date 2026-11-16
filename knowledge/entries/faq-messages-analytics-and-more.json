@@ -340,7 +340,7 @@
         "can I reply to comments on my facebook page posts from blotato",
         "is there a way to read and answer my followers comments in blotato",
         "can blotato comment on other peoples posts",
-        "does blotato do comments on tiktok or linkedin",
+        "does blotato do comments on instagram or facebook",
         "can I post a comment on my own published post with blotato",
         "comenting on posts blotato supported?"
       ],
@@ -1031,7 +1031,7 @@
         "how do I make people follow me first before they get the link",
         "is there a follow gate in blotato dm automations",
         "what does ask for a follow do in the automation",
-        "does the follow check work on facebook pages",
+        "does the follow check work on instagram",
         "how long does the automation wait for the person to follow",
         "my follow gate automation stalls and never sends the link",
         "someone who did not follow got my link anyway",
@@ -1455,6 +1455,16 @@
           "tried-steps",
           "still-broken"
         ]
+      },
+      "scope": {
+        "covers": [
+          "hubspot",
+          "salesforce",
+          "pipedrive",
+          "zoho",
+          "gohighlevel"
+        ],
+        "why": "These are CRMs. The quotes say Blotato is not a CRM and that Zapier or Make.com connects DMs, comments or lead forms to your CRM."
       },
       "opening": "Blotato does not have a CRM, but there are three ways to feed one.",
       "steps": [
