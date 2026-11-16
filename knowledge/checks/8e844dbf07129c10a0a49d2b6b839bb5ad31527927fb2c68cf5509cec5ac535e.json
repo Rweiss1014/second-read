@@ -1,0 +1,11 @@
+{
+  "replySha256": "8e844dbf07129c10a0a49d2b6b839bb5ad31527927fb2c68cf5509cec5ac535e",
+  "verdict": "pass",
+  "findings": [
+    "Style only: the Next step's condition (\"If it is not on Instagram, make the three changes in step 2 before you post it again\") is looser than step 5 and would be safer as \"if it shows under Failed and is not on Instagram\"; step 5 still tells the customer not to post again when the checks are unclear, so it does not mislead."
+  ],
+  "checkedAt": "2026-11-16T03:42:32Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "instagram-error-posting-no-error"
+}

@@ -1,0 +1,11 @@
+{
+  "replySha256": "2b1997afe4941b58f391b5ce907b7c8c7aed644141946fe6067e20ab0c55cab7",
+  "verdict": "pass",
+  "findings": [
+    "Style: step 4, \"Also verify your account\", matches the page word for word but does not say which account or how, so a customer may not know what to do with it."
+  ],
+  "checkedAt": "2026-11-16T03:44:02Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "youtube-upload-limit-exceeded"
+}

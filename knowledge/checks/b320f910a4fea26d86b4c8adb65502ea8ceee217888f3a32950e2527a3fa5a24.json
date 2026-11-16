@@ -1,0 +1,11 @@
+{
+  "replySha256": "b320f910a4fea26d86b4c8adb65502ea8ceee217888f3a32950e2527a3fa5a24",
+  "verdict": "pass",
+  "findings": [
+    "Style note: Step 4, \"Check the status of the original post first.\", sits after the export steps, so \"first\" reads oddly; the Next step line makes the order clear."
+  ],
+  "checkedAt": "2026-11-16T03:42:36Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "unsupported-media-format-container-list"
+}

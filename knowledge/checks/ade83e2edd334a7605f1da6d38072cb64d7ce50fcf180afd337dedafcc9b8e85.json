@@ -1,0 +1,11 @@
+{
+  "replySha256": "ade83e2edd334a7605f1da6d38072cb64d7ce50fcf180afd337dedafcc9b8e85",
+  "verdict": "pass",
+  "findings": [
+    "Style note: Step 3, \"YouTube's own restrictions are separate.\", is a fact rather than an action, but it matches the page and would not mislead anyone."
+  ],
+  "checkedAt": "2026-11-16T03:42:36Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "youtube-blotato-10-posts-limit"
+}

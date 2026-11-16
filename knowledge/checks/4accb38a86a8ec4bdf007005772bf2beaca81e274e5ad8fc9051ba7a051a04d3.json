@@ -1,0 +1,12 @@
+{
+  "replySha256": "4accb38a86a8ec4bdf007005772bf2beaca81e274e5ad8fc9051ba7a051a04d3",
+  "verdict": "pass",
+  "findings": [
+    "Style: step 4, \"Check the status of the original submission first\", drops the page's \"before retrying\" and comes last although it says \"first\", so the order is unclear.",
+    "Style: the Next step's \"Open the media URL in a private window\" is not in the cited text for this error, though it is a harmless way to do step 3's check of the source URL."
+  ],
+  "checkedAt": "2026-11-16T03:44:02Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "media-conversion-failed"
+}

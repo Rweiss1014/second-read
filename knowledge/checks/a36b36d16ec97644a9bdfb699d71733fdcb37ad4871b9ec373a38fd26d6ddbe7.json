@@ -1,0 +1,9 @@
+{
+  "replySha256": "a36b36d16ec97644a9bdfb699d71733fdcb37ad4871b9ec373a38fd26d6ddbe7",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T03:44:37Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "tiktok-retryable-error"
+}

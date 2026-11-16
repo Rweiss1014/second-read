@@ -1,0 +1,9 @@
+{
+  "replySha256": "81ddb6cde6ae3bc7e94725ed48f6ab0da7edfedf27c32f9df1e1ad2bfc1a6125",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T03:42:32Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "instagram-token-expired-reconnect"
+}

@@ -1,0 +1,11 @@
+{
+  "replySha256": "865ad64760cf143045d0ef3e996e7d19db26abb69794cf48f0ec471693a34941",
+  "verdict": "pass",
+  "findings": [
+    "Style only: step 5 has no citation of its own, though its words (\"keep the exact response and request ID and reply here with them\") match the Facebook errors page's \"Retain the response and request ID\" and \"Escalate repeated failures\"."
+  ],
+  "checkedAt": "2026-11-16T03:42:32Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "facebook-reduce-amount-of-data"
+}
