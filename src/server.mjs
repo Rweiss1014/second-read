@@ -2,6 +2,7 @@
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
+import zlib from 'node:zlib';
 import { performance } from 'node:perf_hooks';
 import { ROOT, deskPaths, isMock } from './config.mjs';
 import { openDesk, handleTicket, runShift } from './desk.mjs';
@@ -9,7 +10,7 @@ import { readFailures } from './failures.mjs';
 import { summarizeLastRun } from './log.mjs';
 import { pageUrl, cleanText, quoteOnPage } from './docs.mjs';
 import { replyHash } from './checkreply.mjs';
-import { TICKETS } from '../knowledge/playbook.mjs';
+import { TICKETS, ENTRY_BY_ID } from '../knowledge/playbook.mjs';
 import { PRACTICE } from '../knowledge/practice.mjs';
 
 const PUBLIC = path.join(ROOT, 'public');
@@ -72,11 +73,13 @@ export function pageContext(page, quote) {
   if (!page?.text) return null;
   const lines = page.text.split('\n');
   const title = readable((lines.find(l => /^# /.test(l)) || '').replace(/^# /, '')) || null;
-  // Blocks: headings, and runs of lines between blank lines or rules.
+  // Blocks: headings, and runs of lines between blank lines or rules. Each block keeps its raw lines too.
   const blocks = []; let cur = []; let heading = null;
-  const flush = () => { if (cur.length) { blocks.push({ heading, text: readable(cur.join('\n')) }); cur = []; } };
+  const fences = []; let fence = null; // fenced code blocks, raw, so a code example can be shown whole
+  const flush = () => { if (cur.length) { blocks.push({ heading, text: readable(cur.join('\n')), raw: cur.slice() }); cur = []; } };
   for (const l of lines) {
-    if (/^\s*```/.test(l)) continue; // code fence lines (and their language word) are not page text
+    if (/^\s*```/.test(l)) { if (fence) { fences.push(fence); fence = null; } else fence = { heading, lines: [] }; continue; } // fence lines (and their language word) are not page text
+    if (fence) fence.lines.push(l);
     if (/^#{1,6} /.test(l)) { flush(); heading = readable(l.replace(/^#+ /, '')); continue; }
     if (!l.trim() || /^\*{3,}$|^-{3,}$/.test(l.trim())) { flush(); continue; }
     cur.push(l);
@@ -93,9 +96,53 @@ export function pageContext(page, quote) {
     if (!hit) return { title, heading: null, before: null, text: null, mark: null, after: null, found: false };
     block = { heading: hit[0], text: hit[1] };
   }
-  const w = windowAround(block.text, findQuote(block.text, quote));
+  const where = findQuote(block.text, quote);
+  const w = windowAround(block.text, where);
   const near = (k) => (i >= 0 && blocks[k] && blocks[k].heading === block.heading ? windowAround(blocks[k].text, null).text : null);
-  return { title, heading: block.heading === title ? null : block.heading, before: near(i - 1), text: w.text, mark: w.mark, after: near(i + 1), found: true };
+  // Added for round 3 (additive): the quote's own setting, so the page can show it whole.
+  const extra = {};
+  const code = codeAround(fences, quote);
+  if (code) extra.code = code;
+  const row = block.raw ? tableRow(block.raw, quote) : null;
+  if (row) extra.row = row;
+  const list = i >= 0 && where ? listAfter(block, blocks[i + 1], where) : null;
+  if (list) extra.list = list;
+  return { title, heading: block.heading === title ? null : block.heading, before: near(i - 1), text: w.text, mark: w.mark, after: near(i + 1), found: true, ...extra };
+}
+
+// A code example that holds the quote: every line of it (dedented, at most 40), and which lines hold the quote.
+function codeAround(fences, quote) {
+  for (const f of fences) {
+    const raw = f.lines.slice(0, 40);
+    for (let k = 0; k < 8; k++) { // the fewest lines that hold the whole quote
+      for (let a = 0; a + k < raw.length; a++) {
+        const b = a + k;
+        if (!findQuote(readable(raw.slice(a, b + 1).join(' ')), quote)) continue;
+        const pad = Math.min(...raw.filter(l => l.trim()).map(l => l.match(/^\s*/)[0].length));
+        return { lines: raw.map(l => l.slice(pad).replace(/\s+$/, '')), hit: [a, b], more: f.lines.length > raw.length };
+      }
+    }
+  }
+  return null;
+}
+
+// A table row that holds the quote: the table's header cells and that row's cells.
+function tableRow(raw, quote) {
+  const rows = raw.filter(l => /^\s*\|/.test(l));
+  if (rows.length < 2) return null;
+  const cells = (l) => l.trim().replace(/^\||\|$/g, '').split('|').map(c => readable(c));
+  const body = rows.filter(l => !/^\s*\|[\s|:-]+\|?\s*$/.test(l));
+  const hit = body.slice(1).find(l => findQuote(readable(l.replace(/\|/g, ' ')), quote));
+  return hit ? { head: cells(body[0]), cells: cells(hit) } : null;
+}
+
+// A sentence that ends in a colon and introduces a list: the list's items, as written.
+function listAfter(block, next, where) {
+  if (!/^\s*:/.test(block.text.slice(where[1], where[1] + 3)) && !/:\s*$/.test(block.text.slice(0, where[1]))) return null;
+  if (block.text.slice(where[1]).replace(/^\s*:/, '').trim()) return null; // the colon must end the block
+  if (!next?.raw?.length || next.heading !== block.heading) return null;
+  const items = next.raw.filter(l => /^\s*(?:[-*]|\d+\.)\s+/.test(l)).map(l => readable(l.replace(/^\s*(?:[-*]|\d+\.)\s+/, '')));
+  return items.length && items.length === next.raw.filter(l => l.trim()).length ? items.slice(0, 8) : null;
 }
 
 // ---- What the page needs from a result (never the full cached pages).
@@ -115,6 +162,16 @@ function view(r, env, trace) {
     escalation: r.escalation || null,
     docEdit: r.docEdit ? { ...r.docEdit, page: r.docEdit.before ? ctx(r.docEdit.article, r.docEdit.before) : (pages[pageUrl(r.docEdit.article)] ? { title: pageContext(pages[pageUrl(r.docEdit.article)], 'x')?.title || null } : null) } : null,
     trace: trace || [],
+    // Added for round 3 (additive): why the route chose what it chose, so the page can give the real reason
+    // for a hand-over, and the near candidates (by their titles) when the desk did not answer.
+    route: r.match ? {
+      decision: r.match.decision || null,
+      guard: r.match.guard || null,
+      why: r.match.why ?? null, // the named reason for a hand-over (main copy); null for an answer or older data
+      whyDetail: r.match.whyDetail ?? null,
+      reason: r.match.reason || null,
+      candidates: (r.match.candidates || []).map(c => ({ id: c.id, title: ENTRY_BY_ID.get(c.id)?.title || null, phrasing: c.phrasing || ENTRY_BY_ID.get(c.id)?.phrasings?.[0] || null })),
+    } : null,
   };
 }
 
@@ -272,9 +329,11 @@ export function createServer({ env = process.env } = {}) {
         if (file) {
           const ext = path.extname(file).toLowerCase();
           const long = ext === '.woff2';
-          res.writeHead(200, { 'content-type': TYPES[ext], 'cache-control': long ? 'public, max-age=31536000, immutable' : 'no-cache' });
-          if (path.basename(file) === 'index.html') return res.end(indexHtml(file));
-          return res.end(fs.readFileSync(file));
+          const body = path.basename(file) === 'index.html' ? Buffer.from(indexHtml(file)) : fs.readFileSync(file);
+          // Added for round 3 (additive): text files go out gzipped when the browser asks for it.
+          const zip = /^\.(?:html|css|js|json|md|txt)$/.test(ext) && /\bgzip\b/.test(req.headers['accept-encoding'] || '');
+          res.writeHead(200, { 'content-type': TYPES[ext], 'cache-control': long ? 'public, max-age=31536000, immutable' : 'no-cache', ...(zip ? { 'content-encoding': 'gzip', vary: 'accept-encoding' } : {}) });
+          return res.end(zip ? zlib.gzipSync(body) : body);
         }
       }
       json(res, 404, { error: 'not found' });

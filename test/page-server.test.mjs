@@ -55,3 +55,29 @@ test('the earlier routes still answer', async () => {
     assert.equal((await fetch(`${base}/../package.json`)).status, 404);
   });
 });
+
+// Round 3 additions: a reason for every hand-over, and text files sent gzipped.
+test('a ticket result says why the route chose what it chose, with near candidates by title', async () => {
+  await withServer(async (base) => {
+    const others = await (await fetch(`${base}/api/ticket`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ text: 'Can you send me the email address of the other customer who runs the @catsofnyc account?' }) })).json();
+    assert.equal(others.route.decision, 'guard');
+    assert.equal(others.route.guard, 'others-data');
+    const nonsense = await (await fetch(`${base}/api/ticket`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ text: 'Banana phone purple. Does it work on Tuesdays?' }) })).json();
+    assert.equal(nonsense.route.decision, 'abstain');
+    assert.ok(Array.isArray(nonsense.route.candidates));
+    for (const c of nonsense.route.candidates) assert.ok('id' in c && 'title' in c && 'phrasing' in c);
+  });
+});
+
+test('text files go out gzipped when asked, and plain when not', async () => {
+  const http = await import('node:http');
+  const zlib = await import('node:zlib');
+  await withServer(async (base) => {
+    const get = (p, headers) => new Promise((res, rej) => http.get(base + p, { headers }, (r) => { const b = []; r.on('data', c => b.push(c)); r.on('end', () => res({ h: r.headers, body: Buffer.concat(b) })); }).on('error', rej));
+    const z = await get('/app.js', { 'accept-encoding': 'gzip' });
+    assert.equal(z.h['content-encoding'], 'gzip');
+    const plain = await get('/app.js', {});
+    assert.equal(plain.h['content-encoding'], undefined);
+    assert.equal(zlib.gunzipSync(z.body).toString(), plain.body.toString());
+  });
+});
