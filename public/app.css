@@ -434,7 +434,8 @@ kbd { font: 600 14px var(--sans); box-shadow: inset 0 0 0 2px var(--rule), inset
 .stamps ol { gap: 10px; }
 .choice { --tone: var(--navy); display: grid; grid-template-columns: 118px minmax(0, 1fr); gap: 18px; align-items: center; width: 100%; text-align: left; background: none; border: 0; border-radius: 16px; padding: 4px 10px 4px 0; cursor: pointer; position: relative; }
 .choice .rstamp { display: grid; justify-items: center; transition: transform 160ms var(--ease-out); transform-origin: 50% 100%; }
-.choice .handle { display: block; width: 104px; height: 84px; object-fit: contain; object-position: 50% 100%; margin-bottom: -8px; mix-blend-mode: multiply; position: relative; z-index: 1; }
+.choice .handle { display: block; width: 104px; height: 66px; object-fit: contain; object-position: 50% 100%; margin-bottom: -14px; mix-blend-mode: multiply; position: relative; z-index: 1; }
+.choice .rstamp.has-handle .rface { width: 104px; } /* with its handle on, all three stamps still fit above the fold at 1440 by 900 */
 .choice .rface { display: block; width: 112px; color: var(--tone); }
 .choice:hover:not(:disabled) .rstamp { transform: translateY(-5px) rotate(-2deg); }
 .choice:active:not(:disabled) .rstamp { transform: translateY(6px) scale(.96); transition-duration: 60ms; }
