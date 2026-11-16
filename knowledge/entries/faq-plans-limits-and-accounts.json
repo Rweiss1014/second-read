@@ -896,6 +896,14 @@
         },
         {
           "type": "fact",
+          "text": "The limit is 200 queued scheduled posts on Starter, 1,000 on Creator, and 3,000 on Agency.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "| Queued scheduled posts    | 200            | 1,000          | 3,000          |"
+          }
+        },
+        {
+          "type": "fact",
           "text": "Posts you publish immediately do not count against this limit.",
           "cite": {
             "url": "https://help.blotato.com/settings/billing-and-credits",
@@ -2121,6 +2129,9 @@
           "cancelling",
           "canceling",
           "ended",
+          "end my",
+          "ends",
+          "stop paying",
           "expired",
           "reactivate",
           "reactivation"
