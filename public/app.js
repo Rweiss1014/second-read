@@ -75,7 +75,21 @@ const PLAIN = [
 ];
 // After a word swap the little word in front must still fit: "a developer key", "an AI helper".
 const articles = (s) => String(s).replace(/\b([Aa])n ((?:developer|sign-in|connected|later|number|helper)\b)/g, '$1 $2').replace(/\b([Aa]) ((?:AI|answer|error|account|app)\b)/g, '$1n $2');
-const plainWords = (s) => articles(PLAIN.reduce((t, [re, to]) => t.replace(re, to), String(s ?? '')));
+// A real name a customer must find and click is never reworded (the owner's rule, Nov 15): anything in quotes,
+// a menu path ("Settings > Billing"), and a capitalized name with a developer word in it ("Generate API Key",
+// "API Errors"). They are set aside before the swap and put back after it.
+const LABELS = [
+  /"[^"\n]{1,90}"|“[^”\n]{1,90}”/g,
+  /\b[A-Z][\w&-]*(?: [A-Z][\w&-]*)*(?:\s*>\s*[A-Z][\w&-]*(?: [A-Z][\w&-]*)*)+/g,
+  /\b(?!(?:The|A|An|If|When|Your|Our|Use|Using|Via|With|For|And|Or|But|No|This|That|Make|Making)\b)(?:[A-Z][\w-]*\s+)*(?:API|MCP|OAuth)(?:\s+(?!(?:Or|And|To|For)\b)[A-Z][\w-]*)+|\b(?!(?:The|A|An|If|When|Your|Our|Use|Using|Via|With|For|And|Or|But|No|This|That|Make|Making)\b)(?:[A-Z][\w-]*\s+)+(?:API|MCP|OAuth)\b/g,
+];
+function keepLabels(s, fn) {
+  const kept = [];
+  let t = String(s ?? '');
+  for (const re of LABELS) t = t.replace(re, (m) => { kept.push(m); return `\u0002${kept.length - 1}\u0002`; });
+  return fn(t).replace(/\u0002(\d+)\u0002/g, (m, i) => kept[+i]);
+}
+const plainWords = (s) => keepLabels(s, (t) => articles(PLAIN.reduce((x, [re, to]) => x.replace(re, to), t)));
 const upFirst = (raw, s) => (/^[A-Z]/.test(String(raw)) && s ? s[0].toUpperCase() + s.slice(1) : s);
 const both = (raw, plain = upFirst(raw, plainWords(raw))) => plain === raw ? esc(raw) : `<span class="plain-only">${esc(plain)}</span><span class="tech-only">${esc(raw)}</span>`;
 const dash = (s) => String(s ?? '').replace(/\s+[\u2014\u2013]\s+/g, ', ').replace(/[\u2014\u2013]/g, ', ');
@@ -112,7 +126,7 @@ const HAS_JARGON = /\b(?:OAuth|MCP|API|endpoints?|concurrency|request frequency|
 function plainQuote(s) {
   const raw = String(s || '').replace(/`/g, '');
   if (!HAS_JARGON.test(raw)) return null;
-  const out = articles(JARGON.reduce((t, [re, to]) => t.replace(re, to), String(s || '')).replace(/`/g, '').trim());
+  const out = keepLabels(String(s || ''), (x) => articles(JARGON.reduce((t, [re, to]) => t.replace(re, to), x))).replace(/`/g, '').trim();
   return out && out !== raw ? out[0].toUpperCase() + out.slice(1) : null;
 }
 
@@ -623,7 +637,7 @@ function docEditHTML(r) {
   const lead = d.kind === 'change'
     ? `The desk found a help page that leads people the wrong way. Here is the page, marked up with the change it suggests. A person on the team decides if it goes in.`
     : `The desk suggests a new part for this help page. A person on the team writes the answer and decides if it goes in.`;
-  const legend = `${circled ? 'Circled in red: what the desk would change, with the change written beside it. ' : ''}In yellow: what it would add. Nothing changes on the real help page until a person does it.`;
+  const legend = `${circled ? 'Circled in red: what the desk would change, with the change written in red. ' : ''}In yellow: what it would add. Nothing changes on the real help page until a person does it.`;
   return `<section class="note doc" aria-labelledby="doc-h">
     <h3 id="doc-h">${heading}</h3>
     <p class="note-lead">${lead}</p>
@@ -1335,7 +1349,8 @@ function showShell(m, meta, r) {
   addEventListener('touchmove', () => { m.userScrolled = true; }, { passive: true, once: true });
   if (!animate) return;
   const q = $('#said-q', res); const qr = q.getBoundingClientRect();
-  const dy = (box.top + 4) - qr.top; const dx = box.left + 28 - qr.left;
+  // on a phone the words rise straight up (a sideways nudge pushed their line ends past the screen's edge)
+  const dy = (box.top + 4) - qr.top; const dx = wide() ? box.left + 28 - qr.left : 0;
   if (dy <= 0 || dy > 1400) return;
   m.root.classList.add('lifting', 'lifting-stage');
   const lifted = m.anim(q, [{ transform: `translate(${dx}px, ${dy}px)` }, { transform: 'none' }], { duration: T.lift, easing: 'cubic-bezier(.22, .9, .3, 1)' }).then(() => m.root.classList.remove('lifting', 'lifting-stage'));
@@ -1436,7 +1451,8 @@ const demo = {
     const text = $('.t', btn).textContent;
     if (reduced.matches) { pick(btn, { focus: false }); return this.go(btn, text, true); }
     $('#demo-skip').hidden = false;
-    $('#filled').textContent = 'Watch: an example is going in the box.';
+    // on a phone the link stands in the status line's place, so the line stays empty while it is there
+    $('#filled').textContent = wide() ? 'Watch: an example is going in the box.' : '';
     // The first screen gets a quiet moment to be read before anything moves.
     await sleep(1400);
     if (!this.running) return;
@@ -1448,7 +1464,7 @@ const demo = {
     if (!this.running) return; // skipped while typing: the box stays as the skip left it
     box.value = text;
     pick(btn, { focus: false });
-    $('#filled').textContent = 'That is the message. Now the desk answers it.';
+    $('#filled').textContent = wide() ? 'That is the message. Now the desk answers it.' : '';
     await sleep(900);
     if (!this.running) return;
     $('#answer-btn').animate([{ transform: 'none' }, { transform: 'scale(.97)' }, { transform: 'none' }], { duration: 200, easing: 'ease-out' });
