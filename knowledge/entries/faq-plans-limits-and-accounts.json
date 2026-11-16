@@ -1,0 +1,3049 @@
+{
+  "area": "Plans, limits and accounts",
+  "entries": [
+    {
+      "id": "plan-credits-per-month",
+      "kind": "billing",
+      "title": "How many AI credits each plan includes per month",
+      "phrasings": [
+        "how many AI credits do I get each month on the Starter plan",
+        "how many credits does the creator plan include per month",
+        "what is the monthly credit allowance for each plan",
+        "credits included in agency plan monthly",
+        "how many credits come with my subscription each month",
+        "how much credits per month do I get on starter",
+        "monthly ai credits starter vs creator vs agency",
+        "how many credit I receive every month with paid plan",
+        "how many credits do I get on the free trial each month"
+      ],
+      "not_this": [
+        "how many credits do I have left",
+        "my credits ran out",
+        "can I buy more credits",
+        "my credits expired after I cancelled",
+        "how do I cancel my subscription",
+        "how much does the creator plan cost"
+      ],
+      "anchors": [
+        [
+          "credits",
+          "credit",
+          "creditos"
+        ],
+        [
+          "month",
+          "monthly",
+          "allowance",
+          "included",
+          "includes",
+          "include",
+          "permonth"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "not the amount I expected"
+        ]
+      },
+      "opening": "Here is what each plan includes, and how to check which plan you are on.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Starter costs $29 per month and includes 1,250 AI credits per month.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "The current Starter plan costs $29 per month and includes 1,250 AI credits per month."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Creator includes 5,000 credits per month, and Agency includes 28,000.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "Creator includes 5,000 credits per month, and Agency includes 28,000."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The free trial includes 60 AI credits.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "The free trial includes 60 AI credits."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To see which plan you are on, open Settings > Billing and select View Billing Portal.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "Select View Billing Portal to check your plan name."
+          }
+        }
+      ],
+      "next": "Open Settings > Billing, select View Billing Portal, and read your plan name.",
+      "proof": "You will know it worked when your plan name matches one of the plans listed above."
+    },
+    {
+      "id": "review-reward",
+      "kind": "non-technical",
+      "title": "How to get the $100 review reward",
+      "phrasings": [
+        "how do I get the $100 review reward",
+        "is there a reward for leaving a review on G2",
+        "I wrote a Capterra review for Blotato, how do I get my gift card",
+        "where do I claim the review gift card",
+        "amazon gift card for reviewing blotato, how does it work",
+        "does blotato pay for reviews on g2 or capterra",
+        "how i can take the 100 dollar review reward",
+        "review rewrd gift card claim form where"
+      ],
+      "not_this": [
+        "I want a refund",
+        "how do I leave feedback about a bug",
+        "referral program commission",
+        "where is my affiliate payout"
+      ],
+      "anchors": [
+        [
+          "review",
+          "reviews",
+          "reward",
+          "rewrd",
+          "gift card",
+          "giftcard"
+        ],
+        [
+          "g2",
+          "capterra",
+          "gift",
+          "reward",
+          "rewrd",
+          "$100",
+          "100",
+          "amazon"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "gift card never came",
+          "did not receive",
+          "not received",
+          "never got"
+        ]
+      },
+      "opening": "Thanks for thinking of a review. Here is how the reward works.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Blotato sends a $100 Amazon gift card to customers who leave a review on G2 or Capterra.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato sends a $100 Amazon gift card to customers who leave a review on G2 or Capterra."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "First, write a review for Blotato on G2 or Capterra.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Write a review for Blotato on G2 or Capterra"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Then wait until your review is live on the site.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Wait until your review is live on the site"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "After you fill out the claim form, Sabrina verifies your review and emails your gift card.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Sabrina verifies your review and emails your $100 Amazon gift card"
+          }
+        }
+      ],
+      "next": "Open the claim form from the help page \"How do I get the $100 review reward?\" once your review is live.",
+      "proof": "You will know it worked when your gift card email arrives."
+    },
+    {
+      "id": "calls-and-meetings",
+      "kind": "non-technical",
+      "title": "Can I schedule a call, Zoom meeting or screen share with the team",
+      "phrasings": [
+        "can I schedule a call with the blotato team",
+        "do you do zoom meetings for support",
+        "can someone share screen with me to help set up",
+        "is there a phone number I can call for help",
+        "can I book a live meeting or demo with someone at blotato",
+        "i want to talk to someone on a video call",
+        "do you offer screenshare support sessions",
+        "can we have a zoom with someone from the blotato team to go over my account",
+        "can I speak with a person on the phone"
+      ],
+      "not_this": [
+        "how do I make an API call",
+        "how do I join a zoom call from Blotato",
+        "I want to talk to a person about my refund",
+        "my video call link",
+        "what is a call to action"
+      ],
+      "anchors": [
+        [
+          "call",
+          "calls",
+          "zoom",
+          "meeting",
+          "meetings",
+          "phone",
+          "screenshare",
+          "screen-share",
+          "screen share",
+          "share screen",
+          "demo",
+          "videocall"
+        ],
+        [
+          "team",
+          "support",
+          "blotato",
+          "someone",
+          "person",
+          "staff",
+          "sabrina",
+          "help"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "insist on a call"
+        ]
+      },
+      "opening": "Here is how support works, and how to get the same help in writing.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Blotato does not offer Zoom calls, phone calls, or live meetings with customers.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato does not offer Zoom calls, phone calls, or live meetings with customers."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "All support happens in the in-app chat.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "All support happens in the in-app chat."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Describe what you are trying to do, and share screenshots or screen recordings of where you are stuck.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Describe what you are trying to do, and share screenshots or screen recordings of where you are stuck."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The team guides you step by step in writing that you keep.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "You get the same walkthrough you would get on a call, in writing you keep."
+          }
+        }
+      ],
+      "next": "Open the in-app chat and describe what you are trying to do, with a screenshot of where you are stuck.",
+      "proof": "You will know it worked when the team replies in the chat with step-by-step guidance."
+    },
+    {
+      "id": "done-for-you-setup",
+      "kind": "non-technical",
+      "title": "Done-for-you setup or managed onboarding",
+      "phrasings": [
+        "do you offer done-for-you setup",
+        "is there a service that sets up my blotato account for me",
+        "is there a managed onboarding service",
+        "dfy setup available?",
+        "can your team connect my accounts and build my workflows for me",
+        "I do not have time, can blotato set everything up",
+        "do you have onboarding help where you do it for me",
+        "can I pay someone to configure my account"
+      ],
+      "not_this": [
+        "how do I get started with the API",
+        "how do I connect my social accounts",
+        "can I schedule a call with the team",
+        "I want to hire a consultant for n8n"
+      ],
+      "anchors": [
+        [
+          "done-for-you",
+          "done for you",
+          "dfy",
+          "managed",
+          "onboarding",
+          "set up for me",
+          "setup for me",
+          "configure",
+          "build for me",
+          "sets up my",
+          "team connect",
+          "set everything up",
+          "build my workflows"
+        ],
+        [
+          "setup",
+          "set up",
+          "account",
+          "onboarding",
+          "service",
+          "accounts",
+          "blotato"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": []
+      },
+      "opening": "Here is what Blotato offers for getting started.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Blotato does not offer done-for-you setup or a managed onboarding service at this time.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato does not offer done-for-you (DFY) setup or a managed onboarding service at this time."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "You set up and run your account yourself.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "You set up and run your account yourself."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The Blotato Beginner Tutorial shows the AI Agent workflow.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Watch the Blotato Beginner Tutorial to learn the AI Agent workflow."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "When you get stuck, message the support team in the in-app chat.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Message the support team in the in-app chat when you get stuck."
+          }
+        }
+      ],
+      "next": "Watch the Blotato Beginner Tutorial, then open the AI Agent to create your first post.",
+      "proof": "You will know it worked when your first post appears in your draft list."
+    },
+    {
+      "id": "start-paid-subscription",
+      "kind": "billing",
+      "title": "How to start the paid subscription",
+      "phrasings": [
+        "how do I start my paid subscription",
+        "how do I upgrade from the free trial",
+        "where do I go to subscribe to blotato",
+        "how do I begin paying for a plan after my trial",
+        "how to activate paid plan",
+        "how do I pay for blotato",
+        "ho do I activate subscripton from the trial",
+        "I want to move to a paid plan, where do I click"
+      ],
+      "not_this": [
+        "how do I cancel my subscription",
+        "how do I change my plan",
+        "I was charged after I made an API key",
+        "how do I switch to yearly",
+        "how do I update my email"
+      ],
+      "anchors": [
+        [
+          "start",
+          "activate",
+          "begin",
+          "upgrade",
+          "subscribe",
+          "switch",
+          "become",
+          "pay",
+          "move"
+        ],
+        [
+          "paid",
+          "subscription",
+          "subscribe",
+          "plan",
+          "trial",
+          "pay",
+          "subscripton"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "was charged",
+          "charged"
+        ]
+      },
+      "opening": "There are two ways to start your paid subscription.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "One way is to generate an API key in Settings > API, which activates your paid subscription.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Go to Settings > API and generate an API key. This will activate your paid subscription."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Generating an API key ends the free trial right away and activates the paid Starter subscription.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "Generating an API key from Settings > API immediately ends the free trial and activates your paid Starter subscription."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The other way is Settings > Billing, then View Billing Portal, to manage your subscription.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Go to Settings > Billing and click \"View Billing Portal\" to manage your subscription."
+          }
+        }
+      ],
+      "next": "Choose one of the two ways above, and only generate an API key if you are ready for the paid plan to begin.",
+      "proof": "You will know it worked when your plan name shows in the Billing Portal."
+    },
+    {
+      "id": "change-plan",
+      "kind": "billing",
+      "title": "How to change plan or switch monthly and yearly",
+      "phrasings": [
+        "how do I change my plan",
+        "how can I upgrade from starter to creator",
+        "how do I switch to the agency plan",
+        "where do I downgrade my plan",
+        "can I switch from monthly to yearly billing",
+        "how do I move to the annual plan",
+        "cahnge my plan how",
+        "how to update my subscription to a bigger plan",
+        "do I need to cancel first to change plans"
+      ],
+      "not_this": [
+        "how do I cancel my subscription",
+        "how do I start my paid subscription",
+        "how do I change my email",
+        "why was I charged for an upgrade",
+        "how many accounts can I connect on each plan"
+      ],
+      "anchors": [
+        [
+          "change",
+          "switch",
+          "upgrade",
+          "downgrade",
+          "move",
+          "update",
+          "cahnge"
+        ],
+        [
+          "plan",
+          "plans",
+          "subscription",
+          "yearly",
+          "monthly",
+          "annual",
+          "creator",
+          "agency",
+          "starter"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": []
+      },
+      "opening": "You can change plans yourself in the Billing Portal.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Open Settings > Billing and click View Billing Portal.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Click \"View Billing Portal\""
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Click the purple Update subscription button.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Click the purple \"Update subscription\" button"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Select your new plan and confirm.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Select your new plan and confirm"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The same steps switch you between monthly and yearly billing, and you do not need to cancel first.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The same steps switch you between monthly and yearly billing. You do not need to cancel first."
+          }
+        }
+      ],
+      "next": "Open Settings > Billing, click View Billing Portal, then click Update subscription.",
+      "proof": "You will know it worked when the Billing Portal shows your new plan."
+    },
+    {
+      "id": "posting-limits-per-platform",
+      "kind": "non-technical",
+      "title": "Posting limits per platform",
+      "phrasings": [
+        "what are the posting limits per platform",
+        "how many posts per day can I publish on instagram",
+        "is there a daily post limit on linkedin",
+        "what is the maximum number of posts per 24 hours",
+        "how many posts can I send to facebook in a day",
+        "do you limit how often I can post",
+        "posting limits for each social network",
+        "whats the max posts per day each platform",
+        "posting limt per platform"
+      ],
+      "not_this": [
+        "how many posts can I have scheduled in my queue",
+        "how many social accounts can I connect",
+        "why did I hit my limit with only 3 tiktok accounts",
+        "I got a rate limit 429 from the API",
+        "how many AI credits do I get"
+      ],
+      "anchors": [
+        [
+          "limit",
+          "limits",
+          "limt",
+          "maximum",
+          "max",
+          "cap",
+          "allowed",
+          "how many"
+        ],
+        [
+          "per day",
+          "daily",
+          "day",
+          "24",
+          "platform",
+          "platforms",
+          "network",
+          "networks",
+          "posts",
+          "post",
+          "often"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "limit error",
+          "error says maximum",
+          "blocked"
+        ]
+      },
+      "opening": "Here are the main posting limits, and why they exist.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "These limits reduce spam, and you will rarely reach them.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "These limits reduce spam. You will rarely exceed these limits."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Each Instagram account is limited to 50 posts per day, per 24 hour window.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/social-accounts",
+            "quote": "Each Instagram account is limited to 50 posts per day, per 24 hour window."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "LinkedIn is limited to 50 posts per 24 hours for your profile and for each company Page separately.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/social-accounts",
+            "quote": "Blotato limits publishing to 50 posts per 24 hours per profile and per company Page."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Facebook allows up to 25 posts per 24 hours for each Page.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/social-accounts",
+            "quote": "The upper limit is 25 posts per 24 hours per Facebook Page."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "On Starter, TikTok allows 3 distinct posting destinations in a rolling 24 hours.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/social-accounts",
+            "quote": "Starter permits 3 distinct TikTok posting destinations per rolling 24 hours."
+          }
+        }
+      ],
+      "next": "Check the limit for your platform above, and spread posts across the 24-hour window if you are close.",
+      "proof": "You will know it worked when your posts publish without a limit error."
+    },
+    {
+      "id": "connected-account-limit",
+      "kind": "billing",
+      "title": "How many social accounts can I connect",
+      "phrasings": [
+        "how many social accounts can I connect",
+        "what is the account limit on the starter plan",
+        "how many accounts does creator allow",
+        "I reached my limit of connected accounts, what now",
+        "does each facebook page count as an account",
+        "do linkedin company pages count toward my account limit",
+        "how many accounts on agency plan",
+        "max number of connected social acounts",
+        "can I connect more than 20 accounts"
+      ],
+      "not_this": [
+        "how do I connect a second account",
+        "how do I reconnect my instagram",
+        "why did I hit my starter limit after only 3 tiktok accounts",
+        "how many posts can I schedule",
+        "how do I manage client accounts as an agency"
+      ],
+      "anchors": [
+        [
+          "social",
+          "accounts",
+          "acounts",
+          "pages",
+          "account"
+        ],
+        [
+          "limit",
+          "maximum",
+          "max",
+          "how many",
+          "cap",
+          "most",
+          "reached",
+          "allow",
+          "allowed",
+          "count",
+          "counts",
+          "more than",
+          "20",
+          "40",
+          "100"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "more than 100"
+        ]
+      },
+      "opening": "The number of accounts you can connect depends on your plan.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "You can connect up to 20 social accounts on Starter, 40 on Creator, and 100 on Agency.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "You can connect up to **20** social accounts on the **Starter** plan, **40** on **Creator**, and **100** on **Agency**."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Facebook Pages, LinkedIn company Pages, and Slack channels count toward the total.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "Facebook Pages, LinkedIn Company Pages, and Slack channels contribute towards this total:"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Your Facebook login does not count, but each connected Page does.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "Facebook: Each connected Page counts as one account (the Facebook login does not count)."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If you hit the limit, disconnect an account in Accounts or upgrade your plan.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "If you hit the limit, first disconnect an account in Accounts or upgrade your plan."
+          }
+        }
+      ],
+      "next": "Count your connected Pages and channels in Accounts, then disconnect one or upgrade your plan.",
+      "proof": "You will know it worked when you can connect the new account."
+    },
+    {
+      "id": "starter-tiktok-three-accounts",
+      "kind": "non-technical",
+      "title": "Starter limit reached after posting to 3 TikTok accounts",
+      "phrasings": [
+        "why did I hit my starter limit after using only 3 tiktok accounts",
+        "tiktok says maximum number of 3 unique accounts for the last 24 hours",
+        "I cannot post to my 4th tiktok account",
+        "starter plan tiktok accounts limit 3",
+        "my fourth tiktok account fails to publish",
+        "tiktok destination limit what does it mean",
+        "why only 3 tiktok accounts in 24 hours",
+        "tik tok 4th account wont post on starter"
+      ],
+      "not_this": [
+        "how many social accounts can I connect",
+        "my tiktok post failed with a different error",
+        "how do I connect tiktok",
+        "tiktok posts show as drafts"
+      ],
+      "anchors": [
+        [
+          "tiktok",
+          "tik tok",
+          "tictok"
+        ],
+        [
+          "3",
+          "three",
+          "4th",
+          "fourth",
+          "unique",
+          "distinct",
+          "destination",
+          "destinations",
+          "maximum",
+          "limit",
+          "starter"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "creator plan",
+          "agency plan"
+        ]
+      },
+      "opening": "That message is about a TikTok posting rule, and not about how many accounts you can connect.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "This usually refers to the TikTok posting-destination restriction, not the 20-account connection limit.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "If you reach a maximum after posting to 3 TikTok accounts, this usually refers to the TikTok posting-destination restriction, not the 20-account connection limit."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "On Starter, publishing is limited to 3 distinct TikTok account IDs during the rolling previous 24 hours.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The Starter plan supports up to 20 connected social accounts, but publishing is limited to 3 distinct TikTok account IDs during the rolling previous 24 hours."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Posting again to one of those 3 accounts does not use another slot.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Posting again to one of those 3 accounts does not use another destination slot."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A post to a 4th TikTok account fails until one of the prior 3 leaves the 24-hour window.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "A post to a 4th TikTok account fails until one of the prior 3 leaves the 24-hour window."
+          }
+        }
+      ],
+      "next": "Post to one of your first 3 TikTok accounts, or wait until one of them leaves the 24-hour window.",
+      "proof": "You will know it worked when a post to your fourth TikTok account no longer fails."
+    },
+    {
+      "id": "scheduled-queue-limit",
+      "kind": "non-technical",
+      "title": "How many scheduled posts can I have in the queue",
+      "phrasings": [
+        "how many scheduled posts can I have in my queue",
+        "what is the limit for queued posts",
+        "I hit the limit of scheduled posts",
+        "max number of posts I can schedule at one time",
+        "how many future posts can I schedule on starter",
+        "my queue is full, what do I do",
+        "can I schedule more than 200 posts",
+        "queued scheduled posts limit per plan",
+        "queue limt reached"
+      ],
+      "not_this": [
+        "how far in advance can I schedule posts",
+        "how do I delete all my scheduled posts",
+        "how many posts per day on instagram",
+        "how many social accounts can I connect"
+      ],
+      "anchors": [
+        [
+          "scheduled",
+          "schedule",
+          "queue",
+          "queued",
+          "future"
+        ],
+        [
+          "limit",
+          "limt",
+          "maximum",
+          "max",
+          "how many",
+          "full",
+          "reached",
+          "cap",
+          "allowed",
+          "more than",
+          "200",
+          "1000"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": []
+      },
+      "opening": "The queue limit depends on your plan. Here is what the help center says about it.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The number of future-dated posts you can have scheduled at one time depends on your plan.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The number of future-dated posts you can have scheduled at any one time depends on your plan:"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Posts you publish immediately do not count against this limit.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "Posts published immediately do not count against this limit."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If you hit the limit, you can wait for scheduled posts to publish, remove upcoming posts you no longer want, or review an upgrade.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "If you hit the limit, wait for scheduled posts to publish, remove upcoming posts the user no longer wants, or review an upgrade."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Do not delete posts you still want only to get past the limit.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Do not delete intended posts solely to bypass the limit."
+          }
+        }
+      ],
+      "next": "Open Posts > Scheduled and check which upcoming posts you still want.",
+      "proof": "You will know it worked when you can schedule a new post."
+    },
+    {
+      "id": "csv-bulk-upload",
+      "kind": "non-technical",
+      "title": "Bulk upload a CSV content calendar",
+      "phrasings": [
+        "can I bulk upload a csv with my whole content calendar",
+        "is there a csv import for scheduling posts",
+        "can I upload a spreadsheet of captions and dates",
+        "how do I schedule a month of posts from google sheets",
+        "import my content calendar from excel",
+        "bulk schedule posts from a spreadsheet",
+        "bulk upload csv posts to blotato possible?",
+        "how can I load many posts at once from airtable"
+      ],
+      "not_this": [
+        "how do I export my posts",
+        "how do I schedule one post",
+        "how far in advance can I schedule",
+        "how many scheduled posts can I have"
+      ],
+      "anchors": [
+        [
+          "csv",
+          "spreadsheet",
+          "spreadsheets",
+          "excel",
+          "google sheet",
+          "google sheets",
+          "sheet",
+          "airtable",
+          "bulk"
+        ],
+        [
+          "upload",
+          "import",
+          "schedule",
+          "calendar",
+          "posts",
+          "captions",
+          "load"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": []
+      },
+      "opening": "There is no direct import, but there is a way to do it with an automation tool.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Blotato has no native CSV import for the content calendar.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato has no native CSV import for the content calendar."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "You cannot upload a spreadsheet of captions, links, and dates directly in the web app.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "You cannot upload a spreadsheet of captions, links, and dates directly in the web app."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To bulk-schedule from a spreadsheet, use the Blotato API with an automation tool.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "To bulk-schedule a month of posts from a spreadsheet, use the Blotato API with an automation tool:"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "In n8n or Make, map each spreadsheet row into the Blotato Publish Post node.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Map each row into the Blotato Publish Post node"
+          }
+        }
+      ],
+      "next": "Put your captions, media URLs, and dates in a Google Sheet or Airtable, then build the workflow in n8n or Make.",
+      "proof": "You will know it worked when the rows show up as scheduled posts in Posts > Scheduled."
+    },
+    {
+      "id": "scheduling-horizon",
+      "kind": "non-technical",
+      "title": "How far in advance can I schedule posts",
+      "phrasings": [
+        "how far in advance can I schedule posts",
+        "what is the furthest date I can schedule",
+        "can I schedule a post a year from now",
+        "is there a limit on how far ahead I can schedule",
+        "schedule post 10 months ahead error",
+        "scheduling horizon",
+        "how many months ahead can I plan content",
+        "I cannot pick a date next year when scheduling",
+        "how far ahead can i shedule"
+      ],
+      "not_this": [
+        "how many scheduled posts can I have in the queue",
+        "how do I reschedule a post",
+        "where are my scheduled posts"
+      ],
+      "anchors": [
+        [
+          "advance",
+          "ahead",
+          "furthest",
+          "horizon",
+          "future",
+          "far",
+          "months",
+          "year",
+          "from now"
+        ],
+        [
+          "schedule",
+          "scheduling",
+          "shedule",
+          "scheduled",
+          "post",
+          "posts",
+          "date",
+          "plan",
+          "content"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": []
+      },
+      "opening": "Good news: the limit is the same on every plan.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "You can schedule a post up to 9 months ahead on every plan.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "The furthest date in the future you can schedule a post for is 9 months on every plan."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If you try to schedule past 9 months, Blotato returns an error.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "If you try to schedule a post past 9 months, Blotato returns an error."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Pick a time within the 9-month window, or break longer campaigns into shorter batches.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "Pick a time within the 9-month window or break longer campaigns into shorter batches."
+          }
+        }
+      ],
+      "next": "Pick a date within the next 9 months for your post.",
+      "proof": "You will know it worked when the post saves as scheduled without an error."
+    },
+    {
+      "id": "post-approval",
+      "kind": "non-technical",
+      "title": "Send a post for approval before publishing",
+      "phrasings": [
+        "can I send a post for approval before publishing",
+        "is there an approval workflow for my team",
+        "how can my client approve posts before they go out",
+        "approval link for a draft post",
+        "how do I get a reviewer to sign off before publishing",
+        "can I have my boss approve the post first",
+        "approvel flow before posting possible",
+        "I need someone to review my scheduled posts"
+      ],
+      "not_this": [
+        "how do I move a scheduled post back to drafts",
+        "how do I add a team member",
+        "my post was not approved by TikTok",
+        "my instagram post is under review"
+      ],
+      "anchors": [
+        [
+          "approval",
+          "approve",
+          "approved",
+          "approvel",
+          "reviewer",
+          "sign off",
+          "review",
+          "client"
+        ],
+        [
+          "post",
+          "posts",
+          "publishing",
+          "draft",
+          "before",
+          "publish",
+          "workflow",
+          "team"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": []
+      },
+      "opening": "There is no approval link in the web app, but there are two ways to get a review step.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Blotato does not have a built-in approval-link feature in the web app.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato does not have a built-in approval-link feature in the web app."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "In the web app, review everything in Posts > Scheduled.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Review all scheduled posts in Posts > Scheduled."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To pause a post for edits, open the three-dot menu and choose Move to Drafts.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "To pause a post for edits, open the three-dot menu and choose Move to Drafts."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "With n8n or Make, add a Slack or email step that sends the draft to your reviewer.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Add a Slack or email notification step that sends the draft to your reviewer."
+          }
+        }
+      ],
+      "next": "Schedule the post for a future time, then have your reviewer look at it in Posts > Scheduled.",
+      "proof": "You will know it worked when the reviewed post is still scheduled, or back in drafts for edits."
+    },
+    {
+      "id": "max-upload-size",
+      "kind": "non-technical",
+      "title": "Maximum media file size I can upload",
+      "phrasings": [
+        "what is the maximum file size I can upload",
+        "my video is too large to upload",
+        "upload size limit for videos",
+        "how big can a file be on the starter plan",
+        "is the file size limit bigger on creator",
+        "file too large error when uploading media",
+        "max mb for upload",
+        "maximum uplaod size 1 gb",
+        "what is the largest video file I can upload on my plan",
+        "biggest file blotato accepts for upload"
+      ],
+      "not_this": [
+        "my upload failed with a media fetch error",
+        "how many scheduled posts can I have",
+        "which video formats are supported",
+        "instagram video too long"
+      ],
+      "anchors": [
+        [
+          "size",
+          "large",
+          "largest",
+          "big",
+          "biggest",
+          "mb",
+          "gb",
+          "megabytes"
+        ],
+        [
+          "upload",
+          "uplaod",
+          "file",
+          "files",
+          "video",
+          "media",
+          "maximum",
+          "max",
+          "limit"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": []
+      },
+      "opening": "The upload limit depends on your plan.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Upload size depends on your plan.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Upload size depends on your plan:"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The largest file you can upload in a single request is 400 MB on Starter, and 1 GB on Creator and Agency.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "The largest file size you can upload to Blotato in a single request: 400 MB on Starter, 1 GB on Creator and Agency."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If your file is too large, compress or trim it, or upgrade your plan.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "If your file is too large, compress or trim it, or upgrade your plan."
+          }
+        }
+      ],
+      "next": "Compress or trim the file, then upload it again.",
+      "proof": "You will know it worked when the upload finishes without a size error."
+    },
+    {
+      "id": "agency-multiple-clients",
+      "kind": "non-technical",
+      "title": "Manage multiple client accounts as an agency",
+      "phrasings": [
+        "can I manage multiple client accounts as an agency",
+        "how do I handle several clients in blotato",
+        "is there a way to separate each client",
+        "I run a social media agency, how should I set up blotato",
+        "can clients have their own logins",
+        "do you have a master account for client subaccounts",
+        "multiple clients one blotato account or many",
+        "agency dashboard for managing clients",
+        "manage cliets accounts agency"
+      ],
+      "not_this": [
+        "how much is the agency plan",
+        "how many social accounts can I connect",
+        "how do I group social accounts by brand",
+        "how do I switch to the agency plan"
+      ],
+      "anchors": [
+        [
+          "agency",
+          "client",
+          "clients",
+          "cliets",
+          "subaccounts",
+          "subaccount"
+        ],
+        [
+          "accounts",
+          "account",
+          "manage",
+          "multiple",
+          "several",
+          "many",
+          "dashboard",
+          "workspace",
+          "logins",
+          "login",
+          "separate",
+          "set up",
+          "setup",
+          "blotato"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": []
+      },
+      "opening": "There are two supported setups. Pick the one that matches how separate you want each client to be.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "One option is a single Blotato account for all clients, connected up to your plan limit.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Connect every client's social accounts under your own Blotato login, up to your plan's connected-account limit"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "With that setup, everything lives in one workspace, with no separate client logins, roles, or permissions.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Keep in mind everything lives in one workspace -- there are no separate client logins, roles, or per-client permissions."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The other option is one Blotato account per client, with a shared email address so you can log in and manage it.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Each client signs up for their own Blotato account with a shared email address so you log in and manage it."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A master agency account for managing all client subaccounts from one dashboard is not available yet.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "A master agency account for managing all client subaccounts from one dashboard is not available yet, and there is no firm release date."
+          }
+        }
+      ],
+      "next": "Decide whether each client needs their own workspace, billing, and content history, then choose the matching setup.",
+      "proof": "You will know it worked when each client has their social accounts connected in the setup you chose."
+    },
+    {
+      "id": "group-accounts-by-brand",
+      "kind": "non-technical",
+      "title": "Group social accounts by brand",
+      "phrasings": [
+        "how do I group social accounts by brand",
+        "can I link social accounts to a brand kit",
+        "I have several brands, how do I post only to one brands accounts",
+        "is there an account group feature",
+        "how do I stop the ai agent from posting one brand to all my accounts",
+        "organize accounts per brand",
+        "brand kit linked to social accounts possible?",
+        "how to select only accounts of one brand when scheduling"
+      ],
+      "not_this": [
+        "how do I manage multiple client accounts",
+        "how do I connect multiple social accounts",
+        "how do I set up my brand voice from scratch",
+        "how many accounts can I connect"
+      ],
+      "anchors": [
+        [
+          "brand",
+          "brands",
+          "group",
+          "groups",
+          "organize",
+          "brandkit"
+        ],
+        [
+          "account",
+          "accounts",
+          "kit",
+          "group",
+          "groups",
+          "link",
+          "linked",
+          "select"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": []
+      },
+      "opening": "Blotato does not group accounts by brand for you, but there is a clear way to keep them apart.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The Blotato website does not support account groups or automatic links between social accounts and Brand Kits.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The Blotato website does not support account groups or automatic links between social accounts and Brand Kits."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Select the Brand Voice before you generate content in the AI Agent.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Select the Brand Voice before generating content in the AI Agent."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Then open the draft's Schedule panel and select only the accounts that belong to that brand.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Open the draft's Schedule panel and select only the social accounts belonging to that brand."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "With Claude, ChatGPT, or another AI agent through MCP, make a mapping of each brand name, platform, account name, and account ID.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "When you use Claude, ChatGPT, or another AI agent through Blotato MCP, create a brand-to-account mapping with each brand name, platform, account name, and account ID."
+          }
+        }
+      ],
+      "next": "Choose the Brand Voice first, then select only that brand's accounts in the Schedule panel.",
+      "proof": "You will know it worked when only that brand's accounts are selected before you schedule."
+    },
+    {
+      "id": "connect-chatgpt-codex",
+      "kind": "technical",
+      "title": "Connect ChatGPT or Codex to Blotato",
+      "phrasings": [
+        "how do I connect chatgpt or codex",
+        "do I need my chatgpt plus subscription for blotato",
+        "how to add blotato mcp server in codex",
+        "what url do I put in codex for blotato",
+        "setting up blotato in chatgpt desktop",
+        "can codex post to my social accounts through blotato",
+        "connect openai codex to blotato steps",
+        "chat gpt connecion to blotato how",
+        "do I need the chatgpt desktop app"
+      ],
+      "not_this": [
+        "how do I connect claude",
+        "invalid_grant error in claude",
+        "how do I connect my instagram account",
+        "my API key gives 401",
+        "how do I connect cursor"
+      ],
+      "anchors": [
+        [
+          "chatgpt",
+          "chat gpt",
+          "codex",
+          "openai"
+        ],
+        [
+          "connect",
+          "connection",
+          "connecion",
+          "setup",
+          "set up",
+          "mcp",
+          "add",
+          "link",
+          "use",
+          "subscription",
+          "plus",
+          "desktop",
+          "url",
+          "through",
+          "post"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "401",
+          "invalid",
+          "unauthorized"
+        ]
+      },
+      "opening": "Here is how to connect Codex. Your ChatGPT Plus subscription is not part of it.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "You do not need to connect your ChatGPT Plus subscription to Blotato.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "You do not need to connect your ChatGPT Plus subscription to Blotato."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To control Blotato from ChatGPT Work or Codex, connect Blotato through MCP.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "To control Blotato from ChatGPT Work / Codex, connect Blotato through MCP."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Enter https://mcp.blotato.com/mcp as the URL.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Enter https://mcp.blotato.com/mcp as the URL."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Set the blotato-api-key header to your full Blotato API key.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Set the blotato-api-key header to your full Blotato API key."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "You need a paid Blotato subscription for API and MCP access.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "You need a paid Blotato subscription for API and MCP access."
+          }
+        }
+      ],
+      "next": "Open Settings > API in Blotato, choose ChatGPT Work / Codex, and follow the steps there.",
+      "proof": "You will know it worked when Codex lists your connected Blotato accounts."
+    },
+    {
+      "id": "connect-second-account",
+      "kind": "non-technical",
+      "title": "Connect multiple social accounts or the wrong account got connected",
+      "phrasings": [
+        "how do I connect multiple social accounts",
+        "do I have to connect a separate blotato login for each social account",
+        "it keeps connecting to the wrong instagram account",
+        "how do I add a second account for the same platform",
+        "connecting to the wrong account on blotato",
+        "blotato auto logs into the wrong facebook account",
+        "how to switch between accounts when connecting",
+        "conect second tiktok acount how",
+        "wrong profile connected how to fix"
+      ],
+      "not_this": [
+        "how do I reconnect an expired account",
+        "how many social accounts can I connect",
+        "how do I log in to Blotato",
+        "how do I remove a connected account"
+      ],
+      "anchors": [
+        [
+          "connect",
+          "connecting",
+          "conect",
+          "add",
+          "adding",
+          "connected",
+          "logs into"
+        ],
+        [
+          "second",
+          "another",
+          "multiple",
+          "wrong",
+          "several",
+          "more",
+          "different",
+          "two",
+          "switch",
+          "correct",
+          "acount",
+          "account",
+          "accounts"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "already used incognito"
+        ]
+      },
+      "opening": "You can connect all of your accounts under one Blotato login. Here is how to pick the right one.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "You do not need more than one Blotato account. Connect all your social accounts under one login.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "You don't need to create multiple Blotato accounts -- connect all your social accounts under one Blotato login."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "For a second account on the same platform, look for the button with 3 dots to switch accounts and select the correct one.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "If you're connecting a second account for the same platform, look for a button with 3 dots to switch between accounts and select the correct one."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If it keeps logging into the wrong account, an incognito browser is the last resort.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "If that doesn't work, or if it keeps auto-logging into the wrong account, use an incognito browser as a last resort:"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "In the incognito window, log into the social account you want to connect first.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Log into the social account you want to connect"
+          }
+        }
+      ],
+      "next": "Open Accounts and use Connect account for the platform, then pick the right account with the 3-dot button.",
+      "proof": "You will know it worked when the right account shows in your Accounts list."
+    },
+    {
+      "id": "reconnect-account",
+      "kind": "non-technical",
+      "title": "Reconnect an expired social account",
+      "phrasings": [
+        "how do I reconnect a social account",
+        "my social account expired",
+        "blotato says I need to reauthorize my instagram",
+        "my linkedin connection expired, what do I do",
+        "where is the reconnect button",
+        "account disconnected need to reconnect",
+        "why do I have to reconect my facebook every so often",
+        "reauthorize connected account",
+        "tiktok connection expired"
+      ],
+      "not_this": [
+        "how do I connect a second account",
+        "how do I log in to Blotato",
+        "my posts failed to publish",
+        "how do I connect a new account",
+        "my api key expired",
+        "my mcp connection says oauth expired, how do I reconnect",
+        "claude connector expired reconnect",
+        "chatgpt connector oauth expired"
+      ],
+      "anchors": [
+        [
+          "reconnect",
+          "reconect",
+          "reconnection",
+          "reauthorize",
+          "reauthorise",
+          "expired",
+          "expire",
+          "disconnected",
+          "reauth"
+        ],
+        [
+          "account",
+          "accounts",
+          "social",
+          "instagram",
+          "facebook",
+          "linkedin",
+          "tiktok",
+          "youtube",
+          "platform",
+          "button"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": []
+      },
+      "opening": "This is a normal part of connecting social platforms. Here is how to reconnect.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Social platforms require you to reauthorize third-party apps from time to time for security.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Social platforms require you to reauthorize 3rd-party apps periodically for security."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Find the account you want to reconnect in Accounts.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Find the account you want to reconnect"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Select Reconnect from the account actions menu.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Select Reconnect from the account actions menu"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If you have trouble, use an incognito Chrome browser, log into the social account first, then log into Blotato and reconnect.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "If you have issues reconnecting, use an incognito Chrome browser, log into the social account first, then log into Blotato and reconnect."
+          }
+        }
+      ],
+      "next": "Open Accounts, find the expired account, and select Reconnect from its actions menu.",
+      "proof": "You will know it worked when the account shows as connected again in Accounts."
+    },
+    {
+      "id": "login-magic-link",
+      "kind": "non-technical",
+      "title": "Cannot log in or the verification code does not arrive",
+      "phrasings": [
+        "unable to login",
+        "I cannot access my account",
+        "I never receive the verification code email",
+        "what is my password for blotato",
+        "how do I reset my password",
+        "blotato login code not arriving",
+        "my account looks empty after I log in",
+        "verification email goes missing with my work email",
+        "cant login to blotato verfication code"
+      ],
+      "not_this": [
+        "how do I change my email",
+        "how do I log out",
+        "my social account will not reconnect",
+        "I was charged and cannot log in",
+        "my API key does not work"
+      ],
+      "anchors": [
+        [
+          "login",
+          "log in",
+          "sign in",
+          "signin",
+          "code",
+          "verification",
+          "verfication",
+          "magic",
+          "password",
+          "access",
+          "locked"
+        ],
+        [
+          "blotato",
+          "account",
+          "email",
+          "code",
+          "login",
+          "log in",
+          "sign in",
+          "access",
+          "password"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "access-blocked"
+        ],
+        "phrases": []
+      },
+      "opening": "Blotato logs you in with a code sent to your email, and that is where the trouble usually is.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Blotato uses magic link authentication, so there is no password.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato uses magic link authentication, so there is no password."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Your email must match your account email exactly, in all lowercase.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Check the spelling of your email first: it must match your account email exactly, in all lowercase."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Check your spam and junk folders for the code.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Check your spam and junk folders."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "With a work email, corporate mail filters are the most common cause of a missing code.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Corporate mail filters are the most common cause -- they silently block the verification email."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If the code still does not arrive, ask in the support chat to temporarily switch your account email to a personal address.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "If the code still does not arrive, ask in the support chat to temporarily switch your account email to a personal address (for example Gmail)."
+          }
+        }
+      ],
+      "next": "Check your spam folder and the spelling of your email, then request the code again.",
+      "proof": "You will know it worked when the code arrives and lets you in."
+    },
+    {
+      "id": "update-email",
+      "kind": "non-technical",
+      "title": "Change the email on my account",
+      "phrasings": [
+        "how do you update your email",
+        "how do I change the email address on my blotato account",
+        "I want to switch my login email",
+        "where do I edit my email in settings",
+        "update email verification code goes where",
+        "the code for changing my email expired",
+        "chnage my email adress",
+        "what happens when I click Update Email"
+      ],
+      "not_this": [
+        "I never receive the verification code to log in",
+        "do I lose my credits if I use a different email",
+        "how do I log out",
+        "I want to use a new email and keep my content"
+      ],
+      "anchors": [
+        [
+          "email",
+          "e-mail",
+          "adress",
+          "address"
+        ],
+        [
+          "change",
+          "update",
+          "switch",
+          "edit",
+          "replace",
+          "modify",
+          "chnage",
+          "new",
+          "changing",
+          "expired"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "access-blocked"
+        ],
+        "phrases": [
+          "locked out"
+        ]
+      },
+      "opening": "You can change your email yourself while you are logged in.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Log into Blotato with your current email.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Log into Blotato with your current email"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "In Profile, change your email to the new one and click Update Email.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Change your email to the new one and click \"Update Email\""
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The verification code goes to the new email address, not the old one.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The verification code is sent to the new email address, not the old one."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If the code expires, click Update Email again to get a new one.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The code expires after a few minutes -- if it expires, click \"Update Email\" again to get a new code."
+          }
+        }
+      ],
+      "next": "Open Profile in Settings, enter your new email, and click Update Email.",
+      "proof": "You will know it worked when you enter the code and your new email shows in Profile."
+    },
+    {
+      "id": "different-email-keep-data",
+      "kind": "non-technical",
+      "title": "Use a different email without losing credits or content",
+      "phrasings": [
+        "I want to use blotato with a different email, do I lose my credits",
+        "will I lose my videos if I make a new account with another email",
+        "can I move my credits to a new email account",
+        "keep my content when switching email",
+        "should I create a second account for my new email",
+        "do credits transfer if I use a different email address",
+        "I changed jobs and want a new email, what happens to my posts",
+        "do I lose my settings if I sign up again with other email"
+      ],
+      "not_this": [
+        "how do you update your email step by step",
+        "I never receive the verification code",
+        "I cancelled and want my old videos",
+        "how many credits do I get"
+      ],
+      "anchors": [
+        [
+          "email",
+          "e-mail"
+        ],
+        [
+          "credits",
+          "credit",
+          "content",
+          "videos",
+          "lose",
+          "keep",
+          "transfer",
+          "posts",
+          "settings",
+          "second",
+          "new account"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": []
+      },
+      "opening": "You do not need a new account. Changing the email on your current one keeps everything.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Change the email on your existing account instead of creating a new one, which keeps your credits, videos, posts, and settings.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Change the email on your existing account instead of creating a new one. This keeps your credits, videos, posts, and settings."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Credits and content do not transfer between separate accounts.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Credits and content are tied to your account and do not transfer between separate accounts."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Creating a second account means starting fresh.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "so creating a second account means starting fresh."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Enter the verification code sent to your new email.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Enter the verification code sent to your new email"
+          }
+        }
+      ],
+      "next": "Log in with your current email, open Profile in Settings, and change your email there.",
+      "proof": "You will know it worked when your videos and posts are still there under the new email."
+    },
+    {
+      "id": "first-comment",
+      "kind": "non-technical",
+      "title": "Add a first comment to a post",
+      "phrasings": [
+        "how do I add a first comment to a post",
+        "can I put my link in the first comment on instagram",
+        "is there a first comment field on facebook",
+        "auto comment right after posting",
+        "how do I post a comment after publishing",
+        "first comment on linkedin posts",
+        "firstcomment option api",
+        "can blotato add a comment to my story",
+        "frist comment how to"
+      ],
+      "not_this": [
+        "how do I reply to comments",
+        "how do I read comments on my posts",
+        "how do I turn off comments",
+        "my caption is too long"
+      ],
+      "anchors": [
+        [
+          "first comment",
+          "firstcomment",
+          "frist comment",
+          "first-comment",
+          "comment"
+        ],
+        [
+          "first",
+          "frist",
+          "link",
+          "auto",
+          "after",
+          "publishes",
+          "publishing",
+          "add",
+          "post",
+          "option",
+          "api"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": []
+      },
+      "opening": "Blotato has a field for this. Here is how it works.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Blotato has a First Comment field for Instagram and Facebook.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato has a **First Comment** field for Instagram and Facebook."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "It posts your comment right after the post publishes, whether you publish now or schedule for later.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "It auto-posts your comment right after the post publishes, whether you publish now or schedule for later."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "In the web app, open the Instagram or Facebook post options and fill in the First Comment field.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Open the Instagram or Facebook post options and fill in the **First Comment** field."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "First comments are not supported on Stories.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "First comments are not supported on Stories."
+          }
+        }
+      ],
+      "next": "Open your Instagram or Facebook post options and fill in the First Comment field before you schedule.",
+      "proof": "You will know it worked when your comment appears under the post after it publishes."
+    },
+    {
+      "id": "old-videos-after-cancel",
+      "kind": "non-technical",
+      "title": "Access old videos after cancelling the subscription",
+      "phrasings": [
+        "I cancelled my subscription but want to access my old videos",
+        "where did my videos go after I canceled",
+        "can I get my content back after cancelling",
+        "subscription ended and I see a reactivate popup",
+        "my posts and videos are gone after cancelling",
+        "is my content deleted when I cancel",
+        "how do I get back into my account after my plan ended",
+        "cancelled plan olld videos acces",
+        "I cancelled my plan, how do I get my old videos back",
+        "after cancelling my plan can I still open my old videos"
+      ],
+      "not_this": [
+        "how do I cancel my subscription",
+        "I was charged after I cancelled",
+        "can I pause my subscription",
+        "what happens to my credits when I cancel"
+      ],
+      "anchors": [
+        [
+          "cancel",
+          "cancelled",
+          "canceled",
+          "cancelling",
+          "canceling",
+          "ended",
+          "expired",
+          "reactivate",
+          "reactivation"
+        ],
+        [
+          "videos",
+          "video",
+          "content",
+          "posts",
+          "access",
+          "old",
+          "data",
+          "settings",
+          "back",
+          "reactivate"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "access-blocked"
+        ],
+        "phrases": [
+          "reactivate does not work",
+          "charged",
+          "refund"
+        ]
+      },
+      "opening": "Your content is still saved. Here is how to get back to it.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "When subscription access ends, Blotato shows a reactivation modal.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "When subscription access ends, Blotato shows a reactivation modal."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Log in at my.blotato.com/login.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Go to my.blotato.com/login and log in"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Click Reactivate on the subscription modal.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Click \"Reactivate\" on the subscription modal"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Your content is not deleted when you cancel, and it is available when you reactivate.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Your content is not deleted when you cancel. It remains saved and will be available when you reactivate."
+          }
+        }
+      ],
+      "next": "Log in at my.blotato.com/login and click Reactivate on the subscription popup.",
+      "proof": "You will know it worked when your old videos, posts, and settings show again."
+    },
+    {
+      "id": "markdown-asterisks",
+      "kind": "non-technical",
+      "title": "Markdown asterisks appear in the post",
+      "phrasings": [
+        "markdown appearing in my post",
+        "there are asterisks in my instagram caption",
+        "why does my post show stars around words",
+        "how do I remove markdown from posts",
+        "hashtag symbols and stars show up in my text",
+        "disable markdown setting",
+        "my linkedin post has weird asterisks",
+        "markdwon symbols in my post how to stop"
+      ],
+      "not_this": [
+        "my post formatting is wrong because of line breaks",
+        "how do I make text bold on linkedin",
+        "my hashtags are not clickable"
+      ],
+      "anchors": [
+        [
+          "markdown",
+          "markdwon",
+          "asterisk",
+          "asterisks",
+          "stars",
+          "**"
+        ],
+        [
+          "post",
+          "posts",
+          "caption",
+          "text",
+          "appearing",
+          "showing",
+          "show",
+          "shows",
+          "remove",
+          "disable"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": []
+      },
+      "opening": "Those symbols are markdown, and most social platforms do not understand it.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Most social platforms do not support markdown.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Most social platforms do NOT support markdown."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "One fix is to tell the Chat to remove markdown.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Instruct Chat to \"remove markdown\""
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The other is to turn markdown off for good in Settings with the Disable Markdown toggle.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Permanently disable markdown by going to Settings > Disable Markdown (toggle)."
+          }
+        }
+      ],
+      "next": "Ask the Chat to remove markdown, or switch on Disable Markdown in Settings.",
+      "proof": "You will know it worked when the asterisks are gone from your post preview."
+    },
+    {
+      "id": "instagram-collaborators",
+      "kind": "non-technical",
+      "title": "Add or tag collaborators on an Instagram post",
+      "phrasings": [
+        "how do I add or tag collaborators to my instagram post",
+        "where do I enter a collab on instagram in blotato",
+        "can I invite a collaborator on a reel",
+        "does the collaborator handle need an @",
+        "instagram collab post with carousel fails",
+        "collaborators field in the schedule panel",
+        "my carousel with a collaborator failed to publish",
+        "add colaborator to ig post how"
+      ],
+      "not_this": [
+        "how do I tag people in a facebook post",
+        "how do I invite a team member to Blotato",
+        "how do I add a first comment",
+        "how do I mention a user in a linkedin post"
+      ],
+      "anchors": [
+        [
+          "collaborator",
+          "collaborators",
+          "collab",
+          "collabs",
+          "colaborator",
+          "collaboration"
+        ],
+        [
+          "instagram",
+          "ig",
+          "reel",
+          "reels",
+          "carousel",
+          "post",
+          "handle",
+          "field",
+          "schedule",
+          "panel"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": []
+      },
+      "opening": "Collaborators work on some Instagram post types and not on others.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Collaborators are supported on single image posts and reels.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Collaborators are supported on **single image posts and reels**."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "They are not supported on carousels, and a carousel with collaborators fails to publish.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "They are **not supported on carousels** (multi-image/video posts) - a carousel with collaborators will fail to publish."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "For a carousel, publish it first, then add the collaborator in the Instagram app.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "For a carousel, publish it first, then add the collaborator in the Instagram app."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "In the web app, create your post, click Schedule, and enter the handle in the Collaborators field without the @ sign.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Enter the collaborator handle in the Collaborators field (without the @ sign"
+          }
+        }
+      ],
+      "next": "Create your Instagram post, click SCHEDULE, and enter the collaborator handle without the @ sign.",
+      "proof": "You will know it worked when the post publishes with the collaborator on it."
+    },
+    {
+      "id": "find-what-i-created",
+      "kind": "non-technical",
+      "title": "Find a draft, video or post I created",
+      "phrasings": [
+        "how do you find what you have created",
+        "where did my draft go",
+        "I cannot find my post draft",
+        "where are my generated videos",
+        "where do I find the post I made yesterday",
+        "my draft card is missing in the ai agent",
+        "where do I look for published posts",
+        "how to find my creations in blotato",
+        "cant find my drfat"
+      ],
+      "not_this": [
+        "why is my draft in the remix screen",
+        "why dont my drafts show up on my phone",
+        "how do I view my scheduled posts",
+        "my video was deleted"
+      ],
+      "anchors": [
+        [
+          "find",
+          "where",
+          "locate",
+          "look",
+          "cant",
+          "missing",
+          "created",
+          "made"
+        ],
+        [
+          "draft",
+          "drafts",
+          "drfat",
+          "video",
+          "videos",
+          "post",
+          "posts",
+          "created",
+          "creations"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "still cannot find",
+          "not in remix"
+        ]
+      },
+      "opening": "Where something lives depends on what it is. Here is the order to check.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Open the AI Agent and look for the draft card.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Open the AI Agent and look for the draft card."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If the draft is missing, open the older Remix screen and look for it there.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "If the draft is missing, open the older Remix screen and look for it there."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "AI Agent drafts stay in the browser session where you made them.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "AI Agent drafts stay in that browser session."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Generated visuals and video projects are in Videos, and published posts are in Posts > Published.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Generated visuals and video projects are in Videos."
+          }
+        }
+      ],
+      "next": "Open the AI Agent first, then the Remix screen if the draft is missing.",
+      "proof": "You will know it worked when you see your draft, video, or post in one of those places."
+    },
+    {
+      "id": "draft-in-remix",
+      "kind": "non-technical",
+      "title": "Draft is in the Remix screen and not the AI Agent",
+      "phrasings": [
+        "why is my draft in the remix screen and not the ai agent",
+        "my post opened in remix instead of the ai agent",
+        "after I rescheduled a post it went to the remix screen",
+        "retry a failed post opens remix",
+        "is remix going away",
+        "my tiktok draft is not in blotato anywhere",
+        "where is my tiktok draft",
+        "drafts in remiks why"
+      ],
+      "not_this": [
+        "why dont my drafts show up on my phone",
+        "how do I find what I created",
+        "how do I move a scheduled post back to drafts"
+      ],
+      "anchors": [
+        [
+          "remix",
+          "remiks",
+          "tiktok draft",
+          "tiktok drafts"
+        ],
+        [
+          "draft",
+          "drafts",
+          "ai agent",
+          "screen",
+          "post",
+          "opened",
+          "opens",
+          "agent",
+          "away",
+          "going",
+          "phasing"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": []
+      },
+      "opening": "This is expected for some drafts, and there is a separate case for TikTok.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Some drafts open in the older Remix screen instead of the AI Agent.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Some drafts open in the older Remix screen instead of the AI Agent."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Blotato is phasing out the Remix screen.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato is phasing out the Remix screen."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Until then, check both screens when a post draft is missing.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Until then, check both screens when a post draft is missing."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A TikTok post published as a draft does not appear in Blotato at all.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "A TikTok post published as a draft does not appear in Blotato at all -- not in the AI Agent and not in the Remix screen."
+          }
+        }
+      ],
+      "next": "Open the Remix screen and look for your draft there.",
+      "proof": "You will know it worked when you see your draft in the Remix screen."
+    },
+    {
+      "id": "clear-all-scheduled",
+      "kind": "non-technical",
+      "title": "Clear or remove all scheduled posts",
+      "phrasings": [
+        "how do I clear or delete all my scheduled posts",
+        "I want to remove everything in my queue at once",
+        "where did the delete all scheduled posts button go",
+        "how to cancel many scheduled posts quickly",
+        "empty my schedule of all posts",
+        "how do I delete scheduled posts in bulk",
+        "how do i remove all scheduled posts from the queue"
+      ],
+      "not_this": [
+        "how do I reschedule a post",
+        "how do I cancel my subscription",
+        "why does my post show canceled",
+        "how do I delete my account",
+        "how many scheduled posts can I have",
+        "can I cancel just one scheduled post",
+        "how do I delete one scheduled post"
+      ],
+      "anchors": [
+        [
+          "all",
+          "every",
+          "everything",
+          "bulk",
+          "entire",
+          "whole",
+          "many",
+          "clear",
+          "empty",
+          "wipe"
+        ],
+        [
+          "scheduled",
+          "schedule",
+          "queue",
+          "upcoming"
+        ],
+        [
+          "clear",
+          "delete",
+          "remove",
+          "cancel",
+          "empty",
+          "wipe",
+          "deleting"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": []
+      },
+      "opening": "There is no bulk delete in the current Posts list. Here is how to take posts out of the queue.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The current Posts list does not have the older bulk-delete control.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The current Posts list does not have the older bulk-delete control."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Open Posts > Scheduled, then open the post's actions menu.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Open the post's actions menu."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Select Move to drafts and confirm the move.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Select Move to drafts."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Repeat for each post you want to remove from the queue.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Repeat for each post you want to remove from the queue."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Move to drafts keeps the content for editing in Remix.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Move to drafts retains the content for editing in Remix."
+          }
+        }
+      ],
+      "next": "Open Posts > Scheduled and move the first post to drafts.",
+      "proof": "You will know it worked when the post no longer shows as scheduled."
+    },
+    {
+      "id": "reschedule-post",
+      "kind": "non-technical",
+      "title": "Reschedule a scheduled post",
+      "phrasings": [
+        "how do I reschedule a scheduled post",
+        "how do I change the time of a post",
+        "can I move a scheduled post to a different date",
+        "I need to edit the publish time",
+        "where is the reschedule option",
+        "how can I change the date of my scheduled post",
+        "reshedule post how",
+        "how to push my post to tomorrow"
+      ],
+      "not_this": [
+        "how do I move a scheduled post back to drafts",
+        "how do I delete all my scheduled posts",
+        "how far in advance can I schedule",
+        "my post was scheduled but did not publish"
+      ],
+      "anchors": [
+        [
+          "reschedule",
+          "reshedule",
+          "change",
+          "edit",
+          "move",
+          "push"
+        ],
+        [
+          "time",
+          "date",
+          "reschedule",
+          "reshedule",
+          "schedule",
+          "scheduled",
+          "tomorrow"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": []
+      },
+      "opening": "You can change a post's time from the Scheduled list.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Open the post's actions menu in Posts > Scheduled.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Open the post's actions menu."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Select Reschedule.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Select Reschedule."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Choose the new date and time.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Choose the new date and time."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Verify the updated time in Posts or Calendar.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Verify the updated time in Posts or Calendar."
+          }
+        }
+      ],
+      "next": "Open Posts > Scheduled, open the post's actions menu, and select Reschedule.",
+      "proof": "You will know it worked when Posts or the Calendar shows the new time."
+    },
+    {
+      "id": "move-to-drafts",
+      "kind": "non-technical",
+      "title": "Move a scheduled post back to drafts",
+      "phrasings": [
+        "how do I move a scheduled post back to drafts",
+        "can I unschedule a post and edit it",
+        "where is the move to drafts option",
+        "I want to edit a scheduled post, can I move it to drafts",
+        "pause a scheduled post to change the caption",
+        "turn a scheduled post into a draft again",
+        "unschedule post without publishing it",
+        "move to draft how"
+      ],
+      "not_this": [
+        "how do I reschedule a post",
+        "how do I delete all my scheduled posts",
+        "why does my post show canceled",
+        "why is my draft in the remix screen"
+      ],
+      "anchors": [
+        [
+          "draft",
+          "drafts",
+          "unschedule",
+          "unscheduled",
+          "pause"
+        ],
+        [
+          "move",
+          "back",
+          "unschedule",
+          "edit",
+          "pause",
+          "turn",
+          "scheduled"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": []
+      },
+      "opening": "You can take a scheduled post back to a draft and edit it.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Edit the post in Remix after you move it to drafts.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Edit the post in Remix."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Moving to drafts removes the schedule without publishing.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Moving to drafts removes the schedule without publishing."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Schedule the post again after editing if you still want it to publish.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Schedule the post again after editing if you still want to publish."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To change only the time, use Reschedule instead.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "To change only the time, use Reschedule instead."
+          }
+        }
+      ],
+      "next": "Open Posts > Scheduled, open the post's actions menu, and select Move to drafts.",
+      "proof": "You will know it worked when the post shows in Remix as a draft."
+    },
+    {
+      "id": "view-scheduled-posts",
+      "kind": "non-technical",
+      "title": "Where to view scheduled or upcoming posts",
+      "phrasings": [
+        "where can I view my scheduled or upcoming posts",
+        "where do I see what is scheduled",
+        "how do I see all upcoming posts",
+        "is there a calendar view of my posts",
+        "where is the list of posts waiting to publish",
+        "where are my queued posts",
+        "see scheduled posts list",
+        "wher are my scheduled posts"
+      ],
+      "not_this": [
+        "how do I reschedule a post",
+        "where are my published posts that are not on the platform",
+        "how many scheduled posts can I have",
+        "how do I delete scheduled posts",
+        "my scheduled post did not go out"
+      ],
+      "anchors": [
+        [
+          "where",
+          "wher",
+          "see",
+          "view",
+          "find",
+          "list",
+          "show"
+        ],
+        [
+          "scheduled",
+          "upcoming",
+          "queued",
+          "queue",
+          "calendar",
+          "waiting"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": []
+      },
+      "opening": "There are two places to see them.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Open Posts > Scheduled for the list, or Calendar for the calendar view.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Open Posts > Scheduled for the list or Calendar for the calendar view."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Published posts are in Posts > Published.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Published posts are in Posts > Published."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Generated visuals and video projects are in Videos, which is separate from posts.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Generated visuals and video projects are in Videos."
+          }
+        }
+      ],
+      "next": "Open Posts > Scheduled to see the list.",
+      "proof": "You will know it worked when your upcoming posts show in the list or on the calendar."
+    },
+    {
+      "id": "already-queued-error",
+      "kind": "technical",
+      "title": "Error: All selected platforms are already queued for publishing",
+      "phrasings": [
+        "I get all selected platforms are already queued for publishing",
+        "what does already queued for publishing mean",
+        "error says platforms already queued when I click publish",
+        "cannot publish my draft, already queued message",
+        "all selected platforms already queued",
+        "blotato refuses to post and says queued for publishing",
+        "does already queued mean my account is blocked",
+        "allready queued error on my draft"
+      ],
+      "not_this": [
+        "my post is stuck in progress",
+        "my post shows canceled",
+        "I hit my scheduled post limit",
+        "how do I view my scheduled posts"
+      ],
+      "anchors": [
+        [
+          "queued",
+          "qeued",
+          "queue"
+        ],
+        [
+          "already",
+          "allready",
+          "platforms",
+          "publishing",
+          "selected"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "screen disagrees",
+          "nothing is queued",
+          "not in any list"
+        ]
+      },
+      "opening": "This message does not mean your account is blocked. Here is how to find out what is already queued.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Do not assume an account-wide publishing block from this message.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Do not infer an account-wide publishing block from this message."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Read the draft's per-destination status.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Read the draft's per-destination status."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Check Posts > Scheduled, Posts > Published, and Posts > Failed for the same content and destination.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Check Posts > Scheduled, Posts > Published, and Posts > Failed for the same content and destination."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If the existing submission is processing, wait for its result. If it is scheduled or published, do not submit a duplicate.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "If the existing submission is processing, wait for its result. If it is scheduled or published, do not submit a duplicate."
+          }
+        }
+      ],
+      "next": "Check Posts > Scheduled, Posts > Published, and Posts > Failed for the same content.",
+      "proof": "You will know it worked when you find the existing submission for that destination."
+    },
+    {
+      "id": "media-fetch-error-after-upload",
+      "kind": "technical",
+      "title": "Scheduled post fails with a media fetch error after a local upload",
+      "phrasings": [
+        "my scheduled post keeps failing with a media fetch error but I uploaded the video from my computer",
+        "media fetch error even though the video is from my laptop",
+        "failed to fetch media for my post",
+        "error fetching media url on a scheduled video",
+        "blotato cannot parse my uploaded mp4",
+        "uploaded video from my computer but scheduled post fails to fetch it",
+        "media parsing error on publish",
+        "fetch media failed uploaded file"
+      ],
+      "not_this": [
+        "my file is too large to upload",
+        "how do I upload a video",
+        "my instagram video is rejected for length",
+        "the API says 401"
+      ],
+      "anchors": [
+        [
+          "fetch",
+          "fetching",
+          "parse",
+          "parsing"
+        ],
+        [
+          "media",
+          "video",
+          "file",
+          "upload",
+          "uploaded",
+          "url"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "again and again",
+          "keeps failing",
+          "every time"
+        ]
+      },
+      "opening": "An uploaded file still gets a web address behind the scenes, so a fetch error is worth checking step by step.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "A local upload still becomes a hosted media URL for publishing.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "A local upload still becomes a hosted media URL for publishing."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A fetch or parsing error does not, by itself, prove a corrupt file.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "A fetch or parsing error does not, by itself, prove a corrupt file or invalid stored reference."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Confirm the upload finished and the media is accessible.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Confirm the upload finished and the resulting media is accessible."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Check the file's container, codecs, dimensions, duration, and size against the destination's media requirements.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Check the file's container, codecs, dimensions, duration, and size against the destination's"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If the media is accessible and meets the requirements, send support the error and post ID instead of repeating uploads.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "If the media is accessible and meets the requirements, send support the error and post ID for log inspection instead of repeating uploads."
+          }
+        }
+      ],
+      "next": "Write down the exact error and the failed post ID, then check the file against the destination's media requirements.",
+      "proof": "You will know it worked when the post publishes, or Still open: send the error and post ID to support."
+    }
+  ]
+}

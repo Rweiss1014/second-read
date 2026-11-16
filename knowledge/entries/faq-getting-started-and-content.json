@@ -1,0 +1,3259 @@
+{
+  "area": "Getting started and making content",
+  "entries": [
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "access-blocked"
+        ],
+        "phrases": [
+          "menu button does not appear",
+          "no menu button"
+        ]
+      },
+      "id": "navigation-menu-missing",
+      "kind": "non-technical",
+      "title": "How to get back to the main page, or a blank Post editor with no calendar or settings in sight",
+      "phrasings": [
+        "how do I get back to the main page in blotato",
+        "my screen only shows a chat box and I cannot see my calendar or settings",
+        "where did the sidebar go",
+        "the menu on the left is gone, how do I open it again",
+        "blotato opens on a blank screen asking what we are making today, where is everything else",
+        "how do I go to the home screen",
+        "i cant find calender or accounts in the app, it only has a box to write posts",
+        "I am stuck on the Write posts about box and want to get to my posts list",
+        "where is the navigation menu",
+        "how I go back to main screen of blotato",
+        "the left menu vanished and I only see a text box"
+      ],
+      "not_this": [
+        "where is the AI Agent screen",
+        "how do I switch to developer platform logs for my api",
+        "my calendar shows no scheduled posts",
+        "I cannot find my billing settings to cancel",
+        "how do I go back to the old Blotato remix screen",
+        "settings for my linkedin company page",
+        "the menu button does not open anything on my phone"
+      ],
+      "anchors": [
+        [
+          "main page",
+          "home page",
+          "homepage",
+          "home screen",
+          "main screen",
+          "sidebar",
+          "menu",
+          "blank",
+          "navigation",
+          "calendar",
+          "calender",
+          "what would you like to do",
+          "what are we making today",
+          "write posts about",
+          "posts list",
+          "write posts about"
+        ],
+        [
+          "back",
+          "where",
+          "find",
+          "see",
+          "can't",
+          "cant",
+          "cannot",
+          "gone",
+          "hidden",
+          "only",
+          "blank",
+          "missing",
+          "disappeared",
+          "open",
+          "how",
+          "want",
+          "get to",
+          "stuck",
+          "vanished",
+          "vanish"
+        ]
+      ],
+      "opening": "Nothing is lost. The rest of Blotato is one menu away.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Use the navigation menu.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Use the navigation menu."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If the sidebar is hidden, open the menu button.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "If the sidebar is hidden, open the menu button."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "From the menu you can pick Calendar, Posts, Videos, Accounts, or Settings.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Select Calendar, Posts, Videos, Accounts, or Settings."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "You do not have to make a draft first to reach the other screens.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "You do not need to generate a draft to access the rest of Blotato."
+          }
+        }
+      ],
+      "next": "Open the menu and choose the screen you were looking for.",
+      "proof": "You will know it worked when the screen you chose opens."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "find-post-editor",
+      "kind": "non-technical",
+      "title": "Where is the AI Agent screen (Post editor)",
+      "phrasings": [
+        "where is the AI Agent screen in blotato",
+        "how do I open the AI agent",
+        "where do I find the post editor",
+        "the tutorial shows an AI agent page but I do not see it in my menu",
+        "cant find the ai agent anywhere",
+        "where do i go to chat with the blotato agent and write posts",
+        "how do I get to content studio post editor",
+        "I am in developer platform and there is no post editor, where is it",
+        "where is the agent page to create posts",
+        "wher is the AI agent",
+        "how do I reach the blotato ai agent page"
+      ],
+      "not_this": [
+        "what is the difference between the AI agent and my Claude MCP assistant",
+        "how do I connect Claude through MCP",
+        "the AI agent will not make a video",
+        "I click New post and the draft is blank",
+        "where is my calendar",
+        "where is the old remix screen",
+        "where do I find the AI agent in the n8n node",
+        "where is the blotato node in n8n",
+        "how do I find my post editor settings for linkedin"
+      ],
+      "anchors": [
+        [
+          "ai agent",
+          "agent",
+          "post editor",
+          "content studio"
+        ],
+        [
+          "where",
+          "find",
+          "open",
+          "locate",
+          "get to",
+          "go to",
+          "see",
+          "cant",
+          "can't",
+          "cannot",
+          "wher",
+          "reach",
+          "page"
+        ]
+      ],
+      "opening": "The AI Agent lives in Content Studio. Here is the way to it.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Open the navigation menu.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Open the navigation menu."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If you are in Developer Platform, select Switch to Content Studio.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Select Switch to Content Studio if you are in Developer Platform."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Then select Post editor.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Select Post editor."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Post editor is the in-app AI Agent. It is a different thing from an outside assistant connected through MCP.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Post editor opens the in-app AI Agent. It is separate from an external assistant connected through MCP."
+          }
+        }
+      ],
+      "next": "Open the menu and select Post editor.",
+      "proof": "You will know it worked when the AI Agent screen opens."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "getting-started-first-steps",
+      "kind": "non-technical",
+      "title": "Where to start as a new user",
+      "phrasings": [
+        "I'm new to blotato, where do I start",
+        "don't know where to start",
+        "what should I do first after signing up",
+        "is there a tutorial for beginners",
+        "how do I get started with Blotato",
+        "first time here and the app looks confusing, what are the first steps",
+        "whats the best way to learn blotato",
+        "I just signed up. Where do I begin to make my first post",
+        "beginer guide for blotato please",
+        "how I begin use this tool",
+        "I just joined, what is the first thing I should do",
+        "I'm brand new, what are the first steps to use blotato"
+      ],
+      "not_this": [
+        "how do I start my paid subscription",
+        "how do I start the API",
+        "where do I start with MCP in Claude",
+        "I am stuck in onboarding and cannot get in",
+        "how do I start a free trial",
+        "how do I connect my social accounts",
+        "where is the tutorial for n8n",
+        "is there a make.com tutorial",
+        "where is the MCP setup tutorial",
+        "api tutorial for beginners"
+      ],
+      "anchors": [
+        [
+          "start",
+          "started",
+          "begin",
+          "beginner",
+          "beginers",
+          "beginer",
+          "new to",
+          "first time",
+          "tutorial",
+          "first steps",
+          "learn",
+          "first",
+          "first thing",
+          "just joined",
+          "brand new"
+        ]
+      ],
+      "opening": "Welcome. There is a short path that works well for a first post.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The best place to start is the Blotato Beginner Tutorial.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The best place to start is the Blotato Beginner Tutorial."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The AI Agent learns your brand, remixes YouTube and TikTok videos, and helps you post to many platforms in a few clicks.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "It learns your brand, remixes YouTube and TikTok videos, and helps you post to many platforms in a few clicks."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Add your brand details in Brand Kit.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Add your brand details in Brand Kit."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Connect your social accounts through Accounts, then select them when publishing or scheduling.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Connect your social accounts through Accounts, then select them when publishing or scheduling."
+          }
+        }
+      ],
+      "next": "Watch the Blotato Beginner Tutorial, then open the AI Agent at my.blotato.com/agent.",
+      "proof": "You will know it worked when you can see your first draft in the AI Agent."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "ai-agent-surfaces",
+      "kind": "non-technical",
+      "title": "What the AI Agents in Blotato are, and how they differ",
+      "phrasings": [
+        "what are the AI agents in blotato",
+        "what is the difference between the AI agent and video templates",
+        "is the in-app AI agent the same as the assistant I connect with MCP",
+        "which part of blotato makes videos, the agent or something else",
+        "what is the AI agent for, and what does it not do",
+        "are there several ai agents in blotato",
+        "whats the diference between the agent and the external assistant",
+        "do the in app agent and my claude assistant do the same things"
+      ],
+      "not_this": [
+        "where is the AI Agent screen",
+        "how do I connect Claude through MCP",
+        "the AI agent says invalid_grant",
+        "how do I start with the AI agent as a beginner",
+        "what are the API rate limits for agents"
+      ],
+      "anchors": [
+        [
+          "ai agent",
+          "ai agents",
+          "agent",
+          "agents"
+        ],
+        [
+          "what",
+          "difference",
+          "different",
+          "same",
+          "which",
+          "does",
+          "are there",
+          "diference"
+        ]
+      ],
+      "opening": "Blotato has three different surfaces, and each does its own job.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The in-app AI Agent creates text and images.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The in-app AI Agent creates text and images."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Video templates make videos, carousels, slideshows, and other visuals.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Video templates generate videos, carousels, slideshows, and other visuals."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "An outside assistant works through MCP or REST workflows.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "An external assistant uses MCP or REST workflows."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "What the outside assistant can do differs from the in-app AI Agent.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Its available operations differ from the in-app AI Agent."
+          }
+        }
+      ],
+      "next": "Tell me which of the three you want to use, and I will point you to it.",
+      "proof": "You will know it worked when you know which surface fits your task."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "new-post-opens-basic-chat",
+      "kind": "non-technical",
+      "title": "The tutorial options are missing, New post only opens a chat, no way to add media or an AI image",
+      "phrasings": [
+        "the options from the tutorial are not there, new post just opens a chat",
+        "new post only gives me a basic chat box, how do I add media",
+        "where is the button to generate an AI image, the post editor is only a chat",
+        "I cannot add a photo or video to my post, only a chat appears",
+        "the tutorial shows a different screen than mine",
+        "how do I make ai images or carousels, I only see a chat",
+        "new post is just a chatbot, where are the other options",
+        "my agent page looks different from the youtube tutorial and has no media button",
+        "where do I generate a carousel or infographic, I only see a chat"
+      ],
+      "not_this": [
+        "the draft is blank and nothing generates from my context",
+        "where is the AI Agent screen",
+        "the AI agent will not edit my video",
+        "how do I upload my own video to schedule",
+        "how do I go back to the old Blotato",
+        "what are the credits for images",
+        "where is the tutorial for n8n",
+        "is there a make.com tutorial",
+        "where is the MCP setup tutorial",
+        "where did my infographic get saved"
+      ],
+      "anchors": [
+        [
+          "chat",
+          "tutorial",
+          "new post",
+          "options",
+          "basic",
+          "chatbot"
+        ],
+        [
+          "media",
+          "image",
+          "images",
+          "photo",
+          "video",
+          "carousel",
+          "carousels",
+          "infographic",
+          "options",
+          "tutorial",
+          "button",
+          "basic",
+          "only",
+          "generate",
+          "carousel",
+          "infographic",
+          "button"
+        ]
+      ],
+      "opening": "The chat is where posts begin. The other tools show up once a draft exists, or on other screens.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The chat is the starting point, and the AI Agent makes your posts from what you type.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The chat IS the starting point -- the AI Agent creates your posts from what you type."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To add media to a post, open the draft and click Photo / Video.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "To add media to a post: open the draft and click Photo / Video."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To make AI images, carousels, or videos, go to Videos, click \"Create New Video,\" and pick a template.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "To generate AI images, carousels, or videos: go to Videos, click \"Create New Video,\" and pick a template."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Image templates such as Quote Card and Infographic make images instead of videos.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Image templates (Quote Card, Infographic) make images instead of videos."
+          }
+        }
+      ],
+      "next": "Type what you want to post into the chat and press Enter, then open the draft it creates.",
+      "proof": "You will know it worked when a draft appears as a tab you can edit."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "new-draft-blank-no-generation",
+      "kind": "non-technical",
+      "title": "New draft is blank and nothing generates from my Context",
+      "phrasings": [
+        "I click new post but the draft is blank and nothing is generated from my context",
+        "new draft opens empty and does not use my context sources",
+        "I added a youtube link as context but the draft has no text",
+        "why is my draft blank when I have context loaded",
+        "the post editor made an empty draft instead of writing from my sources",
+        "nothing generates from my sources, just a blank post",
+        "ai agent gives blank draft even with context added",
+        "my new draft is emtpy, context not used",
+        "how do I make the agent write a post from my context"
+      ],
+      "not_this": [
+        "the options from the tutorial do not exist",
+        "my published post is blank on instagram",
+        "how do I add a photo as context",
+        "how do I get a caption for my photo",
+        "the draft disappeared from my drafts"
+      ],
+      "anchors": [
+        [
+          "blank",
+          "empty",
+          "emtpy",
+          "nothing generates",
+          "not generate",
+          "does not generate",
+          "doesn't generate",
+          "no text",
+          "nothing is generated",
+          "not used",
+          "write a post from my context",
+          "from my context",
+          "from my sources"
+        ],
+        [
+          "draft",
+          "drafts",
+          "new post",
+          "post editor",
+          "context",
+          "sources",
+          "agent"
+        ]
+      ],
+      "opening": "This is how the New draft button is built to work, and there is a quick way to get text from your context.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "New draft inside the workspace makes a blank draft for you to write by hand.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "New draft inside its workspace creates a blank draft for manual writing."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "New draft does not write from your Context sources.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "New draft does not generate from your Context sources."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Open the Post editor and confirm your Context sources are selected and have finished loading.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Confirm the intended Context sources are selected and finished loading."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Then enter a request in the Write posts about box, for example asking for one LinkedIn draft from your context.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Enter a request in Write posts about..., such as “Use my context to create 1 LinkedIn draft.”"
+          }
+        }
+      ],
+      "next": "Type a request such as \"Use my context to create 1 LinkedIn draft\" in the Write posts about box and send it.",
+      "proof": "You will know it worked when a draft with text from your context appears."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "old-remix-screen",
+      "kind": "non-technical",
+      "title": "How to go back to the old Blotato remix screen",
+      "phrasings": [
+        "how do I go back to the old blotato",
+        "where is the old version where I paste text and it makes 5 posts",
+        "I want the previous version of the app back",
+        "how do I reach the old remix page",
+        "old blotato layout gone, can I still use it",
+        "where did the paste source text and generate posts page go",
+        "the new ai agent is confusing, is the old remix page still there",
+        "how to open view old remix screen",
+        "old verison of blotato where is it"
+      ],
+      "not_this": [
+        "how do I get a different post for each platform",
+        "Create Post in the video editor took me to remix",
+        "the remix screen does not use my brand kit but the agent does, why",
+        "where is the AI Agent screen",
+        "how do I go back to the main page",
+        "what do the remix templates do",
+        "how do I remix a youtube video",
+        "remix a tiktok into a new post",
+        "how do I get back to my previous blotato plan",
+        "how do I go back to an older version of my post",
+        "how do I restore an older version of my draft"
+      ],
+      "anchors": [
+        [
+          "old",
+          "previous",
+          "remix",
+          "older",
+          "classic",
+          "verison",
+          "version",
+          "paste source text",
+          "paste text",
+          "source text"
+        ],
+        [
+          "blotato",
+          "version",
+          "verison",
+          "screen",
+          "page",
+          "layout",
+          "app",
+          "back",
+          "paste"
+        ]
+      ],
+      "opening": "The older screen is still there, and you can reach it from the AI Agent.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The older \"remix\" screen is still available.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The older \"remix\" screen is still available."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "In the left sidebar of the AI Agent, click View old remix screen.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Click View old remix screen in the left sidebar of the AI Agent."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To stay in the current version, click CHAT in the top-right corner and describe your posts to the Blotato AI Agent.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "To stay in the current version, click CHAT in the top-right corner and describe your posts to the Blotato AI Agent."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The remix screen does not apply your Brand Kit, so use the AI Agent for on-brand content.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The remix screen does not apply your Brand Kit, so use the AI Agent for on-brand content."
+          }
+        }
+      ],
+      "next": "Open the AI Agent and click View old remix screen in the left sidebar.",
+      "proof": "You will know it worked when the page where you paste source text opens."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "different-post-per-platform",
+      "kind": "non-technical",
+      "title": "Blotato posts the same text to every platform",
+      "phrasings": [
+        "blotato posts the same text on every platform, how do I make it different for each one",
+        "how do I write a separate post for linkedin and facebook",
+        "can I customize the caption per social network",
+        "my post is identical on all my accounts",
+        "how to adapt one post for different platforms",
+        "one draft goes to all platforms with the same words, I want each different",
+        "is there a way to tailor the text for instagram vs x",
+        "same caption on every network how change",
+        "how do I get one post per platform instead of one for all"
+      ],
+      "not_this": [
+        "the post looks different on instagram than in blotato",
+        "how do I get the old remix screen",
+        "how do I translate my post to spanish",
+        "my post did not appear on one platform",
+        "there is no option to select platforms"
+      ],
+      "anchors": [
+        [
+          "same",
+          "identical",
+          "separate",
+          "different",
+          "each",
+          "tailor",
+          "customize",
+          "adapt",
+          "per platform",
+          "one per"
+        ],
+        [
+          "platform",
+          "platforms",
+          "network",
+          "networks",
+          "social",
+          "linkedin",
+          "facebook",
+          "instagram",
+          "every",
+          "accounts"
+        ]
+      ],
+      "opening": "One draft sends the same words everywhere, so the trick is to make one draft per platform.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "When you publish one draft to several platforms, Blotato sends that draft's text to each one.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "When you publish one draft to several platforms, Blotato sends that draft's text to each one."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "In the AI Agent, name the platforms in your prompt, and Blotato makes one draft per platform.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "name the platforms in your prompt so Blotato generates one draft per platform."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "You can also open a draft and use the Chat panel on the right to adapt or shorten the text for one platform.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Open a draft and use the Chat panel on the right to adapt or shorten the text for a specific platform."
+          }
+        }
+      ],
+      "next": "In the AI Agent, ask for one post per platform by naming each platform in your prompt.",
+      "proof": "You will know it worked when you see a separate draft for each platform you named."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "where-are-generated-visuals",
+      "kind": "non-technical",
+      "title": "Where generated images and videos are saved",
+      "phrasings": [
+        "where are my generated images and videos",
+        "I made a video with blotato, where did it go",
+        "cant find the carousel I created",
+        "where do I find the visuals I generated through the API",
+        "where are my ai creations saved",
+        "I generated an infographic and now I cant find it anywhere",
+        "where is the library of my videos and images in blotato",
+        "my n8n workflow made a video, where do I see it in the app",
+        "where do i download the video that blotato made",
+        "where do my created videos go"
+      ],
+      "not_this": [
+        "my published post is not on instagram",
+        "where is the media library for uploads",
+        "where do I find the draft I wrote",
+        "how many credits did my video use",
+        "where is my uploaded photo"
+      ],
+      "anchors": [
+        [
+          "generated",
+          "generate",
+          "created",
+          "made",
+          "creations",
+          "saved",
+          "visuals",
+          "visual",
+          "carousel",
+          "infographic",
+          "slideshow",
+          "library"
+        ],
+        [
+          "where",
+          "find",
+          "cant",
+          "can't",
+          "cannot",
+          "library",
+          "download",
+          "see",
+          "saved",
+          "go"
+        ]
+      ],
+      "opening": "Everything you generate lands in one place.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "All the visuals you generate are saved in Videos, however you created them (web app, n8n or Make.com, REST API, or MCP).",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "are saved at Videos, regardless of how you created them (in the web app, in n8n or Make.com, through the REST API, or through MCP)."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If you cannot find one, go to my.blotato.com/videos and look for your recent creations there.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "If you can't find a visual, go directly to my.blotato.com/videos and look for your recent creations there."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To download or publish a visual, click on it in the Videos library to open the editor.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "To download or publish a visual, click on it in the Videos library to open the editor."
+          }
+        }
+      ],
+      "next": "Open my.blotato.com/videos and look for your recent creations.",
+      "proof": "You will know it worked when your visual shows in the Videos library."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "supported-platforms",
+      "kind": "non-technical",
+      "title": "Which social platforms Blotato supports",
+      "phrasings": [
+        "which social platforms does blotato support",
+        "does blotato work with reddit",
+        "can I post to snapchat or telegram with blotato",
+        "what networks can I publish to",
+        "is there a list of supported platforms",
+        "do you support mastodon or tumblr",
+        "does Blotato post to discord or whatsapp",
+        "what social media sites are available",
+        "wich platforms are suported"
+      ],
+      "not_this": [
+        "is Substack supported",
+        "can I publish to WordPress",
+        "which inboxes are supported",
+        "does blotato support analytics for linkedin",
+        "is the API supported on the free trial",
+        "which AI clients are supported for MCP"
+      ],
+      "anchors": [
+        [
+          "support",
+          "supported",
+          "supports",
+          "suported",
+          "work with",
+          "works with",
+          "post to",
+          "publish to",
+          "available",
+          "list of",
+          "which"
+        ],
+        [
+          "platform",
+          "platforms",
+          "network",
+          "networks",
+          "sites",
+          "reddit",
+          "snapchat",
+          "telegram",
+          "mastodon",
+          "tumblr",
+          "discord",
+          "whatsapp",
+          "twitch",
+          "medium",
+          "vk",
+          "quora",
+          "social media"
+        ]
+      ],
+      "opening": "Here is the full list of platforms Blotato publishes to.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Blotato publishes and crossposts to Instagram, TikTok, LinkedIn, Facebook, X (Twitter), Threads, Bluesky, Pinterest, YouTube, and Slack.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato publishes and crossposts to: Instagram, TikTok, LinkedIn, Facebook, X (Twitter), Threads, Bluesky, Pinterest, YouTube, and Slack."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "This list is complete for the web app, API, MCP, and Cowork.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "This list is exhaustive for the Blotato web app, API, MCP, and Cowork."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Blotato does not publish to platforms outside this list.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato does not publish to platforms outside this list."
+          }
+        }
+      ],
+      "next": "Check whether the platform you want is on the list.",
+      "proof": "You will know it worked when you can tell whether your platform is on the list."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "supported-inboxes",
+      "kind": "non-technical",
+      "title": "Which platforms the Inbox covers",
+      "phrasings": [
+        "which social inboxes does blotato support",
+        "can I see my tiktok comments in the blotato inbox",
+        "does the inbox show linkedin messages",
+        "which platforms show their dms in the inbox",
+        "why are my youtube comments not in inbox",
+        "is X twitter supported in the inbox",
+        "the inbox only has instagram, where are my other conversations",
+        "will the inbox support more platforms",
+        "inbox suport for threads or bluesky",
+        "does the inbox include tiktok comments"
+      ],
+      "not_this": [
+        "which platforms can I publish to",
+        "how do I set up DM automations",
+        "my inbox is empty although I have comments",
+        "how do I reply to a comment",
+        "I connected instagram but nothing shows in the inbox",
+        "which inbox features are in the agency plan",
+        "which plan includes the inbox"
+      ],
+      "anchors": [
+        [
+          "inbox",
+          "inboxes"
+        ],
+        [
+          "support",
+          "supported",
+          "suport",
+          "platform",
+          "platforms",
+          "tiktok",
+          "linkedin",
+          "youtube",
+          "twitter",
+          "threads",
+          "bluesky",
+          "pinterest",
+          "x",
+          "which",
+          "other"
+        ]
+      ],
+      "opening": "The Inbox covers two platforms right now. Here is the detail.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Blotato's Inbox combines comments and direct messages from connected Instagram accounts and Facebook Pages.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato's Inbox combines comments and direct messages from connected Instagram accounts and Facebook Pages."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Being able to publish to another platform does not add its conversations to the Inbox.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Publishing support for other platforms does not add their conversations to Inbox."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "For other platforms, use their own inbox.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Use each other platform's own inbox for unsupported conversations."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Blotato has not announced a date for more Inbox platforms.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato has not announced a date for additional Inbox platforms."
+          }
+        }
+      ],
+      "next": "Use the platform's own inbox for anything outside Instagram and Facebook.",
+      "proof": "You will know it worked when you know where to find each conversation."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "substack-not-supported",
+      "kind": "non-technical",
+      "title": "Substack is not supported",
+      "phrasings": [
+        "is substack supported",
+        "can I crosspost to substack from blotato",
+        "does blotato post substack notes",
+        "how do I connect my substack account",
+        "can i publish my newsletter to substack through blotato",
+        "substack integration?",
+        "can the api or mcp post to substack",
+        "is there a workaround to post on substack notes",
+        "substak support"
+      ],
+      "not_this": [
+        "which platforms does blotato support",
+        "can I publish to WordPress",
+        "how do I connect my social accounts"
+      ],
+      "anchors": [
+        [
+          "substack",
+          "substak",
+          "subtack"
+        ]
+      ],
+      "opening": "Short answer: no, Substack is not a supported platform.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Substack is not a supported platform.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Substack is not a supported platform."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "You cannot crosspost to Substack from Blotato, not in the web app, the API, or MCP and Cowork.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "You cannot crosspost to Substack from Blotato -- not in the web app, the API, or via MCP/Cowork."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "There is an unofficial workaround for Substack Notes. Blotato does not support it, and you use it at your own risk.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato does not officially support this method, and Substack does not officially allow automated posting, so you use it at your own risk."
+          }
+        }
+      ],
+      "next": "If you want the unofficial workaround for Notes, tell me and I will pass your question to a person.",
+      "proof": "You will know it worked when you know whether Substack fits your plan."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "blog-wordpress-webhook",
+      "kind": "technical",
+      "title": "Publishing to a blog or WordPress (webhook target)",
+      "phrasings": [
+        "can I add my blog to blotato",
+        "how do I publish to wordpress with blotato",
+        "is there a wordpress integration",
+        "can I connect my website blog as a social account",
+        "how to send a post to my own blog using the API",
+        "does blotato support webhooks to publish to a custom destination",
+        "post to wordpress from n8n with blotato",
+        "wordpres connection how",
+        "how do I publish to a custom destination"
+      ],
+      "not_this": [
+        "is Substack supported",
+        "which social platforms are supported",
+        "how do I connect my social accounts",
+        "my webhook is not firing in make",
+        "how do I use the publish post endpoint with rate limits",
+        "can I use a wordpress plugin for blotato",
+        "is there a blotato plugin for wordpress",
+        "my webhook keeps failing",
+        "our webhook returns an error"
+      ],
+      "anchors": [
+        [
+          "blog",
+          "blogs",
+          "wordpress",
+          "wordpres",
+          "custom destination",
+          "website"
+        ],
+        [
+          "publish",
+          "post",
+          "add",
+          "connect",
+          "integration",
+          "send",
+          "webhook",
+          "wordpress",
+          "how"
+        ]
+      ],
+      "opening": "A blog cannot be a connected account, but there is a route that works for it.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "You cannot connect a blog or WordPress site as a social account in Blotato.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "You cannot connect a blog or WordPress site as a social account in Blotato."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To publish to a blog or any custom destination, use the webhook publish target.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "To publish to a blog, WordPress, or any other custom destination, use the webhook publish target."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Blotato sends your post data to a webhook URL you control, and your own automation posts it to your blog.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato sends your post data to a webhook URL you control, and your own automation receives it and posts to your blog."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "In the Publish Post node, set the target type to webhook.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "In the Publish Post node, set the target type to webhook"
+          }
+        }
+      ],
+      "next": "Set the Publish Post node target type to webhook and add your webhook URL.",
+      "proof": "You will know it worked when your own automation receives the post content."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "connect-social-accounts",
+      "kind": "non-technical",
+      "title": "How to connect social accounts",
+      "phrasings": [
+        "how do I connect my social accounts",
+        "where do I link my instagram to blotato",
+        "how can I add a new account",
+        "steps to connect tiktok",
+        "how to hook up my facebook page to blotato",
+        "I want to add another social profile, where",
+        "where is connect account button",
+        "how do I connect acounts",
+        "how do I link my youtube channel",
+        "where do I add my instagram account to blotato",
+        "how do I add a tiktok account"
+      ],
+      "not_this": [
+        "how do I connect a linkedin company page",
+        "how do I connect Claude through MCP",
+        "my account shows disconnected, how do I reconnect",
+        "the account list is empty when I schedule",
+        "how do I connect n8n",
+        "how do I add a blog",
+        "my youtube channel connection keeps failing",
+        "my connection failed with an error",
+        "how do I add a team member to my account",
+        "add a user to my account",
+        "how do I add a custom domain"
+      ],
+      "anchors": [
+        [
+          "connect",
+          "connecting",
+          "link",
+          "hook up",
+          "attach",
+          "acount",
+          "/\\badd\\b.{0,20}\\b(account|accounts|profile|profiles|instagram|tiktok|facebook|youtube|pinterest|threads|bluesky|channel)\\b/"
+        ],
+        [
+          "account",
+          "accounts",
+          "acounts",
+          "profile",
+          "profiles",
+          "instagram",
+          "tiktok",
+          "facebook",
+          "youtube",
+          "pinterest",
+          "threads",
+          "bluesky",
+          "channel"
+        ]
+      ],
+      "opening": "Connecting an account takes a few steps in Accounts.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Open Accounts.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Open Accounts."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Select Connect account.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Select Connect account."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Select the platform.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Select the platform."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Sign in to the intended social identity.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Sign in to the intended social identity."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Approve the required permissions.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Approve the required permissions."
+          }
+        }
+      ],
+      "next": "Return to Accounts and check the username, Pages or channels, and Status.",
+      "proof": "You will know it worked when the new account shows in Accounts with the right username."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ]
+      },
+      "id": "publish-now-vs-scheduled-api",
+      "kind": "technical",
+      "title": "When a post publishes immediately and when it is scheduled (API)",
+      "phrasings": [
+        "my post published immediately instead of being scheduled",
+        "when does a post publish right away and when is it scheduled",
+        "what happens if I leave out scheduledTime",
+        "useNextFreeSlot gives me a validation error",
+        "scheduledTime and useNextFreeSlot both set, which wins",
+        "api post went out instantly, I wanted it scheduled",
+        "how do I schedule a post with scheduledTime in the api",
+        "post creation returns validation error with usenextfreeslot true",
+        "my scheduled time is ignored and it posts now"
+      ],
+      "not_this": [
+        "I clicked schedule in the app and nothing happens",
+        "the schedule button is grey",
+        "my post shows canceled",
+        "how do I schedule many videos in the app",
+        "my post is stuck in progress",
+        "schedule lookup returns 500",
+        "how do I get my api key",
+        "where do I find my API key"
+      ],
+      "anchors": [
+        [
+          "immediately",
+          "instantly",
+          "right away",
+          "straight away",
+          "immediate",
+          "scheduledtime",
+          "usenextfreeslot",
+          "next free slot",
+          "ignored"
+        ],
+        [
+          "schedule",
+          "scheduled",
+          "scheduling",
+          "scheduledtime",
+          "usenextfreeslot",
+          "slot",
+          "slots",
+          "publish",
+          "published",
+          "posted",
+          "api"
+        ]
+      ],
+      "opening": "Two fields decide whether a post goes out now or later.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "A post publishes immediately when no scheduling fields are provided, meaning scheduledTime and useNextFreeSlot are both left out.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "No scheduling fields are provided (scheduledTime and useNextFreeSlot are both omitted)"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If both are provided, scheduledTime takes priority over useNextFreeSlot.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "scheduledTime takes priority over useNextFreeSlot"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Using useNextFreeSlot: true needs a matching slot in the Weekly posting schedule, and without one the request returns a validation error.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "If no matching slot or available time is found, post creation returns a validation error."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Do not remove the scheduling field to get past the error, because a request without scheduling publishes immediately.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Do not remove the scheduling field to bypass the error, since a request without scheduling publishes immediately."
+          }
+        }
+      ],
+      "next": "Add scheduledTime with an explicit UTC offset or Z, or create matching slots in the Weekly schedule before using useNextFreeSlot.",
+      "proof": "You will know it worked when the post shows as scheduled instead of published."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "rejected",
+          "failed",
+          "error",
+          "removed"
+        ]
+      },
+      "id": "create-reel-or-tiktok-video",
+      "kind": "non-technical",
+      "title": "How to create an Instagram Reel or TikTok video",
+      "phrasings": [
+        "how do I create an instagram reel with blotato",
+        "how do I post a tiktok video",
+        "I filmed a video on my phone, how do I post it as a reel",
+        "where do I choose reel as the media type",
+        "how can blotato generate a video for tiktok from my idea",
+        "do I have to select Reel somewhere to make a reel",
+        "how to make a short video and post to tiktok and instagram",
+        "how I upload video for reel",
+        "whats the way to make a reel from a script"
+      ],
+      "not_this": [
+        "my reel has no music",
+        "how do I add music to my video",
+        "how do I edit my video with a prompt",
+        "my reel failed to publish",
+        "how do I schedule many videos",
+        "the tiktok post shows published but is missing",
+        "how do I make a reel and the video was rejected by instagram",
+        "my reel upload was rejected"
+      ],
+      "anchors": [
+        [
+          "reel",
+          "reels",
+          "tiktok",
+          "short video",
+          "short-form",
+          "media type"
+        ],
+        [
+          "create",
+          "make",
+          "post",
+          "generate",
+          "upload",
+          "how",
+          "film",
+          "filmed",
+          "made",
+          "choose",
+          "select"
+        ]
+      ],
+      "opening": "There are two ways, depending on whether you already have a video.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "If you already have a video, click Photo / Video on the post in the AI Agent.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Click Photo / Video on the post"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Upload your video file in MP4 format.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Upload your video file in MP4 format"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "You do not need to choose Reel anywhere, because an attached video is published as a Reel automatically.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "When you attach a video, Blotato automatically publishes it as a Reel."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If you want Blotato to make a video instead, open Videos > Create New Video.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Open Videos > Create New Video."
+          }
+        }
+      ],
+      "next": "Tell me whether you already have a video or want Blotato to make one, and I will go on from there.",
+      "proof": "You will know it worked when the video shows attached to your post."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "edit-video-with-prompts",
+      "kind": "non-technical",
+      "title": "How to edit a video with prompts",
+      "phrasings": [
+        "how do I edit my video with prompts",
+        "can the ai agent edit my video in chat",
+        "I want to change one scene of my generated video",
+        "how do I regenerate a single clip",
+        "how do i change a scene in the video editor",
+        "ask the agent to change my video, it says it cannot",
+        "what are the green clips in the video editor",
+        "my video scene is wrong and I want to redo it with a new prompt",
+        "edit video by text prompt?"
+      ],
+      "not_this": [
+        "how do I add music to my video",
+        "how do I create a reel",
+        "how many credits does regenerating a clip use",
+        "my video export failed",
+        "how do I upload my own video"
+      ],
+      "anchors": [
+        [
+          "edit",
+          "editing",
+          "change",
+          "regenerate",
+          "redo",
+          "fix",
+          "remake",
+          "green"
+        ],
+        [
+          "video",
+          "clip",
+          "clips",
+          "scene",
+          "scenes",
+          "editor"
+        ]
+      ],
+      "opening": "Video edits happen in the video editor, not in the chat.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The in-app AI Agent does not generate or edit videos through chat.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The in-app AI Agent does not generate or edit videos through chat."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "In the video editor, click any green image or video clip.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Click any GREEN image or video clip"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Update the prompt in the left panel to describe the new scene.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Update the prompt in the left panel to describe the new scene"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Click \"Generate\" or \"Regenerate\" to remake that clip.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Click \"Generate\" or \"Regenerate\" to remake that clip"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Be specific in your prompts, because vague prompts give the AI too much freedom.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Be specific in your prompts -- vague prompts give the AI too much freedom"
+          }
+        }
+      ],
+      "next": "Open the video in the editor and click the green clip you want to change.",
+      "proof": "You will know it worked when the clip shows your new scene."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "add-music-audio",
+      "kind": "non-technical",
+      "title": "How to add music or audio to content (including Instagram posts, reels and carousels)",
+      "phrasings": [
+        "how do I add music to my video",
+        "can I put a song on my instagram carousel through blotato",
+        "how do I add music to a reel before posting",
+        "where do I upload my own audio in the video editor",
+        "is there a way to add trending sound",
+        "how to add background music to a single image post on instagram",
+        "tiktok autoAddMusic how does it work",
+        "how I put music in blotato video",
+        "add soundtrack to my content"
+      ],
+      "not_this": [
+        "my video has no sound after posting",
+        "the voiceover is the wrong language",
+        "how do I create an AI voiceover",
+        "music was removed from my instagram reel after publishing",
+        "how do I edit my video with prompts",
+        "does music use credits",
+        "how do I add an audio file to a post through the API",
+        "how do I attach audio in the REST API"
+      ],
+      "anchors": [
+        [
+          "music",
+          "audio",
+          "song",
+          "sound",
+          "soundtrack",
+          "automusic",
+          "autoaddmusic"
+        ],
+        [
+          "add",
+          "adding",
+          "put",
+          "attach",
+          "include",
+          "upload",
+          "track",
+          "how",
+          "can"
+        ]
+      ],
+      "opening": "It depends on the kind of post. Here is how it works.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "In the Blotato video editor, click \"Audio\" in the left sidebar to upload your own music or sounds before exporting your video.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "In the Blotato video editor, click \"Audio\" in the left sidebar to upload your own music or sounds before exporting your video."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "For Instagram Reels, audio that is already in your video plays when it is posted.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "If your video already has audio, it will play when posted."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "For single image posts and carousels, music cannot be added through Blotato. Publish first, then open the post in the Instagram app and add music there.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Music cannot be added through Blotato. Publish your post first, then open it in the Instagram app and add music there."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "TikTok supports auto-adding music through the API with autoAddMusic: true. Instagram has no equivalent.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "TikTok supports auto-adding music via API with autoAddMusic: true. Instagram does not have an equivalent."
+          }
+        }
+      ],
+      "next": "Tell me whether this is a Reel, a carousel, or a TikTok, and I will point you to the right step.",
+      "proof": "You will know it worked when your music plays on the post."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "instagram-also-facebook",
+      "kind": "non-technical",
+      "title": "Will an Instagram post also cross-post to Facebook",
+      "phrasings": [
+        "if I post to instagram through blotato will it also go to facebook",
+        "does instagram automatically crosspost to my facebook page",
+        "my instagram post did not show up on facebook",
+        "how do I post to both instagram and facebook",
+        "is a facebook post made automatically when I publish on instagram",
+        "worried about duplicate posts on facebook and instagram",
+        "instagram to facebook auto share with blotato",
+        "insta post also on fb?"
+      ],
+      "not_this": [
+        "my facebook post failed to publish",
+        "how do I connect a facebook page",
+        "my instagram post is not visible",
+        "how do I post to linkedin and x",
+        "how do I pick facebook page in the schedule panel",
+        "facebook shows my post twice and I was charged"
+      ],
+      "anchors": [
+        [
+          "instagram",
+          "insta",
+          "ig"
+        ],
+        [
+          "facebook",
+          "fb"
+        ],
+        [
+          "also",
+          "both",
+          "cross",
+          "crosspost",
+          "cross-post",
+          "automatically",
+          "auto",
+          "duplicate",
+          "duplicates",
+          "share",
+          "too",
+          "same",
+          "show up",
+          "did not show",
+          "not show up"
+        ]
+      ],
+      "opening": "Short answer: do not assume it does, and here is how to be sure.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Do not assume an Instagram-only post also went out on Facebook.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Do not assume an Instagram-only submission also published to Facebook."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Blotato's Instagram publisher submits to Instagram.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato's Instagram publisher submits to Instagram."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If you want both, connect Instagram and the Facebook Page you want, select both in Blotato, and check each result.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "If you want both destinations, connect Instagram and the intended Facebook Page, then select both in Blotato and verify each result."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If Instagram's own crossposting is on, check Facebook before sending another Facebook post, so you avoid duplicates.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "If Instagram's native crossposting is enabled, check Facebook before sending an additional Facebook post to avoid duplicates."
+          }
+        }
+      ],
+      "next": "Check your Facebook Page for the post before sending a second one.",
+      "proof": "You will know it worked when you can see exactly one post on each destination you chose."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "ai-generated-label",
+      "kind": "non-technical",
+      "title": "How to label posts as AI-generated",
+      "phrasings": [
+        "how do I label my posts as AI-generated",
+        "is there an ai disclosure option for tiktok",
+        "can I mark my instagram reel as made with ai in blotato",
+        "meta ai info label does not appear on my posts",
+        "youtube synthetic media disclosure in blotato",
+        "how to turn on the AI label on facebook posts",
+        "is_ai_generated flag support",
+        "ai generated tag for my content?",
+        "how do i add made with AI tag",
+        "how do I mark a tiktok as ai generated",
+        "can I tell youtube my video is ai made"
+      ],
+      "not_this": [
+        "how do I make AI images",
+        "does the ai agent write my captions",
+        "my tiktok post was removed for ai content",
+        "how many credits do ai videos cost"
+      ],
+      "anchors": [
+        [
+          "label",
+          "labels",
+          "disclosure",
+          "disclose",
+          "tag",
+          "mark",
+          "flag",
+          "is_ai_generated",
+          "info label",
+          "synthetic",
+          "ai generated",
+          "ai made",
+          "made with ai"
+        ],
+        [
+          "ai",
+          "ai-generated",
+          "a.i.",
+          "synthetic",
+          "is_ai_generated",
+          "meta"
+        ]
+      ],
+      "opening": "It depends on the platform. Here is where things stand.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "TikTok and YouTube have AI disclosure fields in Blotato.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "TikTok and YouTube have AI disclosure fields in Blotato."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Instagram and Facebook do not get Meta's AI info label yet, because Blotato does not pass Meta's is_ai_generated flag through.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Instagram and Facebook do not get Meta's AI info label yet, because Blotato does not pass Meta's is_ai_generated flag through."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Blotato has no draft option for Instagram or Facebook, so you cannot switch the label on in those apps before the post goes live.",
+          "cite": {
+            "url": "https://help.blotato.com/web-app-features/videos/faqs",
+            "quote": "Blotato has no draft option for Instagram or Facebook, so there is no way to switch the label on in the Instagram or Facebook app before a Blotato post goes live."
+          }
+        }
+      ],
+      "next": "Tell me which platform you are posting to, and I will tell you which field to use.",
+      "proof": "You will know it worked when you know whether your platform has a disclosure field in Blotato."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "failed",
+          "error",
+          "lost",
+          "wasted",
+          "for nothing",
+          "missing"
+        ]
+      },
+      "id": "what-uses-credits",
+      "kind": "billing",
+      "title": "What uses credits and what does not",
+      "phrasings": [
+        "what uses credits in blotato",
+        "do I spend credits when I publish a post",
+        "does the ai agent use up my credits",
+        "which actions cost credits",
+        "do credits get used when I click generate just to test",
+        "does ai voiceover cost credits",
+        "how do I check how many credits I have left",
+        "do captions written by AI use credits",
+        "what consumes credit"
+      ],
+      "not_this": [
+        "how do I buy more credits",
+        "how many credits do I get with each plan",
+        "I lost credits and want them back",
+        "my credits ran out early",
+        "how many credits does one video cost per model",
+        "credits disappeared after cancel",
+        "my video generation failed and used credits",
+        "credits were used but the video failed",
+        "I lost credits for nothing",
+        "credits were wasted",
+        "how do I regenerate a clip and it costs credits",
+        "how much do credits cost",
+        "what is the price of a credit",
+        "how much does one credit cost"
+      ],
+      "anchors": [
+        [
+          "credit",
+          "credits"
+        ],
+        [
+          "use",
+          "uses",
+          "used",
+          "using",
+          "spend",
+          "spent",
+          "cost",
+          "costs",
+          "consume",
+          "consumes",
+          "consumed",
+          "check",
+          "left",
+          "balance",
+          "what"
+        ]
+      ],
+      "opening": "Credits are only for AI images and videos. The details are below.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Credits are only used for AI-generated images and videos.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Credits are only used for AI-generated images and videos"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Generating AI video clips uses credits.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Generating AI video clips (text-to-video or image-to-video, including Gemini Omni Flash 1.1, the video editor's default)"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Each time you click \"Generate\" on an image or video, credits are spent, even if you are testing.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Each time you click \"Generate\" on an image or video, credits are spent -- even if you're testing."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To check your balance, go to Settings > Billing.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "To check your balance, go to Settings > Billing."
+          }
+        }
+      ],
+      "next": "Open Settings > Billing to see your balance.",
+      "proof": "You will know it worked when you can see your balance in Settings > Billing."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "how-to-buy-credits",
+      "kind": "billing",
+      "title": "How to buy more AI credits",
+      "phrasings": [
+        "how do I buy more credits",
+        "I ran out of ai credits, where do I get more",
+        "how can I top up credits",
+        "can I buy extra credits through the api",
+        "can i purchase credits with mcp",
+        "where is the buy more credits button",
+        "can I move my credits to another account",
+        "how to get additional credit pack",
+        "i need more credts how"
+      ],
+      "not_this": [
+        "what uses credits",
+        "how many credits do I get in each plan",
+        "I was charged for credits I did not buy",
+        "I want a refund for my credits",
+        "my payment for credits failed",
+        "how do I start my paid subscription"
+      ],
+      "anchors": [
+        [
+          "credit",
+          "credits",
+          "credts",
+          "top up",
+          "topup"
+        ],
+        [
+          "buy",
+          "purchase",
+          "get more",
+          "more",
+          "top up",
+          "topup",
+          "additional",
+          "extra",
+          "add",
+          "ran out",
+          "run out",
+          "run low",
+          "out of",
+          "move",
+          "transfer",
+          "another account"
+        ]
+      ],
+      "opening": "You can buy more credits in the website, or through the API.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "AI credits pay for AI image and video generation.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "AI credits pay for AI image and video generation."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "On the website, open Settings > Billing, find AI Credits and Usage, and choose a quantity.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "In the website, open Settings > Billing, find AI Credits and Usage, choose a quantity"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Review and complete Stripe Checkout, then check the balance after payment processing.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Review and complete Stripe Checkout, then verify the balance after payment processing."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Buying credits through MCP is not supported at this time.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Buying credits through MCP is not supported at this time."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Purchased credits cannot be moved between accounts.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Purchased credits are non-transferable between accounts."
+          }
+        }
+      ],
+      "next": "Open Settings > Billing and choose how many credits to buy.",
+      "proof": "You will know it worked when the new balance shows in Settings > Billing."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "upload fails",
+          "upload failed",
+          "upload error"
+        ]
+      },
+      "id": "upload-own-media-schedule",
+      "kind": "non-technical",
+      "title": "How to upload my own video or image and schedule a post",
+      "phrasings": [
+        "how do I upload my own video to schedule a post",
+        "where do I attach a photo to a post",
+        "how to post an image I already have",
+        "I want to upload a video file and publish it now",
+        "how to schedule my own picture for tomorrow",
+        "where is the photo video button",
+        "how do i add my media and post it on several accounts",
+        "upload own video to blotato and schedulle it",
+        "can I attach my own mp4 to a draft"
+      ],
+      "not_this": [
+        "how do I create an instagram reel",
+        "how do I schedule many existing videos",
+        "does blotato have a media library",
+        "I uploaded a photo as context",
+        "my upload fails with an error",
+        "how do I post images from a claude artifact",
+        "how do I get a caption for my photo",
+        "how do I schedule 20 videos I already have",
+        "how do I schedule many videos at once",
+        "bulk schedule my videos"
+      ],
+      "anchors": [
+        [
+          "upload",
+          "uploading",
+          "attach",
+          "add my",
+          "own",
+          "existing",
+          "already have",
+          "photo video",
+          "photo / video"
+        ],
+        [
+          "video",
+          "image",
+          "photo",
+          "media",
+          "picture",
+          "file",
+          "mp4",
+          "videos",
+          "images"
+        ]
+      ],
+      "opening": "Your own media attaches to a draft, and the Schedule panel takes it from there.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Open a draft, or select New draft in the Drafts toolbar to make a blank one.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Open a draft or select New draft in the Drafts toolbar to create a blank draft"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Click Photo / Video on the draft.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Click Photo / Video on the draft"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Upload your video or image file.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Upload your video or image file"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Click the draft card, then select at least one social account in the Schedule panel.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Select at least one social account in the Schedule panel"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Choose Now, Pick a time, or Next free slot time.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Choose Now, Pick a time, or Next free slot time"
+          }
+        }
+      ],
+      "next": "Click Publish Now or Schedule.",
+      "proof": "You will know it worked when the post shows as published or scheduled."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "claude-artifact-images",
+      "kind": "non-technical",
+      "title": "How to post images from a Claude artifact",
+      "phrasings": [
+        "how do I post images from a claude artifact",
+        "blotato cannot read my claude.ai artifact link",
+        "my image link from claude artifact does not work in a post",
+        "I asked claude to make images and gave blotato the artifact url",
+        "artifact links in my scheduled post show no image",
+        "how do I get artifact pictures into blotato",
+        "claude made me a carousel, how do I upload it to blotato",
+        "image from claude artefact not showing in blotato"
+      ],
+      "not_this": [
+        "how do I connect Claude through MCP",
+        "invalid_grant in Claude",
+        "how do I upload my own video",
+        "how do I generate images in blotato",
+        "Claude cannot see my blotato accounts"
+      ],
+      "anchors": [
+        [
+          "artifact",
+          "artifacts",
+          "artefact",
+          "artefacts",
+          "claude.ai/artifact",
+          "claude made me"
+        ]
+      ],
+      "opening": "An artifact link is not a real image file, so the images need to be exported first.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "A claude.ai/artifact link is not a public image file, and Blotato cannot read the image from it.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato cannot read the image from that link."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Export the image files from Claude before posting.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Export the image files from Claude before posting."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Download the PNG files to your computer.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Download the PNG files to your computer."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Open your draft in the Blotato Post editor and click Photo / Video.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Click Photo / Video on the draft."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Upload the PNG files.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Upload the PNG files."
+          }
+        }
+      ],
+      "next": "Ask Claude to export each image as a separate PNG file, and not as artifact links.",
+      "proof": "You will know it worked when your PNG files show on the draft."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "no-media-library",
+      "kind": "non-technical",
+      "title": "Is there a media library to reuse images and videos",
+      "phrasings": [
+        "does blotato have a media library",
+        "where can I store images to reuse in several posts",
+        "can I upload a picture once and use it again later",
+        "is the sources library the same as a media library",
+        "where do I keep my logo and videos for reuse",
+        "I uploaded a video and cant find it for another post",
+        "is there a folder for my uploaded media",
+        "media libary in blotato?"
+      ],
+      "not_this": [
+        "where are my generated videos",
+        "how do I upload a video to a post",
+        "how do I add context for the agent",
+        "my upload is gone from the draft",
+        "how do I upload media through the API"
+      ],
+      "anchors": [
+        [
+          "library",
+          "libary",
+          "libraries",
+          "reuse",
+          "reusable",
+          "store",
+          "folder",
+          "storage",
+          "saved",
+          "again",
+          "another post",
+          "uploaded"
+        ],
+        [
+          "media",
+          "images",
+          "image",
+          "videos",
+          "video",
+          "photos",
+          "logo",
+          "uploads",
+          "uploaded",
+          "files"
+        ]
+      ],
+      "opening": "There is no reusable media library, and here is what to do instead.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The Blotato web app does not have a reusable media library.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "No. The Blotato web app does not have a reusable media library."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Images and videos are attached to individual post drafts.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Images and videos are attached to individual post drafts."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The Sources library holds saved context for AI Agent content generation, and it does not store reusable post images or videos.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "It is not a media library and does not store reusable post images or videos."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "This does not stop automated uploads or publishing through the API or MCP.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "This does not prevent automated uploads or publishing through the API or MCP."
+          }
+        }
+      ],
+      "next": "Open a draft, click Photo / Video, and upload the file again for each post.",
+      "proof": "You will know it worked when the file shows on the draft."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "403",
+          "forbidden",
+          "denied",
+          "error",
+          "failed",
+          "unauthorized",
+          "401"
+        ]
+      },
+      "id": "codex-chatgpt-upload-media",
+      "kind": "technical",
+      "title": "ChatGPT Work or Codex uploading my own media and publishing",
+      "phrasings": [
+        "how does codex upload my own media and publish posts",
+        "how do I make chatgpt post my local images with blotato",
+        "which tool uploads a local file through mcp",
+        "blotato_create_presigned_upload_url how to use",
+        "codex cannot access my image files, how do I publish them",
+        "how do I connect chatgpt work to blotato and post my own video",
+        "presignedUrl put upload then publicUrl for create post",
+        "chatgpt wants a public url for my video, what do I do",
+        "codex upload media to blotato how"
+      ],
+      "not_this": [
+        "invalid_grant in Claude",
+        "how do I connect Claude through MCP",
+        "how do I post images from a Claude artifact",
+        "how do I upload a video in the web app",
+        "my codex connection is unauthorized",
+        "my codex presigned url returns 403",
+        "codex upload returns an error",
+        "chatgpt cannot upload, access denied"
+      ],
+      "anchors": [
+        [
+          "codex",
+          "chatgpt",
+          "chat gpt",
+          "gpt",
+          "presigned",
+          "presignedurl",
+          "blotato_create_presigned_upload_url",
+          "mcp",
+          "tool uploads"
+        ],
+        [
+          "upload",
+          "media",
+          "image",
+          "images",
+          "video",
+          "videos",
+          "file",
+          "files",
+          "local",
+          "publish",
+          "presigned",
+          "presignedurl",
+          "publicurl",
+          "url"
+        ]
+      ],
+      "opening": "This works through MCP. The assistant also needs to reach your files.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Connect Blotato to ChatGPT Work or Codex through MCP.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Connect Blotato to ChatGPT Work / Codex through MCP."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The assistant also needs access to your image or video files.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The assistant also needs access to your image or video files."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Ask it to call blotato_create_presigned_upload_url for each local file.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Ask it to call blotato_create_presigned_upload_url for each local file."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Ask it to send the file bytes to presignedUrl with an HTTP PUT.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Ask it to send the file bytes to presignedUrl with an HTTP PUT."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Ask it to use the returned publicUrl with blotato_create_post for the account and time you choose.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Ask it to use the returned publicUrl with blotato_create_post for the social account and time you choose."
+          }
+        }
+      ],
+      "next": "Ask the assistant to list your accounts with blotato_list_accounts, to confirm the connection works.",
+      "proof": "You will know it worked when the assistant lists your connected Blotato accounts."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "schedule-many-videos",
+      "kind": "non-technical",
+      "title": "How to schedule many existing videos across accounts",
+      "phrasings": [
+        "how do I schedule many videos at once",
+        "I have 30 videos to spread across my accounts over weeks",
+        "how to bulk schedule existing videos",
+        "can I queue a lot of videos for the next free slots",
+        "how do I put my videos on a posting schedule",
+        "where do I set weekly posting times for my videos",
+        "schedule multiple videos to tiktok and instagram without picking dates",
+        "bulk scheduling videos how",
+        "next free slot for lots of videos",
+        "how do I schedule 20 videos I already have",
+        "I have a folder of 50 videos and want them posted over the next month"
+      ],
+      "not_this": [
+        "how do I schedule one post",
+        "the schedule button is grey",
+        "my useNextFreeSlot gives an error",
+        "how do I upload one video",
+        "my scheduled videos did not post",
+        "schedule many posts with the API rate limit",
+        "how many posts can I schedule per day",
+        "how many posts per month can I schedule"
+      ],
+      "anchors": [
+        [
+          "many",
+          "multiple",
+          "bulk",
+          "lots",
+          "batch",
+          "several",
+          "queue",
+          "videos",
+          "all my",
+          "weekly posting times",
+          "posting times",
+          "20",
+          "30",
+          "50",
+          "folder",
+          "next month"
+        ],
+        [
+          "schedule",
+          "scheduling",
+          "schedulle",
+          "queue",
+          "spread",
+          "free slot",
+          "slots",
+          "posting times",
+          "weekly",
+          "posted",
+          "posting"
+        ]
+      ],
+      "opening": "You can set it up once and repeat it for each video.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Set your posting times in the Weekly posting schedule.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Set your posting times in Weekly posting schedule."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Upload one video.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Upload one video."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Select the social accounts in the Schedule panel.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Select the social accounts in the Schedule panel."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Select Next free slot time under Publish time.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Select Next free slot time under Publish time."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Repeat the steps for each video.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Repeat the steps for each video."
+          }
+        }
+      ],
+      "next": "Start by setting your posting times in the Weekly posting schedule.",
+      "proof": "You will know it worked when each video shows as scheduled at one of your slots."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "access-blocked"
+        ],
+        "phrases": [
+          "reconnected",
+          "connection exists",
+          "accounts page shows connected"
+        ]
+      },
+      "id": "no-platforms-when-scheduling",
+      "kind": "non-technical",
+      "title": "No platforms show up when I try to schedule my post",
+      "phrasings": [
+        "no platforms show up when I try to schedule my post",
+        "the account list is empty in the schedule panel",
+        "I exported a video and there is nowhere to pick my accounts",
+        "schedule panel shows no social accounts",
+        "there are no accounts to select when scheduling",
+        "where do I choose which accounts to post to after the video editor",
+        "my connected accounts dont appear in the scheduler",
+        "cant select any platform to schedule",
+        "no destinatons in schedule",
+        "there are no accounts listed when I try to schedule"
+      ],
+      "not_this": [
+        "the Schedule button is grey",
+        "I want to name the platforms when generating posts",
+        "how do I connect my social accounts",
+        "my account shows disconnected",
+        "my account disappeared from Accounts",
+        "how do I schedule a video",
+        "how do I connect my facebook page, the page list is empty"
+      ],
+      "anchors": [
+        [
+          "no ",
+          "empty",
+          "nowhere",
+          "dont appear",
+          "don't appear",
+          "not appear",
+          "cant select",
+          "can't select",
+          "missing",
+          "not show",
+          "nothing",
+          "none",
+          "choose which accounts",
+          "after the video editor",
+          "no accounts",
+          "listed"
+        ],
+        [
+          "platform",
+          "platforms",
+          "accounts",
+          "account",
+          "destination",
+          "destinatons",
+          "selector",
+          "list"
+        ],
+        [
+          "schedule",
+          "scheduling",
+          "scheduler",
+          "scheduled",
+          "schedulle",
+          "post",
+          "posting",
+          "publish",
+          "pick",
+          "video editor",
+          "panel",
+          "draft"
+        ]
+      ],
+      "opening": "This usually comes down to which screen you are on. Let us check in order.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The video editor exports media and creates a draft. It is not the place where you pick publishing accounts.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The video editor exports media and creates a draft. It is not the publishing account selector."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "In the AI Agent, open the draft and its Schedule panel.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "In the AI Agent, open the intended draft and its Schedule panel."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If the account list is empty, check Accounts for the connection you meant.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "If the account list is empty, check Accounts for the intended connection."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Do not reconnect an account or weaken browser privacy settings only because a selector is missing.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Do not reconnect an account or weaken browser privacy settings solely because a selector is missing."
+          }
+        }
+      ],
+      "next": "Open the draft in the AI Agent and look at its Schedule panel.",
+      "proof": "You will know it worked when your connected accounts show in the Schedule panel."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "schedule-button-grey",
+      "kind": "non-technical",
+      "title": "The Schedule button is grey and does not work",
+      "phrasings": [
+        "the schedule button is grey and I cannot click it",
+        "schedule button disabled",
+        "publish button is greyed out on my draft",
+        "I cannot press schedule, nothing happens",
+        "why is the schedule button not clickable",
+        "schedule is inactive for my post",
+        "what do I need to select to enable the schedule button",
+        "shedule button gray"
+      ],
+      "not_this": [
+        "no platforms show up when I schedule",
+        "my post failed to schedule with an error",
+        "the schedule button works but the post did not go out",
+        "the Pick a time calendar is empty",
+        "my useNextFreeSlot call gives an error",
+        "my post says canceled",
+        "the next button is grey in onboarding",
+        "the calendar is greyed out"
+      ],
+      "anchors": [
+        [
+          "grey",
+          "gray",
+          "greyed",
+          "grayed",
+          "disabled",
+          "inactive",
+          "unclickable",
+          "not clickable",
+          "cant click",
+          "can't click",
+          "cannot click",
+          "cannot press",
+          "not working",
+          "does not work",
+          "doesn't work",
+          "enable"
+        ],
+        [
+          "schedule",
+          "shedule",
+          "publish",
+          "post now"
+        ]
+      ],
+      "opening": "A grey button usually means the draft is waiting for one more choice. Check these in order.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Select a destination account.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Select a destination account."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Complete its destination selector: Facebook Page, LinkedIn profile or company Page, Pinterest board, or Slack channels.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Complete its destination selector: Facebook Page, LinkedIn profile or company Page, Pinterest board, or Slack channels."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If you chose Pick a time, select a date and time before submitting.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "For Pick a time, select a date and time before submitting."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Do not delete existing posts or pick a different destination just to enable the button.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Do not delete existing posts or select a different destination to enable the button."
+          }
+        }
+      ],
+      "next": "Open the draft and its Schedule panel, then check that an account and its destination are selected.",
+      "proof": "You will know it worked when the Schedule button turns active."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "no-platform-selection-when-generating",
+      "kind": "non-technical",
+      "title": "No option to select platforms when generating posts, or Post sends me back to the chat",
+      "phrasings": [
+        "there is no option to select platforms when I generate posts",
+        "clicking post sends me back to the chat instead of the scheduler",
+        "where do I pick the platforms before the agent writes my post",
+        "I click create post in the video editor and it opens remix, not a publish screen",
+        "the agent never asks which platforms I want",
+        "post button takes me back to chat",
+        "how do I choose where to post after generating a draft",
+        "no platform picker before generating",
+        "where is the plaform selection in the ai agent"
+      ],
+      "not_this": [
+        "no platforms show up in the schedule panel",
+        "the Schedule button is grey",
+        "how do I get a different post per platform",
+        "which platforms does blotato support",
+        "how do I connect my social accounts",
+        "the account list is empty",
+        "how to select platform when connecting",
+        "which platform do I choose when connecting an account"
+      ],
+      "anchors": [
+        [
+          "select",
+          "choose",
+          "pick",
+          "selection",
+          "picker",
+          "option",
+          "sends me back",
+          "takes me back",
+          "goes back",
+          "back to the chat",
+          "back to chat",
+          "opens remix",
+          "never asks"
+        ],
+        [
+          "platform",
+          "platforms",
+          "plaform",
+          "chat",
+          "scheduler",
+          "remix",
+          "post"
+        ]
+      ],
+      "opening": "There is no separate platform step, so it works a little differently. Here is where the choice happens.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "When generating, name the platforms in your chat prompt.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "When generating: name the platforms in your chat prompt."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "When scheduling, open the draft post. The Schedule panel appears on the right side of the screen.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "When scheduling: open the draft post. The Schedule panel appears on the right side of the screen"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Select your social accounts in that panel, then click Schedule.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "select your social accounts there, then click Schedule."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Create Post in the video editor creates a draft from the completed export and opens Remix. It does not publish.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Create Post in the video editor creates a draft from the completed export and opens Remix. It does not publish."
+          }
+        }
+      ],
+      "next": "Open the draft in the AI Agent, then use its Schedule panel on the right.",
+      "proof": "You will know it worked when your accounts show in the Schedule panel."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "ai-caption-for-photo",
+      "kind": "non-technical",
+      "title": "How to get an AI caption for my photo",
+      "phrasings": [
+        "how do I get ai to write a caption for my photo",
+        "can I upload a photo and have blotato write the caption",
+        "I added a photo as context and it did not work",
+        "blotato does not accept images as context",
+        "how to generate a caption for a picture I took",
+        "ai caption from an image",
+        "can the agent look at my photo and describe it for the post",
+        "photo as context not allowed, what now",
+        "caption for pic how do i do"
+      ],
+      "not_this": [
+        "how do I upload my own video or image to schedule",
+        "how do I generate an image with AI",
+        "how do I add a youtube video as context",
+        "does generating captions cost credits",
+        "how do I attach media to a post"
+      ],
+      "anchors": [
+        [
+          "caption",
+          "captions",
+          "description",
+          "describe",
+          "text",
+          "context",
+          "not accept",
+          "not allowed",
+          "did not work"
+        ],
+        [
+          "photo",
+          "photos",
+          "picture",
+          "pic",
+          "image",
+          "images"
+        ]
+      ],
+      "opening": "A photo cannot be used as Context, but there is an easy way around it.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "You cannot upload a photo as Context.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "You cannot upload a photo as Context."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "In the AI Agent, add text Context describing what the photo is about.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Add text Context describing what the photo is about"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Type your request in the chat box to generate a draft post from your text.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Type your request in the chat box at the bottom of the screen to generate a draft post from your text"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Click Photo / Video on the post to attach your photo.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Click Photo / Video on the post to attach your photo"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Edit the caption with Chat as needed.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Edit the caption with Chat as needed"
+          }
+        }
+      ],
+      "next": "Add a short text Context that describes your photo, then ask the agent for a draft.",
+      "proof": "You will know it worked when the draft shows your caption with the photo attached."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "wrong language",
+          "robotic",
+          "pronounce"
+        ]
+      },
+      "id": "english-spanish-content",
+      "kind": "non-technical",
+      "title": "Creating content in both English and Spanish",
+      "phrasings": [
+        "can I create content in both english and spanish",
+        "do I need to change a language setting each time",
+        "does blotato make videos in spanish",
+        "how do I get a spanish voiceover",
+        "is there a language toggle",
+        "can I post in two languages to different channels",
+        "how to make bilingual posts",
+        "blotato en español, funciona",
+        "can i make posts in other languages like spanish"
+      ],
+      "not_this": [
+        "how do I translate an existing video",
+        "the voiceover pronounces words wrong",
+        "how do I change the interface language",
+        "which languages does the AI voice support in full list",
+        "the captions in my video are in the wrong language",
+        "the voiceover is in the wrong language"
+      ],
+      "anchors": [
+        [
+          "spanish",
+          "english",
+          "language",
+          "languages",
+          "bilingual",
+          "idioma",
+          "español",
+          "espanol"
+        ],
+        [
+          "create",
+          "content",
+          "make",
+          "posts",
+          "post",
+          "videos",
+          "video",
+          "voiceover",
+          "setting",
+          "toggle",
+          "switch",
+          "funciona",
+          "both"
+        ]
+      ],
+      "opening": "Yes, both work, and there is nothing to switch.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "There is no language setting or toggle to switch.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "There is no language setting or toggle to switch."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "For AI videos, write your script in Spanish and Blotato makes the Spanish voiceover automatically.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "AI videos: write your script in Spanish and Blotato generates the Spanish voiceover automatically."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "For text posts, the AI Agent writes in whatever language you prompt it in.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Text posts: the AI Agent writes in whatever language you prompt it in."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To reach both audiences, make two separate posts, one per language, and cross-post each to the matching accounts.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "To publish to both audiences, create two separate posts (one per language) and cross-post each to the matching accounts."
+          }
+        }
+      ],
+      "next": "Write your prompt or script in the language you want the output in.",
+      "proof": "You will know it worked when the output comes back in that language."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "access-blocked"
+        ]
+      },
+      "id": "stuck-in-onboarding",
+      "kind": "non-technical",
+      "title": "Stuck in onboarding",
+      "phrasings": [
+        "stuck in onboarding",
+        "I cannot get past the onboarding screen",
+        "onboarding keeps showing posts for the week and I cant continue",
+        "how do I finish onboarding and enter the app",
+        "what is reveal full week",
+        "where is the schedule week button",
+        "the onboarding wont let me in",
+        "onbording stuck, how to enter app"
+      ],
+      "not_this": [
+        "I cannot log in",
+        "how do I start the free trial",
+        "the app is blank after login",
+        "my onboarding posts were published to my accounts",
+        "where do I start as a beginner"
+      ],
+      "anchors": [
+        [
+          "onboarding",
+          "onbording",
+          "onboard",
+          "reveal full week",
+          "schedule week",
+          "enter the app"
+        ]
+      ],
+      "opening": "Three clicks get you through the onboarding screen.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Click \"Reveal Full Week\".",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Click \"Reveal Full Week\""
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Wait for all 7 days of posts to be created.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Wait for all 7 days of posts to be created"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Click \"Schedule Week\" to enter the app.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Click \"Schedule Week\" to enter the app"
+          }
+        }
+      ],
+      "next": "Click \"Reveal Full Week\" and wait for all 7 days to appear.",
+      "proof": "You will know it worked when the app opens after you click Schedule Week."
+    },
+    {
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "discount",
+          "coupon",
+          "custom plan",
+          "enterprise",
+          "annual",
+          "yearly"
+        ]
+      },
+      "id": "plans-and-pricing",
+      "kind": "billing",
+      "title": "The current plans and pricing",
+      "phrasings": [
+        "what are the current plans and pricing",
+        "how much does blotato cost per month",
+        "what is the price of the starter plan",
+        "whats the difference between starter creator and agency",
+        "how many credits per month on each plan",
+        "is there a cheaper plan",
+        "pricing for agency tier",
+        "how much is blotato compared to buffer",
+        "plan prices please",
+        "wat does blotato cost"
+      ],
+      "not_this": [
+        "how do I cancel my plan",
+        "I was charged for the wrong plan",
+        "how do I upgrade my plan",
+        "how do I buy more credits",
+        "my plan did not renew",
+        "what is the refund policy",
+        "does the free trial include the API",
+        "how much does the api cost",
+        "how much do credits cost",
+        "how much does extra credit cost"
+      ],
+      "anchors": [
+        [
+          "price",
+          "prices",
+          "pricing",
+          "plan",
+          "plans",
+          "cost",
+          "costs",
+          "how much",
+          "tiers",
+          "tier",
+          "starter",
+          "creator",
+          "agency",
+          "cheaper",
+          "expensive"
+        ],
+        [
+          "blotato",
+          "plan",
+          "plans",
+          "month",
+          "monthly",
+          "tier",
+          "tiers",
+          "starter",
+          "creator",
+          "agency",
+          "subscription",
+          "buffer"
+        ]
+      ],
+      "opening": "Here are the current monthly plans.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Starter is $29 a month and includes 1,250 AI credits a month.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Starter | $29 | 1,250"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Creator is $97 a month and includes 5,000 AI credits a month.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Creator | $97 | 5,000"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Agency is $499 a month and includes 28,000 AI credits a month.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Agency | $499 | 28,000"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Check the current pricing page before choosing a plan.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Check current pricing before choosing a plan."
+          }
+        }
+      ],
+      "next": "Check the current pricing page, then choose the plan that fits.",
+      "proof": "You will know it worked when you can compare the three plans."
+    }
+  ]
+}
