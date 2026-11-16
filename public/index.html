@@ -34,7 +34,7 @@
     <a href="#answer" id="nav-answer" aria-current="page">Answer a customer</a>
     <a href="#practice" id="nav-practice">Practice game</a>
   </nav>
-  <button type="button" class="switch" role="switch" aria-checked="false" data-tech-switch><span class="track" aria-hidden="true"><span class="knob"></span></span><span class="switch-label">Details for engineers</span></button>
+  <button type="button" class="switch" role="switch" aria-checked="false" data-tech-switch><span class="track" aria-hidden="true"><span class="knob"></span></span><span class="switch-label">Engineer view</span></button>
 </header>
 
 <main id="main" tabindex="-1">
@@ -48,10 +48,10 @@
 
         <form class="box" id="ask-form" novalidate>
           <label for="msg" class="sr-only">Their message, in their own words</label>
-          <button type="button" class="demo-skip" id="demo-skip" hidden>Skip the example</button>
           <textarea id="msg" name="msg" rows="3" placeholder="Paste what the customer wrote..." aria-describedby="box-note"></textarea>
           <div class="go">
             <p id="box-note">The desk writes the reply. It never sends anything. You copy it and send it yourself.</p>
+            <button type="button" class="demo-skip" id="demo-skip" hidden>Skip the example</button>
             <button class="btn" type="submit" id="answer-btn">Answer it</button>
           </div>
           <p class="filled" id="filled" aria-live="polite"></p>
@@ -64,7 +64,7 @@
           <ul class="tries-list" id="tries" aria-labelledby="tries-h">
             <li><button type="button" data-id="T02" data-who="A small business owner" aria-pressed="false"><span class="q" aria-hidden="true">&ldquo;</span><span class="t">Three of my posts show CANCELED in the calendar. Are they failing? I'm worried something is broken.</span><span class="who">A small business owner</span></button></li>
             <li><button type="button" data-id="T05" data-who="A podcaster" aria-pressed="false"><span class="q" aria-hidden="true">&ldquo;</span><span class="t">How do I cancel my subscription? Or can I pause it for two months while I travel?</span><span class="who">A podcaster</span></button></li>
-            <li><button type="button" data-id="T01" data-who="A creator" aria-pressed="false"><span class="q" aria-hidden="true">&ldquo;</span><span class="t">Hi! Blotato says my Instagram post is published, but I can't find it on my profile. Did it actually go out?</span><span class="who">A creator</span></button></li>
+            <li><button type="button" data-id="T04" data-who="A coach on the free trial" aria-pressed="false"><span class="q" aria-hidden="true">&ldquo;</span><span class="t">I was still on my free trial, I made an API key to try n8n, and now I've been charged. Why?</span><span class="who">A coach on the free trial</span></button></li>
             <li><button type="button" data-who="A customer" aria-pressed="false"><span class="q" aria-hidden="true">&ldquo;</span><span class="t">I canceled my plan last month but you charged me again. I want a refund.</span><span class="who">A customer who wants their money back</span></button></li>
           </ul>
           <button type="button" class="more-btn" id="more-btn" aria-expanded="false" aria-controls="more">Show more examples</button>
@@ -87,12 +87,12 @@
           <p class="how-proof"><mark>No. CANCELED is a post status, not a publishing failure.</mark> <span class="src">FAQs page</span></p>
           <span class="how-stamp" data-stamp="checked"></span>
         </div>
-        <p class="how-line">Every step sits beside the help-page sentence that says so. Then a second checker reads the reply and stamps it.</p>
+        <p class="how-line">Every step sits beside the help-page sentence that says so. Then a second checker, a separate AI that did not write the reply, reads it. When it finds nothing wrong, the reply gets its stamp.</p>
         <button type="button" class="btn-quiet watch" id="watch-btn">Watch it answer one</button>
       </aside>
 
       <section class="tech tech-home" id="tech-home" aria-labelledby="tech-home-h">
-        <h2 id="tech-home-h">Details for engineers</h2>
+        <h2 id="tech-home-h">The engineer view</h2>
         <dl class="kv" id="tech-state"><dt>Loading</dt><dd>Reading the desk's state.</dd></dl>
         <h3>What this page calls</h3>
         <ul class="mono-list">

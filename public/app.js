@@ -22,6 +22,8 @@ const EASE_IN = 'cubic-bezier(0.5, 0, 0.75, 0)';
 // The moment's beats (DESIGN.md, "The memorable moment"), tuned in round 4 so the stamp lands within 3.5 s.
 const T = { lift: 340, firstHold: 120, line: 400, lineCap: 660, hold: 110, dock: 360, fold: 220, proofIn: 240, wire: 200, word: 14, wordCap: 200, stepGap: 60, stepStagger: 150, thud: 220, nudge: 140 };
 const DEMO_ID = 'T02';
+// The most extra space a step may get so its proof sits level beside it. A taller proof folds instead.
+const FOLD_AT = 36;
 const MAX = 2000;
 
 let STATE = null;
@@ -71,7 +73,9 @@ const PLAIN = [
   [/,(\s*[.,;:])/g, '$1'],
   [/\s+[\u2014\u2013]\s+/g, ', '],
 ];
-const plainWords = (s) => PLAIN.reduce((t, [re, to]) => t.replace(re, to), String(s ?? ''));
+// After a word swap the little word in front must still fit: "a developer key", "an AI helper".
+const articles = (s) => String(s).replace(/\b([Aa])n ((?:developer|sign-in|connected|later|number|helper)\b)/g, '$1 $2').replace(/\b([Aa]) ((?:AI|answer|error|account|app)\b)/g, '$1n $2');
+const plainWords = (s) => articles(PLAIN.reduce((t, [re, to]) => t.replace(re, to), String(s ?? '')));
 const upFirst = (raw, s) => (/^[A-Z]/.test(String(raw)) && s ? s[0].toUpperCase() + s.slice(1) : s);
 const both = (raw, plain = upFirst(raw, plainWords(raw))) => plain === raw ? esc(raw) : `<span class="plain-only">${esc(plain)}</span><span class="tech-only">${esc(raw)}</span>`;
 const dash = (s) => String(s ?? '').replace(/\s+[\u2014\u2013]\s+/g, ', ').replace(/[\u2014\u2013]/g, ', ');
@@ -108,7 +112,7 @@ const HAS_JARGON = /\b(?:OAuth|MCP|API|endpoints?|concurrency|request frequency|
 function plainQuote(s) {
   const raw = String(s || '').replace(/`/g, '');
   if (!HAS_JARGON.test(raw)) return null;
-  const out = JARGON.reduce((t, [re, to]) => t.replace(re, to), String(s || '')).replace(/`/g, '').trim();
+  const out = articles(JARGON.reduce((t, [re, to]) => t.replace(re, to), String(s || '')).replace(/`/g, '').trim());
   return out && out !== raw ? out[0].toUpperCase() + out.slice(1) : null;
 }
 
@@ -122,7 +126,7 @@ function termify(h) {
   // A help-page address stays one whole piece of text (never broken into code spans).
   t = t.replace(/https?:\/\/help\.blotato\.com[^\s<]*?(?=[.,;:)]?(?:\s|$|<))/g, (m) => keep(`<span class="url">${m}</span>`));
   t = t.replace(/\bhelp\.blotato\.com(?:\/[^\s<]*?)?(?=[.,;:)]?(?:\s|$|<))/g, (m) => keep(`<span class="url">${m}</span>`));
-  t = t.replace(/https?:\/\/(?!help\.blotato\.com)[^\s<]+?(?=[.,;:)]?(?:\s|$|<))/g, (m) => keep(`<code class="term">${m}</code>`));
+  t = t.replace(/https?:\/\/(?!help\.blotato\.com)[^\s<]+?(?=[.,;:)]?(?:\s|$|<))/g, (m) => keep(/\/v\d+\/|\bapi\.|localhost/.test(m) ? `<code class="term">${m}</code>` : `<span class="url weblink">${m}</span>`));
   t = t.replace(/(^|[\s(])(\/v2\/[^\s<]+?)(?=[.,;:)]?(?:\s|$|<))/g, (m, a, p) => a + keep(`<code class="term">${p}</code>`));
   t = t.replace(/\bHTTP \d{3}\b/g, (m) => keep(`<code class="term">${m}</code>`));
   t = t.replace(new RegExp(`(^|[\\s(])(${STATUS})(?=[\\s.,:;)]|$)`, 'g'), (m, a, c) => a + keep(`<code class="term">${c}</code>`));
@@ -141,7 +145,11 @@ function letterText(s) {
   let t = String(s ?? '').replace(DATE, (m, d, mon, y, H, M, S) => { dates.push([m, Date.parse(`${mon} ${d}, ${y} ${H}:${M}:${S} GMT`)]); return `\u0001${dates.length - 1}\u0001`; });
   t = termify(esc(t))
     .replace(/\u0001(\d+)\u0001/g, (m, i) => { const [raw, ms] = dates[+i]; return Number.isNaN(ms) ? esc(raw) : `<span class="plain-only">${esc(when(ms))}</span><span class="tech-only">${esc(raw)}</span>`; })
-    .replace(/ \(((?:post|id) [\w-]+)\)/g, '<span class="tech-only postid"> ($1)</span>');
+    .replace(/ \(((?:post|id) [\w-]+)\)/g, '<span class="tech-only postid"> ($1)</span>')
+    .replace(/\b(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday), (\w{3}) (\d{1,2}), at (\d{1,2}):(\d\d) (am|pm) UTC\b/g, (m, mon, d, h, mi, ap) => {
+      const ms = Date.parse(`${mon} ${d}, ${new Date().getFullYear()} ${(+h % 12) + (ap === 'pm' ? 12 : 0)}:${mi}:00 GMT`);
+      return Number.isNaN(ms) ? m : `<span class="plain-only">${esc(when(ms))}</span><span class="tech-only">${m}</span>`;
+    });
   return t;
 }
 
@@ -300,6 +308,8 @@ function setTech(on, save = true) {
   document.body.classList.toggle('tech-on', on);
   for (const b of $$('[data-tech-switch]')) b.setAttribute('aria-checked', String(on));
   if (save) store.set('sd-tech', on ? '1' : '0');
+  // Before any answer is on screen, the switch says what it will show (it does something you can see).
+  if (save && !$('#ask').hidden && $('#view-practice').hidden) $('#filled').textContent = on ? 'The engineer view is on. Each answer will also show the exact links, times and checks behind it, for the people who build Blotato.' : 'The engineer view is off.';
   if (on) techHome();
   if (moment?.done) moment.layout();
 }
@@ -313,8 +323,11 @@ const EXTRA = [
   { text: 'My video won\'t post. It just says failed.', who: 'A creator in a hurry', writer: 'A creator' },
   { text: 'Banana phone purple. Does it work on Tuesdays?', who: 'A message that makes no sense', writer: 'A customer' },
 ];
-const FIRST = ['T02', 'T05', 'T01'];
+// T01's saved check can never match today's account words (its lookup changes every six hours), so it is not
+// one of the four first examples: each of those shows a clean, true checked state.
+const FIRST = ['T02', 'T05', 'T04'];
 const DEV_ORDER = ['T07', 'T11', 'T12', 'T10', 'T09', 'T06', 'T08', 'T03'];
+const CUST_ORDER = ['T01'];
 
 function exampleButton({ id, text, who, writer }) {
   return `<li><button type="button"${id ? ` data-id="${esc(id)}"` : ''} data-who="${esc(writer || who)}" aria-pressed="false"><span class="q" aria-hidden="true">&ldquo;</span><span class="t">${esc(text)}</span><span class="who">${esc(who)}</span></button></li>`;
@@ -409,7 +422,11 @@ function wholeSentences(s, max, fromEnd) {
   return (fromEnd ? out.reverse() : out).join('').trim();
 }
 const tq = (s) => termify(esc(s));
-const sentenceHTML = (page) => { const x = sentence(page); return `${tq(x.pre)}<mark>${tq(x.mark)}</mark>${tq(x.post)}`; };
+// The words around the lit part are wrapped, so a long proof can fold down to its lit sentence alone.
+const ctxHTML = (s) => (String(s || '').trim() ? `<span class="ctx">${tq(s)}</span>` : tq(s));
+const sentenceHTML = (page) => { const x = sentence(page); return `${ctxHTML(x.pre)}<mark>${tq(x.mark)}</mark>${ctxHTML(x.post)}`; };
+// A page's name beside its sentence. A long name gets its own line, so it never pushes one word onto a line alone.
+const srcHTML = (src) => `<span class="src${String(src).length > 24 ? ' long' : ''}">${esc(src)}</span>`;
 function paragraphHTML(page) {
   const t = page.text; const [s, e] = page.mark;
   const clean = (x) => tq(String(x || '').replace(/^\.\.\.\s*/, '').replace(/\s*\.\.\.$/, ''));
@@ -442,7 +459,7 @@ function rowHTML(row, quote, src) {
     const body = loose(c) === q ? `<mark>${tq(c)}</mark>` : `${tq(c)}${/[.!?]$/.test(c.trim()) ? '' : '.'}`;
     return `<span class="rc">${name}${body}</span>`;
   });
-  return `<p class="px prow">${parts.join(' ')}${src ? `<span class="src">${esc(src)}</span>` : ''}</p>`;
+  return `<p class="px prow">${parts.join(' ')}${src ? `${srcHTML(src)}` : ''}</p>`;
 }
 // The list a sentence introduces, as the page lists it. A call in brackets is for developers: it shows in the
 // details for engineers only.
@@ -465,27 +482,28 @@ function proofParts(step, r) {
       if (p.code) return { kind: 'code', compact: `${codeHTML(p.code, step.quote, false)}${plain}`, more: p.code.lines.length > (p.code.hit[1] - p.code.hit[0] + 1) ? codeHTML(p.code, step.quote, true) : '', src };
       if (cellHit) return { kind: 'row', compact: `${rowHTML(p.row, step.quote, src)}${plainLineHTML(step.quote)}`, more: '', src };
       // A sentence that ends on a colon is shown with the list it opens, so the proof never stops mid-thought.
-      if (p.list && /:\s*$/.test(`${x.mark}${x.post}`)) return { kind: 'sentence', compact: `<p class="px">${sentenceHTML(p)}</p>${listHTML(p.list)}<p class="px srcline"><span class="src">${esc(src)}</span></p>${plain}`, more: '', src };
+      if (p.list && /:\s*$/.test(`${x.mark}${x.post}`)) return { kind: 'sentence', compact: `<p class="px">${sentenceHTML(p)}</p>${listHTML(p.list)}<p class="px srcline">${srcHTML(src)}</p>${plain}`, more: '', src };
       const longer = x.pre.length + x.post.length + x.mark.length < p.text.replace(/^\.\.\.\s*|\s*\.\.\.$/g, '').length - 4;
       // The longer form replaces the sentence (it holds it), so nothing is said twice.
-      return { kind: 'sentence', compact: `<p class="px">${sentenceHTML(p)}<span class="src">${esc(src)}</span></p>${plain}`, more: longer ? `<p class="px">${paragraphHTML(p)}<span class="src">${esc(src)}</span></p>` : '', replace: longer, src };
+      return { kind: 'sentence', compact: `<p class="px">${sentenceHTML(p)}${srcHTML(src)}</p>${plain}`, more: longer ? `<p class="px">${paragraphHTML(p)}${srcHTML(src)}</p>` : '', replace: longer, src };
     }
-    return { kind: 'sentence', compact: `<p class="px"><mark>${tq(step.quote)}</mark><span class="src">${esc(src)}</span></p>${plainLineHTML(step.quote)}`, more: '', src };
+    return { kind: 'sentence', compact: `<p class="px"><mark>${tq(step.quote)}</mark>${srcHTML(src)}</p>${plainLineHTML(step.quote)}`, more: '', src };
   }
   if (step.type === 'evidence') {
     const search = r.evidence?.kind === 'docs-search';
-    const src = search ? 'a search of the help pages' : 'their account';
+    // On the practice account, the account a step looked at is made up: it says so where it is used.
+    const src = search ? 'a search of the help pages' : r.mock ? 'their account (practice data)' : 'their account';
     const at = (r.steps || []).indexOf(step);
     const first = (r.steps || []).findIndex(s => s.type === 'evidence');
-    if (first >= 0 && first < at) return { kind: 'note', compact: `<p class="px">The same look at ${search ? 'the help pages' : 'their account'} as step ${first + 1}.<span class="src">${src}</span></p>`, more: '', src };
-    return { kind: 'note', compact: `<p class="px">${esc(plainEvidence(r.evidence))}<span class="src">${src}</span></p>`, more: '', src };
+    if (first >= 0 && first < at) return { kind: 'note', compact: `<p class="px">The same look at ${search ? 'the help pages' : 'their account'} as step ${first + 1}.${srcHTML(src)}</p>`, more: '', src };
+    return { kind: 'note', compact: `<p class="px">${esc(plainEvidence(r.evidence))}${srcHTML(src)}</p>`, more: '', src };
   }
   const i = (r.steps || []).indexOf(step);
   const earlier = (r.steps || []).slice(0, i).some(s => s.type !== 'fact' && s.type !== 'evidence');
   const what = earlier ? 'The desk does this step itself too.'
     : r.escalation ? 'The desk does this step itself. It wrote a note for a person on the team, under the letter.'
       : 'The desk does this step itself, so there is no page to quote.';
-  return { kind: 'note', compact: `<p class="px">${what}${earlier ? '' : '<span class="src">no page needed</span>'}</p>`, more: '', src: '' };
+  return { kind: 'note', compact: `<p class="px">${what}${earlier ? '' : srcHTML('no page needed')}</p>`, more: '', src: '' };
 }
 
 function proofHTML(step, i, r) {
@@ -493,11 +511,12 @@ function proofHTML(step, i, r) {
   const cite = (r.check?.citations || []).find(c => c.step === n);
   const flagged = r.example?.plain?.names?.includes(n);
   const p = proofParts(step, r);
-  const srcBeside = p.kind === 'code' ? `<p class="px srcline"><span class="src">${esc(p.src)}</span></p>` : '';
+  const srcBeside = p.kind === 'code' ? `<p class="px srcline">${srcHTML(p.src)}</p>` : '';
   const tech = step.type === 'fact'
     ? `<p class="tech-only"><a class="url" href="${esc(step.url)}" target="_blank" rel="noopener">${esc(String(step.url).replace('https://', ''))}</a>${cite?.fetchedAt ? `, read ${esc(techTime(cite.fetchedAt))}` : ''}. ${cite ? (cite.found ? 'The quote is on the page.' : 'The quote is NOT on the page.') : ''}</p>`
     : step.type === 'evidence' ? `<p class="tech-only">${(r.evidence?.calls || []).map(c => `<code>${esc(cleanCall(c))}</code>`).join('<br>') || 'No call was made.'}</p>` : '';
-  return `${flagged ? `<p class="flagline">The checker named step ${n}.</p>` : ''}<div class="cmp${p.replace ? ' swap' : ''}">${p.compact}${srcBeside}</div>${p.more ? `<div class="more-of">${p.more}</div>` : ''}${tech}`;
+  // The checker's flag sits under the sentence, so the proof's first line stays level with its step.
+  return `<div class="cmp${p.replace ? ' swap' : ''}">${p.compact}${srcBeside}</div>${p.more ? `<div class="more-of">${p.more}</div>` : ''}${flagged ? `<p class="flagline">The second checker named this step.</p>` : ''}${tech}<button type="button" class="link pmore" hidden>Show more</button>`;
 }
 const cleanCall = (c) => String(c).replace(/\s*\((?:Blotato )?req(?:uest|Id)? [^)]*\)/gi, '').replace(/\s*\(request [^)]*\)/g, '');
 
@@ -541,7 +560,7 @@ function plainChecked(r) {
 }
 
 // The note for a person on the team: a short letter, with run-in labels (never small labels above the text).
-function noteHTML(r, own = true) {
+function noteHTML(r, own = true, lead = false) {
   const e = r.escalation; if (!e) return '';
   const pn = PLAIN_NOTES[r.ticket?.id] || {};
   const li = (arr, plain = []) => `<ul>${arr.map((c, k) => { const x = splitCause(c); const body = plain[k] ? `<span class="plain-only">${esc(plain[k])}</span><span class="tech-only">${termify(esc(x.text))}</span>` : termify(both(x.text)); return `<li>${body}${x.tag ? ` <span class="src-tag">(${x.tag})</span>` : ''}</li>`; }).join('')}</ul>`;
@@ -558,7 +577,7 @@ function noteHTML(r, own = true) {
       ${causes.length ? `<p><b>What I think it is:</b></p>${li(causes, pn.causes)}` : '<p><b>What I think it is.</b> Not known yet. The help pages have no answer, so I will not guess.</p>'}
       ${(e.ruledOut || []).length ? `<p><b>What I ruled out:</b></p>${li(e.ruledOut, pn.ruledOut)}` : ''}
     </div>
-    <button type="button" class="btn-quiet" data-copy="sabrina">Copy the note</button><span class="copied" data-copied="sabrina" aria-live="polite"></span>
+    <div class="note-act"><button type="button" class="${lead ? 'btn' : 'btn-quiet'}" data-copy="sabrina">Copy the note</button><span class="copied" data-copied="sabrina" aria-live="polite"></span></div>
   </section>`;
 }
 
@@ -613,16 +632,18 @@ function docEditHTML(r) {
   </section>`;
 }
 
-const SECOND = 'The second checker is a fresh AI that has not seen the desk\'s work. It read the reply with only the help pages beside it. Before that, the desk checked that every yellow sentence is really on its help page.';
+const SECOND = 'The second checker is a separate AI that did not write the reply and has not seen the desk\'s work. It read the reply with only the help pages beside it. Before that, the desk checked that every yellow sentence is really on its help page.';
 // The verdict: a heading and one line. The longer story waits behind "How was it checked?".
 let discN = 0;
 const disclose = (label, body) => { const id = `disc${++discN}`; return `<button type="button" class="link disc" aria-expanded="false" aria-controls="${id}">${label}</button><div class="disc-body" id="${id}" hidden>${body}</div>`; };
-function verdictHTML(r, st) {
+function verdictHTML(r, st, typed = false) {
   const f = r.fresh || {};
   const at = f.checkedAt ? dayAt(f.checkedAt) : '';
   if (st === 'checked') {
     const notes = (f.notes || []).length;
-    return `<div class="verdict" style="--tone: var(--pass)"><b>Checked. Safe to send.</b><p class="v1">A second checker passed these exact words${at ? ` on ${esc(at)}` : ''}.</p>${disclose('How was it checked?', `<p>${SECOND} The desk found this answer live just now. The second checker read the same words earlier.${notes ? ` It left ${notes === 1 ? 'one small note' : `${notes} small notes`}, which the details for engineers show.` : ''}</p>`)}</div>`;
+    // A typed message gets a reply the desk has given before. Say plainly what the check covers: the reply's words.
+    const what = typed ? `A second checker passed this exact reply${at ? ` on ${esc(at)}` : ''}. The desk gives this same reply to messages like this one, so the check is for the reply's words, not for the customer's.` : `A second checker passed these exact words${at ? ` on ${esc(at)}` : ''}.`;
+    return `<div class="verdict" style="--tone: var(--pass)"><b>Checked. Safe to send.</b><p class="v1">${what}</p>${disclose('How was it checked?', `<p>${SECOND} The desk found this answer live just now. The second checker read the same words earlier.${notes ? ` It left ${notes === 1 ? 'one small note' : `${notes} small notes`}, which the engineer view shows.` : ''}</p>`)}</div>`;
   }
   if (st === 'stopped') {
     const plain = r.example?.plain;
@@ -630,9 +651,9 @@ function verdictHTML(r, st) {
     const more = plain?.more || [];
     return `<div class="verdict" style="--tone: var(--block)"><b>Stopped. Do not send this one.</b><p class="v1">${esc(why)}</p>${more.length ? disclose('What else did it find?', `<ul>${more.map(m => `<li>${esc(m)}</li>`).join('')}</ul><p>A second checker read this exact reply${at ? ` on ${esc(at)}` : ''}. ${SECOND}</p>`) : ''}</div>`;
   }
-  if (st === 'saved') return '<div class="verdict" style="--tone: var(--draft)"><b>Not checked in this form.</b><p class="v1">This reply changed after it was checked. Have it checked again before you send it.</p></div>';
+  if (st === 'saved') return `<div class="verdict" style="--tone: var(--draft)"><b>Checked, then one line changed.</b><p class="v1">A second checker read this reply${at ? ` on ${esc(at)}` : ''}. Since then, today's look at their account changed the line about their posts, so read that line yourself before you send it.</p></div>`;
   if (st === 'refused') return '';
-  return '<div class="verdict" style="--tone: var(--draft)"><b>Not checked yet.</b><p class="v1">No second checker has read this reply yet. Read it yourself before you send it.</p></div>';
+  return '<div class="verdict" style="--tone: var(--draft)"><b>Not checked yet.</b><p class="v1">The desk wrote this. A second checker has not read it yet, so there is no stamp. Read it yourself before you send it.</p></div>';
 }
 
 // The technical view: real calls, statuses, dates and the checkers' notes. No internal ids, no tool names, no enum keys.
@@ -683,7 +704,7 @@ function techHTML(r) {
   const searched = (r.evidence?.searched || []).filter(q => !q.offline).map(q => `<li><span class="what">"${esc(q.query)}"</span><span class="meta">${q.results.slice(0, 4).map(x => esc(x.title || x.url)).join(', ') || 'no results'}</span></li>`).join('');
   const fstate = { passed: `Passed this exact text${f.checkedAt ? ` on ${esc(techTime(f.checkedAt))}` : ''}.`, blocked: `Stopped this exact text${f.checkedAt ? ` on ${esc(techTime(f.checkedAt))}` : ''}.`, 'passed-saved': `Passed an earlier copy${f.checkedAt ? ` on ${esc(techTime(f.checkedAt))}` : ''}. Today's account lookup changed some words, so this text has not been read.`, stale: 'Its verdict is for an older text.', none: 'Not read yet.' }[f.state || 'none'] || 'Not read yet.';
   return `<section class="tech" aria-labelledby="tech-h">
-    <h2 id="tech-h">Details for engineers</h2>
+    <h2 id="tech-h">The engineer view</h2>
     <dl class="kv">
       <dt>Account data</dt><dd>${r.mock ? 'Sample data, no account connected' : 'Live, read-only'}</dd>
       ${whyOf(r) ? `<dt>Why it went to a person</dt><dd><code>${esc(whyOf(r))}</code>${r.route?.reason || r.match?.reason ? ` ${esc(String(r.route?.reason || r.match?.reason).replace(/\s*\(words: [^)]*\)/, ''))}` : ''}</dd>` : ''}
@@ -709,10 +730,12 @@ function shellHTML(meta, r) {
   const st = stateOf(r);
   const line = r.example ? PLAIN_STOPPED : (r.ticket?.id && PLAIN_LINES[r.ticket.id]) || null;
   const person = st !== 'refused' && !line ? personReason(r) : null;
-  const by = meta.who ? `${meta.who} wrote this.` : 'The customer wrote this.';
+  // A sample message is labeled as one where it is shown (the founder's test, round 4).
+  const sample = (!!meta.body?.id || !!meta.example) && !meta.demo;
+  const by = `${meta.who ? `${meta.who} wrote this.` : 'The customer wrote this.'}${sample ? ' It is made up, on a practice account.' : ''}`;
   return `<div class="result-in" id="result-in">
     <div class="said">
-      <div><blockquote id="said-q">${esc(meta.text)}</blockquote><p class="by" id="said-by">${esc(by)}${meta.demo ? ' <b class="demo-say" id="demo-say">This is an example. Watch the desk answer it.</b>' : ''}</p></div>
+      <div><blockquote id="said-q">${esc(meta.text)}</blockquote><button type="button" class="link said-more" id="said-more" aria-expanded="false" aria-controls="said-q" hidden>Show the whole message</button><p class="by" id="said-by">${esc(by)}${meta.demo ? ' <b class="demo-say" id="demo-say">This is a made-up example. Watch the desk answer it.</b>' : ''}</p></div>
       <div class="said-btns">
         ${meta.demo ? '<button type="button" class="btn-quiet" id="demo-skip2">Skip the example</button>' : '<button type="button" class="btn-quiet back" id="back">New message</button><button type="button" class="skip-btn" id="skip-btn">Skip to the answer</button>'}
       </div>
@@ -734,19 +757,23 @@ function stageHTML(r) {
     const cands = (r.route?.candidates || []).filter(c => c.title && c.phrasing).slice(0, 3);
     const nonsense = whyOf(r) === 'nonsense';
     const note = !!r.escalation && !nonsense;
+    // Two parts side by side (round 5): the letter that says why, and beside it the note for a person on the team
+    // with its one "Copy the note" button (the main job here), or, with no note, a message to try instead.
+    const tryBtn = `<button type="button" class="try" data-ask="${esc(TRY_THIS)}"><span class="q" aria-hidden="true">&ldquo;</span><span>${esc(TRY_THIS)}</span><span class="hint">Press to try it</span></button>`;
+    const tryCard = `<p class="rr"><b>Or try a message like this one.</b></p>${tryBtn}`;
     return { cls: 'single refusal', html: `
       <article class="letter away" id="letter" aria-labelledby="letter-h">
         <div class="lh">
           <h2 id="letter-h">${esc(refusalTitle(r))}</h2>
           <p class="rr unw" data-write>${esc(refusalReason(r))}${guessing(r) ? ' A wrong answer can hurt a customer more than a slow one.' : ''}</p>
-          ${note ? '<p class="rr unw" data-write><b>Who gets it next.</b> A person on the support team. The desk wrote them a note with what it looked for. Copy it and pass it on.</p>' : ''}
-          <div class="actions refusal-actions away" data-pop>${note ? '<button type="button" class="btn" data-copy="sabrina">Copy the note</button><button type="button" class="btn-quiet" id="reword-btn">Say it another way</button><span class="copied" data-copied="sabrina" aria-live="polite"></span>' : '<button type="button" class="btn" id="reword-btn">Say it another way</button>'}</div>
+          ${note ? '<p class="rr unw" data-write><b>Who gets it next.</b> A person on the support team. The desk wrote them a note, and it is on this page, ready to copy and pass on.</p>' : ''}
+          <div class="actions refusal-actions away" data-pop><button type="button" class="${note ? 'btn-quiet' : 'btn'}" id="reword-btn">Say it another way</button></div>
           <p class="rr unw" data-write><b>What the desk knows.</b> It can answer questions about posting, scheduling, accounts, plans and error messages.</p>
           ${cands.length ? `<p class="rr unw" data-write><b>Did they mean one of these?</b></p><div class="chips away" data-pop>${cands.map(c => `<button type="button" class="chip" data-ask="${esc(c.phrasing)}">${esc(dash(c.title))}</button>`).join('')}</div>` : ''}
-          <p class="rr unw" data-write><b>Or try a message like this one.</b></p>
-          <button type="button" class="try away" data-pop data-ask="${esc(TRY_THIS)}"><span class="q" aria-hidden="true">&ldquo;</span><span>${esc(TRY_THIS)}</span><span class="hint">Press to try it</span></button>
+          ${note ? `<div class="away" data-pop>${tryCard}</div>` : ''}
         </div>
-      </article>` };
+      </article>
+      <aside class="refusal-side away" data-pop>${note ? noteHTML(r, false, true) : `<section class="note try-card" aria-labelledby="try-h"><h3 id="try-h">Or try a message like this one</h3>${tryBtn}</section>`}</aside>` };
   }
   const seal = sealOf(st);
   const stamp = seal ? `<div class="stamp-slot" aria-hidden="false"><div class="stamp away" data-tone="${seal}">${postmark(seal, { date: r.fresh?.checkedAt, label: `${STAMPS[seal].label}${r.fresh?.checkedAt ? ` Read on ${dayAt(r.fresh.checkedAt)}.` : ''}` })}</div></div>` : '';
@@ -761,7 +788,7 @@ function stageHTML(r) {
   }).join('');
   const proofs = steps.map((s, i) => `<div class="proof away${flags.includes(i + 1) ? ' flag' : ''}" id="proof-${i + 1}" data-i="${i}"><span class="sr-only">Proof for step ${i + 1}. </span>${proofHTML(s, i, r)}</div>`).join('');
   return { cls: '', html: `
-    <article class="letter away" id="letter" aria-labelledby="letter-h">
+    <article class="letter" id="letter" aria-labelledby="letter-h">
       <div class="lh"><h2 id="letter-h">${title}</h2>${hi ? `<p class="hi">${letterText(hi)}</p>` : ''}<div class="head unw" data-write>${rest.map(p => `<p>${letterText(p)}</p>`).join('')}</div></div>
       <div class="steps">${stepsHTML}</div>
       <div class="ltail">${stamp}<div class="tail-text unw" data-write>${tailHTML(tail, r)}</div></div>
@@ -776,7 +803,7 @@ function stageHTML(r) {
 
 // After the letter: the verdict and the main button (beside the stamp on wide screens, under the letter on a
 // phone), then the notes for a person and the details for engineers.
-function closingHTML(r, st) {
+function closingHTML(r, st, typed = false) {
   const single = st === 'refused';
   const nonsense = whyOf(r) === 'nonsense';
   let actions = '';
@@ -784,15 +811,17 @@ function closingHTML(r, st) {
     actions = `<button type="button" class="btn" id="fixed-btn">See the fixed reply</button>
       <p class="why-line">The desk will not let you copy a reply the checker stopped.</p>`;
   } else if (!single && r.escalation && !nonsense) {
-    // A hand-over: passing the note on is the main job, so its button leads. The reply goes to the customer too.
-    actions = `<button type="button" class="btn" data-copy="sabrina">Copy the note</button><button type="button" class="btn-quiet" data-copy="reply">Copy the reply</button><span class="copied" data-copied="sabrina" aria-live="polite"></span><span class="copied" data-copied="reply" aria-live="polite"></span>
-      <p class="why-line">Pass the note to a person on the team, and send the reply to the customer. The desk never sends anything itself.</p>`;
+    // A reply and a note: the reply is the page's main job, so its button leads. The note has its own quiet
+    // button, once, on the note itself.
+    actions = `<button type="button" class="btn" data-copy="reply">Copy the reply</button><span class="copied" data-copied="reply" aria-live="polite"></span>
+      <p class="why-line">Send the reply to the customer. The note under the letter goes to a person on the team. The desk never sends anything itself.</p>`;
   } else if (!single) {
     actions = `<button type="button" class="btn" data-copy="reply">Copy the reply</button><span class="copied" data-copied="reply" aria-live="polite"></span>
       <p class="why-line">The desk never sends anything. You copy the reply and send it yourself.</p>`;
   }
-  const notes = nonsense ? '' : `${noteHTML(r, !single)}${docEditHTML(r)}`;
-  const verdict = verdictHTML(r, st);
+  // A hand-over with no reply keeps its note beside the letter (stageHTML); the help-page fix stays below.
+  const notes = nonsense ? '' : `${single ? '' : noteHTML(r, true, false)}${docEditHTML(r)}`;
+  const verdict = verdictHTML(r, st, typed);
   return {
     closing: verdict || actions ? `<div class="closing${single ? ' single' : ''}" id="closing">${verdict}${actions ? `<div class="actions">${actions}</div>` : ''}</div>` : '',
     rest: `${notes ? `<div class="notes">${notes}</div>` : ''}${techHTML(r)}`,
@@ -911,16 +940,37 @@ class Moment {
     }
     for (const p of proofs) if (p.parentElement !== box || p !== box.children[proofs.indexOf(p)]) box.append(p);
     if (closing && closing.parentElement !== side) side.append(closing);
-    const br = box.getBoundingClientRect();
-    let y = 0;
-    for (const p of proofs) {
-      const s = $(`.lstep[data-i="${p.dataset.i}"] .txt`, stage);
-      const want = s ? s.getBoundingClientRect().top - br.top - 12 : y;
-      const top = Math.round(Math.max(want, y));
-      p.style.top = `${top}px`;
-      y = top + p.offsetHeight + 14;
+    // One shared row per step and its proof (round 5). Each proof's first line is level with its step's first
+    // line. When a proof is taller than its step, the next step moves down by the difference, but never by more
+    // than FOLD_AT: a longer proof folds to its lit sentence (then without its plain line) with "Show more".
+    const allOpen = stage.classList.contains('all-open');
+    const rows = proofs.map(p => ({ p, s: $(`.lstep[data-i="${p.dataset.i}"]`, stage) })).filter(x => x.s);
+    // "Show more" sits on the source's line, so folding never adds a line of its own
+    for (const { p } of rows) { const pm = $(':scope > .pmore', p); const src = $$('.cmp .src', p).at(-1); if (pm && src) src.after(pm); }
+    for (const { p, s } of rows) { s.style.marginBottom = ''; p.classList.remove('fold1', 'fold2'); }
+    const lineMid = (el) => { const lh = parseFloat(getComputedStyle(el).lineHeight); return el.getBoundingClientRect().top + (Number.isNaN(lh) ? 12 : lh / 2); };
+    const firstLine = (p) => $('.px, .pcode, .prow', p) || p;
+    for (const [k, { p, s }] of rows.entries()) {
+      const last = k === rows.length - 1;
+      // the space below this step that keeps its proof clear of the next one (10 px apart)
+      const extra = () => p.offsetHeight + 10 - s.offsetHeight;
+      if (!allOpen && !p.classList.contains('open')) {
+        if (extra() - 6 > FOLD_AT) p.classList.add('fold1');
+        if (extra() - 6 > FOLD_AT) p.classList.add('fold2');
+      }
+      const folded = p.classList.contains('fold1') && !allOpen && !p.classList.contains('open');
+      const more = $('.pmore', p); if (more) more.hidden = !folded;
+      if (!last) s.style.marginBottom = `${Math.max(6, Math.round(extra()))}px`;
     }
-    box.style.height = `${Math.max(0, y - 14)}px`;
+    const br = box.getBoundingClientRect();
+    for (const { p, s } of rows) {
+      const t = $('.txt', s);
+      p.style.top = `${Math.round(t.getBoundingClientRect().top - br.top - 8)}px`;
+      const d = lineMid(t) - lineMid(firstLine(p));
+      if (Math.abs(d) > 0.5) p.style.top = `${Math.round(parseFloat(p.style.top) + d)}px`;
+    }
+    const lastP = rows.at(-1)?.p;
+    box.style.height = lastP ? `${Math.max(0, lastP.offsetTop + lastP.offsetHeight)}px` : '0px';
     // The verdict starts beside the stamp (the letter's last part), or right after the last proof.
     const tail = $('.ltail', stage).getBoundingClientRect().top;
     side.style.marginTop = '0px';
@@ -935,11 +985,12 @@ class Moment {
     const sr = stage.getBoundingClientRect(); const lr = $('#letter', stage).getBoundingClientRect();
     svg.setAttribute('width', sr.width); svg.setAttribute('height', sr.height); svg.setAttribute('viewBox', `0 0 ${sr.width} ${sr.height}`);
     const was = new Map($$('.wire', svg).map(g => [g.dataset.i, g.getAttribute('class')]));
+    const mid = (el) => { const lh = parseFloat(getComputedStyle(el).lineHeight); return el.getBoundingClientRect().top + (Number.isNaN(lh) ? 12 : lh / 2); };
     const pairs = $$('.lstep', stage).map(s => {
       const i = s.dataset.i; const p = $(`.proof[data-i="${i}"]`, stage); if (!p) return null;
-      const t = $('.txt', s).getBoundingClientRect(); const first = $('.px, .pcode, .prow', p) || p;
-      const fr = first.getBoundingClientRect(); const pr = p.getBoundingClientRect();
-      return { s, i, x1: lr.right - sr.left + 2, y1: t.top - sr.top + 15, x2: pr.left - sr.left + 2, y2: fr.top - sr.top + 13 };
+      const first = $('.px, .pcode, .prow', p) || p;
+      const pr = p.getBoundingClientRect();
+      return { s, i, x1: lr.right - sr.left + 2, y1: Math.round(mid($('.txt', s)) - sr.top), x2: pr.left - sr.left + 2, y2: Math.round(mid(first) - sr.top) };
     }).filter(Boolean);
     // A proof pushed down by the ones above it gets a connector that drops in its own lane. Later steps take the
     // lanes nearer the letter, so no two connectors ever cross or run on top of each other.
@@ -969,9 +1020,11 @@ class Moment {
     dot.style.visibility = '';
   }
 
-  // The help page the desk read. Wide: it lies large where the letter will be, its sentence is highlighted, then it
-  // docks in the margin exactly where the proof will rest. Phone: it lies on the letter's place, then folds down
-  // to the sentence, which settles under step 1.
+  // The help page the desk read (round 5). It opens where its sentence will rest: the lit sentence sits exactly
+  // on its proof's place from the first frame, the page around it as large as the room allows. Wide: in the
+  // margin, the sentence scaled up so the sweep is big. Phone: under step 1, at its own size. Then the page folds
+  // away round the sentence, a whole line at a time, and the sentence settles to its proof's size where it is.
+  // Nothing slides across the paper.
   sheet(i) {
     const stage = $('#stage', this.root);
     const proof = $(`.proof[data-i="${i}"]`, stage);
@@ -980,77 +1033,93 @@ class Moment {
     if (!target) return null;
     const W = wide();
     const sr = stage.getBoundingClientRect(); const tr = target.getBoundingClientRect();
-    const lr = $('#letter', stage).getBoundingClientRect();
     const tw = tr.width; const th = tr.height;
-    const k = W ? Math.min(1.36, Math.max(1.1, (Math.min(lr.width, 620) - 56) / tw)) : 1;
+    const pad = W ? { t: 22, r: 24, b: 24, l: 28 } : { t: 12, r: 14, b: 14, l: 14 };
+    // As big as the room to the right of the sentence's place allows, never past the screen's edge.
+    const k = W ? Math.max(1, Math.min(1.34, (innerWidth - 28 - pad.r - tr.left) / tw)) : 1;
+    // The highest the page may reach: the stage's top when wide; under the letter's greeting on a phone.
+    const lim = W ? 0 : ($('.letter .head', stage) || $('.letter .lh', stage)).getBoundingClientRect().bottom - sr.top + 6;
     const x = p.found && p.mark ? sentence(p) : { pre: '', mark: step.quote, post: '' };
     const [s0] = p.mark || [0];
     const cut = p.found && p.mark ? p.text.slice(0, s0).length - x.pre.length : 0;
-    const before = p.found && !this.noBefore ? wholeSentences(`${p.before || ''} ${p.text.slice(0, cut)}`, W ? 150 : 90, true) : '';
-    const after = p.found ? wholeSentences(`${p.text.slice(s0 + x.mark.length + x.post.length)} ${p.after || ''}`, W ? 170 : 100, false) : '';
+    const beforeAll = `${p.before || ''} ${p.found ? p.text.slice(0, cut) : ''}`;
+    const after = p.found ? wholeSentences(`${p.text.slice(s0 + x.mark.length + x.post.length)} ${p.after || ''}`, W ? 230 : 110, false) : '';
     const s = document.createElement('div');
     s.className = 'sheet'; s.setAttribute('aria-hidden', 'true');
-    s.innerHTML = `<div class="sh-top"><p class="sh-title">${both(dash(p.title || 'Help page'))}</p><span class="sh-site">Blotato help</span></div>${p.heading ? `<p class="sh-head">${both(dash(p.heading))}</p>` : ''}${before ? `<p class="sh-ctx">${tq(before)}</p>` : ''}<div class="slot" style="width:${tw * k}px;height:${th * k}px;position:relative"></div>${after ? `<p class="sh-ctx sh-after">${tq(after)}</p>` : ''}`;
     const strip = document.createElement('div');
     strip.className = 'strip';
     strip.innerHTML = target.outerHTML;
+    // the strip is the proof's own first line as it will rest (a folded proof shows only its lit part)
+    if (proof.classList.contains('fold1') && !proof.classList.contains('open')) for (const c of $$('.ctx', strip)) c.remove();
     for (const src of $$('.src', strip)) src.style.visibility = 'hidden';
     strip.style.cssText = `position:absolute;left:0;top:0;width:${tw}px;transform:scale(${k});transform-origin:0 0;`;
     if (proof.classList.contains('flag')) strip.classList.add('flag');
-    $('.slot', s).append(strip);
-    s.style.visibility = 'hidden';
-    const padX = W ? 28 : 14;
-    s.style.width = `${tw * k + padX * 2}px`;
-    s.style.padding = W ? '26px 28px 28px' : '14px 14px 16px';
+    s.style.cssText = `visibility:hidden;width:${tw * k + pad.l + pad.r}px;padding:${pad.t}px ${pad.r}px ${pad.b}px ${pad.l}px;`;
     stage.append(s);
-    const slot = $('.slot', s).getBoundingClientRect(); const box = s.getBoundingClientRect();
-    const ox = slot.left - box.left; const oy = slot.top - box.top;
-    // It lies where the letter will be, centered on the letter's place.
-    const left = W ? (lr.left - sr.left) + Math.max(0, (lr.width - box.width) / 2) : (tr.left - sr.left) - ox;
-    s.style.left = `${left}px`; s.style.top = '0px';
+    // Fill the page above the sentence with as much of the page as fits under the limit.
+    let ox = 0; let oy = 0;
+    const tries = W ? [[300, true], [230, true], [170, true], [120, true], [80, true], [0, true], [0, false]] : [[110, true], [60, true], [0, true], [0, false]];
+    for (const [n, head] of tries) {
+      const before = n && p.found ? wholeSentences(beforeAll, n, true) : '';
+      s.innerHTML = `<div class="sh-top"><p class="sh-title">${both(dash(p.title || 'Help page'))}</p><span class="sh-site">Blotato help</span></div>${head && p.heading ? `<p class="sh-head">${both(dash(p.heading))}</p>` : ''}${before ? `<p class="sh-ctx">${tq(before)}</p>` : ''}<div class="slot" style="width:${tw * k}px;height:${th * k}px;position:relative"></div>${after ? `<p class="sh-ctx sh-after">${tq(after)}</p>` : ''}`;
+      const slot = $('.slot', s).getBoundingClientRect(); const box = s.getBoundingClientRect();
+      ox = slot.left - box.left; oy = slot.top - box.top;
+      if ((tr.top - sr.top) - oy >= lim) break;
+    }
+    $('.slot', s).append(strip);
+    const left = (tr.left - sr.left) - ox; const top = (tr.top - sr.top) - oy;
+    s.style.left = `${left}px`; s.style.top = `${top}px`;
     s.style.visibility = '';
-    this.sh = { el: s, strip, target, proof, k, ox, oy, w: box.width, h: box.height, left, tw, th };
+    const box = s.getBoundingClientRect();
+    this.sh = { el: s, strip, target, proof, k, ox, oy, w: box.width, h: box.height, tw, th };
     return s;
   }
 
   async sheetIn() {
     const s = this.sh; if (!s) return;
-    await this.anim(s.el, [{ clipPath: 'inset(0 0 100% 0 round 14px)' }, { clipPath: 'inset(0 0 0 0 round 14px)' }], { duration: 280, easing: EASE_OUT });
+    await this.anim(s.el, [{ clipPath: 'inset(0 0 100% 0 round 14px)' }, { clipPath: 'inset(0 0 0 0 round 14px)' }], { duration: 260, easing: EASE_OUT });
   }
 
-  // Wide: the page docks in the margin, shrinking so its sentence lands exactly on its proof's place.
-  async dock() {
-    const s = this.sh; if (!s) return;
-    const stage = $('#stage', this.root);
-    const sr = stage.getBoundingClientRect(); const tr = s.target.getBoundingClientRect();
-    const sc = 1 / s.k;
-    const dx = (tr.left - sr.left) - s.left - s.ox * sc;
-    const dy = (tr.top - sr.top) - 0 - s.oy * sc;
-    s.el.style.transformOrigin = '0 0';
-    this.mark('dock');
-    await this.anim(s.el, [{ transform: 'none' }, { transform: `translate(${dx}px, ${dy}px) scale(${sc})` }], { duration: T.dock, easing: EASE_OUT, fill: 'forwards' });
-    s.docked = `translate(${dx}px, ${dy}px) scale(${sc})`;
-  }
-
-  // The page folds down to its one sentence, which is now the proof. Then the real proof takes its place.
+  // The page folds away round its sentence. First the lines above and below go, one whole line at a time (a
+  // line is never cut through its middle); then the sentence settles to its proof's size in its own place.
   async fold() {
     const s = this.sh; if (!s) return;
-    const W = wide();
-    const k = s.k; const px = 16 * k; const py = 12 * k;
-    const r = 14 * k;
-    const to = `inset(${Math.max(0, s.oy - py)}px ${Math.max(0, s.w - s.ox - s.tw * k - px)}px ${Math.max(0, s.h - s.oy - s.th * k - py)}px ${Math.max(0, s.ox - px)}px round ${r}px)`;
-    if (W) {
-      await this.anim(s.el, [{ clipPath: `inset(0 0 0 0 round ${r}px)`, transform: s.docked }, { clipPath: to, transform: s.docked }], { duration: T.fold, easing: EASE_OUT, fill: 'forwards' });
+    const { el, strip, k, ox, oy, w, h, tw, th } = s;
+    const er = el.getBoundingClientRect();
+    const lines = [];
+    for (const e of $$('*', el)) {
+      if (strip.contains(e)) continue;
+      for (const n of e.childNodes) {
+        if (n.nodeType !== 3 || !n.textContent.trim()) continue;
+        const range = document.createRange(); range.selectNodeContents(n);
+        for (const r of range.getClientRects()) if (r.height > 2) lines.push({ t: r.top - er.top, b: r.bottom - er.top });
+      }
+    }
+    const sTop = oy - 8; const sBot = oy + th * k + 8;
+    // the clip's top edge steps down past each line above the sentence; its bottom edge steps up past each below
+    const tops = [...new Set(lines.filter(l => l.b <= oy + 1).map(l => Math.ceil(l.b + 1)))].sort((a, b) => a - b).filter(v => v < sTop);
+    const bots = [...new Set(lines.filter(l => l.t >= oy + th * k - 1).map(l => Math.floor(l.t - 1)))].sort((a, b) => b - a).map(v => h - v).filter(v => v < h - sBot);
+    const n = Math.max(tops.length, bots.length) + 1;
+    const at = (arr, j, last) => (j < arr.length ? arr[j] : last);
+    const kf = [{ clipPath: 'inset(0px 0px 0px 0px round 14px)', easing: 'steps(1, end)' }];
+    for (let j = 0; j < n; j++) kf.push({ clipPath: `inset(${j === n - 1 ? sTop : at(tops, j, sTop)}px 0px ${j === n - 1 ? h - sBot : at(bots, j, h - sBot)}px 0px round 14px)`, easing: 'steps(1, end)' });
+    kf.push({ ...kf.at(-1) });
+    this.mark('fold');
+    await this.anim(el, kf, { duration: Math.min(280, 55 * n + 50), easing: 'linear', fill: 'forwards' });
+    if (this.dead) return;
+    // Only the sentence is left. It settles to its proof's size where it is (its top left corner holds still).
+    const clipAt = (sc) => `inset(${sTop}px ${Math.max(0, w - ox - tw * sc - 14)}px ${Math.max(0, h - oy - th * sc - 8)}px ${Math.max(0, ox - 14)}px round 14px)`;
+    if (k > 1.001) {
+      await Promise.all([
+        this.anim(el, [{ clipPath: clipAt(k) }, { clipPath: clipAt(1) }], { duration: T.fold, easing: EASE_OUT, fill: 'forwards' }),
+        this.anim(strip, [{ transform: `scale(${k})` }, { transform: 'scale(1)' }], { duration: T.fold, easing: EASE_OUT, fill: 'forwards' }),
+      ]);
     } else {
-      // Phone: fold to the sentence and set it down under step 1, in one move.
-      const stage = $('#stage', this.root);
-      const sr = stage.getBoundingClientRect(); const tr = s.target.getBoundingClientRect();
-      const dy = (tr.top - sr.top) - s.oy;
-      await this.anim(s.el, [{ clipPath: `inset(0 0 0 0 round ${r}px)`, transform: 'none' }, { clipPath: to, transform: `translateY(${dy}px)` }], { duration: T.fold + 100, easing: EASE_OUT, fill: 'forwards' });
+      await this.anim(el, [{ clipPath: clipAt(1).replace(/inset\(([^ ]+) [^ ]+ ([^ ]+) [^ ]+/, 'inset($1 0px $2 0px') }, { clipPath: clipAt(1) }], { duration: 140, easing: EASE_OUT, fill: 'forwards' });
     }
     if (this.dead) return;
     s.proof.classList.remove('away');
-    s.el.remove(); this.sh = null;
+    el.remove(); this.sh = null;
     this.mark('settled');
   }
 
@@ -1062,19 +1131,11 @@ class Moment {
     await this.anim(proof, [{ clipPath: 'inset(0 0 100% 0 round 14px)' }, { clipPath: 'inset(0 0 0 0 round 14px)' }], { duration: T.proofIn, easing: EASE_OUT });
   }
 
-  // On a phone, keep the line being written in view, unless the visitor has scrolled on their own.
-  follow(el, pad = 28) {
-    if (wide() || this.fast || this.userScrolled || !el) return;
-    const r = el.getBoundingClientRect();
-    if (r.bottom > innerHeight - pad) { this.selfScroll = true; scrollTo({ top: scrollY + (r.bottom - innerHeight + pad), behavior: 'smooth' }); setTimeout(() => { this.selfScroll = false; }, 450); }
-  }
-
   // The stamp is pressed once, as one piece: it comes down onto the letter with weight, and the paper gives a little.
   async press(stamp) {
     if (!stamp) return;
     stamp.classList.remove('away');
     if (this.fast) return;
-    this.follow(stamp, 20);
     // It comes straight down in its own place (only a slight turn and size), so it never passes over the words beside it.
     await this.anim(stamp, [{ transform: 'rotate(-10deg) scale(1.045)' }, { transform: 'rotate(-7deg) scale(1)' }], { duration: T.thud, easing: EASE_IN });
     this.mark('stampLanded');
@@ -1089,7 +1150,7 @@ class Moment {
     const built = stageHTML(r);
     stage.className = `stage ${built.cls}`.trim();
     stage.innerHTML = built.html;
-    const c = closingHTML(r, st);
+    const c = closingHTML(r, st, !this.meta.body?.id && !this.meta.example);
     $('#after', root).innerHTML = `${c.closing}${c.rest}`;
     const cl = $('#closing', root); if (cl) cl.classList.add('away');
     $('#after', root).classList.add('held');
@@ -1101,9 +1162,10 @@ class Moment {
     const f = r.fresh || {};
     this.texts = {
       read: pages ? (pages === 1 ? "Read Blotato's help page" : `Read ${pages} of Blotato's help pages`) : searched ? "Looked through Blotato's help pages" : 'No help page was needed',
-      account: 'Looked at their account',
+      // on the practice account, the account is made up: the line says so where it is used
+      account: r.mock ? 'Looked at the practice account' : 'Looked at their account',
       write: st === 'refused' ? (whyOf(r) === 'nonsense' ? 'Wrote no reply' : guessing(r) ? 'Wrote no reply. It will not guess.' : 'Wrote no reply') : `Wrote ${(r.steps || []).length} steps`,
-      check: whyOf(r) === 'nonsense' ? 'Asked for a clearer message' : { checked: `A second checker passed it${f.checkedAt ? `, ${day(f.checkedAt)}` : ''}`, stopped: 'A second checker stopped it', saved: 'Changed after its second check', draft: 'No second check yet', refused: 'A person on the team will take it' }[st],
+      check: whyOf(r) === 'nonsense' ? 'Asked for a clearer message' : { checked: `A second checker passed it${f.checkedAt ? `, ${day(f.checkedAt)}` : ''}`, stopped: 'A second checker stopped it', saved: 'Checked, then one line changed', draft: 'Not read by a second checker yet', refused: 'A person on the team will take it' }[st],
     };
     this.tick('read', 'pending', this.texts.read);
     if (called && st !== 'refused') this.tick('account', 'pending', this.texts.account);
@@ -1129,45 +1191,50 @@ class Moment {
     await this.lifting;
     this.mark('frame');
     if (this.dead) return;
-    const W = wide();
-    const sheet = firstFact >= 0 ? this.sheet(firstFact) : null;
-    if (sheet) {
-      // 1. The help page, large, where the letter will be. Its sentence is highlighted.
-      await this.sheetIn();
-      this.mark('sweep');
-      await this.sweep($('mark', this.sh.strip));
-      this.tick('read', 'done', this.texts.read);
-      await this.wait(T.hold);
-      // 2. Wide: it docks in the margin, still lit. Phone: it folds to its sentence, under step 1.
-      if (W) { await this.dock(); if (firstFact !== 0) await this.fold(); }
-      else { letter.classList.add('quiet'); letter.classList.remove('away'); await this.fold(); }
-    } else {
-      await this.wait(200);
-      this.tick('read', 'done', this.texts.read);
-    }
-    if (this.dead) return;
-
-    // 3. The letter opens with its first words already going on.
-    letter.classList.remove('quiet');
-    if (letter.classList.contains('away')) {
+    if (st === 'refused') {
       letter.classList.remove('away');
       this.anim(letter, [{ transform: 'translateY(18px)' }, { transform: 'none' }], { duration: 300, easing: EASE_OUT });
-    }
-    this.mark('letter');
-    if (st === 'refused') {
-      this.tick('write', 'stop');
+      await this.wait(200);
+      this.tick('read', 'done', this.texts.read);
+      this.mark('letter');
+      // Not writing a reply is the right move here, not a failure: a plain mark, never a red cross.
+      this.tick('write', 'neutral');
       for (const el of $$('[data-write], [data-pop]', stage)) {
         if (el.hasAttribute('data-pop')) { el.classList.remove('away'); continue; }
         await this.write(el, { per: 12, cap: 260 });
       }
-      this.tick('check', 'needs');
+      this.tick('check', whyOf(r) === 'nonsense' ? 'neutral' : 'needs');
       return this.finish();
     }
-    const head = this.write($('.head', stage), { per: 10, cap: 160 });
-    this.write($('.mh', stage), { per: 8, cap: 200 });
-    await this.wait(40);
+    // The letter is on the page from the first frame, in its final place (its heading and greeting only).
+    this.mark('letter');
+    const sheet = firstFact >= 0 ? this.sheet(firstFact) : null;
+    let head;
+    if (sheet) {
+      // 1. The help page opens where its sentence will rest, and the sentence is highlighted, big.
+      await this.sheetIn();
+      this.mark('sweep');
+      head = this.write($('.head', stage), { per: 10, cap: 160 });
+      await this.sweep($('mark', this.sh.strip));
+      this.tick('read', 'done', this.texts.read);
+      await this.wait(T.hold);
+      // 2. It folds away round its sentence, which is now the proof.
+      $(`.proof[data-i="${firstFact}"]`, stage)?.classList.add('on');
+      const folding = this.fold();
+      await this.wait(160);
+      this.write($('.mh', stage), { per: 8, cap: 200 });
+      await folding;
+    } else {
+      head = this.write($('.head', stage), { per: 10, cap: 160 });
+      await this.wait(200);
+      this.tick('read', 'done', this.texts.read);
+    }
+    if (this.dead) return;
+    if (!sheet) this.write($('.mh', stage), { per: 8, cap: 200 });
+    await head;
 
-    // 4. The steps, each with its proof. Step 1 is written beside its still-lit page.
+    // 3. The steps, each with its proof, one by one, a beat apart, each pair lit while it is written. Nothing
+    // scrolls the page by itself (the customer's question stays where the visitor left it).
     const writeStep = async (i) => {
       const pr = $(`.proof[data-i="${i}"]`, stage);
       const row = $(`.lstep[data-i="${i}"]`, stage);
@@ -1178,32 +1245,23 @@ class Moment {
       $(`svg.wires .wire[data-i="${i}"]`, stage)?.classList.add('on');
       const wired = this.wireIn(i);
       await this.write($('.txt', row));
-      this.follow(W ? row : pr);
       await Promise.all([coming, wired]);
       if (steps[i].type === 'evidence' && called) this.tick('account', 'done', this.texts.account);
     };
     const off = (i) => { if (this.done) return; for (const el of $$(`[data-i="${i}"]`, stage)) el.classList.remove('on'); };
-    let from = 0;
-    if (firstFact === 0 && this.sh) {
-      await writeStep(0);
-      await head;
-      await this.fold();
-      off(0);
-      from = 1;
-    } else await head;
-    // The rest follow one by one, a beat apart, each pair lit while it is written.
+    const from = 0;
     const runs = [];
     for (let i = from; i < steps.length; i++) {
       if (this.dead) return;
       runs.push(writeStep(i).then(() => this.wait(T.stepGap)).then(() => off(i)));
-      await this.wait(W ? T.stepStagger : T.stepStagger + 80);
+      await this.wait(wide() ? T.stepStagger : T.stepStagger + 80);
     }
     await Promise.all(runs);
     if (this.dead) return;
     await this.write($('.tail-text', stage), { per: 4, cap: 120 });
     this.tick('write', 'done');
 
-    // 5. The stamp.
+    // 4. The stamp.
     const seal = sealOf(st);
     this.mark('stampStart');
     if (seal) await this.press($('.stamp', stage));
@@ -1226,7 +1284,7 @@ class Moment {
     const st = stateOf(r);
     for (const k of ['read', 'account', 'write', 'check']) {
       const li = $(`#did li[data-k="${k}"]`, root); if (!li) continue;
-      if (li.dataset.s === 'pending' || li.dataset.s === 'wait') this.tick(k, k === 'write' && st === 'refused' ? 'stop' : k === 'check' ? { checked: 'done', stopped: 'stop', saved: 'neutral', draft: 'neutral', refused: 'needs' }[st] : 'done', this.texts[k]);
+      if (li.dataset.s === 'pending' || li.dataset.s === 'wait') this.tick(k, k === 'write' && st === 'refused' ? 'neutral' : k === 'check' ? (whyOf(r) === 'nonsense' ? 'neutral' : { checked: 'done', stopped: 'stop', saved: 'neutral', draft: 'neutral', refused: 'needs' }[st]) : 'done', this.texts[k]);
     }
     const sk = $('#skip-btn', root); if (sk) sk.style.visibility = 'hidden';
     this.layout();
@@ -1238,7 +1296,7 @@ class Moment {
     window.__lastMoment = this.marks;
     if (this.meta.demo) return demo.done();
     if (this.meta.quiet) return;
-    const main = $('#closing .btn', root) || $('.refusal-actions .btn', root);
+    const main = $('#closing .btn', root) || $('.refusal-side .btn', root) || $('.refusal-actions .btn', root);
     main?.focus({ preventScroll: true });
   }
 
@@ -1269,6 +1327,9 @@ function showShell(m, meta, r) {
   m.root = $('#result-in', res);
   scrollTo(0, 0);
   m.build(r);
+  // A long message is cut at a few lines, with a way to read all of it.
+  const sq = $('#said-q', res); const cap = sq ? parseFloat(getComputedStyle(sq).maxHeight) : NaN;
+  if (sq && !Number.isNaN(cap) && sq.scrollHeight > cap + 4) $('#said-more', res).hidden = false;
   m.lifting = Promise.resolve();
   for (const el of [m.root]) el.addEventListener('wheel', () => { m.userScrolled = true; }, { passive: true, once: true });
   addEventListener('touchmove', () => { m.userScrolled = true; }, { passive: true, once: true });
@@ -1408,7 +1469,7 @@ const demo = {
   },
   done() {
     const b = $('#demo-skip2'); if (!b) return;
-    $('#demo-say').textContent = 'That was an example. Now try your own.';
+    $('#demo-say').textContent = 'That was a made-up example. Now try your own.';
     b.className = 'btn'; b.id = 'try-own'; b.textContent = 'Now try your own';
     this.running = false;
   },
@@ -1461,14 +1522,38 @@ const verbOf = (d, k) => moveOf(d, k)?.[1] || `Stamp ${k + 1}`;
 const HARD = /\b(fallback|queue|downstream|OAuth|endpoint|validate|established?|submission ID|response)\b/i;
 let lastInput = 'pointer';
 
+// The player's place in the shift is kept for this tab (Back, Forward and a reload keep it).
+const SHIFT_KEY = 'sd-shift';
+const shiftStore = {
+  get() { try { return JSON.parse(sessionStorage.getItem(SHIFT_KEY) || 'null'); } catch { return null; } },
+  set(v) { try { sessionStorage.setItem(SHIFT_KEY, JSON.stringify(v)); } catch { /* private window */ } },
+  clear() { try { sessionStorage.removeItem(SHIFT_KEY); } catch { /* private window */ } },
+};
+
 const game = {
   data: null, i: 0, score: 0, picks: [], phase: 'start', lockUntil: 0,
+  save() { if (this.phase === 'ask' || this.phase === 'after') shiftStore.set({ i: this.i, score: this.score, picks: this.picks, phase: this.phase }); else shiftStore.clear(); },
   async open() {
     if (!this.data) {
       $('#game-stage').innerHTML = '<p class="lede">Getting your desk ready.</p>';
       try { [this.data] = await Promise.all([api('/api/practice'), loadArt()]); } catch (e) { $('#game-stage').innerHTML = `<p>${esc(e.message)}</p>`; return; }
-      // Every face is ready before the desk is shown, so no card waits for its picture.
-      await preload(this.data.decisions.flatMap(d => { const s = custOf(d).slot; return [s, `${s}-relieved`, `${s}-upset`]; }));
+      // Every face (and the stamp's handle, when its picture is there) is ready before the desk is shown.
+      await preload(['stamp-handle', ...this.data.decisions.flatMap(d => { const s = custOf(d).slot; return [s, `${s}-relieved`, `${s}-upset`]; })]);
+      const was = shiftStore.get();
+      const n = this.data.decisions.length;
+      if (was && Number.isInteger(was.i) && was.i >= 0 && was.i < n && Array.isArray(was.picks)) {
+        // Back where the player was: the same letter, the stamps already pressed.
+        this.i = was.i; this.score = was.score || 0; this.picks = was.picks;
+        const k = was.phase === 'after' ? this.picks[this.i]?.k : null;
+        if (k !== null && k !== undefined) this.picks[this.i] = undefined;
+        if (k !== null && k !== undefined && this.picks[this.i] === undefined) this.score = this.picks.filter(p => p?.right).length;
+        await this.round();
+        if (k !== null && k !== undefined) { this.lockUntil = 0; this.answer(k); }
+        return;
+      }
+      this.startScreen();
+    } else if (this.phase === 'end') {
+      // A finished shift: the tab offers a new one.
       this.startScreen();
     }
     // The start button gets the focus ring only for someone using the keyboard.
@@ -1505,7 +1590,7 @@ const game = {
     return nu;
   },
   startScreen() {
-    this.phase = 'start'; this.picks = []; this.score = 0; this.i = 0;
+    this.phase = 'start'; this.picks = []; this.score = 0; this.i = 0; this.save();
     this.tray();
     $('#game-stage').innerHTML = `<div><ol class="desk" aria-label="The five customers waiting">${this.data.decisions.map(d => {
       const c = custOf(d); const f = this.face(d, '', 120);
@@ -1517,7 +1602,7 @@ const game = {
   lock(ms = 380) { this.lockUntil = performance.now() + ms; },
   locked() { return performance.now() < this.lockUntil; },
   async round() {
-    const d = this.data.decisions[this.i]; this.phase = 'ask'; this.lock(700);
+    const d = this.data.decisions[this.i]; this.phase = 'ask'; this.lock(700); this.save();
     const c = custOf(d); const n = this.data.decisions.length;
     this.tray();
     const face = this.face(d, '', 280);
@@ -1532,9 +1617,9 @@ const game = {
         <div id="write-back" class="wb-slot"></div>
       </div>
       <div class="stamps">
-        <h2 id="move-h">Press your first move</h2>
-        <p class="stamps-hint">Pick the stamp you would use. It prints on their letter, and they write back.</p>
-        <ol aria-labelledby="move-h">${d.choices.map((ch, k) => `<li><button type="button" class="choice" data-k="${k}"><span class="sface" aria-hidden="true"><span>${k + 1}</span></span><span class="sbody"><span class="sverb">${esc(verbOf(d, k))}</span><span class="ct"><span class="sr-only">Stamp ${k + 1}: </span>${esc(ch.text)}</span></span></button></li>`).join('')}</ol>
+        <h2 id="move-h">Press one stamp</h2>
+        <p class="stamps-hint">Each stamp is a first move. The one you press prints on their letter, and they write back.</p>
+        <ol aria-labelledby="move-h">${d.choices.map((ch, k) => `<li><button type="button" class="choice" data-k="${k}">${this.rubber(d, k, n)}<span class="sbody"><span class="sverb">${esc(verbOf(d, k))}<kbd class="key-hint" aria-hidden="true">${k + 1}</kbd></span><span class="ct"><span class="sr-only">Stamp ${k + 1}: </span>${esc(ch.text)}</span></span></button></li>`).join('')}</ol>
         <div class="after-move" id="after-move"></div>
       </div>
     </div>`;
@@ -1545,12 +1630,19 @@ const game = {
     say(`Letter ${this.i + 1} of ${n}. ${c.who} writes: ${d.ticket}`);
     $('#cust-from').focus({ preventScroll: true });
   },
+  // One rubber stamp in the rack: its handle (the painted picture, only when it is there; never a drawn
+  // stand-in) over its inked face, which shows exactly what it prints on the letter.
+  rubber(d, k, n) {
+    const handle = ART.has('stamp-handle') ? `<img class="handle" src="/art/stamp-handle.webp" alt="" width="120" height="96" decoding="sync">` : '';
+    return `<span class="rstamp${handle ? ' has-handle' : ''}" aria-hidden="true">${handle}<span class="rface" data-tone="ready">${postmark('helped', { center: [`LETTER ${this.i + 1}`, `OF ${n}`], word: verbOf(d, k).toUpperCase(), sub: 'YOUR FIRST MOVE', label: '' })}</span></span>`;
+  },
   answer(k) {
     if (this.phase !== 'ask' || this.locked()) return;
     const d = this.data.decisions[this.i]; const ch = d.choices[k]; if (!ch) return;
     this.phase = 'after'; this.lock(450);
     this.picks[this.i] = { k, right: !!ch.right };
     if (ch.right) this.score++;
+    this.save();
     $$('#game-stage .choice').forEach((b, idx) => {
       b.disabled = true;
       const right = d.choices[idx].right;
@@ -1566,6 +1658,9 @@ const game = {
     slot.innerHTML = `<div class="stamp" data-tone="${ch.right ? 'helped' : 'oops'}">${postmark(ch.right ? 'helped' : 'oops', { center: [`LETTER ${this.i + 1}`, `OF ${n}`], word: verbOf(d, k).toUpperCase(), label: `${STAMPS[ch.right ? 'helped' : 'oops'].label} Your stamp: ${verbOf(d, k).toLowerCase()}.` })}</div>`;
     const stamp = $('.stamp', slot);
     const letter = $('#cust-letter');
+    // The stamp you chose is pressed down in the rack as its print lands on the letter.
+    const rs = $(`#game-stage .choice[data-k="${k}"] .rstamp`);
+    if (rs && !reduced.matches) rs.animate([{ transform: 'none' }, { transform: 'translateY(10px) scale(.95)', offset: 0.45 }, { transform: 'none' }], { duration: T.thud + 160, easing: 'cubic-bezier(.3, 0, .3, 1)' });
     const contact = () => {
       const mood = this.face(d, ch.right ? 'relieved' : 'upset', 280);
       const faceBox = $('#face');
@@ -1590,7 +1685,10 @@ const game = {
     const mini = this.face(d, ch.right ? 'relieved' : 'upset', 64);
     $('#write-back').innerHTML = `<article class="write-back ${ch.right ? 'ok' : 'no'}" aria-labelledby="wb-h"><h3 class="wb-h" id="wb-h">${mini ? `<span class="wb-face">${mini}</span>` : ''}<span>${esc(c.who)} writes back</span></h3>${wb ? `<p class="wb">&ldquo;${esc(wb)}&rdquo;</p>` : ''}<p class="what">${esc(ch.consequence)}</p></article>`;
     const wbEl = $('.write-back');
-    $('#after-move').innerHTML = `<div class="game-next"><button type="button" class="btn" id="game-next">${last ? 'See my shift report' : 'Open the next letter'}</button><span class="hint">or press Enter</span></div>
+    const nextHTML = `<div class="game-next"><button type="button" class="btn" id="game-next">${last ? 'See my shift report' : 'Open the next letter'}</button><span class="hint">or press Enter</span></div>`;
+    // On a phone the next button sits right under their reply, so no one has to scroll to find it.
+    if (!wide()) $('#write-back').insertAdjacentHTML('beforeend', nextHTML);
+    $('#after-move').innerHTML = `${wide() ? nextHTML : ''}
       <h3>${ch.right ? 'You got it.' : 'The right first move'}</h3><p class="right-move">${both(d.firstCheck)}</p>
       ${fits ? `<div class="src">${quote}<p class="k">Blotato's help page says so.</p><a href="${esc(d.source.url)}" target="_blank" rel="noopener">Open the help page</a></div>` : `<div class="src"><p class="k">Blotato's help page explains why.</p><a href="${esc(d.source.url)}" target="_blank" rel="noopener">Open the help page</a></div>`}`;
     if (!reduced.matches) {
@@ -1612,7 +1710,7 @@ const game = {
     this.round();
   },
   async end() {
-    this.phase = 'end'; this.lock(); this.tray();
+    this.phase = 'end'; this.lock(); this.tray(); this.save();
     const n = this.data.decisions.length; const s = this.score;
     const line = s === n ? 'A clean shift. Every customer got the right first move, so nobody posted twice and nobody waited for nothing.'
       : s >= n - 1 ? 'A good shift. One customer had a rough moment. Here is the right first move for each one.'
@@ -1697,6 +1795,11 @@ function wire() {
       moment?.layout();
       return;
     }
+    // A folded proof opens in place; the next step moves down to keep each pair level.
+    const pm = e.target.closest('.pmore');
+    if (pm) { const pr = pm.closest('.proof'); pr?.classList.add('open'); pm.hidden = true; moment?.layout(); return; }
+    const longq = e.target.closest('#said-more');
+    if (longq) { const q = $('#said-q'); const open = longq.getAttribute('aria-expanded') !== 'true'; longq.setAttribute('aria-expanded', String(open)); q.classList.toggle('whole', open); longq.textContent = open ? 'Show less of the message' : 'Show the whole message'; return; }
     const disc = e.target.closest('.disc');
     if (disc) {
       const open = disc.getAttribute('aria-expanded') !== 'true';
