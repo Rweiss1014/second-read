@@ -27,6 +27,9 @@ export const PROMISES = [
   { why: 'an outcome nobody has checked', re: new RegExp(String.raw`\b${MODAL}\s+(?:(?:definitely|certainly|surely|now|soon|then)\s+)?(?:be\s+|have\s+(?:it|this|that)\s+)?${OUTCOME}`, 'i') },
   { why: 'an outcome nobody has checked', re: /\b(?:this|that|it|which)\s+(?:fixes|solves|resolves)\b/i },
   { why: 'an outcome nobody has checked', re: /\b(?:definitely|certainly|for sure|100%|never (?:fails?|happens?)|won'?t happen again|always works?)\b/i },
+  // Found by a fresh reviewer: "We have fixed this for you, and a refund is on the way." passed.
+  { why: 'something reported as done that nobody has confirmed', re: /\b(?:we|i)(?:'ve| have| just)? (?:already )?(?:fixed|resolved|solved|refunded|credited|restored|deleted|removed|reconnected|rotated|upgraded|reset)\b/i },
+  { why: 'a refund or credit', re: /\b(?:refunds?|credits?|money)\b[^.!?\n]{0,20}\b(?:is|are|has been|have been) (?:on (?:the|its) way|coming|approved|processed|added|sent|issued)\b/i },
   { why: 'a date or time nobody can promise', re: new RegExp(String.raw`\bby\s+${DAY}\b`, 'i') },
   { why: 'a date or time nobody can promise', re: new RegExp(String.raw`\bwithin\s+${COUNT}\s*${UNIT}\b`, 'i') },
   { why: 'a date or time nobody can promise', re: new RegExp(String.raw`\b${MODAL}\b[^.!?\n]*?\b(?:in\s+${COUNT}\s*${UNIT}|on\s+${DAY}|${DAY})\b`, 'i') },

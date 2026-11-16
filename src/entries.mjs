@@ -36,6 +36,7 @@ export function readEntryFiles(dir = ENTRIES_DIR) {
   return { entries, files, problems };
 }
 
+const isWarning = (p) => p.startsWith('warning: ');
 const isText = (x) => typeof x === 'string' && x.trim().length > 0;
 const phraseKey = (s) => contentStems(s).join(' ');
 
@@ -53,6 +54,15 @@ function checkReplyBlock(where, b, e, problems) {
     if (s.type === 'fact') {
       if (!isText(s.cite?.url) || !isText(s.cite?.quote)) problems.push(`${at}: a fact step needs "cite": { "url", "quote" }.`);
       else if (!/^https:\/\/help\.blotato\.com\//.test(s.cite.url)) problems.push(`${at}: the cited url must be a page on https://help.blotato.com/.`);
+      else if (isText(s.text)) {
+        // A cheap look at a step written about something else than its quote. (Whether it says more than the
+        // quote is the fresh checker's job.)
+        const q = new Set(contentStems(s.cite.quote));
+        const shared = contentStems(s.text).filter(w => q.has(w)).length;
+        // A warning, not a failure: a plain rewrite can share no words and still be faithful ("send fewer posts
+        // at a time" for "reduce concurrency"). It is there so a writer looks twice.
+        if (!shared && q.size >= 3) problems.push(`warning: ${at}: the step shares no words with its quote ("${s.cite.quote}"). Check it says what the quote says.`);
+      }
     } else if (s.type === 'evidence') {
       if (!e.lookup) problems.push(`${at}: an evidence step needs the entry to name a "lookup".`);
     } else if (s.type !== 'action') problems.push(`${at}: "type" must be "fact", "evidence" or "action".`);
@@ -61,6 +71,7 @@ function checkReplyBlock(where, b, e, problems) {
   const lines = [['opening', b.opening, null], ['next', b.next, null], ['proof', b.proof, null], ...(b.steps || []).map((s, i) => [`step ${i + 1}`, s?.text, s?.type === 'fact' ? s.cite?.quote : null])];
   for (const [name, text, quote] of lines) {
     if (!isText(text)) continue;
+    if (/\[[^\]]*\]|\b(?:TODO|TBD|FIXME|lorem ipsum|xxx)\b/i.test(text)) problems.push(`${where}, ${name}: has placeholder text. A customer would read it.`);
     for (const p of findPromises(text, { quote: quote || undefined })) problems.push(`${where}, ${name}: makes ${p.why} ("${p.words}").`);
     for (const v of findVoice(text)) problems.push(`${where}, ${name}: uses ${v}.`);
   }
@@ -107,7 +118,7 @@ export function validateShape(entries) {
     else for (const term of (e.anchors || []).flat()) {
       // Found while building: "\b" in a JSON string is a backspace character, not a regex word boundary.
       if (/[\u0000-\u001f]/.test(term)) problems.push(`${where}: the anchor "${term.replace(/[\u0000-\u001f]/g, '?')}" has a control character. In JSON, write a regex word boundary as "\\\\b".`);
-      else if (/^\/.+\/$/.test(term)) { try { new RegExp(term.slice(1, -1), 'i'); } catch (err) { problems.push(`${where}: the anchor ${term} is not a valid regular expression (${err.message}).`); } }
+      else if (/^\/.+\/$/.test(term)) { try { const re = new RegExp(term.slice(1, -1), 'i'); if (['', 'a', 'hello there', 'thanks for the help'].some(x => re.test(x))) problems.push(`${where}: the anchor ${term} matches almost any message, so it guards nothing.`); } catch (err) { problems.push(`${where}: the anchor ${term} is not a valid regular expression (${err.message}).`); } }
     }
     const np = e.needs_person_if;
     if (np !== undefined) {
@@ -119,7 +130,8 @@ export function validateShape(entries) {
       }
     }
     const answers = !e.guard && !e.escalate && !e.noDocAnswer;
-    if (answers && !((np?.signals || []).length + (np?.phrases || []).length)) problems.push(`${where}: an entry that answers needs "needs_person_if", at least one signal (most entries want "tried-steps" and "still-broken").`);
+    // A named signal, not only phrases: a phrase that never fires would meet a looser rule.
+    if (answers && !(np?.signals || []).length) problems.push(`${where}: an entry that answers needs "needs_person_if", at least one signal (most entries want "tried-steps" and "still-broken").`);
 
     if (e.escalate !== undefined) {
       if (!isText(e.escalate?.why)) problems.push(`${where}: "escalate.why" is missing.`);
@@ -189,7 +201,7 @@ export function validateRouting(entries) {
 // Load at start: read, check the shape, and throw if anything is wrong.
 export function loadEntries(dir = ENTRIES_DIR) {
   const { entries, files, problems } = readEntryFiles(dir);
-  problems.push(...validateShape(entries));
+  problems.push(...validateShape(entries).filter(p => !isWarning(p)));
   if (problems.length) {
     const err = new Error(`The entries in ${dir} have ${problems.length} problem(s). Run "node bin/support-desk.mjs check-entries" for the list.\n- ${problems.slice(0, 10).join('\n- ')}`);
     err.problems = problems;
@@ -200,12 +212,14 @@ export function loadEntries(dir = ENTRIES_DIR) {
 
 // The whole check, for the command and for npm test.
 export function checkEntries({ dir = ENTRIES_DIR, cacheDir } = {}) {
-  const { entries, files, problems } = readEntryFiles(dir);
-  problems.push(...validateShape(entries));
+  const { entries, files, problems: all } = readEntryFiles(dir);
+  all.push(...validateShape(entries));
+  const warnings = all.filter(isWarning).map(p => p.replace(/^warning: /, ''));
+  const problems = all.filter(p => !isWarning(p));
   const pages = readCacheDir(cacheDir);
   problems.push(...validateQuotes(entries, pages));
   // Routing needs a sound set of entries, so it runs only when the shape is right.
   if (!problems.length) problems.push(...validateRouting(entries));
   const cited = new Set(); for (const e of entries) for (const u of citedPages(e)) cited.add(u);
-  return { ok: !problems.length, problems, entries: entries.length, files: files.length, pagesCited: cited.size, pagesCached: Object.keys(pages).length };
+  return { ok: !problems.length, problems, warnings, entries: entries.length, files: files.length, pagesCited: cited.size, pagesCached: Object.keys(pages).length };
 }

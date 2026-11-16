@@ -80,7 +80,7 @@ The customer gets: `Hi,`, the opening, the steps numbered 1 to 4, `Next step:` w
 | `phrasings` | yes, at least 5 | Ways a customer might say it. See below. |
 | `not_this` | no, but write some | Near misses that belong to another entry or to a person. |
 | `anchors` | no, but use them | Words the message must contain. See below. |
-| `needs_person_if` | yes, for an entry that answers | Signals that turn your answer into a hand-over. |
+| `needs_person_if` | yes, for an entry that answers | Signals that turn your answer into a hand-over. At least one named signal; phrases alone are not enough. |
 | `opening` | yes | One or two warm sentences before the steps. |
 | `steps` | yes, 3 to 5 | `fact`, `evidence` or `action` steps. |
 | `next` | yes | Exactly one next step for the customer. |
@@ -171,7 +171,7 @@ Mark one when:
 - the steps need a screen the customer may not reach (`access-blocked`),
 - a specific charge, a staff-only action, or a record only staff can see would decide it. Money and staff-only requests are caught by the guards before your entry. Use `phrases` for anything else that is specific to your topic.
 
-`phrases` are plain words, matched loosely (stems and one-letter typos).
+`phrases` are plain words, matched loosely (stems and one-letter typos). Write numbers both ways ("2 posts", "two posts").
 
 ## What happens before your entry is even scored
 
@@ -207,4 +207,8 @@ node bin/support-desk.mjs ticket "how do I cancel my plan" --mock   # see what a
 | `an entry that answers needs "needs_person_if"` | Add at least `"signals": ["tried-steps", "still-broken"]`. |
 | `has a control character` | You wrote `\b` in JSON. Write `\\b`. |
 | `unknown field "phrasing"` | A typo in a field name. The message lists the known fields. |
+| `has placeholder text` | A `[...]`, TODO or TBD is in a line a customer reads. Write the real words. |
+| `matches almost any message` | A regex anchor like `/./` guards nothing. Name the words. |
+| `makes something reported as done that nobody has confirmed` | "We have fixed this" or "a refund is on the way" is never ours to say. Say who will look at it. |
+| `WARN ... shares no words with its quote` | Not a failure. A plain rewrite can be faithful with other words, but look twice: does the step say what the quote says, and no more? |
 | `"proof" must start with...` | Start it with `You will know it` or `Still open:`. |

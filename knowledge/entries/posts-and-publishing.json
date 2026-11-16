@@ -23,7 +23,8 @@
         "my scheduled post did not go out at its time",
         "my post failed to publish",
         "Blotato shows a label under my published posts",
-        "analytics are missing for a published post"
+        "analytics are missing for a published post",
+        "the published video has no sound"
       ],
       "anchors": [
         [
@@ -37,7 +38,6 @@
         [
           "/(can'?t|cannot|can not|don'?t|do not|not|isn'?t|no|never|nowhere)\\b.{0,25}\\b(see|find|show|showing|there|appear|appeared|visible|open|opens|found)\\b/",
           "/\\b(link|url)\\b.{0,30}\\b404\\b|\\b404\\b.{0,30}\\b(link|url)\\b/",
-          "missing",
           "page not found",
           "gone",
           "anywhere",
@@ -45,7 +45,11 @@
           "not on my",
           "nothing appeared",
           "actually go out",
-          "did it go out"
+          "did it go out",
+          "missing from",
+          "post is missing",
+          "it is missing",
+          "is missing on"
         ]
       ],
       "needs_person_if": {
@@ -115,7 +119,8 @@
       "not_this": [
         "how do I cancel my subscription",
         "I canceled my plan",
-        "how do I cancel a scheduled post"
+        "how do I cancel a scheduled post",
+        "how do I unschedule one post"
       ],
       "anchors": [
         [
@@ -146,7 +151,13 @@
           "never removed",
           "didn't remove",
           "did not cancel",
-          "didn't cancel"
+          "didn't cancel",
+          "didn't touch",
+          "did not touch",
+          "declined",
+          "payment failed",
+          "plan expired",
+          "subscription ended"
         ]
       },
       "opening": "Good news first: nothing is broken.",
@@ -273,7 +284,7 @@
       "phrasings": [
         "my create post call timed out, should I send it again",
         "504 gateway timeout when creating a post, did it post",
-        "the request timed out, is it safe to retry",
+        "the create post request timed out, is it safe to retry",
         "a 502 when creating a post, will retrying make a duplicate",
         "timeout from the API, do i resend the post",
         "the publish request timed out, should I run the workflow again"
@@ -302,6 +313,19 @@
           "duplicate",
           "did it post",
           "safe"
+        ],
+        [
+          "post",
+          "posts",
+          "create",
+          "creating",
+          "publish",
+          "publishing",
+          "scenario",
+          "workflow",
+          "resend",
+          "send",
+          "sent"
         ]
       ],
       "needs_person_if": {
@@ -312,7 +336,13 @@
         "phrases": [
           "posted twice",
           "now there are two",
-          "two copies"
+          "two copies",
+          "there are 2",
+          "2 posts",
+          "two posts",
+          "remove the duplicate",
+          "already resent",
+          "resent it"
         ]
       },
       "lookup": "recent-activity",

@@ -52,6 +52,7 @@ async function main() {
     const { checkEntries } = await import('../src/entries.mjs');
     const r = checkEntries({ cacheDir: deskPaths().docsCache });
     for (const p of r.problems) console.log(`FAIL ${p}`);
+    for (const w of r.warnings) console.log(`WARN ${w}`);
     console.log(`
 ${r.ok ? 'All entries pass.' : `${r.problems.length} problem(s). Nothing above is optional: fix each one, then run this again.`}`);
     console.log(`Entries: ${r.entries} in ${r.files} file(s). Help pages cited: ${r.pagesCited}. Help pages cached: ${r.pagesCached}.`);

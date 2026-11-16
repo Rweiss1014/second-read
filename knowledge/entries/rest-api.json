@@ -19,7 +19,9 @@
         "403 with a subscription message",
         "invalid_grant in the Claude connector",
         "the AI connector says invalid API key or auth session",
-        "my API key leaked, how do I make a new one"
+        "my API key leaked, how do I make a new one",
+        "unauthorized when I log in to the Blotato website",
+        "403 forbidden from the API"
       ],
       "anchors": [
         [
@@ -104,7 +106,8 @@
       ],
       "not_this": [
         "the daily post limit for one social account",
-        "TikTok says reached_active_user_cap"
+        "TikTok says reached_active_user_cap",
+        "how many posts per day for one account"
       ],
       "anchors": [
         [
@@ -181,7 +184,8 @@
         "where do I find my Facebook page id",
         "LinkedIn analytics for my posts",
         "does each LinkedIn page count as a separate account",
-        "how many social accounts can I connect on my plan"
+        "how many social accounts can I connect on my plan",
+        "post to a LinkedIn company page from the web app"
       ],
       "anchors": [
         [

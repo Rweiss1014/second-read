@@ -7,17 +7,18 @@
       "title": "invalid_grant from the Blotato connector in Claude",
       "phrasings": [
         "the Blotato connector in Claude says invalid_grant",
-        "invalid_grant error from the MCP connector",
+        "invalid_grant error from the MCP connector in Claude",
         "Claude connector stopped working, the oauth expired",
-        "my Blotato MCP sign in expired",
-        "the ChatGPT connector to Blotato says invalid grant",
+        "my Blotato MCP sign in for Claude expired",
+        "the Blotato connector in Claude Cowork says invalid grant",
         "how do I reconnect the Blotato connector in Claude",
         "claude cant connect to blotato anymore, oauth error"
       ],
       "not_this": [
         "Claude posted to the wrong social account",
         "Claude made a duplicate post",
-        "the MCP cannot attach my local file"
+        "the MCP cannot attach my local file",
+        "the Cursor or ChatGPT MCP connection expired"
       ],
       "anchors": [
         [
@@ -29,12 +30,7 @@
         ],
         [
           "claude",
-          "chatgpt",
-          "mcp",
-          "cowork",
-          "connector",
-          "codex",
-          "cursor"
+          "cowork"
         ]
       ],
       "needs_person_if": {
@@ -48,7 +44,10 @@
           "re-added it",
           "re-approved",
           "added it again",
-          "reconnected the connector"
+          "reconnected the connector",
+          "added it back",
+          "reconnected",
+          "removed it"
         ]
       },
       "opening": "This one is about the connector's sign-in, not your social accounts.",

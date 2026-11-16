@@ -24,7 +24,9 @@ export const MARGIN = 0.06;      // and beat the runner-up by this much
 export const COVERED = 0.30;     // a second question this close to the chosen entry counts as the same topic
 // Signals strong enough to hand a message over even when no entry matches it.
 export const GENERAL_SIGNALS = ['tried-steps', 'still-broken', 'retried', 'disputes-count', 'records-disagree', 'many-accounts'];
-const QUESTION =/\?\s*$|^(?:how|what|why|where|when|which|who|can|could|does|do|is|are|will|would|should|did|has|have|may)\b/i;
+// A question: ends with "?", starts like one, starts a second ask ("Also, ..."), or asks indirectly
+// ("I also want to know whether ...").
+const QUESTION = /\?\s*$|^(?:how|what|why|where|when|which|who|can|could|does|do|is|are|will|would|should|did|has|have|may|also|and also|plus|p\.?s\.?|another thing|one more thing)\b|\b(?:want to know|wondering|wonder|need to know|curious|tell me|let me know)\b(?:\s+\w+){0,2}?\s+(?:if|whether|how|what|when|why|where|which)\b/i;
 
 export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchored = THRESHOLD_UNANCHORED, margin = MARGIN, covered = COVERED } = {}) {
   const matchable = entries.filter(e => !e.guard);
@@ -85,13 +87,24 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
     // its own. Anchors are for the whole message, so a question is scored against the phrasings without them.
     // If no question is covered, the entry matched only the background ("I'm leaving next month. How do I
     // download my videos?"), so the desk does not answer.
-    const qs = splitSentences(real).filter(s => QUESTION.test(s.trim()) && contentStems(s).length >= 3);
+    const qs = splitSentences(real)
+      .filter(s => QUESTION.test(s.trim()))
+      // Two questions in one sentence ("How many per minute, and how much does the plan cost?") are split,
+      // but only when each part can stand on its own.
+      .flatMap(s => {
+        const parts = s.split(/,?\s+(?:and|also|plus|or)\s+(?=(?:also\s+)?(?:how|what|why|where|when|which|who|can|could|does|do|is|are|will|would|should)\b)/i);
+        return parts.length > 1 && parts.every(p => contentStems(p).length >= 3) ? parts : [s];
+      })
+      .filter(s => contentStems(s).length >= 3);
     const enough = Math.min(covered, need);
     if (qs.length >= 1) {
       const open = [];
       for (const q of qs) {
         const s = scoreAgainst(index, q, entry.id);
-        if (s && s.excluded !== 'not_this' && s.score >= enough) continue;
+        // Covered: close enough to the entry's phrasings, and (if the entry has anchors) naming at least one
+        // of its anchor words, so "how much does the Agency plan cost?" is not covered by the cancel entry.
+        const anchorWord = !(entry.anchors || []).length || anchorsMet(q, [entry.anchors.flat()]).ok;
+        if (s && s.excluded !== 'not_this' && s.score >= enough && anchorWord) continue;
         const other = scoreEntries(index, q).find(c => !c.excluded && c.id !== entry.id);
         open.push({ question: q, best: other ? { id: other.id, score: round(other.score) } : null });
       }
