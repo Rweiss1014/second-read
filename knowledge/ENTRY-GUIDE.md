@@ -80,7 +80,7 @@ The customer gets: `Hi,`, the opening, the steps numbered 1 to 4, `Next step:` w
 | `phrasings` | yes, at least 5 | Ways a customer might say it. See below. |
 | `not_this` | no, but write some | Near misses that belong to another entry or to a person. |
 | `anchors` | no, but use them | Words the message must contain. See below. |
-| `needs_person_if` | yes, for an entry that answers | Signals that turn your answer into a hand-over. At least one named signal; phrases alone are not enough. |
+| `needs_person_if` | yes, for an entry that answers | Signals that turn your answer into a hand-over. At least one named signal; phrases alone are not enough. `ignore` opts out of a default signal. |
 | `opening` | yes | One or two warm sentences before the steps. |
 | `steps` | yes, 3 to 5 | `fact`, `evidence` or `action` steps. |
 | `next` | yes | Exactly one next step for the customer. |
@@ -140,7 +140,7 @@ When a near miss shares all its words with your phrasings, reach for anchors ins
 ```
 
 - Words are matched as written, not as stems. List each form you mean: `"cancel"`, `"canceled"`, `"cancelled"`.
-- One wrong letter is allowed for words of five letters or more, so "subscribtion" matches "subscription". "post" does not match "posted".
+- One wrong letter is allowed for words of five letters or more, so "subscribtion" matches "subscription". "post" does not match "posted". A word with a digit in it never gets that allowance: "20005" does not match "20003".
 - A term written as `"/.../"` is a regular expression, for the few cases where word order matters. In JSON, write a word boundary as `\\b`. A single `\b` is a backspace character, and check-entries fails on it.
 - An entry with anchors can answer at a lower score than one without. Anchors are the best guard against answering the wrong question, so most entries should have them.
 
@@ -157,13 +157,30 @@ The signals (in `src/signals.mjs`):
 
 | Signal | Fires on |
 |---|---|
-| `tried-steps` | "I already tried", "I've checked", "I checked X, Y and Z", "removed and re-added", "incognito", "another browser" |
-| `still-broken` | "still not working", "still empty", "didn't help", "same error" after a retry |
+| `tried-steps` | "I already tried", "I've checked", "I checked X, Y and Z", "removed and re-added", "incognito", "another browser", "copied the key again" |
+| `still-broken` | "still not working", "still empty", "still shows up", "Still 401", "didn't help", "same error" after a retry |
 | `retried` | "every time", "3 times", "third time", "in a row", "since Tuesday", "for two weeks" |
-| `disputes-count` | "I only called it 3 times", "my logs show" |
+| `disputes-count` | "I only called it 3 times", "my logs show", "it says 10 but your page says 25" |
 | `records-disagree` | "billing shows active", "the Accounts page shows connected" |
 | `access-blocked` | "it won't let me", "locked out", "the reactivate screen blocks Settings" |
-| `many-accounts` | "is something down", "4 accounts failing at once" |
+| `many-accounts` | "is something down", "4 accounts failing at once", "all 12 of my client accounts failed" |
+| `follow-on` | "I resent it and now there are 2 posts", "we reconnected and now it says expired" |
+
+### Signals every entry has (you do not list them)
+
+`retried`, `disputes-count`, `records-disagree`, `many-accounts` and `follow-on` apply to **every** entry that answers, whether you list them or not.
+A repeat failure, a disputed count, an outage or "I did X and now Y" is never settled by your steps.
+Their strong forms ("three days in a row", "is something down", "I only posted 3") fire on their own.
+Their weak forms ("every time", "3 times", "since Monday") fire only when the same sentence says something is wrong, so "I post 3 times a day" is fine.
+List one in `signals` to make all its forms fire for your entry.
+
+If your entry truly answers one of those cases, opt out:
+
+```json
+"needs_person_if": { "signals": ["tried-steps", "still-broken"], "ignore": ["retried"] }
+```
+
+`check-entries` fails a phrasing of yours that a default signal hands to a person, and tells you which one.
 
 Mark one when:
 - your steps are what the customer would try first (almost every entry: `tried-steps`, `still-broken`),
@@ -173,13 +190,44 @@ Mark one when:
 
 `phrases` are plain words, matched loosely (stems and one-letter typos). Write numbers both ways ("2 posts", "two posts").
 
+## Docs-silent: your entry answers only what it names
+
+Your entry does not answer when the customer asks about a specific thing your entry never mentions.
+"Mentions" means anywhere in your title, phrasings, anchors, steps or quotes.
+The desk hands the message to a person instead (the docs may be silent on it).
+
+- **Named things**: a payment method (PayPal, Apple Pay), a platform or service outside Blotato's list (Reddit, Shopify), or a tool (Zapier, Canva, Google Drive). Also a platform feature (analytics, polls, alt text, retweets), a language (Japanese), a file type (GIF, PDF) or an identifier (page id, account id, channel id). The lists are `NAMED_ITEMS` in `src/signals.mjs`. They match exactly, with no typo allowance.
+- **Another platform**: if your title names a platform ("...for Instagram Reels"), a question about a platform you never mention is not yours.
+- **A number**: "how many", "how long", "what is the limit" need a number in your steps. "How many do I have left?" is a where-to-look question and does not.
+- **A capitalized name** after "with", "to", "via" ("pay with Payoneer") that no entry uses anywhere.
+
+If your entry truly answers questions about one of these, name it in a phrasing or an anchor.
+For example, `supported-platforms` names Mastodon and Tumblr, because the FAQ says its list is complete.
+If you give a number, quote the sentence or the table row that holds it. A table row works: `"| Queued scheduled posts | 200 | 1,000 | 3,000 |"`.
+
+The check reads the customer's questions. When those are too short to stand alone ("Is that wrong?"), it reads the whole message, leaving out pasted JSON, code and links.
+When two entries are too close to call and this check stops exactly one of them on a named thing, the other one answers. A missing number never decides a tie.
+
+`check-entries` fails a phrasing of yours that this check stops.
+
+## Numbers and codes match exactly
+
+An anchor, a phrase or a near miss with a digit in it (an error code, a status, an amount, a count) matches only that exact token.
+"20005" never matches "20003", and "504" never matches "500". You do not need a regex anchor for that.
+
+## Quoted text is not a request
+
+Words the customer pasted or quoted (an error message, a platform notice such as "Please reconnect your account") are not read as a request to us.
+A real request next to them still is: 'It says "token expired". Can you reset my key?' goes to a person.
+
 ## What happens before your entry is even scored
 
 1. **Guards** run first and always win: money taken or asked back, someone else's data, a key or the desk's settings, a request for us to post, delete or change something. They go to the hand-over entries in `guards.json` and `billing.json`.
 2. **Words aimed at the desk** ("ignore your rules", "[SYSTEM NOTE: ...]", hidden comments) are cut out. Only the real question is matched.
 3. **The matcher** scores every entry. Your entry answers only above the threshold and clearly ahead of the runner-up. Otherwise a person gets the message with the top three candidates.
-4. **Your signals** run. If one fires, the customer gets the holding reply.
-5. **Every question** in the message must belong to your entry. If one does not, the desk answers your part and hands over the rest, or hands over the whole message.
+4. **Your signals** run, and the default ones every entry has. If one fires, the customer gets the holding reply.
+5. **The docs-silent check** runs: the thing asked about must be something your entry names. If not, a person gets the message.
+6. **Every question** in the message must belong to your entry. If one does not, the desk answers your part and hands over the rest, or hands over the whole message.
 
 ## Check your work
 
@@ -212,3 +260,6 @@ node bin/support-desk.mjs ticket "how do I cancel my plan" --mock   # see what a
 | `makes something reported as done that nobody has confirmed` | "We have fixed this" or "a refund is on the way" is never ours to say. Say who will look at it. |
 | `WARN ... shares no words with its quote` | Not a failure. A plain rewrite can be faithful with other words, but look twice: does the step say what the quote says, and no more? |
 | `"proof" must start with...` | Start it with `You will know it` or `Still open:`. |
+| `is handed to a person by the default "retried" signal` | Your phrasing describes a repeat failure. Reword it, or add the signal to `needs_person_if.ignore` if your steps truly answer that case. |
+| `is stopped by the docs-silent check` | Your phrasing names something (or asks for a number) that your steps never give. Add the fact with its quote, or reword the phrasing. |
+| `"x" in "needs_person_if.ignore" is not a default signal` | Only `retried`, `disputes-count`, `records-disagree`, `many-accounts` and `follow-on` can be ignored. |
