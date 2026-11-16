@@ -1,0 +1,11 @@
+{
+  "replySha256": "8494b8f486d4d6e0c505765509cd245417e27b3e1e713a597af77a0a199212bb",
+  "verdict": "pass",
+  "findings": [
+    "Small note: Step 4 \"Also verify your account\" matches the page's \"Verify account.\" but does not say which account (the YouTube one) or how, so a customer may not know what to do."
+  ],
+  "checkedAt": "2026-11-16T02:19:46Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "youtube-upload-limit-exceeded"
+}

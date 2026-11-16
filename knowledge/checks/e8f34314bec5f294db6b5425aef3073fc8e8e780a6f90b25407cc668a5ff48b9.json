@@ -1,0 +1,11 @@
+{
+  "replySha256": "e8f34314bec5f294db6b5425aef3073fc8e8e780a6f90b25407cc668a5ff48b9",
+  "verdict": "pass",
+  "findings": [
+    "Style note: \"the request goes through\" in the success line could be read as published; the page notes \"A successful submission response is not proof of publication\"."
+  ],
+  "checkedAt": "2026-11-16T02:34:09Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "invalid-json-error"
+}

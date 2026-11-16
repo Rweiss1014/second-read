@@ -1,0 +1,11 @@
+{
+  "replySha256": "46b50bb624305d5cd0e0fc2c96f445d6b2cd09b1d115f1ec2356659426389612",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the success line \"your automation receives the post data from Blotato\" proves only the first half; the post reaching Google Business Profile depends on the customer's own automation, which the reply could say is still theirs to set up."
+  ],
+  "checkedAt": "2026-11-16T02:16:25Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "google-business-profile"
+}

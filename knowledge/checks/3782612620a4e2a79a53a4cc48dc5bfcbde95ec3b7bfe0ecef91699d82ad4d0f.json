@@ -1,0 +1,9 @@
+{
+  "replySha256": "3782612620a4e2a79a53a4cc48dc5bfcbde95ec3b7bfe0ecef91699d82ad4d0f",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T02:14:51Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "x-video-longer-than-2-minutes"
+}

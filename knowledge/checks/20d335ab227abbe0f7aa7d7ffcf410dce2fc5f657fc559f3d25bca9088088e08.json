@@ -1,0 +1,12 @@
+{
+  "replySha256": "20d335ab227abbe0f7aa7d7ffcf410dce2fc5f657fc559f3d25bca9088088e08",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the opening \"Two help pages give different advice for this error\" is not shown by the cited text in this packet, and telling a customer the help pages disagree may cost trust without helping them.",
+    "Style note: step 2 and the opening make \"do not generate an API key\" a blanket rule, while the page says only not to use it as an automatic troubleshooting step; this is cautious, not harmful."
+  ],
+  "checkedAt": "2026-11-16T02:13:05Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "claude-connected-but-oauth-error"
+}

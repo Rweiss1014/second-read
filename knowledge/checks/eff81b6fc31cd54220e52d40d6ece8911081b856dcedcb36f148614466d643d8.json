@@ -1,0 +1,11 @@
+{
+  "replySha256": "eff81b6fc31cd54220e52d40d6ece8911081b856dcedcb36f148614466d643d8",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the opening says \"mixing them up causes this error\", while the page calls it \"a common mistake\"; step 2 keeps the page's softer wording, so the customer is not misled."
+  ],
+  "checkedAt": "2026-11-16T02:34:20Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "account-not-found-linkedin"
+}

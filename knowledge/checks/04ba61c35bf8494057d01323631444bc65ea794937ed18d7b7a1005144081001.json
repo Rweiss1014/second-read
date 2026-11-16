@@ -1,0 +1,9 @@
+{
+  "replySha256": "04ba61c35bf8494057d01323631444bc65ea794937ed18d7b7a1005144081001",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T02:10:19Z",
+  "checker": "reply-checker",
+  "model": "GPT-6",
+  "entry": "start-paid-subscription"
+}

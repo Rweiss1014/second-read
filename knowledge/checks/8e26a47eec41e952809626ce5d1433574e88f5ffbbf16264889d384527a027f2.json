@@ -1,0 +1,11 @@
+{
+  "replySha256": "8e26a47eec41e952809626ce5d1433574e88f5ffbbf16264889d384527a027f2",
+  "verdict": "pass",
+  "findings": [
+    "Small note: the success line says \"the post goes through\", but no step says to fix the link and then retry the post, so the last action is implied rather than stated."
+  ],
+  "checkedAt": "2026-11-16T02:21:35Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "media-storage-upload-failed"
+}

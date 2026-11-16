@@ -1,0 +1,9 @@
+{
+  "replySha256": "677ef8841d78399b66437358b63e45f356bde04b436c116523bec1199ac882eb",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T02:19:30Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "api-auth-failed-credentials"
+}

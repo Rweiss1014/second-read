@@ -1,0 +1,12 @@
+{
+  "replySha256": "8380db8a332c31434bf985fe5e185ad0c3822fbdf600e4a56f94ea6493593503",
+  "verdict": "pass",
+  "findings": [
+    "Small note: Step 1 \"connected up to your plan limit\" leaves out the page's point that every connected Facebook Page, LinkedIn company Page and Slack channel counts toward that limit, which an agency would want to know.",
+    "Small note: Step 4 \"is not available yet\" drops the page's \"there is no firm release date\"."
+  ],
+  "checkedAt": "2026-11-16T02:19:46Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "agency-multiple-clients"
+}

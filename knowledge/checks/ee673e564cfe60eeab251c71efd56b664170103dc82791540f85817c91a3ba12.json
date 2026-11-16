@@ -1,0 +1,9 @@
+{
+  "replySha256": "ee673e564cfe60eeab251c71efd56b664170103dc82791540f85817c91a3ba12",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T02:35:45Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "tiktok-reels-caption-optional"
+}

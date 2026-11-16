@@ -1,0 +1,11 @@
+{
+  "replySha256": "2729f3f99449c0aae6129c5f4bbdbe370fd73dbadff137a6fbd91d293df6931c",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the Next step covers only accounts with 100+ monthly views; it does not tell a newer account to keep warming up and then reconnect once it reaches 100+ views per month, which the page says (\"Once you get 100+ views per month, reconnect your Pinterest account with Blotato\")."
+  ],
+  "checkedAt": "2026-11-16T02:14:33Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "pinterest-restricted-to-verified"
+}

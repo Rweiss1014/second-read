@@ -1,0 +1,11 @@
+{
+  "replySha256": "bd8508bf7d9fda319e02c0f6bec8f36a181b86375cb698bd9b92fa0654b1ee67",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the opening says \"Three clicks get you through\", but the steps are two clicks and a wait; this does not mislead."
+  ],
+  "checkedAt": "2026-11-16T02:35:35Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "stuck-in-onboarding"
+}

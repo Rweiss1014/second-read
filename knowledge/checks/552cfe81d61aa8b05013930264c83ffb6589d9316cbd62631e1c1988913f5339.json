@@ -1,0 +1,11 @@
+{
+  "replySha256": "552cfe81d61aa8b05013930264c83ffb6589d9316cbd62631e1c1988913f5339",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the success line names a \"Select LinkedIn pages window\", which the cited text never names; the meaning (the Page appears so it can be connected) is still right."
+  ],
+  "checkedAt": "2026-11-16T02:16:42Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "linkedin-page-missing-from-list"
+}

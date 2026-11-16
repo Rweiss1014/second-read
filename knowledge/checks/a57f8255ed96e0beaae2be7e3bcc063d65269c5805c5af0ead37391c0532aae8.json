@@ -1,0 +1,9 @@
+{
+  "replySha256": "a57f8255ed96e0beaae2be7e3bcc063d65269c5805c5af0ead37391c0532aae8",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T02:23:28Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "calls-and-meetings"
+}

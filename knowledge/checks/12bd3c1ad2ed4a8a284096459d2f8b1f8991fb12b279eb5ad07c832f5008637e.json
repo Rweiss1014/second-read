@@ -1,0 +1,11 @@
+{
+  "replySha256": "12bd3c1ad2ed4a8a284096459d2f8b1f8991fb12b279eb5ad07c832f5008637e",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the Next step \"Pick the manual upload or the make.com flow\" gives no way to start either path; the page names \"Photo / Video on a draft\" for the upload and links a step-by-step make.com tutorial, and neither is in the reply."
+  ],
+  "checkedAt": "2026-11-16T02:13:05Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "heygen-with-blotato"
+}

@@ -1,0 +1,11 @@
+{
+  "replySha256": "41c3139d8f67eb3bc70ff71e029d198627913446822c41a08e33444d96e6b84b",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the Next step \"Open the menu and select Post editor.\" drops the switch to Content Studio from step 2; step 2 covers it, so no one is misled."
+  ],
+  "checkedAt": "2026-11-16T02:16:25Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "find-post-editor"
+}

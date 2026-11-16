@@ -1,0 +1,11 @@
+{
+  "replySha256": "50fdc8787e15418c3b31776758aea62c23f23d19998e693b6990ff8e2222f7fd",
+  "verdict": "pass",
+  "findings": [
+    "Style note: Step 4 \"open the navigation menu, expand Tools, then select Prompts\" stops before the page's \"Select New Prompt to add your prompt\"; the customer will see the button once there, so it does not mislead."
+  ],
+  "checkedAt": "2026-11-16T02:16:42Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "teach-ai-my-voice"
+}

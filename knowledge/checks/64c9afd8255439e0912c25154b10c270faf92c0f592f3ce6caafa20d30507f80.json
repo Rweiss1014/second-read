@@ -1,0 +1,11 @@
+{
+  "replySha256": "64c9afd8255439e0912c25154b10c270faf92c0f592f3ce6caafa20d30507f80",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the opening \"An Unauthorized error from YouTube means the connection needs a fresh sign-in\" states a cause more surely than the page, which only says \"try these steps\"; the steps themselves match the page, so it does not send the customer the wrong way."
+  ],
+  "checkedAt": "2026-11-16T02:18:12Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "youtube-unauthorized-error"
+}

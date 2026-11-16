@@ -1,0 +1,11 @@
+{
+  "replySha256": "8323ed31e0f289b0f10e8b554ef1b2de8fe25bfa2edee0cbf556f8454f3ab340",
+  "verdict": "pass",
+  "findings": [
+    "Small note: the Next step's \"then publish the automation again\" is not in the 20304 text quoted, though it is the same action the page gives for the neighboring automation errors and does not resend any post."
+  ],
+  "checkedAt": "2026-11-16T02:19:46Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "dm-webhook-url-20304"
+}

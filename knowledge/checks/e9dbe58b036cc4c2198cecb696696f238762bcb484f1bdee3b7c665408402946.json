@@ -1,0 +1,11 @@
+{
+  "replySha256": "e9dbe58b036cc4c2198cecb696696f238762bcb484f1bdee3b7c665408402946",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the success line \"You will know it worked when you know whether your platform has a disclosure field\" is circular, and the reply could name the TikTok (isAiGenerated) and YouTube (containsSyntheticMedia) fields the page gives instead of asking which platform."
+  ],
+  "checkedAt": "2026-11-16T02:34:09Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "ai-generated-label"
+}

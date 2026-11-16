@@ -1,0 +1,11 @@
+{
+  "replySha256": "9c7ac3532f48b34e3bf6373b6da7d881886a37d51635fec705a8f149fcd770ca",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the reply never says plainly that the answer to TikTok DM automations is no; step 1 does carry it with \"not TikTok\", and a leading \"No\" as on the page would be kinder to a customer scanning for the answer."
+  ],
+  "checkedAt": "2026-11-16T02:22:24Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "tiktok-dm-automation"
+}

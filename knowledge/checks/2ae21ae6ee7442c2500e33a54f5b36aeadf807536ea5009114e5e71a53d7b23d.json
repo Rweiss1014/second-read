@@ -1,0 +1,11 @@
+{
+  "replySha256": "2ae21ae6ee7442c2500e33a54f5b36aeadf807536ea5009114e5e71a53d7b23d",
+  "verdict": "pass",
+  "findings": [
+    "Small note: step 3 says \"a stale connection that a reconnect in Accounts can clear\" but drops the page's \"and retry\", so the reply never says to send the post again after the fix, while the success line expects \"the post publishes\"; a customer will most likely infer it."
+  ],
+  "checkedAt": "2026-11-16T02:13:06Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "could-not-upload-media"
+}

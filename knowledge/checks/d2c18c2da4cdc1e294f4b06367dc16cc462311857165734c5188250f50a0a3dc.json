@@ -1,0 +1,11 @@
+{
+  "replySha256": "d2c18c2da4cdc1e294f4b06367dc16cc462311857165734c5188250f50a0a3dc",
+  "verdict": "pass",
+  "findings": [
+    "Style note only: the Next step line says \"each day\" but drops the page's \"for the next week,\" though step 2 keeps it."
+  ],
+  "checkedAt": "2026-11-16T02:34:09Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "instagram-rejected-your-post"
+}

@@ -1,0 +1,9 @@
+{
+  "replySha256": "3261eeaa38ea664188c2d1e74c0adbe4dcba12df4e29f8c322e145fa928d5213",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T02:14:51Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "scheduling-horizon"
+}

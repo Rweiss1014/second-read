@@ -1,0 +1,11 @@
+{
+  "replySha256": "1af25d46e81117a702134fe62b5000cecc0426707c86d5a3468af344a6782ea3",
+  "verdict": "pass",
+  "findings": [
+    "Style note: step 4 gives the Slack 3,000-character limit but leaves out the same page's \"Blotato escapes &, <, and >, which count as 5, 4, and 4 characters\", which a Slack customer near the limit would need."
+  ],
+  "checkedAt": "2026-11-16T02:13:05Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "text-length-exceeds-20005"
+}

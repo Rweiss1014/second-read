@@ -1,0 +1,11 @@
+{
+  "replySha256": "ed042b59ef4e2d993a020be1f4e4fdb6da9ee9c5af9d5f2b2c48ad00a2c1c90d",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the steps do not say which fix goes with error code 33002 (archived) and which with 33003 (workspace blocks the app), which would help a customer match their error."
+  ],
+  "checkedAt": "2026-11-16T02:35:45Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "slack-archived-or-blocked-33002-33003"
+}

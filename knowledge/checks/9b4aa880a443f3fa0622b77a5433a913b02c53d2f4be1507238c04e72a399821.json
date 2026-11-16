@@ -1,0 +1,9 @@
+{
+  "replySha256": "9b4aa880a443f3fa0622b77a5433a913b02c53d2f4be1507238c04e72a399821",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T02:22:24Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "instagram-restrict-activity"
+}

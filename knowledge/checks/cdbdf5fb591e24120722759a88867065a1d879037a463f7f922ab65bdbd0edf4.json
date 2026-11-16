@@ -1,0 +1,11 @@
+{
+  "replySha256": "cdbdf5fb591e24120722759a88867065a1d879037a463f7f922ab65bdbd0edf4",
+  "verdict": "pass",
+  "findings": [
+    "Style note only: steps 2 and 3 rest on the billing-and-credits page, but the reply links only the FAQ page; adding the Plan Limits link would help the customer check their plan."
+  ],
+  "checkedAt": "2026-11-16T02:34:09Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "scheduled-queue-limit"
+}

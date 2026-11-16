@@ -1,0 +1,11 @@
+{
+  "replySha256": "e1b74ed38fc0f8c883482a0667184af1efe061f0fff715432b6ec91668e29fed",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the Next step \"Open a draft, click Photo / Video\" skips the page's first step \"Open the AI Agent\", which would help a customer find the draft."
+  ],
+  "checkedAt": "2026-11-16T02:34:09Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "no-media-library"
+}

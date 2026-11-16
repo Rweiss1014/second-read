@@ -1,0 +1,9 @@
+{
+  "replySha256": "31767d9c67e3eaf33745a0905fa308b03e47319716e94baf54d9e3be429e33a9",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T02:13:06Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "tiktok-url-ownership-verification"
+}

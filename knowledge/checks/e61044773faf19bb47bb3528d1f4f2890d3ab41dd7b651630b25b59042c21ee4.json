@@ -1,0 +1,11 @@
+{
+  "replySha256": "e61044773faf19bb47bb3528d1f4f2890d3ab41dd7b651630b25b59042c21ee4",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the Next step drops the \"uses a supported format\" check from step 2, and step 3 only repeats step 1."
+  ],
+  "checkedAt": "2026-11-16T02:34:09Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "bluesky-media-rejected"
+}

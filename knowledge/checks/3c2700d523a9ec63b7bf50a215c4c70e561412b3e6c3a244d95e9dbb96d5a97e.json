@@ -1,0 +1,11 @@
+{
+  "replySha256": "3c2700d523a9ec63b7bf50a215c4c70e561412b3e6c3a244d95e9dbb96d5a97e",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the success line \"shows in Accounts with the right username\" names only the username, while the Next step and the page also ask to check Status; the Next step covers it, so no one is misled."
+  ],
+  "checkedAt": "2026-11-16T02:16:25Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "connect-social-accounts"
+}

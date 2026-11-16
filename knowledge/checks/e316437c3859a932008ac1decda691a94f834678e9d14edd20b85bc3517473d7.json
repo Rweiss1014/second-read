@@ -1,0 +1,11 @@
+{
+  "replySha256": "e316437c3859a932008ac1decda691a94f834678e9d14edd20b85bc3517473d7",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the reply leaves out the page's case for a post that is already scheduled with artifact links (\"move it to drafts, replace the media, and schedule it again\"); worth adding if the customer's post is already scheduled."
+  ],
+  "checkedAt": "2026-11-16T02:34:09Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "claude-artifact-images"
+}
