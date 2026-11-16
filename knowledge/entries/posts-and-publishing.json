@@ -36,7 +36,7 @@
           "publshed"
         ],
         [
-          "/(can'?t|cannot|can not|don'?t|do not|not|isn'?t|no|never|nowhere)\\b.{0,25}\\b(see|find|show|showing|there|appear|appeared|visible|open|opens|found)\\b/",
+          "/(can'?t|cannot|can not|don'?t|do not|doesn'?t|does not|didn'?t|did not|isn'?t|aren'?t|wasn'?t|won'?t|not|no|never|nowhere)\\b.{0,25}\\b(see|find|show|showing|there|appear|appeared|visible|open|opens|found)\\b/",
           "/\\b(link|url)\\b.{0,30}\\b404\\b|\\b404\\b.{0,30}\\b(link|url)\\b/",
           "page not found",
           "gone",
@@ -207,7 +207,7 @@
         "the post status is stuck on in-progress",
         "is my post stuck, it says in progress",
         "the status never changes from in-progress",
-        "how long does in-progress last",
+        "what does in-progress mean, is it still working",
         "the submission id is pending, should I post again",
         "GET /v2/posts/{id} keeps answering in-progress"
       ],

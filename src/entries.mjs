@@ -8,7 +8,7 @@ import path from 'node:path';
 import { ROOT } from './config.mjs';
 import { pageUrl, quoteOnPage, readCacheDir } from './docs.mjs';
 import { findPromises, findVoice } from './checkreply.mjs';
-import { SIGNAL_NAMES } from './signals.mjs';
+import { SIGNAL_NAMES, DEFAULT_SIGNALS } from './signals.mjs';
 import { contentStems, anchorsMet } from './match.mjs';
 import { createRouter } from './route.mjs';
 
@@ -124,8 +124,11 @@ export function validateShape(entries) {
     if (np !== undefined) {
       if (typeof np !== 'object' || Array.isArray(np)) problems.push(`${where}: "needs_person_if" must be { "signals": [...], "phrases": [...] }.`);
       else {
-        for (const k of Object.keys(np)) if (!['signals', 'phrases'].includes(k)) problems.push(`${where}: "needs_person_if" has an unknown field "${k}".`);
+        for (const k of Object.keys(np)) if (!['signals', 'phrases', 'ignore'].includes(k)) problems.push(`${where}: "needs_person_if" has an unknown field "${k}".`);
         for (const s of np.signals || []) if (!SIGNAL_NAMES.includes(s)) problems.push(`${where}: "${s}" is not a known signal. Known signals: ${SIGNAL_NAMES.join(', ')}.`);
+        if (np.ignore !== undefined && !(Array.isArray(np.ignore) && np.ignore.every(isText))) problems.push(`${where}: "needs_person_if.ignore" must be a list of signal names.`);
+        for (const s of Array.isArray(np.ignore) ? np.ignore : []) if (!DEFAULT_SIGNALS.includes(s)) problems.push(`${where}: "${s}" in "needs_person_if.ignore" is not a default signal. Default signals: ${DEFAULT_SIGNALS.join(', ')}.`);
+        for (const s of Array.isArray(np.ignore) ? np.ignore : []) if ((np.signals || []).includes(s)) problems.push(`${where}: "${s}" is in both "needs_person_if.signals" and "needs_person_if.ignore".`);
         if (np.phrases !== undefined && !(Array.isArray(np.phrases) && np.phrases.every(isText))) problems.push(`${where}: "needs_person_if.phrases" must be a list of text.`);
       }
     }
@@ -193,6 +196,9 @@ export function validateRouting(entries) {
       const r = router.route(p);
       if (r.decision === 'guard') problems.push(`${where}: the phrasing "${p}" is taken by the ${r.guard} guard before matching (words: "${r.words}"). Reword it as a question, not a request.`);
       else if (r.entry && r.entry.id !== e.id && r.entry.guard !== 'needs-person') problems.push(`${where}: the phrasing "${p}" routes to "${r.entry.id}" instead. The two entries overlap: make the phrasings more distinct, or add a "not_this".`);
+      // The rules every entry shares can stop a phrasing too.
+      else if (r.decision === 'needs-person' && (r.signals || []).some(s => s.byDefault)) { const s = r.signals.find(x => x.byDefault); problems.push(`${where}: the phrasing "${p}" is handed to a person by the default "${s.signal}" signal (words: "${s.words}"). Reword it, or, if your entry truly answers that case, add "${s.signal}" to "needs_person_if.ignore".`); }
+      else if (r.decision === 'abstain' && r.silent) problems.push(`${where}: the phrasing "${p}" is stopped by the docs-silent check: ${r.reason} ${r.silent.kind === 'number' ? 'Give the number in a step, or reword the phrasing.' : 'Name it in a step, or reword the phrasing.'}`);
     }
   }
   return problems;

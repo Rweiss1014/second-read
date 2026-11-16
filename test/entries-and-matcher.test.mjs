@@ -119,9 +119,13 @@ test('every guard has its hand-over entry, and the real entries have no shape pr
 });
 
 test('matcher abstains below the threshold, and shows the top candidates', () => {
-  const r = routeMessage('Can Blotato post to my Mastodon server?');
+  // No help page mentions Outlook, so no entry may answer it.
+  const r = routeMessage('Can I sync my Blotato calendar with Outlook?');
   assert.equal(r.decision, 'abstain');
   assert.equal(r.entry, null);
+  // Mastodon used to be this test's message. The FAQ now gives the complete list of platforms and says Blotato
+  // publishes to none outside it, and the supported-platforms entry names Mastodon, so it answers.
+  assert.equal(routeMessage('Can Blotato post to my Mastodon server?').entry?.id, 'supported-platforms');
   // A weak match is shown as a candidate, not answered.
   const weak = routeMessage('Getting a 401 sometimes, maybe, on some endpoint, from one of our many internal tools.');
   if (weak.decision === 'abstain') assert.ok(weak.candidates.length <= 3);

@@ -52,7 +52,7 @@ function features(text) {
   for (const t of words) w.set(t, (w.get(t) || 0) + 1);
   for (let i = 0; i + 1 < words.length; i++) { const b = `${words[i]}_${words[i + 1]}`; w.set(b, (w.get(b) || 0) + 0.5); }
   for (const t of words) {
-    if (t.length < 3 || /^\d+$/.test(t)) continue;
+    if (t.length < 3 || /\d/.test(t)) continue; // codes and numbers count only as whole words, never as near spellings
     const s = `#${t}#`;
     for (let i = 0; i + 3 <= s.length; i++) { const k = s.slice(i, i + 3); g.set(k, (g.get(k) || 0) + 1); }
   }
@@ -87,8 +87,12 @@ function unitsOf(text) {
 }
 
 // One-letter typos for words of five letters or more (insert, delete, swap, replace).
-function nearWord(a, b) {
+// A token with a digit in it (an error code, an HTTP status, an amount, a count, an id) is never a typo of
+// another: 20003 is not 20005, and "v2" is not "v3". It must match exactly. Found by an entry writer: the
+// anchor for error 20005 took a message about 20003.
+export function nearWord(a, b) {
   if (a === b) return true;
+  if (/\d/.test(a) || /\d/.test(b)) return false;
   if (Math.min(a.length, b.length) < 5 || Math.abs(a.length - b.length) > 1) return false;
   let i = 0; while (i < a.length && a[i] === b[i]) i++;
   if (a.length === b.length) {

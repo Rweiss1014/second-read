@@ -185,6 +185,7 @@
         "LinkedIn analytics for my posts",
         "does each LinkedIn page count as a separate account",
         "how many social accounts can I connect on my plan",
+        "if I connect a linkedin company page does it count toward my starter account limit",
         "post to a LinkedIn company page from the web app"
       ],
       "anchors": [
@@ -363,7 +364,11 @@
           "staging",
           "without posting",
           "without publishing",
-          "test"
+          "test environment",
+          "test post",
+          "test posts",
+          "test my integration",
+          "test the api"
         ]
       ],
       "lookup": "docs-search",

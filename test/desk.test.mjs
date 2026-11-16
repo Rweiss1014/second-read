@@ -117,7 +117,9 @@ test('the schedule-id ticket is reproduced, escalated with two causes, and gets 
 test('a question with no playbook entry gets no reply: it is refused, escalated and turned into a doc edit', async () => {
   const { env } = tempDesk();
   const desk = openDesk({ env });
-  const r = await handleTicket(desk, { id: 'X1', text: 'Can Blotato post to my Mastodon server?' });
+  // No help page mentions Outlook. (This used to ask about Mastodon, which the supported-platforms entry now
+  // answers from the FAQ's complete list of platforms.)
+  const r = await handleTicket(desk, { id: 'X1', text: 'Can I sync my Blotato calendar with Outlook?' });
   await desk.close();
   assert.equal(r.entry, null);
   assert.equal(r.reply, null);

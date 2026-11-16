@@ -14,8 +14,8 @@
 //   5. A second question the entry does not cover: answer the part it can cite and hand over the rest,
 //      or hand over the whole message when the entry has no room for that line. If the entry covers none
 //      of the message's questions, it matched only the background, and the desk does not answer.
-import { buildIndex, scoreEntries, scoreAgainst, splitSentences, contentStems, allStems, hasTerm, anchorsMet } from './match.mjs';
-import { runGuards, stripDeskInstructions, needsPerson, TROUBLE } from './signals.mjs';
+import { buildIndex, scoreEntries, scoreAgainst, splitSentences, contentStems, allStems, hasTerm, anchorsMet, anchorRegex } from './match.mjs';
+import { runGuards, stripDeskInstructions, needsPerson, TROUBLE, NAMED_ITEMS, PLATFORMS, ASKS_NUMBER, ASKS_OWN_COUNT, GIVES_NUMBER, INTRODUCER, COMMON_CAPS } from './signals.mjs';
 
 // Tuned on the dev set only (eval/tickets.dev.jsonl). See BUILD-LOG.md for how.
 export const THRESHOLD = 0.25;   // the best entry's score must reach this, when the entry has anchors and they are met
@@ -32,6 +32,68 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
   const matchable = entries.filter(e => !e.guard);
   const index = buildIndex(matchable);
   const guardEntry = (g) => entries.find(e => e.guard === g) || null;
+
+  // What each entry speaks about: every word of its title, phrasings, anchors, steps, quotes and other reply
+  // lines, as stems (a "|" between texts, so a two-word term never spans two texts).
+  const vocab = new Map(matchable.map(e => {
+    const texts = [e.title, ...(e.phrasings || []), ...(e.anchors || []).flat().filter(t => !anchorRegex(t)), e.opening, e.next, e.proof,
+      ...(e.steps || []).flatMap(s => [s.text, s.cite?.quote])].filter(t => typeof t === 'string');
+    return [e.id, texts.flatMap(t => [...allStems(t), '|'])];
+  }));
+  const everyWord = new Set([...vocab.values()].flat());
+  const givesNumber = new Map(matchable.map(e => [e.id, (e.steps || []).some(s => GIVES_NUMBER.test(s.text || '') || GIVES_NUMBER.test(s.cite?.quote || ''))]));
+  const items = Object.entries(NAMED_ITEMS).flatMap(([kind, terms]) => terms.map(term => ({ kind, term })));
+  const platformSpecific = new Map(matchable.map(e => [e.id, Object.values(PLATFORMS).some(al => al.some(a => hasTerm(allStems(e.title), a)))]));
+
+  // Docs-silent: the customer asks about a named thing, or a number, that the chosen entry never mentions.
+  // Returns { kind, term } for the first one, or null.
+  // Named items match exactly, both ways: with one-letter typos allowed, "video" would be "vimeo".
+  const has = (stems, term) => { const t = allStems(term); outer: for (let i = 0; i + t.length <= stems.length; i++) { for (let j = 0; j < t.length; j++) if (stems[i + j] !== t[j]) continue outer; return true; } return false; };
+  const namesPlatform = (stems, al) => al.some(a => has(stems, a));
+  function silentOn(entry, text) {
+    const stems = allStems(text);
+    const v = vocab.get(entry.id) || [];
+    for (const { kind, term } of items) if (has(stems, term) && !has(v, term)) return { kind, term };
+    const asked = Object.entries(PLATFORMS).filter(([, al]) => namesPlatform(stems, al));
+    const missing = asked.find(([, al]) => !namesPlatform(v, al));
+    if (missing && platformSpecific.get(entry.id)) return { kind: 'platform', term: missing[0] };
+    const asksNumber = ASKS_NUMBER.test(text) && !ASKS_OWN_COUNT.test(text);
+    if (asksNumber && !givesNumber.get(entry.id)) return { kind: 'number', term: text.match(ASKS_NUMBER)[0] };
+    // A number for a platform the entry's per-platform figures leave out ("how many posts a day on Pinterest"
+    // against a list of Instagram, LinkedIn and Facebook limits).
+    if (missing && asksNumber && Object.values(PLATFORMS).filter(al => namesPlatform(v, al)).length >= 2) return { kind: 'platform', term: missing[0] };
+    for (const m of text.matchAll(INTRODUCER)) {
+      const s = allStems(m[1]);
+      if (s.length !== 1 || COMMON_CAPS.has(m[1].toLowerCase()) || everyWord.has(s[0])) continue;
+      return { kind: 'name', term: m[1] };
+    }
+    return null;
+  }
+
+  // What the customer asks: the question sentences, or the whole message when it has none, or when its
+  // questions are too short to stand alone ("Is that wrong?" leans on the sentences before it).
+  // Pasted code (a JSON payload) and links are what the customer sent, not what they ask about, so they are
+  // left out: a "pageId" inside a pasted request body is not a question about page ids.
+  function askedText(text) {
+    const asked = splitSentences(text).filter(s => QUESTION.test(s.trim()));
+    if (asked.length && contentStems(asked.join(' ')).length >= 3) return asked.join(' ');
+    return text.replace(/\{[^\n]*\}/g, ' ').replace(/`[^`\n]*`/g, ' ').replace(/https?:\/\/\S+/g, ' ');
+  }
+
+  function breakTie(a, b, text) {
+    const q = askedText(text);
+    const [ea, eb] = [index.byId.get(a.id), index.byId.get(b.id)];
+    // Only a named item or platform breaks a tie. A missing number does not: when the entry that owns the
+    // topic gives no number, the docs are silent, and a neighbor with some other number is not the answer
+    // ("how many first comments a day" is not answered by the posts-per-day limits).
+    const sa = silentOn(ea, q); const sb = silentOn(eb, q);
+    if (sa?.kind === 'number' || sb?.kind === 'number') return null;
+    if (sa && !sb) return { c: b, why: `"${a.id}" never mentions "${sa.term}"` };
+    if (sb && !sa) return { c: a, why: `"${b.id}" never mentions "${sb.term}"` };
+    // Tried and dropped: preferring the entry that names more of the message's platforms. It sent "the pin
+    // shows published, the link gives a 404" to the connect-accounts entry because that one names Pinterest.
+    return null;
+  }
 
   function pickMoneyEntry(text) {
     const money = entries.filter(e => e.guard === 'money').filter(e => anchorsMet(text, e.anchors).ok);
@@ -59,16 +121,30 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
     const scored = scoreEntries(index, real);
     const live = scored.filter(c => !c.excluded);
     base.candidates = live.slice(0, 3).map(c => ({ id: c.id, score: round(c.score), phrasing: c.phrasing }));
-    const [best, second] = live;
+    let [best, second] = live;
+    const needOf = (c) => (c?.anchored ? threshold : thresholdUnanchored);
+    // Two entries too close to choose between: if the docs-silent check stops exactly one of them (it never
+    // mentions the item or number asked about), the other is the candidate. It must still reach the threshold
+    // and beat the third entry by the margin, and it then goes through every other check.
+    if (best && second && best.score - second.score < margin) {
+      const pick = breakTie(best, second, real);
+      const third = live[2];
+      if (pick && pick.c.score >= needOf(pick.c) && pick.c.score - (third?.score || 0) >= margin) {
+        base.tie = { chose: pick.c.id, over: (pick.c === best ? second : best).id, why: pick.why };
+        [best, second] = [pick.c, third];
+      }
+    }
     const gap = best ? best.score - (second?.score || 0) : 0;
-    const need = best?.anchored ? threshold : thresholdUnanchored;
+    const need = needOf(best);
     if (!best || best.score < need || gap < margin) {
       const why = !best ? 'No entry is a candidate for this message.'
         : best.score < need ? `The best match, "${best.id}", scored ${round(best.score)}, below the ${need} the desk needs to answer.`
           : `The best match, "${best.id}" (${round(best.score)}), is too close to "${second.id}" (${round(second.score)}) to choose between them.`;
       // No entry, but the customer says they already tried things, or it keeps failing, or Blotato's own
       // records disagree: whatever the topic, a person takes it, and the customer gets the holding reply.
-      const hits = TROUBLE.test(real) ? needsPerson(real, { signals: GENERAL_SIGNALS }, { hasTerm, allStems }) : [];
+      // The strong default signals ("three days in a row", "is something down", "I only posted 3") count on
+      // their own; the rest need a trouble word.
+      const hits = needsPerson(real, { signals: TROUBLE.test(real) ? GENERAL_SIGNALS : [] }, { hasTerm, allStems }, { defaults: true });
       if (hits.length) return { ...base, decision: 'needs-person', entry: guardEntry('needs-person'), holding: guardEntry('needs-person'), signals: hits, reason: `${why} And: ${hits[0].about} ("${hits[0].words}")` };
       return { ...base, decision: 'abstain', entry: null, reason: why };
     }
@@ -77,9 +153,22 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
     base.score = round(best.score);
     base.margin = round(gap);
 
-    const hits = needsPerson(real, entry.needs_person_if, { hasTerm, allStems });
+    // The entry's own signals, plus the default ones every answering entry has (signals.mjs DEFAULT_SIGNALS).
+    const hits = needsPerson(real, entry.needs_person_if, { hasTerm, allStems }, { defaults: true });
     if (hits.length && !entry.escalate && !entry.noDocAnswer) {
       return { ...base, decision: 'needs-person', entry, signals: hits, holding: entry.holding || guardEntry('needs-person'), reason: `${hits[0].about} ("${hits[0].words}")` };
+    }
+
+    // The thing asked about must be something the entry speaks about. Only the questions are read (the whole
+    // message when it has none, or only short ones), so "I make my images in Canva. How do I schedule a post?"
+    // is not blocked.
+    if (!entry.escalate && !entry.noDocAnswer) {
+      const silent = silentOn(entry, askedText(real));
+      if (silent) {
+        const what = silent.kind === 'number' ? `asks for a number ("${silent.term}"), and its steps give none`
+          : `asks about ${silent.kind === 'name' ? '' : `${/^[aeiou]/.test(silent.kind) ? 'an' : 'a'} ${silent.kind}, `}"${silent.term}", which it never mentions`;
+        return { ...base, decision: 'abstain', entry: null, silent, reason: `"${entry.id}" matched the message, but the message ${what}. The docs may be silent on it.` };
+      }
     }
 
     // Every real question in the message must belong to this entry. A question with fewer than three content

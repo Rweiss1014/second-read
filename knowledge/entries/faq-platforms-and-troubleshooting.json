@@ -2197,7 +2197,8 @@
       "not_this": [
         "how do I make my visuals match my brand",
         "how do I teach the AI to use my voice",
-        "how do I make a carousel"
+        "how do I make a carousel",
+        "can each brand kit be tied to its own social accounts so posts only go to that brand's accounts"
       ],
       "anchors": [
         [
@@ -2899,6 +2900,14 @@
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
             "quote": "More than 5 reduces your reach on these platforms."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Instagram itself allows more, but Blotato caps posts at 5 on purpose.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Instagram itself allows more hashtags, but Blotato caps posts at 5 on purpose because more than 5 hashtags reduces your reach on Instagram, TikTok, and Facebook."
           }
         },
         {
