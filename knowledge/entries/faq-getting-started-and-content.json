@@ -268,22 +268,14 @@
           "brand new"
         ]
       ],
-      "opening": "Welcome. There is a short path that works well for a first post.",
+      "opening": "Welcome. Here is the path the help page gives for getting started in the web app.",
       "steps": [
         {
           "type": "fact",
-          "text": "The best place to start is the Blotato Beginner Tutorial.",
+          "text": "Start with the Blotato Beginner Tutorial. It shows how to use the Blotato AI Agent, which is at my.blotato.com/agent.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "The best place to start is the Blotato Beginner Tutorial."
-          }
-        },
-        {
-          "type": "fact",
-          "text": "The AI Agent learns your brand, remixes YouTube and TikTok videos, and helps you post to many platforms in a few clicks.",
-          "cite": {
-            "url": "https://help.blotato.com/support/faqs",
-            "quote": "It learns your brand, remixes YouTube and TikTok videos, and helps you post to many platforms in a few clicks."
+            "quote": "The best place to start is the Blotato Beginner Tutorial. It shows how to use the Blotato AI Agent. The AI Agent is located at my.blotato.com/agent."
           }
         },
         {
@@ -296,6 +288,22 @@
         },
         {
           "type": "fact",
+          "text": "Add a YouTube video, TikTok video, or other source under Context.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Add a YouTube video, TikTok video, or other source under Context."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Ask the AI Agent to create posts from your source.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Ask the AI Agent to create posts from your source."
+          }
+        },
+        {
+          "type": "fact",
           "text": "Connect your social accounts through Accounts, then select them when publishing or scheduling.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
@@ -303,8 +311,8 @@
           }
         }
       ],
-      "next": "Watch the Blotato Beginner Tutorial, then open the AI Agent at my.blotato.com/agent.",
-      "proof": "You will know it worked when you can see your first draft in the AI Agent."
+      "next": "Watch the Blotato Beginner Tutorial from the help page linked below, then open the AI Agent at my.blotato.com/agent.",
+      "proof": "You will know it worked when the AI Agent has made your first posts from your source."
     },
     {
       "needs_person_if": {
@@ -1087,15 +1095,27 @@
         },
         {
           "type": "fact",
-          "text": "There is an unofficial workaround for Substack Notes. Blotato does not support it, and you use it at your own risk.",
+          "text": "There is an unofficial workaround for Substack Notes. Blotato does not officially support it, and Substack does not officially allow automated posting, so you use it at your own risk.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
             "quote": "Blotato does not officially support this method, and Substack does not officially allow automated posting, so you use it at your own risk."
           }
+        },
+        {
+          "type": "fact",
+          "text": "You build and run that workaround yourself, outside Blotato.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "You build and run it yourself, outside Blotato."
+          }
+        },
+        {
+          "type": "action",
+          "text": "The workaround steps are on the help page linked below."
         }
       ],
-      "next": "If you want the unofficial workaround for Notes, tell me and I will pass your question to a person.",
-      "proof": "You will know it worked when you know whether Substack fits your plan."
+      "next": "Decide whether the unofficial workaround is worth the risk for you. If it is, follow its steps on the help page linked below.",
+      "proof": "Still open: whether you choose the unofficial workaround for Substack Notes, which you would build and run yourself."
     },
     {
       "needs_person_if": {
@@ -1649,10 +1669,10 @@
         },
         {
           "type": "fact",
-          "text": "For Instagram Reels, audio that is already in your video plays when it is posted.",
+          "text": "For Instagram Reels, audio that is already in your video plays when it is posted. To add a music track before posting, use the Blotato video editor.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "If your video already has audio, it will play when posted."
+            "quote": "For Instagram Reels, if your video already has audio it will play when posted. To add a music track before posting, use the Blotato video editor."
           }
         },
         {
@@ -1665,15 +1685,23 @@
         },
         {
           "type": "fact",
-          "text": "TikTok supports auto-adding music through the API with autoAddMusic: true. Instagram has no equivalent.",
+          "text": "For TikTok slideshows sent through the API, set autoAddMusic: true in the Publish node to add TikTok's recommended music. This works for photo and slideshow posts only.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "For TikTok slideshows via API, set autoAddMusic: true in the Publish node to add TikTok's recommended music (photo/slideshow posts only)."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Instagram does not have an equivalent of autoAddMusic.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
             "quote": "TikTok supports auto-adding music via API with autoAddMusic: true. Instagram does not have an equivalent."
           }
         }
       ],
-      "next": "Tell me whether this is a Reel, a carousel, or a TikTok, and I will point you to the right step.",
-      "proof": "You will know it worked when your music plays on the post."
+      "next": "Find your kind of post in the steps above and follow that step.",
+      "proof": "You will know it worked when the published post plays with music."
     },
     {
       "needs_person_if": {
@@ -2414,51 +2442,51 @@
           "url"
         ]
       ],
-      "opening": "This works through MCP. The assistant also needs to reach your files.",
+      "opening": "This works through MCP, and the assistant also needs to reach your files. Here are the steps.",
       "steps": [
         {
           "type": "fact",
-          "text": "Connect Blotato to ChatGPT Work or Codex through MCP.",
+          "text": "Connect Blotato to ChatGPT Work or Codex through MCP: open Settings > API, select ChatGPT Work / Codex, and follow the Codex connection steps. The assistant also needs access to your image or video files.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Connect Blotato to ChatGPT Work / Codex through MCP."
+            "quote": "Connect Blotato to ChatGPT Work / Codex through MCP. The assistant also needs access to your image or video files. 1. Open Settings > API. 2. Select ChatGPT Work / Codex. 3. Follow the Codex connection steps."
           }
         },
         {
           "type": "fact",
-          "text": "The assistant also needs access to your image or video files.",
+          "text": "Ask the assistant to list your connected Blotato accounts with blotato_list_accounts, then give it access to the files you want to post.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "The assistant also needs access to your image or video files."
+            "quote": "Ask the assistant to list your connected Blotato accounts with blotato_list_accounts. 5. Give the assistant access to the files you want to post."
           }
         },
         {
           "type": "fact",
-          "text": "Ask it to call blotato_create_presigned_upload_url for each local file.",
+          "text": "Ask it to call blotato_create_presigned_upload_url for each local file, then send the file bytes to presignedUrl with an HTTP PUT.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Ask it to call blotato_create_presigned_upload_url for each local file."
+            "quote": "Ask it to call blotato_create_presigned_upload_url for each local file. 7. Ask it to send the file bytes to presignedUrl with an HTTP PUT."
           }
         },
         {
           "type": "fact",
-          "text": "Ask it to send the file bytes to presignedUrl with an HTTP PUT.",
+          "text": "Ask it to use the returned publicUrl with blotato_create_post for the social account and time you choose, then ask it to verify the publishing result.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Ask it to send the file bytes to presignedUrl with an HTTP PUT."
+            "quote": "Ask it to use the returned publicUrl with blotato_create_post for the social account and time you choose. 9. Ask it to verify the publishing result."
           }
         },
         {
           "type": "fact",
-          "text": "Ask it to use the returned publicUrl with blotato_create_post for the account and time you choose.",
+          "text": "For media already at a public, direct-download URL, pass that URL to blotato_create_post without uploading it first. A client without access to the file bytes or an HTTP upload tool needs a public media URL or a client with those capabilities.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Ask it to use the returned publicUrl with blotato_create_post for the social account and time you choose."
+            "quote": "For media already at a public, direct-download URL, pass that URL to blotato_create_post without uploading it first. A client without access to the file bytes or an HTTP upload tool needs a public media URL or a client with those capabilities."
           }
         }
       ],
-      "next": "Ask the assistant to list your accounts with blotato_list_accounts, to confirm the connection works.",
-      "proof": "You will know it worked when the assistant lists your connected Blotato accounts."
+      "next": "Open Settings > API, select ChatGPT Work / Codex, and follow the Codex connection steps.",
+      "proof": "You will know it worked when the assistant verifies the publishing result for your post."
     },
     {
       "needs_person_if": {
@@ -2530,7 +2558,7 @@
       "steps": [
         {
           "type": "fact",
-          "text": "Set your posting times in the Weekly posting schedule.",
+          "text": "Set your posting times in Weekly posting schedule.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
             "quote": "Set your posting times in Weekly posting schedule."
@@ -2538,26 +2566,26 @@
         },
         {
           "type": "fact",
-          "text": "Upload one video.",
+          "text": "Open the AI Agent, select New draft in the Drafts toolbar, click Photo / Video, and upload one video.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Upload one video."
+            "quote": "Open the AI Agent. 3. Select New draft in the Drafts toolbar. 4. Click Photo / Video. 5. Upload one video."
           }
         },
         {
           "type": "fact",
-          "text": "Select the social accounts in the Schedule panel.",
+          "text": "Add the caption for the video, then click the draft card.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Select the social accounts in the Schedule panel."
+            "quote": "Add the caption for the video. 7. Click the draft card."
           }
         },
         {
           "type": "fact",
-          "text": "Select Next free slot time under Publish time.",
+          "text": "Select the social accounts in the Schedule panel, select Next free slot time under Publish time, and click Schedule.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Select Next free slot time under Publish time."
+            "quote": "Select the social accounts in the Schedule panel. 9. Select Next free slot time under Publish time. 10. Click Schedule."
           }
         },
         {
@@ -2653,22 +2681,22 @@
           "draft"
         ]
       ],
-      "opening": "This usually comes down to which screen you are on. Let us check in order.",
+      "opening": "Let us find the right screen for picking your accounts. Check these in order.",
       "steps": [
         {
           "type": "fact",
-          "text": "The video editor exports media and creates a draft. It is not the place where you pick publishing accounts.",
+          "text": "Check which screen you are on. The video editor exports media and creates a draft. It is not the place where you pick publishing accounts.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "The video editor exports media and creates a draft. It is not the publishing account selector."
+            "quote": "Identify the screen. The video editor exports media and creates a draft. It is not the publishing account selector."
           }
         },
         {
           "type": "fact",
-          "text": "In the AI Agent, open the draft and its Schedule panel.",
+          "text": "In the AI Agent, open the draft and its Schedule panel. Check the account list and scroll through Options for destination selectors. In Remix, use the draft's scheduling controls instead.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "In the AI Agent, open the intended draft and its Schedule panel."
+            "quote": "In the AI Agent, open the intended draft and its Schedule panel. 3. Check the account list and scroll through Options for destination selectors. In Remix, use the draft's scheduling controls instead."
           }
         },
         {
@@ -2681,6 +2709,14 @@
         },
         {
           "type": "fact",
+          "text": "If the connection exists but the list stays empty, record the page URL, a screenshot, and any error shown, and send them to support.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "If the connection exists but the list stays empty, record the page URL, screenshot, and any displayed error for support."
+          }
+        },
+        {
+          "type": "fact",
           "text": "Do not reconnect an account or weaken browser privacy settings only because a selector is missing.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
@@ -2688,8 +2724,8 @@
           }
         }
       ],
-      "next": "Open the draft in the AI Agent and look at its Schedule panel.",
-      "proof": "You will know it worked when your connected accounts show in the Schedule panel."
+      "next": "Open the draft in the AI Agent, look at its Schedule panel, and scroll through Options.",
+      "proof": "You will know it worked when your connected accounts show in the Schedule panel. If they do not, the page URL, screenshot and any error you recorded are what support needs."
     },
     {
       "needs_person_if": {
@@ -2747,22 +2783,22 @@
           "post now"
         ]
       ],
-      "opening": "A grey button usually means the draft is waiting for one more choice. Check these in order.",
+      "opening": "Let us check what the Schedule panel still needs, in order.",
       "steps": [
         {
           "type": "fact",
-          "text": "Select a destination account.",
+          "text": "Open the draft and its Schedule panel, select a destination account, and complete its destination selector: Facebook Page, LinkedIn profile or company Page, Pinterest board, or Slack channels.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Select a destination account."
+            "quote": "Open the intended draft and its Schedule panel. 2. Select a destination account. 3. Complete its destination selector: Facebook Page, LinkedIn profile or company Page, Pinterest board, or Slack channels."
           }
         },
         {
           "type": "fact",
-          "text": "Complete its destination selector: Facebook Page, LinkedIn profile or company Page, Pinterest board, or Slack channels.",
+          "text": "Check the status of each destination. The AI Agent shows submission controls only when a destination still needs submission. Destinations already in flight, scheduled, or published are not waiting to be submitted.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Complete its destination selector: Facebook Page, LinkedIn profile or company Page, Pinterest board, or Slack channels."
+            "quote": "Check the per-destination status. The current AI Agent shows submission controls only when a destination still needs submission. Destinations already in flight, scheduled, or published are not pending submissions."
           }
         },
         {
@@ -2775,7 +2811,15 @@
         },
         {
           "type": "fact",
-          "text": "Do not delete existing posts or pick a different destination just to enable the button.",
+          "text": "A grey button alone does not show the cause. If no accounts appear, follow the help page's steps for missing account selectors. If things still look wrong, send support the page URL and a screenshot.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "A disabled button alone does not identify the cause. If no accounts appear, follow missing account selectors. If the state remains inconsistent, send support the page URL and screenshot."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Do not delete existing posts or pick a different destination to enable the button.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
             "quote": "Do not delete existing posts or select a different destination to enable the button."
@@ -2783,7 +2827,7 @@
         }
       ],
       "next": "Open the draft and its Schedule panel, then check that an account and its destination are selected.",
-      "proof": "You will know it worked when the Schedule button turns active."
+      "proof": "You will know it worked when the Schedule button turns active, or when the destination's status shows it is already scheduled or published."
     },
     {
       "needs_person_if": {
