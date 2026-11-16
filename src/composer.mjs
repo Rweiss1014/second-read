@@ -295,6 +295,10 @@ export function composerConfig(env = process.env) {
     timeoutMs: Number(env.SUPPORT_DESK_COMPOSER_TIMEOUT_MS || 180000),
     cacheDir: env.SUPPORT_DESK_COMPOSER_CACHE || null,
     cacheOnly: env.SUPPORT_DESK_COMPOSER_CACHE_ONLY === '1',
+    // Compose over a saved entry (Nov 16, 2026 experiment): a blind held-out grading found saved entries fit the topic
+    // but often not the customer's narrower question (5 of 17 right), while composed replies were 37 of 40 right. On,
+    // the composer also writes when a saved help entry matched; if its checks fail, the saved entry stands.
+    overSaved: env.SUPPORT_DESK_COMPOSE_OVER_SAVED === '1',
     bin: env.SUPPORT_DESK_CLAUDE_BIN || 'claude',
   };
 }
@@ -338,8 +342,24 @@ export function createComposer({ router, env = process.env, call, cacheDir, page
 
   const eligible = (r) => r && r.decision === 'abstain' && !FINAL.has(r.decision) && !FINAL_WHY.has(r.why) && !r.guard;
 
+  // Over a saved entry (cfg.overSaved): only a help entry whose every step is a quoted fact. An entry that looks at
+  // the account (a status or lookup step) keeps its own reply, since its facts come from the account, not a model.
+  const composable = (r) => cfg.overSaved && r && (r.decision === 'answer' || r.decision === 'partial') && !r.guard && r.entry && !r.entry.adHoc
+    && Array.isArray(r.entry.steps) && r.entry.steps.length > 0 && r.entry.steps.every(s => s.type === 'fact') && !r.entry.lookup;
+
   // The decision with the composer's folded in. Never throws.
   async function compose(text, r) {
+    if (!composable(r)) return composeOne(text, r);
+    const res = await composeOne(text, { ...r, decision: 'abstain', why: null, whyDetail: null });
+    if (res.decision === 'answer' && res.path === 'composed') {
+      stats.overSaved = (stats.overSaved || 0) + 1;
+      return { ...res, reason: `A saved entry (${r.entry.id}) matched the topic; the composer wrote the reply to this message instead. ${res.reason.replace(/^No saved entry answers it\. /, '')}`, composer: { ...res.composer, overSaved: r.entry.id } };
+    }
+    // The composer did not produce a checked reply: the saved entry stands, unchanged.
+    return { ...r, composer: { ...(res.composer || {}), overSaved: r.entry.id, fellBack: true } };
+  }
+
+  async function composeOne(text, r) {
     const base = { backend: name, writerModel: cfg.writerModel, writePrompt: cfg.writePrompt, secondRead: cfg.secondRead ? { model: cfg.secondModel, version: cfg.secondPrompt } : null };
     if (!eligible(r)) return { ...r, composer: { ...base, skipped: r?.decision === 'answer' || r?.decision === 'partial' ? 'a saved entry answers it' : `decided before the composer (${r?.why || r?.decision})` } };
     stats.reached++;

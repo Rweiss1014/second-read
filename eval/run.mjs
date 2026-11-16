@@ -29,7 +29,8 @@
 //   --composer-cache <dir>            (default eval/composer-cache/<set>); --composer-cache-only 1 makes no live call
 //
 // Held-out sets (any set whose name starts with "test") print the summary tables only: no row is printed, and no
-// per-row file is written for them (results/latest.json gets the totals only).
+// per-row file is written for them (results/latest.json gets the totals only). The one exception is --blind-out,
+// which seals the rows in a folder for an independent checker that returns totals only.
 //
 // It uses sample account data and the local copy of the help pages, so it makes no network calls
 // and never touches a real account. Each message has the outcome a careful person would choose:
@@ -82,6 +83,7 @@ const composerEnv = (set) => composerBackend === 'off' ? {} : {
   SUPPORT_DESK_COMPOSER_GAPS: opt('gaps', 'reader'),
   SUPPORT_DESK_COMPOSER_CACHE: path.resolve(opt('composer-cache', path.join(here, 'composer-cache', set))),
   ...(opt('composer-cache-only') === '1' ? { SUPPORT_DESK_COMPOSER_CACHE_ONLY: '1' } : {}),
+  ...(opt('over-saved') === '1' ? { SUPPORT_DESK_COMPOSE_OVER_SAVED: '1' } : {}),
 };
 const heldOut = (name) => /^test/.test(name);
 // The same evenly spaced rows every run, so a slice result can be compared run to run.
@@ -249,6 +251,10 @@ for (const s of sets) {
   const rep = report(s, rows);
   // A held-out set keeps its totals only: no row is printed and no row is written anywhere.
   out[s] = heldOut(s) ? { tally: rep.tally } : { tally: rep.tally, rows: rows.map(({ message, ...rest }) => rest) };
+  // --blind-out <dir>: for an independent checker that reports totals only. The rows go to a sealed folder that
+  // the builder never opens; nothing about them is printed. (Nov 16, 2026: the page-match grader undercounts.)
+  const blind = opt('blind-out');
+  if (blind && heldOut(s)) { fs.mkdirSync(blind, { recursive: true }); fs.writeFileSync(path.join(blind, `${s}.rows.json`), JSON.stringify(rows)); console.log(`[${s}] ${rows.length} rows sealed in ${blind} (not printed)`); }
   parts.push(rep.text);
   if (show && !heldOut(s)) for (const r of rows.filter(r => r.grade === show || (show === 'answers' && r.got === 'answer'))) console.log(`[${s}] ${r.id} expected ${r.expected}, got ${r.got}${r.entry ? ` (${r.entry})` : ''}${r.why ? ` why ${r.why}` : ''}${r.reader ? ` reader ${JSON.stringify({ pick: r.reader.pick, problem: r.reader.problem, refuter: r.reader.refuter })}` : ''}: ${r.message.slice(0, 160)}`);
 }
