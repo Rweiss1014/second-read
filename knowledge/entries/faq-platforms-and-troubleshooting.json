@@ -3315,38 +3315,38 @@
         },
         {
           "type": "fact",
-          "text": "Enter your content idea in the Prompt field.",
+          "text": "Enter your content idea in the Prompt field, and add style directions to it, such as colors, mood, typography, lighting or image style.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Enter your content idea in the Prompt field"
+            "quote": "Enter your content idea in the Prompt field 4. Add style directions to the prompt, such as colors, mood, typography, lighting, or image style"
           }
         },
         {
           "type": "fact",
-          "text": "Every visual template has advanced settings, and the controls differ by template.",
+          "text": "Click \"Need more customization? Click to see advanced options\" and adjust the settings shown for your template.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Every visual template includes advanced settings, and the available controls differ by template."
+            "quote": "Click \"Need more customization? Click to see advanced options\" 6. Adjust the settings shown for the selected template"
           }
         },
         {
           "type": "fact",
-          "text": "To use your own images, choose Upload Image from the Image Source dropdown for each slide.",
+          "text": "To use your own images, in those advanced options choose \"Upload Image\" from the Image Source dropdown for each slide, and upload your image (up to 20MB). You can add a text overlay to each slide, and click \"+ Add Slide\" for more slides.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "For each slide, choose \"Upload Image\" from the Image Source dropdown"
+            "quote": "For each slide, choose \"Upload Image\" from the Image Source dropdown 3. Upload your image (max 20MB) 4. Optionally add text overlay for each slide 5. Click \"+ Add Slide\" to add more slides"
           }
         },
         {
           "type": "fact",
-          "text": "Your uploaded image can be up to 20MB.",
+          "text": "Click \"Generate Video\" when you are done.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Upload your image (max 20MB)"
+            "quote": "Click \"Generate Video\" when done"
           }
         }
       ],
-      "next": "Open Videos > Create New Video, pick a slideshow template, and enter your prompt.",
+      "next": "Open Videos > Create New Video, pick a slideshow template, enter your prompt, and click Generate Video.",
       "proof": "You will know it worked when your slides appear in the generated video."
     }
   ]
