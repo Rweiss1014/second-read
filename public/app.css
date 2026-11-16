@@ -77,7 +77,8 @@ mark code.term { background: transparent; padding: 0; }
 .switch[aria-checked="true"] { color: var(--ink); }
 
 /* ---- header */
-.top { display: flex; align-items: center; gap: 28px; padding: 20px var(--gutter); max-width: 1440px; margin: 0 auto; position: relative; z-index: 3; }
+/* no z-index here (round 6): a stacking context kept the logo mark's white from blending into the paper */
+.top { display: flex; align-items: center; gap: 28px; padding: 20px var(--gutter); max-width: 1440px; margin: 0 auto; position: relative; }
 .brand { display: inline-flex; align-items: center; gap: 12px; color: var(--ink); text-decoration: none; min-height: 44px; margin-right: auto; }
 .brand-mark { width: 34px; height: 34px; mix-blend-mode: multiply; }
 .brand-name { font: 600 23px/1 var(--serif); letter-spacing: -.01em; }
@@ -170,6 +171,8 @@ mark { background: linear-gradient(transparent 10%, var(--mark) 10%, var(--mark)
 /* each line of work has its own fixed width, so a line's words can change without moving the others */
 .did { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 28px; min-height: 30px; }
 .did li[data-k="read"] { flex: 0 0 300px; } .did li[data-k="account"] { flex: 0 0 250px; } .did li[data-k="write"] { flex: 0 0 290px; } .did li[data-k="check"] { flex: 1 1 280px; }
+/* four lines of work fit one row (round 6): with an account look, "Wrote 4 steps" needs less room */
+.did:has(li[data-k="account"]) li[data-k="read"] { flex-basis: 268px; } .did:has(li[data-k="account"]) li[data-k="write"] { flex-basis: 168px; }
 .did li { display: flex; align-items: flex-start; gap: 8px; font: 400 17px/1.35 var(--serif); color: var(--muted); }
 .did .g { width: 22px; height: 22px; border-radius: 50%; display: inline-grid; place-items: center; font: 700 13px/1 var(--sans); box-shadow: inset 0 0 0 2px #cfcabd; color: transparent; flex: none; }
 .did li[data-s="done"] { color: var(--ink); }
@@ -179,6 +182,8 @@ mark { background: linear-gradient(transparent 10%, var(--mark) 10%, var(--mark)
 .did li[data-s="neutral"] .g { box-shadow: inset 0 0 0 2px var(--draft); color: var(--draft); }
 .did li[data-s="wait"] { color: var(--ink); }
 .did li[data-s="pending"] { visibility: hidden; }
+/* the verdict in one line, right under the line of work, in the stamp's own ink (round 6) */
+.vline { margin: -2px 0 18px; font: 600 27px/1.2 var(--serif); letter-spacing: -.01em; color: var(--tone, var(--pass)); }
 /* "In plain words": a typed line on the desk, in the letter's own face, not a colored web band */
 .plainline { margin: 2px 0 22px; max-width: 64ch; font: 400 19px/1.5 var(--serif); color: var(--ink); text-wrap: pretty; }
 .plainline b { color: var(--navy); font-weight: 600; }
@@ -199,7 +204,12 @@ mark { background: linear-gradient(transparent 10%, var(--mark) 10%, var(--mark)
 .lstep .txt { display: block; font: 400 19px/1.62 var(--serif); overflow-wrap: anywhere; min-height: 1.62em; text-wrap: pretty; }
 .lstep.on { background: var(--mark-soft); }
 .lstep.on .num { color: var(--navy); }
-.lstep.pending .num { visibility: hidden; }
+/* a step still to be written: its number is there, quiet, and its lines show as placeholder rules (round 6) */
+.lstep.pending .num { color: #bdb8ae; }
+.stage.reading .lstep.pending .num { visibility: hidden; }
+[data-write] { position: relative; }
+.ph { position: absolute; left: 0; top: 0; width: 0; height: 0; pointer-events: none; }
+.ph i { position: absolute; height: 9px; margin-top: -3px; border-radius: 5px; background: #ece7dc; }
 .lstep.flag .num { color: var(--block); }
 .lstep.flag::before { content: ""; position: absolute; left: 0; top: 0; width: 4px; height: 100%; background: var(--block); }
 .ltail { padding-top: 8px; }
@@ -208,9 +218,10 @@ mark { background: linear-gradient(transparent 10%, var(--mark) 10%, var(--mark)
 .ltail .next.flag { box-shadow: inset 4px 0 0 var(--block); padding-left: 12px; }
 .ltail .helplink a { display: inline; padding: 14px 0; overflow-wrap: anywhere; }
 .ltail .sign { margin-top: 16px; margin-bottom: 0; }
-/* the stamp's place is kept from the start: a round space at the right of the letter's last part; the words
-   flow around it, so nothing moves when it lands */
-.stamp-slot { float: right; width: 218px; height: 204px; margin: 4px -10px 6px 26px; position: relative; }
+/* the stamp's place is kept from the start (round 6): the letter's top right corner, beside "Here is the
+   answer", so it lands on screen; the greeting flows around it, so nothing moves when it lands */
+.lh { display: flow-root; }
+.stamp-slot { float: right; width: 208px; height: 190px; margin: -12px -26px 0 16px; position: relative; }
 .stamp { position: absolute; inset: 0; transform: rotate(-7deg); pointer-events: none; z-index: 2; }
 .stamp.away { visibility: hidden; }
 body:not(.tech-on) .tech-only { display: none !important; }
@@ -321,7 +332,8 @@ body.tech-on .plain-only { display: none; }
 .page-code .cl { display: block; white-space: pre-wrap; }
 .page-code .pen { display: block; white-space: normal; margin: 2px 0 6px 2ch; font-size: 15px; }
 .page-code .dimline { color: #8a8d95; }
-.circled { box-shadow: 0 0 0 2px var(--block); border-radius: 999px; padding: 0 5px; margin: 0 -3px; }
+/* the red ring keeps clear of the words and commas beside it (round 6) */
+.circled { box-shadow: 0 0 0 2px var(--block); border-radius: 999px; padding: 0 5px; margin: 0 5px 0 3px; }
 .pen { font: 700 14.5px var(--sans); color: var(--block); white-space: nowrap; margin-left: 14px; }
 .cut { text-decoration: line-through; text-decoration-color: var(--block); text-decoration-thickness: 2px; color: var(--muted); }
 .added { background: var(--mark); padding: 0 2px; }
@@ -433,7 +445,8 @@ kbd { font: 600 14px var(--sans); box-shadow: inset 0 0 0 2px var(--rule), inset
    No card, no numbered ring: the stamp itself is the thing you press. */
 .stamps ol { gap: 10px; }
 .choice { --tone: var(--navy); display: grid; grid-template-columns: 118px minmax(0, 1fr); gap: 18px; align-items: center; width: 100%; text-align: left; background: none; border: 0; border-radius: 16px; padding: 4px 10px 4px 0; cursor: pointer; position: relative; }
-.choice .rstamp { display: grid; justify-items: center; transition: transform 160ms var(--ease-out); transform-origin: 50% 100%; }
+/* the whole stamp blends with the paper, so its handle's white never shows while it lifts (a transform isolates it) */
+.choice .rstamp { display: grid; justify-items: center; transition: transform 160ms var(--ease-out); transform-origin: 50% 100%; mix-blend-mode: multiply; }
 .choice .handle { display: block; width: 104px; height: 66px; object-fit: contain; object-position: 50% 100%; margin-bottom: -14px; mix-blend-mode: multiply; position: relative; z-index: 1; }
 .choice .rstamp.has-handle .rface { width: 104px; } /* with its handle on, all three stamps still fit above the fold at 1440 by 900 */
 .choice .rface { display: block; width: 112px; color: var(--tone); }
@@ -451,7 +464,7 @@ kbd { font: 600 14px var(--sans); box-shadow: inset 0 0 0 2px var(--rule), inset
 .choice.answer:not(.picked) { --tone: var(--pass); }
 .choice .tag { grid-column: 2; font: 600 16px/1.3 var(--serif); color: var(--tone); margin-top: -4px; }
 .after-move { margin-top: 22px; }
-.after-move .game-next { margin: 0 0 22px; }
+.after-move .game-next { margin: 4px 0 0; }
 .after-move h3 { font: 600 20px/1.3 var(--serif); margin: 0 0 6px; }
 .after-move .right-move { margin: 0 0 14px; font: 400 18px/1.5 var(--serif); text-wrap: pretty; }
 .after-move .src { background: var(--paper); border-radius: 12px; padding: 14px 16px; margin: 0 0 18px; box-shadow: var(--shadow-sm); }
@@ -514,6 +527,9 @@ kbd { font: 600 14px var(--sans); box-shadow: inset 0 0 0 2px var(--rule), inset
   /* on a phone the link takes the status line's place (kept 44 px tall), so showing it moves nothing */
   .demo-skip { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); white-space: nowrap; }
   .filled { min-height: 44px; display: flex; align-items: center; margin-top: 4px; }
+  /* no empty band under "Answer it" (round 6): the status line takes room only when it has words, or on a first
+     visit, where the example's skip link stands in its place (the class is set before the first paint) */
+  html:not(.demo-first) .filled:empty { min-height: 0; margin: 0; }
   .box textarea { font-size: 21px; min-height: 126px; }
   .go { flex-direction: column; align-items: stretch; gap: 12px; }
   .go p { display: none; }
@@ -550,7 +566,7 @@ kbd { font: 600 14px var(--sans); box-shadow: inset 0 0 0 2px var(--rule), inset
   .margin { display: none; }
   .letter { padding: 28px 0 28px; }
   .lh, .lstep, .ltail { padding-left: 20px; padding-right: 18px; }
-  .lh h2 { font-size: 28px; margin-bottom: 14px; }
+  .lh h2 { font-size: 26px; margin-bottom: 14px; }
   .lh p, .ltail p, .lstep .txt { font-size: 17px; }
   .lstep { grid-template-columns: 28px minmax(0, 1fr); padding-top: 8px; padding-bottom: 8px; }
   .lstep .num { font-size: 21px; }
@@ -561,10 +577,11 @@ kbd { font: 600 14px var(--sans); box-shadow: inset 0 0 0 2px var(--rule), inset
   .steps .proof.flag::before, .steps .proof.flag::after { background: var(--block); }
   .proof .px, .strip .px, .prow, .plist { font-size: 15.5px; }
   .pcode { font-size: 12.5px; padding: 8px 10px; }
-  /* on a phone the stamp sits under the letter's last lines, never beside them (no narrow column of words) */
-  .ltail { display: flex; flex-direction: column; }
-  .ltail::after { display: none; }
-  .ltail > .stamp-slot { order: 2; float: none; align-self: flex-end; width: 168px; height: 156px; margin: -6px -6px -14px 0; }
+  /* on a phone the stamp sits at the top right of the letter, beside the greeting under the heading (round 6) */
+  .lh > .stamp-slot { width: 120px; height: 112px; margin: -8px -10px 4px 8px; }
+  .lh h2 { text-wrap: balance; }
+  .example-tag { margin-top: 10px; padding: 10px 14px; font-size: 15.5px; }
+  .vline { font-size: 21px; margin: 0 0 14px; }
   .sheet .sh-title { font-size: 22px; }
   .sheet .sh-ctx { font-size: 15.5px; }
   .sheet .sh-head { font-size: 14.5px; margin-bottom: 8px; }
@@ -606,11 +623,13 @@ kbd { font: 600 14px var(--sans); box-shadow: inset 0 0 0 2px var(--rule), inset
   .stamps .stamps-hint { display: none; }
   .stamps ol { gap: 10px; }
   .choice { grid-template-columns: 84px minmax(0, 1fr); gap: 12px; padding: 2px 4px 2px 0; }
-  .choice .rface { width: 84px; }
+  .choice .rface, .choice .rstamp.has-handle .rface { width: 84px; } /* the face fits its column, handle or not */
   .choice .handle { width: 76px; height: 62px; margin-bottom: -6px; }
   .choice .sverb { font-size: 19px; }
   .choice .ct { font-size: 16px; line-height: 1.4; }
-  .write-back .game-next { margin-top: 16px; }
+  .wb-slot .after-move { margin: 22px 0 0; }
+  /* the focus ring sits inside the full-width button, never against the screen's edges (round 6) */
+  .game-next .btn:focus-visible { outline: 2px solid #fff; outline-offset: -6px; box-shadow: 0 0 0 2px var(--navy); }
   .game-next .btn { width: 100%; }
   .game-next .hint, .key-hint { display: none; }
   .report-paper { padding: 22px 18px 28px; }

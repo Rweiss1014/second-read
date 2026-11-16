@@ -10,6 +10,8 @@
 <link rel="preload" href="/fonts/newsreader-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/source-sans-3-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/app.css">
+<!-- first visit (the example will play): known before the first paint, so the phone keeps room for its skip link and nothing moves when it shows -->
+<script>try { var q = new URLSearchParams(location.search); if (!q.has('nodemo') && (q.has('demo') || (!localStorage.getItem('sd-demo-seen') && location.hash !== '#practice' && !(history.state && history.state.r)))) document.documentElement.classList.add('demo-first'); } catch (e) { /* no storage: no example */ }</script>
 <script type="module" src="/app.js"></script>
 </head>
 <body>

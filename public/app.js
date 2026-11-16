@@ -22,8 +22,6 @@ const EASE_IN = 'cubic-bezier(0.5, 0, 0.75, 0)';
 // The moment's beats (DESIGN.md, "The memorable moment"), tuned in round 4 so the stamp lands within 3.5 s.
 const T = { lift: 340, firstHold: 120, line: 400, lineCap: 660, hold: 110, dock: 360, fold: 220, proofIn: 240, wire: 200, word: 14, wordCap: 200, stepGap: 60, stepStagger: 150, thud: 220, nudge: 140 };
 const DEMO_ID = 'T02';
-// The most extra space a step may get so its proof sits level beside it. A taller proof folds instead.
-const FOLD_AT = 36;
 const MAX = 2000;
 
 let STATE = null;
@@ -436,9 +434,9 @@ function wholeSentences(s, max, fromEnd) {
   return (fromEnd ? out.reverse() : out).join('').trim();
 }
 const tq = (s) => termify(esc(s));
-// The words around the lit part are wrapped, so a long proof can fold down to its lit sentence alone.
-const ctxHTML = (s) => (String(s || '').trim() ? `<span class="ctx">${tq(s)}</span>` : tq(s));
-const sentenceHTML = (page) => { const x = sentence(page); return `${ctxHTML(x.pre)}<mark>${tq(x.mark)}</mark>${ctxHTML(x.post)}`; };
+// The words around the lit part belong to the same sentence, so they always stay (round 6): a proof starts at its
+// sentence's start and ends at its end. Only whole sentences, lists and table cells outside it ever fold away.
+const sentenceHTML = (page) => { const x = sentence(page); return `${tq(x.pre)}<mark>${tq(x.mark)}</mark>${tq(x.post)}`; };
 // A page's name beside its sentence. A long name gets its own line, so it never pushes one word onto a line alone.
 const srcHTML = (src) => `<span class="src${String(src).length > 24 ? ' long' : ''}">${esc(src)}</span>`;
 function paragraphHTML(page) {
@@ -470,8 +468,10 @@ function rowHTML(row, quote, src) {
   const q = loose(quote);
   const parts = row.cells.map((c, k) => {
     const name = row.head?.[k] ? `<b class="rl">${esc(row.head[k])}:</b> ` : '';
-    const body = loose(c) === q ? `<mark>${tq(c)}</mark>` : `${tq(c)}${/[.!?]$/.test(c.trim()) ? '' : '.'}`;
-    return `<span class="rc">${name}${body}</span>`;
+    const lit = loose(c) === q;
+    const body = lit ? `<mark>${tq(c)}</mark>` : `${tq(c)}${/[.!?]$/.test(c.trim()) ? '' : '.'}`;
+    // a cell that is not the lit one folds away with "Show more" (round 6)
+    return `<span class="rc${lit ? '' : ' ctx'}">${name}${body}</span>`;
   });
   return `<p class="px prow">${parts.join(' ')}${src ? `${srcHTML(src)}` : ''}</p>`;
 }
@@ -496,7 +496,8 @@ function proofParts(step, r) {
       if (p.code) return { kind: 'code', compact: `${codeHTML(p.code, step.quote, false)}${plain}`, more: p.code.lines.length > (p.code.hit[1] - p.code.hit[0] + 1) ? codeHTML(p.code, step.quote, true) : '', src };
       if (cellHit) return { kind: 'row', compact: `${rowHTML(p.row, step.quote, src)}${plainLineHTML(step.quote)}`, more: '', src };
       // A sentence that ends on a colon is shown with the list it opens, so the proof never stops mid-thought.
-      if (p.list && /:\s*$/.test(`${x.mark}${x.post}`)) return { kind: 'sentence', compact: `<p class="px">${sentenceHTML(p)}</p>${listHTML(p.list)}<p class="px srcline">${srcHTML(src)}</p>${plain}`, more: '', src };
+      // The page's name sits on the sentence's line, so folding the list away leaves no line of its own.
+      if (p.list && /:\s*$/.test(`${x.mark}${x.post}`)) return { kind: 'sentence', compact: `<p class="px">${sentenceHTML(p)}${srcHTML(src)}</p>${listHTML(p.list)}${plain}`, more: '', src };
       const longer = x.pre.length + x.post.length + x.mark.length < p.text.replace(/^\.\.\.\s*|\s*\.\.\.$/g, '').length - 4;
       // The longer form replaces the sentence (it holds it), so nothing is said twice.
       return { kind: 'sentence', compact: `<p class="px">${sentenceHTML(p)}${srcHTML(src)}</p>${plain}`, more: longer ? `<p class="px">${paragraphHTML(p)}${srcHTML(src)}</p>` : '', replace: longer, src };
@@ -657,17 +658,17 @@ function verdictHTML(r, st, typed = false) {
     const notes = (f.notes || []).length;
     // A typed message gets a reply the desk has given before. Say plainly what the check covers: the reply's words.
     const what = typed ? `A second checker passed this exact reply${at ? ` on ${esc(at)}` : ''}. The desk gives this same reply to messages like this one, so the check is for the reply's words, not for the customer's.` : `A second checker passed these exact words${at ? ` on ${esc(at)}` : ''}.`;
-    return `<div class="verdict" style="--tone: var(--pass)"><b>Checked. Safe to send.</b><p class="v1">${what}</p>${disclose('How was it checked?', `<p>${SECOND} The desk found this answer live just now. The second checker read the same words earlier.${notes ? ` It left ${notes === 1 ? 'one small note' : `${notes} small notes`}, which the engineer view shows.` : ''}</p>`)}</div>`;
+    return `<div class="verdict" style="--tone: var(--pass)"><p class="v1">${what}</p>${disclose('How was it checked?', `<p>${SECOND} The desk found this answer live just now. The second checker read the same words earlier.${notes ? ` It left ${notes === 1 ? 'one small note' : `${notes} small notes`}, which the engineer view shows.` : ''}</p>`)}</div>`;
   }
   if (st === 'stopped') {
     const plain = r.example?.plain;
     const why = plain?.why || f.why || (r.check.problems || [])[0] || '';
     const more = plain?.more || [];
-    return `<div class="verdict" style="--tone: var(--block)"><b>Stopped. Do not send this one.</b><p class="v1">${esc(why)}</p>${more.length ? disclose('What else did it find?', `<ul>${more.map(m => `<li>${esc(m)}</li>`).join('')}</ul><p>A second checker read this exact reply${at ? ` on ${esc(at)}` : ''}. ${SECOND}</p>`) : ''}</div>`;
+    return `<div class="verdict" style="--tone: var(--block)"><p class="v1">${esc(why)}</p>${more.length ? disclose('What else did it find?', `<ul>${more.map(m => `<li>${esc(m)}</li>`).join('')}</ul><p>A second checker read this exact reply${at ? ` on ${esc(at)}` : ''}. ${SECOND}</p>`) : ''}</div>`;
   }
-  if (st === 'saved') return `<div class="verdict" style="--tone: var(--draft)"><b>Checked, then one line changed.</b><p class="v1">A second checker read this reply${at ? ` on ${esc(at)}` : ''}. Since then, today's look at their account changed the line about their posts, so read that line yourself before you send it.</p></div>`;
+  if (st === 'saved') return `<div class="verdict" style="--tone: var(--draft)"><p class="v1">A second checker read this reply${at ? ` on ${esc(at)}` : ''}. Since then, today's look at their account changed the line about their posts, so read that line yourself before you send it.</p></div>`;
   if (st === 'refused') return '';
-  return '<div class="verdict" style="--tone: var(--draft)"><b>Not checked yet.</b><p class="v1">The desk wrote this. A second checker has not read it yet, so there is no stamp. Read it yourself before you send it.</p></div>';
+  return '<div class="verdict" style="--tone: var(--draft)"><p class="v1">The desk wrote this. A second checker has not read it yet, so there is no stamp. Read it yourself before you send it.</p></div>';
 }
 
 // The technical view: real calls, statuses, dates and the checkers' notes. No internal ids, no tool names, no enum keys.
@@ -740,6 +741,14 @@ function techHTML(r) {
 }
 
 // ---------------------------------------------------------------- the answer view
+// The verdict, in one line right under the line of work (round 6), so it is on screen with the stamp when the
+// stamp lands. Its place is kept from the first frame; it shows when the check is done.
+const VLINE = {
+  checked: ['Checked. Safe to send.', 'var(--pass)'],
+  stopped: ['Stopped. Do not send this one.', 'var(--block)'],
+  saved: ['Checked, then one line changed.', 'var(--draft)'],
+  draft: ['Not checked yet.', 'var(--draft)'],
+};
 function shellHTML(meta, r) {
   const st = stateOf(r);
   const line = r.example ? PLAIN_STOPPED : (r.ticket?.id && PLAIN_LINES[r.ticket.id]) || null;
@@ -756,6 +765,7 @@ function shellHTML(meta, r) {
     </div>
     ${meta.example ? '<p class="example-tag">A saved example from Nov 15: the desk\'s first reply to this message. The second checker stopped it, and the desk was fixed.</p>' : ''}
     <div class="did-row"><ol class="did" id="did" aria-label="What the desk did"></ol></div>
+    ${VLINE[st] ? `<p class="vline away" id="vline" style="--tone: ${VLINE[st][1]}">${VLINE[st][0]}</p>` : ''}
     ${line ? `<p class="plainline"><b>In plain words:</b> ${esc(line)}</p>` : ''}
     ${person ? `<p class="plainline person"><b>A person on the team takes this one.</b> ${esc(person)}</p>` : ''}
     <div class="stage" id="stage"></div>
@@ -803,13 +813,13 @@ function stageHTML(r) {
   const proofs = steps.map((s, i) => `<div class="proof away${flags.includes(i + 1) ? ' flag' : ''}" id="proof-${i + 1}" data-i="${i}"><span class="sr-only">Proof for step ${i + 1}. </span>${proofHTML(s, i, r)}</div>`).join('');
   return { cls: '', html: `
     <article class="letter" id="letter" aria-labelledby="letter-h">
-      <div class="lh"><h2 id="letter-h">${title}</h2>${hi ? `<p class="hi">${letterText(hi)}</p>` : ''}<div class="head unw" data-write>${rest.map(p => `<p>${letterText(p)}</p>`).join('')}</div></div>
+      <div class="lh">${stamp}<h2 id="letter-h">${title}</h2>${hi ? `<p class="hi">${letterText(hi)}</p>` : ''}<div class="head unw" data-write>${rest.map(p => `<p>${letterText(p)}</p>`).join('')}</div></div>
       <div class="steps">${stepsHTML}</div>
-      <div class="ltail">${stamp}<div class="tail-text unw" data-write>${tailHTML(tail, r)}</div></div>
+      <div class="ltail"><div class="tail-text unw" data-write>${tailHTML(tail, r)}</div></div>
     </article>
     <svg class="wires" aria-hidden="true" focusable="false"></svg>
     <aside class="margin" aria-labelledby="mh-h">
-      <div class="mh unw" data-write><h2 id="mh-h">How do we know?</h2><p>Each step's proof is the help-page sentence beside it, lit in yellow. Point at a step to see its pair.</p><button type="button" class="link page-toggle" aria-expanded="false">Show more of each page</button></div>
+      <div class="mh"><h2 id="mh-h">How do we know?</h2><p>Each step's proof is the help-page sentence beside it, lit in yellow. Point at a step to see its pair.</p><button type="button" class="link page-toggle" aria-expanded="false">Show more of each page</button></div>
       <div class="proofs" id="proofs">${proofs}</div>
       <div class="side" id="side"></div>
     </aside>` };
@@ -870,6 +880,46 @@ function words(el) {
   return $$('.w', el);
 }
 
+// Quiet placeholder lines (round 6): before its words are written, each line of the letter shows as a soft gray
+// rule exactly where its words will stand, so the letter is never an empty page. As the words are written the
+// rule gives way to them, word by word, on the same line. Nothing moves.
+const shownWords = (el) => words(el).filter(w => w.getClientRects().length);
+function placeholders(el) {
+  if (el._ph) return;
+  const ws = shownWords(el); if (!ws.length) return;
+  const er = el.getBoundingClientRect();
+  const lines = [];
+  ws.forEach((w, n) => {
+    for (const r of w.getClientRects()) {
+      if (r.width < 1) continue;
+      const mid = (r.top + r.bottom) / 2;
+      let L = lines.find(l => Math.abs(l.mid - mid) < r.height / 2);
+      if (!L) { L = { mid, l: r.left, r: r.right, first: n, last: n }; lines.push(L); }
+      L.l = Math.min(L.l, r.left); L.r = Math.max(L.r, r.right); L.last = n;
+    }
+  });
+  const box = document.createElement('span'); box.className = 'ph'; box.setAttribute('aria-hidden', 'true');
+  for (const L of lines) {
+    L.l -= er.left; L.r -= er.left; L.mid -= er.top;
+    L.el = document.createElement('i'); L.el.style.cssText = `left:${L.l.toFixed(1)}px;top:${L.mid.toFixed(1)}px;width:${(L.r - L.l).toFixed(1)}px`;
+    box.append(L.el);
+  }
+  el.append(box);
+  el._ph = { box, lines, ws };
+}
+// k words of el are written: each line's rule now starts after its last written word.
+function phAt(el, k) {
+  const ph = el._ph; if (!ph) return;
+  const x0 = el.getBoundingClientRect().left;
+  for (const L of ph.lines) {
+    if (!L.el.isConnected) continue;
+    if (k > L.last) { L.el.remove(); continue; }
+    // the rule's box never moves (moving it would count as a layout shift); its written part is clipped away
+    if (k > L.first) { const x = ph.ws[k - 1].getBoundingClientRect().right - x0 + 7; L.el.style.clipPath = `inset(0 0 0 ${Math.max(0, x - L.l).toFixed(1)}px round 5px)`; }
+  }
+}
+function phOff(el) { if (el?._ph) { el._ph.box.remove(); el._ph = null; } }
+
 class Moment {
   constructor(meta) {
     this.meta = meta; this.result = null;
@@ -910,8 +960,8 @@ class Moment {
   // Write an element's words onto its line, one after another. Nothing fades.
   async write(el, { per = T.word, cap = T.wordCap } = {}) {
     if (!el || this.dead) return;
-    const ws = words(el).filter(w => w.getClientRects().length);
-    const done = () => { el.classList.remove('unw'); };
+    const ws = el._ph ? el._ph.ws : shownWords(el);
+    const done = () => { el.classList.remove('unw'); phOff(el); };
     if (this.fast || !ws.length) { done(); return; }
     const step = Math.min(per, cap / ws.length);
     const start = performance.now();
@@ -922,6 +972,7 @@ class Moment {
         const k = Math.min(ws.length, 1 + Math.floor((performance.now() - start) / step));
         for (let j = 0; j < k; j++) ws[j].classList.add('v');
         if (k >= ws.length) { done(); return res(); }
+        phAt(el, k);
         requestAnimationFrame(tickf);
       };
       tickf();
@@ -946,8 +997,29 @@ class Moment {
     if (stage.classList.contains('single')) { if (closing && closing.parentElement !== after) after.prepend(closing); return; }
     const box = $('#proofs', stage); const side = $('#side', stage);
     const proofs = $$('.proof', stage).sort((a, b) => a.dataset.i - b.dataset.i);
+    const allOpen = stage.classList.contains('all-open');
+    // Every proof folds to its lit sentence (round 6): a list it opens, the other cells of a table row, and (when
+    // it is still taller than its step) its plain line wait behind "Show more", which sits on the page name's line.
+    // A fold that hides nothing is not kept, so "Show more" only shows when there is more.
+    const foldAll = (rows, fits) => {
+      for (const { p, s } of rows) {
+        // a long page name has a line of its own: "Show more" goes on that line, inside it
+        const pm = $('.pmore', p); const src = $$('.cmp .src', p).at(-1); if (pm && src && pm.parentElement !== src && pm.previousElementSibling !== src) { if (src.classList.contains('long')) src.append(pm); else src.after(pm); }
+        p.classList.remove('fold1', 'fold2');
+        let any = false;
+        if (!allOpen && !p.classList.contains('open')) {
+          for (const f of ['fold1', 'fold2']) {
+            if (f === 'fold2' && (!fits || fits(p, s))) break;
+            const h = p.offsetHeight; p.classList.add(f);
+            if (p.offsetHeight < h - 1) any = true; else p.classList.remove(f);
+          }
+        }
+        const more = $('.pmore', p); if (more) more.hidden = !any;
+      }
+    };
     if (!wide()) {
       for (const p of proofs) { const s = $(`.lstep[data-i="${p.dataset.i}"]`, stage); if (s && s.nextElementSibling !== p) s.after(p); p.style.top = ''; }
+      foldAll(proofs.map(p => ({ p, s: $(`.lstep[data-i="${p.dataset.i}"]`, stage) })), (p, s) => p.offsetHeight <= s.offsetHeight + 24);
       if (closing && closing.parentElement !== after) after.prepend(closing);
       if (svg) svg.innerHTML = '';
       return;
@@ -955,26 +1027,20 @@ class Moment {
     for (const p of proofs) if (p.parentElement !== box || p !== box.children[proofs.indexOf(p)]) box.append(p);
     if (closing && closing.parentElement !== side) side.append(closing);
     // One shared row per step and its proof (round 5). Each proof's first line is level with its step's first
-    // line. When a proof is taller than its step, the next step moves down by the difference, but never by more
-    // than FOLD_AT: a longer proof folds to its lit sentence (then without its plain line) with "Show more".
-    const allOpen = stage.classList.contains('all-open');
+    // line. Round 6: the steps keep one even gap. It is the room the tallest folded proof needs beside its step,
+    // the same under every step; a proof someone opened with "Show more" gets more room under its own step only.
     const rows = proofs.map(p => ({ p, s: $(`.lstep[data-i="${p.dataset.i}"]`, stage) })).filter(x => x.s);
-    // "Show more" sits on the source's line, so folding never adds a line of its own
-    for (const { p } of rows) { const pm = $(':scope > .pmore', p); const src = $$('.cmp .src', p).at(-1); if (pm && src) src.after(pm); }
-    for (const { p, s } of rows) { s.style.marginBottom = ''; p.classList.remove('fold1', 'fold2'); }
+    for (const { s } of rows) s.style.marginBottom = '';
+    // the space below a step that keeps its proof clear of the next one (10 px apart)
+    const extra = (p, s) => p.offsetHeight + 10 - s.offsetHeight;
+    foldAll(rows, (p, s) => extra(p, s) <= 6);
     const lineMid = (el) => { const lh = parseFloat(getComputedStyle(el).lineHeight); return el.getBoundingClientRect().top + (Number.isNaN(lh) ? 12 : lh / 2); };
     const firstLine = (p) => $('.px, .pcode, .prow', p) || p;
+    const opened = (p) => !allOpen && p.classList.contains('open');
+    const even = Math.max(6, ...rows.slice(0, -1).filter(({ p }) => !opened(p)).map(({ p, s }) => Math.round(extra(p, s))));
     for (const [k, { p, s }] of rows.entries()) {
-      const last = k === rows.length - 1;
-      // the space below this step that keeps its proof clear of the next one (10 px apart)
-      const extra = () => p.offsetHeight + 10 - s.offsetHeight;
-      if (!allOpen && !p.classList.contains('open')) {
-        if (extra() - 6 > FOLD_AT) p.classList.add('fold1');
-        if (extra() - 6 > FOLD_AT) p.classList.add('fold2');
-      }
-      const folded = p.classList.contains('fold1') && !allOpen && !p.classList.contains('open');
-      const more = $('.pmore', p); if (more) more.hidden = !folded;
-      if (!last) s.style.marginBottom = `${Math.max(6, Math.round(extra()))}px`;
+      if (k === rows.length - 1) continue;
+      s.style.marginBottom = `${Math.max(even, opened(p) ? Math.round(extra(p, s)) : 0)}px`;
     }
     const br = box.getBoundingClientRect();
     for (const { p, s } of rows) {
@@ -1051,8 +1117,9 @@ class Moment {
     const pad = W ? { t: 22, r: 24, b: 24, l: 28 } : { t: 12, r: 14, b: 14, l: 14 };
     // As big as the room to the right of the sentence's place allows, never past the screen's edge.
     const k = W ? Math.max(1, Math.min(1.34, (innerWidth - 28 - pad.r - tr.left) / tw)) : 1;
-    // The highest the page may reach: the stage's top when wide; under the letter's greeting on a phone.
-    const lim = W ? 0 : ($('.letter .head', stage) || $('.letter .lh', stage)).getBoundingClientRect().bottom - sr.top + 6;
+    // The highest the page may reach: under "How do we know?" when wide (the heading is plain text that is there
+    // from the first frame, round 6); under the letter's head, stamp place included, on a phone.
+    const lim = (W ? $('.mh', stage) : $('.letter .lh', stage)).getBoundingClientRect().bottom - sr.top + 6;
     const x = p.found && p.mark ? sentence(p) : { pre: '', mark: step.quote, post: '' };
     const [s0] = p.mark || [0];
     const cut = p.found && p.mark ? p.text.slice(0, s0).length - x.pre.length : 0;
@@ -1066,6 +1133,7 @@ class Moment {
     // the strip is the proof's own first line as it will rest (a folded proof shows only its lit part)
     if (proof.classList.contains('fold1') && !proof.classList.contains('open')) for (const c of $$('.ctx', strip)) c.remove();
     for (const src of $$('.src', strip)) src.style.visibility = 'hidden';
+    for (const pm of $$('.pmore', strip)) pm.remove();
     strip.style.cssText = `position:absolute;left:0;top:0;width:${tw}px;transform:scale(${k});transform-origin:0 0;`;
     if (proof.classList.contains('flag')) strip.classList.add('flag');
     s.style.cssText = `visibility:hidden;width:${tw * k + pad.l + pad.r}px;padding:${pad.t}px ${pad.r}px ${pad.b}px ${pad.l}px;`;
@@ -1146,12 +1214,15 @@ class Moment {
   }
 
   // The stamp is pressed once, as one piece: it comes down onto the letter with weight, and the paper gives a little.
-  async press(stamp) {
+  async press(stamp, landed = () => {}) {
     if (!stamp) return;
     stamp.classList.remove('away');
     if (this.fast) return;
     // It comes straight down in its own place (only a slight turn and size), so it never passes over the words beside it.
     await this.anim(stamp, [{ transform: 'rotate(-10deg) scale(1.045)' }, { transform: 'rotate(-7deg) scale(1)' }], { duration: T.thud, easing: EASE_IN });
+    // the verdict line under the line of work, and its tick, show the instant the stamp lands (round 6)
+    landed();
+    $('#vline', this.root)?.classList.remove('away');
     this.mark('stampLanded');
     await this.anim($('#letter', this.root), [{ transform: 'none' }, { transform: 'translateY(3px)' }, { transform: 'none' }], { duration: T.nudge, easing: 'ease-out' });
   }
@@ -1188,6 +1259,8 @@ class Moment {
     // Every word that will be written is split now, so it holds its place and is not seen until it is written.
     if (!this.instant) { for (const el of $$('[data-write]', stage)) words(el); for (const s of $$('.lstep', stage)) s.classList.add('pending'); }
     this.layout();
+    // Each line still to be written shows as a quiet placeholder line where its words will stand (round 6).
+    if (!this.instant) for (const el of $$('[data-write]', stage)) placeholders(el);
   }
 
   async play(r) {
@@ -1223,6 +1296,8 @@ class Moment {
     // The letter is on the page from the first frame, in its final place (its heading and greeting only).
     this.mark('letter');
     const sheet = firstFact >= 0 ? this.sheet(firstFact) : null;
+    // on a phone the page lies over the letter's steps: their numbers wait under it until it folds away
+    if (sheet && !wide()) stage.classList.add('reading');
     let head;
     if (sheet) {
       // 1. The help page opens where its sentence will rest, and the sentence is highlighted, big.
@@ -1234,17 +1309,14 @@ class Moment {
       await this.wait(T.hold);
       // 2. It folds away round its sentence, which is now the proof.
       $(`.proof[data-i="${firstFact}"]`, stage)?.classList.add('on');
-      const folding = this.fold();
-      await this.wait(160);
-      this.write($('.mh', stage), { per: 8, cap: 200 });
-      await folding;
+      await this.fold();
+      stage.classList.remove('reading');
     } else {
       head = this.write($('.head', stage), { per: 10, cap: 160 });
       await this.wait(200);
       this.tick('read', 'done', this.texts.read);
     }
     if (this.dead) return;
-    if (!sheet) this.write($('.mh', stage), { per: 8, cap: 200 });
     await head;
 
     // 3. The steps, each with its proof, one by one, a beat apart, each pair lit while it is written. Nothing
@@ -1278,8 +1350,10 @@ class Moment {
     // 4. The stamp.
     const seal = sealOf(st);
     this.mark('stampStart');
-    if (seal) await this.press($('.stamp', stage));
-    this.tick('check', { checked: 'done', stopped: 'stop', saved: 'neutral', draft: 'neutral' }[st]);
+    const checkTick = () => this.tick('check', { checked: 'done', stopped: 'stop', saved: 'neutral', draft: 'neutral' }[st]);
+    if (seal) await this.press($('.stamp', stage), checkTick);
+    checkTick();
+    $('#vline', root)?.classList.remove('away');
     this.finish();
   }
 
@@ -1293,7 +1367,9 @@ class Moment {
     for (const el of $$('.pending', root)) el.classList.remove('pending');
     for (const el of $$('.away', root)) el.classList.remove('away');
     for (const m of $$('mark', root)) m.style.backgroundSize = '';
-    for (const el of $$('.sheet, .strip', root)) el.remove();
+    for (const el of $$('.sheet, .strip, .ph', root)) el.remove();
+    for (const el of $$('[data-write]', root)) el._ph = null;
+    stage.classList.remove('reading');
     $('#after', root).classList.remove('held');
     const st = stateOf(r);
     for (const k of ['read', 'account', 'write', 'check']) {
@@ -1335,6 +1411,8 @@ function showShell(m, meta, r) {
   const animate = !m.instant && !ask.hidden;
   const box = $('#msg').getBoundingClientRect();
   ask.hidden = true;
+  // the first screen is put away: from now on its status line takes room only when it has words
+  document.documentElement.classList.remove('demo-first');
   const res = $('#result');
   res.hidden = false;
   res.innerHTML = shellHTML(meta, r);
@@ -1489,7 +1567,7 @@ const demo = {
     b.className = 'btn'; b.id = 'try-own'; b.textContent = 'Now try your own';
     this.running = false;
   },
-  cancel() { this.running = false; this.typing = false; $('#demo-skip').hidden = true; },
+  cancel() { this.running = false; this.typing = false; $('#demo-skip').hidden = true; document.documentElement.classList.remove('demo-first'); },
 };
 
 // ---------------------------------------------------------------- the practice game
@@ -1702,11 +1780,12 @@ const game = {
     $('#write-back').innerHTML = `<article class="write-back ${ch.right ? 'ok' : 'no'}" aria-labelledby="wb-h"><h3 class="wb-h" id="wb-h">${mini ? `<span class="wb-face">${mini}</span>` : ''}<span>${esc(c.who)} writes back</span></h3>${wb ? `<p class="wb">&ldquo;${esc(wb)}&rdquo;</p>` : ''}<p class="what">${esc(ch.consequence)}</p></article>`;
     const wbEl = $('.write-back');
     const nextHTML = `<div class="game-next"><button type="button" class="btn" id="game-next">${last ? 'See my shift report' : 'Open the next letter'}</button><span class="hint">or press Enter</span></div>`;
-    // On a phone the next button sits right under their reply, so no one has to scroll to find it.
-    if (!wide()) $('#write-back').insertAdjacentHTML('beforeend', nextHTML);
-    $('#after-move').innerHTML = `${wide() ? nextHTML : ''}
-      <h3>${ch.right ? 'You got it.' : 'The right first move'}</h3><p class="right-move">${both(d.firstCheck)}</p>
-      ${fits ? `<div class="src">${quote}<p class="k">Blotato's help page says so.</p><a href="${esc(d.source.url)}" target="_blank" rel="noopener">Open the help page</a></div>` : `<div class="src"><p class="k">Blotato's help page explains why.</p><a href="${esc(d.source.url)}" target="_blank" rel="noopener">Open the help page</a></div>`}`;
+    // The lesson comes first, then the next button (round 6), so no one moves on before reading the right
+    // first move. On a phone both sit right under their reply; on a wide screen, under the stamps.
+    const lessonHTML = `<h3>${ch.right ? 'You got it.' : 'The right first move'}</h3><p class="right-move">${both(d.firstCheck)}</p>
+      ${fits ? `<div class="src">${quote}<p class="k">Blotato's help page says so.</p><a href="${esc(d.source.url)}" target="_blank" rel="noopener">Open the help page</a></div>` : `<div class="src"><p class="k">Blotato's help page explains why.</p><a href="${esc(d.source.url)}" target="_blank" rel="noopener">Open the help page</a></div>`}${nextHTML}`;
+    if (wide()) $('#after-move').innerHTML = lessonHTML;
+    else { $('#after-move').innerHTML = ''; $('#write-back').insertAdjacentHTML('beforeend', `<div class="after-move">${lessonHTML}</div>`); }
     if (!reduced.matches) {
       wbEl.animate([{ clipPath: 'inset(0 0 100% 0)', transform: 'translateY(-14px) rotate(.8deg)' }, { clipPath: 'inset(0 0 0 0)', transform: 'rotate(.8deg)' }], { duration: 420, delay: T.thud + 120, easing: EASE_OUT, fill: 'backwards' });
     }
