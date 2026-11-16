@@ -678,34 +678,34 @@
       "steps": [
         {
           "type": "fact",
-          "text": "Blotato skips comments posted by the same account or Page that is connected to the automation.",
+          "text": "Blotato skips comments posted by the same Instagram account or Facebook Page that is connected to the automation. Your own comment does not start a run or send a direct message, even when it has the right keyword.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Blotato skips comments posted by the same Instagram account or Facebook Page connected to the automation."
+            "quote": "Blotato skips comments posted by the same Instagram account or Facebook Page connected to the automation. Your own comment does not start a run or send a direct message, even when it contains the correct keyword."
           }
         },
         {
           "type": "fact",
-          "text": "Your own comment does not start a run, even when it has the right keyword.",
+          "text": "To test it, first publish the automation.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Your own comment does not start a run or send a direct message, even when it contains the correct keyword."
+            "quote": "Publish the automation."
           }
         },
         {
           "type": "fact",
-          "text": "Sign in to a different Instagram or Facebook account.",
+          "text": "Then sign in to a different Instagram or Facebook account, and comment on the target post using one of the trigger keywords.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Sign in to a different Instagram or Facebook account."
+            "quote": "Sign in to a different Instagram or Facebook account. 3. Comment on the target post using one of the trigger keywords."
           }
         },
         {
           "type": "fact",
-          "text": "Comment on the target post using one of the trigger keywords.",
+          "text": "Check that the other account receives the direct message.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Comment on the target post using one of the trigger keywords."
+            "quote": "Confirm the other account receives the direct message."
           }
         },
         {
@@ -717,7 +717,7 @@
           }
         }
       ],
-      "next": "Sign in to a different account and comment one of your trigger keywords on the target post.",
+      "next": "Publish the automation, then comment one of your trigger keywords on the target post from a different account.",
       "proof": "You will know it worked when the other account receives the direct message."
     },
     {
@@ -1742,67 +1742,49 @@
           "still-broken"
         ]
       },
-      "opening": "I want to give you a right answer. Two help pages say different things about the trial and analytics, so I am asking a person to confirm.",
+      "opening": "Thanks for asking. \"Analytics not available\" on a free trial post is expected, and here is why.",
       "steps": [
         {
           "type": "fact",
-          "text": "One help page says analytics need a paid plan and that trial posts show \"Analytics not available.\"",
+          "text": "Analytics need a paid plan. On the free trial, posts show \"Analytics not available.\"",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "On the free trial, or if your plan does not include analytics, posts show \"Analytics not available.\""
+            "quote": "Analytics need a paid plan. On the free trial, or if your plan does not include analytics, posts show \"Analytics not available.\""
           }
         },
         {
           "type": "fact",
-          "text": "Another help page says that during your free trial you can access all features except the API.",
-          "cite": {
-            "url": "https://help.blotato.com/settings/billing-and-credits",
-            "quote": "During your free trial, you can access ALL blotato features except the API"
-          }
-        },
-        {
-          "type": "fact",
-          "text": "The analytics page says analytics are available on every paid plan.",
+          "text": "Analytics are available on every paid plan.",
           "cite": {
             "url": "https://help.blotato.com/web-app-features/analytics",
             "quote": "Analytics are available on every paid plan."
           }
         },
         {
-          "type": "action",
-          "text": "I am passing this to a person on the team so they can confirm whether analytics work on your trial."
+          "type": "fact",
+          "text": "Analytics exist only for posts published while analytics was active on your account. Older posts do not backfill, so posts from your trial will not gain metrics later.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Analytics exist only for posts published while analytics was active on your account. Older posts do not backfill."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Your subscription controls are in Settings > Billing, under View Billing Portal.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "Select View Billing Portal for subscription, invoice, and payment-method controls."
+          }
         }
       ],
-      "next": "Reply here with the platform of the post and when you published it, so the team can check.",
-      "proof": "Still open: whether analytics work on the free trial. A person on the team will confirm.",
-      "escalate": {
-        "why": "Two help pages disagree about analytics on the free trial, so the desk does not pick a side.",
-        "causes": [
-          {
-            "text": "The FAQ says analytics need a paid plan, and trial posts show \"Analytics not available.\"",
-            "cite": {
-              "url": "https://help.blotato.com/support/faqs",
-              "quote": "Analytics need a paid plan."
-            }
-          },
-          {
-            "text": "The billing page says the trial includes all features except the API.",
-            "cite": {
-              "url": "https://help.blotato.com/settings/billing-and-credits",
-              "quote": "During your free trial, you can access ALL blotato features except the API"
-            }
-          }
-        ],
-        "ruledOut": [
-          "Nothing ruled out yet: the desk cannot see the account or its trial status."
-        ]
-      },
+      "next": "If you want metrics for your posts, look at your plan options in Settings > Billing > View Billing Portal.",
+      "proof": "You will know it worked when a post you publish on a paid plan shows metrics after its first checkpoint.",
       "docEdit": {
         "article": "https://help.blotato.com/settings/billing-and-credits",
         "kind": "change",
         "before": "During your free trial, you can access ALL blotato features except the API",
-        "after": "[Confirm with the founder whether trial posts get analytics. If not, change this to: all features except the API and analytics.]",
-        "note": "The FAQ says analytics need a paid plan and trial posts show \"Analytics not available.\" The billing page says the trial has all features except the API. Make the two pages agree."
+        "after": "During your free trial, you can access ALL blotato features except the API and post analytics",
+        "note": "The FAQ (\"Analytics need a paid plan. On the free trial ... posts show Analytics not available\") and the Analytics page (\"Analytics are available on every paid plan.\") both say trial posts get no analytics. The billing page says the trial has all features except the API. The desk follows the two analytics pages; please make the billing page say the same, or tell us if trial posts do get analytics."
       }
     },
     {
@@ -1864,7 +1846,7 @@
           "reconnected"
         ]
       },
-      "opening": "Analytics arrive on a delay, and a few conditions can hold them back.",
+      "opening": "Analytics arrive on a delay, and a few conditions can hold them back. Here is what to check.",
       "steps": [
         {
           "type": "fact",
@@ -1892,10 +1874,10 @@
         },
         {
           "type": "fact",
-          "text": "If the social account is disconnected or its token expired, Blotato stops collecting. Reconnect the account in Accounts through its account actions menu > Reconnect.",
+          "text": "Blotato stops collecting if the social account is disconnected or its token expired. Reconnect it in Accounts through its account actions menu > Reconnect. If the account was connected before the analytics permissions were granted, check the connection and any error it shows, and reconnect when authorization is missing or expired. Reconnecting does not bring back metrics for older posts, and it does not guarantee metrics within 24-48 hours.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "If the social account is disconnected or its token expired, Blotato stops collecting. Reconnect the account in Accounts through its account actions menu > Reconnect."
+            "quote": "If the social account is disconnected or its token expired, Blotato stops collecting. Reconnect the account in Accounts through its account actions menu > Reconnect. 5. If the account was connected before the required analytics permissions were granted, inspect the connection and any returned error. Reconnect when authorization is missing or expired. Reconnection does not guarantee historical backfill or metrics within 24-48 hours."
           }
         },
         {
@@ -1907,8 +1889,8 @@
           }
         }
       ],
-      "next": "Go through the five points in order, starting with your plan and how long ago the post published.",
-      "proof": "You will know it worked when the post shows metrics after its first checkpoint."
+      "next": "Find the post and compare when it published with your plan's first checkpoint (around 2 hours on Creator and Agency, up to 1 day on Starter). If it is still empty after that, reply with the post's ID, platform, publication time, your plan and what you see.",
+      "proof": "Still open: whether your post has passed its first checkpoint. If it has and it still shows no metrics, a person on the team will look at it with the details you send."
     },
     {
       "id": "linkedin-analytics",
@@ -2277,26 +2259,26 @@
         },
         {
           "type": "fact",
-          "text": "The watch page count updates in near real time and includes views YouTube has not validated yet.",
+          "text": "The watch page count updates in near real time and includes views YouTube has not validated yet. Blotato's count comes from the YouTube Analytics API, which reports only finalized views.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "The watch page count updates in near real time and includes views YouTube has not validated yet."
+            "quote": "The watch page count updates in near real time and includes views YouTube has not validated yet. Blotato's count comes from the YouTube Analytics API, which reports only finalized views."
           }
         },
         {
           "type": "fact",
-          "text": "Blotato's count comes from the YouTube Analytics API, which reports only finalized views.",
-          "cite": {
-            "url": "https://help.blotato.com/support/faqs",
-            "quote": "Blotato's count comes from the YouTube Analytics API, which reports only finalized views."
-          }
-        },
-        {
-          "type": "fact",
-          "text": "The gap is widest on a new video and narrows at each later checkpoint.",
+          "text": "The gap is widest on a new video and narrows at each later checkpoint as YouTube finalizes more data.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
             "quote": "The gap is widest on a new video and narrows at each later checkpoint as YouTube finalizes more data."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "There is a second delay too: Blotato collects on a schedule and shows the latest snapshot it collected, not a live figure.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato's collection schedule -- Blotato returns the latest snapshot it collected, not a live figure"
           }
         },
         {
@@ -2308,8 +2290,8 @@
           }
         }
       ],
-      "next": "Open YouTube Studio and compare the Analytics tab with what Blotato shows.",
-      "proof": "You will know it worked when the Analytics tab in YouTube Studio matches what Blotato reports."
+      "next": "Open YouTube Studio and compare its Analytics tab, not the realtime card, with what Blotato shows.",
+      "proof": "You will know it is only the counting difference when Blotato's number tracks the Analytics tab in YouTube Studio. It can trail that tab until Blotato's next snapshot."
     },
     {
       "id": "client-connect-link",
@@ -3247,7 +3229,7 @@
         },
         {
           "type": "fact",
-          "text": "Confirm the board is a standard, public board visible in Pinterest itself.",
+          "text": "Confirm the board is a standard, public board that you can see in Pinterest itself.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
             "quote": "Confirm the board is a standard, public board visible in Pinterest itself."
@@ -3255,15 +3237,31 @@
         },
         {
           "type": "fact",
-          "text": "New Pinterest accounts need a 2-3 week manual warm-up and validation before boards appear through automation.",
+          "text": "Find the ID of the Pinterest account you meant with List Accounts.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "New Pinterest accounts need a 2-3 week manual warm-up and validation before boards appear through automation."
+            "quote": "Retrieve the Pinterest account with List Accounts."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Then get the Board ID with List Pinterest Boards, using that account ID.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Retrieve the Board ID with List Pinterest Boards using the intended account ID."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "New Pinterest accounts need a 2-3 week manual warm-up and validation before boards appear through automation. If your account is new, read \"Why is my Pinterest account not verified?\" on the same FAQ page.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "New Pinterest accounts need a 2-3 week manual warm-up and validation before boards appear through automation. See Why is my Pinterest account not verified?"
           }
         }
       ],
-      "next": "Check that the board is public in Pinterest and that the connected account is the right one.",
-      "proof": "You will know it worked when the board list returns your board."
+      "next": "Check that the right Pinterest account is connected and the board is public, then run List Pinterest Boards with that account's ID from List Accounts.",
+      "proof": "You will know it worked when List Pinterest Boards returns your board."
     }
   ]
 }
