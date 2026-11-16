@@ -2,7 +2,8 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+// SUPPORT_DESK_ROOT: where knowledge/, public/ and examples/ are, when this code is bundled into one file (the Netlify function).
+export const ROOT = process.env.SUPPORT_DESK_ROOT ? path.resolve(process.env.SUPPORT_DESK_ROOT) : path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const BASE_URL = 'https://backend.blotato.com/v2';
 export const DOCS_MCP_URL = 'https://help.blotato.com/~gitbook/mcp';
 export const DOCS_BASE = 'https://help.blotato.com';

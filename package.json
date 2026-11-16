@@ -17,7 +17,8 @@
     "test": "node --test \"test/*.test.mjs\"",
     "mock": "node bin/support-desk.mjs serve --mock",
     "shift": "node bin/support-desk.mjs shift",
-    "docs": "node bin/support-desk.mjs docs"
+    "docs": "node bin/support-desk.mjs docs",
+    "build:site": "node scripts/build-site.mjs"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.32.2"
