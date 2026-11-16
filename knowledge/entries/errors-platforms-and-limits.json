@@ -142,7 +142,7 @@
         },
         {
           "type": "fact",
-          "text": "Comment less often, then try again.",
+          "text": "Comment less often.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
             "quote": "Reduce how often you comment and retry."
@@ -322,7 +322,7 @@
         }
       ],
       "next": "Check your current usage and limit with Get Usage, then decide whether to wait for the monthly reset or upgrade your plan.",
-      "proof": "You will know it worked when replies and messages to new people send again without error 20101."
+      "proof": "You will know it worked when replies and messages to new people go out without error 20101."
     },
     {
       "id": "message-failed-20102",
@@ -555,7 +555,7 @@
         },
         {
           "type": "fact",
-          "text": "Fix the flagged field and publish again.",
+          "text": "Fix the flagged field and publish the automation again.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
             "quote": "Fix the flagged field and publish again."
@@ -658,14 +658,14 @@
         },
         {
           "type": "fact",
-          "text": "Fix the text or remove it, then publish again.",
+          "text": "Fix the text or remove it, then publish the automation again.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
             "quote": "Fix the text or remove it, then publish again."
           }
         }
       ],
-      "next": "Open the automation's public reply, fix or remove the text, and publish again.",
+      "next": "Open the automation's public reply, fix or remove the text, and publish the automation again.",
       "proof": "You will know it worked when the automation publishes without a public reply error."
     },
     {
@@ -808,19 +808,27 @@
           "reconnected"
         ]
       },
-      "opening": "A follow gate that does not move on has two common causes, and each has its own fix.",
+      "opening": "A follow gate that does not move on has two common causes, and each has its own fix. What you see in the run tells you which one to try.",
       "steps": [
         {
           "type": "fact",
-          "text": "A run stuck on a follow gate until it expires has 2 common causes.",
+          "text": "A waiting follow gate does not prove on its own that something is missing. Look at the automation's run and the account first.",
           "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "A run stuck on a follow gate until it expires has 2 common causes."
+            "url": "https://help.blotato.com/settings/social-accounts/instagram",
+            "quote": "A waiting follow gate does not, by itself, prove a missing subscription. Inspect the automation's run and account first."
           }
         },
         {
           "type": "fact",
-          "text": "The first cause is an account connected before DM automations and follow gating landed, which might lack the button-tap subscription, so reconnect the account in Accounts.",
+          "text": "If the first message arrives but the next one does not send after the person taps I'm following, another app might control the conversation in Meta. In that case, remove the default routing app or select Blotato, then turn off Take control of conversations for every other app.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "If the first message arrives but the next message does not send after the person taps I'm following, another app might control the conversation in Meta. Remove the default routing app or select Blotato, then turn off Take control of conversations for every other app."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If the account was connected before DM automations and follow gating came out, it might lack the button-tap subscription. In that case, reconnect the account in Accounts.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
             "quote": "An account connected before DM automations and follow gating landed might lack the button-tap subscription, so reconnect the account in Accounts."
@@ -828,30 +836,22 @@
         },
         {
           "type": "fact",
-          "text": "The second cause is another app controlling the conversation in Meta, when the first message arrives but the next one does not send after the person taps I'm following.",
+          "text": "When you reconnect an Instagram account, leave every permission checked, including messaging, and finish connecting.",
           "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "If the first message arrives but the next message does not send after the person taps I'm following, another app might control the conversation in Meta."
+            "url": "https://help.blotato.com/settings/social-accounts/instagram",
+            "quote": "Leave every permission checked, including messaging, and finish connecting."
           }
         },
         {
           "type": "fact",
-          "text": "For that one, remove the default routing app or select Blotato, then turn off Take control of conversations for every other app.",
-          "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "Remove the default routing app or select Blotato, then turn off Take control of conversations for every other app."
-          }
-        },
-        {
-          "type": "fact",
-          "text": "Instagram shows the confirm button in the mobile app only, so ask for a typed reply in the gate message for desktop readers.",
+          "text": "Instagram shows the confirm button in the mobile app only, so ask for a typed reply in the gate message for people reading on a desktop.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
             "quote": "Instagram also renders the confirm button in the mobile app only, so ask for a typed reply in the gate message for desktop readers."
           }
         }
       ],
-      "next": "Reconnect the Instagram account in Accounts first, then check the conversation routing in Meta if the next message still does not send.",
+      "next": "Open the automation's run and see whether the first message arrived. If it did, follow step 2. If the account is older than DM automations, follow steps 3 and 4.",
       "proof": "You will know it worked when the next message sends after a person taps I'm following."
     },
     {
@@ -1325,27 +1325,27 @@
           "all platforms"
         ]
       },
-      "opening": "This error means the platform turned the media down, so the failed post itself has the exact reason.",
+      "opening": "This error means the platform turned the media down. The failed post itself has the exact reason.",
       "steps": [
         {
           "type": "fact",
-          "text": "The platform rejected the media Blotato tried to upload.",
+          "text": "The platform rejected the media Blotato tried to upload. It is not a rate-limit or credits problem, and retrying the same media without changes will not help.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
-            "quote": "The platform rejected the media Blotato tried to upload."
+            "quote": "The platform rejected the media Blotato tried to upload. This is not a rate-limit or credits problem, and retrying the same media without changes will not help."
           }
         },
         {
           "type": "fact",
-          "text": "It is not a rate-limit or credits problem, and retrying the same media without changes will not help.",
+          "text": "Open the failed post in Posts > Failed (in the web app), or in Logs (if you use the API), to read its exact error. Then follow the matching steps in the Error Reference.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
-            "quote": "This is not a rate-limit or credits problem, and retrying the same media without changes will not help."
+            "quote": "Open the specific failed post in Posts > Failed (web app) or the Logs (API) to read the exact per-post error, then follow the matching steps in this reference."
           }
         },
         {
           "type": "fact",
-          "text": "Common causes are media that does not meet the platform's format or size specs, or a stale connection that a reconnect in Accounts can clear.",
+          "text": "Common causes are media that does not meet the platform's format or size specs (see the Social Platform Requirements page: https://help.blotato.com/tips-and-tricks/social-platform-requirements), or a stale connection, which you fix by reconnecting the account in Accounts.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
             "quote": "Common causes: the media does not meet the platform's format or size specs (Social Platform Requirements), or a stale connection -- reconnect the account in Accounts and retry."
@@ -1360,7 +1360,7 @@
           }
         }
       ],
-      "next": "Read the failed post's exact error, then compare your media with the platform's requirements.",
+      "next": "Open the failed post in Posts > Failed, read its exact error, and compare your media with the Social Platform Requirements page.",
       "proof": "You will know it worked when the post publishes after you fix the media or reconnect the account."
     },
     {
@@ -1457,7 +1457,7 @@
           }
         }
       ],
-      "next": "Shorten the video to 120 seconds or export it to match the platform requirements, then publish again.",
+      "next": "Shorten the video to 120 seconds or less, or export it to match the platform requirements.",
       "proof": "You will know it worked when the post publishes without the 120-second message."
     },
     {
@@ -1545,7 +1545,7 @@
           }
         }
       ],
-      "next": "Wait 24 hours, then check your API quota in the Google Cloud Console before posting again.",
+      "next": "Wait 24 hours, then check your API quota in the Google Cloud Console.",
       "proof": "You will know it worked when the video uploads to YouTube without the limit error."
     },
     {
@@ -1631,7 +1631,7 @@
         },
         {
           "type": "fact",
-          "text": "Check the original outcome before retrying or uploading manually.",
+          "text": "Before you retry or upload it to YouTube yourself, check your YouTube channel for the original video.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
             "quote": "Check the original outcome before retrying or uploading manually."
@@ -1646,7 +1646,7 @@
           }
         }
       ],
-      "next": "Check the outcome of your earlier posts, and wait for them to leave the 24-hour window before you post again.",
+      "next": "Check your YouTube channel for your earlier posts, and wait for them to leave the 24-hour window before you post again.",
       "proof": "You will know it worked when a new YouTube post publishes without the maximum-posts error."
     },
     {
@@ -1721,7 +1721,7 @@
         },
         {
           "type": "fact",
-          "text": "Wait 24 hours and try again, or publish to a different Page.",
+          "text": "Wait 24 hours, or publish to a different Page.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
             "quote": "Wait 24 hours and try again, or publish to a different Page."
@@ -1736,7 +1736,7 @@
           }
         }
       ],
-      "next": "Wait 24 hours and try again, or choose a different Page for the post.",
+      "next": "Wait 24 hours, or choose a different Page for the post.",
       "proof": "You will know it worked when the post publishes to your Page without the 25-post limit error."
     },
     {
@@ -1810,14 +1810,14 @@
         },
         {
           "type": "fact",
-          "text": "Wait 24 hours and try again, or publish to a different profile or company Page.",
+          "text": "Wait 24 hours, or publish to a different profile or company Page.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
             "quote": "Wait 24 hours and try again, or publish to a different profile or company Page."
           }
         }
       ],
-      "next": "Wait 24 hours and try again, or publish to a different profile or company Page.",
+      "next": "Wait 24 hours, or publish to a different profile or company Page.",
       "proof": "You will know it worked when the post publishes to LinkedIn without the 50-post limit error."
     },
     {
@@ -2064,7 +2064,7 @@
         },
         {
           "type": "fact",
-          "text": "For a private channel, run /invite @Blotato in the channel, then publish again.",
+          "text": "For a private channel, run /invite @Blotato in the channel first.",
           "cite": {
             "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
             "quote": "For a private channel, run /invite @Blotato in the channel, then publish again."
@@ -2079,7 +2079,7 @@
           }
         }
       ],
-      "next": "If the channel is private, run /invite @Blotato in that channel in Slack, then publish again.",
+      "next": "If the channel is private, run /invite @Blotato in that channel in Slack.",
       "proof": "You will know it worked when the post appears in the Slack channel."
     },
     {
@@ -2168,7 +2168,7 @@
           }
         }
       ],
-      "next": "Unarchive the channel in Slack, or ask a workspace admin to allow Blotato, then publish again.",
+      "next": "Unarchive the channel in Slack, or ask a workspace admin to allow Blotato.",
       "proof": "You will know it worked when the post appears in the Slack channel."
     },
     {
@@ -2239,7 +2239,7 @@
         },
         {
           "type": "fact",
-          "text": "Add text or an image, or remove images until 10 or fewer remain, then publish again.",
+          "text": "Add text or an image, or remove images until 10 or fewer remain.",
           "cite": {
             "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
             "quote": "Add text or an image, or remove images until 10 or fewer remain, then publish again."
@@ -2262,7 +2262,7 @@
           }
         }
       ],
-      "next": "Add text or an image, or remove the video or extra images, then publish again.",
+      "next": "Add text or an image, or remove the video or extra images.",
       "proof": "You will know it worked when the post appears in the Slack channel."
     },
     {
@@ -2331,7 +2331,7 @@
         },
         {
           "type": "fact",
-          "text": "For \"Slack could not display this post\", confirm every image URL opens without signing in and points to a PNG, JPEG, or GIF file, then publish again.",
+          "text": "For \"Slack could not display this post\", confirm every image URL opens without signing in and points to a PNG, JPEG, or GIF file.",
           "cite": {
             "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
             "quote": "confirm every image URL opens without signing in and points to a PNG, JPEG, or GIF file, then publish again."
@@ -2346,7 +2346,7 @@
           }
         }
       ],
-      "next": "If you saw \"Slack could not display this post\", check that each image URL opens without signing in and is a PNG, JPEG, or GIF file, then publish again.",
+      "next": "If you saw \"Slack could not display this post\", check that each image URL opens without signing in and is a PNG, JPEG, or GIF file.",
       "proof": "You will know it worked when the post appears in the Slack channel."
     },
     {
@@ -2429,7 +2429,7 @@
           }
         }
       ],
-      "next": "Export the image as a JPEG at no more than 20 MB, then publish again.",
+      "next": "Export the image as a JPEG at no more than 20 MB.",
       "proof": "You will know it worked when the TikTok photo post publishes without the picture size error."
     },
     {
@@ -2511,7 +2511,7 @@
           }
         }
       ],
-      "next": "Add isYourBrand and isBrandedContent to the target object of your TikTok request, then send it again.",
+      "next": "Add isYourBrand and isBrandedContent to the target object of your TikTok request.",
       "proof": "You will know it worked when the request is accepted without the required property error."
     },
     {
@@ -2770,7 +2770,7 @@
           }
         }
       ],
-      "next": "Add a parameter such as ?ref=pin to the end of your link, then publish the pin again.",
+      "next": "Add a parameter such as ?ref=pin to the end of your link.",
       "proof": "You will know it worked when the pin publishes with the modified link."
     },
     {
@@ -2859,14 +2859,14 @@
         },
         {
           "type": "fact",
-          "text": "Instead, click Reconnect on the Pinterest account in Accounts, then retry the publish.",
+          "text": "Instead, click Reconnect on the Pinterest account in Accounts.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
             "quote": "Go to Accounts, click Reconnect on the Pinterest account, then retry the publish."
           }
         }
       ],
-      "next": "If the account has 100+ monthly views, click Reconnect on it in Accounts and retry the publish.",
+      "next": "If the account has 100+ monthly views, click Reconnect on it in Accounts.",
       "proof": "You will know it worked when the Pinterest pin publishes after the reconnect."
     },
     {
@@ -3093,18 +3093,10 @@
       "steps": [
         {
           "type": "fact",
-          "text": "The message does not point to a follower-count threshold, memory exhaustion, or an outage.",
+          "text": "This message does not point to a follower-count threshold, memory exhaustion, or an outage, and it does not prove the post is missing from your Page.",
           "cite": {
             "url": "https://help.blotato.com/social-accounts-and-platform-faqs/facebook/errors",
-            "quote": "The message does not establish a follower-count threshold, memory exhaustion, or an outage."
-          }
-        },
-        {
-          "type": "fact",
-          "text": "It also does not prove the post is missing from your Page.",
-          "cite": {
-            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/facebook/errors",
-            "quote": "It also does not prove the post is absent."
+            "quote": "The message does not establish a follower-count threshold, memory exhaustion, or an outage. It also does not prove the post is absent."
           }
         },
         {
@@ -3113,6 +3105,14 @@
           "cite": {
             "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
             "quote": "Check the Scheduled, Published, and Failed filters in Posts for the same destination and content."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Then check your Facebook Page itself for the post. If Blotato shows a link to the post, open it.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
+            "quote": "Open any returned platform URL and check the intended account on the platform."
           }
         },
         {
@@ -3302,7 +3302,7 @@
         },
         {
           "type": "fact",
-          "text": "Check the destination and original post status before a delayed retry.",
+          "text": "Check your Instagram account and the original post status before a delayed retry.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
             "quote": "Check the destination and original post status before a delayed retry."
@@ -3565,18 +3565,10 @@
             "url": "https://help.blotato.com/support/errors",
             "quote": "Re-authorize the app when prompted."
           }
-        },
-        {
-          "type": "fact",
-          "text": "Retry your post after reconnecting.",
-          "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "Retry your post after reconnecting."
-          }
         }
       ],
       "next": "Open Accounts, click Reconnect on your Twitter account, and authorize the app again.",
-      "proof": "You will know it worked when the retried post publishes to X."
+      "proof": "You will know it worked when your next post publishes to X."
     },
     {
       "id": "x-duplicate-content-403",
@@ -3647,6 +3639,14 @@
           "cite": {
             "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
             "quote": "Check the Scheduled, Published, and Failed filters in Posts for the same destination and content."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Then check your X account itself for the earlier tweet with this text. If Blotato shows a link to the post, open it.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
+            "quote": "Open any returned platform URL and check the intended account on the platform."
           }
         },
         {
@@ -4476,7 +4476,7 @@
         },
         {
           "type": "fact",
-          "text": "Shorten the text and any additionalPosts listed in the error details, then retry.",
+          "text": "Shorten the text and any additionalPosts listed in the error details.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
             "quote": "Shorten the text and any additionalPosts listed in the error details, then retry."
@@ -4499,7 +4499,7 @@
           }
         }
       ],
-      "next": "Shorten the text, and any additional posts the error lists, then publish again.",
+      "next": "Shorten the text, and any additional posts the error lists.",
       "proof": "You will know it worked when the post publishes without the character limit error."
     },
     {
