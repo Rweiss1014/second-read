@@ -427,3 +427,11 @@ export function createReader({ router, env = process.env, call, cacheDir, ...ove
 
 // For the result object when no reader runs.
 export const READER_OFF = Object.freeze({ backend: 'off' });
+
+// The same backends and the same hashing, for the composer (src/composer.mjs).
+export function makeBackend(backend, { bin = 'claude', timeoutMs = 120000, env = process.env } = {}) {
+  if (backend === 'claude-cli') return claudeCli({ bin, timeoutMs });
+  if (backend === 'anthropic') return anthropicApi({ env, timeoutMs });
+  return null;
+}
+export { sha as hashOf, parseJson };

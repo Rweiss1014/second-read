@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6246,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Bug bounty program or security contact for reporting an MCP server security issue",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages contain no sentence about a bug bounty program, security contact, or vulnerability reporting process, so a team member needs to reply.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:31:13.910Z"
+}

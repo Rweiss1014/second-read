@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8155,
+ "verdict": {
+  "asked": [
+   {
+    "item": "How to get page 2 of the boards list (312 boards, only 250 returned, no cursor)",
+    "steps": []
+   },
+   {
+    "item": "Cursor and offset parameters tried, same 250 returned",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say the boards list returns at most 250 items, but they document no cursor, offset or other way to get further boards. The web app shortcut is only described for an empty list, so a team member should answer.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:31:38.216Z"
+}

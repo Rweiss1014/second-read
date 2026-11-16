@@ -1,0 +1,31 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7381,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why completed + failed + issues is 212, not 230",
+    "steps": []
+   },
+   {
+    "item": "Where the other 18 contacts went",
+    "steps": []
+   },
+   {
+    "item": "Whether those 18 got their DM",
+    "steps": []
+   },
+   {
+    "item": "Whether leads are being lost",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages explain that in-progress, expired and superseded runs count toward triggered but not completed or failed. They don't say whether those runs received a DM, and the status of this customer's 18 runs is only visible in their own account.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:29:05.715Z"
+}

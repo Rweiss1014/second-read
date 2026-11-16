@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3584,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Export Analytics dashboard as CSV or PDF",
+    "steps": []
+   },
+   {
+    "item": "Or only view on screen",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences describe viewing the Analytics dashboard and reading data via API, but none say whether the dashboard can be exported as CSV or PDF.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:30:42.722Z"
+}

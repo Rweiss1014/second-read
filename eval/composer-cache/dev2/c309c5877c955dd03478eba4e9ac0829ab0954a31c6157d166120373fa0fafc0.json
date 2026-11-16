@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5973,
+ "verdict": {
+  "asked": [
+   {
+    "item": "9 calendar months or 270 days",
+    "steps": []
+   },
+   {
+    "item": "time-of-day cutoff",
+    "steps": []
+   },
+   {
+    "item": "whether August 14, 2027 is allowed",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say the scheduling horizon is 9 months and that Blotato returns an error past it. They don't say whether that means calendar months or days, or whether a time-of-day cutoff applies, so August 14, 2027 can't be confirmed.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:31:44.261Z"
+}

@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7121,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does the 15,000 active-contact count reset on the 19th (renewal date) or on the 1st?",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages say the count resets at the start of each month or the next monthly window. They never say whether that means the calendar month or the plan renewal date, so the 19th-versus-1st question has no stated answer.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:32:23.903Z"
+}

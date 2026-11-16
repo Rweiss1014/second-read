@@ -1,0 +1,70 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 13474,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is there a 100 MB Google Drive cutoff?",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Google virus scan warning page instead of the file",
+    "steps": [
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "item": "350 MB video on Creator plan",
+    "steps": [
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages say there is no 100 MB Drive cutoff and give the direct download URL format and the fallback options for the virus-scan warning page.",
+  "steps": [
+   {
+    "text": "Blotato does not impose a 100 MB Google Drive cutoff.",
+    "quotes": [
+     "S18"
+    ]
+   },
+   {
+    "text": "The file still must fit your Blotato plan's upload limit and the destination platform's media limit.",
+    "quotes": [
+     "S19"
+    ]
+   },
+   {
+    "text": "Google Drive sometimes returns a virus-scan warning page instead of the file for large videos.",
+    "quotes": [
+     "S21"
+    ]
+   },
+   {
+    "text": "Replace the standard share link with https://drive.usercontent.google.com/download?id={FILE_ID}&export=download&confirm=t, using the ID from your share link, and make sure the file is shared with \"Anyone with the link\" as Viewer.",
+    "quotes": [
+     "S9",
+     "S10",
+     "S11",
+     "S16"
+    ]
+   },
+   {
+    "text": "If the direct download URL still returns the warning page, use the Presigned Upload flow, frame.io, AWS S3, or Google Cloud Storage.",
+    "quotes": [
+     "S23"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:29:03.632Z"
+}

@@ -138,13 +138,18 @@ export function createCoverage(entries, { rareDf = 3, phrasings = true, twoWhenN
   const g = new Map();
   const common = [];
   for (const e of matchable) {
-    const lines = groundedLines(e);
-    const all = [...lines, ...(e.phrasings || []), ...(e.anchors || []).flat()];
+    const all = [...groundedLines(e), ...(e.phrasings || []), ...(e.anchors || []).flat()];
     for (const w of new Set(all.flatMap(t => contentStems(t)))) df.set(w, (df.get(w) || 0) + 1);
+    g.set(e.id, profile(e));
+  }
+  // What an entry says, read once. An entry that is not in the knowledge base (a composed draft, src/composer.mjs)
+  // is profiled when it is checked; the word counts (df) stay those of the knowledge base.
+  function profile(e) {
+    const lines = groundedLines(e);
     const stems = lines.flatMap(t => [...allStems(t), '|']);
     const text = lines.join(' | ');
     const wordText = phrasings ? [text, ...(e.phrasings || [])].join(' | ') : text;
-    g.set(e.id, {
+    return {
       stems, set: new Set(contentStems(wordText)), raw: [...new Set(rawWords(wordText))], gset: new Set(contentStems(text)), graw: [...new Set(rawWords(text))],
       // A quote about "other platforms", "platforms other than", "outside this list" speaks for every platform.
       anyPlatform: /\b(?:other|all|every|any|each) (?:social )?(?:platforms?|networks?)\b|\bplatforms? other than\b|\boutside (?:this|that|the) list\b/i.test(text) || (e.scope?.coversKinds || []).includes('platform'),
@@ -161,7 +166,7 @@ export function createCoverage(entries, { rareDf = 3, phrasings = true, twoWhenN
       date: lines.some(t => GIVES_DATE.test(t)),
       cause: (e.steps || []).some(s => GIVES_CAUSE.test(s.cite?.quote || '') || GIVES_CAUSE.test(s.text || '')),
       not: (e.scope?.not || []),
-    });
+    };
   }
 
   // A route many entries quote (/v2/posts) is the background of most API tickets, not a specific.
@@ -176,7 +181,7 @@ export function createCoverage(entries, { rareDf = 3, phrasings = true, twoWhenN
 
   // The first specific of the message the entry does not cover, as { kind, term }, or null.
   function gap(entry, text, { only } = {}) {
-    const c = g.get(entry.id);
+    const c = g.get(entry.id) || (entry.adHoc ? profile(entry) : null);
     if (!c) return null;
     const sp = specificsText(text);
     const asked = sp.text;

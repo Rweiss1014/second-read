@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7083,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Threads daily posting cap",
+    "steps": []
+   },
+   {
+    "item": "Facebook 25 a day: per Page or per login",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages state no daily posting cap for Threads, so one of the two questions has no answer in the sentences, and a partial answer would be incomplete.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:32:00.912Z"
+}

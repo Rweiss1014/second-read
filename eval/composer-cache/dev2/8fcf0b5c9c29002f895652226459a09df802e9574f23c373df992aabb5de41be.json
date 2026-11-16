@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6313,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Tag a supplier's LinkedIn company page so the name turns blue and they are notified",
+    "steps": []
+   },
+   {
+    "item": "Typing @ in Blotato leaves the @ sign in the text",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the help sentences say how to tag or mention another company's LinkedIn page, or why typing @ stays as plain text; they only cover choosing which of your own profiles or Pages a post publishes to.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:31:38.425Z"
+}

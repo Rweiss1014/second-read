@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5688,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Status check returns 503 Service Unavailable intermittently",
+    "steps": []
+   },
+   {
+    "item": "Whether to send the post again when the 503 happens",
+    "steps": []
+   },
+   {
+    "item": "Right way to handle the 503 in an n8n flow",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence covers a 503 from the Get Post Status call or says whether to resend after one; the nearby sentences cover a TikTok token refresh error and a missing TikTok post, which are different questions.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:32:29.643Z"
+}

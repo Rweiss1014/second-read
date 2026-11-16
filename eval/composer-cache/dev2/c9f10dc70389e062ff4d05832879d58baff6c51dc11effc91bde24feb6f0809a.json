@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7876,
+ "verdict": {
+  "asked": [
+   {
+    "item": "\"Scheduled time is too far in the future.\" error for 2026-12-06T15:00:00Z",
+    "steps": []
+   },
+   {
+    "item": "Happens in both the app and the API",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages say this error means the time is more than 9 months away, but the customer's time is about three weeks away. No sentence explains the error in that case, so the team needs to look at it.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:28:58.257Z"
+}

@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5367,
+ "verdict": {
+  "asked": [
+   {
+    "item": "List which AI apps are connected to the account",
+    "steps": []
+   },
+   {
+    "item": "Disconnect the former assistant's connected Claude",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages don't say how to see or disconnect connected AI apps, and the request asks staff to check and change this customer's own account.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:32:14.749Z"
+}

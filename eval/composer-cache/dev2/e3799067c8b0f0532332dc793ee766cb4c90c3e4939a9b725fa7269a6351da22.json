@@ -1,0 +1,42 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4812,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Did I set something up wrong?",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "LINK reply under someone else's comment got nothing",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages say replies to other comments never trigger an automation, which explains the missed LINK reply.",
+  "steps": [
+   {
+    "text": "Nothing suggests a setup mistake: only top-level comments start a run, and a reply to another comment does not.",
+    "quotes": [
+     "S5"
+    ]
+   },
+   {
+    "text": "A reply inside a comment thread is skipped, even with a matching keyword.",
+    "quotes": [
+     "S48"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:31:37.229Z"
+}

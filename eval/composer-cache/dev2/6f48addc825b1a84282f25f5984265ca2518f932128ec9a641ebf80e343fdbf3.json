@@ -1,0 +1,35 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4027,
+ "verdict": {
+  "asked": [
+   {
+    "item": "How many spots LinkedIn profile plus 3 company pages use",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "Account Limits states a LinkedIn profile with 3 company Pages counts as 4 accounts, and the Starter plan limit is 20.",
+  "steps": [
+   {
+    "text": "Your LinkedIn profile counts as one account, and each connected company Page counts as one more.",
+    "quotes": [
+     "S59"
+    ]
+   },
+   {
+    "text": "So 1 LinkedIn profile with 3 company Pages counts as 4 connected social accounts.",
+    "quotes": [
+     "S60"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:30:46.829Z"
+}

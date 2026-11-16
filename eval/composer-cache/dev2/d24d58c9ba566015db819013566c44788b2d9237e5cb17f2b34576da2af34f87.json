@@ -1,0 +1,63 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 10115,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is my account broken (analytics says pending)?",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "When numbers should show on Starter plan",
+    "steps": [
+     2,
+     3,
+     4
+    ]
+   },
+   {
+    "item": "TikTok analytics support",
+    "steps": [
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages say what pending means, give the Starter first checkpoint, and confirm TikTok analytics are supported.",
+  "steps": [
+   {
+    "text": "\"Analytics pending\" means no metric history is available yet, and it does not establish an account-connection failure.",
+    "quotes": [
+     "S94",
+     "S95"
+    ]
+   },
+   {
+    "text": "On Starter, Blotato collects the first metrics up to 1 day after a post publishes.",
+    "quotes": [
+     "S21",
+     "S102"
+    ]
+   },
+   {
+    "text": "Until that first checkpoint passes, a recently published post shows no metrics.",
+    "quotes": [
+     "S22"
+    ]
+   },
+   {
+    "text": "Checkpoint times are targets, not a live-refresh guarantee, and TikTok analytics are supported.",
+    "quotes": [
+     "S99",
+     "S11"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:32:50.571Z"
+}

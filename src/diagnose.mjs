@@ -8,6 +8,7 @@ import { routeMessage, PAGES } from '../knowledge/playbook.mjs';
 import { listPosts, getSubmission, errorText } from './api.mjs';
 import { explain } from './explain.mjs';
 import { READER_OFF } from './reader.mjs';
+import { COMPOSER_OFF, assembleReply } from './composer.mjs';
 
 const PLATFORM_WORDS = ['instagram', 'linkedin', 'twitter', 'facebook', 'tiktok', 'youtube', 'threads', 'bluesky', 'pinterest', 'slack'];
 // The raw stamp, for the escalation packet and the technical evidence: "Sun, 15 Nov 2026 19:00:00 UTC".
@@ -105,15 +106,42 @@ async function lookup(kind, ticket, { client, docs, entry, now = Date.now }) {
   return ev;
 }
 
-export async function diagnose(ticket, { client, docs, agent = 'Support', route = routeMessage, now = Date.now, reader = null }) {
+export async function diagnose(ticket, { client, docs, agent = 'Support', route = routeMessage, now = Date.now, reader = null, composer = null }) {
   // The reader (src/reader.mjs), when on, reviews route()'s decision: it may pick an entry or hand over. It never
   // sees a message a guard or a hand-over signal took, and on any error the decision stays route()'s own.
+  // The composer (src/composer.mjs), when on, runs last, and only on a message that is still handed over with no
+  // guard or signal: it may compose a reply from the help pages, every step quoted, then checked by a second read.
   const r0 = route(ticket.text);
-  const r = reader ? await reader.decide(ticket.text, r0) : r0;
+  const r1 = reader ? await reader.decide(ticket.text, r0) : r0;
+  const r = composer ? await composer.compose(ticket.text, r1) : r1;
   const entry = r.entry;
   const readerInfo = r.reader || READER_OFF;
-  const match = { decision: r.decision, why: r.why ?? null, whyDetail: r.whyDetail ?? null, guard: r.guard, reason: r.reason, words: r.words, score: r.score, margin: r.margin, candidates: r.candidates, signals: r.signals, questions: r.questions, stripped: r.stripped, reader: readerInfo };
-  const out = { ticket, entry: entry ? { id: entry.id, kind: entry.kind, title: entry.title } : null, match, reader: readerInfo, pages: {}, evidence: null };
+  const composerInfo = r.composer || COMPOSER_OFF;
+  // Which path wrote the reply: a saved entry's checked text, or a composed one. None when no reply is written.
+  const replyPath = r.path === 'composed' ? 'composed' : entry ? 'saved' : null;
+  const match = { decision: r.decision, why: r.why ?? null, whyDetail: r.whyDetail ?? null, guard: r.guard, reason: r.reason, words: r.words, score: r.score, margin: r.margin, candidates: r.candidates, signals: r.signals, questions: r.questions, stripped: r.stripped, reader: readerInfo, composer: composerInfo, path: replyPath };
+  const out = { ticket, entry: entry ? { id: entry.id, kind: entry.kind, title: entry.title } : null, path: replyPath, match, reader: readerInfo, composer: composerInfo, pages: {}, evidence: null };
+
+  if (replyPath === 'composed') {
+    // A composed reply: the steps are the writer's sentences, each with the help-page sentence(s) that prove it; the
+    // frame around them is the script's. It is NOT a saved, pre-checked reply (see composer.state).
+    const a = assembleReply(r.composed.steps, { name: (ticket.name || '').trim(), agent });
+    for (const u of new Set(a.steps.flatMap(s => (s.cites || []).map(c => c.url)))) out.pages[u] = (await docs.getPage(u)) || composer?.page?.(u) || null;
+    out.steps = a.steps;
+    out.next = a.next;
+    out.proof = a.proof;
+    out.helpLink = a.links[0] || null;
+    out.helpLinks = a.links;
+    out.reply = a.reply;
+    out.outcome = 'reply';
+    out.composed = {
+      state: composerInfo.state,
+      steps: r.composed.steps.map(s => ({ text: s.text, quotes: s.quotes.map(q => ({ id: q.id, url: q.url, sentence: q.text })) })),
+      checks: composerInfo.checks,
+      secondRead: composerInfo.secondReadResult,
+    };
+    return out;
+  }
 
   if (!entry) {
     // No entry the desk trusts: search the docs, refuse to guess, propose a help-doc edit and hand it to a person,

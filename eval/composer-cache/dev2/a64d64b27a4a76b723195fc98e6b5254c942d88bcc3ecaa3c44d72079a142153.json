@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6371,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Video fails on Bluesky but works on X",
+    "steps": []
+   },
+   {
+    "item": "Signed storage URL with no file extension",
+    "steps": []
+   },
+   {
+    "item": "H.264 mp4 file",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the help sentences cover Bluesky video requirements or a signed URL without an extension, and the customer gave no error text, so the closest sentences (media metadata errors, X video specs) answer neighboring questions.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:31:16.963Z"
+}

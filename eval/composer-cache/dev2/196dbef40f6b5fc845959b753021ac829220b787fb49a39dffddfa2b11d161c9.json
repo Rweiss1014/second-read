@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7860,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Do posts published on Starter move to the Creator checkpoint schedule after the upgrade?",
+    "steps": []
+   },
+   {
+    "item": "Whether to republish a few posts",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages give each plan's checkpoint schedule but don't say whether posts published before an upgrade keep the old plan's schedule or switch to the new one.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:32:29.169Z"
+}

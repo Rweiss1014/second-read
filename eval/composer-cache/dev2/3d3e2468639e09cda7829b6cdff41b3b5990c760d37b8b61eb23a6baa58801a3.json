@@ -1,0 +1,47 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7528,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Same person messaging two Facebook Pages, we replied on each: counts once or twice",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Do people who only comment count if we never answer them",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The Active contacts section states both that the same person on two Facebook Pages counts as two contacts and that commenters do not count until you reply.",
+  "steps": [
+   {
+    "text": "Each contact is unique within one connected social account.",
+    "quotes": [
+     "S56"
+    ]
+   },
+   {
+    "text": "If the same person interacts with two connected Facebook Pages, they count as two active contacts.",
+    "quotes": [
+     "S57"
+    ]
+   },
+   {
+    "text": "Someone who messages or comments on your posts does not count until you reply.",
+    "quotes": [
+     "S55"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:30:32.871Z"
+}

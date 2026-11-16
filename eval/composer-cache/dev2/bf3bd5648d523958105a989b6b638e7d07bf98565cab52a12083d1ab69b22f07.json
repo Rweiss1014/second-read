@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3797,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Field to render template video in 2160p (4K) instead of 1080p",
+    "steps": []
+   },
+   {
+    "item": "Upscale option after render",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages don't state any resolution field or upscale option for rendered template videos; the 2160p mention is only YouTube upload specs, a neighboring topic.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:24:33.250Z"
+}

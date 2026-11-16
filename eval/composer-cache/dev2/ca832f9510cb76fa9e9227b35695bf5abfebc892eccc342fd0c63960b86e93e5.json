@@ -1,0 +1,48 @@
+{
+ "kind": "write",
+ "version": "compose-w1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 10948,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is there an endpoint to edit a comment",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Is there an endpoint to delete a comment",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The comments page and the public operation index list only list, get and post endpoints for comments, with no edit or delete endpoint.",
+  "steps": [
+   {
+    "text": "The Comments API has three endpoints: List Comments (GET /v2/comments), Get Comment (GET /v2/comments/:commentId) and Post Comment (POST /v2/comments).",
+    "quotes": [
+     "S5",
+     "S6",
+     "S7",
+     "S8"
+    ]
+   },
+   {
+    "text": "Blotato's public operation index covers its public operations. For comments it lists only GET /v2/comments, POST /v2/comments and GET /v2/comments/{commentId}, so it shows no edit or delete endpoint.",
+    "quotes": [
+     "S80",
+     "S95",
+     "S96",
+     "S97"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:25:10.907Z"
+}

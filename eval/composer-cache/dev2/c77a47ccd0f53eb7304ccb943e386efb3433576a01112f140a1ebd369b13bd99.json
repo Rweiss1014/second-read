@@ -1,0 +1,47 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7996,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Search the Inspiration database from Claude through the Blotato MCP server",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Doing the search the way they do in the web app",
+    "steps": [
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S8 says the MCP tool catalog has no Inspiration Database search tool, and S4 and S5 describe searching in the web app.",
+  "steps": [
+   {
+    "text": "The MCP tool catalog does not expose an Inspiration Database search tool, so Claude can't search it for you that way.",
+    "quotes": [
+     "S8"
+    ]
+   },
+   {
+    "text": "To search Inspiration, use the web app, where you can search topics or find a creator.",
+    "quotes": [
+     "S4"
+    ]
+   },
+   {
+    "text": "In the web app you can also apply filters or shuffle results.",
+    "quotes": [
+     "S5"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:29:14.309Z"
+}

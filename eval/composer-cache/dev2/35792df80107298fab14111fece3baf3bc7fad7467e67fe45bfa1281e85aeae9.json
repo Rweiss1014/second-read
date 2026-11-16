@@ -1,0 +1,63 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 10478,
+ "verdict": {
+  "asked": [
+   {
+    "item": "per-clip credit costs for video models",
+    "steps": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The AI Image-to-Video Model table lists the credit cost per video clip for each model.",
+  "steps": [
+   {
+    "text": "Credit cost per video clip: framepack is 55 and runway gen3 is 85.",
+    "quotes": [
+     "S20",
+     "S21",
+     "S25"
+    ]
+   },
+   {
+    "text": "kling v1.5 and kling v1.6 are each 210 per video clip.",
+    "quotes": [
+     "S22",
+     "S23"
+    ]
+   },
+   {
+    "text": "luma dream machine and minimax are each 170 per video clip.",
+    "quotes": [
+     "S24",
+     "S26"
+    ]
+   },
+   {
+    "text": "google veo2 is 835, veo3 is 1250, and veo3/fast is 400 per video clip.",
+    "quotes": [
+     "S27",
+     "S28",
+     "S29"
+    ]
+   },
+   {
+    "text": "google/gemini-omni-flash/v1.1/text-to-video and google/gemini-omni-flash/v1.1/image-to-video are each 35/sec at 720p and 50/sec at 1080p.",
+    "quotes": [
+     "S30",
+     "S31"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:30:31.441Z"
+}

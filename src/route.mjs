@@ -22,10 +22,13 @@ import { runGuards, stripDeskInstructions, needsPerson, TROUBLE, NAMED_ITEMS, PL
 // Every hand-over carries a stable, machine-readable reason in "why" (and the details in "whyDetail"), beside
 // the human "reason" text, so a page can say it plainly. The codes are listed in knowledge/ENTRY-GUIDE.md.
 // An answer has why: null. A "partial" answer has why: 'partly-covered' for the part it hands over.
-export const WHY_CODES = ['money', 'others-data', 'secret', 'staff-action', 'desk-instructions', 'tried-already', 'outage', 'records-disagree', 'docs-wrong', 'access-blocked', 'past-docs', 'docs-silent', 'tie', 'partly-covered', 'not-english', 'no-coverage', 'nonsense', 'pressure', 'reader-abstained', 'reader-refuted'];
+export const WHY_CODES = ['money', 'others-data', 'secret', 'staff-action', 'desk-instructions', 'tried-already', 'outage', 'records-disagree', 'docs-wrong', 'access-blocked', 'past-docs', 'docs-silent', 'tie', 'partly-covered', 'not-english', 'no-coverage', 'nonsense', 'pressure', 'reader-abstained', 'reader-refuted', 'compose-unverified', 'second-read-objected'];
 // reader-abstained: the matcher would have answered, but the reader (src/reader.mjs) picked no entry, or its pick
 //   failed the script's checks. reader-refuted: the reader's pick passed, and the refuter named a real objection.
 // Both only appear when a reader backend is on; with it off the desk never gives them.
+// compose-unverified: no saved entry answered, the composer (src/composer.mjs) wrote a draft from the help pages, and
+//   the script's verification rejected it. second-read-objected: the draft passed the script, and the second reader
+//   named a real objection. Both only appear when a composer backend is on.
 const SIGNAL_WHY = {
   'tried-steps': 'tried-already', 'still-broken': 'tried-already', retried: 'tried-already', 'follow-on': 'tried-already', 'cause-ruled-out': 'tried-already',
   'many-accounts': 'outage', 'records-disagree': 'records-disagree', 'disputes-count': 'records-disagree', 'docs-wrong': 'docs-wrong', 'access-blocked': 'access-blocked', phrase: 'past-docs', pressure: 'pressure',
@@ -110,6 +113,13 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
   const givesNumber = new Map(matchable.map(e => [e.id, (e.steps || []).some(s => GIVES_NUMBER.test(s.text || '') || GIVES_NUMBER.test(s.cite?.quote || ''))]));
   const items = Object.entries(NAMED_ITEMS).flatMap(([kind, terms]) => terms.map(term => ({ kind, term })));
   const platformSpecific = new Map(matchable.map(e => [e.id, Object.values(PLATFORMS).some(al => al.some(a => hasTerm(allStems(e.title), a)))]));
+  // The same facts for an entry that is not in the knowledge base (a composed draft, src/composer.mjs, marked adHoc):
+  // computed from that entry's own lines when it is checked.
+  const vocabOf = (e) => vocab.get(e.id) || (e.adHoc ? [e.title, e.opening, e.next, e.proof, ...(e.steps || []).flatMap(s => [s.text, s.cite?.quote])].filter(t => typeof t === 'string').flatMap(t => [...allStems(t), '|']) : []);
+  const vocabRawOf = (e) => vocabRaw.get(e.id) || (e.adHoc ? groundedLines(e).flatMap(t => [...rawWords(t), '|']) : []);
+  const groundedRawOf = (e) => groundedRaw.get(e.id) || (e.adHoc ? groundedLines(e).flatMap(t => [...rawWords(t), '|']) : []);
+  const givesNumberOf = (e) => givesNumber.has(e.id) ? givesNumber.get(e.id) : !!e.adHoc && (e.steps || []).some(s => GIVES_NUMBER.test(s.text || '') || GIVES_NUMBER.test(s.cite?.quote || ''));
+  const platformSpecificOf = (e) => platformSpecific.has(e.id) ? platformSpecific.get(e.id) : !!e.adHoc && Object.values(PLATFORMS).some(al => al.some(a => hasTerm(allStems(e.title || ''), a)));
 
   // Docs-silent: the customer asks about a named thing, or a number, that the chosen entry never mentions.
   // Returns { kind, term } for the first one, or null.
@@ -118,22 +128,22 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
   const namesPlatform = (stems, al) => al.some(a => has(stems, a));
   function silentOn(entry, text) {
     const stems = allStems(text);
-    const v = vocab.get(entry.id) || [];
+    const v = vocabOf(entry);
     // A named thing must be in what the desk would say (quotes, steps, declared scope), not only in a phrasing
     // (third tuner): a writer's phrasing that names OneDrive does not make a Google Drive quote cover it.
     // Named items are matched on words as written, not stems: "state" is not "stats", "polling" is not "polls".
     // Things outside Blotato (another service, a tool, a device, a payment method, a language, a file type) must
     // be in what the desk would say; Blotato's own features and ids may still be claimed by a phrasing.
     if (coverage) {
-      const words = rawWords(text); const gw = groundedRaw.get(entry.id) || []; const vw = vocabRaw.get(entry.id) || [];
+      const words = rawWords(text); const gw = groundedRawOf(entry); const vw = vocabRawOf(entry);
       const kinds = entry.scope?.coversKinds || [];
       for (const { kind, term } of items) if (seq(words, term) && !kinds.includes(kind) && !seq(OUTSIDE.has(kind) ? gw : vw, term)) return { kind, term };
     } else for (const { kind, term } of items) if (has(stems, term) && !has(v, term)) return { kind, term };
     const asked = Object.entries(PLATFORMS).filter(([, al]) => namesPlatform(stems, al));
     const missing = asked.find(([, al]) => !namesPlatform(v, al));
-    if (missing && platformSpecific.get(entry.id)) return { kind: 'platform', term: missing[0] };
+    if (missing && platformSpecificOf(entry)) return { kind: 'platform', term: missing[0] };
     const asksNumber = ASKS_NUMBER.test(text) && !ASKS_OWN_COUNT.test(text);
-    if (asksNumber && !givesNumber.get(entry.id)) return { kind: 'number', term: text.match(ASKS_NUMBER)[0] };
+    if (asksNumber && !givesNumberOf(entry)) return { kind: 'number', term: text.match(ASKS_NUMBER)[0] };
     // A number for a platform the entry's per-platform figures leave out ("how many posts a day on Pinterest"
     // against a list of Instagram, LinkedIn and Facebook limits).
     if (missing && asksNumber && Object.values(PLATFORMS).filter(al => namesPlatform(v, al)).length >= 2) return { kind: 'platform', term: missing[0] };
@@ -354,7 +364,7 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
   // (a word, a short question's topic, a capitalized name) that a verbatim sentence the reader points to may close.
   const SOFT_GAPS = new Set(['specific', 'name', 'cause']);
   function reviewPick(entryId, text) {
-    const entry = index.byId.get(entryId);
+    const entry = typeof entryId === 'object' ? entryId : index.byId.get(entryId);
     if (!entry) return null;
     const full = stripDeskInstructions(String(text || '')).text;
     const real = withoutPleasantries(full);
@@ -378,7 +388,12 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
     return { entry, full, real, signals, gaps };
   }
 
-  return { route, index, entries, lexical, reviewPick, guardEntry };
+  // For the composer (src/composer.mjs): the same checks, for a draft that is not a saved entry. `draft` is an
+  // entry-shaped object { adHoc: true, title, steps: [{ text, cite: { quote } }] } built from the composed steps.
+  // The hand-over signals read are the defaults every answering entry has.
+  const reviewDraft = (draft, text) => reviewPick({ id: '__composed__', title: '', ...draft, adHoc: true }, text);
+
+  return { route, index, entries, lexical, reviewPick, reviewDraft, guardEntry };
 }
 
 function guardReason(g) {

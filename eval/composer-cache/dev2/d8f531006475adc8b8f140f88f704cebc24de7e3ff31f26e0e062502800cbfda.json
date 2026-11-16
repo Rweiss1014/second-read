@@ -1,0 +1,29 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5573,
+ "verdict": {
+  "asked": [
+   {
+    "item": "2 videos in one Bluesky post",
+    "steps": [
+     1
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S31 and S82 state Bluesky allows 1 video per post.",
+  "steps": [
+   {
+    "text": "No, each Bluesky post supports only 1 video.",
+    "quotes": [
+     "S31",
+     "S82"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:33:07.563Z"
+}

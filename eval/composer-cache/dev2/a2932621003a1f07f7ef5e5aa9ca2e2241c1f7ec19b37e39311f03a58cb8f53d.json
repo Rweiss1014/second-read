@@ -1,0 +1,41 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8291,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Credit cost of Gemini Omni Flash 1.1 image-to-video at 1080p",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Budgeting the 10-second clip before generating",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S31 gives the per-second 1080p rate for this model, and S53 says where to see the cost before generating.",
+  "steps": [
+   {
+    "text": "The google/gemini-omni-flash/v1.1/image-to-video model costs 50 credits per second at 1080p, so multiply that by your clip length in seconds.",
+    "quotes": [
+     "S31"
+    ]
+   },
+   {
+    "text": "To see the credit cost before you generate, click a GREEN clip (image) or PURPLE clip (video), and the cost appears right above the \"Regenerate\" button.",
+    "quotes": [
+     "S53"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:30:36.980Z"
+}

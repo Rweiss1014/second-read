@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8323,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Post a PDF file directly as a LinkedIn document",
+    "steps": []
+   },
+   {
+    "item": "Whether the document shows the file name as its title",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say carousels are built from 2-10 JPG or PNG image URLs and that you don't need to upload a PDF. They never say whether a PDF can be supplied directly, and they say nothing about how the document title is set.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:31:00.758Z"
+}

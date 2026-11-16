@@ -1,0 +1,55 @@
+{
+ "kind": "write",
+ "version": "compose-w1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9151,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Fix My Automation button missing on failed request in Logs",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Make.com scenario",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Is the button hidden on my plan",
+    "steps": [
+     1
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages say Fix My Automation is n8n only and doesn't work for Make.com, and they point to the manual checklist instead.",
+  "steps": [
+   {
+    "text": "The Fix My Automation feature is n8n only, and it does not work for Make.com.",
+    "quotes": [
+     "S7"
+    ]
+   },
+   {
+    "text": "For Make.com, use the manual troubleshooting checklist. It starts with checking your Blotato API key, Account IDs, and Page/channel IDs.",
+    "quotes": [
+     "S8",
+     "S10"
+    ]
+   },
+   {
+    "text": "In the Logs, you can click any request to see the full payload, error response, and which account it was sent to.",
+    "quotes": [
+     "S14"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:25:01.764Z"
+}

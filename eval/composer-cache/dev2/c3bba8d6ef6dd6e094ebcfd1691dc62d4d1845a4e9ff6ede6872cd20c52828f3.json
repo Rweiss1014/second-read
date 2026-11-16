@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6936,
+ "verdict": {
+  "asked": [
+   {
+    "item": "DM automation replying in Spanish to Spanish contacts and English to English contacts",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages cover language for posts and videos, but none say whether DM automations can reply in each person's language, so a team member should answer.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:32:51.462Z"
+}

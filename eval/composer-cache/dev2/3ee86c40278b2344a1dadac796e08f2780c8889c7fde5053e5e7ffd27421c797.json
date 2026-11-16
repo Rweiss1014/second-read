@@ -1,0 +1,50 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9057,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is the dropped = signs related to the 401 invalid API key error?",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "How to fix the key in .env",
+    "steps": [
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages say a dropped trailing = causes a 401 \"invalid API key\" error and explain how to copy and store the full key.",
+  "steps": [
+   {
+    "text": "Yes, this is likely related: the = is part of your key, and a dropped or stripped trailing = causes a 401 \"invalid API key\" error.",
+    "quotes": [
+     "S43",
+     "S46"
+    ]
+   },
+   {
+    "text": "Copy the full key with the \"Copy API Key\" button in Settings > API, not by manual selection.",
+    "quotes": [
+     "S6",
+     "S39"
+    ]
+   },
+   {
+    "text": "When you paste the key into a shell or .env file, wrap it in single quotes, for example 'abc123==', and do not remove the =.",
+    "quotes": [
+     "S45",
+     "S44"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:31:48.778Z"
+}

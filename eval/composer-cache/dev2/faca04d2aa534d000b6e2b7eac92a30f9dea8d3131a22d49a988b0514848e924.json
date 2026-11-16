@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5968,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Field to render template video in 2160p (4K) instead of 1080p",
+    "steps": []
+   },
+   {
+    "item": "Upscale option after render",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages list no output resolution field for Create Visual and no upscale option; the 2160p mentions are YouTube upload specs, which answer a different question.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:28:56.176Z"
+}

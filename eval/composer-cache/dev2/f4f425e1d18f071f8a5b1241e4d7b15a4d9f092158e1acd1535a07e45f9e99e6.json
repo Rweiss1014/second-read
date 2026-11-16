@@ -1,0 +1,52 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9575,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Did uploading my own photos use credits?",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Did writing my own caption use credits?",
+    "steps": [
+     2
+    ]
+   },
+   {
+    "item": "Where to check my credits",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages say uploading your own images and drafting text do not use credits, and they say where to check the balance.",
+  "steps": [
+   {
+    "text": "Uploading your own images or videos does not use credits.",
+    "quotes": [
+     "Uploading your own images or videos"
+    ]
+   },
+   {
+    "text": "Drafting text does not use credits either.",
+    "quotes": [
+     "Uploading your own image and drafting text do not."
+    ]
+   },
+   {
+    "text": "To check your balance, go to Settings > Billing.",
+    "quotes": [
+     "To check your balance, go to Settings > Billing."
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:30:56.179Z"
+}

@@ -12,12 +12,13 @@ import { explain } from './explain.mjs';
 import { citedPages } from './entries.mjs';
 import { TICKETS, PLAYBOOK, ENTRY_BY_ID, ROUTER } from '../knowledge/playbook.mjs';
 import { createReader } from './reader.mjs';
+import { createComposer } from './composer.mjs';
 import path from 'node:path';
 import { MOCK_NOW } from './mock.mjs';
 
 // The desk's clock. Sample mode always uses the sample world's own fixed clock, so replies to the sample
 // tickets read the same on every run. A real account uses the real clock (or one passed in, for tests).
-export function openDesk({ env = process.env, run = newRunId(), fetchImpl, mockApi, now, readerCall } = {}) {
+export function openDesk({ env = process.env, run = newRunId(), fetchImpl, mockApi, now, readerCall, composerCall, composerPages } = {}) {
   const paths = deskPaths(env);
   fs.mkdirSync(paths.dir, { recursive: true });
   ensureFailuresFile(paths.failures);
@@ -29,7 +30,10 @@ export function openDesk({ env = process.env, run = newRunId(), fetchImpl, mockA
   // The reader (src/reader.mjs): off unless SUPPORT_DESK_READER names a backend. Its verdict cache lives in the
   // desk folder unless SUPPORT_DESK_READER_CACHE says where.
   const reader = createReader({ router: ROUTER, env, call: readerCall, cacheDir: env.SUPPORT_DESK_READER_CACHE || path.join(paths.dir, 'reader-cache') });
-  return { env, paths, checksDir: defaultChecksDir(env), mock, logger, client, docs, run, now: clock, reader, agent: env.SUPPORT_AGENT_NAME || 'Support', close: () => docs.close() };
+  // The composer (src/composer.mjs): off unless SUPPORT_DESK_COMPOSER names a backend. It retrieves from every page in
+  // the docs cache. Its verdict cache lives in the desk folder unless SUPPORT_DESK_COMPOSER_CACHE says where.
+  const composer = createComposer({ router: ROUTER, env, call: composerCall, pages: composerPages, docsCacheDir: paths.docsCache, cacheDir: env.SUPPORT_DESK_COMPOSER_CACHE || path.join(paths.dir, 'composer-cache') });
+  return { env, paths, checksDir: defaultChecksDir(env), mock, logger, client, docs, run, now: clock, reader, composer, agent: env.SUPPORT_AGENT_NAME || 'Support', close: () => docs.close() };
 }
 
 export async function handleTicket(desk, ticket, { requireReview = false } = {}) {
@@ -41,6 +45,7 @@ export async function handleTicket(desk, ticket, { requireReview = false } = {})
 
   // 2. Route and diagnose from the docs and the account, 3. check the reply.
   const d = await diagnose(ticket, desk);
+  if (d.path === 'composed') return composedResult(desk, ticket, d, known, { requireReview });
   const entry = d.entry ? ENTRY_BY_ID.get(d.entry.id) : null;
   const seenBefore = entry ? known.filter(f => f.id === entry.id || f.id === `blocked-${entry.id}`) : known.filter(f => f.id === unknownId(ticket.text));
   const check = checkReply(d, { reviewsDir: paths.reviews, requireReview, checksDir });
@@ -71,6 +76,26 @@ export async function handleTicket(desk, ticket, { requireReview = false } = {})
     docEditText: renderDocEdit(d.docEdit),
     status: statusLine(entry, check, d.outcome, fresh),
   };
+}
+
+// A composed reply (src/composer.mjs). It is never a saved, pre-checked reply, so it never reads the fresh-checker
+// store: its state is `checked-live` (the script's checks and the second read passed it just now) or `script-checked`
+// (the second read is off). The script checker still runs on the exact text, here, before anything is shown.
+function composedResult(desk, ticket, d, known, { requireReview }) {
+  const { paths, logger, checksDir } = desk;
+  const check = checkReply(d, { reviewsDir: null, checksDir: null, requireReview: false });
+  const pages = [...new Set(d.steps.flatMap(s => (s.cites || []).map(c => c.url)))];
+  const id = `composed-${pages[0] ? pages[0].replace(/^https?:\/\/[^/]+\//, '').replace(/[^a-z0-9]+/gi, '-') : 'none'}`;
+  const seenBefore = known.filter(f => f.id === id);
+  const sr = d.composer?.secondReadResult;
+  const recorded = recordFailure(paths.failures, check.pass
+    ? { id, title: 'Answered with a reply composed from the help pages', fix: `Composed ${d.composed.steps.length} step(s), every one quoting ${pages.join(', ')}; the script checks passed${sr ? `, and the second reader (${sr.model}) passed it` : ''}. Not a saved reply: if this question repeats, write an entry for it.`, source: pages[0] }
+    : { id: `blocked-${id}`, title: 'A composed reply was blocked', why: check.problems[0], fix: 'Nothing was sent. A person answers this one.' });
+  logger.write({ action: 'ticket-done', ticket: ticket.id || 'pasted', entry: 'composed', path: 'composed', outcome: d.outcome, checked: check.pass, ok: check.pass, error: check.pass ? undefined : check.problems[0] });
+  // requireReview asks for a saved fresh-checker pass, which a composed text never has: say so, never claim one.
+  const fresh = { state: check.pass ? d.composer?.state || 'script-checked' : 'blocked', path: 'composed', saved: false, checkedAt: check.pass && sr ? new Date().toISOString() : null, checker: sr ? `second reader (${sr.model}, ${sr.version})` : null, objections: sr?.objections || [] };
+  const status = !check.pass ? 'blocked' : `composed reply: ${fresh.state === 'checked-live' ? 'the script checks and the second reader passed it just now' : 'the script checks passed; the second read is off'} (not a saved, pre-checked reply)${requireReview ? '; a saved fresh-checker pass is required and a composed text has none, so it is not cleared to send' : ''}`;
+  return { ...d, check, fresh, seenBefore, recorded: recorded?.entry?.id, escalationText: '', docEditText: '', status };
 }
 
 // "Ready to send" only when the fresh checker passed this exact text. Before that, the script check passed and

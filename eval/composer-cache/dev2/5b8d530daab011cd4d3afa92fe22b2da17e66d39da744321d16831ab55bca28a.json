@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6480,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why the photo disappeared after Claude edited the caption of the scheduled Instagram post",
+    "steps": []
+   },
+   {
+    "item": "What Claude did to the post",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the sentences explain why an MCP caption edit would remove a scheduled post's photo or show what Claude changed. The Instagram sentences only say a post needs media, which doesn't answer this.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:30:49.489Z"
+}

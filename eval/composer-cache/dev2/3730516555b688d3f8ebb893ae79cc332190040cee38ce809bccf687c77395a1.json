@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3746,
+ "verdict": {
+  "asked": [
+   {
+    "item": "How to add a location to an Instagram post when scheduling in Blotato",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the sentences say whether Blotato has a location field for Instagram posts, so the closest sentences (first comment, collaborators) answer different questions.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:31:51.617Z"
+}

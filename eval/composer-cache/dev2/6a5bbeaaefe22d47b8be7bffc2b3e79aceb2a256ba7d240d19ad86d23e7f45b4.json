@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4275,
+ "verdict": {
+  "asked": [
+   {
+    "item": "exact validity in minutes of presignedUrl",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages only say the presigned URL \"expires after a short period\" and give no number of minutes, so the exact figure isn't stated.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:31:30.012Z"
+}

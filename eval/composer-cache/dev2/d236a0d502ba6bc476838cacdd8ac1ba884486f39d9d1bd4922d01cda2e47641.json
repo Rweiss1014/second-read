@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5642,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Caption text missing on Instagram Story",
+    "steps": []
+   },
+   {
+    "item": "Whether text is the wrong field",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages don't say whether Instagram Stories show caption text or which field would set it. They only say first comments aren't supported on Stories.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:29:01.851Z"
+}

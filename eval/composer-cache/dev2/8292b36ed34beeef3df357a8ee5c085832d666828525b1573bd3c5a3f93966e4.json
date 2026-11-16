@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4334,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Point the template at a YouTube Shorts channel instead of TikTok",
+    "steps": []
+   },
+   {
+    "item": "Repost new Shorts to Instagram and Facebook",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages describe the template as detecting new TikTok videos via RSS and don't say whether it can watch a YouTube Shorts channel as the source.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:29:06.272Z"
+}

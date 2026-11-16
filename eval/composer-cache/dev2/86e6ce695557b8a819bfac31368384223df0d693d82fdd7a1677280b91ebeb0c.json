@@ -1,0 +1,52 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 12834,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does the 10 requests per hour apply to GET /v2/credits",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Avoiding 429s when polling",
+    "steps": [
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The overview table lists 10 / hour only on the POST credits row and shows no stated limit for GET, and the pages say a dash does not mean unlimited.",
+  "steps": [
+   {
+    "text": "The 10 requests per hour limit is listed for Buy Credits, which is POST /v2/credits.",
+    "quotes": [
+     "S25",
+     "S69"
+    ]
+   },
+   {
+    "text": "The endpoint overview shows no rate limit for GET /credits, but a dash there means no limit is stated in that table, not unlimited access.",
+    "quotes": [
+     "S68",
+     "S64"
+    ]
+   },
+   {
+    "text": "If you do get a 429, stop requests to that route, wait for the retry interval if the response gives one, and reduce request frequency before resuming.",
+    "quotes": [
+     "S48",
+     "S49",
+     "S50"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:33:04.380Z"
+}

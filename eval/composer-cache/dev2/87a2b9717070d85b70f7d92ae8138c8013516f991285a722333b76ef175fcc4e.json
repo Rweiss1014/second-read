@@ -1,0 +1,56 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9695,
+ "verdict": {
+  "asked": [
+   {
+    "item": "cleanTranscript=true on REST still leaves timestamps",
+    "steps": [
+     1,
+     3
+    ]
+   },
+   {
+    "item": "n8n strips timestamps fine",
+    "steps": [
+     2
+    ]
+   },
+   {
+    "item": "Is the param named differently in REST?",
+    "steps": [
+     1,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The Get Source page says cleanTranscript is not a REST parameter, explains the n8n local option, and says to remove timestamps in your own workflow for REST.",
+  "steps": [
+   {
+    "text": "cleanTranscript is not a REST query parameter or an MCP tool argument, so don't send it to this endpoint expecting it to change the response.",
+    "quotes": [
+     "S7",
+     "S11"
+    ]
+   },
+   {
+    "text": "The n8n Blotato node's Source > Get operation has a local Clean Transcript option, enabled by default, that processes the returned content after the API request.",
+    "quotes": [
+     "S8",
+     "S9"
+    ]
+   },
+   {
+    "text": "For REST, retrieve the completed content first, then remove transcript timestamps in your agent or workflow.",
+    "quotes": [
+     "S10"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:32:36.432Z"
+}

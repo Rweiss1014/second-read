@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6509,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Ask for a phone number instead of an email",
+    "steps": []
+   },
+   {
+    "item": "Send the phone number to a webhook",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages describe only an email gate and a webhook that sends email and isFollower, and none says whether a phone number can be collected or sent.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:31:07.639Z"
+}

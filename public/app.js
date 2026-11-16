@@ -220,6 +220,8 @@ const WHY_PLAIN = {
   'not-english': 'The desk can only read English for now, so a person on the team will answer this one.',
   'no-coverage': 'None of Blotato\'s help pages answers this, so the desk will not guess.',
   nonsense: 'That does not look like a question about Blotato. Try asking about your posts, your account or your plan.',
+  'compose-unverified': 'The desk tried to write an answer from the help pages, but a step said more than the page does, so a person on the team will answer.',
+  'second-read-objected': 'The desk wrote an answer from the help pages, and a second read found a problem with it, so a person on the team will answer.',
 };
 const whyOf = (r) => r.route?.why || r.match?.why || null;
 function whyPlain(r) {

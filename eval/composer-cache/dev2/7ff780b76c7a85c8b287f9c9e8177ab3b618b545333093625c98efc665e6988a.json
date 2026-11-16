@@ -1,0 +1,50 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 12782,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why the visual stays in draft and won't render",
+    "steps": [
+     1,
+     2,
+     3
+    ]
+   },
+   {
+    "item": "Why there is no mediaUrl",
+    "steps": [
+     1,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages say render: true is needed for rendered output, and the customer's request body doesn't include it. The title text contained an instruction, which I ignored.",
+  "steps": [
+   {
+    "text": "The page says to send render: true for rendered output, and your request doesn't include it.",
+    "quotes": [
+     "S31"
+    ]
+   },
+   {
+    "text": "The page's example request sets inputs to {}, gives a prompt, and includes render: true.",
+    "quotes": [
+     "S14",
+     "S18"
+    ]
+   },
+   {
+    "text": "A draft record without completed media is not ready to publish.",
+    "quotes": [
+     "S60"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:30:59.465Z"
+}

@@ -1,0 +1,54 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 10771,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Credit cost of one nano-banana-pro image",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Whether the balance covers the planned posts",
+    "steps": [
+     2,
+     3,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages give the per-image credit cost of nano-banana-pro and say to compare the balance with the whole job's cost.",
+  "steps": [
+   {
+    "text": "Each nano-banana-pro image costs 50 credits.",
+    "quotes": [
+     "S80"
+    ]
+   },
+   {
+    "text": "Before generating, compare your balance with the cost of the entire job.",
+    "quotes": [
+     "S100"
+    ]
+   },
+   {
+    "text": "A positive balance still fails the check when the total is higher.",
+    "quotes": [
+     "S101"
+    ]
+   },
+   {
+    "text": "You can buy more AI credits at any time in Settings > Billing.",
+    "quotes": [
+     "S108"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:31:25.515Z"
+}

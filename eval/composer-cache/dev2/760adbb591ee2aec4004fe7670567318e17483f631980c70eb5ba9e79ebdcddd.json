@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6238,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is there a cap on rollover credits, or do they stack up forever",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages say credits roll over each month and that this may change in the future, but they don't say whether rollover credits have a cap or build up without limit.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:28:56.303Z"
+}

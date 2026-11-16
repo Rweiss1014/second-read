@@ -1,0 +1,51 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3949,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Where to add VAT number themselves",
+    "steps": [
+     1,
+     2,
+     3,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S21-S27 state how to add a VAT or tax ID to invoices through the billing portal.",
+  "steps": [
+   {
+    "text": "Go to Settings > Billing and click \"View Billing Portal\".",
+    "quotes": [
+     "S23",
+     "S24"
+    ]
+   },
+   {
+    "text": "Open your billing information and update your company name and address.",
+    "quotes": [
+     "S25"
+    ]
+   },
+   {
+    "text": "Insert your VAT or tax ID directly in the Tax ID field.",
+    "quotes": [
+     "S22",
+     "S26"
+    ]
+   },
+   {
+    "text": "Your VAT or tax ID then appears on future invoices.",
+    "quotes": [
+     "S27"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:30:42.559Z"
+}

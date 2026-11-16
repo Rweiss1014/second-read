@@ -1,0 +1,42 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7111,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Error \"You're On Heygen Free Plan\" with a HeyGen free account",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Do I need to pay HeyGen to make this work with Blotato",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S6-S8 state that the HeyGen API requires paying for its $99/mo API plan and that the Free API plan won't work.",
+  "steps": [
+   {
+    "text": "The \"You're On Heygen Free Plan\" error means HeyGen API requires you to pay for its $99/mo API plan.",
+    "quotes": [
+     "S6",
+     "S7"
+    ]
+   },
+   {
+    "text": "The Free API plan won't work.",
+    "quotes": [
+     "S8"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:29:23.954Z"
+}

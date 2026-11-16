@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3661,
+ "verdict": {
+  "asked": [
+   {
+    "item": "How Time saved: 14 hours is calculated",
+    "steps": []
+   },
+   {
+    "item": "Is it a set number of minutes per post",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the sentences mention a \"Time saved\" figure or how it is calculated; they cover only metrics, snapshot schedules and API endpoints.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:32:59.862Z"
+}

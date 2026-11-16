@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7082,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Will the viral-hooks skill write the hooks in good Spanish, or only English?",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages say the Blotato AI Agent writes text posts in the language you prompt it in, but they don't say whether the Claude viral-hooks skill writes hooks in Spanish or only English.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:33:07.391Z"
+}

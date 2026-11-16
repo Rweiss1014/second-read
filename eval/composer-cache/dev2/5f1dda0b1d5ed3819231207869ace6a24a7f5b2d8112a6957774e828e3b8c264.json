@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3633,
+ "verdict": {
+  "asked": [
+   {
+    "item": "X thread posts going out in reverse order",
+    "steps": []
+   },
+   {
+    "item": "happening since Friday on all 6 threads",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer reports a bug with X thread order; the pages only show an additionalPosts example and nothing about ordering or this problem, and a recurring failure across threads needs the team.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:32:41.240Z"
+}

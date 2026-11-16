@@ -1,0 +1,51 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5749,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can all four pictures go out on Threads, or pick one?",
+    "steps": [
+     1,
+     2,
+     3
+    ]
+   },
+   {
+    "item": "API request with platform and targetType changed to threads fails with the error",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages say Threads takes 1 image or video per post and give the workaround of publishing a thread with one image per post via additionalPosts.",
+  "steps": [
+   {
+    "text": "Blotato's Threads publisher accepts 1 image or video per post, so a request with more than one media item fails with \"Threads only supports a single image or a video\".",
+    "quotes": [
+     "S2",
+     "S30"
+    ]
+   },
+   {
+    "text": "To share multiple images, publish a thread instead, with one image attached to each post in the thread.",
+    "quotes": [
+     "S5",
+     "S31"
+    ]
+   },
+   {
+    "text": "In your request, put each extra post in the additionalPosts array with a single item in its mediaUrls: post 1 contains image 1, post 2 contains image 2, and so on.",
+    "quotes": [
+     "S32"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:31:21.798Z"
+}

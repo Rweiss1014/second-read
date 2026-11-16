@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9782,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Whose data is the run from Instagram account 77812",
+    "steps": []
+   },
+   {
+    "item": "Why runs arrive from an account they don't own, with no Duplicate used",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "This asks whose account and data is behind an unknown Instagram account ID, which is another person's data and a fact only a team member can check on this account. The pages only explain a copy made with Duplicate, which the customer says they never used.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:33:16.258Z"
+}

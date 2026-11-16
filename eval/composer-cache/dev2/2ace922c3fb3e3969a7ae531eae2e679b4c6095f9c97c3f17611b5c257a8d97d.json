@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7851,
+ "verdict": {
+  "asked": [
+   {
+    "item": "DM automation doesn't fire when friend comments keyword",
+    "steps": []
+   },
+   {
+    "item": "No runs or logs after testing from a different account",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer already tested from a different account as the help pages advise, and it still doesn't fire with no runs, so a team member needs to look at it.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:32:09.084Z"
+}

@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3739,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Facebook connected and picked, can't finish scheduling",
+    "steps": []
+   },
+   {
+    "item": "Need to pick something else after the account (e.g. a Page)?",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences only cover API/n8n use of Facebook Pages, not the in-app schedule screen, so none say what blocks this customer from finishing.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:32:08.428Z"
+}
