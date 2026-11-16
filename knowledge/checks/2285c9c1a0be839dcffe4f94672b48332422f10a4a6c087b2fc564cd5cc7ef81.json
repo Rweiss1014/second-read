@@ -1,0 +1,9 @@
+{
+  "replySha256": "2285c9c1a0be839dcffe4f94672b48332422f10a4a6c087b2fc564cd5cc7ef81",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T03:19:30Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "schedule-many-videos"
+}

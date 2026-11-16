@@ -1,0 +1,11 @@
+{
+  "replySha256": "0e22ac1688607de26bc88333c186320f2ed519e2c9a48866f9e9e56a59191bd3",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the Next step says to add \"?ref=pin to the end of your link\"; a link that already has a query string would need \"&ref=pin\" instead, which the reply does not mention (the help page's own example also uses \"?\")."
+  ],
+  "checkedAt": "2026-11-16T02:13:05Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "pinterest-site-does-not-allow-pins"
+}

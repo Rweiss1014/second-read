@@ -1,0 +1,9 @@
+{
+  "replySha256": "a4f1efd6a0c15dec78acffa163eaa6efe88212b747da20dc01e543582521d879",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T03:18:30Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "dm-run-status-expired-superseded"
+}

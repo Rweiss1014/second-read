@@ -1,0 +1,11 @@
+{
+  "replySha256": "ae901efd26c130c7175be731f73462003884e1d084c3328d5182389f307b1d6f",
+  "verdict": "pass",
+  "findings": [
+    "Style note only: the page's first step \"Click New post in the AI Agent\" appears only on the Next step line, after Step 2 already says to replace the placeholder text; the order reads a little backward but nothing is wrong or risky."
+  ],
+  "checkedAt": "2026-11-16T02:23:28Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "new-post-keep-drafts"
+}

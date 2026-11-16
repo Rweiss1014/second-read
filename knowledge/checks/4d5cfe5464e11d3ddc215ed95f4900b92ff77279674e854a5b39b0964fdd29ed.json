@@ -1,0 +1,11 @@
+{
+  "replySha256": "4d5cfe5464e11d3ddc215ed95f4900b92ff77279674e854a5b39b0964fdd29ed",
+  "verdict": "pass",
+  "findings": [
+    "Style note, success line: \"You will know it worked when the post publishes\" implies posting again but never says how or when; it does not tell anyone to resend, so it does not mislead, though a check for an existing post before posting again would be safer."
+  ],
+  "checkedAt": "2026-11-16T03:18:25Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "instagram-unexpected-error"
+}

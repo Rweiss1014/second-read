@@ -1,0 +1,9 @@
+{
+  "replySha256": "0dd9bd46475c81ace23e7a505affb7d6936c9638aede4a0799b955c6a04b5ae5",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T03:18:23Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "slack-channel-not-found-33000-33001"
+}

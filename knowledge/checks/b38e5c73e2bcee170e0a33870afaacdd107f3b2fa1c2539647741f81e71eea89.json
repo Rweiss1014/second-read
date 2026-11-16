@@ -1,0 +1,11 @@
+{
+  "replySha256": "b38e5c73e2bcee170e0a33870afaacdd107f3b2fa1c2539647741f81e71eea89",
+  "verdict": "pass",
+  "findings": [
+    "Style note: Step 1 calls the source \"The Platform Posting Limits table\", but the quoted text is a table on the errors page, which only points to Platform Posting Limits; the numbers quoted are right, so this does not mislead."
+  ],
+  "checkedAt": "2026-11-16T02:34:03Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "tiktok-posting-limit-numbers-disagree"
+}

@@ -1,0 +1,11 @@
+{
+  "replySha256": "30904c349e3c3da4898f98efa6d4db0f9174de943fb047749530ebb0fce731b8",
+  "verdict": "pass",
+  "findings": [
+    "Small note: the reply says what proves success but gives no path if the visual neither finishes nor shows an error (for example, sending support the visual link, state and elapsed time, which the page mentions for website work)."
+  ],
+  "checkedAt": "2026-11-16T02:13:06Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "visual-stuck-generating"
+}

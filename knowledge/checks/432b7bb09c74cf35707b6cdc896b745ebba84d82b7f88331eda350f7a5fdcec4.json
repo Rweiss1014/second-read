@@ -1,0 +1,11 @@
+{
+  "replySha256": "432b7bb09c74cf35707b6cdc896b745ebba84d82b7f88331eda350f7a5fdcec4",
+  "verdict": "pass",
+  "findings": [
+    "Style note: step 1 \"Look at the response status and body you can see\" does not say where; the page points n8n users to the hidden field \"{error}.$response\", which would help the customer find it."
+  ],
+  "checkedAt": "2026-11-16T02:16:25Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "failed-to-fetch-media-url-char"
+}

@@ -1,0 +1,9 @@
+{
+  "replySha256": "e083ea78f2fb3dcec6b3d3947a9eaba4d501be7e4ef896affc9e51b9affd58cd",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T02:35:53Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "facebook-25-posts-limit"
+}

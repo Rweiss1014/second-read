@@ -1,0 +1,11 @@
+{
+  "replySha256": "99040594142b764a415b020160093d7e8b3e4e93f9cdc89b1721249a4ab7e29e",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the success line \"the automation runs again\" fits the page's \"paused until you reactivate\", but the page does not say the run that stopped will be retried, so it is good that the reply does not promise that."
+  ],
+  "checkedAt": "2026-11-16T02:22:24Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "dm-automations-paused-20300"
+}

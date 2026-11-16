@@ -1,0 +1,11 @@
+{
+  "replySha256": "1da9533afb1d4826eac178086f510169009b21339fee8547f9cbb62217e61390",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the success line \"the asterisks are gone from your post preview\" may not hold for an existing draft after only switching on Disable Markdown; the page does not say the toggle cleans drafts already written."
+  ],
+  "checkedAt": "2026-11-16T02:13:05Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "markdown-asterisks"
+}

@@ -1,0 +1,11 @@
+{
+  "replySha256": "cf8958980b9326e22d21ba911846a57003ac0a3937afb386e54e9c72292e23a5",
+  "verdict": "pass",
+  "findings": [
+    "Style note only: the \"Next step: Tell me which of the three you want to use\" line asks the customer for another round trip instead of naming where each surface lives, which is slower but not misleading."
+  ],
+  "checkedAt": "2026-11-16T02:34:09Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "ai-agent-surfaces"
+}

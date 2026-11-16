@@ -1,0 +1,9 @@
+{
+  "replySha256": "1125966b1c134a35a967cc8475083ad76d15cb254f67e120d97b2f4b25e7b5b0",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T02:11:44Z",
+  "checker": "reply-checker",
+  "model": "GPT-6",
+  "entry": "blog-wordpress-webhook"
+}

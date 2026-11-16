@@ -1,0 +1,11 @@
+{
+  "replySha256": "67773f757654f79b8f0f40495b472ec3e7ec5f767e2e36a1af7e752d0e25ca64",
+  "verdict": "pass",
+  "findings": [
+    "Style only: the line \"Still open if it keeps failing after you reconnect: the error text for a person to check\" is awkward and does not say plainly to send us the error text, though it does not mislead."
+  ],
+  "checkedAt": "2026-11-16T03:42:32Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "tiktok-json-html-error"
+}

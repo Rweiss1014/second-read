@@ -1,0 +1,11 @@
+{
+  "replySha256": "3fbbaf14551a85424b82504cd348d8d33ab1a4d339aa7527a85ac4aee9eef0ac",
+  "verdict": "pass",
+  "findings": [
+    "Style: the Next step's \"Add a parameter such as ?ref=pin to the end of your link\" does not say to use & instead of ? when the link already has a question mark, and it does not say to publish the pin again."
+  ],
+  "checkedAt": "2026-11-16T03:44:02Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "pinterest-site-does-not-allow-pins"
+}

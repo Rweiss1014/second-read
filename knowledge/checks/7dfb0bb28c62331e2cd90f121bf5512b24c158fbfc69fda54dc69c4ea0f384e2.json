@@ -1,0 +1,11 @@
+{
+  "replySha256": "7dfb0bb28c62331e2cd90f121bf5512b24c158fbfc69fda54dc69c4ea0f384e2",
+  "verdict": "pass",
+  "findings": [
+    "Style only: the Next step (\"copy its request ID and error message\") does not say what to do with them, such as sending them to support, and step 3 drops the page's \"inspect the selected template's inputs\"; neither misleads, but the reply would be easier to act on with both."
+  ],
+  "checkedAt": "2026-11-16T03:42:32Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "visual-creation-500"
+}

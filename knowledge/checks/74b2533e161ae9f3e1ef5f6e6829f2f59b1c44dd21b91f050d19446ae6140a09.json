@@ -1,0 +1,11 @@
+{
+  "replySha256": "74b2533e161ae9f3e1ef5f6e6829f2f59b1c44dd21b91f050d19446ae6140a09",
+  "verdict": "pass",
+  "findings": [
+    "Style note only: the opening \"it is not a Blotato setting\" is not in the cited page text, though it does not change what the customer should do."
+  ],
+  "checkedAt": "2026-11-16T02:19:30Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "new-account-not-warmed-up"
+}

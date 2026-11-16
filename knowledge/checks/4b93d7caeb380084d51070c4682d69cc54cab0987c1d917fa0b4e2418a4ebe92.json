@@ -1,0 +1,12 @@
+{
+  "replySha256": "4b93d7caeb380084d51070c4682d69cc54cab0987c1d917fa0b4e2418a4ebe92",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the Next step \"Compress or trim the file, then upload it again.\" drops step 3's condition \"If your file is too large\" and the upgrade option; step 3 keeps both, so no one is misled.",
+    "Style note: the opening line \"The upload limit depends on your plan.\" repeats step 1 \"Upload size depends on your plan.\" word for word in meaning."
+  ],
+  "checkedAt": "2026-11-16T02:18:39Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "max-upload-size"
+}

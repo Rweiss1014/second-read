@@ -15,10 +15,10 @@
         },
         {
           "type": "fact",
-          "text": "You will not get the same checklist from us again. The next step builds on what you already did.",
+          "text": "We carry forward the checks you already did, so you should not get the same checklist from us again unless there is something new to go on.",
           "cite": {
             "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
-            "quote": "Do not resend the same checklist without new evidence."
+            "quote": "Carry forward completed checks and their results. Do not resend the same checklist without new evidence."
           }
         },
         {
@@ -112,14 +112,14 @@
       "steps": [
         {
           "type": "action",
-          "text": "I can't share keys, passwords or how our tools are set up."
+          "text": "I can't share keys, passwords or details of how our tools are set up."
         },
         {
           "type": "fact",
-          "text": "We never share API keys or login codes in a support message, and we will not ask for yours.",
+          "text": "Please do not send your API key or any login codes here.",
           "cite": {
             "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
-            "quote": "Never request the secret in chat."
+            "quote": "Do not include API keys, OAuth codes, signed upload URLs, or unrelated customer data."
           }
         },
         {

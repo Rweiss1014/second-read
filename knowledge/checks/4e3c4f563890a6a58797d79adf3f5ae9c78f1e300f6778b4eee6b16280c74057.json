@@ -1,0 +1,11 @@
+{
+  "replySha256": "4e3c4f563890a6a58797d79adf3f5ae9c78f1e300f6778b4eee6b16280c74057",
+  "verdict": "pass",
+  "findings": [
+    "Style note, opening line: \"the page is clear about what it does not mean\" refers to a page the customer has not read yet and adds nothing; it does not mislead."
+  ],
+  "checkedAt": "2026-11-16T03:19:58Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "tiktok-active-user-cap"
+}

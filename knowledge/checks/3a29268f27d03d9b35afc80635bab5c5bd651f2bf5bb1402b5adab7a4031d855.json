@@ -1,0 +1,11 @@
+{
+  "replySha256": "3a29268f27d03d9b35afc80635bab5c5bd651f2bf5bb1402b5adab7a4031d855",
+  "verdict": "pass",
+  "findings": [
+    "Small note: the success line \"safe to send again once the first post is in none of those lists\" could be read as safe right away; the customer is also asked to report back first, which keeps it from misleading."
+  ],
+  "checkedAt": "2026-11-16T02:14:51Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "unknown-outcome-resend"
+}

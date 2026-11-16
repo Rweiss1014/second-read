@@ -1,0 +1,9 @@
+{
+  "replySha256": "18b6763adb2ea38227cfe1fa6cbee23402ba2b01611f9ca71a5af8fe5a0beb31",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T03:42:30Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "instagram-400-session-error-connecting"
+}

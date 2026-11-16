@@ -1,0 +1,11 @@
+{
+  "replySha256": "36d8bb2385efe574be1e5cf166423e61d95d138d074a328429858dec885c959f",
+  "verdict": "pass",
+  "findings": [
+    "Style note, steps 3 and 4: \"Starter returns 25 metrics\" but only the 17 common ones are described; the page's other 8 (X retweets and quote tweets, Bluesky and Threads reposts and quote posts, LinkedIn first-level comments, Pinterest reactions) are not named, which is incomplete but not false."
+  ],
+  "checkedAt": "2026-11-16T03:18:25Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "analytics-plan-metrics"
+}

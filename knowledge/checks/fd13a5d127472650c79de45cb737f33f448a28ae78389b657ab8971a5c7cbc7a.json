@@ -1,0 +1,9 @@
+{
+  "replySha256": "fd13a5d127472650c79de45cb737f33f448a28ae78389b657ab8971a5c7cbc7a",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T03:19:15Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "slack-organization-wide-install"
+}

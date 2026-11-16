@@ -1,0 +1,9 @@
+{
+  "replySha256": "3f1e23eccf85da129d9765438c6411d24d5ff6057c537d043749a071196076ed",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T03:18:25Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "starter-tiktok-three-accounts"
+}

@@ -1,0 +1,12 @@
+{
+  "replySha256": "c8c9402d6db78e175a185a34492b8c869aef2b715fcb2865c2a0519fb0a76dd0",
+  "verdict": "pass",
+  "findings": [
+    "Style note: step 1 \"click Photo / Video on the post in the AI Agent\" skips the page's earlier steps (add context, type a prompt naming the platforms, press Enter), so a new customer may not yet see a post to click on; the Next step asks which path they want before going further, so nothing goes wrong.",
+    "Style note: the reply never says to \"Schedule or publish\" after attaching, so the success line \"the video shows attached to your post\" is only a midpoint."
+  ],
+  "checkedAt": "2026-11-16T02:34:04Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "create-reel-or-tiktok-video"
+}

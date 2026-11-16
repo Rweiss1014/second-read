@@ -1,0 +1,11 @@
+{
+  "replySha256": "86fa1d86d13d2dc699cb6dd6ca3d6757d7623d5aa492e44ccd94179d5af75564",
+  "verdict": "pass",
+  "findings": [
+    "Style note: step 3's citation excerpt shows the rate-limit section, but the same words \"Retry from Posts > Failed.\" also appear in this error's own section quoted for steps 1, 2, 4 and 5, so the step is supported."
+  ],
+  "checkedAt": "2026-11-16T03:19:29Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "tiktok-update-app-error"
+}

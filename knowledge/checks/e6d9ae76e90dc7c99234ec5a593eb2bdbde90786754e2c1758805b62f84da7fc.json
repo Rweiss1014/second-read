@@ -1,0 +1,11 @@
+{
+  "replySha256": "e6d9ae76e90dc7c99234ec5a593eb2bdbde90786754e2c1758805b62f84da7fc",
+  "verdict": "pass",
+  "findings": [
+    "Style note only: the reply could add the page's caveat that \"Brand Kit use depends on the generation surface\" (REST needs useBrandKit: true; MCP or n8n may need brand instructions in the prompt), so an API user does not expect it to apply on its own."
+  ],
+  "checkedAt": "2026-11-16T03:20:11Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "brand-kit-setup"
+}

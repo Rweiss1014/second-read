@@ -1,0 +1,12 @@
+{
+  "replySha256": "c50feb16c98501649bf79e1da4e4d496ceecf315d7dbf9bed605b694e433988a",
+  "verdict": "pass",
+  "findings": [
+    "Style note only: the opening line says changing the email \"keeps everything\" while the page lists \"credits, videos, posts, and settings\"; step 1 states the page's list correctly, so the customer is not misled.",
+    "Style note only: step 5 could add the page's tips that the code goes to the new address, may land in spam, and expires after a few minutes."
+  ],
+  "checkedAt": "2026-11-16T03:18:32Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "different-email-keep-data"
+}

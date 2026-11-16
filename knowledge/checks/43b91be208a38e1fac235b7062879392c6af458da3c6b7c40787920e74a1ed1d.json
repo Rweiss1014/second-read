@@ -1,0 +1,11 @@
+{
+  "replySha256": "43b91be208a38e1fac235b7062879392c6af458da3c6b7c40787920e74a1ed1d",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the reply never says comments are handled \"through the Comments API and the MCP tools\", as the page does; the Next step offers to point the way, so no one is misled."
+  ],
+  "checkedAt": "2026-11-16T02:16:25Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "comment-on-posts-support"
+}

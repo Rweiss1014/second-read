@@ -167,15 +167,23 @@
         },
         {
           "type": "fact",
-          "text": "After you fill out the claim form, Sabrina verifies your review and emails your gift card.",
+          "text": "Next, fill out the claim form, \"Claim your review reward,\" on the help page linked below.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Sabrina verifies your review and emails your $100 Amazon gift card"
+            "quote": "Fill out the claim form: Claim your review reward"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Sabrina verifies your review and emails your gift card. Gift cards go out in batches after each review is verified, so allow a few business days for yours to arrive.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Sabrina verifies your review and emails your $100 Amazon gift card Sabrina sends gift cards in batches after verifying each review, so allow a few business days for yours to arrive."
           }
         }
       ],
-      "next": "Open the claim form from the help page \"How do I get the $100 review reward?\" once your review is live.",
-      "proof": "You will know it worked when your gift card email arrives."
+      "next": "Once your review is live, fill out the claim form \"Claim your review reward\" on the help page linked below.",
+      "proof": "You will know it worked when the email with your $100 Amazon gift card arrives."
     },
     {
       "id": "calls-and-meetings",
@@ -353,6 +361,14 @@
         },
         {
           "type": "fact",
+          "text": "Then open the Blotato AI Agent to create and schedule your first posts.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Open the Blotato AI Agent to create and schedule your first posts."
+          }
+        },
+        {
+          "type": "fact",
           "text": "When you get stuck, message the support team in the in-app chat.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
@@ -360,8 +376,8 @@
           }
         }
       ],
-      "next": "Watch the Blotato Beginner Tutorial, then open the AI Agent to create your first post.",
-      "proof": "You will know it worked when your first post appears in your draft list."
+      "next": "Watch the Blotato Beginner Tutorial, then open the AI Agent to create and schedule your first post.",
+      "proof": "You will know it worked when you have created and scheduled your first post in the AI Agent."
     },
     {
       "id": "start-paid-subscription",
@@ -593,51 +609,45 @@
           "blocked"
         ]
       },
-      "opening": "Here are the main posting limits, and why they exist.",
+      "opening": "Thank you for telling me what you have already tried. That helps a lot.",
       "steps": [
         {
+          "type": "action",
+          "text": "Since the usual steps have not solved it, I am passing your message to a person on the team, with everything you have already tried."
+        },
+        {
           "type": "fact",
-          "text": "These limits reduce spam, and you will rarely reach them.",
+          "text": "We carry forward the checks you already did, so you should not get the same checklist from us again unless there is something new to go on.",
           "cite": {
-            "url": "https://help.blotato.com/support/faqs",
-            "quote": "These limits reduce spam. You will rarely exceed these limits."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Carry forward completed checks and their results. Do not resend the same checklist without new evidence."
           }
         },
         {
           "type": "fact",
-          "text": "Each Instagram account is limited to 50 posts per day, per 24 hour window.",
+          "text": "Until then, please hold off on anything that could post twice, cost credits, or change your account.",
           "cite": {
-            "url": "https://help.blotato.com/settings/social-accounts",
-            "quote": "Each Instagram account is limited to 50 posts per day, per 24 hour window."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Stop if the next action risks another charge, duplicate post, wrong destination, or unauthorized account change."
           }
         },
         {
           "type": "fact",
-          "text": "LinkedIn is limited to 50 posts per 24 hours for your profile and for each company Page separately.",
+          "text": "Please do not send your API key or any login codes here.",
           "cite": {
-            "url": "https://help.blotato.com/settings/social-accounts",
-            "quote": "Blotato limits publishing to 50 posts per 24 hours per profile and per company Page."
-          }
-        },
-        {
-          "type": "fact",
-          "text": "Facebook allows up to 25 posts per 24 hours for each Page.",
-          "cite": {
-            "url": "https://help.blotato.com/settings/social-accounts",
-            "quote": "The upper limit is 25 posts per 24 hours per Facebook Page."
-          }
-        },
-        {
-          "type": "fact",
-          "text": "On Starter, TikTok allows 3 distinct posting destinations in a rolling 24 hours.",
-          "cite": {
-            "url": "https://help.blotato.com/settings/social-accounts",
-            "quote": "Starter permits 3 distinct TikTok posting destinations per rolling 24 hours."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Do not include API keys, OAuth codes, signed upload URLs, or unrelated customer data."
           }
         }
       ],
-      "next": "Check the limit for your platform above, and spread posts across the 24-hour window if you are close.",
-      "proof": "You will know it worked when your posts publish without a limit error."
+      "next": "If you have them, reply with the exact error, the time it happened with your time zone, and any id you see.",
+      "proof": "Still open: what is causing this. A person on the team has your message and what you tried.",
+      "escalate": {
+        "why": "The customer asks about posting limits per platform. Help page: Social Accounts (https://help.blotato.com/settings/social-accounts), Platform Posting Limits. Pinterest caps depend on the connection, and existing account-specific or legacy limits apply to stored connections, so use the limit in the customer's returned error if there is one.",
+        "causes": [],
+        "ruledOut": []
+      },
+      "note": "A hand-over since Nov 15, 2026: its own reply failed the fresh checker three times (checks-run3/BLOCKS-R3.md), so it sends the shared needs-person holding reply word for word, and a person takes it with the escalation note."
     },
     {
       "id": "connected-account-limit",
@@ -795,7 +805,7 @@
           "agency plan"
         ]
       },
-      "opening": "That message is about a TikTok posting rule, and not about how many accounts you can connect.",
+      "opening": "Here is what that Starter limit usually means.",
       "steps": [
         {
           "type": "fact",
@@ -815,6 +825,14 @@
         },
         {
           "type": "fact",
+          "text": "This limit counts successful posts, not connected accounts.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "This limit counts successful posts, not connected accounts."
+          }
+        },
+        {
+          "type": "fact",
           "text": "Posting again to one of those 3 accounts does not use another slot.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
@@ -830,8 +848,8 @@
           }
         }
       ],
-      "next": "Post to one of your first 3 TikTok accounts, or wait until one of them leaves the 24-hour window.",
-      "proof": "You will know it worked when a post to your fourth TikTok account no longer fails."
+      "next": "Post to one of the 3 TikTok accounts that had a successful post in the last 24 hours, or wait until one of them leaves the 24-hour window.",
+      "proof": "You will know it worked when your TikTok post publishes without the Starter limit message."
     },
     {
       "id": "scheduled-queue-limit",
@@ -983,18 +1001,10 @@
       "steps": [
         {
           "type": "fact",
-          "text": "Blotato has no native CSV import for the content calendar.",
+          "text": "Blotato has no native CSV import for the content calendar. You cannot upload a spreadsheet of captions, links, and dates directly in the web app.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Blotato has no native CSV import for the content calendar."
-          }
-        },
-        {
-          "type": "fact",
-          "text": "You cannot upload a spreadsheet of captions, links, and dates directly in the web app.",
-          "cite": {
-            "url": "https://help.blotato.com/support/faqs",
-            "quote": "You cannot upload a spreadsheet of captions, links, and dates directly in the web app."
+            "quote": "Blotato has no native CSV import for the content calendar. You cannot upload a spreadsheet of captions, links, and dates directly in the web app."
           }
         },
         {
@@ -1007,15 +1017,31 @@
         },
         {
           "type": "fact",
-          "text": "In n8n or Make, map each spreadsheet row into the Blotato Publish Post node.",
+          "text": "Put your captions, media URLs, and dates in a Google Sheet or Airtable.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Map each row into the Blotato Publish Post node"
+            "quote": "Put your captions, media URLs, and dates in a Google Sheet or Airtable"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "In n8n or Make, add a Google Sheets (or Airtable) trigger to read each row, then map each row into the Blotato Publish Post node.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "In n8n or Make, add a Google Sheets (or Airtable) trigger to read each row 3. Map each row into the Blotato Publish Post node"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Set scheduledTime on each row for exact dates, or set useNextFreeSlot to true to fill your calendar slots automatically.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Set scheduledTime per row for exact dates, or useNextFreeSlot: true to fill your calendar slots automatically"
           }
         }
       ],
-      "next": "Put your captions, media URLs, and dates in a Google Sheet or Airtable, then build the workflow in n8n or Make.",
-      "proof": "You will know it worked when the rows show up as scheduled posts in Posts > Scheduled."
+      "next": "Put your posts in a Google Sheet or Airtable, then build the n8n or Make workflow with the trigger, the Publish Post node, and scheduledTime or useNextFreeSlot.",
+      "proof": "You will know it worked when your rows show up as scheduled posts in your Blotato calendar."
     },
     {
       "id": "scheduling-horizon",
@@ -1159,26 +1185,34 @@
         },
         {
           "type": "fact",
-          "text": "In the web app, review everything in Posts > Scheduled.",
+          "text": "In the web app, create your post and schedule it for a future time, then review all scheduled posts in Posts > Scheduled.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Review all scheduled posts in Posts > Scheduled."
+            "quote": "Create your post and schedule it for a future time. 2. Review all scheduled posts in Posts > Scheduled."
           }
         },
         {
           "type": "fact",
-          "text": "To pause a post for edits, open the three-dot menu and choose Move to Drafts.",
+          "text": "To pause a post for edits, open the three-dot menu and choose Move to Drafts. Publish or reschedule once you are satisfied.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "To pause a post for edits, open the three-dot menu and choose Move to Drafts."
+            "quote": "To pause a post for edits, open the three-dot menu and choose Move to Drafts. 4. Publish or reschedule once you are satisfied."
           }
         },
         {
           "type": "fact",
-          "text": "With n8n or Make, add a Slack or email step that sends the draft to your reviewer.",
+          "text": "With the Blotato API in n8n or Make, add a Slack or email step that sends the draft to your reviewer, then wait for an approval signal, for example a webhook the reviewer triggers.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Add a Slack or email notification step that sends the draft to your reviewer."
+            "quote": "Add a Slack or email notification step that sends the draft to your reviewer. 3. Wait for an approval signal, for example a webhook triggered by the reviewer."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Run the Publish step only after approval, using scheduledTime to publish at a set time.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Run the Publish step only after approval, using scheduledTime to publish at a set time."
           }
         }
       ],
@@ -1439,6 +1473,14 @@
             "url": "https://help.blotato.com/support/faqs",
             "quote": "When you use Claude, ChatGPT, or another AI agent through Blotato MCP, create a brand-to-account mapping with each brand name, platform, account name, and account ID."
           }
+        },
+        {
+          "type": "fact",
+          "text": "Save that mapping in the agent's project instructions or working file, then tell the agent to select only the mapped accounts before scheduling or publishing.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Save the mapping in the agent's project instructions or working file, then tell the agent to select only the mapped accounts before scheduling or publishing."
+          }
         }
       ],
       "next": "Choose the Brand Voice first, then select only that brand's accounts in the Schedule panel.",
@@ -1506,46 +1548,46 @@
       "steps": [
         {
           "type": "fact",
-          "text": "You do not need to connect your ChatGPT Plus subscription to Blotato.",
+          "text": "The Codex connection uses your Blotato API key, not your ChatGPT Plus subscription, and you need a paid Blotato subscription for API and MCP access.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "You do not need to connect your ChatGPT Plus subscription to Blotato."
+            "quote": "This Codex connection uses your Blotato API key, not your ChatGPT Plus subscription. You need a paid Blotato subscription for API and MCP access."
           }
         },
         {
           "type": "fact",
-          "text": "To control Blotato from ChatGPT Work or Codex, connect Blotato through MCP.",
+          "text": "If you use ChatGPT.com, it has a separate OAuth connection flow. Follow the ChatGPT.com setup guide instead of the Codex steps below.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "To control Blotato from ChatGPT Work / Codex, connect Blotato through MCP."
+            "quote": "ChatGPT.com has a separate OAuth connection flow. Follow the ChatGPT.com setup guide instead of the Codex steps above."
           }
         },
         {
           "type": "fact",
-          "text": "Enter https://mcp.blotato.com/mcp as the URL.",
+          "text": "In Blotato, go to Settings > API and select ChatGPT Work / Codex.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Enter https://mcp.blotato.com/mcp as the URL."
+            "quote": "Go to Settings > API. 2. Select ChatGPT Work / Codex."
           }
         },
         {
           "type": "fact",
-          "text": "Set the blotato-api-key header to your full Blotato API key.",
+          "text": "In Codex, open Settings > MCP servers > Add server, select Streamable HTTP, and enter https://mcp.blotato.com/mcp as the URL.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Set the blotato-api-key header to your full Blotato API key."
+            "quote": "In Codex, open Settings > MCP servers > Add server. 4. Select Streamable HTTP. 5. Enter https://mcp.blotato.com/mcp as the URL."
           }
         },
         {
           "type": "fact",
-          "text": "You need a paid Blotato subscription for API and MCP access.",
+          "text": "Set the blotato-api-key header to your full Blotato API key, save the connection, and ask Codex to list your connected Blotato accounts.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "You need a paid Blotato subscription for API and MCP access."
+            "quote": "Set the blotato-api-key header to your full Blotato API key. 7. Save the connection. 8. Ask Codex to list your connected Blotato accounts using blotatolistaccounts."
           }
         }
       ],
-      "next": "Open Settings > API in Blotato, choose ChatGPT Work / Codex, and follow the steps there.",
+      "next": "Open Settings > API in Blotato, choose ChatGPT Work / Codex, and follow the Codex steps above.",
       "proof": "You will know it worked when Codex lists your connected Blotato accounts."
     },
     {
@@ -1616,15 +1658,15 @@
         },
         {
           "type": "fact",
-          "text": "For a second account on the same platform, look for the button with 3 dots to switch accounts and select the correct one.",
+          "text": "To connect an account, go to Accounts and click Connect account, then the platform. For a second account on the same platform, look for the button with 3 dots to switch accounts and select the correct one.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "If you're connecting a second account for the same platform, look for a button with 3 dots to switch between accounts and select the correct one."
+            "quote": "To connect an account, go to Accounts and click the \"Connect account > [Platform]\" button. If you're connecting a second account for the same platform, look for a button with 3 dots to switch between accounts and select the correct one."
           }
         },
         {
           "type": "fact",
-          "text": "If it keeps logging into the wrong account, an incognito browser is the last resort.",
+          "text": "If that does not work, or it keeps logging into the wrong account, use an incognito browser as a last resort.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
             "quote": "If that doesn't work, or if it keeps auto-logging into the wrong account, use an incognito browser as a last resort:"
@@ -1632,14 +1674,22 @@
         },
         {
           "type": "fact",
-          "text": "In the incognito window, log into the social account you want to connect first.",
+          "text": "Open an incognito Chrome window and log into the social account you want to connect.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Log into the social account you want to connect"
+            "quote": "Open an incognito Chrome browser 2. Log into the social account you want to connect"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Then, in that window, go to Accounts in Blotato and connect your social account.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Log into the social account you want to connect 3. Go to Accounts 4. Connect your social account"
           }
         }
       ],
-      "next": "Open Accounts and use Connect account for the platform, then pick the right account with the 3-dot button.",
+      "next": "Go to Accounts, click Connect account for the platform, and use the 3-dot button to pick the right account.",
       "proof": "You will know it worked when the right account shows in your Accounts list."
     },
     {
@@ -1893,15 +1943,15 @@
       "steps": [
         {
           "type": "fact",
-          "text": "Log into Blotato with your current email.",
+          "text": "Log into Blotato with your current email, then go to Profile.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Log into Blotato with your current email"
+            "quote": "Log into Blotato with your current email 2. Go to Profile"
           }
         },
         {
           "type": "fact",
-          "text": "In Profile, change your email to the new one and click Update Email.",
+          "text": "Change your email to the new one and click Update Email.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
             "quote": "Change your email to the new one and click \"Update Email\""
@@ -1909,23 +1959,23 @@
         },
         {
           "type": "fact",
-          "text": "The verification code goes to the new email address, not the old one.",
+          "text": "Blotato sends a verification code to your new email, not the old one. Enter that code in the prompt that appears in Blotato.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "The verification code is sent to the new email address, not the old one."
+            "quote": "Blotato sends a verification code to your new email 5. Enter the verification code in the prompt that appears in Blotato The verification code is sent to the new email address, not the old one."
           }
         },
         {
           "type": "fact",
-          "text": "If the code expires, click Update Email again to get a new one.",
+          "text": "Check your spam folder if you do not see the code. The code expires after a few minutes. If it expires, click Update Email again to get a new code.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "The code expires after a few minutes -- if it expires, click \"Update Email\" again to get a new code."
+            "quote": "Check your spam folder if you do not see it. The code expires after a few minutes -- if it expires, click \"Update Email\" again to get a new code."
           }
         }
       ],
-      "next": "Open Profile in Settings, enter your new email, and click Update Email.",
-      "proof": "You will know it worked when you enter the code and your new email shows in Profile."
+      "next": "Log in with your current email, go to Profile, enter your new email, and click Update Email.",
+      "proof": "You will know it worked when you have entered the code from your new email in the prompt in Blotato."
     },
     {
       "id": "different-email-keep-data",
@@ -1993,10 +2043,18 @@
         },
         {
           "type": "fact",
-          "text": "Creating a second account means starting fresh.",
+          "text": "If you cancel a subscription, your remaining credits are deleted, so creating a second account means starting fresh.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "so creating a second account means starting fresh."
+            "quote": "If you cancel a subscription, your remaining credits are deleted, so creating a second account means starting fresh."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To change it, log into Blotato with your current email, go to Profile, change your email to the new one, and click Update Email.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Log into Blotato with your current email 2. Go to Profile 3. Change your email to the new one and click \"Update Email\""
           }
         },
         {
@@ -2008,7 +2066,7 @@
           }
         }
       ],
-      "next": "Log in with your current email, open Profile in Settings, and change your email there.",
+      "next": "Log in with your current email, go to Profile, and change your email there.",
       "proof": "You will know it worked when your videos and posts are still there under the new email."
     },
     {
@@ -2165,15 +2223,23 @@
       "steps": [
         {
           "type": "fact",
-          "text": "When subscription access ends, Blotato shows a reactivation modal.",
+          "text": "When subscription access ends, Blotato shows a reactivation popup. Check your cancellation's effective date before you treat a cancellation at the end of your paid period as lost access.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "When subscription access ends, Blotato shows a reactivation modal."
+            "quote": "When subscription access ends, Blotato shows a reactivation modal. Check the cancellation's effective date before treating a period-end cancellation as lost access."
           }
         },
         {
           "type": "fact",
-          "text": "Log in at my.blotato.com/login.",
+          "text": "If you canceled at the end of your period, your access and remaining credits continue until the paid period ends.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "For period-end cancellation, access and remaining credits continue until the paid period ends."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If your access has ended, log in at my.blotato.com/login.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
             "quote": "Go to my.blotato.com/login and log in"
@@ -2181,7 +2247,7 @@
         },
         {
           "type": "fact",
-          "text": "Click Reactivate on the subscription modal.",
+          "text": "Click Reactivate on the subscription popup.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
             "quote": "Click \"Reactivate\" on the subscription modal"
@@ -2196,7 +2262,7 @@
           }
         }
       ],
-      "next": "Log in at my.blotato.com/login and click Reactivate on the subscription popup.",
+      "next": "Check your cancellation's effective date, and if your access has ended, log in at my.blotato.com/login and click Reactivate.",
       "proof": "You will know it worked when your old videos, posts, and settings show again."
     },
     {
@@ -2440,22 +2506,30 @@
         },
         {
           "type": "fact",
-          "text": "AI Agent drafts stay in the browser session where you made them.",
+          "text": "If you made the draft in the AI Agent on another browser or device, go back to that browser and device. AI Agent drafts stay in that browser session.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "AI Agent drafts stay in that browser session."
+            "quote": "If you created the draft in the AI Agent on another browser or device, return to the browser and device you used to create it. AI Agent drafts stay in that browser session."
           }
         },
         {
           "type": "fact",
-          "text": "Generated visuals and video projects are in Videos, and published posts are in Posts > Published.",
+          "text": "Generated visuals and video projects are in Videos, separate from post drafts. For a post, check the Calendar, Posts > Scheduled, or Posts > Published, depending on its state.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Generated visuals and video projects are in Videos."
+            "quote": "Generated visuals and video projects are in Videos. A video project and a post draft are separate items. Published posts are in Posts > Published. Review the Calendar, Posts > Scheduled, or Posts > Published according to the post's state."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If you still cannot find the draft, contact support with the screen URL, about when you made it, and the last action you took.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "If you still cannot find the draft, contact support with the screen URL, approximate creation time, and last action you took."
           }
         }
       ],
-      "next": "Open the AI Agent first, then the Remix screen if the draft is missing.",
+      "next": "Open the AI Agent in the browser and device where you made the draft, then check the Remix screen if it is not there.",
       "proof": "You will know it worked when you see your draft, video, or post in one of those places."
     },
     {
@@ -2517,26 +2591,34 @@
         },
         {
           "type": "fact",
-          "text": "Blotato is phasing out the Remix screen.",
+          "text": "Blotato is phasing out the Remix screen. Until then, check both screens when a post draft is missing.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Blotato is phasing out the Remix screen."
+            "quote": "Blotato is phasing out the Remix screen. Until then, check both screens when a post draft is missing."
           }
         },
         {
           "type": "fact",
-          "text": "Until then, check both screens when a post draft is missing.",
+          "text": "If the post is missing from Remix too, follow the draft-finding steps on the help page linked below.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Until then, check both screens when a post draft is missing."
+            "quote": "Follow the draft-finding steps if the post is missing from Remix too."
           }
         },
         {
           "type": "fact",
-          "text": "A TikTok post published as a draft does not appear in Blotato at all.",
+          "text": "A TikTok post published as a draft does not appear in Blotato at all, not in the AI Agent and not in the Remix screen.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
             "quote": "A TikTok post published as a draft does not appear in Blotato at all -- not in the AI Agent and not in the Remix screen."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Instead, it lands in the TikTok app's notifications (often labeled \"System Notifications\"), shown as \"Draft Video from Blotato.\"",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "It lands in the TikTok app's notifications (often labeled \"System Notifications\"), shown as \"Draft Video from Blotato.\""
           }
         }
       ],
@@ -2697,10 +2779,10 @@
       "steps": [
         {
           "type": "fact",
-          "text": "Open the post's actions menu in Posts > Scheduled.",
+          "text": "Open Posts > Scheduled, then open the post's actions menu.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Open the post's actions menu."
+            "quote": "Open Posts > Scheduled. 2. Open the post's actions menu."
           }
         },
         {
@@ -2717,6 +2799,14 @@
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
             "quote": "Choose the new date and time."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Save the change.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Save the change."
           }
         },
         {
@@ -2780,10 +2870,18 @@
       "steps": [
         {
           "type": "fact",
-          "text": "Edit the post in Remix after you move it to drafts.",
+          "text": "Open Posts > Scheduled, open the post's actions menu, and select Move to drafts.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Edit the post in Remix."
+            "quote": "Open Posts > Scheduled. 2. Open the post's actions menu. 3. Select Move to drafts."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Confirm the move, then edit the post in Remix.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Confirm the move. 5. Edit the post in Remix."
           }
         },
         {
@@ -2937,7 +3035,7 @@
           "not in any list"
         ]
       },
-      "opening": "This message does not mean your account is blocked. Here is how to find out what is already queued.",
+      "opening": "Here is how to find out what is already queued for that destination, before you change anything.",
       "steps": [
         {
           "type": "fact",
@@ -2949,18 +3047,10 @@
         },
         {
           "type": "fact",
-          "text": "Read the draft's per-destination status.",
+          "text": "Read the draft's status for each destination, then check Posts > Scheduled, Posts > Published, and Posts > Failed for the same content and destination.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Read the draft's per-destination status."
-          }
-        },
-        {
-          "type": "fact",
-          "text": "Check Posts > Scheduled, Posts > Published, and Posts > Failed for the same content and destination.",
-          "cite": {
-            "url": "https://help.blotato.com/support/faqs",
-            "quote": "Check Posts > Scheduled, Posts > Published, and Posts > Failed for the same content and destination."
+            "quote": "Read the draft's per-destination status. 3. Check Posts > Scheduled, Posts > Published, and Posts > Failed for the same content and destination."
           }
         },
         {
@@ -2970,18 +3060,34 @@
             "url": "https://help.blotato.com/support/faqs",
             "quote": "If the existing submission is processing, wait for its result. If it is scheduled or published, do not submit a duplicate."
           }
+        },
+        {
+          "type": "fact",
+          "text": "If the screen does not match those records, refresh once and send support a screenshot, the destination, and the submission or scheduled-post ID when you have it.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "If the screen disagrees with those records, refresh once and send support the screenshot, destination, and submission or scheduled-post ID when available."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Do not delete failed posts, remove schedules, reconnect accounts, or change destinations to clear this message without evidence for that specific action.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Do not delete failed posts, remove schedules, reconnect accounts, or change destinations to clear this message without evidence for that specific action."
+          }
         }
       ],
-      "next": "Check Posts > Scheduled, Posts > Published, and Posts > Failed for the same content.",
-      "proof": "You will know it worked when you find the existing submission for that destination."
+      "next": "Check Posts > Scheduled, Posts > Published, and Posts > Failed for the same content and destination.",
+      "proof": "You will know it worked when you find the existing submission for that destination and see its status."
     },
     {
       "id": "media-fetch-error-after-upload",
       "kind": "technical",
       "title": "Scheduled post fails with a media fetch error after a local upload",
       "phrasings": [
-        "my scheduled post keeps failing with a media fetch error but I uploaded the video from my computer",
         "media fetch error even though the video is from my laptop",
+        "my scheduled post keeps failing with a media fetch error but I uploaded the video from my computer",
         "failed to fetch media for my post",
         "error fetching media url on a scheduled video",
         "blotato cannot parse my uploaded mp4",
@@ -3027,18 +3133,18 @@
       "steps": [
         {
           "type": "fact",
-          "text": "A local upload still becomes a hosted media URL for publishing.",
+          "text": "A local upload still becomes a hosted media URL for publishing, and a fetch or parsing error does not, by itself, prove a corrupt file or a broken stored link.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "A local upload still becomes a hosted media URL for publishing."
+            "quote": "A local upload still becomes a hosted media URL for publishing. A fetch or parsing error does not, by itself, prove a corrupt file or invalid stored reference."
           }
         },
         {
           "type": "fact",
-          "text": "A fetch or parsing error does not, by itself, prove a corrupt file.",
+          "text": "Write down the exact error and the failed post ID.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "A fetch or parsing error does not, by itself, prove a corrupt file or invalid stored reference."
+            "quote": "Record the exact error and failed post ID."
           }
         },
         {
@@ -3051,23 +3157,23 @@
         },
         {
           "type": "fact",
-          "text": "Check the file's container, codecs, dimensions, duration, and size against the destination's media requirements.",
+          "text": "Check the file's container, codecs, dimensions, duration, and size against the destination's media requirements. A .mp4 filename alone is not proof of its format.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Check the file's container, codecs, dimensions, duration, and size against the destination's"
+            "quote": "Check the file's container, codecs, dimensions, duration, and size against the destination's media requirements. A .mp4 filename alone is not proof of its format."
           }
         },
         {
           "type": "fact",
-          "text": "If the media is accessible and meets the requirements, send support the error and post ID instead of repeating uploads.",
+          "text": "If the upload failed or its stored link is unusable, upload the valid file again and replace the failed draft's attachment, then check whether any destination already published before you schedule the replacement. If the media is accessible and meets the requirements, send support the error and post ID instead of repeating uploads.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "If the media is accessible and meets the requirements, send support the error and post ID for log inspection instead of repeating uploads."
+            "quote": "If the upload failed or its stored URL is unusable, upload the valid source file again and replace the failed draft's attachment. 5. Verify whether any destination already published before scheduling a replacement. If the media is accessible and meets the requirements, send support the error and post ID for log inspection instead of repeating uploads."
           }
         }
       ],
       "next": "Write down the exact error and the failed post ID, then check the file against the destination's media requirements.",
-      "proof": "You will know it worked when the post publishes, or Still open: send the error and post ID to support."
+      "proof": "Still open: if the media is accessible and meets the requirements, support needs the exact error and post ID to look at the logs."
     }
   ]
 }

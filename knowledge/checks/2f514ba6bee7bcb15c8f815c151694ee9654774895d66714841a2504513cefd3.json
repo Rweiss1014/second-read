@@ -1,0 +1,9 @@
+{
+  "replySha256": "2f514ba6bee7bcb15c8f815c151694ee9654774895d66714841a2504513cefd3",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T02:13:06Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "instagram-unexpected-error"
+}

@@ -1,0 +1,11 @@
+{
+  "replySha256": "8e2783baf01e52d4adc1d61e791b410b3125efb0968d5a85ada782ffef56bd5e",
+  "verdict": "pass",
+  "findings": [
+    "Small note: Step 1 drops the page's word \"current\" (\"The current Starter plan costs $29\"), and the reply leaves out where to read the remaining balance (\"under AI Credits and Usage in Settings > Billing\"), which a credits question may want."
+  ],
+  "checkedAt": "2026-11-16T02:21:35Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "plan-credits-per-month"
+}

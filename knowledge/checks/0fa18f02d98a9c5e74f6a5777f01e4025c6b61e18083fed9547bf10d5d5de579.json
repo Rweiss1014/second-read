@@ -1,0 +1,9 @@
+{
+  "replySha256": "0fa18f02d98a9c5e74f6a5777f01e4025c6b61e18083fed9547bf10d5d5de579",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T02:11:27Z",
+  "checker": "reply-checker",
+  "model": "GPT-6",
+  "entry": "how-to-buy-credits"
+}

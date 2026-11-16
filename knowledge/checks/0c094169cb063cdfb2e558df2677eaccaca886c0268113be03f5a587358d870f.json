@@ -1,0 +1,9 @@
+{
+  "replySha256": "0c094169cb063cdfb2e558df2677eaccaca886c0268113be03f5a587358d870f",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T02:11:57Z",
+  "checker": "reply-checker",
+  "model": "GPT-6",
+  "entry": "self-hosted-image-urls-blank"
+}

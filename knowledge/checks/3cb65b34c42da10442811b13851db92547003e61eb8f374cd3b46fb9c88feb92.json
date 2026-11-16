@@ -1,0 +1,11 @@
+{
+  "replySha256": "3cb65b34c42da10442811b13851db92547003e61eb8f374cd3b46fb9c88feb92",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the Next step says \"check that provider's own data policy\" but the reply never names the providers the page lists (OpenAI, Anthropic, Flux, Kling); every claim matches the page, so no one is misled."
+  ],
+  "checkedAt": "2026-11-16T02:16:25Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "no-training-on-content"
+}

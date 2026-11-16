@@ -1,0 +1,11 @@
+{
+  "replySha256": "0777565ddf9f9444549bdcc5c4d334fe67b40b3792f2808f6c6accf9d5bcba72",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the success line \"your chosen template opens with its prompt box\" names a prompt box that the cited avatar section does not mention; a small unsupported detail, unlikely to mislead."
+  ],
+  "checkedAt": "2026-11-16T03:18:23Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "avatar-ugc-videos"
+}

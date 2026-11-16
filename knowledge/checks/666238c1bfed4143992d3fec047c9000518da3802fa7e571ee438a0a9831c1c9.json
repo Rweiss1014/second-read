@@ -1,0 +1,11 @@
+{
+  "replySha256": "666238c1bfed4143992d3fec047c9000518da3802fa7e571ee438a0a9831c1c9",
+  "verdict": "pass",
+  "findings": [
+    "Style note: steps 4 and 5 (\"you have up to 7 days\", \"you may not message them again\") are Instagram rules from the Instagram FAQ; only step 3 says \"On Instagram\", so a reader on another platform could read them as general, but the context of step 3 carries it."
+  ],
+  "checkedAt": "2026-11-16T03:18:28Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "message-failed-20102"
+}

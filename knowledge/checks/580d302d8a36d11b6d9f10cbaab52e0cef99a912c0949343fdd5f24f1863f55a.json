@@ -1,0 +1,12 @@
+{
+  "replySha256": "580d302d8a36d11b6d9f10cbaab52e0cef99a912c0949343fdd5f24f1863f55a",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the Next step adds \"and do not reply\", which the page does not say; it is safe advice and does not mislead.",
+    "Style note: the reply leaves out the page's \"If you are unsure whether a message is real, ask in the in-app chat\", which would be a useful extra line."
+  ],
+  "checkedAt": "2026-11-16T02:16:42Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "sabrina-scam-message"
+}

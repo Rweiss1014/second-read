@@ -1,0 +1,11 @@
+{
+  "replySha256": "7fdb2d060321be057fb8bff006be5ef41efdf95719e106009a9e6e6818b56855",
+  "verdict": "pass",
+  "findings": [
+    "Style only: step 5 (\"click Reconnect on the Pinterest account in Accounts\") drops the page's \"then retry the publish\", and the Next step gives no action for an account still under 100 monthly views (the page says to reconnect once it reaches 100+); the steps above still make both clear enough not to mislead."
+  ],
+  "checkedAt": "2026-11-16T03:42:32Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "pinterest-restricted-to-verified"
+}

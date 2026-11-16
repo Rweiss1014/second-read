@@ -1,0 +1,9 @@
+{
+  "replySha256": "b2143f6c699c19c0a58c7caf4adfb10d4ad7a728d63d21a717ef20e45db3be5d",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T03:18:30Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "pinterest-not-verified"
+}

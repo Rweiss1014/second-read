@@ -1,0 +1,11 @@
+{
+  "replySha256": "aef52af17f8336a29be886f530ada5f9d791804ddf35e9499c264ecdbc5258ad",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the success line \"the account shows as connected in Accounts\" proves the connection, not that the next Instagram post publishes; a test post would be the stronger proof."
+  ],
+  "checkedAt": "2026-11-16T03:42:36Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "instagram-session-not-confirmed"
+}

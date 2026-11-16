@@ -1,0 +1,11 @@
+{
+  "replySha256": "8760ed114f14e4ca193efebb5a31285a6b7ac73e5072ffdb0f1d6ba30f9d84ae",
+  "verdict": "pass",
+  "findings": [
+    "Small note: Step 1 offers to \"request a custom prompt\" but does not give the request form link the page has; the customer can reach it through the linked FAQ page."
+  ],
+  "checkedAt": "2026-11-16T02:19:46Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "no-prompt-for-use-case"
+}

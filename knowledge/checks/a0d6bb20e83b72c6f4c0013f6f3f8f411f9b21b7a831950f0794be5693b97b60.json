@@ -1,0 +1,11 @@
+{
+  "replySha256": "a0d6bb20e83b72c6f4c0013f6f3f8f411f9b21b7a831950f0794be5693b97b60",
+  "verdict": "pass",
+  "findings": [
+    "Style note only: the success line \"You will know it worked when you can tell whether your platform is on the list\" is circular but does not mislead."
+  ],
+  "checkedAt": "2026-11-16T02:34:03Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "supported-platforms"
+}

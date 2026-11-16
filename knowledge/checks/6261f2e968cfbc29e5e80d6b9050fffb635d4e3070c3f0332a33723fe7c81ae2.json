@@ -1,0 +1,11 @@
+{
+  "replySha256": "6261f2e968cfbc29e5e80d6b9050fffb635d4e3070c3f0332a33723fe7c81ae2",
+  "verdict": "pass",
+  "findings": [
+    "Style only: step 3 \"Comment less often.\" is clipped and drops the page's \"and retry\", though the success line (\"the comment posts without the 20201 error\") still makes the retry clear and a rejected comment did not post, so trying again does no harm."
+  ],
+  "checkedAt": "2026-11-16T03:42:32Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "comment-failed-20201"
+}

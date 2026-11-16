@@ -1,0 +1,12 @@
+{
+  "replySha256": "89c400fdd8ce01d1be9f6b2c6a677f5020c3e7091b69df8954d27d71c60e9fc4",
+  "verdict": "pass",
+  "findings": [
+    "Small note: the reply leaves out the page's point that on automations published after September 14, 2026 \"a contact with an email already on file skips the email gate\", which could puzzle a customer testing with a contact that already replied.",
+    "Small note: the Next step does not say to save or publish the automation after turning on the two options."
+  ],
+  "checkedAt": "2026-11-16T02:19:46Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "dm-automation-collect-email"
+}

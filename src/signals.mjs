@@ -343,7 +343,10 @@ export const ASKS_NUMBER = /\bhow (?:many|much)\b|\b(?:max(?:imum)?|minimum|min|
 export const ASKS_OWN_COUNT = /\bhow (?:many|much)\b[^.?!\n]{0,30}\b(?:i have|do i have|i'?ve got|have i got|left|remaining|did i use|have i used|i'?ve used|i used|used up|i spent|have i spent|did my \w+ use)\b/i;
 // "one" is left out ("until you request one" is not a count), and so are version numbers ("Flash 1.1").
 const NUMBER_WORDS = /\d|\b(?:two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|twenty|thirty|forty|fifty|hundred|thousand|unlimited|no limit|any number)\b/i;
-export const GIVES_NUMBER = { test: (s) => NUMBER_WORDS.test(String(s || '').replace(/\b[vV]?\d+(?:\.\d+)+\b|\b[A-Za-z]+-?\d+\b/g, ' ')) };
+// A numbered-list marker copied with a quote ("Open Posts > Scheduled. 2. Open the post's actions menu.") is not a
+// count either: a 1 or 2 digit number and a dot, at the start or after a sentence end, before a capital letter.
+const LIST_MARKER = /(^|[.:!?]\s+)\d{1,2}\.(?=\s+[A-Z])/g;
+export const GIVES_NUMBER = { test: (s) => NUMBER_WORDS.test(String(s || '').replace(LIST_MARKER, '$1 ').replace(/\b[vV]?\d+(?:\.\d+)+\b|\b[A-Za-z]+-?\d+\b/g, ' ')) };
 
 // A named thing the customer may be asking about, written with a capital after "with", "to", "via" and the
 // like ("pay with Payoneer", "post to Lemon8", "connect it to Klaviyo"). Counts only when no entry anywhere

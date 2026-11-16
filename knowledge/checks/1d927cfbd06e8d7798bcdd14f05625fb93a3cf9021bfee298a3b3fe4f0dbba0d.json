@@ -1,0 +1,11 @@
+{
+  "replySha256": "1d927cfbd06e8d7798bcdd14f05625fb93a3cf9021bfee298a3b3fe4f0dbba0d",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the reply gives no next move if the banner keeps coming back after a refresh (the page gives none either)."
+  ],
+  "checkedAt": "2026-11-16T02:13:05Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "disconnected-banner"
+}

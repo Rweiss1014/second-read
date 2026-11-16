@@ -1,0 +1,11 @@
+{
+  "replySha256": "aa5b48857a9d520c71f3108cef4763576718cda70f179f6276d65d6f9b05d87f",
+  "verdict": "pass",
+  "findings": [
+    "Style note only: the steps skip the page's first step \"Open Settings > My Brand\" (it appears in the opening line and the Next step line instead), and the reply leaves out the page's caveat \"Brand Kit use depends on the generation surface\"; neither makes a step wrong."
+  ],
+  "checkedAt": "2026-11-16T02:23:28Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "brand-kit-setup"
+}

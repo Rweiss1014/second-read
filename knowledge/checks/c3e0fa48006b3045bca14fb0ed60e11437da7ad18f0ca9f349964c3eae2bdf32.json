@@ -1,0 +1,12 @@
+{
+  "replySha256": "c3e0fa48006b3045bca14fb0ed60e11437da7ad18f0ca9f349964c3eae2bdf32",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the reply leaves out the page's \"Does NOT use credits\" list (AI voiceover, publishing or scheduling, adding context, AI captions, uploading your own media, using the AI Agent), which is half of what the customer asked; \"only\" covers it, but naming them would answer the question in full.",
+    "Style note: step 2 names AI video clips but no step names AI images (text-to-image), and step 1 repeats the opening line."
+  ],
+  "checkedAt": "2026-11-16T02:34:04Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "what-uses-credits"
+}

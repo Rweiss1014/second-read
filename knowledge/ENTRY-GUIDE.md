@@ -105,6 +105,7 @@ The customer gets: `Hi,`, the opening, the steps numbered 1 to 4, `Next step:` w
 7. **Kind, plain words.** Short full sentences. American spelling. No em dashes, no words that make a step sound easy, and no hype words. The script checker's list is `VOICE` in `src/checkreply.mjs`, and check-entries runs it on every line.
 8. **Evidence steps** need a `lookup`, and use `{evidence}` where the lookup's finding goes: `"I checked your account: {evidence}"`.
 9. **Action steps** say what we will do ("I am passing this to a person on the team"). They have no quote, so they may not state facts about Blotato.
+10. **No retry before the platform is checked.** A line that tells the customer to retry, resend, repost, republish or try again fails unless an earlier step (or an earlier sentence of the same line) has them check the platform itself for the first post: "check your TikTok account itself", "open any returned platform URL and check the intended account on the platform". Blotato's Scheduled, Published and Failed lists alone do not show whether a post went out, and the publishing-status page says "Do not submit a replacement while the original outcome is unknown." When the first attempt was turned down for a known reason (a wrong field, a limit, an expired token), name the fix and leave out the "send it again". Retrying something that is not a post (an authorization, a checkout, a DM automation, a read) is not caught.
 
 ## Phrasings: how customers really say it
 
@@ -315,4 +316,5 @@ node bin/support-desk.mjs ticket "how do I cancel my plan" --mock   # see what a
 | `is handed to a person by the default "retried" signal` | Your phrasing describes a repeat failure. Reword it, or add the signal to `needs_person_if.ignore` if your steps truly answer that case. |
 | `is stopped by the docs-silent check` | Your phrasing names something (or asks for a number) that your steps never give. Add the fact with its quote, or reword the phrasing. |
 | `"x" in "needs_person_if.ignore" is not a default signal` | Only `retried`, `disputes-count`, `records-disagree`, `many-accounts`, `follow-on`, `cause-ruled-out` and `docs-wrong` can be ignored. |
+| `tells the customer to retry before any earlier step has them check the platform itself` | Add a step before it that checks the platform (cite the publishing-status page), or, when the first try was turned down for a known reason, drop the "try again" and keep the fix. See rule 10. |
 | `the anchors can all be met by words many problems share` | Your error entry could answer "403" or "my Instagram post failed". Make one anchor group hold only this error's own text or code. See "An error entry needs its own error text". |

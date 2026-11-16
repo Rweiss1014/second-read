@@ -246,7 +246,7 @@
           "text": "In-progress can also mean Blotato found no record for that id, so it does not prove the post exists or failed.",
           "cite": {
             "url": "https://help.blotato.com/rest-api-reference/publish-post/get-post",
-            "quote": "This fallback does not confirm a live queue job or validate a guessed submission ID."
+            "quote": "If none matches, it returns in-progress. This fallback does not confirm a live queue job or validate a guessed submission ID."
           }
         },
         {
@@ -346,7 +346,7 @@
         ]
       },
       "lookup": "recent-activity",
-      "opening": "Good call asking before sending it again.",
+      "opening": "Good call asking first.",
       "steps": [
         {
           "type": "fact",
@@ -371,10 +371,10 @@
         },
         {
           "type": "fact",
-          "text": "Blotato has no documented way to mark a second send as the same post, so a resend can make a copy.",
+          "text": "Check the account on the platform itself, too. If Blotato shows a link to the post, open it.",
           "cite": {
-            "url": "https://help.blotato.com/api-and-mcp-concepts/error-handling",
-            "quote": "Blotato does not expose a documented client-supplied idempotency header for create-post requests."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
+            "quote": "Open any returned platform URL and check the intended account on the platform."
           }
         },
         {
@@ -386,8 +386,8 @@
           }
         }
       ],
-      "next": "Look for the post in your scheduled, published and failed posts, then tell me what you find.",
-      "proof": "You will know it is safe to send again once the first post is in none of those lists, or once its error is fixed."
+      "next": "Look for the post in your scheduled, published and failed posts and on the platform itself, then tell me what you find.",
+      "proof": "You will know it is safe to send it again when the first post shows as failed, is not on the platform, and you have fixed its error."
     },
     {
       "id": "post-failed-no-error-text",
@@ -503,19 +503,27 @@
         "phrases": []
       },
       "symptom_only": true,
-      "opening": "I'm sorry your post didn't go out. The error on the post itself tells us why, so let's find it first.",
+      "opening": "Let's find out what happened to your post. Blotato and the platform each keep their own record, so it helps to look in both places.",
       "steps": [
         {
           "type": "fact",
-          "text": "Open Posts and look under Failed for that post, for the same account and content.",
+          "text": "Open Posts and look for the post under Scheduled, Published and Failed, for the same account and content. If you do not find it, check the platform and time-window filters too.",
           "cite": {
             "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
-            "quote": "Check the Scheduled, Published, and Failed filters in Posts for the same destination and content."
+            "quote": "Check the Scheduled, Published, and Failed filters in Posts for the same destination and content. Check the platform and time-window filters if a record is missing."
           }
         },
         {
           "type": "fact",
-          "text": "Read the exact error on the post before you change the media, reconnect the account, or try again.",
+          "text": "Then check the account on the platform itself, for example your Instagram or TikTok page, to see if the post is there. If Blotato shows a link to the post, open it.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
+            "quote": "Open any returned platform URL and check the intended account on the platform."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If the post is under Failed, open it and read the exact error before you change the media, reconnect the account, or try again.",
           "cite": {
             "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
             "quote": "Read the exact error before changing media, reconnecting an account, or retrying."
@@ -523,23 +531,23 @@
         },
         {
           "type": "fact",
-          "text": "Before you post it again, check the account it was meant for.",
+          "text": "Please do not post it again while we do not know what happened to the first one.",
           "cite": {
             "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
-            "quote": "Read the error and check the destination before retrying."
+            "quote": "Do not submit a replacement while the original outcome is unknown."
           }
         },
         {
           "type": "fact",
-          "text": "When you write to us, include the exact error text.",
+          "text": "If the post shows no error, or you cannot tell whether it went out, write down the account, the Page or channel, what the post said, and the time it was meant to go out, with your time zone. Send that to us.",
           "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "Preserve the error text, request ID, and submission ID when asking support."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
+            "quote": "Record the intended social account, Page/channel, content, and submission or scheduled time with timezone."
           }
         }
       ],
-      "next": "Open Posts, find the post under Failed, and send us the exact error text it shows.",
-      "proof": "Still open: the cause. The exact error on the post decides which fix is the right one.",
+      "next": "Look for the post in Posts > Failed and on the platform itself, then send us the exact error, or the details from step 5 if there is no error.",
+      "proof": "Still open: what happened to the post. The error on it, or what you find on the platform, tells us the right next step.",
       "note": "For a failed post with no error text. With an error text or code in the message (symptom_only), this entry hands over, so that error's own entry or a person takes it."
     },
     {
@@ -630,14 +638,14 @@
         "phrases": []
       },
       "symptom_only": true,
-      "opening": "Let's find out what happened to that post before anything else. A post that did not show up has not always failed.",
+      "opening": "Let's find out what happened to that post before anything else. A missing post does not tell us the cause on its own.",
       "steps": [
         {
           "type": "fact",
-          "text": "Open Posts and check the Scheduled, Published and Failed lists for that account and that post.",
+          "text": "Open Posts and check the Scheduled, Published and Failed lists for that account and that post. If you do not find it, check the platform and time-window filters too.",
           "cite": {
             "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
-            "quote": "Check the Scheduled, Published, and Failed filters in Posts for the same destination and content."
+            "quote": "Check the Scheduled, Published, and Failed filters in Posts for the same destination and content. Check the platform and time-window filters if a record is missing."
           }
         },
         {

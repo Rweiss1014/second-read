@@ -1,0 +1,9 @@
+{
+  "replySha256": "16b4e052ad1198f9bf07ada42d2b194795e263b909f1d7d49fbadc9c03c2cf72",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T03:19:30Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "no-platforms-when-scheduling"
+}

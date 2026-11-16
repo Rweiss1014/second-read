@@ -1,0 +1,11 @@
+{
+  "replySha256": "f617f00019f3335ce00e610f64950cf34f2c01521b8a3661628b6f6ea805fcff",
+  "verdict": "pass",
+  "findings": [
+    "Style note: Step 1 says \"Both fields are required\" before the reply names them; the names isYourBrand and isBrandedContent appear only in Step 4 and the Next step line."
+  ],
+  "checkedAt": "2026-11-16T03:44:00Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "tiktok-is-your-brand-required"
+}

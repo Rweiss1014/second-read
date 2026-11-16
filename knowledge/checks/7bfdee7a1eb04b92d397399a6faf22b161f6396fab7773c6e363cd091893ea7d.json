@@ -1,0 +1,11 @@
+{
+  "replySha256": "7bfdee7a1eb04b92d397399a6faf22b161f6396fab7773c6e363cd091893ea7d",
+  "verdict": "pass",
+  "findings": [
+    "Style note only: the Next step stops at \"select Move to drafts\" and leaves out the page's \"Confirm the move\"; the confirmation prompt will appear on screen, so it should not mislead."
+  ],
+  "checkedAt": "2026-11-16T02:20:36Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "move-to-drafts"
+}

@@ -1,0 +1,12 @@
+{
+  "replySha256": "328d50324cb98f6af8e3af30cf31d405883d5ce24411795b9afd739f7f4784c2",
+  "verdict": "pass",
+  "findings": [
+    "Style note: step 3 \"Your customers would never see the Blotato name, and this is not supported\" reads awkwardly on its own line; it is part of the definition in step 2 and would be clearer joined to it.",
+    "Style note: the Next step \"ask me how agencies set that up\" sends the customer back for an answer the page already gives (one login up to the plan's account limit, or a separate account per client)."
+  ],
+  "checkedAt": "2026-11-16T02:14:51Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "whitelabel"
+}

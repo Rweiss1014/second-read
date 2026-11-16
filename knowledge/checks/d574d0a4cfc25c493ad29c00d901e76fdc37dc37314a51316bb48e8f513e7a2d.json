@@ -1,0 +1,9 @@
+{
+  "replySha256": "d574d0a4cfc25c493ad29c00d901e76fdc37dc37314a51316bb48e8f513e7a2d",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T03:42:36Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "linkedin-50-posts-limit"
+}

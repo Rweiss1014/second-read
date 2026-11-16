@@ -1,0 +1,9 @@
+{
+  "replySha256": "889ff45a01cb11a1ca7864b3a3ee9e505a8c0b4584417fa2c433a040acec1805",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T03:19:29Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "unsupported-media-format-mov"
+}

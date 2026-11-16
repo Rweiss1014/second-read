@@ -1,0 +1,12 @@
+{
+  "replySha256": "ee6e7483e947da3be624567c374522405ccfb1f4932a380cb1717dce97e071a1",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the opening line says the error \"usually means the request was built for the older Create Visual format\", a diagnosis the page does not state in those words; step 1 still has the customer check the URL and body first, so it does not mislead.",
+    "Style note: step 2 and the Next step say \"the older endpoint\" and \"the from-templates endpoint\" without the full paths the page gives (POST /v2/videos/creations and POST /v2/videos/from-templates), which would make the switch easier to follow."
+  ],
+  "checkedAt": "2026-11-16T02:34:20Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "template-id-equal-to-constant"
+}

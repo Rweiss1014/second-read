@@ -1,0 +1,12 @@
+{
+  "replySha256": "e091bc0c49331dc3c4eb6489472e973d3083a82744f323b5e57a381138f7218c",
+  "verdict": "pass",
+  "findings": [
+    "Style note only: the opening \"Yes, for some platforms\" could name Instagram and Facebook up front, as the page does (\"Yes, for Instagram and Facebook\"), instead of leaving it to step 4 and the Still open line.",
+    "Style note only: the reply leaves out the page's note that \"Sending a message to a new person counts toward your monthly active-contacts limit.\""
+  ],
+  "checkedAt": "2026-11-16T02:35:53Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "read-send-dms-support"
+}

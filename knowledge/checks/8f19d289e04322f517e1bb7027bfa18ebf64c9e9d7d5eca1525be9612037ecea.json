@@ -1,0 +1,11 @@
+{
+  "replySha256": "8f19d289e04322f517e1bb7027bfa18ebf64c9e9d7d5eca1525be9612037ecea",
+  "verdict": "pass",
+  "findings": [
+    "Small note: \"Still open if it repeats after you reconnect: the error text for a person to check\" is hard to read; it does not plainly say to reply with the error text, though it promises nothing the desk has not set up."
+  ],
+  "checkedAt": "2026-11-16T02:21:35Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "tiktok-token-refresh-unavailable"
+}

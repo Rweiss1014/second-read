@@ -1,0 +1,12 @@
+{
+  "replySha256": "c04bae3411d0b6c162903d26aeb6f2c9cce660e0ba1e98d72a4d8e5ffd1fd1fb",
+  "verdict": "pass",
+  "findings": [
+    "Style note: step 1 \"The conversion did not finish, and the message alone does not name the cause\" repeats the opening line almost word for word.",
+    "Style note: the success line \"the same or an exported copy of the file\" goes a little past the page, which does not mention exporting a copy, but it does not tell the customer to resend before checking status."
+  ],
+  "checkedAt": "2026-11-16T02:34:04Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "media-conversion-failed"
+}

@@ -1,0 +1,11 @@
+{
+  "replySha256": "a36672e0f1bca34c2b72f4d8c36625f0d0efbf4eb5ce14883b3ba96ffa727537",
+  "verdict": "pass",
+  "findings": [
+    "Style note only: Step 3, \"Blotato caps posts at 5 on purpose\", comes from the Instagram error entry; it sits right after \"Instagram itself allows more\", so it reads as Instagram and does not mislead."
+  ],
+  "checkedAt": "2026-11-16T02:34:03Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "hashtag-count"
+}

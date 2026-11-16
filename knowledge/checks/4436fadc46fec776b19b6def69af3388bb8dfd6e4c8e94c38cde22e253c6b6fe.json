@@ -1,0 +1,11 @@
+{
+  "replySha256": "4436fadc46fec776b19b6def69af3388bb8dfd6e4c8e94c38cde22e253c6b6fe",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the Next step says \"create one if you have none\" but gives no way to do it; the Facebook page points to Meta's guide \"Create a Facebook Page\", and linking https://help.blotato.com/settings/social-accounts/facebook would help."
+  ],
+  "checkedAt": "2026-11-16T02:16:25Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "facebook-profiles-groups"
+}

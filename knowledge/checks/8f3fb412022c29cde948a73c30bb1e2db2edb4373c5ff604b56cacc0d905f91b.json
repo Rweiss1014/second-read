@@ -1,0 +1,11 @@
+{
+  "replySha256": "8f3fb412022c29cde948a73c30bb1e2db2edb4373c5ff604b56cacc0d905f91b",
+  "verdict": "pass",
+  "findings": [
+    "Small note: the Next step's \"if it was connected a long time ago\" is vaguer than the page's \"connected before analytics launched\", and neither gives a date, so the customer has to guess; reconnecting is harmless."
+  ],
+  "checkedAt": "2026-11-16T02:21:35Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "analytics-youtube-tiktok-missing"
+}

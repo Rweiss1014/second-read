@@ -1,0 +1,11 @@
+{
+  "replySha256": "5cd0de0001dc80603e14b7b1dde5cc56fa585d507b96491ff74fecc0c8317d7d",
+  "verdict": "pass",
+  "findings": [
+    "Style only: the opening line and step 1 say the same thing (\"This limit is set by Blotato, not by Instagram\" and \"This is a Blotato guardrail, not an Instagram rule\"), which is repetitive but not misleading."
+  ],
+  "checkedAt": "2026-11-16T03:42:32Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "instagram-five-hashtag-limit"
+}

@@ -1,0 +1,9 @@
+{
+  "replySha256": "75017195dae15b6f681ca5c4fe5e99c4dabdf9eacbf07bb29ae0fc2b04694c86",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T03:19:29Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "codex-chatgpt-upload-media"
+}

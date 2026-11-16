@@ -1,0 +1,11 @@
+{
+  "replySha256": "6a297983318671c2215d91bc76567cfb3564ac2e4f2bd7432a578fd9b45d0632",
+  "verdict": "pass",
+  "findings": [
+    "Style note: step 3 says \"For single image posts and carousels, music cannot be added through Blotato\" without the word Instagram, which sits a little oddly beside step 4's TikTok slideshow option; the page says the same and step 3 names the Instagram app, so it would not mislead."
+  ],
+  "checkedAt": "2026-11-16T03:18:28Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "add-music-audio"
+}
