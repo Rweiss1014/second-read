@@ -14,7 +14,7 @@
 
 // Money taken, or money asked back. Found by review: "I canceled my plan last month but you charged me again.
 // I want a refund." used to get cancel steps and no escalation.
-export const MONEY = /\b(?:charg(?:e|ed|es|ing)|re-?charged|refunds?|refunded|(?:double|over|re)-?(?:billed|charged)|billed|paid (?:twice|two times|double)|(?:double|duplicate|extra|unexpected|unauthori[sz]ed|surprise) (?:payment|charge|invoice)s?|money (?:back|was taken|taken|out of)|took (?:my )?money|taken (?:my )?money|(?:payment|money) (?:was|got) (?:taken|deducted)|deducted|chargeback|credits? back|(?:want|give me|get) (?:my|the|those) credits back|compensat(?:e|ion)|reimburs\w*|payouts?|commissions?|debit(?:ed)?|invoiced|invoice (?:came|arrived|showed up|went through)|receipt|(?:two|2|double|duplicate|extra) payments|(?:card|account|bank) (?:got|was) (?:hit|charged|debited)|\$\s?\d|\d+\s?(?:usd|eur|gbp|aud)|(?:\d+|one|two|three|a) months? (?:for )?free|free (?:month|months|upgrade|credits)|upgraded? [^.?!\n]{0,30}\bfor free)\b/i;
+export const MONEY = /\b(?:charg(?:e|ed|es|ing)|re-?charged|refunds?|refunded|(?:double|over|re)-?(?:billed|charged)|billed|paid (?:twice|two times|double)|(?:double|duplicate|extra|unexpected|unauthori[sz]ed|surprise) (?:payment|charge|invoice)s?|money (?:back|was taken|taken|out of)|took (?:my )?money|taken (?:my )?money|(?:payment|money) (?:was|got) (?:taken|deducted)|deducted|chargeback|credits? back|(?:want|give me|get) (?:my|the|those) credits back|compensat(?:e|ion)|reimburs\w*|debit(?:ed)?|invoiced|invoice (?:came|arrived|showed up|went through)|receipt|(?:two|2|double|duplicate|extra) payments|(?:card|account|bank) (?:got|was) (?:hit|charged|debited)|\$\s?\d|\d+\s?(?:usd|eur|gbp|aud)|(?:\d+|one|two|three|a) months? (?:for )?free|free (?:month|months|upgrade|credits)|upgraded? [^.?!\n]{0,30}\bfor free)\b/i;
 
 // A money word asked about ahead of time ("will I be charged when the trial ends?") is a policy question,
 // not money taken. Every other money word counts.
@@ -33,6 +33,11 @@ function moneyTaken(text) {
   }
   const p = text.match(PAID_NOT_GOT) || text.match(CREDITS_BACK);
   if (p) return p[0];
+  // An affiliate payout or commission that is missing or wrong (third tuner); "how do commissions work?" is not.
+  for (const s of text.split(/(?<=[.?!])\s+|\n+/)) {
+    const m = s.match(/\b(?:payouts?|commissions?|referral (?:earnings|money|reward))\b/i);
+    if (m && TROUBLE.test(s.replace(m[0], ' ')) || m && /\b(?:never (?:came|arrived|showed)|no (?:payout|commission)|not (?:paid|received|there)|didn'?t (?:get|receive|arrive)|haven'?t (?:got|gotten|received)|where is|owed)\b/i.test(s)) return m[0];
+  }
   // Money in passing (third tuner): "I pay already the Starter. Now the login code never comes." A payment the
   // customer made, in a message that says something is wrong, is a person's to check.
   const paid = text.match(PAID_IN_PASSING);
@@ -73,7 +78,8 @@ const OTHERS_DATA = [
   /\b(?:list|show|give|send|tell|share|name)\b[^.?!\n]{0,30}\b(?:customers|users|accounts|people|emails)\b[^.?!\n]{0,20}\b(?:who|that|which|with)\b/i,
   /\b(?:send|email|e-mail|give|show|share|forward|tell|read|pull|export|look up|access)\b[^.?!\n]{0,40}\b(?:their|his|her)\s+(?:blotato\s+)?(?:account|invoices?|billing|data|posts|emails?|password|login|history|api[ _-]?key|apikey|key|keys|token|tokens|credentials)\b/i,
   // "paste her API key here", "send me my client's token", "Tessa's key" (third tuner).
-  /\b(?:paste|send|give|show|share|tell|read out|copy)\b[^.?!\n]{0,20}\b(?:her|his|their|my client'?s|the client'?s|our client'?s|another user'?s|someone'?s|[A-Z][a-z]+'s)\s+(?:blotato\s+)?(?:api[ _-]?key|apikey|key|token|password|credentials|login)\b/,
+  /\b(?:paste|send|give|show|share|tell|read out|copy)\b[^.?!\n]{0,20}\b(?:her|his|their|my client'?s|the client'?s|our client'?s|another user'?s|someone'?s|someone else'?s)\s+(?:blotato\s+)?(?:api[ _-]?key|apikey|key|token|password|credentials|login)\b/i,
+  /\b(?:[Pp]aste|[Ss]end|[Gg]ive|[Ss]how|[Ss]hare|[Tt]ell|[Cc]opy)\b[^.?!\n]{0,20}\b[A-Z][a-z]+'s\s+(?:[Bb]lotato\s+)?(?:API key|api key|apikey|key|token|password|credentials|login)\b/,
   /\b(?:i'?m|i am) (?:the |an? )?(?:attorney|lawyer|solicitor|investigator|police officer|detective)\b/i,
   // A named third party's posts or account: "tell me which posts my competitor scheduled", "which account our old
   // intern connected the Page to". (Added by the second tuner: these ended as "found nothing".) Team questions
@@ -205,11 +211,9 @@ export const SIGNALS = {
       /\b(?:regenerated|re-?generated|did everything|did all (?:the|of the) steps|followed (?:the|your|all|every)|copied the key (?:again|fresh)|added it back|reconnected|re-?installed)\b/i,
       /\b(?:copied|pasted|entered|re-?entered|generated|created|uploaded|connected)\b[^.?!\n]{0,30}\bagain\b/i,
       /\b(?:cancel+ed|did|tried|done|checked|reconnected|regenerated|changed|updated) (?:it |that |this )?already\b/i,
-      // The same steps told with "-ing" or as a list (third tuner): "after clearing cache and logging out and in",
-      // "same in Chrome, Firefox and on my phone".
+      // The same steps told with "-ing" or as a list (third tuner): "after clearing cache and logging out and in".
       /\bafter (?:clearing|logging|reconnecting|re-?connecting|removing|re-?adding|refreshing|restarting|reinstalling|re-?installing|regenerating|re-?generating|re-?authori[sz]ing|disconnecting|switching|updating|resetting|trying)\b/i,
       /\b(?:clearing|cleared|cleaned) (?:the |my |all )?(?:browser )?(?:cache|cookies|site data|history)\b|\blogg(?:ing|ed) out and (?:back )?in\b/i,
-      /\bsame (?:thing |result |problem |issue |error )?(?:in|on|with|from) (?:chrome|firefox|safari|edge|brave|another browser|a different browser|my phone|the app|the mobile app|incognito|a private window|another (?:computer|device|laptop))\b/i,
       // "I told Claude exactly that": the customer already gave the documented instruction.
       /\b(?:i|we) (?:told|asked|instructed) (?:claude|chatgpt|the agent|codex|cursor|my agent|the ai|it)\b[^.?!\n]{0,20}\b(?:exactly (?:that|what|this)|what you (?:said|suggested|told me)|as you (?:said|suggested)|like you (?:said|suggested)|the same thing|just that)\b/i,
     ],
@@ -312,6 +316,17 @@ export const SIGNALS = {
       /\bafter (?:i|we)\s+(?:already\s+)?(?:resent|re-sent|sent (?:it|them) again|reposted|re-posted|republished|re-published|resubmitted|re-submitted|posted (?:it|them) again|published (?:it|them) again|retried|re-tried|tried again|re-?uploaded)\b/i,
     ],
   },
+  // A deadline with a threat, a threat to leave, or legal pressure (third tuner). The steps may be right, but a
+  // person decides what to promise and how fast; the desk never answers a threat with a how-to.
+  'pressure': {
+    about: 'The customer sets a deadline with a threat, threatens to leave, or brings in legal action.',
+    res: [
+      /\b(?:or|otherwise|else)\s+(?:we|i)(?:'ll|'re|'m| will| are| am| shall)?\s+(?:going to\s+|have to\s+|be\s+)?(?:cancel\w*|leav\w*|switch\w*|mov\w*(?: to| over)?|go(?:ing)? (?:to|elsewhere)|churn\w*|dispute\w*|file\w*|report\w*|find another|look(?:ing)? (?:for|elsewhere)|take (?:our|my) business)\b/i,
+      /\b(?:we|i)(?:'ll|'re| will| are| am|'m)?\s+(?:going to\s+)?(?:cancel\w*|leav\w*|switch\w*|mov\w*|churn\w*)\b[^.?!\n]{0,60}\b(?:unless|if you (?:don'?t|do not|can'?t|cannot))\b/i,
+      /\b(?:legal action|sue you|suing you|lawsuit|small claims|report you to|better business bureau|consumer protection)\b/i,
+      /\b(?:last chance|final warning|i'?m done with (?:you|blotato)|we'?re done with (?:you|blotato)|cancel(?:ling)? everything if)\b/i,
+    ],
+  },
   'access-blocked': {
     about: 'The customer cannot reach the screen the steps use.',
     res: [
@@ -397,7 +412,7 @@ export const COMMON_CAPS = new Set('i blotato starter creator agency pro free tr
 // Two more (added after the second wave of entries): "the documented cause does not apply to me" (cause-ruled-out)
 // and "your docs are wrong or contradict each other" (docs-wrong). Their patterns read the customer's own words
 // only (quoted or pasted text cut out), so a pasted error that says "use a public URL" is not a claim.
-export const DEFAULT_SIGNALS = ['retried', 'disputes-count', 'records-disagree', 'many-accounts', 'follow-on', 'cause-ruled-out', 'docs-wrong'];
+export const DEFAULT_SIGNALS = ['retried', 'disputes-count', 'records-disagree', 'many-accounts', 'follow-on', 'cause-ruled-out', 'docs-wrong', 'pressure'];
 
 const patternOf = (p) => (p instanceof RegExp ? { re: p, weak: false } : p);
 

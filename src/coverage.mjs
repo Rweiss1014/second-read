@@ -50,6 +50,7 @@ fix fixed fixing broken
 exactly ever never always often usually sometimes still just almost quite rather pretty very super fast slow
 faster slower quickly best worst better worse biggest smallest largest favorite favourite haha lol omg wow yay
 ugh hmm idk btw fyi asap urgent urgently
+summer winter spring autumn fall season seasons holiday holidays vacation vacations trip trips travel traveling travelling away
 `;
 export const CHATTER = new Set(CHATTER_WORDS.trim().split(/\s+/).flatMap(w => contentStems(w)));
 
@@ -224,10 +225,10 @@ export function createCoverage(entries, { rareDf = 3, phrasings = true, twoWhenN
     }
     if (want('word')) {
       const missing = [];
-      // A word right after a subject ("I", "we", "it") or "to" is the action, not the thing asked about:
-      // "the draft I wrote", "while I travel", "before it renews", "how to hook up". Things are what must be covered.
+      // A word right after a subject ("I", "we", "it") is the action, not the thing asked about:
+      // "the draft I wrote", "while I travel", "before it renews", "can I hook up". Things are what must be covered.
       const toks = (foldText(asked).match(/[a-z0-9']+/g) || []);
-      const verbs = new Set(toks.filter((t, i) => i > 0 && /^(?:i|we|you|they|he|she|it|to|i'm|we're|you're|they're|it's|i've|we've|i'd|we'd|i'll|we'll)$/.test(toks[i - 1])).map(t => t.replace(/'.*$/, '')));
+      const verbs = new Set(toks.filter((t, i) => i > 0 && /^(?:i|we|you|they|he|she|it|i'm|we're|you're|they're|it's|i've|we've|i'd|we'd|i'll|we'll)$/.test(toks[i - 1])).map(t => t.replace(/'.*$/, '')));
       // With no question, the whole message is read; the customer's own things ("for my lemonade stand", "our
       // bakery's page") are background there, so the two words after "my", "our" or "their" are not read.
       if (!sp.asked) toks.forEach((t, i) => { if (/^(?:my|our|their|his|her)$/.test(t)) for (const x of toks.slice(i + 1, i + 3)) verbs.add(x.replace(/'.*$/, '')); });

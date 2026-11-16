@@ -21,10 +21,10 @@ import { runGuards, stripDeskInstructions, needsPerson, TROUBLE, NAMED_ITEMS, PL
 // Every hand-over carries a stable, machine-readable reason in "why" (and the details in "whyDetail"), beside
 // the human "reason" text, so a page can say it plainly. The codes are listed in knowledge/ENTRY-GUIDE.md.
 // An answer has why: null. A "partial" answer has why: 'partly-covered' for the part it hands over.
-export const WHY_CODES = ['money', 'others-data', 'secret', 'staff-action', 'desk-instructions', 'tried-already', 'outage', 'records-disagree', 'docs-wrong', 'access-blocked', 'past-docs', 'docs-silent', 'tie', 'partly-covered', 'not-english', 'no-coverage', 'nonsense'];
+export const WHY_CODES = ['money', 'others-data', 'secret', 'staff-action', 'desk-instructions', 'tried-already', 'outage', 'records-disagree', 'docs-wrong', 'access-blocked', 'past-docs', 'docs-silent', 'tie', 'partly-covered', 'not-english', 'no-coverage', 'nonsense', 'pressure'];
 const SIGNAL_WHY = {
   'tried-steps': 'tried-already', 'still-broken': 'tried-already', retried: 'tried-already', 'follow-on': 'tried-already', 'cause-ruled-out': 'tried-already',
-  'many-accounts': 'outage', 'records-disagree': 'records-disagree', 'disputes-count': 'records-disagree', 'docs-wrong': 'docs-wrong', 'access-blocked': 'access-blocked', phrase: 'past-docs',
+  'many-accounts': 'outage', 'records-disagree': 'records-disagree', 'disputes-count': 'records-disagree', 'docs-wrong': 'docs-wrong', 'access-blocked': 'access-blocked', phrase: 'past-docs', pressure: 'pressure',
 };
 const whyOfSignals = (hits) => ({ why: SIGNAL_WHY[hits[0].signal] || 'tried-already', whyDetail: { signal: hits[0].signal, words: hits[0].words } });
 
@@ -53,14 +53,14 @@ export function withoutPleasantries(text) {
   return kept.join(' ');
 }
 
-// Tuned on the dev set only (eval/tickets.dev.jsonl). See BUILD-LOG.md for how.
-export const THRESHOLD = 0.25;   // the best entry's score must reach this, when the entry has anchors and they are met
+// Tuned on the dev sets only (eval/tickets.dev.jsonl, eval/tickets.dev2.jsonl). See BUILD-LOG.md for how.
+export const THRESHOLD = 0.30;   // the best entry's score must reach this, when the entry has anchors and they are met. Third tuner: 0.25 -> 0.30, chosen from the curve (eval/sweep.mjs)
 export const THRESHOLD_UNANCHORED = 0.45; // an entry with no anchors has only its phrasings to go on, so it needs more
 export const MARGIN = 0.06;      // and beat the runner-up by this much
 export const COVERED = 0.30;     // a second question this close to the chosen entry counts as the same topic
 export const CANDIDATE_FLOOR = 0.1; // a candidate shown to a person must at least share real words with the message
 // Signals strong enough to hand a message over even when no entry matches it.
-export const GENERAL_SIGNALS = ['tried-steps', 'still-broken', 'retried', 'disputes-count', 'records-disagree', 'many-accounts', 'cause-ruled-out', 'docs-wrong'];
+export const GENERAL_SIGNALS = ['tried-steps', 'still-broken', 'retried', 'disputes-count', 'records-disagree', 'many-accounts', 'cause-ruled-out', 'docs-wrong', 'pressure'];
 // A question: ends with "?", starts like one, starts a second ask ("Also, ..."), or asks indirectly
 // ("I also want to know whether ...").
 const QUESTION = /\?\s*$|^(?:how|what|why|where|when|which|who|can|could|does|do|is|are|will|would|should|did|has|have|may|also|and also|plus|p\.?s\.?|another thing|one more thing)\b|\b(?:want to know|wondering|wonder|need to know|curious|tell me|let me know)\b(?:\s+\w+){0,2}?\s+(?:if|whether|how|what|when|why|where|which)\b/i;
