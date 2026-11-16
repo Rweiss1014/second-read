@@ -103,12 +103,18 @@ export function nearWord(a, b) {
   return s.slice(i) === l.slice(i + 1);
 }
 
+// Two different stop words are never typos of each other: "there" is not "where", "these" is not "those".
+// Found by the second tuner: the anchor "where" let "now there are two posts" match a where-to-look entry.
+// A typo spelling of a stop word ("wher") still matches it.
+const STOP_STEMS = new Set([...STOP].map(w => stem(w)));
+const typo = (msgWord, termWord, stopSet) => msgWord === termWord || (!(stopSet.has(msgWord) && stopSet.has(termWord)) && nearWord(msgWord, termWord));
+
 // Does the message (as stems) contain this term (one or more words, stemmed), typos allowed?
 export function hasTerm(msgStems, term) {
   const t = allStems(term);
   if (!t.length) return false;
   outer: for (let i = 0; i + t.length <= msgStems.length; i++) {
-    for (let j = 0; j < t.length; j++) if (!nearWord(msgStems[i + j], t[j])) continue outer;
+    for (let j = 0; j < t.length; j++) if (!typo(msgStems[i + j], t[j], STOP_STEMS)) continue outer;
     return true;
   }
   return false;
@@ -130,7 +136,7 @@ export function hasAnchor(text, words, term) {
   const t = rawWords(term);
   if (!t.length) return false;
   outer: for (let i = 0; i + t.length <= words.length; i++) {
-    for (let j = 0; j < t.length; j++) if (!nearWord(words[i + j], t[j])) continue outer;
+    for (let j = 0; j < t.length; j++) if (!typo(words[i + j], t[j], STOP)) continue outer;
     return true;
   }
   return false;

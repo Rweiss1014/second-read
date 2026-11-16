@@ -3000,9 +3000,12 @@
           "api feature",
           "feature not available",
           "does not have access",
-          "connect",
-          "connecting",
-          "connection"
+          "/instagram linked/",
+          "/linked instagram/",
+          "/new threads account/",
+          "/connect(ing)? threads .{0,20}(fails|failed)/",
+          "/(cannot|can.?t|cant|will not|won.?t|wont) connect (my )?(new )?threads/",
+          "/threads account (will not|won.?t|wont) connect/"
         ]
       ],
       "needs_person_if": {
@@ -3095,6 +3098,9 @@
           "works sometimes",
           "same file passes",
           "retry works"
+        ],
+        "ignore": [
+          "cause-ruled-out"
         ]
       },
       "opening": "Blotato could not get usable details from the file at your link.",
@@ -3892,7 +3898,11 @@
           "connecting instagram",
           "connect instagram",
           "connect my instagram",
-          "instagram"
+          "connecting my instagram",
+          "connecting ig",
+          "connect ig",
+          "instagram connection",
+          "connection error"
         ]
       ],
       "needs_person_if": {
@@ -4076,7 +4086,6 @@
           "linked in"
         ],
         [
-          "missing",
           "not in the list",
           "not showing",
           "does not show",
@@ -4091,7 +4100,13 @@
           "manage admins",
           "unable to connect",
           "select linkedin pages",
-          "disappear"
+          "disappear",
+          "missing from",
+          "page is missing",
+          "page missing",
+          "pages missing",
+          "page not listed",
+          "not listed"
         ]
       ],
       "needs_person_if": {

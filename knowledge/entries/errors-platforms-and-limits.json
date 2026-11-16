@@ -1366,11 +1366,12 @@
       "anchors": [
         [
           "/120[- ]?(second|seconds|sec|secs|s)/",
-          "120",
           "/cannot fix/",
           "/automatically fix/",
           "/automatic conversion/",
-          "/convert it automatically/"
+          "/convert it automatically/",
+          "/\\b120\\b.{0,12}(limit|max|maximum|long)/",
+          "/(over|longer than|more than|up to) 120\\b/"
         ],
         [
           "fix",
@@ -1560,7 +1561,11 @@
           "/post limit/",
           "/posting limit/",
           "/24 hours?/",
-          "/limit/"
+          "/daily limit/",
+          "/(post|posting|publish|publishing|upload) (limit|cap)/",
+          "/limit (of|on) (posts|videos|uploads)/",
+          "/posts? (a|per) day/",
+          "/maximum number/"
         ]
       ],
       "needs_person_if": {
@@ -1656,8 +1661,13 @@
           "/post limit/",
           "/posting limit/",
           "/25 times/",
-          "/limit/",
-          "/posts a day/"
+          "/posts a day/",
+          "/daily limit/",
+          "/(post|posting|publish|publishing|upload) (limit|cap)/",
+          "/limit (of|on) (posts|videos|uploads)/",
+          "/posts? (a|per) day/",
+          "/maximum number/",
+          "/limit per (page|profile|account|login)/"
         ]
       ],
       "needs_person_if": {
@@ -1740,7 +1750,13 @@
           "/post limit/",
           "/posting limit/",
           "/50 times/",
-          "/limit/"
+          "/daily limit/",
+          "/(post|posting|publish|publishing|upload) (limit|cap)/",
+          "/limit (of|on) (posts|videos|uploads)/",
+          "/posts? (a|per) day/",
+          "/maximum number/",
+          "/limit per (page|profile|account|company)/",
+          "/(the )?50 limit/"
         ]
       ],
       "needs_person_if": {
@@ -1815,8 +1831,13 @@
           "/post limit/",
           "/posting limit/",
           "/100 a day/",
-          "/limit/",
-          "100"
+          "/daily limit/",
+          "/(post|posting|publish|publishing|upload) (limit|cap)/",
+          "/limit (of|on) (posts|videos|uploads)/",
+          "/posts? (a|per) day/",
+          "/maximum number/",
+          "/limit per (workspace|channel)/",
+          "/hit(ting)? (the )?100\\b/"
         ]
       ],
       "needs_person_if": {
@@ -1869,7 +1890,7 @@
         "how is the pinterest daily post cap decided",
         "pinterest stored account cap 10 20 or 50",
         "my pinterest posts stop after 10 in a day",
-        "is the pinterest limit the same as the 100 views check",
+        "is the pinterest daily limit the same as the 100 views check",
         "how many pins per 24 hours blotato pinterest",
         "pintrest daily limit how many",
         "what sets my pinterest posting cap when I connect",
@@ -1889,14 +1910,25 @@
           "pinterst"
         ],
         [
-          "limit",
-          "limits",
-          "cap",
           "per day",
           "a day",
           "24 hours",
           "24h",
-          "how many"
+          "how many",
+          "daily limit",
+          "pin limit",
+          "pinning limit",
+          "posting limit",
+          "post limit",
+          "pins a day",
+          "pins per day",
+          "limit per day",
+          "limit a day",
+          "/\\b\\d+ pins\\b/",
+          "post cap",
+          "posting cap",
+          "account cap",
+          "daily post"
         ]
       ],
       "needs_person_if": {
@@ -2145,17 +2177,23 @@
           "slck"
         ],
         [
-          "video",
-          "videos",
           "/\\b33004\\b/",
           "/\\b7000\\b/",
           "needs text",
           "at most 10 images",
           "/10 images/",
-          "empty",
           "at least one image",
-          "images",
-          "image"
+          "/(post|send|share|upload|attach|publish)\\w* (a |my |the )?videos?/",
+          "/videos? (to|on|in|into) slack/",
+          "/videos? (is |are )?not supported/",
+          "/(too many|more than 10|11|12|15|20) (images|pictures|photos)/",
+          "/(no|without) (text|caption|image)/",
+          "/empty (post|message)/",
+          "/only (an? )?(image|images|text)/",
+          "/how many (images|pictures|photos)/",
+          "/(cant|can.?t|cannot|can not) (include|post|send|attach|add) (a |any )?videos?/",
+          "/(post|message) is empty/",
+          "/remove the videos?/"
         ]
       ],
       "needs_person_if": {
@@ -2234,17 +2272,18 @@
         ],
         [
           "/\\b33005\\b/",
-          "rejected",
           "could not display",
           "cannot display",
-          "refuse",
-          "refuses",
           "display",
           "png",
           "jpeg",
           "gif",
           "/image url/",
-          "/image types/"
+          "/image types/",
+          "slack rejected",
+          "rejected by slack",
+          "slack refuses",
+          "slack refused"
         ]
       ],
       "needs_person_if": {
@@ -2744,7 +2783,9 @@
           "/restricted to verified/",
           "/access is restricted/",
           "/access restricted/",
-          "/restricted/"
+          "/verified accounts?/",
+          "/restricted to/",
+          "/api restricted/"
         ]
       ],
       "needs_person_if": {
@@ -3165,7 +3206,7 @@
         "instagram timed out processing my video, what now",
         "instgram media procesing timeout 20003",
         "what is the reference id for the instagram media timeout",
-        "does an instagram timeout prove the post did not publish",
+        "does an instagram media timeout prove the post did not publish",
         "blotato waited for instagram media but it never became ready"
       ],
       "not_this": [
@@ -3186,10 +3227,13 @@
           "/media processing/",
           "/procesing/",
           "/media not ready/",
-          "/timed out/",
-          "/timeout/",
           "/never became ready/",
-          "/not ready/"
+          "/not ready/",
+          "/\\b20003\\b/",
+          "/processing (timed out|timeout)/",
+          "/media (timed out|timeout)/",
+          "/server media/",
+          "/timed out processing/"
         ]
       ],
       "needs_person_if": {
@@ -3703,14 +3747,18 @@
           "bsky"
         ],
         [
-          "media",
-          "image",
-          "images",
-          "video",
           "attachment",
           "attachement",
-          "pictures",
-          "photos"
+          "/(media|image|images|video|videos|photo|photos|picture|pictures|attachment)s? (was |were |got |is |are |keeps getting |kept getting )?(rejected|refused|declined|not accepted)/",
+          "/(rejected|refused|rejects|refuses) (my |the |an? )?(media|image|images|video|videos|photo|photos|picture|pictures|attachment)/",
+          "media rejected",
+          "/how many (images|pictures|photos|videos)/",
+          "/(images|pictures|photos)\\b.{0,30}\\bvideos?\\b/",
+          "/\\bvideos?\\b.{0,30}\\b(images|pictures|photos)\\b/",
+          "/\\b(\\d+|two|three|four|five|six|seven|eight) (images|pictures|photos)\\b/",
+          "/(image|media|video) (url|urls|format|formats|type|types)/",
+          "/(image|images|picture|pictures|photo|photos|video|videos|media) (fails?|failed|will not publish|won.?t publish|wont publish)/",
+          "/video url rejected/"
         ]
       ],
       "needs_person_if": {
@@ -3761,7 +3809,7 @@
         "Failed to publish TikTok post after 3 retries (Unknown error reason)",
         "tiktok unknown error reason in blotato",
         "my tiktok post failed after 3 retries",
-        "is unknown error reason a tiktok outage",
+        "does unknown error reason mean tiktok itself is having problems",
         "should I reconnect tiktok when it says unknown error reason",
         "tiktok publish retry loop exhausted",
         "tik tok unknown error reason what do I send support",
@@ -3878,12 +3926,16 @@
           "never appears",
           "never apears",
           "buffering",
-          "missing",
-          "gone",
           "where did",
           "/left upcoming/",
-          "stuck",
-          "/not in (published|failed)/"
+          "/not in (published|failed)/",
+          "stuck buffering",
+          "went missing",
+          "gone missing",
+          "is gone",
+          "just gone",
+          "/stuck (in )?publishing state/",
+          "/no failed post/"
         ]
       ],
       "needs_person_if": {
@@ -3974,12 +4026,15 @@
           "disappeared",
           "dissapeared",
           "vanished",
-          "gone",
           "left upcoming",
           "not in failed",
           "not in published",
           "no error",
-          "/never published/"
+          "/never published/",
+          "just gone",
+          "gone without",
+          "gone with no",
+          "/gone from (the )?(upcoming|calendar|schedule|queue)/"
         ]
       ],
       "needs_person_if": {
@@ -4500,8 +4555,7 @@
           "/posting limit/",
           "/post limit/",
           "/conflicting/",
-          "acount",
-          "/per day/"
+          "/per acount/"
         ]
       ],
       "needs_person_if": {

@@ -87,6 +87,127 @@
       ],
       "next": "Re-add the connector, then ask Claude to list your Blotato accounts.",
       "proof": "You will know it worked when Claude answers with your account list. An empty list still counts: it means no social accounts are connected yet."
+    },
+    {
+      "id": "mcp-edit-made-duplicate",
+      "kind": "technical",
+      "title": "Asking an AI tool to edit a scheduled post made a second post",
+      "phrasings": [
+        "I asked Claude to change the caption on a scheduled post and it made a second one",
+        "my AI agent was supposed to update the post but it created a new one",
+        "editing a scheduled post through MCP made a duplicate",
+        "why did ChatGPT create another post when I only wanted an edit",
+        "how do I edit a scheduled post with Claude without making a copy",
+        "Claude made a new post instead of changing the old one",
+        "I told my agent to move the post time and the post shows twice",
+        "mcp edit created a duplicate post",
+        "the connector in claude doubled my post when I fixed a word"
+      ],
+      "not_this": [
+        "my post was published twice on instagram",
+        "I was charged twice",
+        "you are not allowed to create a tweet with duplicate content",
+        "the blotato connector in claude says invalid_grant"
+      ],
+      "anchors": [
+        [
+          "claude",
+          "chatgpt",
+          "codex",
+          "cursor",
+          "mcp",
+          "agent",
+          "ai tool",
+          "ai agent",
+          "assistant",
+          "connector",
+          "gpt"
+        ],
+        [
+          "edit",
+          "edited",
+          "editing",
+          "update",
+          "updated",
+          "updating",
+          "change",
+          "changed",
+          "changing",
+          "fix",
+          "fixed",
+          "fixing",
+          "typo",
+          "correct",
+          "corrected",
+          "move",
+          "moved",
+          "reschedule"
+        ],
+        [
+          "two",
+          "2",
+          "twice",
+          "duplicate",
+          "duplicated",
+          "second",
+          "new one",
+          "another",
+          "copy",
+          "copies",
+          "double",
+          "doubled",
+          "both",
+          "new post",
+          "extra post"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [],
+        "ignore": [
+          "follow-on"
+        ]
+      },
+      "opening": "This one has a known cause, and a short instruction for your AI tool.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "To edit a scheduled post, the AI tool should call only blotato_update_schedule. It changes the existing schedule and never makes a new post.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/mcp/faqs",
+            "quote": "It updates an existing schedule in place — it never creates a new post."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Two posts for what should have been an edit most likely means the AI tool also called blotato_create_post.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/mcp/faqs",
+            "quote": "If you ever see two posts published for what should have been an edit, your AI tool likely also called `blotato_create_post`."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Tell it in so many words: use only blotato_update_schedule, and do not create a new post.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/mcp/faqs",
+            "quote": "Tell it explicitly: \"use only `blotato_update_schedule`, do not create a new post.\""
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To change the caption or media, it has to pass the whole post, not only the part you are changing.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/mcp/faqs",
+            "quote": "To change the caption or media: pass the **whole `post` object**, not just the field you're editing."
+          }
+        }
+      ],
+      "next": "Tell your AI tool to use only blotato_update_schedule for edits, and not to create a new post.",
+      "proof": "You will know it worked when your next edit changes the scheduled post and no second post shows in the calendar."
     }
   ]
 }

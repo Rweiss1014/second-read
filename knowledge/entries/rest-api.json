@@ -203,9 +203,15 @@
           "brand page",
           "page id",
           "pageid",
-          "page",
-          "pages",
-          "personal profile"
+          "personal profile",
+          "linkedin page",
+          "linkedin pages",
+          "page on linkedin",
+          "company",
+          "organization",
+          "organisation",
+          "my business",
+          "our business"
         ]
       ],
       "needs_person_if": {

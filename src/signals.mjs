@@ -60,6 +60,10 @@ const OTHERS_DATA = [
   /\b(?:list|show|give|send|tell|share|name)\b[^.?!\n]{0,30}\b(?:customers|users|accounts|people|emails)\b[^.?!\n]{0,20}\b(?:who|that|which|with)\b/i,
   /\b(?:send|email|e-mail|give|show|share|forward|tell|read|pull|export|look up|access)\b[^.?!\n]{0,40}\b(?:their|his|her)\s+(?:blotato\s+)?(?:account|invoices?|billing|data|posts|emails?|password|login|history)\b/i,
   /\b(?:i'?m|i am) (?:the |an? )?(?:attorney|lawyer|solicitor|investigator|police officer|detective)\b/i,
+  // A named third party's posts or account: "tell me which posts my competitor scheduled", "which account our old
+  // intern connected the Page to". (Added by the second tuner: these ended as "found nothing".) Team questions
+  // ("how do I give my coworker access") are not here: a coworker is not in the list.
+  /\b(?:send|email|e-mail|give|show|list|share|forward|tell|read|pull|export|look up|access|see|find|check|spy on)\b[^.?!\n]{0,60}\b(?:competitors?|rivals?|ex|ex-?(?:boyfriend|girlfriend|husband|wife|partner)|neighbou?rs?|(?:old |former )?(?:social media )?interns?|former (?:employees?|managers?|agency|agencies|staff)|old (?:employees?|managers?|agency|social media managers?)|another (?:company|brand|business|agency|creator))(?:'s)?\b[^.?!\n]{0,50}\b(?:posts?|accounts?|schedules?|scheduled|data|emails?|connected|analytics|logins?|passwords?|drafts?|content)\b/i,
 ];
 
 const SECRET = [
@@ -169,6 +173,10 @@ export function runGuards(text) {
   return null;
 }
 
+// Words that say something is going wrong. With no entry to lean on, a signal hands a message over only
+// when the message also says this ("I tried twice and it still fails", not "I post in Spanish every time").
+export const TROUBLE = /\b(?:fail\w*|error\w*|broken|not working|doesn'?t work|does not work|won'?t|can'?t|cannot|isn'?t|stopped|stuck|empty|gone|missing|wrong|lost|locked|blocked|down|still|again|nothing|insufficient|denied|forbidden|rejected|unauthori[sz]ed|disconnected|expired|paused|inactive|flagged|restricted)\b|\b(?:4\d\d|5\d\d)\b/i;
+
 // "Needs a person" signals. Each is a list of patterns. Entries name the ones that apply.
 export const SIGNALS = {
   'tried-steps': {
@@ -228,6 +236,42 @@ export const SIGNALS = {
     about: 'Two of Blotato\'s own records disagree (billing says active, but access is blocked).',
     res: [
       { weak: true, re: /\b(?:billing|dashboard|portal|stripe|my account|account page|accounts page)\b[^.?!\n]{0,20}\b(?:shows?|says?|is|lists?)\b[^.?!\n]{0,10}\b(?:active|paid|connected)\b/i },
+      // A pair: one record says the good state, another says the bad one, anywhere in the message. Each pair is
+      // about one thing (the plan, the credits, the connection), so "I'm on Creator. My post failed." is not one.
+      // Plan or subscription: "Billing shows active" / "I'm on Creator, paid last week" next to a 403 or a
+      // subscription message.
+      { re: /\b(?:billing|subscription|plan|account)\b[^.?!\n]{0,20}\b(?:shows?|says?|is|lists?)\s+(?:as\s+|still\s+)?(?:active|paid)\b|\b(?:i'?m|i am|we'?re|we are)\s+(?:on|paying for|subscribed to)\s+(?:the\s+|a\s+)?(?:starter|creator|agency|pro|paid)\b|\b(?:i|we)\s+(?:just\s+|already\s+)?(?:paid|renewed|upgraded)\b|\bactive (?:subscription|plan)\b/i,
+        needs: /\b40[23]\b|\bsubscription (?:message|error|required|needed|inactive|expired|has expired|ended|is not active|not active)\b|\bnot (?:an? )?active (?:subscription|plan)\b|\b(?:plan|subscription|upgrade) (?:required|needed)\b|\b(?:inactive|paused|deactivated)\b|\btrial (?:ended|expired|is over)\b|\b(?:requires|needs) (?:a |an )?(?:paid|active) (?:plan|subscription)\b/i },
+      // Credits: "creditsRemaining 5120" / "I still have 900 credits" next to "insufficient credits" or "ran out".
+      { re: /\bcredits?\s*_?remaining\b\D{0,15}\d|\b(?:have|got|shows?|says?|balance (?:is|of|shows?|says?))\s+(?:still\s+)?(?:about\s+|over\s+|around\s+)?[\d,.]+k?\s+(?:ai\s+)?credits?\b|\b[\d,.]+k?\s+(?:ai\s+)?credits?\s+(?:left|remaining|available|in my (?:account|balance))\b|\b(?:plenty of|enough|lots of) credits\b|\bcredits? (?:balance )?(?:is|are|shows?) (?:still )?(?:fine|there|available|full|positive)\b/i,
+        needs: /\binsufficient\b|\b(?:ran|run|running) out\b|\bout of (?:ai )?credits\b|\bnot enough (?:ai )?credits\b|\bno (?:ai )?credits\b|\bcredits? (?:error|exhausted|used up)\b/i },
+      // The connection: "the Accounts page shows connected" next to "needs reconnecting", "expired", a 401.
+      { re: /\b(?:accounts? page|account|it|the account|my account|status)\b[^.?!\n]{0,20}\b(?:shows?|says?|is|lists?)\s+(?:as\s+|still\s+)?(?:connected|active|green|healthy)\b|\bshows? (?:as )?connected\b/i,
+        needs: /\bdisconnected\b|\b(?:needs?|requires?) (?:a )?(?:reconnect\w*|re-?connect\w*)\b|\bnot connected\b|\bexpired\b|\binvalid.?grant\b|\bunauthori[sz]ed\b|\b401\b|\boauth error\b|\btoken (?:error|expired|invalid)\b/i },
+    ],
+  },
+  'cause-ruled-out': {
+    about: 'The customer says the documented cause does not apply to them (it is public, it is paid, it is under the limit, it works elsewhere). The steps would only repeat what they ruled out.',
+    res: [
+      // The URL, domain or server is public and reachable.
+      { re: /\bpublic (?:dns|url|ip|domain|endpoint|address|server|host)\b|\bpublicly (?:accessible|reachable|available|resolvable)\b|\bno redirects?\b|\bnot (?:a |on )?(?:localhost|private (?:ip|address|network))\b|\bresolves? (?:fine|correctly|publicly|to a public)\b/i, needs: TROUBLE, unquoted: true },
+      // It works somewhere else: "curl from outside works", "the link opens fine in incognito".
+      { re: /\b(?:curl|postman|insomnia|wget|incognito|another device|my phone)\b[^.?!\n]{0,30}\b(?:works|worked|opens|opened|loads|loaded|returns 200|gets 200|is fine)\b|\b(?:works|opens|loads) (?:fine |ok |perfectly )?(?:in|from|with) (?:curl|postman|the browser|a browser|my browser|incognito|outside|a private window)\b|\bfrom outside (?:works|is fine)\b/i, needs: TROUBLE, unquoted: true },
+      // "That does not apply to me", "that's not the cause", "none of those apply".
+      { re: /\b(?:that|this|it|the documented cause|the cause|none of (?:that|those|these|them)|neither(?: of them)?)\b[^.?!\n]{0,25}\b(?:does not|doesn'?t|do not|don'?t) apply\b|\b(?:is|isn'?t|is not|was not|wasn'?t) the (?:cause|reason)\b|\bnot the (?:cause|problem|issue|reason)\b|\bthat'?s not (?:it|the case|the problem|the issue)\b/i, needs: TROUBLE, unquoted: true },
+      // The thing the docs blame is already fine: "the file is only 20 MB", "it's already an mp4", "well under the limit".
+      { re: /\b(?:the|my|this|our) (?:file|video|image|photo|clip|caption|text|post)\s+is\s+(?:only|just|already|well under|under|below|less than)\b|\balready (?:an? |in )?(?:mp4|jpe?g|png|public|verified|business account|business profile|creator account|the right format|the right size|h\.?264)\b|\b(?:well |way |far )?(?:under|below|within) the (?:limit|cap|max(?:imum)?)\b|\bnowhere near the (?:limit|cap|max(?:imum)?)\b/i, needs: TROUBLE, unquoted: true },
+      // The key or token is right: "the key is correct", "no spaces".
+      { re: /\b(?:the|my) (?:api )?(?:key|token) is (?:correct|right|valid|new|fresh|active)\b|\bno (?:extra )?(?:spaces|whitespace)\b/i, needs: TROUBLE, unquoted: true },
+    ],
+  },
+  'docs-wrong': {
+    about: 'The customer says the help pages themselves are wrong or contradict each other. A person has to check the docs.',
+    res: [
+      /\b(?:your|the) (?:docs|documentation|help (?:page|pages|center|article|docs)|api (?:reference|docs)|reference|example|sample (?:code|request|response)|guide)\b[^.?!\n]{0,90}\b(?:wrong|incorrect|outdated|out of date|typo|mistake|broken|invalid json|trailing comma|contradict\w*|inconsistent|conflict\w*|doesn'?t match|does not match|differs?|different from)\b/i,
+      /\b(?:docs|documentation|help pages?|reference|pages?)\s+(?:say|says|show|shows|list|lists|state|states|give|gives)\b[^?!\n]{0,160}\bwhich (?:is it|one is (?:right|correct)|is (?:right|correct|true))\b/i,
+      /\b(?:docs|pages|articles|help pages|documentation)\b[^.?!\n]{0,40}\b(?:contradict|disagree|conflict)\w*\b|\btwo (?:pages|docs|articles|help pages)\b[^.?!\n]{0,40}\b(?:say|give|show|list)\b[^.?!\n]{0,40}\bdifferent\b/i,
+      /\b(?:typo|mistake|error|bug) in (?:your|the) (?:docs|documentation|help page|reference|example)\b/i,
     ],
   },
   'follow-on': {
@@ -268,7 +312,7 @@ export const NAMED_ITEMS = {
   'payment method': ['paypal', 'venmo', 'apple pay', 'google pay', 'crypto', 'cryptocurrency', 'bitcoin', 'ethereum', 'usdt', 'wire transfer', 'bank transfer', 'sepa', 'ach transfer', 'klarna', 'afterpay', 'alipay', 'wechat pay', 'cash app', 'zelle', 'gift card', 'purchase order', 'amex', 'american express', 'prepaid card'],
   'platform or service': ['mastodon', 'reddit', 'snapchat', 'telegram', 'tumblr', 'discord', 'whatsapp', 'twitch', 'quora', 'substack', 'wordpress', 'beehiiv', 'kajabi', 'shopify', 'etsy', 'wix', 'squarespace', 'webflow', 'lemon8', 'rumble', 'vimeo', 'truth social', 'weibo', 'douyin', 'xiaohongshu', 'viber', 'clubhouse', 'behance', 'dribbble', 'flickr', 'patreon', 'linktree', 'mailchimp', 'convertkit', 'hubspot', 'salesforce', 'vk'],
   'tool': ['zapier', 'make.com', 'ifttt', 'pabbly', 'canva', 'capcut', 'heygen', 'hootsuite', 'later.com', 'sprout social', 'metricool', 'publer', 'notion', 'airtable', 'google sheets', 'excel', 'dropbox', 'google drive', 'onedrive', 'icloud', 'frame.io', 'descript', 'elevenlabs', 'midjourney', 'dall-e', 'gemini', 'perplexity', 'figma', 'photoshop', 'premiere pro', 'final cut', 'lightroom', 'opus clip', 'veed', 'submagic', 'grok', 'copilot', 'chatgpt', 'cursor', 'codex', 'windsurf'],
-  'platform feature': ['retweet', 'retweets', 'quote tweet', 'repost', 'reposts', 'reposting', 'recycle', 'evergreen', 'duet', 'stitch', 'boost post', 'boosted', 'promoted post', 'sponsored', 'ads', 'ad account', 'poll', 'polls', 'go live', 'live stream', 'livestream', 'twitter spaces', 'x spaces', 'story highlights', 'highlights', 'close friends', 'broadcast channel', 'dms', 'direct message', 'direct messages', 'auto reply', 'auto-reply', 'auto dm', 'geotag', 'location tag', 'alt text', 'link in bio', 'link sticker', 'product tag', 'product tags', 'shopping tag', 'watermark', 'analytics', 'insights', 'statistics', 'stats', 'metrics', 'impressions', 'engagement rate', 'white label', 'white-label', 'sso', 'single sign on', '2fa', 'two factor', 'two-factor', 'team members', 'teammates', 'seats', 'user roles', 'permissions', 'webhook', 'webhooks', 'rss', 'emoji', 'emojis'],
+  'platform feature': ['retweet', 'retweets', 'quote tweet', 'repost', 'reposts', 'reposting', 'recycle', 'evergreen', 'duet', 'stitch', 'boost post', 'boosted', 'promoted post', 'sponsored', 'ads', 'ad account', 'poll', 'polls', 'go live', 'live stream', 'livestream', 'twitter spaces', 'x spaces', 'story highlights', 'highlights', 'close friends', 'broadcast channel', 'dms', 'direct message', 'direct messages', 'auto reply', 'auto-reply', 'auto dm', 'geotag', 'location tag', 'alt text', 'link in bio', 'link sticker', 'product tag', 'product tags', 'shopping tag', 'watermark', 'analytics', 'insights', 'statistics', 'stats', 'metrics', 'impressions', 'engagement rate', 'white label', 'white-label', 'sso', 'single sign on', '2fa', 'two factor', 'two-factor', 'team members', 'teammates', 'seats', 'user roles', 'permissions', 'webhook', 'webhooks', 'rss', 'emoji', 'emojis', 'story', 'stories', 'dm automation', 'dm automations'],
   'language': ['japanese', 'french', 'german', 'portuguese', 'italian', 'arabic', 'chinese', 'mandarin', 'cantonese', 'hindi', 'korean', 'russian', 'dutch', 'polish', 'turkish', 'vietnamese', 'indonesian', 'thai', 'hebrew', 'greek', 'swedish', 'norwegian', 'danish', 'finnish', 'ukrainian', 'tagalog', 'urdu', 'bengali', 'persian', 'farsi', 'malay', 'romanian', 'czech', 'hungarian'],
   'identifier': ['page id', 'pageid', 'account id', 'accountid', 'post id', 'postid', 'submission id', 'schedule id', 'user id', 'client id', 'app id', 'channel id', 'workspace id', 'media id', 'webhook url', 'callback url', 'redirect url'],
   'file type': ['gif', 'gifs', 'pdf', 'heic', 'webp', 'svg', 'tiff', 'mov', 'webm', 'avi', 'mkv', 'mp3', 'wav', 'm4a', 'psd', 'docx', 'pptx', 'xlsx', 'zip', 'srt'],
@@ -307,9 +351,6 @@ export const GIVES_NUMBER = { test: (s) => NUMBER_WORDS.test(String(s || '').rep
 export const INTRODUCER = /\b(?:with|via|through|using|to|into|onto|on|support|supports|supported|connect|integrate|integrates|integration|sync|syncs)\s+(?:my |our |the |a |an )?([A-Z][A-Za-z0-9]*[a-z0-9][A-Za-z0-9]*|[A-Z][a-z]*[A-Z][A-Za-z0-9]*)\b/g;
 export const COMMON_CAPS = new Set('i blotato starter creator agency pro free trial settings billing api ai mcp utc gmt monday tuesday wednesday thursday friday saturday sunday january february march april may june july august september october november december english spanish posts post accounts account calendar videos video drafts draft remix agent context sources brand kit inbox help support team'.split(' '));
 
-// Words that say something is going wrong. With no entry to lean on, a signal hands a message over only
-// when the message also says this ("I tried twice and it still fails", not "I post in Spanish every time").
-export const TROUBLE = /\b(?:fail\w*|error\w*|broken|not working|doesn'?t work|does not work|won'?t|can'?t|cannot|isn'?t|stopped|stuck|empty|gone|missing|wrong|lost|locked|blocked|down|still|again|nothing)\b|\b(?:4\d\d|5\d\d)\b/i;
 
 // Signals that apply to EVERY entry that answers, whether the entry lists them or not: a repeat failure, a
 // count the customer disputes, two records that disagree, many accounts failing at once ("is something
@@ -319,7 +360,10 @@ export const TROUBLE = /\b(?:fail\w*|error\w*|broken|not working|doesn'?t work|d
 // something down", "I only posted 4"), and on its weak ones ("every time", "3 times", "since Monday") only
 // when the message also says something is going wrong (TROUBLE), so "I post 3 times a day" is not a repeat
 // failure.
-export const DEFAULT_SIGNALS = ['retried', 'disputes-count', 'records-disagree', 'many-accounts', 'follow-on'];
+// Two more (added after the second wave of entries): "the documented cause does not apply to me" (cause-ruled-out)
+// and "your docs are wrong or contradict each other" (docs-wrong). Their patterns read the customer's own words
+// only (quoted or pasted text cut out), so a pasted error that says "use a public URL" is not a claim.
+export const DEFAULT_SIGNALS = ['retried', 'disputes-count', 'records-disagree', 'many-accounts', 'follow-on', 'cause-ruled-out', 'docs-wrong'];
 
 const patternOf = (p) => (p instanceof RegExp ? { re: p, weak: false } : p);
 
@@ -343,7 +387,10 @@ export function needsPerson(text, spec, { hasTerm, allStems }, { defaults = fals
         if (sent) { hits.push({ signal: name, words: sent.match(p.re)[0].trim(), about: s.about, byDefault: true }); break; }
         continue;
       }
-      const m = String(text).match(p.re);
+      // A pattern with "needs" fires only when the message also says that (a record that disagrees, a trouble word).
+      const own = p.unquoted ? withoutQuoted(text) : String(text);
+      const m = own.match(p.re);
+      if (m && p.needs && !p.needs.test(own)) continue;
       if (m) { hits.push({ signal: name, words: m[0].trim(), about: s.about, ...(byDefault ? { byDefault: true } : {}) }); break; }
     }
   }
@@ -351,3 +398,77 @@ export function needsPerson(text, spec, { hasTerm, allStems }, { defaults = fals
   for (const p of spec?.phrases || []) if (hasTerm(stems, p)) hits.push({ signal: 'phrase', words: p, about: 'The entry says this case needs a person.' });
   return hits;
 }
+
+// A message not in English. No dependency: the function words of Spanish, Portuguese, French, German and
+// Italian, and the share of letters in a non-Latin script. Quoted or pasted text is cut out first, so an
+// English message with a pasted foreign error ('TikTok says "Ce contenu n'est pas disponible"') or a foreign
+// product name stays English. Words that are also common in English ("a", "me", "come", "die", "no") do not
+// count. Returns { language } or null.
+const FUNCTION_WORDS = {
+  spanish: 'el la los las una unos unas que del al y pero porque cuando donde dónde qué cómo por para sin mis tu su sus es son está están estoy hay muy también ya sí lo le se nos mí cuenta publicación publicaciones publicar ayuda gracias hola puedo tengo quiero necesito mi otro otra este esta esto pero cómo cuál porqué aparece funciona hace',
+  portuguese: 'os um uma que do da dos das ou mas porque quando onde por para com sem meu minha seu sua é são está estão estou tem não sim também já muito você obrigado obrigada olá posso tenho quero preciso conta publicação postagem como isso esse essa aparece funciona',
+  french: 'le la les une des que du et ou mais parce comme quand où pour avec sans mon ma mes ton ta ses est sont suis je tu il elle nous vous ils pas oui aussi déjà très merci bonjour puis peux veux compte publication ne ce cette mais pourquoi comment marche',
+  german: 'der die das ein eine einen und oder aber weil wie wann wo warum für mit ohne mein meine dein ist sind bin ich du er sie wir ihr nicht ja auch schon sehr danke hallo kann will konto beitrag ich habe hat funktioniert mein',
+  italian: 'il lo la gli le una che di del della e o ma perché come quando dove per con senza mio mia è sono sto ho non sì anche già molto grazie ciao posso voglio funziona questo questa',
+};
+const ENGLISH_ALSO = new Set('a an the i me my we us you he she it is am are be to of in on at by for or and as so if no not do does did can will was were has have had this that these those what how why where when which who with from up out about one two come die son con per pin post posts more most also see sea pas mit art ten tag auto video es la le de do da una media fan app'.split(' '));
+const FOREIGN = Object.fromEntries(Object.entries(FUNCTION_WORDS).map(([l, w]) => [l, new Set(w.split(/\s+/).filter(x => !ENGLISH_ALSO.has(x)))]));
+const ENGLISH_FUNCTION = new Set('the is are was were be been i me my we our you your it its this that these those to of in on at for with from by and or but if not no do does did can could would should will how what why where when which who have has had there here any some about into out up as than then too very also please thanks hi hello just still now get got am'.split(' '));
+const NON_LATIN = /[\u0370-\u03ff\u0400-\u04ff\u0590-\u05ff\u0600-\u06ff\u0900-\u097f\u0e00-\u0e7f\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af]/g;
+export function notEnglish(text) {
+  const own = withoutQuoted(String(text || '')).replace(/https?:\/\/\S+/g, ' ').replace(/\{[^\n]*\}/g, ' ');
+  const nonLatin = (own.match(NON_LATIN) || []).length;
+  const latin = (own.match(/[a-z]/gi) || []).length;
+  if (nonLatin >= 4 && nonLatin > latin) return { language: 'non-latin script' };
+  const words = (own.toLowerCase().match(/[a-zà-öø-ÿ']+/g) || []).map(w => w.replace(/^'+|'+$/g, '')).filter(Boolean);
+  if (words.length < 3) return null;
+  const english = words.filter(w => ENGLISH_FUNCTION.has(w)).length;
+  let best = null;
+  for (const [language, set] of Object.entries(FOREIGN)) {
+    const n = words.filter(w => set.has(w)).length;
+    if (!best || n > best.n) best = { language, n };
+  }
+  // Accented letters these languages use and English does not, as a little more evidence.
+  const accents = (own.match(/[ñãõçàèìòùâêîôûäöüßœ¿¡]/gi) || []).length;
+  const foreign = best.n + Math.min(accents, 2) * 0.5;
+  if (foreign >= 2 && foreign >= english * 1.5 + 1 && foreign / words.length >= 0.15) return { language: best.language };
+  return null;
+}
+
+// A specific error text or code in the message: a quoted or pasted message, an error code, a status, a
+// snake_case or camelCase name from a response. An entry for a symptom with no error text ("symptom_only")
+// hands over when the customer does give one: the exact error decides the fix, and it is not that entry's.
+export function specificError(text) {
+  const t = String(text || '');
+  const quoted = t.match(/"[^"\n]{3,200}"|“[^”\n]{3,200}”|`[^`\n]{3,200}`|‘[^’\n]{3,200}’|(?:^|[\s:(\[])'[^'\n]{3,200}'(?=$|[\s.,!?;:)\]])/);
+  if (quoted && /[a-z0-9]+[^a-z0-9]+[a-z0-9]+/i.test(quoted[0])) return quoted[0].trim();
+  const pasted = t.match(/\b(?:error|err|code|status|message|it says|says|said|shows|showing|reads?|returned|response)\s*(?:code\s*)?[:=]\s*\S[^\n]{2,}/i);
+  if (pasted) return pasted[0].trim().slice(0, 120);
+  const code = t.match(/\b(?:error|code|status|err)\s*(?:code\s*)?#?\(?\d{3,5}\)?|\(#?\d{3,5}\)|\b[2-3]\d{4}\b|\b[1-5]\d\d\b(?!\s*(?:%|px|k\b|mb|gb|kb|am|pm|\+|posts?|times|accounts?|followers|views|likes|videos?|images?|photos?|pins?|reels?|credits?|seconds?|secs?|minutes?|mins?|hours?|days?|characters?|chars?|words?|hashtags?|people|subscribers|clients?|pages?|profiles?|dollars?|usd|eur))/i);
+  if (code) return code[0].trim();
+  const ident = t.match(/\b[a-z]+_[a-z_]+\b|\b[a-z]{2,}[A-Z][a-zA-Z]+\b/);
+  if (ident) return ident[0];
+  const known = t.match(/\b(?:unauthori[sz]ed|forbidden|bad request|internal server error|service unavailable|gateway timeout|too many requests|not found|rate limit(?:ed)?|invalid[ _]\w+|exceeded|not permitted|not authorized|session expired|token expired)\b/i);
+  return known ? known[0] : null;
+}
+
+// No real words, or no question: keyboard mashing, an emoji, a bare "thanks". `known` says whether a stem is a
+// word the desk knows (from any entry); stop words count as known.
+export function isNonsense(text, { contentStems, rawWords, known }) {
+  const words = rawWords(text).filter(w => /[a-z]/.test(w) && w.length > 1);
+  const content = contentStems(text);
+  if (!content.length) return true;
+  const knownContent = content.filter(known);
+  if (!knownContent.length) return true;
+  return words.length >= 3 && knownContent.length < 2 && knownContent.length / content.length < 0.34;
+}
+
+// Words that many different problems share: a symptom ("failed", "flagged", "403"), the thing nearly every
+// ticket is about ("post", "account", "video"), or a platform name. An entry about one specific error or cause
+// must not be reachable on these alone: "403 ... is my account flagged?" is not the adult-content entry's
+// question. check-entries fails an error entry whose every anchor group can be met by these words.
+export const GENERIC_WORDS = new Set(`error errors eror failed fail fails failing failure faild problem problems issue issues broken wrong flagged flag blocked banned ban shadowban shadowbanned restricted restriction rejected reject rejects rejecting denied forbidden unauthorized unauthorised not working account accounts acount post posts posted posting publish published publishing video videos image images photo photos picture pictures media file files upload uploading uploaded api request message messages status code help stuck missing empty null blank gone limit limits cap app blotato connect connecting connection disconnected reconnect expired invalid supported unsupported support no not cannot can't doesn't won't never content page pages profile channel server servers internal timeout timed out slow down outage something`.split(/\s+/));
+for (const aliases of Object.values(PLATFORMS)) for (const a of aliases) GENERIC_WORDS.add(a);
+// The standard meaning of an HTTP status. A bare status code is distinctive only for an entry about that
+// status itself, which says so in its title ("503 Service Unavailable", "Too many requests").
+export const STATUS_MEANING = { 400: 'bad request', 401: 'unauthorized', 403: 'forbidden', 404: 'not found', 409: 'conflict', 413: 'too large', 422: 'unprocessable', 429: 'too many requests', 500: 'internal server error', 502: 'bad gateway', 503: 'service unavailable', 504: 'gateway timeout' };
