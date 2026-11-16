@@ -2044,43 +2044,45 @@
           "ran the invite"
         ]
       },
-      "opening": "Both of these errors are about the Slack channel Blotato tried to post to.",
+      "opening": "Thank you for telling me what you have already tried. That helps a lot.",
       "steps": [
         {
+          "type": "action",
+          "text": "Since the usual steps have not solved it, I am passing your message to a person on the team, with everything you have already tried."
+        },
+        {
           "type": "fact",
-          "text": "The channel either does not exist, or it is a private channel without the Blotato app.",
+          "text": "We carry forward the checks you already did, so you should not get the same checklist from us again unless there is something new to go on.",
           "cite": {
-            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
-            "quote": "The channel does not exist, or it is a private channel without the Blotato app."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Carry forward completed checks and their results. Do not resend the same checklist without new evidence."
           }
         },
         {
           "type": "fact",
-          "text": "Blotato posts to a private channel only after you invite the app.",
+          "text": "Until then, please hold off on anything that could post twice, cost credits, or change your account.",
           "cite": {
-            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
-            "quote": "Blotato posts to a private channel only after you invite the app."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Stop if the next action risks another charge, duplicate post, wrong destination, or unauthorized account change."
           }
         },
         {
           "type": "fact",
-          "text": "For a private channel, run /invite @Blotato in the channel first.",
+          "text": "Please do not send your API key or any login codes here.",
           "cite": {
-            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
-            "quote": "For a private channel, run /invite @Blotato in the channel, then publish again."
-          }
-        },
-        {
-          "type": "fact",
-          "text": "Otherwise, review the workspace's channels in Accounts and publish to another channel.",
-          "cite": {
-            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
-            "quote": "Otherwise, review the workspace's channels in Accounts and publish to another channel."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Do not include API keys, OAuth codes, signed upload URLs, or unrelated customer data."
           }
         }
       ],
-      "next": "If the channel is private, run /invite @Blotato in that channel in Slack.",
-      "proof": "You will know it worked when the post appears in the Slack channel."
+      "next": "If you have them, reply with the exact error, the time it happened with your time zone, and any id you see.",
+      "proof": "Still open: what is causing this. A person on the team has your message and what you tried.",
+      "escalate": {
+        "why": "The customer got a Slack channel error (33000 or 33001: channel not found, or the app is not in the private channel). Help page: Slack errors (https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors). For a private channel, /invite @Blotato in the channel, then publish again; otherwise pick another channel in Accounts.",
+        "causes": [],
+        "ruledOut": []
+      },
+      "note": "A hand-over since Nov 15, 2026: its own reply failed the fresh checker three times (checks-run3/BLOCKS-R3.md), so it sends the shared needs-person holding reply word for word, and a person takes it with the escalation note."
     },
     {
       "id": "slack-archived-or-blocked-33002-33003",
@@ -2227,43 +2229,45 @@
         ],
         "phrases": []
       },
-      "opening": "Slack posts have a few simple content rules, and these errors point at one of them.",
+      "opening": "Thank you for telling me what you have already tried. That helps a lot.",
       "steps": [
         {
+          "type": "action",
+          "text": "Since the usual steps have not solved it, I am passing your message to a person on the team, with everything you have already tried."
+        },
+        {
           "type": "fact",
-          "text": "A Slack post needs text, an image, or both, with 10 images at most.",
+          "text": "We carry forward the checks you already did, so you should not get the same checklist from us again unless there is something new to go on.",
           "cite": {
-            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
-            "quote": "A Slack post needs text, an image, or both, with 10 images at most."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Carry forward completed checks and their results. Do not resend the same checklist without new evidence."
           }
         },
         {
           "type": "fact",
-          "text": "Add text or an image, or remove images until 10 or fewer remain.",
+          "text": "Until then, please hold off on anything that could post twice, cost credits, or change your account.",
           "cite": {
-            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
-            "quote": "Add text or an image, or remove images until 10 or fewer remain, then publish again."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Stop if the next action risks another charge, duplicate post, wrong destination, or unauthorized account change."
           }
         },
         {
           "type": "fact",
-          "text": "Slack posts accept text and images, not video.",
+          "text": "Please do not send your API key or any login codes here.",
           "cite": {
-            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
-            "quote": "Slack posts accept text and images, not video."
-          }
-        },
-        {
-          "type": "fact",
-          "text": "Remove every video from the post, or remove the Slack channels from its destinations.",
-          "cite": {
-            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
-            "quote": "Remove every video from the post, or remove the Slack channels from its destinations."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Do not include API keys, OAuth codes, signed upload URLs, or unrelated customer data."
           }
         }
       ],
-      "next": "Add text or an image, or remove the video or extra images.",
-      "proof": "You will know it worked when the post appears in the Slack channel."
+      "next": "If you have them, reply with the exact error, the time it happened with your time zone, and any id you see.",
+      "proof": "Still open: what is causing this. A person on the team has your message and what you tried.",
+      "escalate": {
+        "why": "The customer got a Slack content error (33004: needs text or an image, or more than 10 images; 7000: video not supported). Help page: Slack errors (https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors). Each code has its own fix (33004: add text or an image, or cut to 10 images; 7000: remove every video or the Slack destinations), then publish again.",
+        "causes": [],
+        "ruledOut": []
+      },
+      "note": "A hand-over since Nov 15, 2026: its own reply failed the fresh checker three times (checks-run3/BLOCKS-R3.md), so it sends the shared needs-person holding reply word for word, and a person takes it with the escalation note."
     },
     {
       "id": "slack-rejected-or-cannot-display-33005",
@@ -2319,35 +2323,45 @@
           "rejected the post"
         ]
       },
-      "opening": "Slack refused the message, and the next step depends on which of the two messages you saw.",
+      "opening": "Thank you for telling me what you have already tried. That helps a lot.",
       "steps": [
         {
+          "type": "action",
+          "text": "Since the usual steps have not solved it, I am passing your message to a person on the team, with everything you have already tried."
+        },
+        {
           "type": "fact",
-          "text": "Slack refused the message.",
+          "text": "We carry forward the checks you already did, so you should not get the same checklist from us again unless there is something new to go on.",
           "cite": {
-            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
-            "quote": "Slack refused the message."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Carry forward completed checks and their results. Do not resend the same checklist without new evidence."
           }
         },
         {
           "type": "fact",
-          "text": "For \"Slack could not display this post\", confirm every image URL opens without signing in and points to a PNG, JPEG, or GIF file.",
+          "text": "Until then, please hold off on anything that could post twice, cost credits, or change your account.",
           "cite": {
-            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
-            "quote": "confirm every image URL opens without signing in and points to a PNG, JPEG, or GIF file, then publish again."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Stop if the next action risks another charge, duplicate post, wrong destination, or unauthorized account change."
           }
         },
         {
           "type": "fact",
-          "text": "For \"Slack rejected the post\", send support the full error and the channel.",
+          "text": "Please do not send your API key or any login codes here.",
           "cite": {
-            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
-            "quote": "send support the full error and the channel."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Do not include API keys, OAuth codes, signed upload URLs, or unrelated customer data."
           }
         }
       ],
-      "next": "If you saw \"Slack could not display this post\", check that each image URL opens without signing in and is a PNG, JPEG, or GIF file.",
-      "proof": "You will know it worked when the post appears in the Slack channel."
+      "next": "If you have them, reply with the exact error, the time it happened with your time zone, and any id you see.",
+      "proof": "Still open: what is causing this. A person on the team has your message and what you tried.",
+      "escalate": {
+        "why": "The customer got Slack 33005 (\"Slack rejected the post\" or \"Slack could not display this post\"). Help page: Slack errors (https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors). For \"could not display\", each image URL must open without signing in and be a PNG, JPEG or GIF, then publish again; for \"rejected\", the page asks for the full error and the channel.",
+        "causes": [],
+        "ruledOut": []
+      },
+      "note": "A hand-over since Nov 15, 2026: its own reply failed the fresh checker three times (checks-run3/BLOCKS-R3.md), so it sends the shared needs-person holding reply word for word, and a person takes it with the escalation note."
     },
     {
       "id": "tiktok-unsupported-picture-size",
@@ -3282,43 +3296,45 @@
           "reference id"
         ]
       },
-      "opening": "This timeout does not tell us the post failed, so check the destination first.",
+      "opening": "Thank you for telling me what you have already tried. That helps a lot.",
       "steps": [
         {
+          "type": "action",
+          "text": "Since the usual steps have not solved it, I am passing your message to a person on the team, with everything you have already tried."
+        },
+        {
           "type": "fact",
-          "text": "Blotato exhausted its publishing wait and retry path while Instagram still reported the media as not ready.",
+          "text": "We carry forward the checks you already did, so you should not get the same checklist from us again unless there is something new to go on.",
           "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "Blotato exhausted its publishing wait/retry path while Instagram still reported media not ready."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Carry forward completed checks and their results. Do not resend the same checklist without new evidence."
           }
         },
         {
           "type": "fact",
-          "text": "Keep the reference ID.",
+          "text": "Until then, please hold off on anything that could post twice, cost credits, or change your account.",
           "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "Preserve the reference ID."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Stop if the next action risks another charge, duplicate post, wrong destination, or unauthorized account change."
           }
         },
         {
           "type": "fact",
-          "text": "Check your Instagram account and the original post status before a delayed retry.",
+          "text": "Please do not send your API key or any login codes here.",
           "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "Check the destination and original post status before a delayed retry."
-          }
-        },
-        {
-          "type": "fact",
-          "text": "Do not treat a timeout alone as proof of no platform-side result.",
-          "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "Do not treat a timeout alone as proof of no platform-side result."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Do not include API keys, OAuth codes, signed upload URLs, or unrelated customer data."
           }
         }
       ],
-      "next": "Check your Instagram account and the post status in Blotato before you retry.",
-      "proof": "You will know it worked when you can tell whether the post is already on Instagram."
+      "next": "If you have them, reply with the exact error, the time it happened with your time zone, and any id you see.",
+      "proof": "Still open: what is causing this. A person on the team has your message and what you tried.",
+      "escalate": {
+        "why": "The customer got Instagram \"server media processing timed out\" (20003). Help pages: Error Reference (https://help.blotato.com/support/errors), the 20003 entry (keep the reference ID, check the Instagram account and the original post status before a delayed retry); Publishing status (https://help.blotato.com/start-with-an-ai-agent/publishing-status). Check Instagram itself before anyone retries.",
+        "causes": [],
+        "ruledOut": []
+      },
+      "note": "A hand-over since Nov 15, 2026: its own reply failed the fresh checker three times (checks-run3/BLOCKS-R3.md), so it sends the shared needs-person holding reply word for word, and a person takes it with the escalation note."
     },
     {
       "id": "instagram-carousel-too-many-attachments",
@@ -3540,35 +3556,45 @@
           "reauthorized"
         ]
       },
-      "opening": "This 403 means the X connection needs to be refreshed.",
+      "opening": "Thank you for telling me what you have already tried. That helps a lot.",
       "steps": [
         {
+          "type": "action",
+          "text": "Since the usual steps have not solved it, I am passing your message to a person on the team, with everything you have already tried."
+        },
+        {
           "type": "fact",
-          "text": "The error means the Twitter/X authorization expired or permissions changed.",
+          "text": "We carry forward the checks you already did, so you should not get the same checklist from us again unless there is something new to go on.",
           "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "Twitter/X authorization expired or permissions changed."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Carry forward completed checks and their results. Do not resend the same checklist without new evidence."
           }
         },
         {
           "type": "fact",
-          "text": "Go to Accounts, find your Twitter account, and click Reconnect.",
+          "text": "Until then, please hold off on anything that could post twice, cost credits, or change your account.",
           "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "Go to Accounts, find your Twitter account, and click Reconnect."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Stop if the next action risks another charge, duplicate post, wrong destination, or unauthorized account change."
           }
         },
         {
           "type": "fact",
-          "text": "Re-authorize the app when prompted.",
+          "text": "Please do not send your API key or any login codes here.",
           "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "Re-authorize the app when prompted."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Do not include API keys, OAuth codes, signed upload URLs, or unrelated customer data."
           }
         }
       ],
-      "next": "Open Accounts, click Reconnect on your Twitter account, and authorize the app again.",
-      "proof": "You will know it worked when your next post publishes to X."
+      "next": "If you have them, reply with the exact error, the time it happened with your time zone, and any id you see.",
+      "proof": "Still open: what is causing this. A person on the team has your message and what you tried.",
+      "escalate": {
+        "why": "The customer got X/Twitter 403 \"You are not permitted to perform this action\". Help page: Error Reference (https://help.blotato.com/support/errors), the X 403 entry: reconnect the Twitter account in Accounts, re-authorize, then retry the post that failed.",
+        "causes": [],
+        "ruledOut": []
+      },
+      "note": "A hand-over since Nov 15, 2026: its own reply failed the fresh checker three times (checks-run3/BLOCKS-R3.md), so it sends the shared needs-person holding reply word for word, and a person takes it with the escalation note."
     },
     {
       "id": "x-duplicate-content-403",
@@ -4464,43 +4490,45 @@
           "below the limit"
         ]
       },
-      "opening": "This error means the text is longer than the platform allows.",
+      "opening": "Thank you for telling me what you have already tried. That helps a lot.",
       "steps": [
         {
+          "type": "action",
+          "text": "Since the usual steps have not solved it, I am passing your message to a person on the team, with everything you have already tried."
+        },
+        {
           "type": "fact",
-          "text": "The post text is too long for the target platform.",
+          "text": "We carry forward the checks you already did, so you should not get the same checklist from us again unless there is something new to go on.",
           "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "The post text is too long for the target platform."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Carry forward completed checks and their results. Do not resend the same checklist without new evidence."
           }
         },
         {
           "type": "fact",
-          "text": "Shorten the text and any additionalPosts listed in the error details.",
+          "text": "Until then, please hold off on anything that could post twice, cost credits, or change your account.",
           "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "Shorten the text and any additionalPosts listed in the error details, then retry."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Stop if the next action risks another charge, duplicate post, wrong destination, or unauthorized account change."
           }
         },
         {
           "type": "fact",
-          "text": "Emoji and full-width characters count as 2.",
+          "text": "Please do not send your API key or any login codes here.",
           "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "Emoji and full-width characters count as 2."
-          }
-        },
-        {
-          "type": "fact",
-          "text": "For Slack, posts hold up to 3,000 characters.",
-          "cite": {
-            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
-            "quote": "Slack posts hold up to 3,000 characters."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Do not include API keys, OAuth codes, signed upload URLs, or unrelated customer data."
           }
         }
       ],
-      "next": "Shorten the text, and any additional posts the error lists.",
-      "proof": "You will know it worked when the post publishes without the character limit error."
+      "next": "If you have them, reply with the exact error, the time it happened with your time zone, and any id you see.",
+      "proof": "Still open: what is causing this. A person on the team has your message and what you tried.",
+      "escalate": {
+        "why": "The customer got \"Text length exceeds the character limit\" (20005). Help pages: Error Reference (https://help.blotato.com/support/errors), the 20005 entry (shorten the text and any additionalPosts; emoji and full-width characters count as 2); Slack errors (https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors) for Slack's 3,000 characters, where &, < and > count as 5, 4 and 4.",
+        "causes": [],
+        "ruledOut": []
+      },
+      "note": "A hand-over since Nov 15, 2026: its own reply failed the fresh checker three times (checks-run3/BLOCKS-R3.md), so it sends the shared needs-person holding reply word for word, and a person takes it with the escalation note."
     },
     {
       "id": "app-client-side-exception",

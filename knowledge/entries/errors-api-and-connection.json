@@ -1695,51 +1695,45 @@
           "sent again"
         ]
       },
-      "opening": "A 504 means the request took too long on the way. It does not tell us whether the work finished.",
+      "opening": "Thank you for telling me what you have already tried. That helps a lot.",
       "steps": [
         {
+          "type": "action",
+          "text": "Since the usual steps have not solved it, I am passing your message to a person on the team, with everything you have already tried."
+        },
+        {
           "type": "fact",
-          "text": "The request timed out at a gateway.",
+          "text": "We carry forward the checks you already did, so you should not get the same checklist from us again unless there is something new to go on.",
           "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "The request timed out at a gateway."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Carry forward completed checks and their results. Do not resend the same checklist without new evidence."
           }
         },
         {
           "type": "fact",
-          "text": "This response does not say how the downstream work turned out.",
+          "text": "Until then, please hold off on anything that could post twice, cost credits, or change your account.",
           "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "The downstream operation's outcome is not established by this response."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Stop if the next action risks another charge, duplicate post, wrong destination, or unauthorized account change."
           }
         },
         {
           "type": "fact",
-          "text": "For a post, open any platform link Blotato returned and check the intended account on the platform itself.",
+          "text": "Please do not send your API key or any login codes here.",
           "cite": {
-            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
-            "quote": "Open any returned platform URL and check the intended account on the platform."
-          }
-        },
-        {
-          "type": "fact",
-          "text": "Check the original submission or creation before you retry a write.",
-          "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "Check the original submission or creation before retrying a write."
-          }
-        },
-        {
-          "type": "fact",
-          "text": "Reconnect an account only if a separate authentication or permission error asks for it.",
-          "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "Reconnect only if a separate authentication or permission error requires it."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Do not include API keys, OAuth codes, signed upload URLs, or unrelated customer data."
           }
         }
       ],
-      "next": "Look up the status of the original submission and check the platform itself for the post before you send the request again.",
-      "proof": "You will know it worked when you can see the post or schedule you created, or a clear error for it."
+      "next": "If you have them, reply with the exact error, the time it happened with your time zone, and any id you see.",
+      "proof": "Still open: what is causing this. A person on the team has your message and what you tried.",
+      "escalate": {
+        "why": "The customer got a 504 Gateway Timeout. Help pages: Error Reference (https://help.blotato.com/support/errors), 504 Gateway Timeout; Publishing status (https://help.blotato.com/start-with-an-ai-agent/publishing-status), which says not to submit a replacement while the original outcome is unknown. Check the original submission and the platform before any resend.",
+        "causes": [],
+        "ruledOut": []
+      },
+      "note": "A hand-over since Nov 15, 2026: its own reply failed the fresh checker three times (checks-run3/BLOCKS-R3.md), so it sends the shared needs-person holding reply word for word, and a person takes it with the escalation note."
     },
     {
       "id": "visual-template-inputs-wrong",
@@ -2193,51 +2187,45 @@
           "reconnected"
         ]
       },
-      "opening": "Here the platform itself is limiting your connected account.",
+      "opening": "Thank you for telling me what you have already tried. That helps a lot.",
       "steps": [
         {
+          "type": "action",
+          "text": "Since the usual steps have not solved it, I am passing your message to a person on the team, with everything you have already tried."
+        },
+        {
           "type": "fact",
-          "text": "The platform is rate-limiting publishing for your connected account.",
+          "text": "We carry forward the checks you already did, so you should not get the same checklist from us again unless there is something new to go on.",
           "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "The platform is rate-limiting publishing for your connected account."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Carry forward completed checks and their results. Do not resend the same checklist without new evidence."
           }
         },
         {
           "type": "fact",
-          "text": "Before you retry, check your YouTube channel or LinkedIn page itself for each post, so you do not post one twice.",
+          "text": "Until then, please hold off on anything that could post twice, cost credits, or change your account.",
           "cite": {
-            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
-            "quote": "Read the error and check the destination before retrying."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Stop if the next action risks another charge, duplicate post, wrong destination, or unauthorized account change."
           }
         },
         {
           "type": "fact",
-          "text": "Wait an hour and retry the posts from Posts > Failed.",
+          "text": "Please do not send your API key or any login codes here.",
           "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "Wait an hour and retry from"
-          }
-        },
-        {
-          "type": "fact",
-          "text": "If posts keep failing after you waited, reconnect the social account in Accounts and then retry.",
-          "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "If posts keep failing with this error after waiting, reconnect the social account in"
-          }
-        },
-        {
-          "type": "fact",
-          "text": "A stale connection token keeps triggering the platform's rate limiter.",
-          "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "a stale connection token keeps triggering the platform's rate limiter."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Do not include API keys, OAuth codes, signed upload URLs, or unrelated customer data."
           }
         }
       ],
-      "next": "Check your channel or page for the posts, then wait an hour and retry the ones that are not there from the Posts page, Failed tab.",
-      "proof": "You will know it worked when the retried posts show as published."
+      "next": "If you have them, reply with the exact error, the time it happened with your time zone, and any id you see.",
+      "proof": "Still open: what is causing this. A person on the team has your message and what you tried.",
+      "escalate": {
+        "why": "The customer's YouTube or LinkedIn posts keep failing after an \"exceeded\" message. Help pages: Error Reference (https://help.blotato.com/support/errors), the rate-limit entry (wait an hour, retry from Posts > Failed, reconnect only if posts keep failing after waiting); Publishing status (https://help.blotato.com/start-with-an-ai-agent/publishing-status). Check the channel or page itself for each post before any retry.",
+        "causes": [],
+        "ruledOut": []
+      },
+      "note": "A hand-over since Nov 15, 2026: its own reply failed the fresh checker three times (checks-run3/BLOCKS-R3.md), so it sends the shared needs-person holding reply word for word, and a person takes it with the escalation note."
     },
     {
       "id": "template-id-equal-to-constant",
@@ -2702,43 +2690,45 @@
           "intermittent"
         ]
       },
-      "opening": "This message alone does not show the real cause, so the check starts with the response itself.",
+      "opening": "Thank you for telling me what you have already tried. That helps a lot.",
       "steps": [
         {
+          "type": "action",
+          "text": "Since the usual steps have not solved it, I am passing your message to a person on the team, with everything you have already tried."
+        },
+        {
           "type": "fact",
-          "text": "Look at the response status and body you can see, without exposing secrets.",
+          "text": "We carry forward the checks you already did, so you should not get the same checklist from us again unless there is something new to go on.",
           "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "Inspect the available response status and body without exposing secrets."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Carry forward completed checks and their results. Do not resend the same checklist without new evidence."
           }
         },
         {
           "type": "fact",
-          "text": "An unexpected character in a deserialization error does not show the whole response body or the cause.",
+          "text": "Until then, please hold off on anything that could post twice, cost credits, or change your account.",
           "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "An unexpected character in a deserialization error does not establish the complete response body or cause."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Stop if the next action risks another charge, duplicate post, wrong destination, or unauthorized account change."
           }
         },
         {
           "type": "fact",
-          "text": "Check that the URL is reachable, that it has not expired, what the media really is, and that the upload finished.",
+          "text": "Please do not send your API key or any login codes here.",
           "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "Check URL accessibility, expiry, actual media content, and upload completion."
-          }
-        },
-        {
-          "type": "fact",
-          "text": "A Blotato hostname or a retry that worked later does not prove a timeout.",
-          "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "A Blotato hostname or a later successful retry does not prove a timeout."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Do not include API keys, OAuth codes, signed upload URLs, or unrelated customer data."
           }
         }
       ],
-      "next": "Check what your media URL really returns, and look at the submission status.",
-      "proof": "You will know it worked when the URL returns the media file and the post goes through."
+      "next": "If you have them, reply with the exact error, the time it happened with your time zone, and any id you see.",
+      "proof": "Still open: what is causing this. A person on the team has your message and what you tried.",
+      "escalate": {
+        "why": "The customer got \"Failed to fetch media URL: char ... is not expected\" (a deserialization error, often in n8n). Help pages: Error Reference (https://help.blotato.com/support/errors), the media-fetch and deserialization entries (the hidden n8n field {error}.$response holds the real response); Publishing status (https://help.blotato.com/start-with-an-ai-agent/publishing-status). Follow media-fetch diagnosis and the publishing-status check before any new submission.",
+        "causes": [],
+        "ruledOut": []
+      },
+      "note": "A hand-over since Nov 15, 2026: its own reply failed the fresh checker three times (checks-run3/BLOCKS-R3.md), so it sends the shared needs-person holding reply word for word, and a person takes it with the escalation note."
     },
     {
       "id": "tiktok-url-ownership-verification",

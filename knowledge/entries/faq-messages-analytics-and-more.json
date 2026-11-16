@@ -1742,50 +1742,52 @@
           "still-broken"
         ]
       },
-      "opening": "Thanks for asking. \"Analytics not available\" on a free trial post is expected, and here is why.",
+      "opening": "Thank you for telling me what you have already tried. That helps a lot.",
       "steps": [
         {
+          "type": "action",
+          "text": "Since the usual steps have not solved it, I am passing your message to a person on the team, with everything you have already tried."
+        },
+        {
           "type": "fact",
-          "text": "Analytics need a paid plan. On the free trial, posts show \"Analytics not available.\"",
+          "text": "We carry forward the checks you already did, so you should not get the same checklist from us again unless there is something new to go on.",
           "cite": {
-            "url": "https://help.blotato.com/support/faqs",
-            "quote": "Analytics need a paid plan. On the free trial, or if your plan does not include analytics, posts show \"Analytics not available.\""
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Carry forward completed checks and their results. Do not resend the same checklist without new evidence."
           }
         },
         {
           "type": "fact",
-          "text": "Analytics are available on every paid plan.",
+          "text": "Until then, please hold off on anything that could post twice, cost credits, or change your account.",
           "cite": {
-            "url": "https://help.blotato.com/web-app-features/analytics",
-            "quote": "Analytics are available on every paid plan."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Stop if the next action risks another charge, duplicate post, wrong destination, or unauthorized account change."
           }
         },
         {
           "type": "fact",
-          "text": "Analytics exist only for posts published while analytics was active on your account. Older posts do not backfill, so posts from your trial will not gain metrics later.",
+          "text": "Please do not send your API key or any login codes here.",
           "cite": {
-            "url": "https://help.blotato.com/support/faqs",
-            "quote": "Analytics exist only for posts published while analytics was active on your account. Older posts do not backfill."
-          }
-        },
-        {
-          "type": "fact",
-          "text": "Your subscription controls are in Settings > Billing, under View Billing Portal.",
-          "cite": {
-            "url": "https://help.blotato.com/settings/billing-and-credits",
-            "quote": "Select View Billing Portal for subscription, invoice, and payment-method controls."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Do not include API keys, OAuth codes, signed upload URLs, or unrelated customer data."
           }
         }
       ],
-      "next": "If you want metrics for your posts, look at your plan options in Settings > Billing > View Billing Portal.",
-      "proof": "You will know it worked when a post you publish on a paid plan shows metrics after its first checkpoint.",
+      "next": "If you have them, reply with the exact error, the time it happened with your time zone, and any id you see.",
+      "proof": "Still open: what is causing this. A person on the team has your message and what you tried.",
+      "escalate": {
+        "why": "The customer asks why posts show \"Analytics not available\" on the free trial. Help pages: FAQ (https://help.blotato.com/support/faqs), the analytics answer; Analytics (https://help.blotato.com/web-app-features/analytics), which also says LinkedIn and Slack analytics are not available; Billing and credits (https://help.blotato.com/settings/billing-and-credits), which says the trial has every feature except the API. Check the customer's platforms before saying a paid plan brings metrics.",
+        "causes": [],
+        "ruledOut": []
+      },
       "docEdit": {
         "article": "https://help.blotato.com/settings/billing-and-credits",
         "kind": "change",
         "before": "During your free trial, you can access ALL blotato features except the API",
         "after": "During your free trial, you can access ALL blotato features except the API and post analytics",
         "note": "The FAQ (\"Analytics need a paid plan. On the free trial ... posts show Analytics not available\") and the Analytics page (\"Analytics are available on every paid plan.\") both say trial posts get no analytics. The billing page says the trial has all features except the API. The desk follows the two analytics pages; please make the billing page say the same, or tell us if trial posts do get analytics."
-      }
+      },
+      "note": "A hand-over since Nov 15, 2026: its own reply failed the fresh checker three times (checks-run3/BLOCKS-R3.md), so it sends the shared needs-person holding reply word for word, and a person takes it with the escalation note."
     },
     {
       "id": "analytics-no-data-yet",
