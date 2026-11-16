@@ -79,7 +79,7 @@ export async function handleTicket(desk, ticket, { requireReview = false } = {})
 }
 
 // A composed reply (src/composer.mjs). It is never a saved, pre-checked reply, so it never reads the fresh-checker
-// store: its state is `checked-live` (the script's checks and the second read passed it just now) or `script-checked`
+// store: its state is `checked-live` (the script's checks passed now; the second read passed these exact words, now or in an earlier run) or `script-checked`
 // (the second read is off). The script checker still runs on the exact text, here, before anything is shown.
 function composedResult(desk, ticket, d, known, { requireReview }) {
   const { paths, logger, checksDir } = desk;

@@ -18,7 +18,7 @@
 //      reply and the full help-page sections cited. Any real objection hands the message to a person.
 // The reply's frame (greeting, numbered steps, next step, "Still open:" line, help-page links, sign-off) is written by
 // script; only the step sentences are the model's. A composed reply is never a saved, pre-checked reply: its state is
-// `checked-live` (the second read passed it just now) or `script-checked` (the second read is off).
+// `checked-live` (the second read passed these exact words, now or in an earlier run of the same message) or `script-checked` (the second read is off).
 // Fail closed: any error, timeout or bad JSON leaves the decision exactly as it was before the composer.
 import path from 'node:path';
 import { createCache, makeBackend, hashOf, fullModel, BACKENDS } from './reader.mjs';
