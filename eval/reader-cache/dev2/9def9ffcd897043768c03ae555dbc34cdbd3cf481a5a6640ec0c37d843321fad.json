@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6146,
+ "verdict": {
+  "points": [
+   {
+    "point": "Free generate skill animating a still with Seedance",
+    "sentence": ""
+   },
+   {
+    "point": "Whether this uses credits from the 5,000 Creator credits",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entries cover general credit use (what-uses-credits) and the free skills bundle (free-claude-skills), but none names Seedance or states whether generation through the free skill draws from Blotato credits, so answering would require a fact the sentences do not state."
+ },
+ "at": "2026-11-16T06:22:04.867Z"
+}

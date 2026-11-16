@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7620,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does the free generate skill use credits",
+    "sentence": ""
+   },
+   {
+    "point": "Animating a still with Seedance (image-to-video)",
+    "sentence": ""
+   },
+   {
+    "point": "Whether it comes out of the 5,000 Creator credits",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry, what-uses-credits, says image-to-video uses credits. It never mentions Seedance or a free generate skill, and the free-claude-skills entry doesn't say whether skills use credits, so no entry answers every point."
+ },
+ "at": "2026-11-16T06:23:39.173Z"
+}

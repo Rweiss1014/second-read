@@ -1,0 +1,30 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6129,
+ "verdict": {
+  "points": [
+   {
+    "point": "Dental brand YouTube channel missing from the YouTube connect list",
+    "sentence": ""
+   },
+   {
+    "point": "Own channel and another client's channel do appear in the list",
+    "sentence": ""
+   },
+   {
+    "point": "User has Manager role on the dental channel in YouTube Studio",
+    "sentence": ""
+   },
+   {
+    "point": "What am I doing wrong",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether or why a YouTube brand channel granted through Manager access should appear in Blotato's connect list, so the closest entry (connect-social-accounts) gives only generic steps and the rest answer neighboring questions, which would be a guess about this customer's account."
+ },
+ "at": "2026-11-16T06:22:18.773Z"
+}

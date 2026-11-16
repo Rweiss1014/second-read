@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4007,
+ "verdict": {
+  "points": [
+   {
+    "point": "Mix six slide images and one video in a single LinkedIn carousel",
+    "sentence": ""
+   },
+   {
+    "point": "Posting to a LinkedIn company page via API",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether LinkedIn carousels can mix images and a video or what the media limits are; the LinkedIn entries only cover company page IDs, and the carousel limits quoted are for Instagram and Bluesky."
+ },
+ "at": "2026-11-16T06:23:48.580Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5629,
+ "verdict": {
+  "points": [
+   {
+    "point": "where to get the current price per 1000 credits",
+    "sentence": ""
+   },
+   {
+    "point": "how to get it from the API (no hardcoding)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states a price per 1000 credits or names an API endpoint for pricing; the pricing entries only list plan prices and monthly credit amounts, and the credit entries cover balance and purchase endpoints, not unit price."
+ },
+ "at": "2026-11-16T06:26:26.523Z"
+}

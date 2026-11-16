@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6722,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does OAuth sign-in work in Gemini CLI",
+    "sentence": ""
+   },
+   {
+    "point": "Is Gemini CLI an officially supported client",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry mentions Gemini CLI, its OAuth support, or a list of officially supported clients; the closest entries cover Codex/ChatGPT setup or social platforms, which are different questions."
+ },
+ "at": "2026-11-16T06:26:01.988Z"
+}

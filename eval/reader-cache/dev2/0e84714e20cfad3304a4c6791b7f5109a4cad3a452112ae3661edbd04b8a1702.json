@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6308,
+ "verdict": {
+  "points": [
+   {
+    "point": "Adding a favorite cooking blog as Article context",
+    "sentence": "Sometimes when you try to add a blog, article, or website as new context, you'll see a message related to \"enabling Javascript and cookies\"."
+   },
+   {
+    "point": "Why the JavaScript and cookies message appears",
+    "sentence": "This means Blotato's website scraper is unable to access the website due to its anti-scraping policies."
+   },
+   {
+    "point": "How to get the blog's content into Blotato",
+    "sentence": "Copy and paste the article, website, or blog, then add it as Text context."
+   }
+  ],
+  "pick": "website-context-javascript-cookies",
+  "reason": "The entry directly covers the customer's exact symptom of adding a blog as Article context and getting the JavaScript and cookies message, explains the cause, and gives the Text-context workaround."
+ },
+ "at": "2026-11-16T06:21:55.430Z"
+}

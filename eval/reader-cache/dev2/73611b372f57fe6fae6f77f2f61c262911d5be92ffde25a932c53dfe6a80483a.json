@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5675,
+ "verdict": {
+  "points": [
+   {
+    "point": "Where the 18 people not counted in the analytics went (230 triggered vs 201 completed, 11 failed, 2 issues)",
+    "sentence": ""
+   },
+   {
+    "point": "Whether the 18 people did not get their DM",
+    "sentence": ""
+   },
+   {
+    "point": "Whether the account is losing leads",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "None of the candidates explains how DM automation analytics counts add up or what happened to the unaccounted runs, and answering would require account-specific run data, so I'm passing this to the team."
+ },
+ "at": "2026-11-16T06:21:50.105Z"
+}

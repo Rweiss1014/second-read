@@ -18,6 +18,8 @@ const KIND = {
   money: 'guard', 'others-data': 'guard', secret: 'guard', 'staff-action': 'guard', 'desk-instructions': 'guard',
   'tried-already': 'holding', outage: 'holding', 'records-disagree': 'holding', 'docs-wrong': 'holding', 'access-blocked': 'holding', 'past-docs': 'holding', pressure: 'holding',
   'docs-silent': 'none', tie: 'none', 'partly-covered': 'none', 'not-english': 'none', 'no-coverage': 'none', nonsense: 'none',
+  // Only with a reader on; their own tests (test/reader.test.mjs) use a fake backend.
+  'reader-abstained': 'none', 'reader-refuted': 'none',
 };
 
 // A made-up message for each reason code the desk can reach with a short message.

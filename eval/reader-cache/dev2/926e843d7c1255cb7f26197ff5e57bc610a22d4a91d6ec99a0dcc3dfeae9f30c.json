@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5250,
+ "verdict": {
+  "points": [
+   {
+    "point": "Whether people who sign up through the referral link get a discount on the first month or extra credits",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "None of the candidate entries mention referral links, Tolt, signup discounts, or sign-up bonus credits, so no entry answers whether referred users get anything."
+ },
+ "at": "2026-11-16T06:21:44.312Z"
+}

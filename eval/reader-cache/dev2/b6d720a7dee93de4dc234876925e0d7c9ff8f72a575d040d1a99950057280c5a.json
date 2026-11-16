@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7094,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why 'too far in the future' appears for a date three weeks out",
+    "sentence": ""
+   },
+   {
+    "point": "LinkedIn post scheduled for 2026-12-06",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The scheduling-horizon entry says the limit is 9 months on every plan, so a date three weeks out should be accepted. None of the entries explains why this error appears anyway, and a person on the team should look at it."
+ },
+ "at": "2026-11-16T06:25:30.469Z"
+}

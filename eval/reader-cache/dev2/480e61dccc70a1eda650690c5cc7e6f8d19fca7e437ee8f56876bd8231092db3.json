@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4200,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does OAuth sign-in work in Gemini CLI, or only the blotato-api-key header",
+    "sentence": ""
+   },
+   {
+    "point": "Is Gemini CLI an officially supported client",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry names Gemini CLI or states its OAuth or support status; the Codex and ChatGPT entry and the platforms list cover different questions."
+ },
+ "at": "2026-11-16T06:23:52.460Z"
+}

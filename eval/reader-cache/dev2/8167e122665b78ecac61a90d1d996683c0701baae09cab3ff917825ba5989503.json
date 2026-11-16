@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5822,
+ "verdict": {
+  "points": [
+   {
+    "point": "Do people who sign up through the referral link get a discount or extra credits?",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry mentions referral links, referral sign-up discounts, or extra credits for referred users; the closest entries cover buying credits, trials, and other topics, so none answers the question."
+ },
+ "at": "2026-11-16T06:26:14.517Z"
+}

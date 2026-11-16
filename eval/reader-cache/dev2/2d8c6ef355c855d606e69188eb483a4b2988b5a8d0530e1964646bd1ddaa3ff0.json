@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6021,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can six images and one video be combined in one LinkedIn carousel",
+    "sentence": ""
+   },
+   {
+    "point": "Posting to a LinkedIn company page via the API",
+    "sentence": "For LinkedIn company pages, you need both an accountId and a pageId."
+   }
+  ],
+  "pick": "none",
+  "reason": "The candidates cover LinkedIn company-page posting, but none states whether a LinkedIn carousel can mix images and a video; the Instagram and Bluesky entries are different platforms, so no single entry answers the question."
+ },
+ "at": "2026-11-16T06:26:51.884Z"
+}

@@ -7,6 +7,7 @@
 import { routeMessage, PAGES } from '../knowledge/playbook.mjs';
 import { listPosts, getSubmission, errorText } from './api.mjs';
 import { explain } from './explain.mjs';
+import { READER_OFF } from './reader.mjs';
 
 const PLATFORM_WORDS = ['instagram', 'linkedin', 'twitter', 'facebook', 'tiktok', 'youtube', 'threads', 'bluesky', 'pinterest', 'slack'];
 // The raw stamp, for the escalation packet and the technical evidence: "Sun, 15 Nov 2026 19:00:00 UTC".
@@ -104,11 +105,15 @@ async function lookup(kind, ticket, { client, docs, entry, now = Date.now }) {
   return ev;
 }
 
-export async function diagnose(ticket, { client, docs, agent = 'Support', route = routeMessage, now = Date.now }) {
-  const r = route(ticket.text);
+export async function diagnose(ticket, { client, docs, agent = 'Support', route = routeMessage, now = Date.now, reader = null }) {
+  // The reader (src/reader.mjs), when on, reviews route()'s decision: it may pick an entry or hand over. It never
+  // sees a message a guard or a hand-over signal took, and on any error the decision stays route()'s own.
+  const r0 = route(ticket.text);
+  const r = reader ? await reader.decide(ticket.text, r0) : r0;
   const entry = r.entry;
-  const match = { decision: r.decision, why: r.why ?? null, whyDetail: r.whyDetail ?? null, guard: r.guard, reason: r.reason, words: r.words, score: r.score, margin: r.margin, candidates: r.candidates, signals: r.signals, questions: r.questions, stripped: r.stripped };
-  const out = { ticket, entry: entry ? { id: entry.id, kind: entry.kind, title: entry.title } : null, match, pages: {}, evidence: null };
+  const readerInfo = r.reader || READER_OFF;
+  const match = { decision: r.decision, why: r.why ?? null, whyDetail: r.whyDetail ?? null, guard: r.guard, reason: r.reason, words: r.words, score: r.score, margin: r.margin, candidates: r.candidates, signals: r.signals, questions: r.questions, stripped: r.stripped, reader: readerInfo };
+  const out = { ticket, entry: entry ? { id: entry.id, kind: entry.kind, title: entry.title } : null, match, reader: readerInfo, pages: {}, evidence: null };
 
   if (!entry) {
     // No entry the desk trusts: search the docs, refuse to guess, propose a help-doc edit and hand it to a person,

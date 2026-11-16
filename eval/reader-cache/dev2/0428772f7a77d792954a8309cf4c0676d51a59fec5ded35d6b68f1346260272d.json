@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 11927,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is the 100 MB Google Drive limit true?",
+    "sentence": "Blotato does not impose a 100 MB Google Drive cutoff."
+   },
+   {
+    "point": "Drive keeps returning Google's virus scan warning page instead of the file (Drive warning page fix)",
+    "sentence": "First, share the file as \"Anyone with the link\" and use https://drive.usercontent.google.com/download?id=FILE_ID&export=download&confirm=t."
+   }
+  ],
+  "pick": "google-drive-warning-page",
+  "reason": "The entry directly states that Blotato has no 100 MB Google Drive cutoff and gives the sharing and direct-download link fix for the warning page the customer is hitting, though the customer's account-specific failure cannot be confirmed from the sentences."
+ },
+ "at": "2026-11-16T06:26:20.308Z"
+}

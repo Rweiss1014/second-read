@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8251,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why the dental YouTube brand channel is missing from the connect list",
+    "sentence": ""
+   },
+   {
+    "point": "Manager role on the channel in YouTube Studio",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry says why a YouTube brand channel is missing from the connect list. The closest, connect-second-account, covers switching accounts and not a missing channel, and the LinkedIn Page entry is for a different platform."
+ },
+ "at": "2026-11-16T06:26:02.107Z"
+}

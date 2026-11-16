@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5503,
+ "verdict": {
+  "points": [
+   {
+    "point": "Point the Repurpose TikToks on Autopilot template at a YouTube Shorts channel instead of TikTok",
+    "sentence": ""
+   },
+   {
+    "point": "Auto-repost new Shorts to Instagram and Facebook",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry says whether the autopilot template can use a YouTube Shorts channel as its source or auto-repost new Shorts. The YouTube remix entry only covers pasting a single video URL as Context for drafts."
+ },
+ "at": "2026-11-16T06:23:34.237Z"
+}

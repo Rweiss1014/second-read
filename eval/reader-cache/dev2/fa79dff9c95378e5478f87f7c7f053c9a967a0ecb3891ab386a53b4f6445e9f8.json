@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5880,
+ "verdict": {
+  "points": [
+   {
+    "point": "Trial credits ran out and an UPGRADE popup appeared",
+    "sentence": ""
+   },
+   {
+    "point": "Clicked UPGRADE and wants to know if they are now paying",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry says what clicking the UPGRADE popup does, and whether this customer is now being charged is a fact only their own account and billing can show, so a person should answer."
+ },
+ "at": "2026-11-16T06:23:19.719Z"
+}

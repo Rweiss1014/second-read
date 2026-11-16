@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4086,
+ "verdict": {
+  "points": [
+   {
+    "point": "Staff to log in to Instagram with the customer's password and connect the account for them",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks staff to log in and connect the account for them, which is a request for staff to act on their account, so a person on the team should handle it (and the shared password should be treated as sensitive)."
+ },
+ "at": "2026-11-16T06:23:39.922Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6186,
+ "verdict": {
+  "points": [
+   {
+    "point": "Video clip in slide 3 of an Instagram carousel plays with no sound",
+    "sentence": ""
+   },
+   {
+    "point": "The file has a voiceover baked in",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry, add-music-audio, covers adding music and says audio already in a Reel plays. It doesn't say why a video clip inside a carousel would be silent on Instagram, so it answers a neighboring question."
+ },
+ "at": "2026-11-16T06:23:45.582Z"
+}

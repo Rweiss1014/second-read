@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6016,
+ "verdict": {
+  "points": [
+   {
+    "point": "Do referred sign-ups get a discount or extra credits through the referral link",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry says anything about referral links or benefits for people who sign up through them; the entries cover API trials, credits purchases, and other topics."
+ },
+ "at": "2026-11-16T06:25:23.159Z"
+}

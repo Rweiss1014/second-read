@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5884,
+ "verdict": {
+  "points": [
+   {
+    "point": "Field to get finished template video in 2160p instead of 1080p",
+    "sentence": ""
+   },
+   {
+    "point": "Upscale option after rendering",
+    "sentence": ""
+   },
+   {
+    "point": "Specific: 4K / 2160p resolution via visuals API",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "None of the candidate entries states whether the visuals API can output 2160p or offers an upscale step; the closest entries (visual templates parameters, where visuals are saved, stuck generation) cover neighboring topics but not resolution."
+ },
+ "at": "2026-11-16T06:26:14.375Z"
+}

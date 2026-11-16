@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4220,
+ "verdict": {
+  "points": [
+   {
+    "point": "API endpoint for current price per 1000 credits",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states an API source for the price per 1000 credits; the credits entry only covers balance and purchase endpoints, and the pricing entries list plan prices without any API."
+ },
+ "at": "2026-11-16T06:25:34.317Z"
+}

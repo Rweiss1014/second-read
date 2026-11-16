@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5419,
+ "verdict": {
+  "points": [
+   {
+    "point": "LinkedIn company page posting via API",
+    "sentence": ""
+   },
+   {
+    "point": "Six slide images plus one short video in a single LinkedIn carousel",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate states whether LinkedIn carousels accept a mix of images and a video: the carousel entry covers Instagram only, the Bluesky entry covers Bluesky only, and the LinkedIn company page entry covers only the accountId/pageId setup, so no single entry answers every point."
+ },
+ "at": "2026-11-16T06:22:15.044Z"
+}

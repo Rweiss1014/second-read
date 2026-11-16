@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5471,
+ "verdict": {
+  "points": [
+   {
+    "point": "Paying the old invoice on Stripe fails with 'can no longer be paid' (already tried)",
+    "sentence": ""
+   },
+   {
+    "point": "Card was declined, so the invoice is still unpaid",
+    "sentence": ""
+   },
+   {
+    "point": "Must pay the old invoice before using Blotato again",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer already tried paying and Stripe still refuses, and the question is about a charge and an account-access condition that no entry's sentences answer, so this needs a person on the team."
+ },
+ "at": "2026-11-16T06:22:16.832Z"
+}

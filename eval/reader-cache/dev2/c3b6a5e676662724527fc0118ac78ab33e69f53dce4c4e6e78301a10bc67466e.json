@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6162,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is there an endpoint to edit a comment",
+    "sentence": ""
+   },
+   {
+    "point": "Is there an endpoint to delete a comment",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry says whether comments can be edited or deleted via the API; comment-on-posts-support is the closest but only covers reading, posting and replying to comments, so it answers a neighboring question."
+ },
+ "at": "2026-11-16T06:26:54.943Z"
+}

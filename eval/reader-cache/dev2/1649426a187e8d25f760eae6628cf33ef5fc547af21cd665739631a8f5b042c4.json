@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5059,
+ "verdict": {
+  "points": [
+   {
+    "point": "Do people who sign up through the Tolt referral link get a discount or extra credits",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry says anything about referral links or what referred sign-ups receive, so none answers this question."
+ },
+ "at": "2026-11-16T06:23:19.365Z"
+}

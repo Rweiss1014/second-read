@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9257,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is TikTok analytics broken on my account / why Claude couldn't filter TikTok",
+    "sentence": ""
+   },
+   {
+    "point": "Can LinkedIn posts be ranked",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No single entry answers both points: analytics-dashboard-where lists TikTok but never mentions LinkedIn, linkedin-analytics covers only LinkedIn, and whether TikTok is working on this customer's account or why Claude couldn't filter it can't be answered from the quoted sentences."
+ },
+ "at": "2026-11-16T06:23:40.320Z"
+}

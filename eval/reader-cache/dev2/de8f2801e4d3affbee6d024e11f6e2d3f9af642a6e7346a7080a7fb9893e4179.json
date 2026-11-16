@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5881,
+ "verdict": {
+  "points": [
+   {
+    "point": "Filter GET /v2/comments to audience comments only (isAuthor false)",
+    "sentence": ""
+   },
+   {
+    "point": "?isAuthor=false already tried and has no effect",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states anything about filtering comments by isAuthor, and the customer says the filter they tried already fails, so a team member should review it."
+ },
+ "at": "2026-11-16T06:25:30.135Z"
+}

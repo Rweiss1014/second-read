@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6491,
+ "verdict": {
+  "points": [
+   {
+    "point": "Commented GUIDE on own reel from the business account to test",
+    "sentence": "Blotato skips comments posted by the same Instagram account or Facebook Page connected to the automation. Your own comment does not start a run or send a direct message, even when it contains the correct keyword."
+   },
+   {
+    "point": "No DM arrived",
+    "sentence": "Blotato skips comments posted by the same Instagram account or Facebook Page connected to the automation. Your own comment does not start a run or send a direct message, even when it contains the correct keyword."
+   }
+  ],
+  "pick": "dm-automation-own-comment",
+  "reason": "The customer tested by commenting from the connected account itself, and this entry states that such own comments are skipped and send no DM."
+ },
+ "at": "2026-11-16T06:23:56.514Z"
+}

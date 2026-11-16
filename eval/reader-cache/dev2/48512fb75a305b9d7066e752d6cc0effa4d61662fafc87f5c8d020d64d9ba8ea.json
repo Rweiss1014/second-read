@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5271,
+ "verdict": {
+  "points": [
+   {
+    "point": "Error: TikTok video is missing the subtitle track",
+    "sentence": "Right now, Blotato can only analyze TikToks that have a subtitle track."
+   },
+   {
+    "point": "Video is public and plays fine, so what to do",
+    "sentence": "Most TikTok videos do have subtitle tracks, so I recommend trying with a different video."
+   }
+  ],
+  "pick": "tiktok-missing-subtitle-track",
+  "reason": "The entry explains the exact error: Blotato needs a TikTok with a subtitle track, whether or not the video is public, and it suggests trying a different video."
+ },
+ "at": "2026-11-16T06:23:31.147Z"
+}

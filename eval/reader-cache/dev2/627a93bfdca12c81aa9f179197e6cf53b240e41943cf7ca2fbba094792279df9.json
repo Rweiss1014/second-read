@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9582,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why no DM after commenting GUIDE on own reel",
+    "sentence": "Blotato skips comments posted by the same Instagram account or Facebook Page connected to the automation. Your own comment does not start a run or send a direct message, even when it contains the correct keyword."
+   },
+   {
+    "point": "Keyword GUIDE is correct, so it still should not send",
+    "sentence": "Blotato skips comments posted by the same Instagram account or Facebook Page connected to the automation. Your own comment does not start a run or send a direct message, even when it contains the correct keyword."
+   },
+   {
+    "point": "Business account is the connected account (Instagram reel)",
+    "sentence": "Blotato skips comments posted by the same Instagram account or Facebook Page connected to the automation."
+   }
+  ],
+  "pick": "dm-automation-own-comment",
+  "reason": "The customer's missing DM comes from commenting on their own reel from the same business account, and this entry's quoted sentence states that Blotato skips comments from the connected Instagram account, so the keyword never triggers a run."
+ },
+ "at": "2026-11-16T06:27:01.686Z"
+}

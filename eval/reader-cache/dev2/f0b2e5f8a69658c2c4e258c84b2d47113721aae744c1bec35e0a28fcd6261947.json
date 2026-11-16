@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5418,
+ "verdict": {
+  "points": [
+   {
+    "point": "Article context shows enable Javascript and cookies message",
+    "sentence": "Sometimes when you try to add a blog, article, or website as new context, you'll see a message related to \"enabling Javascript and cookies\"."
+   },
+   {
+    "point": "Why it happens / what to do",
+    "sentence": "This means Blotato's website scraper is unable to access the website due to its anti-scraping policies."
+   }
+  ],
+  "pick": "website-context-javascript-cookies",
+  "reason": "The entry directly addresses the Javascript and cookies message when adding a blog or article as context, and explains the cause."
+ },
+ "at": "2026-11-16T06:25:33.471Z"
+}

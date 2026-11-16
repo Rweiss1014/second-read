@@ -1,0 +1,30 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8252,
+ "verdict": {
+  "points": [
+   {
+    "point": "Bluesky video post stuck in-progress for 2 days",
+    "sentence": ""
+   },
+   {
+    "point": "Already polling GET /v2/posts/:id every few hours with the same result",
+    "sentence": ""
+   },
+   {
+    "point": "Video is 40s mp4, 12 MB, and the URL opens",
+    "sentence": ""
+   },
+   {
+    "point": "Asks what to do now",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer already tried repeated polling and the post still shows in-progress after 2 days, which is a case that still fails after trying and needs an account-level status check; the closest entry, \"in-progress\", depends on a live lookup result it cannot supply, and the other entries cover different questions (media limits, container format, Slack limits, analytics)."
+ },
+ "at": "2026-11-16T06:22:13.466Z"
+}

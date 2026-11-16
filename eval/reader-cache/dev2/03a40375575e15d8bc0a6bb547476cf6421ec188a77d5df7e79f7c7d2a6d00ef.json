@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 10127,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is it true Blotato can't take Drive files over 100 MB?",
+    "sentence": "Blotato does not set a 100 MB Google Drive cutoff."
+   },
+   {
+    "point": "Google's virus scan warning page appears instead of the 350 MB video file",
+    "sentence": "First, share the file as Anyone with the link, and use a link in this format: https://drive.usercontent.google.com/download?id=FILE_ID&export=download&confirm=t"
+   }
+  ],
+  "pick": "google-drive-warning-page",
+  "reason": "This entry says Blotato has no 100 MB Drive cutoff and gives the link format that avoids the warning page. The customer's Creator plan is background that doesn't change either answer."
+ },
+ "at": "2026-11-16T06:23:24.119Z"
+}

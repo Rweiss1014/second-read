@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6190,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can the repurpose TikToks on autopilot template use a YouTube Shorts channel as its source",
+    "sentence": ""
+   },
+   {
+    "point": "New Shorts automatically reposted to Instagram and Facebook",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry (remix-youtube-video) covers pasting one YouTube URL into the AI Agent as Context for drafts. It doesn't say whether the autopilot template can watch a YouTube Shorts channel and repost new Shorts to Instagram and Facebook."
+ },
+ "at": "2026-11-16T06:25:37.297Z"
+}

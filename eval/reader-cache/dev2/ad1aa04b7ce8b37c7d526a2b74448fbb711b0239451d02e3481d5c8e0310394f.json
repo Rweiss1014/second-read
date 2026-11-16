@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6636,
+ "verdict": {
+  "points": [
+   {
+    "point": "Must pay the old invoice before using Blotato again",
+    "sentence": ""
+   },
+   {
+    "point": "Stripe says invoice can no longer be paid; card declined days ago",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer is asking about a declined payment and an unpayable invoice, which is a charge matter that only the team can check on the payment record, and no candidate entry states whether an old invoice must be paid before access resumes."
+ },
+ "at": "2026-11-16T06:26:53.596Z"
+}

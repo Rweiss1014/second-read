@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7950,
+ "verdict": {
+  "points": [
+   {
+    "point": "Past-due message on day 3 of a 7-day trial",
+    "sentence": ""
+   },
+   {
+    "point": "Customer says neither listed reason (API key, trial ended) applies",
+    "sentence": ""
+   },
+   {
+    "point": "Customer asks staff to sort it out",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The only matching entry gives two causes, an API key and an ended trial, and the customer rules out both. Why this account shows past due can only be seen in their own account, and they are asking staff to fix it."
+ },
+ "at": "2026-11-16T06:23:57.851Z"
+}

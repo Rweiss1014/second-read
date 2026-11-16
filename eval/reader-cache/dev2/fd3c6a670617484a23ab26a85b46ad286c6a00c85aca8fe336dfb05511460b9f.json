@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5893,
+ "verdict": {
+  "points": [
+   {
+    "point": "Instagram Story caption text not showing",
+    "sentence": ""
+   },
+   {
+    "point": "Is text the wrong field?",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether or how caption text appears on Instagram Stories; the first-comment entry only says first comments are unsupported on Stories, which is a neighboring question."
+ },
+ "at": "2026-11-16T06:25:30.033Z"
+}

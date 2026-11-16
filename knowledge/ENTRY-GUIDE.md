@@ -330,6 +330,10 @@ Every route result has `why` (a stable code) and `whyDetail` (its details, or nu
 | `pressure` | A deadline with a threat, a threat to leave, or legal pressure. | `{ signal: 'pressure', words }` |
 | `no-coverage` | No entry covers it: nothing close enough, the entry matched only the background, or a no-error-text entry met an error text. | null, or `{ question, nearest }` or `{ error, nearest }` |
 | `nonsense` | No words the desk knows, or no question. | null |
+| `reader-abstained` | Only with a reader on (`SUPPORT_DESK_READER`): the matcher would have answered, but the reader picked no entry, or its pick failed the script's check. | `{ pick, problem, refuter: null, matcher }` |
+| `reader-refuted` | Only with a reader on: the reader's pick passed every check, and the refuter named a real objection. | `{ pick, problem: null, refuter: [{ kind, about }], matcher }` |
+
+With a reader on, a message route() would have handed over anyway keeps route()'s own code; the reader's view is in the result's `reader` field.
 
 When the desk hands over without a tie, `candidates` still lists up to three close entries (`id`, `title`, `score`), only ones scoring 0.1 or more, never a guard.
 

@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4447,
+ "verdict": {
+  "points": [
+   {
+    "point": "Adding a blog as Article context shows a message about enabling Javascript and cookies",
+    "sentence": "Sometimes when you try to add a blog, article, or website as new context, you'll see a message related to \"enabling Javascript and cookies\"."
+   }
+  ],
+  "pick": "website-context-javascript-cookies",
+  "reason": "The entry directly describes this exact message when adding a blog as context, explains the cause, and gives the Text context workaround."
+ },
+ "at": "2026-11-16T06:23:28.630Z"
+}

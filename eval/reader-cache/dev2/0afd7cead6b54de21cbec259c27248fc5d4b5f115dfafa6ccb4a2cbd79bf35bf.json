@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9611,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is TikTok analytics broken on my account?",
+    "sentence": ""
+   },
+   {
+    "point": "Why Claude can't filter top posts to TikTok",
+    "sentence": ""
+   },
+   {
+    "point": "Can it rank my LinkedIn posts too?",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The TikTok question asks whether this account's TikTok analytics are broken, a fact only the customer's own account can show, and no entry states that or explains the Claude TikTok filter; the LinkedIn answer appears in analytics-no-data-yet but that entry does not cover the TikTok question, so no single entry answers the whole message."
+ },
+ "at": "2026-11-16T06:26:36.253Z"
+}

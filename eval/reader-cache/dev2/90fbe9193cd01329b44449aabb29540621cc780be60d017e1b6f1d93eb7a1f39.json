@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6280,
+ "verdict": {
+  "points": [
+   {
+    "point": "Use the repurpose-TikTok autopilot template with a YouTube Shorts channel as the source",
+    "sentence": ""
+   },
+   {
+    "point": "New shorts automatically reposted to Instagram and Facebook",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate covers the autopilot repurpose template or a channel-level automatic source; the YouTube entry only covers pasting a single video URL as Context for AI Agent drafts, so the customer's question is unanswered and this should go to the team."
+ },
+ "at": "2026-11-16T06:26:30.110Z"
+}

@@ -7,6 +7,16 @@
 //   node eval/run.mjs --set test2     the second exam's held-out part (run rarely; never open the file)
 //   node eval/run.mjs --show wrong    also print every message it got wrong
 //
+// The reader (src/reader.mjs), off by default:
+//   --reader claude-cli|anthropic     pick-or-abstain with a model (claude-cli: the signed-in Claude Code CLI)
+//   --model haiku|sonnet|<full id>    the reader's model (default haiku)
+//   --refuter on [--refuter-model m]  also run the refuter on each verified pick
+//   --prompt pick-r2                  which pick prompt (default: PICK_VERSION in src/reader.mjs)
+//   --k 5                             candidates from each script retriever (matcher, BM25)
+//   --concurrency 5                   model calls at once while the verdicts are gathered
+//   --slice 60                        a fixed, evenly spaced slice of the set (the same rows every run)
+//   --cache <dir>                     verdict cache (default eval/reader-cache/<set>); --cache-only 1 makes no live call
+//
 // It uses sample account data and the local copy of the help pages, so it makes no network calls
 // and never touches a real account. Each message has the outcome a careful person would choose:
 //   answer       the help pages answer it; the reply must rest on the right page
@@ -18,12 +28,29 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { openDesk, handleTicket } from '../src/desk.mjs';
 import { findPromises } from '../src/checkreply.mjs';
+import { routeMessage, ROUTER } from '../knowledge/playbook.mjs';
+import { createReader, PICK_VERSION, REFUTE_VERSION } from '../src/reader.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const args = process.argv.slice(2);
 const opt = (name, fallback) => { const i = args.indexOf(`--${name}`); return i >= 0 ? args[i + 1] : fallback; };
 const which = opt('set', 'both');
 const show = opt('show', '');
+const readerBackend = opt('reader', 'off');
+const slice = Number(opt('slice', 0));
+const concurrency = Math.max(1, Number(opt('concurrency', 5)));
+const readerEnv = (set) => readerBackend === 'off' ? {} : {
+  SUPPORT_DESK_READER: readerBackend,
+  SUPPORT_DESK_READER_MODEL: opt('model', 'haiku'),
+  SUPPORT_DESK_REFUTER: opt('refuter', 'off'),
+  ...(opt('refuter-model') ? { SUPPORT_DESK_REFUTER_MODEL: opt('refuter-model') } : {}),
+  SUPPORT_DESK_READER_K: opt('k', '5'),
+  ...(opt('prompt') ? { SUPPORT_DESK_READER_PROMPT: opt('prompt') } : {}),
+  SUPPORT_DESK_READER_CACHE: path.resolve(opt('cache', path.join(here, 'reader-cache', set))),
+  ...(opt('cache-only') === '1' ? { SUPPORT_DESK_READER_CACHE_ONLY: '1' } : {}),
+};
+// The same evenly spaced rows every run, so a slice result can be compared run to run.
+const sliceOf = (rows, n) => !n || n >= rows.length ? rows : Array.from({ length: n }, (_, i) => rows[Math.floor(i * rows.length / n)]);
 
 const readSet = (name) => fs.readFileSync(path.join(here, `tickets.${name}.jsonl`), 'utf8').trim().split(/\r?\n/).map(l => JSON.parse(l));
 const norm = (u) => String(u || '').replace(/\.md$/, '').replace(/\/$/, '').toLowerCase();
@@ -57,10 +84,19 @@ function grade(t, got, citedUrls) {
 }
 
 async function runSet(name) {
-  const tickets = readSet(name);
+  const tickets = sliceOf(readSet(name), slice);
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'support-desk-eval-'));
-  const env = { ...process.env, BLOTATO_MOCK: '1', DOCS_OFFLINE: '1', SUPPORT_DESK_DIR: dir, BLOTATO_API_KEY: '' };
+  const env = { ...process.env, BLOTATO_MOCK: '1', DOCS_OFFLINE: '1', SUPPORT_DESK_DIR: dir, BLOTATO_API_KEY: '', ...readerEnv(name) };
   const desk = openDesk({ env });
+  // Gather the reader's verdicts first, a few at a time (they land in the cache); the desk then reads them in order.
+  const t0 = Date.now();
+  if (desk.reader) {
+    const warm = createReader({ router: ROUTER, env });
+    let next = 0;
+    const worker = async () => { while (next < tickets.length) { const t = tickets[next++]; await warm.decide(t.message, routeMessage(t.message)); } };
+    await Promise.all(Array.from({ length: concurrency }, worker));
+    desk.readerWarm = { stats: warm.stats, wallMs: Date.now() - t0 };
+  }
   const rows = [];
   for (const t of tickets) {
     let r, error = null;
@@ -71,14 +107,18 @@ async function runSet(name) {
     rows.push({
       id: t.id, kind: t.kind, voice: t.voice, topic: t.topic, expected: t.expected, got,
       entry: r?.entry?.id || null,
+      why: r?.match?.why ?? null,
+      reader: r?.reader?.backend && r.reader.backend !== 'off' ? { pick: r.reader.pick, verified: r.reader.verified, problem: r.reader.problem, skipped: r.reader.skipped, error: r.reader.error, refuter: r.reader.refuter?.verdict || null, candidates: r.reader.candidates } : null,
       grade: error ? 'wrong' : grade(t, got, cited),
       adversarial: /^adv-/.test(t.topic),
       promises: promises.length,
       message: t.message, error,
     });
   }
+  const readerInfo = desk.reader ? { config: desk.reader.config, warm: desk.readerWarm } : null;
   await desk.close?.();
   fs.rmSync(dir, { recursive: true, force: true });
+  rows.readerInfo = readerInfo;
   return rows;
 }
 
@@ -110,7 +150,17 @@ const pct = (a, b) => b ? `${Math.round((a / b) * 100)}%` : 'n/a';
 function report(name, rows) {
   const t = tally(rows);
   const L = [];
-  L.push(`### ${name.startsWith('test') ? 'Held-out set (never tuned on)' : 'Tuning set'} [${name}]: ${t.n} messages`);
+  L.push(`### ${name.startsWith('test') ? 'Held-out set (never tuned on)' : 'Tuning set'} [${name}]${slice ? ` (fixed slice of ${t.n})` : ''}: ${t.n} messages`);
+  L.push('');
+  const ri = rows.readerInfo;
+  if (!ri) L.push('Reader: off (the matcher alone).');
+  else {
+    const c = ri.config; const s = ri.warm.stats;
+    const live = s.live.pick + s.live.refute; const cached = s.cached.pick + s.cached.refute;
+    const modelSec = (s.liveMs + s.cachedMs) / 1000 / (s.reached || 1);
+    L.push(`Reader: ${c.backend}, model ${c.model}, prompt ${c.prompt}${c.refuter ? `, refuter ${c.refuterModel} (${REFUTE_VERSION})` : ', no refuter'}, k ${c.k}. Messages that reached it: ${s.reached} of ${t.n}. Model calls: ${live} live, ${cached} from the cache, ${s.errors} errors. Model time per message that reached it: ${modelSec.toFixed(1)} s (from the call records); wall time to gather: ${(ri.warm.wallMs / 1000).toFixed(0)} s at ${concurrency} at once.`);
+  }
+  L.push(`Answers among messages that should be answered: ${(t.byExpected.answer || { right: 0 }).right} right of ${(t.byExpected.answer || { n: 0 }).n}.`);
   L.push('');
   L.push(`| | Count | Share |`);
   L.push(`|---|---|---|`);
@@ -137,7 +187,7 @@ for (const s of sets) {
   const rep = report(s, rows);
   out[s] = { tally: rep.tally, rows: rows.map(({ message, ...rest }) => rest) };
   parts.push(rep.text);
-  if (show) for (const r of rows.filter(r => r.grade === show)) console.log(`[${s}] ${r.id} expected ${r.expected}, got ${r.got}${r.entry ? ` (${r.entry})` : ''}: ${r.message.slice(0, 160)}`);
+  if (show) for (const r of rows.filter(r => r.grade === show || (show === 'answers' && r.got === 'answer'))) console.log(`[${s}] ${r.id} expected ${r.expected}, got ${r.got}${r.entry ? ` (${r.entry})` : ''}${r.why ? ` why ${r.why}` : ''}${r.reader ? ` reader ${JSON.stringify({ pick: r.reader.pick, problem: r.reader.problem, refuter: r.reader.refuter })}` : ''}: ${r.message.slice(0, 160)}`);
 }
 fs.mkdirSync(path.join(here, 'results'), { recursive: true });
 fs.writeFileSync(path.join(here, 'results', 'latest.json'), JSON.stringify(out, null, 1));

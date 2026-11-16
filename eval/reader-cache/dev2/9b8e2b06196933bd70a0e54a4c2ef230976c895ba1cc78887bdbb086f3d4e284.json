@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7158,
+ "verdict": {
+  "points": [
+   {
+    "point": "field for 2160p/4K output instead of 1080p",
+    "sentence": ""
+   },
+   {
+    "point": "upscale option after render",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states anything about output resolution (2160p/4K) or upscaling; the template-parameter entries only cover general parameter lookup, not resolution."
+ },
+ "at": "2026-11-16T06:25:24.075Z"
+}

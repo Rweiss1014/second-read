@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9859,
+ "verdict": {
+  "points": [
+   {
+    "point": "Commented GUIDE on own reel from the business account",
+    "sentence": "Blotato skips comments posted by the same Instagram account or Facebook Page connected to the automation."
+   },
+   {
+    "point": "Expected a DM after commenting the GUIDE keyword, but none came",
+    "sentence": "Your own comment does not start a run or send a direct message, even when it contains the correct keyword."
+   }
+  ],
+  "pick": "dm-automation-own-comment",
+  "reason": "The entry states that Blotato skips comments from the same connected Instagram account, so the customer's own GUIDE comment on their business account explains why no DM was sent, and its test steps show how to check from a different account."
+ },
+ "at": "2026-11-16T06:22:26.718Z"
+}

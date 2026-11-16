@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8278,
+ "verdict": {
+  "points": [
+   {
+    "point": "Top posts this month filtered to TikTok; Claude said it can't filter TikTok",
+    "sentence": ""
+   },
+   {
+    "point": "Is TikTok analytics broken on my account?",
+    "sentence": ""
+   },
+   {
+    "point": "Can it rank my LinkedIn posts too?",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The TikTok questions ask whether analytics is broken on this specific account and why the top-posts filter failed, and no entry states a TikTok filter answer or can confirm an account-specific fault, while the LinkedIn answer appears only in entries that do not also cover TikTok, so no single entry answers the whole message."
+ },
+ "at": "2026-11-16T06:22:03.844Z"
+}

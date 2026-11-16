@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9919,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why scheduling a LinkedIn post 3 weeks out gives 'too far in the future' (in app and API)",
+    "sentence": ""
+   },
+   {
+    "point": "Scheduling limit that applies to this date (9 months)",
+    "sentence": "The furthest date in the future you can schedule a post for is 9 months on every plan."
+   }
+  ],
+  "pick": "none",
+  "reason": "The entry states the 9-month limit, but the customer's date is only three weeks out, so the entry does not explain why the error occurs, and answering would require a guess about their account."
+ },
+ "at": "2026-11-16T06:26:23.731Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6923,
+ "verdict": {
+  "points": [
+   {
+    "point": "Asks the agent to log in to their Instagram account with a password and connect it to Blotato",
+    "sentence": ""
+   },
+   {
+    "point": "Request that an agent perform the login and connection for them",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks us to log in to their Instagram account with a password and connect it for them, which is a request for staff to act on an account, and no candidate entry answers that; the message also should not be passed on with the password in it."
+ },
+ "at": "2026-11-16T06:26:40.637Z"
+}

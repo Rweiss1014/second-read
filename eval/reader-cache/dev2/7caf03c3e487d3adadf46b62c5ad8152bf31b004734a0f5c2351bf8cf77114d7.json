@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4613,
+ "verdict": {
+  "points": [
+   {
+    "point": "cap on rollover credits or unlimited stacking",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry mentions rollover credits or any cap on them; the credits entry only covers what uses credits and checking balance."
+ },
+ "at": "2026-11-16T06:23:18.354Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5698,
+ "verdict": {
+  "points": [
+   {
+    "point": "How many hashtags on Instagram",
+    "sentence": "Use a maximum of 5 hashtags on Instagram, TikTok, and Facebook."
+   },
+   {
+    "point": "Whether to bother with hashtags on LinkedIn",
+    "sentence": "You don't need hashtags on other platforms."
+   }
+  ],
+  "pick": "hashtag-count",
+  "reason": "The entry answers both questions: up to 5 hashtags on Instagram, and no hashtags are needed on platforms other than Instagram, TikTok and Facebook, which includes LinkedIn."
+ },
+ "at": "2026-11-16T06:26:28.141Z"
+}

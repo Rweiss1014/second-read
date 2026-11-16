@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4661,
+ "verdict": {
+  "points": [
+   {
+    "point": "Field to render template video in 2160p/4K instead of 1080p",
+    "sentence": ""
+   },
+   {
+    "point": "Upscale option after render",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states anything about output resolution (2160p/4K) or upscaling; the template-inputs entry only covers parameter lookup generally, so it doesn't answer either question."
+ },
+ "at": "2026-11-16T06:23:18.825Z"
+}

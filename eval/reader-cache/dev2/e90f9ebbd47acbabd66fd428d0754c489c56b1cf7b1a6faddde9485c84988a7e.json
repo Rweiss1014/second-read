@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6612,
+ "verdict": {
+  "points": [
+   {
+    "point": "Where the other 18 runs went (analytics do not add up)",
+    "sentence": ""
+   },
+   {
+    "point": "Whether those 18 people got their DM",
+    "sentence": ""
+   },
+   {
+    "point": "Whether leads are being lost",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate explains how the DM automation analytics counts (triggered, completed, failed, issues) relate to each other, and whether these 18 runs were lost is a fact only this customer's own account and run logs can show, so none of the entries answers the question."
+ },
+ "at": "2026-11-16T06:26:21.939Z"
+}

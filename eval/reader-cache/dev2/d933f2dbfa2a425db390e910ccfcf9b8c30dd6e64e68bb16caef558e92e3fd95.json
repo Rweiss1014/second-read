@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 11529,
+ "verdict": {
+  "points": [
+   {
+    "point": "Fix My Automation button missing for a Make.com scenario",
+    "sentence": ""
+   },
+   {
+    "point": "Whether the button is hidden on the customer's plan",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "Only mcp-invalid-grant mentions the button, and it is about an invalid_grant error in Claude. Its sentences don't say anything about plans, so they can't answer whether the button is hidden on this customer's plan."
+ },
+ "at": "2026-11-16T06:25:58.103Z"
+}

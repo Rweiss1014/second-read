@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5531,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is there an endpoint to edit the posted comment",
+    "sentence": ""
+   },
+   {
+    "point": "Is there an endpoint to delete the posted comment, or can Blotato not do it",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry (comment-on-posts-support) covers reading, posting and replying to comments but says nothing about editing or deleting them, so no entry answers the question."
+ },
+ "at": "2026-11-16T06:23:54.146Z"
+}

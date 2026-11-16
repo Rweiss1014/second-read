@@ -1,0 +1,30 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5947,
+ "verdict": {
+  "points": [
+   {
+    "point": "Trial day 3 shows 'Your subscription payment is past due'",
+    "sentence": ""
+   },
+   {
+    "point": "Never opened Settings > API or made a key",
+    "sentence": ""
+   },
+   {
+    "point": "Never clicked an upgrade popup",
+    "sentence": ""
+   },
+   {
+    "point": "Asks to have it fixed ('Sort it out')",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The matching entry gives the two reasons for this message, but the customer says both are false, so it does not answer their case, and the fix depends on their payment and account record, which only the team can check."
+ },
+ "at": "2026-11-16T06:22:21.084Z"
+}

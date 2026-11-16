@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5819,
+ "verdict": {
+  "points": [
+   {
+    "point": "Staff to log in and connect Instagram for the customer",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks staff to log in with their password and connect the account for them, which is a request for staff to act on their account and is not something a saved reply can answer."
+ },
+ "at": "2026-11-16T06:25:46.449Z"
+}

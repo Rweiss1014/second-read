@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5247,
+ "verdict": {
+  "points": [
+   {
+    "point": "Search Inspiration database for viral posts via Claude MCP",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether the Blotato MCP server can search the Inspiration database; the closest entries cover MCP setup, the free Claude skills bundle and other topics, not that question."
+ },
+ "at": "2026-11-16T06:25:40.521Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4616,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is there a cap on rollover credits?",
+    "sentence": ""
+   },
+   {
+    "point": "Do rollover credits stack up forever?",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "None of the candidates states anything about rollover credits, a cap, or how long unused credits last; the closest entry, \"what-uses-credits\", only covers what spends credits and how to check a balance, which is a neighboring question."
+ },
+ "at": "2026-11-16T06:21:43.314Z"
+}
