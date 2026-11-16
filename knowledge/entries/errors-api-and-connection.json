@@ -1,0 +1,4566 @@
+{
+  "area": "API and connection errors",
+  "entries": [
+    {
+      "id": "api-auth-failed-credentials",
+      "kind": "technical",
+      "title": "Authorization failed or Wrong Blotato API Key in n8n or Make",
+      "phrasings": [
+        "Authorization failed - please check your credentials",
+        "my n8n Blotato node says authorization failed, please check your credentials",
+        "what does Wrong Blotato API Key mean",
+        "Make scenario stops with authorization failed for the Blotato module",
+        "the Blotato node says wrong blotato api key but I copied the key",
+        "autorization failed in my workflow with the blotato node",
+        "why does my automation say check your credentials when I run the Blotato step",
+        "I pasted my Blotato API key into n8n and it says wrong blotato api key"
+      ],
+      "not_this": [
+        "the REST API answers 401 Unauthorized",
+        "my login code does not arrive",
+        "I cannot log in to my account",
+        "I do not have an API key, how do I get one"
+      ],
+      "anchors": [
+        [
+          "authorization failed",
+          "authorisation failed",
+          "autorization failed",
+          "check your credentials",
+          "wrong blotato api key"
+        ],
+        [
+          "blotato node",
+          "blotato module",
+          "blotato step",
+          "blotato credentials",
+          "blotato api key",
+          "blotato workflow",
+          "please check your credentials"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "regenerated the key",
+          "new api key",
+          "copied it again",
+          "pasted it again",
+          "no spaces"
+        ]
+      },
+      "opening": "That message points at the API key your workflow sends to Blotato.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Start by checking the Blotato API key you saved in the workflow.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Double check your Blotato API key."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Make sure you copied the key in full, with no spaces before or after it.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Check you've copied the API key correctly without whitespaces."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The official Blotato nodes for n8n and Make make this setup easier, so you do not have to hardcode the key by hand.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Use the official Blotato n8n/Make nodes for easier setup - you won't need to hardcode API keys manually."
+          }
+        }
+      ],
+      "next": "Open the Blotato credentials in your workflow, paste the key again with no spaces, and run the step once more.",
+      "proof": "You will know it worked when the Blotato step runs without the credentials message."
+    },
+    {
+      "id": "empty-url-or-mediaurl",
+      "kind": "technical",
+      "title": "URL is empty, or mediaURL is null or empty, after creating a visual",
+      "phrasings": [
+        "URL is empty",
+        "my publish step says URL is empty after the Create Visual step",
+        "mediaURL is null or empty",
+        "the GET video node returns an empty mediaUrl",
+        "faceless video workflow gives me a null mediaURL",
+        "why is mediaUrl empty after I make a video with the API",
+        "my carousel has no mediaUrl, only imageUrls",
+        "n8n upload media says the url is empty",
+        "mediaurl null in make after creating a visual"
+      ],
+      "not_this": [
+        "my post shows as published but I cannot see it",
+        "my video is stuck on generating forever",
+        "reading mediaUrl of undefined error",
+        "how do I buy more credits",
+        "my video url is empty in the instagram caption field",
+        "the link in my caption field is empty",
+        "the url is empty in my sources",
+        "url is empty when I add a website as context"
+      ],
+      "anchors": [
+        [
+          "url is empty",
+          "mediaurl",
+          "media url",
+          "mediaurls",
+          "imageurls"
+        ],
+        [
+          "empty",
+          "null",
+          "missing",
+          "blank",
+          "undefined",
+          "no"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "credits are fine",
+          "plenty of credits",
+          "waited longer",
+          "already waited"
+        ]
+      },
+      "opening": "An empty URL usually means the step ran before it had a finished visual to point at.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The upload step got an empty URL, so look at the step before it and the field that feeds it.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The submitted URL is empty. Inspect the preceding operation and the field mapped into this request."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Use the media address that the finished visual returns.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "For a visual, verify completion and use its returned mediaUrl or imageUrls."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Waiting longer is not the fix. Check the visual's status and its error instead.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Do not substitute a longer fixed wait for checking status and errors."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "An empty URL does not prove you ran out of credits.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/faqs",
+            "quote": "An empty URL does not prove the account ran out of credits."
+          }
+        }
+      ],
+      "next": "Open the visual's status and read its item.error or status field before you run the publish step again.",
+      "proof": "You will know it worked when the visual shows done and the next step receives a real media URL."
+    },
+    {
+      "id": "account-id-not-found",
+      "kind": "technical",
+      "title": "Wrong Account ID, or Account [ID] not found",
+      "phrasings": [
+        "Account [ID] not found",
+        "Wrong Account ID when I publish with the API",
+        "blotato says the account id was not found",
+        "I get wrong account id in n8n even though I picked the account",
+        "account id not found error after I reconnected my instagram",
+        "my workflow worked before and now says account id not found",
+        "acount id not found publishing from make",
+        "api says account id not found, where do I get the right one"
+      ],
+      "not_this": [
+        "Account not found on LinkedIn with a company page",
+        "Wrong Page ID on Facebook",
+        "I cannot connect my account",
+        "my account is disconnected"
+      ],
+      "anchors": [
+        [
+          "account id",
+          "accountid",
+          "account [id]",
+          "acount id",
+          "wrong account id"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "same id",
+          "still not found",
+          "fresh lookup",
+          "checked the id"
+        ]
+      },
+      "opening": "This error means the account ID in the request does not match an account for your Blotato login and that platform.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The ID you sent did not match the account for the user and platform of the request.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The submitted account ID does not match the authenticated Blotato user and requested platform."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Look the accounts up again with the same key or connection, and check the platform, the current ID and any separate Page or channel ID.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Retrieve accounts through the same credential or MCP connection, then check the platform, current ID, and separate Page or Slack channel ID."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A saved dropdown choice or an earlier AI lookup does not prove the ID is still current.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Saved dropdowns and earlier AI lookups are not proof the ID is current."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "After you disconnect and reconnect an account, get its current ID before you try again.",
+          "cite": {
+            "url": "https://help.blotato.com/api-and-mcp-concepts/accounts-and-identifiers",
+            "quote": "After disconnecting and reconnecting an account, retrieve the current ID before retrying."
+          }
+        }
+      ],
+      "next": "Call the list accounts lookup, copy the current account id into your workflow, and publish again.",
+      "proof": "You will know it worked when the publish request is accepted with the new account id."
+    },
+    {
+      "id": "facebook-wrong-page-id",
+      "kind": "technical",
+      "title": "Wrong Page ID when posting to a Facebook Page",
+      "phrasings": [
+        "Wrong Page ID",
+        "Facebook says wrong page id when I post with the API",
+        "my facebook post fails with wrong page id in n8n",
+        "Could not upload video to Facebook, the global id is not allowed for this call",
+        "where do I find the Page ID for my Facebook page in Blotato",
+        "what is the copy page id button in accounts",
+        "facebok wrong page id error in make",
+        "do I need a page id and an account id for facebook"
+      ],
+      "not_this": [
+        "I cannot connect my Facebook Page",
+        "my Facebook personal profile is not supported",
+        "Account not found on LinkedIn",
+        "Facebook Stories support",
+        "wrong page id for a pinterest board",
+        "wrong page id for linkedin"
+      ],
+      "anchors": [
+        [
+          "facebook",
+          "facebok",
+          "fb",
+          "wrong page id",
+          "copy page id"
+        ],
+        [
+          "page id",
+          "pageid",
+          "global id"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "copied the page id",
+          "used the copy page id",
+          "same page id"
+        ]
+      },
+      "opening": "Facebook posts need two IDs, and this error means the Page one is not right.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Facebook needs both an Account ID and a Page ID.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Facebook requires both Account ID and Page ID."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Copy the Page ID with the \"Copy Page ID\" button instead of typing it.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Check you've copied Page ID correctly using the \"Copy Page ID\" button."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "For Facebook Pages, use Copy page ID beside the Page you want in Accounts.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/api-keys",
+            "quote": "For Facebook Pages and LinkedIn company Pages, also use Copy page ID beside the intended Page."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A Page that appears in the list is a destination to choose, not permission to post to the first Page listed.",
+          "cite": {
+            "url": "https://help.blotato.com/api-and-mcp-concepts/accounts-and-identifiers",
+            "quote": "A returned Facebook Page is a destination to select, not permission to publish to the first Page in the list."
+          }
+        }
+      ],
+      "next": "Open Accounts, click Copy page ID beside the Facebook Page you want, and use that value as the Page ID.",
+      "proof": "You will know it worked when the Facebook post is accepted with the new Page ID."
+    },
+    {
+      "id": "account-not-found-linkedin",
+      "kind": "technical",
+      "title": "Account [ID] not found when posting to a LinkedIn company page",
+      "phrasings": [
+        "Account [ID] not found (LinkedIn)",
+        "LinkedIn account id not found when I post to a company page with the API",
+        "I get account not found on linkedin, I used the page id",
+        "linkedin company page publish says account id not found",
+        "do I put the LinkedIn page id in accountId",
+        "acount id not found linkdin page",
+        "linkedin api needs accountId and pageId, which goes where",
+        "my LinkedIn page post fails, account id not found"
+      ],
+      "not_this": [
+        "I cannot connect my LinkedIn company page",
+        "No LinkedIn pages found for this account",
+        "the post went to my profile instead of my page",
+        "Wrong Page ID on Facebook"
+      ],
+      "anchors": [
+        [
+          "linkedin",
+          "linkdin",
+          "linked in"
+        ],
+        [
+          "accountid",
+          "account id",
+          "acount id",
+          "pageid",
+          "page id",
+          "account [id]",
+          "/account.{0,15}not found/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "already used both",
+          "used both ids"
+        ]
+      },
+      "opening": "For a LinkedIn company page the request needs two different IDs, and mixing them up causes this error.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "You need both an accountId and a pageId for a LinkedIn company page.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "For LinkedIn company pages, you need both an accountId and a pageId."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A common mistake is passing the pageId where the accountId belongs.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "A common mistake is passing the pageId where accountId is expected."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Get the accountId from the list of your accounts, and the pageId from the subaccounts of that account.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Use GET /v2/users/me/accounts to get the accountId, then GET /v2/users/me/accounts/{accountId}/subaccounts to get the pageId."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Put the accountId in post.accountId and the pageId in post.target.pageId.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Pass accountId in post.accountId and pageId in post.target.pageId."
+          }
+        }
+      ],
+      "next": "Look up both IDs, put each in its own field, and send the post again.",
+      "proof": "You will know it worked when the post is accepted and goes to the company page."
+    },
+    {
+      "id": "meta-privacy-setting-missing",
+      "kind": "technical",
+      "title": "The Meta setting \"Your activity off Meta technologies\" is missing",
+      "phrasings": [
+        "The setting for future activity history off Meta technologies is not in Account Center anymore",
+        "Instagram connection asks me to change my activity off Meta technologies but I cannot find it",
+        "I cannot find Your activity off Meta technologies in Accounts Center",
+        "blotato tells me to change a setting in Account Center that does not exist",
+        "activity off meta technologies setting missing while connecting my account",
+        "where is off Meta technologies setting for connecting facebook to blotato",
+        "acount center has no future activity setting"
+      ],
+      "not_this": [
+        "I cannot connect my Instagram account",
+        "400 session error connecting Instagram",
+        "Instagram says account is not eligible"
+      ],
+      "anchors": [
+        [
+          "off meta technologies",
+          "activity off meta",
+          "future activity",
+          "activity history",
+          "account center",
+          "accounts center",
+          "acount center"
+        ],
+        [
+          "blotato",
+          "connect",
+          "connecting",
+          "missing",
+          "cannot",
+          "not",
+          "no",
+          "anymore",
+          "exist",
+          "where",
+          "find"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "reset all settings",
+          "already changed it"
+        ]
+      },
+      "opening": "Meta words this setting differently from one account to the next, so a missing label is not unusual.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Meta's privacy labels differ by account version.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Meta's privacy labels differ by account version."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Follow the Accounts Center link on the authorization screen you are looking at, if a change is needed.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Follow the current authorization screen's Accounts Center link if a change is required."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Do not reset your settings or remove a working connection to hunt for the old label.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Do not reset settings or remove a working connection to find an old label."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Look the change over before you approve it.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/social-accounts",
+            "quote": "Review the change before approving it."
+          }
+        }
+      ],
+      "next": "Read the exact message on the authorization screen and follow the Accounts Center link it shows.",
+      "proof": "You will know it worked when the account you want shows up in Accounts with its username."
+    },
+    {
+      "id": "invalid-file-format",
+      "kind": "technical",
+      "title": "Invalid File Format error",
+      "phrasings": [
+        "Invalid File Format",
+        "blotato says invalid file format when I post my video",
+        "my image is rejected with invalid file format",
+        "what file formats does Blotato accept for posts, I get invalid file format",
+        "publish fails: invalid file format for instagram",
+        "invalid file formmat error on tiktok upload",
+        "invalid file format for the platform I picked",
+        "why is my media file rejected as invalid format"
+      ],
+      "not_this": [
+        "Unsupported media format mov",
+        "Unsupported media format mov,mp4,m4a,3gp,3g2,mj2",
+        "The aspect ratio is not supported",
+        "Invalid Video Dimensions",
+        "Invalid JSON error"
+      ],
+      "anchors": [
+        [
+          "invalid file format",
+          "invalid format",
+          "invalid file formmat"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "already mp4",
+          "it is an mp4",
+          "renamed the file"
+        ]
+      },
+      "opening": "This error means the file does not meet the rules of the platform you are posting to.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Check that your file format is valid for the social platform.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Check your file format is valid per social platform requirements."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A filename ending in .mp4 does not prove the container, codecs or aspect ratio, so look at the file itself.",
+          "cite": {
+            "url": "https://help.blotato.com/api-and-mcp-concepts/media-uploads-and-conversion",
+            "quote": "An .mp4 filename does not prove the container, codecs, or aspect ratio."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Check the container, codecs, dimensions, aspect ratio, duration, bitrate and size against the platform.",
+          "cite": {
+            "url": "https://help.blotato.com/api-and-mcp-concepts/media-uploads-and-conversion",
+            "quote": "Check the file's container, codecs, dimensions, aspect ratio, duration, bitrate, and size."
+          }
+        }
+      ],
+      "next": "Open the platform media requirements, compare them with your file, and export a matching version.",
+      "proof": "You will know it worked when the post is accepted with the new file."
+    },
+    {
+      "id": "aspect-ratio-not-supported",
+      "kind": "technical",
+      "title": "The aspect ratio is not supported",
+      "phrasings": [
+        "The aspect ratio is not supported",
+        "API error: the aspect ratio is not supported",
+        "my video fails with aspect ratio not supported on instagram",
+        "what aspect ratios does Instagram accept through Blotato",
+        "my 3:4 video gets rejected, aspect ratio",
+        "aspect ratio error when I publish with n8n",
+        "asspect ratio not supported tiktok video",
+        "video ratio rejected by the platform"
+      ],
+      "not_this": [
+        "Invalid Video Dimensions for an Instagram Reel",
+        "Invalid File Format",
+        "how do I change the aspect ratio of an AI video I make"
+      ],
+      "anchors": [
+        [
+          "aspect ratio",
+          "aspect ratios",
+          "aspect",
+          "ratio",
+          "ratios"
+        ],
+        [
+          "not supported",
+          "unsupported",
+          "rejected",
+          "error",
+          "fails",
+          "failed",
+          "invalid",
+          "accept",
+          "accepts",
+          "supported"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "already 9:16",
+          "cropped it",
+          "resized it"
+        ]
+      },
+      "opening": "This error means the video's shape is not one the platform takes.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The platform does not support the aspect ratio of the video you are uploading.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/faqs",
+            "quote": "This API error means the video you're trying to upload is not an aspect ratio supported by the platform."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "For example, a 2160x2880 video is 3:4. Instagram supports other shapes.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/faqs",
+            "quote": "For example, a video with dimensions 2160x2880 is 3:4. But the only supported Instagram formats are 1:1, 4:5, 1.91:1, 9:16 (as an example)."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Check the requirements of the platform you are posting to.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Video aspect ratio not supported by platform. Check platform requirements."
+          }
+        }
+      ],
+      "next": "Export the video again in a shape the platform supports, then publish it.",
+      "proof": "You will know it worked when the post is accepted with the new video."
+    },
+    {
+      "id": "invalid-video-dimensions",
+      "kind": "technical",
+      "title": "Invalid Video Dimensions on an Instagram Reel",
+      "phrasings": [
+        "Invalid Video Dimensions",
+        "blotato says invalid video dimensions for my Instagram reel",
+        "my reel is rejected for video dimensions",
+        "what dimensions should my Instagram Reel video have for the API",
+        "my reel is under 300 MB and 15 minutes but the dimensions are rejected",
+        "video dimensions not supported by the target platform",
+        "invalid video dimentions error on reels",
+        "what dimensions does blotato want for portrait reels"
+      ],
+      "not_this": [
+        "The aspect ratio is not supported",
+        "Invalid File Format",
+        "How do I set a cover image for Reels"
+      ],
+      "anchors": [
+        [
+          "dimensions",
+          "dimension",
+          "dimentions"
+        ],
+        [
+          "invalid",
+          "reel",
+          "reels",
+          "instagram",
+          "rejected",
+          "api",
+          "target platform",
+          "supported"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "already 1080",
+          "already exported",
+          "resized it"
+        ]
+      },
+      "opening": "The platform does not accept the size of this video, and Instagram Reels have a known set of sizes that work.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The video dimensions are not supported by the target platform.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Video dimensions are not supported by the target platform."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "For a portrait Reel, 1080 x 1920 or 720 x 1280 is a compatible export size.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "For a portrait Instagram Reel, 1080 x 1920 or 720 x 1280 is a compatible export preset."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Automatic conversion only works on videos of 120 seconds or less, and it does not force a 9:16 crop.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/instagram/faqs",
+            "quote": "Automatic conversion requires a video of 120 seconds or less. The Instagram video converter does not force a 9:16 crop."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A video longer than 120 seconds needs any resizing done before you upload it.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Videos longer than 120 seconds need any required resizing before upload."
+          }
+        }
+      ],
+      "next": "Export the video as MP4 at 1080 x 1920 or 720 x 1280 and upload it again.",
+      "proof": "You will know it worked when the Reel is accepted without the dimensions message."
+    },
+    {
+      "id": "tiktok-active-user-cap",
+      "kind": "technical",
+      "title": "reached_active_user_cap from TikTok",
+      "phrasings": [
+        "reached_active_user_cap",
+        "my TikTok post fails with reached_active_user_cap",
+        "what does reached active user cap mean",
+        "TikTok error active user cap when I publish through Blotato",
+        "tiktok says daily active user quota reached",
+        "is reached_active_user_cap because my account is new",
+        "reached active user cap tik tok error, should I reconnect",
+        "tiktok post rejected active user cap"
+      ],
+      "not_this": [
+        "TikTok servers may be experiencing issues",
+        "TikTok URL ownership verification rules",
+        "my TikTok account will not connect",
+        "posting limits for TikTok"
+      ],
+      "anchors": [
+        [
+          "reached_active_user_cap",
+          "active user cap",
+          "active-user cap",
+          "active user quota",
+          "active-user quota"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "reconnected",
+          "many times",
+          "several times"
+        ]
+      },
+      "opening": "This message comes from TikTok, and the page is clear about what it does not mean.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "TikTok reported its daily active-user quota.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "TikTok reported its daily active-user quota."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "It does not point to a warm-up or content-quality problem with your account.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "This error does not establish an account warm-up or content-quality problem."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Keep the error text and the request ID, then contact support.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Preserve the error and request ID, then contact support or follow confirmed retry guidance."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Do not reconnect the account over and over.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Do not repeatedly reconnect the account."
+          }
+        }
+      ],
+      "next": "Save the exact error and the request ID from Logs, and reply here with them.",
+      "proof": "Still open: why TikTok reported the quota. A person on the team can look at the request ID."
+    },
+    {
+      "id": "out-of-ai-credits-error",
+      "kind": "billing",
+      "title": "You Ran Out Of AI Credits error",
+      "phrasings": [
+        "You Ran Out Of AI Credits",
+        "my video generation says I ran out of ai credits",
+        "blotato says out of credits when I make a visual",
+        "how do I check my credit balance with the API",
+        "how can I add more credits when generation stops",
+        "ran out of credits message in my automation",
+        "you ran out of AI credit, where do I add more",
+        "ran out of credits, which endpoint shows my balance"
+      ],
+      "not_this": [
+        "I was charged twice",
+        "what uses credits and what does not",
+        "how many credits does my plan include",
+        "refund my credits"
+      ],
+      "anchors": [
+        [
+          "ran out",
+          "run out",
+          "out of",
+          "not enough",
+          "no more",
+          "balance",
+          "add more",
+          "more credits"
+        ],
+        [
+          "credits",
+          "credit"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "already bought",
+          "just bought",
+          "still says"
+        ]
+      },
+      "opening": "That message means the account has no AI credits left for the job.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "In the app, go to Settings > Billing to check your credits and add more.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Go to Settings > Billing to check and add credits."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Through the API, check your balance with GET /v2/credits and buy more with POST /v2/credits.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Via the API, check your balance with GET /v2/credits and buy more with POST /v2/credits."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Through MCP, you can check your credits with the blotato_get_credits tool.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Via MCP, check it with blotato_get_credits"
+          }
+        }
+      ],
+      "next": "Open Settings > Billing and look at the credit balance first.",
+      "proof": "You will know it worked when the job starts running again."
+    },
+    {
+      "id": "visual-stuck-generating",
+      "kind": "technical",
+      "title": "Image or video stuck on generating",
+      "phrasings": [
+        "my video is stuck on generating",
+        "image generation has been loading forever",
+        "the visual says generating and never finishes",
+        "my AI video is still generating after an hour",
+        "create visual job is generating and never completes in my automation",
+        "stuck on generating, is it a credit problem",
+        "why does my video keep generating and not finish",
+        "viedo stuck on generating in blotato"
+      ],
+      "not_this": [
+        "I ran out of AI credits",
+        "500 Internal Server Error on visual creation",
+        "my post is stuck in progress",
+        "my post status is in-progress",
+        "my draft is generating text forever in the AI agent",
+        "the AI agent keeps generating and never shows the post"
+      ],
+      "anchors": [
+        [
+          "generating",
+          "generation",
+          "loading"
+        ],
+        [
+          "stuck",
+          "forever",
+          "indefinitely",
+          "never finishes",
+          "not finishing",
+          "still",
+          "hours",
+          "hour",
+          "long",
+          "finish",
+          "completes",
+          "complete"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "more than a day",
+          "already waited",
+          "tried again",
+          "created another"
+        ]
+      },
+      "opening": "A video or image that stays on generating is not proof that the job failed.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "A loading state that does not end does not tell us the cause, and it does not prove the job failed.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "A persistent loading state does not identify the cause or prove a failed job."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Look up the existing visual's status and error before you start another generation.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Retrieve the existing visual's status and error before starting another generation."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Do not assume it is a credit problem or a silent failure.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Do not assume a credit problem or a silent failure."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Do not start another paid job just because time passed or a status check failed.",
+          "cite": {
+            "url": "https://help.blotato.com/agent-workflows/agent-workflows/visuals",
+            "quote": "Do not create another paid job because a status request failed or time elapsed."
+          }
+        }
+      ],
+      "next": "Open the visual, note its state and how long it has been running, and check its status for an error.",
+      "proof": "You will know it worked when the visual shows done, or when its status shows an error you can read."
+    },
+    {
+      "id": "visual-creation-500",
+      "kind": "technical",
+      "title": "500 Internal Server Error when creating a visual",
+      "phrasings": [
+        "500 Internal Server Error on visual creation",
+        "create visual returns 500",
+        "my API call to make a video from a template gives a 500 error",
+        "the visual creation request failed with internal server error",
+        "did a 500 on creating a video still make a job",
+        "500 error from from-templates endpoint",
+        "internal server eror when generating a carousel with the api",
+        "will I be charged for a visual that returned 500"
+      ],
+      "not_this": [
+        "500 invalid input syntax for type bigint on schedule lookup",
+        "503 Service Unavailable",
+        "504 Gateway Timeout",
+        "Error posting to Instagram: An internal server error occurred"
+      ],
+      "anchors": [
+        [
+          "500",
+          "internal server error",
+          "server error",
+          "internal server eror",
+          "server eror"
+        ],
+        [
+          "visual",
+          "visuals",
+          "template",
+          "creation",
+          "from-templates",
+          "design",
+          "creating a video",
+          "generating a carousel"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "same error again",
+          "retried",
+          "still 500"
+        ]
+      },
+      "opening": "A 500 on visual creation does not tell us the cause, and it does not prove no job was created.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The request failed at a server boundary, but the status alone does not name the cause.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The request failed at a server boundary, but the status alone does not identify the cause or prove no job was created."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Keep the response and the request ID.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Preserve the response and request ID."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Check whether a visual already exists before you try again.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Check for an existing visual before repeating generation, then inspect the selected template's inputs and any returned error."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Read the failed request in Logs, with its payload, response and error message.",
+          "cite": {
+            "url": "https://help.blotato.com/api-and-mcp-concepts/error-handling",
+            "quote": "Read its payload, response, and error message."
+          }
+        }
+      ],
+      "next": "Open Logs, select the failed request, and copy its request ID and error message.",
+      "proof": "Still open: why the server failed. You will know it worked when you find the existing visual or a clear error in the response."
+    },
+    {
+      "id": "media-conversion-failed",
+      "kind": "technical",
+      "title": "Media conversion failed",
+      "phrasings": [
+        "Media conversion failed",
+        "blotato says media conversion failed when I post my video",
+        "my video conversion fails on publish",
+        "what does media conversion failed mean in the API",
+        "conversion did not finish for my reel",
+        "media conversoin failed error in n8n",
+        "why did my video conversion fail",
+        "publish failed, media conversion failed, source download"
+      ],
+      "not_this": [
+        "Unsupported media format",
+        "Failed to read media metadata",
+        "ffprobe Invalid data found when processing input",
+        "Invalid Video Dimensions"
+      ],
+      "anchors": [
+        [
+          "conversion",
+          "conversoin"
+        ],
+        [
+          "failed",
+          "fail",
+          "fails",
+          "failing",
+          "error",
+          "did not finish",
+          "not finish"
+        ],
+        [
+          "media",
+          "video",
+          "reel",
+          "post",
+          "publish",
+          "file",
+          "source",
+          "api",
+          "blotato"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "already mp4",
+          "tried another file",
+          "same file"
+        ]
+      },
+      "opening": "This message alone does not tell us why the conversion stopped, so the check starts with the source file.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The conversion did not finish, and the message alone does not name the cause.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Conversion did not finish. This message alone does not identify the cause."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Blotato also returns this message when the source download fails or comes back empty.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Blotato also returns it when the source download fails or returns an empty response."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Look at the source URL and the exact processing error, then compare the file with the destination's requirements.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Inspect the source URL and exact processing error, then check the file's metadata against the destination's requirements."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Check the status of the original submission before you try again.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Check the original submission's status before retrying."
+          }
+        }
+      ],
+      "next": "Open the media URL in a private window to see that it downloads the real file, then check the submission status.",
+      "proof": "You will know it worked when the post goes through with the same or an exported copy of the file."
+    },
+    {
+      "id": "ffprobe-invalid-data",
+      "kind": "technical",
+      "title": "ffprobe error: Invalid data found when processing input",
+      "phrasings": [
+        "ClientError: Command failed: ffprobe ... Invalid data found when processing input",
+        "ffprobe invalid data found when processing input",
+        "my video publish fails with an ffprobe error",
+        "what does invalid data found when processing input mean in blotato",
+        "ffprobe command failed on my media url",
+        "error command failed ffprobe when I post a video from n8n",
+        "ffprob invalid data when uploading media",
+        "metadata probe could not read my file"
+      ],
+      "not_this": [
+        "Failed to read media metadata is the file accessible",
+        "Media conversion failed",
+        "Unsupported media format mov"
+      ],
+      "anchors": [
+        [
+          "ffprobe",
+          "ffprob",
+          "invalid data found",
+          "processing input",
+          "metadata probe",
+          "probe"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "already mp4",
+          "file plays fine",
+          "plays on my computer"
+        ]
+      },
+      "opening": "The tool that reads your file's details could not read it as valid media.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The metadata probe could not read its input as valid media.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The metadata probe could not read its input as valid media."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Check what the server actually fetched, and inspect the source file.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Check the fetched response and inspect the source file."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "An error page, an incomplete transfer or invalid media are possibilities, not a diagnosis from this text alone.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "An error page, incomplete transfer, or invalid media are possibilities, not a confirmed diagnosis from this text alone."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Replace or re-encode the file only after you know what the problem is.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Replace or re-encode the file only after identifying the problem."
+          }
+        }
+      ],
+      "next": "Open your media URL in a private window and confirm it downloads the actual video file, not a page.",
+      "proof": "You will know it worked when the URL gives you the raw file and the post goes through."
+    },
+    {
+      "id": "instagram-unexpected-error",
+      "kind": "technical",
+      "title": "Could not publish on Instagram: An unexpected error has occurred",
+      "phrasings": [
+        "Could not publish on Instagram: An unexpected error has occurred",
+        "instagram says an unexpected error has occurred when I publish",
+        "my instagram post fails with unexpected error",
+        "what does unexpected error has occurred mean on instagram posts",
+        "blotato could not publish on instagram unexpected error reqId",
+        "instagram unexpeted error scheduled post failed",
+        "how do I fix could not publish on instagram unexpected error",
+        "instagram reel failed, unexpected error, what should I do"
+      ],
+      "not_this": [
+        "Error posting to Instagram: An internal server error occurred",
+        "Instagram rejected your post",
+        "We restrict certain activity to protect our community",
+        "Error posting to Instagram: No error"
+      ],
+      "anchors": [
+        [
+          "unexpected error",
+          "unexpeted error",
+          "unexpected"
+        ],
+        [
+          "instagram",
+          "insta",
+          "reel",
+          "ig"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "reconnected",
+          "already reconnected",
+          "reduced hashtags",
+          "fewer hashtags"
+        ]
+      },
+      "opening": "This error comes from Instagram, not from Blotato.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Instagram or Meta sends this error back, not Blotato.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "This error comes from Instagram/Meta, not Blotato."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Check that the media URL is public by opening it in a private window.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Verify the media URL is publicly accessible (open in incognito)."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Use fewer hashtags and a shorter caption.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Reduce hashtags and caption length."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Leave more time between posts.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Increase time between posts."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If it keeps happening after you reconnect, open a support ticket with the reqId from the error message.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "If the error persists after reconnecting, submit a support ticket with the reqId from the error message."
+          }
+        }
+      ],
+      "next": "Open Logs, read the full error, and then reconnect your Instagram account in Accounts.",
+      "proof": "You will know it worked when the post publishes. Still open if it fails again: the reqId for a person to check."
+    },
+    {
+      "id": "unsupported-media-format-mov",
+      "kind": "technical",
+      "title": "Unsupported media format (.mov)",
+      "phrasings": [
+        "Unsupported media format (.mov)",
+        "blotato says unsupported media format for my mov file",
+        "can I upload a .mov video to instagram or linkedin",
+        "my MOV file is rejected on publish",
+        "which platforms accept mov files in blotato",
+        "do I need to convert my iphone mov to mp4",
+        "unsuported media format mov error",
+        "quicktime mov file does not upload"
+      ],
+      "not_this": [
+        "Unsupported media format: mov,mp4,m4a,3gp,3g2,mj2",
+        "Invalid File Format",
+        "maximum video file size"
+      ],
+      "anchors": [
+        [
+          "mov",
+          ".mov",
+          "quicktime"
+        ],
+        [
+          "unsupported",
+          "not supported",
+          "format",
+          "rejected",
+          "accept",
+          "convert",
+          "error",
+          "fails",
+          "upload"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "already mp4",
+          "renamed it",
+          "renamed to mp4"
+        ]
+      },
+      "opening": "Blotato does recognize MOV files, but each platform handles them differently.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Blotato recognizes MOV files, but handling differs by platform.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Blotato recognizes MOV files, but handling differs by platform."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "LinkedIn converts non-MP4 videos to MP4, and Facebook accepts MP4 and MOV.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "LinkedIn converts non-MP4 videos to MP4. Facebook accepts MP4 and MOV."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Other publishers may receive the MOV file unchanged.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Other publishers may receive the MOV file unchanged."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "For the widest compatibility, encode the video as H.264 with AAC audio in an MP4 container.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "For the widest compatibility, encode the video as H.264 with AAC audio in an MP4 container."
+          }
+        }
+      ],
+      "next": "Export the video again as an MP4 with H.264 video and AAC audio, and upload that copy.",
+      "proof": "You will know it worked when the MP4 copy is accepted for the platform."
+    },
+    {
+      "id": "unsupported-media-format-container-list",
+      "kind": "technical",
+      "title": "Unsupported media format: mov,mp4,m4a,3gp,3g2,mj2",
+      "phrasings": [
+        "Unsupported media format: mov,mp4,m4a,3gp,3g2,mj2",
+        "error unsupported media format mov mp4 m4a 3gp 3g2 mj2",
+        "my file ends in mp4 but blotato says unsupported media format mov,mp4,m4a,3gp,3g2,mj2",
+        "why does it list mov mp4 m4a 3gp when my video is an mp4",
+        "blotato did not recognize my videos container, mov,mp4,m4a list",
+        "unsuported media format mov,mp4,m4a,3gp even for short video",
+        "what is the container brand error mov,mp4,m4a,3gp on my mp4",
+        "video under 120 seconds still gives unsupported media format mov,mp4,m4a,3gp,3g2,mj2"
+      ],
+      "not_this": [
+        "Unsupported media format (.mov)",
+        "Invalid File Format",
+        "Invalid Video Dimensions"
+      ],
+      "anchors": [
+        [
+          "mj2",
+          "m4a",
+          "3gp",
+          "3g2"
+        ],
+        [
+          "mov",
+          "mp4",
+          "unsupported",
+          "format",
+          "container"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "renamed",
+          "changed the extension",
+          "re-exported"
+        ]
+      },
+      "opening": "This error means Blotato did not recognize the container of your file. The file name does not decide that.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Blotato did not recognize the file's container brand, and a name ending in .mp4 does not prove the format.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Blotato did not recognize the file's container brand. A filename ending in .mp4 does not establish the format."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Look at the file's metadata and export it again as an MP4.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Inspect the metadata and export an MP4 file, then check the destination's requirements."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Export the video as MP4 with H.264 video and AAC audio. Renaming the extension does not change the container.",
+          "cite": {
+            "url": "https://help.blotato.com/api-and-mcp-concepts/media-uploads-and-conversion",
+            "quote": "Export the source as MP4 with H.264 video and AAC audio. Renaming the extension does not change the container."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "This is a separate issue from the 120-second conversion limit.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "This is separate from the 120-second conversion limit."
+          }
+        }
+      ],
+      "next": "Export the source video again as an MP4 with H.264 and AAC, and upload the new file.",
+      "proof": "You will know it worked when the new MP4 is accepted. If the error stays, a person can check it with the submission ID."
+    },
+    {
+      "id": "gateway-503",
+      "kind": "technical",
+      "title": "503 Service Unavailable",
+      "phrasings": [
+        "503 Service Unavailable",
+        "I get a 503 from the Blotato API",
+        "api returns service unavailable 503, should I retry",
+        "is blotato down, my request returns 503",
+        "503 error when I publish a post from make",
+        "my automation got 503 service unavailable",
+        "service unavailble 503 what to do",
+        "is a 503 caused by instagram being down"
+      ],
+      "not_this": [
+        "504 Gateway Timeout",
+        "500 Internal Server Error on visual creation",
+        "TikTok servers may be experiencing issues",
+        "the app will not load"
+      ],
+      "anchors": [
+        [
+          "503",
+          "service unavailable",
+          "service unavailble"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried",
+          "many-accounts"
+        ],
+        "phrases": [
+          "for hours",
+          "all day",
+          "every request",
+          "many requests"
+        ]
+      },
+      "opening": "A 503 alone does not tell us who or what is down.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Find out which service returned the response, and keep its body and the request ID.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Identify which service returned the response and preserve its body and request ID."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "For a read, retry after a delay and stop after a set number of tries.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "For a read, use a delayed, bounded retry."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "After a write, look for work that already exists before you send it again.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "After a write, check for existing work first."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A 503 alone does not prove a social platform outage, and it does not rule out a Blotato issue.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "A 503 alone does not establish a social-platform outage or exclude a Blotato issue."
+          }
+        }
+      ],
+      "next": "Save the response body and request ID, then check whether the earlier post already exists before you retry.",
+      "proof": "You will know it worked when the request succeeds. Still open if it keeps returning 503: the request ID for a person to check."
+    },
+    {
+      "id": "gateway-504",
+      "kind": "technical",
+      "title": "504 Gateway Timeout",
+      "phrasings": [
+        "504 Gateway Timeout",
+        "the API gives me a 504 gateway timeout",
+        "my publish request timed out with 504",
+        "504 error, did the post go out anyway",
+        "gateway timeout when I create a post in n8n",
+        "should I resend after a 504",
+        "504 gatway timeout in make scenario",
+        "blotato 504 timeout while uploading media"
+      ],
+      "not_this": [
+        "503 Service Unavailable",
+        "I sent a post twice by mistake",
+        "my post is stuck in progress",
+        "I resent it and now there are 2 posts, how do I remove the duplicate",
+        "I got duplicate posts after a timeout"
+      ],
+      "anchors": [
+        [
+          "504",
+          "gateway timeout",
+          "gatway timeout",
+          "gateway time-out"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "every time",
+          "many times",
+          "for hours",
+          "duplicate",
+          "duplicates",
+          "twice",
+          "2 posts",
+          "two posts",
+          "resent",
+          "sent it again",
+          "sent again"
+        ]
+      },
+      "opening": "A 504 means the request took too long on the way. It does not tell us whether the work finished.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The request timed out at a gateway.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The request timed out at a gateway."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "This response does not say how the downstream work turned out.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The downstream operation's outcome is not established by this response."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Check the original submission or creation before you retry a write.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Check the original submission or creation before retrying a write."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Reconnect an account only if a separate authentication or permission error asks for it.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Reconnect only if a separate authentication or permission error requires it."
+          }
+        }
+      ],
+      "next": "Look up the status of the original submission before you send the request again.",
+      "proof": "You will know it worked when you can see the post or schedule you created, or a clear error for it."
+    },
+    {
+      "id": "visual-template-inputs-wrong",
+      "kind": "technical",
+      "title": "Wrong Template Parameters or scenes.0: missing object",
+      "phrasings": [
+        "Wrong Template Parameters",
+        "scenes.0: missing object",
+        "my create visual step says scenes.0 missing object",
+        "each video template has different parameters, which ones does mine need",
+        "n8n create visual node gives scenes 0 missing object",
+        "how do I find the exact JSON format for my template scenes",
+        "wrong template paramters in my faceless video workflow",
+        "what inputs does my visual template expect"
+      ],
+      "not_this": [
+        "body/template/id must be equal to constant",
+        "slides.image must be at most 400 characters",
+        "Invalid JSON error",
+        "my workflow outputs scenes but the template only takes title and quotes"
+      ],
+      "anchors": [
+        [
+          "scenes.0",
+          "scenes",
+          "template parameters",
+          "template paramters",
+          "wrong template",
+          "missing object",
+          "visual template",
+          "video template",
+          "template inputs"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "already compared",
+          "same format",
+          "copied the example"
+        ]
+      },
+      "opening": "Each visual template wants its own set of inputs, and this error means the ones sent do not match.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Each video template has different parameters, so check the API docs for your template's parameters.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Each video template has different parameters. Check API docs for correct template parameters."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To find out, select the template in n8n or Make, remove all parameters including the prompt, and run the step.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "To debug: (1) Select template in n8n/Make, (2) Remove ALL parameters including Prompt, (3) Run the step,"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Then open Logs, where you can see the exact JSON structure your template expects.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "to see the exact JSON structure your template expects."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A quote array, a slide array and a scene array are different structures.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/faqs",
+            "quote": "A quote array, slide array, and scene array are different structures."
+          }
+        }
+      ],
+      "next": "Pick your template, clear its parameters, run the step once, and read the structure in Logs.",
+      "proof": "You will know it worked when the step runs without the missing object message."
+    },
+    {
+      "id": "pov-template-no-voice",
+      "kind": "technical",
+      "title": "Missing AI voice in a POV faceless video",
+      "phrasings": [
+        "Missing AI Voice",
+        "my POV video has no AI voiceover",
+        "faceless video made with the POV template is silent, where is the voice",
+        "why does the pov template not have an ai voice",
+        "I want an AI voiceover reading my script but my POV video has none",
+        "base pov wakeup no voice in my video",
+        "missing ai voise on my pov video in n8n",
+        "how do I get a voiceover on a faceless video"
+      ],
+      "not_this": [
+        "how do I add music to my Instagram post",
+        "how do I make my own voice clone",
+        "my video has no captions"
+      ],
+      "anchors": [
+        [
+          "pov",
+          "base/pov/wakeup",
+          "pov template",
+          "missing ai voice",
+          "faceless"
+        ],
+        [
+          "voice",
+          "voiceover",
+          "voise",
+          "narration",
+          "audio"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "already used empty",
+          "set id to empty"
+        ]
+      },
+      "opening": "The POV template is made without a voice on purpose.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The POV template does not include an AI voice.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "POV template doesn't include AI voice."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Viral POV videos usually have no AI voiceover, so this template turns it off.",
+          "cite": {
+            "url": "https://help.blotato.com/integrations-and-automation-templates/n8n/n8n-faceless-videos",
+            "quote": "Viral POV videos typically don’t have an AI voiceover, so this template will disable the AI voiceover."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "For an AI voiceover, use the empty template ID.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Use empty template ID for AI voiceover."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "With the empty ID, Blotato takes your script as is and generates a voiceover that reads it.",
+          "cite": {
+            "url": "https://help.blotato.com/integrations-and-automation-templates/n8n/n8n-faceless-videos",
+            "quote": "This will generate an AI voiceover reading your script."
+          }
+        }
+      ],
+      "next": "Set the template id to empty in the Prepare Video node and run the video step again.",
+      "proof": "You will know it worked when the new video has a voice reading your script."
+    },
+    {
+      "id": "tiktok-slideshow-no-music",
+      "kind": "technical",
+      "title": "Missing Music on a TikTok post made through the API",
+      "phrasings": [
+        "Missing Music",
+        "my TikTok slideshow made with the API has no music",
+        "how do I add music in the publish to TikTok step",
+        "autoAddMusic true does nothing",
+        "where do I turn on autoAddMusic for a TikTok photo post",
+        "tiktok post from n8n published without music",
+        "missing music on my tiktok carousel in make",
+        "autoaddmusic parameter tiktok"
+      ],
+      "not_this": [
+        "how do I add music to my Instagram reel in the app",
+        "TikTok photo slideshow upload for non-API users",
+        "my TikTok video has no sound"
+      ],
+      "anchors": [
+        [
+          "autoaddmusic",
+          "auto add music",
+          "missing music",
+          "music"
+        ],
+        [
+          "tiktok",
+          "tik tok",
+          "slideshow",
+          "photo post",
+          "carousel",
+          "autoaddmusic",
+          "auto add music",
+          "missing music"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "it is on",
+          "already true",
+          "already set",
+          "autoaddmusic true"
+        ]
+      },
+      "opening": "Music for a TikTok slideshow is a setting on the publish step, not on the visual.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Add the autoAddMusic parameter, set to true, in the publish to TikTok step.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Add autoAddMusic: true parameter in PUBLISH TO TIKTOK step for music."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "It is a publishing option, not an input for making the visual.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/faqs",
+            "quote": "For TikTok slideshow music, autoAddMusic is a publishing option, not a visual-generation input."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The setting adds music to photo posts and has no effect on videos.",
+          "cite": {
+            "url": "https://help.blotato.com/rest-api-reference/publish-post",
+            "quote": "Add music to photo posts. No effect on videos."
+          }
+        }
+      ],
+      "next": "Set autoAddMusic to true in the publish to TikTok step, and publish a photo post.",
+      "proof": "You will know it worked when the TikTok photo post is published with music."
+    },
+    {
+      "id": "heygen-avatar-video-errors",
+      "kind": "technical",
+      "title": "HeyGen avatar video step fails",
+      "phrasings": [
+        "Wrong Heygen API Key and IDs",
+        "You're On Heygen Free Plan",
+        "Your Avatar Has a Background, heygen step",
+        "my create heygen avatar video step fails in n8n",
+        "heygen avatar id or group id, which one do I use",
+        "heygen free plan does not work with the blotato avatar node",
+        "my heygen avatar has a green screen background, how do I keep the default background",
+        "heygen api key wrong in the avatar video step"
+      ],
+      "not_this": [
+        "how do I use HeyGen with Blotato in general",
+        "how do I make avatar videos",
+        "my video is stuck on generating"
+      ],
+      "anchors": [
+        [
+          "heygen",
+          "hey gen",
+          "heygen avatar"
+        ],
+        [
+          "error",
+          "fails",
+          "failed",
+          "api key",
+          "free plan",
+          "background",
+          "avatar id",
+          "group id",
+          "matting",
+          "step",
+          "wrong"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "already paid",
+          "upgraded heygen"
+        ]
+      },
+      "opening": "The HeyGen avatar step has three common causes, and each has its own fix.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "If the key or IDs are wrong, check that you copied the HeyGen avatar ID and not the avatar group ID.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Check you've copied HEYGEN AVATAR ID correctly, not the Avatar GROUP ID."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The HeyGen API needs its paid API plan, and the free API plan will not work.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "HeyGen API requires $99/mo API plan. Free API plan won't work."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To keep your avatar's own background, set matting to false and remove the background section.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Set matting to false and remove background section for default avatar background."
+          }
+        }
+      ],
+      "next": "Match your error to one of the three causes above and fix that one in the Create Avatar Video step.",
+      "proof": "You will know it worked when the avatar video step runs through and returns a video."
+    },
+    {
+      "id": "invalid-json-error",
+      "kind": "technical",
+      "title": "Invalid JSON error in a request",
+      "phrasings": [
+        "Invalid JSON Error",
+        "blotato api says invalid json",
+        "my request body is invalid json, how do I fix it",
+        "how can I check for invalid json before sending to the API",
+        "http request node gives invalid json for publish post",
+        "invalid jason error in make",
+        "invalid json parameter when publishing",
+        "invalid json in my request to blotato, what is wrong"
+      ],
+      "not_this": [
+        "invalid JSON in my ChatGPT answer",
+        "Invalid File Format",
+        "scenes.0 missing object"
+      ],
+      "anchors": [
+        [
+          "invalid json",
+          "invalid jason"
+        ],
+        [
+          "blotato",
+          "api",
+          "request",
+          "publish",
+          "publishing",
+          "post",
+          "node",
+          "n8n",
+          "make",
+          "body",
+          "error",
+          "parameter"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "jsonlint says it is valid",
+          "already validated"
+        ]
+      },
+      "opening": "An invalid JSON error means the body of the request is not well formed.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Check your JSON with jsonlint.com and compare it with the Blotato API docs.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Validate JSON at jsonlint.com and compare with Blotato API docs."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Use the node's structured fields, or your HTTP client's JSON serializer, for broken JSON.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/faqs",
+            "quote": "For malformed JSON, use the node's structured fields or your HTTP client's JSON serializer."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Do not build JSON by joining text together without escaping it.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/faqs",
+            "quote": "Do not build JSON by concatenating unescaped text."
+          }
+        }
+      ],
+      "next": "Paste your request body into jsonlint.com and fix the line it points to.",
+      "proof": "You will know it worked when jsonlint accepts the body and the request goes through."
+    },
+    {
+      "id": "exceeded-rate-limits-youtube-linkedin",
+      "kind": "technical",
+      "title": "YouTube or LinkedIn posts failing again and again after an exceeded message",
+      "phrasings": [
+        "my YouTube posts keep failing with exceeded rate limits",
+        "LinkedIn publishing says exceeded and keeps failing",
+        "how long do I wait when youtube says exceeded, the posts keep failing",
+        "exceded error on posts to youtube or linkedin, what do I do",
+        "youtube publish failed again and again, the error is exceeded and the platform is rate-limiting my connected account"
+      ],
+      "not_this": [
+        "The service is receiving too many requests from you",
+        "Instagram says we restrict certain activity",
+        "youtube upload limit exceeded the number of videos",
+        "linkedin maximum number of 50 posts reached"
+      ],
+      "anchors": [
+        [
+          "exceeded",
+          "exceded"
+        ],
+        [
+          "youtube",
+          "linkedin",
+          "linkdin",
+          "you tube"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "waited an hour",
+          "waited more than an hour",
+          "already reconnected",
+          "reconnected"
+        ]
+      },
+      "opening": "Here the platform itself is limiting your connected account.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The platform is rate-limiting publishing for your connected account.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The platform is rate-limiting publishing for your connected account."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Wait an hour and retry the posts from Posts > Failed.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Wait an hour and retry from"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If posts keep failing after you waited, reconnect the social account in Accounts and then retry.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "If posts keep failing with this error after waiting, reconnect the social account in"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A stale connection token keeps triggering the platform's rate limiter.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "a stale connection token keeps triggering the platform's rate limiter."
+          }
+        }
+      ],
+      "next": "Wait an hour, then retry the failed posts from the Posts page, Failed tab.",
+      "proof": "You will know it worked when the retried posts show as published."
+    },
+    {
+      "id": "template-id-equal-to-constant",
+      "kind": "technical",
+      "title": "400 body/template/id must be equal to constant",
+      "phrasings": [
+        "body/template/id must be equal to constant",
+        "400 body template id must be equal to constant",
+        "create visual returns must be equal to constant",
+        "my old video creation request now fails with template id constant error",
+        "which endpoint do I use now instead of v2 videos creations",
+        "what changed with from-templates and templateId",
+        "body/template/id must be equel to constant n8n",
+        "my tutorial uses template id and fails with 400"
+      ],
+      "not_this": [
+        "scenes.0 missing object",
+        "Invalid JSON error",
+        "Wrong Template Parameters"
+      ],
+      "anchors": [
+        [
+          "equal to constant",
+          "equel to constant",
+          "template/id",
+          "templateid",
+          "from-templates",
+          "videos/creations",
+          "v2/videos/creations"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "same tutorial",
+          "old tutorial"
+        ]
+      },
+      "opening": "This error usually means the request was built for the older Create Visual format.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Look at the failed request URL and body together.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/faqs",
+            "quote": "Check the failed request URL and body together."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The older endpoint uses a template object and a different schema, and the current one uses templateId and inputs.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/faqs",
+            "quote": "Legacy POST /v2/videos/creations uses a template object and a different schema. Current POST /v2/videos/from-templates uses templateId and inputs."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Get the template and its inputs, use its complete ID in templateId, and send the matching body.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/faqs",
+            "quote": "Use its complete ID in templateId and send the matching body to POST /v2/videos/from-templates."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Do not add an old template.id field or copy an ID from an older tutorial.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/faqs",
+            "quote": "Do not fix the current endpoint by adding a legacy template.id field or copying an ID from an older tutorial."
+          }
+        }
+      ],
+      "next": "Switch the request to the from-templates endpoint with templateId and inputs.",
+      "proof": "You will know it worked when the request is accepted and returns an item with an id."
+    },
+    {
+      "id": "slides-image-too-long",
+      "kind": "technical",
+      "title": "slides.image: must be at most 400 characters",
+      "phrasings": [
+        "slides.image: must be at most 400 characters",
+        "my carousel template says the image must be at most 400 characters",
+        "I passed base64 for a slide image and it fails",
+        "how long can an image url be in the slides field",
+        "what should go in the slides image field of a template",
+        "slides.image 400 caracters error in make",
+        "slide image field too long when I create a carousel"
+      ],
+      "not_this": [
+        "image file too large to upload",
+        "Base64 data is too large, maximum size is 20MB",
+        "Instagram image size"
+      ],
+      "anchors": [
+        [
+          "slides.image",
+          "slides image",
+          "400 characters",
+          "400 caracters",
+          "slide image",
+          "slides field",
+          "slide"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "already a url",
+          "is a url"
+        ]
+      },
+      "opening": "The image field of a slide expects an address, not the picture data.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The image field expects a short public URL.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The image field expects a short public URL"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "It does not take a base64 string or a data blob.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "not a base64 string or data blob."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Keep image URLs under 400 characters.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Keep image URLs under 400 characters."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "For a validation error, correct the named field using the endpoint schema.",
+          "cite": {
+            "url": "https://help.blotato.com/api-and-mcp-concepts/error-handling",
+            "quote": "Correct the named field using the endpoint schema"
+          }
+        }
+      ],
+      "next": "Replace the slide image value with a short public URL to the image file.",
+      "proof": "You will know it worked when the template request is accepted without the 400 characters message."
+    },
+    {
+      "id": "reading-mediaurl-undefined",
+      "kind": "technical",
+      "title": "Cannot read properties of undefined (reading mediaUrl)",
+      "phrasings": [
+        "Cannot read properties of undefined (reading 'mediaUrl')",
+        "cannot read properties of undefined reading mediaUrl when I publish",
+        "my post fails with TypeError reading mediaUrl",
+        "what does reading mediaurl undefined mean on blotato",
+        "publish fails: cannot read mediaUrl of undefined from the queue",
+        "cant read properties of undefined mediaUrl in n8n",
+        "typeerror mediaUrl after invalid_grant on instagram",
+        "blotato error cannot read undefined mediaUrl what should I check"
+      ],
+      "not_this": [
+        "cannot read properties of undefined reading status",
+        "mediaURL is null or empty after creating a visual",
+        "URL is empty",
+        "typeerror in my own javascript code"
+      ],
+      "anchors": [
+        [
+          "mediaurl",
+          "media url"
+        ],
+        [
+          "cannot read",
+          "cant read",
+          "can't read",
+          "typeerror",
+          "reading"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "retried once",
+          "tried again",
+          "already retried",
+          "same error again"
+        ]
+      },
+      "opening": "This error means the publishing queue did not get a usable result for each media file.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The publishing queue did not get 1 usable media result for every media URL.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The publishing queue did not receive 1 usable media-processing result for every media URL."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "First confirm the Create Visual job reached done and every mediaUrls value is a public file URL.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "First confirm the Create Visual job reached done and every mediaUrls value is a public file URL."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Retry the post once.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Retry the post once."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If the same error returns, contact support with the request ID so the team can look at the queue results.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "If the same error returns, contact support with the request ID so the team can inspect the queue results."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Reconnect a social account only if Logs shows a separate authentication error.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Reconnect a social account only when the Logs shows a separate authentication error."
+          }
+        }
+      ],
+      "next": "Check that your Create Visual job shows done and that each media URL opens as a file, then retry once.",
+      "proof": "You will know it worked when the post publishes. Still open if it repeats: the request ID for a person to check."
+    },
+    {
+      "id": "reading-status-undefined",
+      "kind": "technical",
+      "title": "Cannot read properties of undefined (reading status)",
+      "phrasings": [
+        "Cannot read properties of undefined (reading 'status')",
+        "cannot read properties of undefined reading status when I post to instagram",
+        "my tiktok post fails with cannot read properties of undefined status",
+        "what does reading status undefined mean",
+        "typeerror undefined status in blotato publish",
+        "cant read properties undefined status social platform no response",
+        "publish error undefined (reading status) in make",
+        "should I retry after cannot read properties of undefined status"
+      ],
+      "not_this": [
+        "cannot read properties of undefined reading mediaUrl",
+        "my post status is stuck",
+        "status in-progress"
+      ],
+      "anchors": [
+        [
+          "cannot read",
+          "cant read",
+          "can't read",
+          "typeerror",
+          "reading"
+        ],
+        [
+          "status"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "retried",
+          "tried again",
+          "same error again",
+          "still"
+        ]
+      },
+      "opening": "This error means the social platform did not send an answer back.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The social platform did not return a response.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The social platform (Instagram, TikTok, etc.) did not return a response."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "This is usually a temporary issue, so wait a few minutes and retry.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "This is usually a temporary issue. Wait a few minutes and retry."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If it keeps happening, check that your media file is in a supported format.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "If the error persists, check that your media file is in a supported format"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "In the web app, retry from the Posts > Failed screen.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "In the web app, retry from the"
+          }
+        }
+      ],
+      "next": "Wait a few minutes, then retry the post from the Failed tab on the Posts page.",
+      "proof": "You will know it worked when the retried post publishes."
+    },
+    {
+      "id": "media-storage-upload-failed",
+      "kind": "technical",
+      "title": "Failed to upload stream to Supabase, or Could not upload media to storage",
+      "phrasings": [
+        "Failed to upload stream to Supabase",
+        "Could not upload media to storage",
+        "my post fails with failed to upload stream to supabase",
+        "blotato could not save my media file to storage",
+        "what does could not upload media to storage mean when I use a url",
+        "supabase upload stream error in n8n publish step",
+        "faild to upload stream to supabase with a google drive link",
+        "media url not accessible, could not upload to storage"
+      ],
+      "not_this": [
+        "Could not upload media to Twitter",
+        "Could not upload video to Facebook",
+        "the platform rejected the media Blotato tried to upload",
+        "my video is too large to upload from the app"
+      ],
+      "anchors": [
+        [
+          "supabase",
+          "to storage",
+          "stream to"
+        ],
+        [
+          "upload",
+          "uplaod",
+          "failed",
+          "faild",
+          "stream",
+          "storage",
+          "save"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "public link",
+          "already public",
+          "incognito works",
+          "it opens fine"
+        ]
+      },
+      "opening": "Blotato could not read the file at your media link, and that is almost always about the link, not the file.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The media file could not be saved to storage.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The media file could not be saved to storage."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Common causes are a link that is not public, a link to a preview page instead of the file, a file that is too large, or a corrupted file.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Common causes: the source URL is not publicly accessible, the URL points to a preview page instead of the direct file, the file is too large, or the media file is corrupted."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Open the media URL in an incognito window to check that it downloads the file directly.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Open the media URL in an incognito browser window to verify it downloads directly."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "For Google Drive, use a direct download link, not a /view link.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "If using Google Drive, use a direct download link, not a /view link."
+          }
+        }
+      ],
+      "next": "Open your media URL in a private window and confirm it downloads the actual file.",
+      "proof": "You will know it worked when that URL downloads the raw file and the post goes through."
+    },
+    {
+      "id": "failed-to-fetch-media-url-char",
+      "kind": "technical",
+      "title": "Failed to fetch media URL: char is not expected (Deserialization error in n8n)",
+      "phrasings": [
+        "Failed to fetch media URL: char '...' is not expected.:1:1",
+        "failed to fetch media url char is not expected",
+        "n8n deserialization error to see the raw response inspect the hidden field error.$response",
+        "blotato says failed to fetch media url with an unexpected character",
+        "deserialization error when I publish with a media url",
+        "failed to fetch media url char not expected, is it a timeout",
+        "faild to fetch media url in make",
+        "what does char is not expected mean for my media link"
+      ],
+      "not_this": [
+        "Failed to read media metadata",
+        "Scheduled post fails with a media fetch error after a local upload",
+        "Failed to upload stream to Supabase"
+      ],
+      "anchors": [
+        [
+          "failed to fetch media url",
+          "faild to fetch media url",
+          "char",
+          "deserialization",
+          "is not expected"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "retry worked",
+          "worked on retry",
+          "sometimes works",
+          "intermittent"
+        ]
+      },
+      "opening": "This message alone does not show the real cause, so the check starts with the response itself.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Look at the response status and body you can see, without exposing secrets.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Inspect the available response status and body without exposing secrets."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "An unexpected character in a deserialization error does not show the whole response body or the cause.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "An unexpected character in a deserialization error does not establish the complete response body or cause."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Check that the URL is reachable, that it has not expired, what the media really is, and that the upload finished.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Check URL accessibility, expiry, actual media content, and upload completion."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A Blotato hostname or a retry that worked later does not prove a timeout.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "A Blotato hostname or a later successful retry does not prove a timeout."
+          }
+        }
+      ],
+      "next": "Check what your media URL really returns, and look at the submission status before you send it again.",
+      "proof": "You will know it worked when the URL returns the media file and the post goes through."
+    },
+    {
+      "id": "tiktok-url-ownership-verification",
+      "kind": "technical",
+      "title": "TikTok: Please review our URL ownership verification rules",
+      "phrasings": [
+        "Please review our URL ownership verification rules",
+        "Error uploading video to TikTok: Please review our URL ownership verification rules",
+        "tiktok rejects my media url with ownership verification rules",
+        "what does url ownership verification mean on tiktok posts",
+        "my tiktok post fails with url ownership error",
+        "tiktok rejects my video url, ownership verification",
+        "url ownership verifcation rules tiktok in n8n",
+        "how do I host media so TikTok accepts the url ownership check"
+      ],
+      "not_this": [
+        "TikTok servers may be experiencing issues",
+        "TikTok video is missing the subtitle track",
+        "my TikTok account will not connect"
+      ],
+      "anchors": [
+        [
+          "url ownership",
+          "ownership verification",
+          "ownership verifcation"
+        ],
+        [
+          "tiktok",
+          "tik tok",
+          "verification",
+          "verifcation",
+          "url",
+          "rules"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "same link",
+          "different host",
+          "another host"
+        ]
+      },
+      "opening": "TikTok is rejecting the address you gave it for your video.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "This error means you are trying to post to TikTok with a URL that TikTok rejects.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/faqs",
+            "quote": "This error means you're trying to post to TikTok with a URL that TikTok rejects."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Try a different hosting service for your media.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Try using a different hosting service for your media"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Or upload the media to Blotato first, then use the Blotato URL to post to TikTok.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/faqs",
+            "quote": "First, upload your media, then use the Blotato URL to post to TikTok."
+          }
+        }
+      ],
+      "next": "Upload the video to Blotato first, and use the Blotato URL in your TikTok post.",
+      "proof": "You will know it worked when the TikTok post is accepted with the Blotato URL."
+    },
+    {
+      "id": "tiktok-retryable-error",
+      "kind": "technical",
+      "title": "TikTok post failed: TikTok servers may be experiencing issues, retryable error",
+      "phrasings": [
+        "TikTok post failed to publish: TikTok's servers may be experiencing issues. This is a retryable error",
+        "tiktok says servers may be experiencing issues, this is a retryable error",
+        "my tiktok post failed with a retryable error",
+        "what does tiktok retryable error mean in blotato",
+        "tiktok servers may be experiencing issues, retryable, when I publish",
+        "is it blotato or tiktok when it says this is a retryable error",
+        "tiktok retryable eror on my video post",
+        "should I retry my tiktok post after the retryable servers may be experiencing issues message"
+      ],
+      "not_this": [
+        "reached_active_user_cap",
+        "Could not refresh TikTok access_token: Service Unavailable",
+        "JSON value expected but got < at position 0 TikTok",
+        "TikTok failed after 3 retries"
+      ],
+      "anchors": [
+        [
+          "retryable",
+          "retriable",
+          "retryable error",
+          "retryable eror"
+        ],
+        [
+          "tiktok",
+          "tik tok",
+          "servers",
+          "server"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "retried many times",
+          "keeps happening",
+          "every time"
+        ]
+      },
+      "opening": "This error comes straight from TikTok.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The error is directly from TikTok.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/faqs",
+            "quote": "This error is directly from TikTok."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "It happens occasionally when TikTok servers have an issue, when TikTok failed to process the post, or when you post too much.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/faqs",
+            "quote": "It happens occasionally when TikTok servers have an issue, failed to process your post, or you are posting too much."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Wait, then retry.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Wait and retry."
+          }
+        }
+      ],
+      "next": "Wait a little while, then retry the post from Posts > Failed.",
+      "proof": "You will know it worked when the retried post is published."
+    },
+    {
+      "id": "tiktok-token-refresh-unavailable",
+      "kind": "technical",
+      "title": "Could not refresh TikTok access_token: Service Unavailable",
+      "phrasings": [
+        "Could not refresh TikTok access_token: Service Unavailable",
+        "my tiktok post fails because the access token could not be refreshed",
+        "tiktok access_token refresh error when I schedule a post",
+        "how long should I wait after could not refresh tiktok access token",
+        "tiktok token refresh failed, should I reconnect",
+        "could not refresh tiktok acces token",
+        "tiktok says service unavailable when refreshing the token"
+      ],
+      "not_this": [
+        "TikTok servers may be experiencing issues, retryable",
+        "reached_active_user_cap",
+        "my TikTok account is disconnected"
+      ],
+      "anchors": [
+        [
+          "refresh",
+          "refreshing",
+          "refreshed"
+        ],
+        [
+          "tiktok",
+          "tik tok"
+        ],
+        [
+          "token",
+          "access_token",
+          "access token",
+          "acces token"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "waited an hour",
+          "waited more than",
+          "already reconnected",
+          "reconnected"
+        ]
+      },
+      "opening": "TikTok turned down the request to renew the sign-in token for a moment.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "TikTok's servers temporarily rejected the token refresh.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "TikTok's servers temporarily rejected the token refresh."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Wait 15 to 30 minutes and retry.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Wait 15-30 minutes and retry."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If the error stays, reconnect your TikTok account in Accounts.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "If the error persists, reconnect your TikTok account in"
+          }
+        }
+      ],
+      "next": "Wait 15 to 30 minutes, then retry the post.",
+      "proof": "You will know it worked when the post publishes. Still open if it repeats after you reconnect: the error text for a person to check."
+    },
+    {
+      "id": "tiktok-json-html-error",
+      "kind": "technical",
+      "title": "JSON value expected but got < at position 0 (TikTok)",
+      "phrasings": [
+        "JSON value expected but got '<' at position 0 (TikTok)",
+        "json value expected but got < at position 0",
+        "my tiktok post fails with json value expected but got less than sign",
+        "tiktok returned an html page instead of json",
+        "what does unexpected < at position 0 mean on a tiktok publish",
+        "is my post payload wrong when tiktok says json value expected",
+        "json value expcted got < at position 0 tiktok",
+        "tiktok api html error page when posting"
+      ],
+      "not_this": [
+        "Invalid JSON error",
+        "TikTok servers may be experiencing issues, retryable",
+        "Could not refresh TikTok access_token"
+      ],
+      "anchors": [
+        [
+          "position 0",
+          "json value expected",
+          "json value expcted",
+          "html error page",
+          "html page"
+        ],
+        [
+          "tiktok",
+          "html",
+          "position"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "keeps failing",
+          "retried many times",
+          "reconnected"
+        ]
+      },
+      "opening": "TikTok sent back a web page where the system expected data. The page spells out what that means.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "TikTok's API returned an HTML error page instead of a JSON response.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "TikTok's API returned an HTML error page instead of a JSON response."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "This is a temporary TikTok server issue, such as an outage, rate limiting or maintenance.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "This is a temporary TikTok server issue (outage, rate limiting, or maintenance)."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Your post payload is valid.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Your post payload is valid."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Retry after a few minutes, and reconnect TikTok in Accounts if it keeps failing.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Retry after a few minutes. If it keeps failing, reconnect your TikTok account in"
+          }
+        }
+      ],
+      "next": "Wait a few minutes and retry the post.",
+      "proof": "You will know it worked when the post publishes. Still open if it keeps failing after you reconnect: the error text for a person to check."
+    },
+    {
+      "id": "threads-api-feature-not-available",
+      "kind": "technical",
+      "title": "Threads API Feature Not Available when connecting Threads",
+      "phrasings": [
+        "Threads API Feature Not Available: This user does not have access to this Threads API feature",
+        "threads says this user does not have access to this threads api feature",
+        "I cannot connect my Threads account, api feature not available",
+        "what does threads api feature not available mean",
+        "connecting threads to blotato fails with does not have access to this feature",
+        "do I need instagram linked to connect threads",
+        "threds api feature not availble",
+        "my new threads account will not connect to blotato"
+      ],
+      "not_this": [
+        "I cannot connect my Instagram account",
+        "Threads posts are too long",
+        "how do I post to Threads"
+      ],
+      "anchors": [
+        [
+          "threads",
+          "threds"
+        ],
+        [
+          "api feature",
+          "feature not available",
+          "does not have access",
+          "connect",
+          "connecting",
+          "connection"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "already linked",
+          "linked instagram",
+          "has posts",
+          "warmed up"
+        ]
+      },
+      "opening": "This error shows up while connecting Threads, and it has two fixes.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The error occurs when you try to connect Threads to Blotato.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/faqs",
+            "quote": "This error occurs when trying to connect Threads to Blotato."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "You need a linked Instagram account to connect Threads to Blotato.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/faqs",
+            "quote": "You need to have a linked Instagram account to connect Threads to Blotato."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Warm up your Threads account with posts for a few days before connecting it.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/faqs",
+            "quote": "Ensure your Threads account is warmed up for a few days with posts before connecting to Blotato."
+          }
+        }
+      ],
+      "next": "Link your Instagram account to Threads, post for a few days, and connect Threads again.",
+      "proof": "You will know it worked when the Threads account shows up in Accounts."
+    },
+    {
+      "id": "failed-to-read-media-metadata",
+      "kind": "technical",
+      "title": "Failed to read media metadata. Is the file accessible and a valid media file?",
+      "phrasings": [
+        "Failed to read media metadata. Is the file accessible and a valid media file?",
+        "failed to read media metadata",
+        "blotato cannot read my media metadata",
+        "my image url fails with failed to read media metadata",
+        "is the file accessible and a valid media file error",
+        "failed to read media metadata for a claude.ai artifact link",
+        "faild to read media metadata on upload",
+        "the url works in my browser but blotato says failed to read media metadata"
+      ],
+      "not_this": [
+        "ffprobe Invalid data found when processing input",
+        "Unsupported media format mov",
+        "Failed to fetch media URL: char is not expected",
+        "how do I post images from a Claude artifact"
+      ],
+      "anchors": [
+        [
+          "metadata",
+          "metadat",
+          "metdata",
+          "valid media file"
+        ],
+        [
+          "failed to read",
+          "faild to read",
+          "cannot read",
+          "media",
+          "accessible",
+          "valid media file"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "sometimes works",
+          "intermittent",
+          "works sometimes",
+          "same file passes",
+          "retry works"
+        ]
+      },
+      "opening": "Blotato could not get usable details from the file at your link.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Blotato could not obtain usable metadata.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Blotato could not obtain usable metadata."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Check the exact error, whether the server can reach the URL, what the response contains, and whether the upload finished.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "check the exact error, server-to-server accessibility, response content, file container/codecs, and completed upload bytes."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A browser that opens the file does not prove the server can reach it.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Browser success alone does not prove server access."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Presigned upload sends your local bytes straight to storage, but publishing still needs media that can be reached.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Presigned upload transfers local bytes directly to storage, but publishing still needs accessible media."
+          }
+        }
+      ],
+      "next": "Check the exact error in Logs and confirm the media URL serves the file to a server without a login.",
+      "proof": "You will know it worked when the media is accepted and the post goes through."
+    },
+    {
+      "id": "google-drive-warning-page",
+      "kind": "technical",
+      "title": "Google Drive virus scan warning page blocks the media link",
+      "phrasings": [
+        "Google Drive virus scan warning popup blocking media access",
+        "my google drive video link gives blotato a warning page instead of the file",
+        "google drive says it cannot scan my large video for viruses, blotato fails",
+        "does blotato have a 100 MB limit for google drive files",
+        "what link format should I use for a big google drive video",
+        "drive usercontent download link confirm=t for blotato",
+        "google drive viris scan warning when publishing a large video",
+        "google drive share link does not work as a media url"
+      ],
+      "not_this": [
+        "how do I connect Google Drive as context",
+        "Dropbox or Google Drive cloud storage connection",
+        "my video is bigger than the upload limit"
+      ],
+      "anchors": [
+        [
+          "google drive",
+          "gdrive",
+          "drive"
+        ],
+        [
+          "virus",
+          "viris",
+          "warning",
+          "large",
+          "big",
+          "download link",
+          "share link",
+          "100 mb",
+          "scan",
+          "media url",
+          "media link",
+          "/view"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "already anyone with the link",
+          "anyone with the link",
+          "already used"
+        ]
+      },
+      "opening": "For large files, Google Drive can show a warning page where Blotato expects the video.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "For large videos, Google Drive sometimes returns a warning page instead of the file.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Google Drive sometimes returns a warning page instead of the file for large videos."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Blotato does not set a 100 MB cutoff for Google Drive files.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Blotato does not impose a 100 MB Google Drive cutoff."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Share the file as Anyone with the link, and use the direct download link format.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "First, share the file as \"Anyone with the link\" and use"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "When a Google Drive file is over the direct download size limit, Google shows a virus scan warning page instead of the file.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/faqs",
+            "quote": "If your Google Drive file exceeds the direct download size limit, Google shows a virus scan warning page instead of serving the file."
+          }
+        }
+      ],
+      "next": "Share the file as Anyone with the link and swap in the direct download link, then publish again.",
+      "proof": "You will know it worked when the link downloads the video without a warning page."
+    },
+    {
+      "id": "base64-too-large",
+      "kind": "technical",
+      "title": "Base64 data is too large, maximum size is 20MB",
+      "phrasings": [
+        "Base64 data is too large, maximum size is 20MB",
+        "n8n upload binary data fails with base64 too large",
+        "my video is bigger than 15MB and the upload node fails",
+        "what is the size limit for the binary data option in the blotato upload node",
+        "base64 data too large blotato upload media",
+        "how do I upload a large file from n8n to blotato",
+        "bse64 data is too large in n8n",
+        "upload media binary data limit 15mb"
+      ],
+      "not_this": [
+        "maximum file size I can upload in the app",
+        "Google Drive virus scan warning",
+        "Slides image must be at most 400 characters"
+      ],
+      "anchors": [
+        [
+          "base64",
+          "bse64",
+          "binary data",
+          "15mb",
+          "15 mb",
+          "large file"
+        ],
+        [
+          "too large",
+          "large",
+          "size",
+          "limit",
+          "15mb",
+          "20mb",
+          "upload"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "already tried url",
+          "plan limit"
+        ]
+      },
+      "opening": "The Binary Data option in n8n only takes smaller files.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "This error happens when media over 15MB goes through the n8n Upload Binary Data option.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "This error happens when uploading media larger than 15MB via the n8n Upload \"Binary Data\" option."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "For larger files, host the media on cloud storage and pass the URL.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/faqs",
+            "quote": "For larger files, host your media on Google Drive, AWS S3, or another cloud storage service and pass the URL"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Or use the Presigned Upload endpoint to send the file straight to Blotato.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Switch to URL-based upload: use the"
+          }
+        }
+      ],
+      "next": "Switch the upload to a URL, or to the presigned upload, instead of Binary Data.",
+      "proof": "You will know it worked when the large file uploads without the base64 message."
+    },
+    {
+      "id": "self-hosted-image-urls-blank",
+      "kind": "technical",
+      "title": "Visual creation fails or images are blank with self-hosted image URLs",
+      "phrasings": [
+        "Visual creation fails or images are blank when using self-hosted image URLs",
+        "my visual has blank images when I use image urls from my own server",
+        "create visual fails with images hosted on my website",
+        "images behind cloudflare do not load in my blotato visuals",
+        "do I need to allowlist blotato ip addresses for my image host",
+        "blank preview when I use my own cdn images in a template",
+        "my own hosted images show blank in blotato carousel",
+        "self hosted image url not loading in a visual"
+      ],
+      "not_this": [
+        "Failed to read media metadata",
+        "Google Drive link problem",
+        "how do I upload my own images for a post"
+      ],
+      "anchors": [
+        [
+          "self-hosted",
+          "self hosted",
+          "hosted",
+          "my own server",
+          "own cdn",
+          "my website",
+          "cloudflare",
+          "firewall",
+          "allowlist"
+        ],
+        [
+          "image",
+          "images",
+          "visual",
+          "visuals",
+          "blank"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "host logs",
+          "blocked fetch",
+          "waf"
+        ]
+      },
+      "opening": "When a visual shows blank images, the first step is to read its status, not to change your firewall.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Look at the visual's current status and error, then check its input URLs.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Inspect the visual's current status and error, then verify its input URLs."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Blotato's server fetching an asset is a different request from an assistant uploading a file.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Blotato's server fetching an asset is a different request from an assistant uploading a file."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A blank preview alone does not prove a firewall or CDN is blocking Blotato.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "A blank preview alone does not prove firewall or CDN blocking."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If your host logs show a blocked fetch, give that evidence to your hosting administrator and to support before changing access rules.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "If host logs show a blocked fetch, provide the evidence to the hosting administrator and support before changing access rules."
+          }
+        }
+      ],
+      "next": "Open the visual's status, read its error, and check your host logs for a blocked request.",
+      "proof": "You will know it worked when the visual shows done and its images load."
+    },
+    {
+      "id": "instagram-error-posting-no-error",
+      "kind": "technical",
+      "title": "Error posting to Instagram: No error",
+      "phrasings": [
+        "Error posting to Instagram: No error",
+        "instagram says no error but my video was rejected",
+        "my reel fails with error posting to instagram no error",
+        "what does the no error message from instagram mean",
+        "instagram api glitch returns no error and the video is rejected",
+        "blotato says error posting to instagram no eror",
+        "instagram video rejected with no error in the log",
+        "why does it say no error when the instagram post failed"
+      ],
+      "not_this": [
+        "Error posting to Instagram: An internal server error occurred",
+        "Could not publish on Instagram: An unexpected error has occurred",
+        "Instagram rejected your post",
+        "posts show as published but are not visible"
+      ],
+      "anchors": [
+        [
+          "no error",
+          "no eror"
+        ],
+        [
+          "instagram",
+          "insta",
+          "ig",
+          "reel",
+          "video"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "reduced hashtags",
+          "fewer hashtags",
+          "tried again",
+          "still"
+        ]
+      },
+      "opening": "This message looks odd, because the post failed but the error says there was none.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Blotato has seen a recent glitch in Instagram's API that sometimes returns No Error and rejects the video.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "I've noticed a recent glitch with Instagram API that sometimes returns"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The help page says it looks like an issue on Instagram's side, because nothing changed on the Blotato side.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "but this looks like an issue on IG side, as I haven't changed anything on the Blotato side."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "One suggestion is to reduce the number of hashtags.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "reduce the number of hashtags"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Another is to reduce the length of the caption.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "reducing the length of caption"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A third is to leave more time between posts.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "increasing time between posts"
+          }
+        }
+      ],
+      "next": "Use fewer hashtags, shorten the caption, leave more time between posts, and try the post again.",
+      "proof": "You will know it worked when the post publishes to Instagram."
+    },
+    {
+      "id": "instagram-internal-server-error",
+      "kind": "technical",
+      "title": "Error posting to Instagram: An internal server error occurred",
+      "phrasings": [
+        "Error posting to Instagram: An internal server error occurred",
+        "instagram says an internal server error occurred when blotato posts",
+        "is the instagram internal server error a blotato problem",
+        "my instagram post failed, internal server error from instagram",
+        "does blotato retry when instagram has an internal server error",
+        "how long should I wait after instagram internal server error",
+        "instgram internal server eror on my reel",
+        "blotato retried my instagram post twice after an internal server error and it still failed"
+      ],
+      "not_this": [
+        "500 Internal Server Error on visual creation",
+        "Could not publish on Instagram: An unexpected error has occurred",
+        "Instagram encountered a temporary error while publishing",
+        "503 Service Unavailable"
+      ],
+      "anchors": [
+        [
+          "instagram",
+          "instgram",
+          "insta",
+          "ig"
+        ],
+        [
+          "internal server error",
+          "internal server eror",
+          "internal error"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "waited a few hours",
+          "waited hours",
+          "still fails",
+          "retried"
+        ]
+      },
+      "opening": "This error comes from Instagram and not from Blotato.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "It is a brief temporary outage of Instagram's API, not a Blotato issue.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "A brief temporary outage of Instagram's API, not a Blotato issue."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Blotato automatically retries the post 2 times.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Blotato auto-retries the post 2 times."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If the post still failed, the outage lasted longer than a few minutes.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "If it still failed, the outage lasted longer than a few minutes"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Wait a few hours, then retry the post from Posts > Failed.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/instagram/faqs",
+            "quote": "Wait a few hours, then retry the post from"
+          }
+        }
+      ],
+      "next": "Wait a few hours, then retry the post from the Failed tab on the Posts page.",
+      "proof": "You will know it worked when the retried post is published."
+    },
+    {
+      "id": "instagram-rejected-your-post",
+      "kind": "technical",
+      "title": "Instagram rejected your post",
+      "phrasings": [
+        "Instagram rejected your post",
+        "my instagram posts keep getting rejected by instagram",
+        "blotato says instagram rejected your post again and again",
+        "why does instagram keep rejecting my posts through blotato",
+        "instagram rejected the post, is my account flagged as a bot",
+        "instgram rejected your post error",
+        "instagram spam check rejects my scheduled posts"
+      ],
+      "not_this": [
+        "We restrict certain activity to protect our community",
+        "Could not publish on Instagram: An unexpected error has occurred",
+        "Error posting to Instagram: No error",
+        "my Instagram post is not visible after publishing"
+      ],
+      "anchors": [
+        [
+          "rejected your post",
+          "keep rejecting",
+          "keeps rejecting",
+          "keep getting rejected",
+          "keeps getting rejected",
+          "rejected the post",
+          "rejects my",
+          "rejecting my"
+        ],
+        [
+          "instagram",
+          "instgram",
+          "insta",
+          "ig"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "logged in daily",
+          "already logging in",
+          "for a week",
+          "already spaced"
+        ]
+      },
+      "opening": "This message means Instagram itself is turning the posts away.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The account is hitting Instagram's spam and bot-risk checks.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The account is hitting Instagram's spam and bot-risk checks."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Log into the Instagram account daily for the next week and scroll the feed for about 10 minutes like a normal user.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Log into the Instagram account daily for the next week and scroll the feed for about 10 minutes like a normal user"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Space out your posts instead of retrying in a rapid loop.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/instagram/faqs",
+            "quote": "Space out your posts instead of retrying in a rapid loop"
+          }
+        }
+      ],
+      "next": "Log into the Instagram account and scroll the feed for about 10 minutes each day, and leave more time between posts.",
+      "proof": "You will know it worked when a later post goes through without the rejection message."
+    },
+    {
+      "id": "instagram-user-not-authorized-application",
+      "kind": "technical",
+      "title": "The user has not authorized application (Instagram or Facebook)",
+      "phrasings": [
+        "The user has not authorized application",
+        "instagram says the user has not authorized application when I publish",
+        "facebook error user has not authorized application in blotato",
+        "what does the user has not authorized application mean",
+        "my meta token is no longer valid, user has not authorized app",
+        "post fails after I changed my instagram password, not authorized application",
+        "the user has not autorized application",
+        "did I remove blotato from business integrations and now the post fails"
+      ],
+      "not_this": [
+        "I cannot connect my Instagram account",
+        "invalid_grant Instagram Meta token expired",
+        "Account requires reconnect"
+      ],
+      "anchors": [
+        [
+          "not authorized application",
+          "not autorized application",
+          "has not authorized",
+          "has not autorized",
+          "business integrations"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "reconnected",
+          "already reconnected",
+          "same error"
+        ]
+      },
+      "opening": "This error means Meta no longer accepts the saved sign-in for this account.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The Meta access token for the account is no longer valid.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The Meta access token for the account is no longer valid"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Tokens go stale when they expire, get revoked by a password change or security refresh, or when the Blotato app was removed from Business Integrations.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "tokens go stale when they expire, get revoked (password change or security refresh), or the Blotato app was removed from Business Integrations."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Newly released features like comments and messaging also require updated permissions.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Newly released features like comments and messaging also require updated permissions."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To renew the connection, select Reconnect from the Instagram account actions menu in Accounts and finish the consent screen.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/social-accounts/instagram",
+            "quote": "and select Reconnect from the Instagram account actions menu."
+          }
+        }
+      ],
+      "next": "Open Accounts, choose Reconnect on the account, and finish the consent screen.",
+      "proof": "You will know it worked when the same username still shows in Accounts and your next post goes through."
+    },
+    {
+      "id": "instagram-session-not-confirmed",
+      "kind": "technical",
+      "title": "Error validating access token: Sessions for the user are not allowed because the user is not a confirmed user",
+      "phrasings": [
+        "Could not publish on Instagram: Error validating access token: Sessions for the user are not allowed because the user is not a confirmed user",
+        "sessions for the user are not allowed because the user is not a confirmed user",
+        "instagram error validating access token not a confirmed user",
+        "my instagram post fails because the user is not a confirmed user",
+        "what does not a confirmed user mean for instagram in blotato",
+        "instagram account session is not confirmed, what do I do",
+        "error validating acces token confirmed user instagram",
+        "instagram needs email or phone confirmation, not a confirmed user, before blotato can post"
+      ],
+      "not_this": [
+        "The session has been invalidated because the user changed their password",
+        "The user has not authorized application",
+        "400 Session Error Connecting Instagram Account"
+      ],
+      "anchors": [
+        [
+          "confirmed user",
+          "not confirmed",
+          "session is not confirmed",
+          "validating access token",
+          "validating acces token"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "already logged in",
+          "completed prompts",
+          "professional account"
+        ]
+      },
+      "opening": "This error comes from Instagram and Meta, and it points to a step still waiting on the Instagram account itself.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The error comes from Instagram and Meta, and the Instagram account session is not confirmed.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "This error comes from Instagram/Meta. The Instagram account session is not confirmed."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Log into the Instagram account in a browser and complete any pending prompts, such as email or phone confirmation, security checkpoints or updated terms.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Log into the Instagram account in a browser and complete any pending prompts (email/phone confirmation, security checkpoints, updated terms)."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Check that the account is a Professional or Business account, because personal accounts have issues with third-party publishing.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Verify the account is a Professional or Business account (personal accounts have issues with third-party publishing)."
+          }
+        }
+      ],
+      "next": "Log into the Instagram account in a browser and finish any prompt it shows, then try the post again.",
+      "proof": "You will know it worked when the post publishes. Still open if it fails again: the full error text for a person to check."
+    },
+    {
+      "id": "instagram-five-hashtag-limit",
+      "kind": "technical",
+      "title": "Instagram allows a maximum of 5 hashtags per post",
+      "phrasings": [
+        "Instagram allows a maximum of 5 hashtags per post",
+        "blotato says maximum of 5 hashtags per post",
+        "my post is blocked because I used more than 5 hashtags",
+        "is the 5 hashtag limit from instagram or from blotato",
+        "why does blotato cap posts at 5 hashtags",
+        "maximun of 5 hashtags error when I republish",
+        "how do I fix the 5 hashtags per post error",
+        "I get a 5 hashtag error on facebook and tiktok posts too"
+      ],
+      "not_this": [
+        "how many hashtags should I use for the best reach",
+        "the Markdown asterisks appear in my post",
+        "how many characters can a caption have"
+      ],
+      "anchors": [
+        [
+          "5 hashtags",
+          "five hashtags",
+          "5 hashtag",
+          "maximum of 5",
+          "maximun of 5",
+          "5 hastags"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "trimmed to 5",
+          "already fewer"
+        ]
+      },
+      "opening": "This limit is set by Blotato, not by Instagram.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "This is a Blotato guardrail, not an Instagram rule.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "This is a Blotato guardrail, not an Instagram rule."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Instagram allows more hashtags, but Blotato caps posts at 5 on purpose because more hashtags reduce your reach on Instagram, TikTok and Facebook.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Instagram itself allows more hashtags, but Blotato caps posts at 5 on purpose because more than 5 hashtags reduces your reach on Instagram, TikTok, and Facebook."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Trim your caption to 5 hashtags or fewer and republish.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Fix: trim your caption to 5 hashtags or fewer and republish."
+          }
+        }
+      ],
+      "next": "Cut the caption down to 5 hashtags or fewer and publish again.",
+      "proof": "You will know it worked when the post is accepted without the hashtag message."
+    },
+    {
+      "id": "instagram-400-session-error-connecting",
+      "kind": "technical",
+      "title": "400 Session Error Connecting Instagram Account (pages disagree)",
+      "phrasings": [
+        "400 Session Error Connecting Instagram Account",
+        "instagram connect fails with 400 session error",
+        "should I test with a post after a 400 session error connecting instagram",
+        "400 session eror connecting instagram, is the account saved",
+        "the callback page says 400 when I connect instagram in blotato",
+        "do I use incognito after a 400 session error instagram",
+        "instagram connection error 400, is my account connected or not"
+      ],
+      "not_this": [
+        "HTTP 500 when connecting additional Instagram accounts",
+        "Account isn't eligible when connecting Instagram",
+        "Instagram says the user is not a confirmed user"
+      ],
+      "anchors": [
+        [
+          "400"
+        ],
+        [
+          "session error",
+          "session eror",
+          "connecting instagram",
+          "connect instagram",
+          "connect my instagram",
+          "instagram"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "incognito",
+          "still 400",
+          "same error"
+        ]
+      },
+      "opening": "Two help pages give different advice for this error, so I am passing it to a person who can say which one applies.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "A 400 response does not tell us which service failed, or whether the account was saved.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/social-accounts/instagram",
+            "quote": "A 400 response does not establish which service failed or whether the account was saved."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Check the account list in Accounts for the username you meant to connect.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/social-accounts/instagram",
+            "quote": "Check the account list in"
+          }
+        },
+        {
+          "type": "action",
+          "text": "I am passing your message to a person on the team, with the error you pasted."
+        },
+        {
+          "type": "fact",
+          "text": "Please keep the error text, the time it happened and the failing page's hostname and path, without any query parameters that hold codes.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/social-accounts/instagram",
+            "quote": "Record the error text, timestamp, and failing page's hostname and path. Omit query parameters containing authorization codes or state values."
+          }
+        }
+      ],
+      "next": "Check Accounts for the username, and reply with the error text and the time it happened.",
+      "proof": "Still open: whether to test with a post first. A person on the team has your message.",
+      "escalate": {
+        "why": "The Error Reference says to test with a post first, and the Instagram connection page says not to publish a test post to diagnose this 400.",
+        "causes": [
+          {
+            "text": "The Error Reference says the connection sometimes succeeds despite the error, and to test with a post first.",
+            "cite": {
+              "url": "https://help.blotato.com/support/errors",
+              "quote": "Sometimes connection succeeds despite error. Test with a post first."
+            }
+          },
+          {
+            "text": "The Instagram connection page says not to publish a test post to diagnose the status code.",
+            "cite": {
+              "url": "https://help.blotato.com/settings/social-accounts/instagram",
+              "quote": "Do not publish a test post, remove the integration, or change unrelated Instagram settings to diagnose the status code alone."
+            }
+          }
+        ],
+        "ruledOut": []
+      },
+      "docEdit": {
+        "article": "https://help.blotato.com/support/errors",
+        "kind": "change",
+        "before": "Sometimes connection succeeds despite error. Test with a post first.",
+        "after": "A 400 does not show whether the account was saved. Check Accounts for the username first, then start a new connection from Accounts in the same browser session.",
+        "note": "The Error Reference row tells customers to test with a post. The Instagram connection page says not to publish a test post to diagnose the 400. Confirm which is right and make both pages say it."
+      }
+    },
+    {
+      "id": "linkedin-no-pages-found",
+      "kind": "technical",
+      "title": "No LinkedIn pages found for this account",
+      "phrasings": [
+        "No LinkedIn pages found for this account",
+        "I see no linkedin pages found for this account, did my sign in fail",
+        "linkedin connect says no pages found",
+        "is no linkedin pages found an error",
+        "the select linkedin pages window says no pages found",
+        "no linkdin pages found after I connected",
+        "linkedin connection popup says no company pages found, is my profile connected",
+        "why does blotato say no linkedin pages when I only post on my profile"
+      ],
+      "not_this": [
+        "my LinkedIn company page is missing from the list",
+        "how do I post to a LinkedIn company page with the API",
+        "LinkedIn connection expired"
+      ],
+      "anchors": [
+        [
+          "linkedin",
+          "linkdin",
+          "linked in"
+        ],
+        [
+          "no pages found",
+          "no linkedin pages",
+          "no pages",
+          "no company pages",
+          "pages found"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "already admin",
+          "super admin",
+          "content admin"
+        ]
+      },
+      "opening": "Good news first: this message does not mean your sign-in failed.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "It is not an error.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Not an error."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The message appears in the Select LinkedIn pages window after your LinkedIn sign-in succeeds.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "This message appears in the Select LinkedIn pages window after your LinkedIn sign-in succeeds."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "It means the profile you signed in with has no company Pages where it holds the Super Admin or Content Admin role.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "It means the signed-in profile has no company Pages where it holds the Super Admin or Content Admin role."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Your personal LinkedIn profile stays connected.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Your personal LinkedIn profile remains connected."
+          }
+        }
+      ],
+      "next": "Close the window if you only post to your personal profile.",
+      "proof": "You will know it worked when your LinkedIn profile still shows as connected in Accounts."
+    },
+    {
+      "id": "linkedin-page-missing-from-list",
+      "kind": "technical",
+      "title": "A LinkedIn company Page I administer is missing from the list",
+      "phrasings": [
+        "Unable to connect LinkedIn company page",
+        "my linkedin company page does not show up when I connect",
+        "a page I administer is missing in the select linkedin pages window",
+        "why can I not see my company page in blotato linkedin connect",
+        "which linkedin role do I need to connect a company page",
+        "linkedin page missing in blotato, I am an analyst on the page",
+        "linkdin company page not in the list when connecting",
+        "ask a super admin to connect the linkedin page to blotato"
+      ],
+      "not_this": [
+        "does a linkedin company page count against the number of accounts on my plan",
+        "No LinkedIn pages found for this account",
+        "how do I post to a LinkedIn company page with the API",
+        "Account not found on LinkedIn"
+      ],
+      "anchors": [
+        [
+          "linkedin",
+          "linkdin",
+          "linked in"
+        ],
+        [
+          "missing",
+          "not in the list",
+          "not showing",
+          "does not show",
+          "not see",
+          "cannot see",
+          "role",
+          "admin",
+          "analyst",
+          "curator",
+          "super admin",
+          "content admin",
+          "manage admins",
+          "unable to connect",
+          "select linkedin pages",
+          "disappear"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "already super admin",
+          "already content admin",
+          "incognito"
+        ]
+      },
+      "opening": "LinkedIn only shows Blotato the Pages where you hold a certain admin role.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Open the Page on LinkedIn, go to Admin tools > Manage admins, and check your role.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Open the Page on LinkedIn and go to Admin tools > Manage admins."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Your profile needs the Super Admin or Content Admin role, and a Super Admin can update your role if needed.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Confirm your profile has the Super Admin or Content Admin role. Ask a Super Admin to update your role if needed."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "After the role changes, use an incognito browser, log into LinkedIn, then Blotato, and connect the Page.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "After the role changes, use an incognito browser, log into LinkedIn, then Blotato, and connect the Page."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If your role stays unchanged, ask a Super Admin or Content Admin to connect the Page to Blotato.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "If your role stays unchanged, ask a Super Admin or Content Admin to connect the Page to Blotato."
+          }
+        }
+      ],
+      "next": "Check your role under Admin tools > Manage admins on the Page.",
+      "proof": "You will know it worked when the Page shows up in the Select LinkedIn pages window."
+    },
+    {
+      "id": "youtube-unauthorized-error",
+      "kind": "technical",
+      "title": "YouTube Unauthorized error when posting",
+      "phrasings": [
+        "YouTube Unauthorized error",
+        "my youtube post fails with unauthorized",
+        "how do I fix the unauthorized error when posting to youtube",
+        "blotato says youtube unauthorized after I reconnected",
+        "youtube unathorized error in my automation",
+        "do I need to update the youtube account id in my workflow after the unauthorized error",
+        "youtube posts say unauthorized, what should I do",
+        "unauthorized when I publish a video to my youtube channel"
+      ],
+      "not_this": [
+        "the API answers 401 Unauthorized",
+        "Youtube channel will not appear when connecting",
+        "YouTube upload limit exceeded",
+        "Exceeded rate limits on YouTube"
+      ],
+      "anchors": [
+        [
+          "youtube",
+          "you tube",
+          "youtub",
+          "yutube"
+        ],
+        [
+          "unauthorized",
+          "unathorized",
+          "unauthorised"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "incognito",
+          "already reconnected",
+          "reconnected"
+        ]
+      },
+      "opening": "An Unauthorized error from YouTube means the connection needs a fresh sign-in.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Open an incognito Chrome browser.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/youtube/faqs",
+            "quote": "Open an incognito Chrome browser"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Log into your YouTube account, then log into Blotato.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/youtube/faqs",
+            "quote": "Log into your YouTube account"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Reconnect your YouTube account to Blotato.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/youtube/faqs",
+            "quote": "Reconnect your YouTube account to Blotato"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If you use a workflow automation, update your YouTube account ID there.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/youtube/faqs",
+            "quote": "If you are using a workflow automation, make sure you update your youtube account ID!"
+          }
+        }
+      ],
+      "next": "Reconnect YouTube from an incognito window, then copy the new account ID into your workflow if you use one.",
+      "proof": "You will know it worked when your next YouTube post publishes without the Unauthorized error."
+    },
+    {
+      "id": "slack-organization-wide-install",
+      "kind": "technical",
+      "title": "Install Blotato into a single Slack workspace. Organization-wide installs are not supported.",
+      "phrasings": [
+        "Install Blotato into a single Slack workspace. Organization-wide installs are not supported.",
+        "slack says organization-wide installs are not supported",
+        "I cannot connect slack, it wants a single workspace",
+        "can I install blotato organization-wide in my slack enterprise grid",
+        "slack org wide install rejected by blotato",
+        "how do I connect slack to blotato for one workspace",
+        "slak organization wide install not supported",
+        "blotato rejects my slack install, organization-wide, what workspace do I pick"
+      ],
+      "not_this": [
+        "Blotato could not find this Slack channel",
+        "Slack did not grant the permissions Blotato needs",
+        "how do I post to a private Slack channel"
+      ],
+      "anchors": [
+        [
+          "slack",
+          "slak",
+          "slck"
+        ],
+        [
+          "organization-wide",
+          "organisation-wide",
+          "organization wide",
+          "org wide",
+          "single workspace",
+          "one workspace"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "already picked a workspace"
+        ]
+      },
+      "opening": "Blotato connects to one Slack workspace at a time.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Each connected Slack account is one workspace.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Each connected Slack account is one workspace."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Blotato rejects Slack organization-wide installs.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Blotato rejects Slack organization-wide installs."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Go to Accounts > Connect account > Slack and install Blotato into one workspace.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Go to Accounts > Connect account > Slack and install Blotato into one workspace."
+          }
+        }
+      ],
+      "next": "Go to Accounts, choose Connect account and Slack, and pick one workspace.",
+      "proof": "You will know it worked when the Slack workspace shows in Accounts with the channels you chose."
+    },
+    {
+      "id": "slack-permissions-not-granted",
+      "kind": "technical",
+      "title": "Slack did not grant the permissions Blotato needs",
+      "phrasings": [
+        "Slack did not grant the permissions Blotato needs. Please connect Slack again and allow all permissions.",
+        "slack says it did not grant the permissions blotato needs",
+        "connecting slack fails, missing permissions",
+        "do I have to allow all permissions when I connect slack",
+        "slack missing permissions error when connecting to blotato",
+        "slack did not grant permisions blotato needs",
+        "blotato wants me to connect slack again and allow all permissions",
+        "I unchecked a permission, now slack says missing permissions"
+      ],
+      "not_this": [
+        "Blotato could not find this Slack channel",
+        "Install Blotato into a single Slack workspace",
+        "Slack is limiting how fast Blotato can post"
+      ],
+      "anchors": [
+        [
+          "slack",
+          "slak",
+          "slck"
+        ],
+        [
+          "did not grant",
+          "allow all permissions",
+          "all permissions",
+          "missing permissions",
+          "permissions blotato needs",
+          "permisions blotato needs"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "allowed everything",
+          "allowed all",
+          "already allowed"
+        ]
+      },
+      "opening": "Blotato asks Slack for a set of permissions and needs all of them.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Blotato needs every permission it requests.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Blotato needs every permission it requests."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Go to Accounts > Connect account > Slack and allow all permissions on the Slack screen.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Go to Accounts > Connect account > Slack and allow all permissions on the Slack screen."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If Slack reports missing permissions, connect Slack again and allow all permissions.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/social-accounts/slack",
+            "quote": "If Slack reports missing permissions, connect Slack again and allow all permissions."
+          }
+        }
+      ],
+      "next": "Connect Slack again and allow every permission on the Slack screen.",
+      "proof": "You will know it worked when the Slack workspace shows in Accounts."
+    },
+    {
+      "id": "instagram-token-expired-reconnect",
+      "kind": "technical",
+      "title": "invalid_grant (Instagram or Meta) or Account requires reconnect",
+      "phrasings": [
+        "invalid_grant (Instagram/Meta)",
+        "instagram invalid_grant error when I publish",
+        "my meta authorization token expired, invalid grant",
+        "Account requires reconnect on my Instagram",
+        "blotato says account requires reconnect for my instagram",
+        "my instagram posts fail with invalid grant and then a mediaUrl TypeError",
+        "invalid grant meta instagram post failed what do I click",
+        "instagram says account requires reconect"
+      ],
+      "not_this": [
+        "the Blotato connector in Claude says invalid_grant",
+        "Claude cannot connect to Blotato anymore, oauth error",
+        "I cannot connect my Instagram account for the first time"
+      ],
+      "anchors": [
+        [
+          "/invalid.?grant.{0,80}(instagram|insta|meta|facebook)/",
+          "/(instagram|insta|meta|facebook).{0,80}invalid.?grant/",
+          "/account requires (reconnect|reconect).{0,60}(instagram|insta)/",
+          "/(instagram|insta).{0,60}account requires (reconnect|reconect)/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "reconnected",
+          "already reconnected",
+          "same error"
+        ]
+      },
+      "opening": "The saved sign-in for this account has expired, so it has to be renewed.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The Instagram or Meta authorization token expired.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The Instagram/Meta authorization token expired."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Go to Accounts, find the Instagram account, and click Reconnect.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "find the Instagram account, and click Reconnect."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "This error often causes follow-on mediaUrl TypeErrors, so fix the token first.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "This error often causes follow-on \"mediaUrl\" TypeErrors -- fix the token first."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "After the reconnect, retry your request.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "click Reconnect on the Instagram account, then retry your request."
+          }
+        }
+      ],
+      "next": "Click Reconnect on the Instagram account in Accounts, then retry the request.",
+      "proof": "You will know it worked when your retried request goes through."
+    },
+    {
+      "id": "claude-connected-but-oauth-error",
+      "kind": "technical",
+      "title": "Blotato shows Connected in Claude, but Claude returns an OAuth error (pages disagree)",
+      "phrasings": [
+        "Blotato shows Connected in Claude Settings, but Claude.ai returns an OAuth error when asked to list accounts",
+        "blotato says connected in claude but I get an oauth error",
+        "claude connector shows connected yet listing my accounts gives an oauth error",
+        "do I have to click generate api key to fix the claude connected oauth error",
+        "claude.ai oauth error even though blotato is connected in settings",
+        "blotato mcp connected in claude desktop but cannot list accounts, paid subscription needed",
+        "connected in claude but oauth fails, is it my subscription",
+        "should I generate an api key to activate my paid subscription for claude, it says connected but oauth fails"
+      ],
+      "not_this": [
+        "the Blotato connector in Claude says invalid_grant",
+        "how do I connect Blotato to Claude for the first time",
+        "I was charged after making an API key"
+      ],
+      "anchors": [
+        [
+          "connected",
+          "conected"
+        ],
+        [
+          "claude",
+          "cowork",
+          "claude.ai"
+        ],
+        [
+          "oauth",
+          "list accounts",
+          "auth error",
+          "authorization error"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "generated an api key",
+          "made an api key",
+          "clicked generate",
+          "paid subscription"
+        ]
+      },
+      "opening": "Two help pages give different advice for this error, so I am passing it to a person. Please do not click Generate API Key to fix it.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "A saved connection and a successful tool call are two different checkpoints.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/mcp/faqs",
+            "quote": "A saved connection and a successful tool call are different checkpoints."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Please do not generate an API key as a fix, because generating one during a trial starts billing.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/mcp/faqs",
+            "quote": "Generating an API key during a trial starts billing."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "An OAuth error on its own does not mean there is a billing problem.",
+          "cite": {
+            "url": "https://help.blotato.com/api-and-mcp-concepts/authentication",
+            "quote": "An OAuth error alone does not establish a billing problem."
+          }
+        },
+        {
+          "type": "action",
+          "text": "I am passing your message to a person on the team, with the error you saw."
+        }
+      ],
+      "next": "Reply with the exact error Claude shows and which Claude app you use, such as Claude.ai, Claude Desktop or Claude Code.",
+      "proof": "Still open: the cause of the OAuth error. A person on the team has your message.",
+      "escalate": {
+        "why": "The Error Reference tells customers to click Generate API Key to activate a paid subscription. The MCP FAQs say generating a key during a trial starts billing and is not an automatic fix. The desk must not choose.",
+        "causes": [
+          {
+            "text": "The Error Reference says to click Generate API Key to activate a paid subscription.",
+            "cite": {
+              "url": "https://help.blotato.com/support/errors",
+              "quote": "and click \"Generate API Key\" to activate your paid subscription."
+            }
+          },
+          {
+            "text": "The MCP FAQs say generating an API key during a trial starts billing and is not an automatic fix.",
+            "cite": {
+              "url": "https://help.blotato.com/start-with-an-ai-agent/mcp/faqs",
+              "quote": "Do not use that as an automatic troubleshooting step or promise it fixes every OAuth error."
+            }
+          }
+        ],
+        "ruledOut": [
+          "Nothing ruled out yet: the desk cannot see which Claude app or which account was used."
+        ]
+      },
+      "docEdit": {
+        "article": "https://help.blotato.com/support/errors",
+        "kind": "change",
+        "before": "Blotato API and MCP require a paid subscription. Go to Settings > API and click \"Generate API Key\" to activate your paid subscription.",
+        "after": "Check the Blotato account used during authorization and its paid-access state, record the exact error, and follow the MCP OAuth checks. Generating an API key during a trial starts billing, so do not use it as an automatic fix.",
+        "note": "This row tells customers to generate an API key. The MCP FAQs and the setup page say generating a key during a trial starts billing. Make the Error Reference match them."
+      }
+    }
+  ]
+}
