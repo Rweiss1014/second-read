@@ -14,8 +14,8 @@
 //   5. A second question the entry does not cover: answer the part it can cite and hand over the rest,
 //      or hand over the whole message when the entry has no room for that line. If the entry covers none
 //      of the message's questions, it matched only the background, and the desk does not answer.
-import { buildIndex, scoreEntries, scoreAgainst, splitSentences, contentStems, allStems, hasTerm, anchorsMet } from './match.mjs';
-import { runGuards, stripDeskInstructions, needsPerson, TROUBLE } from './signals.mjs';
+import { buildIndex, scoreEntries, scoreAgainst, splitSentences, contentStems, allStems, hasTerm, anchorsMet, anchorRegex } from './match.mjs';
+import { runGuards, stripDeskInstructions, needsPerson, TROUBLE, NAMED_ITEMS, PLATFORMS, ASKS_NUMBER, GIVES_NUMBER, INTRODUCER, COMMON_CAPS } from './signals.mjs';
 
 // Tuned on the dev set only (eval/tickets.dev.jsonl). See BUILD-LOG.md for how.
 export const THRESHOLD = 0.25;   // the best entry's score must reach this, when the entry has anchors and they are met
@@ -32,6 +32,36 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
   const matchable = entries.filter(e => !e.guard);
   const index = buildIndex(matchable);
   const guardEntry = (g) => entries.find(e => e.guard === g) || null;
+
+  // What each entry speaks about: every word of its title, phrasings, anchors, steps, quotes and other reply
+  // lines, as stems (a "|" between texts, so a two-word term never spans two texts).
+  const vocab = new Map(matchable.map(e => {
+    const texts = [e.title, ...(e.phrasings || []), ...(e.anchors || []).flat().filter(t => !anchorRegex(t)), e.opening, e.next, e.proof,
+      ...(e.steps || []).flatMap(s => [s.text, s.cite?.quote])].filter(t => typeof t === 'string');
+    return [e.id, texts.flatMap(t => [...allStems(t), '|'])];
+  }));
+  const everyWord = new Set([...vocab.values()].flat());
+  const givesNumber = new Map(matchable.map(e => [e.id, (e.steps || []).some(s => GIVES_NUMBER.test(s.text || '') || GIVES_NUMBER.test(s.cite?.quote || ''))]));
+  const items = Object.entries(NAMED_ITEMS).flatMap(([kind, terms]) => terms.map(term => ({ kind, term })));
+  const platformSpecific = new Map(matchable.map(e => [e.id, Object.values(PLATFORMS).some(al => al.some(a => hasTerm(allStems(e.title), a)))]));
+
+  // Docs-silent: the customer asks about a named thing, or a number, that the chosen entry never mentions.
+  // Returns { kind, term } for the first one, or null.
+  function silentOn(entry, text) {
+    const stems = allStems(text);
+    const v = vocab.get(entry.id) || [];
+    for (const { kind, term } of items) if (hasTerm(stems, term) && !hasTerm(v, term)) return { kind, term };
+    if (platformSpecific.get(entry.id)) {
+      for (const [name, al] of Object.entries(PLATFORMS)) if (al.some(a => hasTerm(stems, a)) && !al.some(a => hasTerm(v, a))) return { kind: 'platform', term: name };
+    }
+    if (ASKS_NUMBER.test(text) && !givesNumber.get(entry.id)) return { kind: 'number', term: text.match(ASKS_NUMBER)[0] };
+    for (const m of text.matchAll(INTRODUCER)) {
+      const s = allStems(m[1]);
+      if (s.length !== 1 || COMMON_CAPS.has(m[1].toLowerCase()) || everyWord.has(s[0])) continue;
+      return { kind: 'name', term: m[1] };
+    }
+    return null;
+  }
 
   function pickMoneyEntry(text) {
     const money = entries.filter(e => e.guard === 'money').filter(e => anchorsMet(text, e.anchors).ok);
@@ -68,7 +98,10 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
           : `The best match, "${best.id}" (${round(best.score)}), is too close to "${second.id}" (${round(second.score)}) to choose between them.`;
       // No entry, but the customer says they already tried things, or it keeps failing, or Blotato's own
       // records disagree: whatever the topic, a person takes it, and the customer gets the holding reply.
-      const hits = TROUBLE.test(real) ? needsPerson(real, { signals: GENERAL_SIGNALS }, { hasTerm, allStems }) : [];
+      // The strong default signals ("three days in a row", "is something down", "I only posted 3") count on
+      // their own; the rest need a trouble word.
+      const hits = TROUBLE.test(real) ? needsPerson(real, { signals: GENERAL_SIGNALS }, { hasTerm, allStems })
+        : needsPerson(real, { signals: [] }, { hasTerm, allStems }, { defaults: true });
       if (hits.length) return { ...base, decision: 'needs-person', entry: guardEntry('needs-person'), holding: guardEntry('needs-person'), signals: hits, reason: `${why} And: ${hits[0].about} ("${hits[0].words}")` };
       return { ...base, decision: 'abstain', entry: null, reason: why };
     }
@@ -77,9 +110,22 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
     base.score = round(best.score);
     base.margin = round(gap);
 
-    const hits = needsPerson(real, entry.needs_person_if, { hasTerm, allStems });
+    // The entry's own signals, plus the default ones every answering entry has (signals.mjs DEFAULT_SIGNALS).
+    const hits = needsPerson(real, entry.needs_person_if, { hasTerm, allStems }, { defaults: true });
     if (hits.length && !entry.escalate && !entry.noDocAnswer) {
       return { ...base, decision: 'needs-person', entry, signals: hits, holding: entry.holding || guardEntry('needs-person'), reason: `${hits[0].about} ("${hits[0].words}")` };
+    }
+
+    // The thing asked about must be something the entry speaks about. Only the questions are read (the whole
+    // message when it has none), so "I make my images in Canva. How do I schedule a post?" is not blocked.
+    if (!entry.escalate && !entry.noDocAnswer) {
+      const asked = splitSentences(real).filter(s => QUESTION.test(s.trim()));
+      const silent = silentOn(entry, asked.length ? asked.join(' ') : real);
+      if (silent) {
+        const what = silent.kind === 'number' ? `asks for a number ("${silent.term}"), and its steps give none`
+          : `asks about ${silent.kind === 'name' ? '' : `${/^[aeiou]/.test(silent.kind) ? 'an' : 'a'} ${silent.kind}, `}"${silent.term}", which it never mentions`;
+        return { ...base, decision: 'abstain', entry: null, silent, reason: `"${entry.id}" matched the message, but the message ${what}. The docs may be silent on it.` };
+      }
     }
 
     // Every real question in the message must belong to this entry. A question with fewer than three content

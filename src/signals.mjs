@@ -28,7 +28,7 @@ function moneyTaken(text) {
   return null;
 }
 
-const VERBS = String.raw`(?:post|publish|delete|remove|disconnect|cancel|change|switch|move|transfer|merge|add|raise|bump|increase|lift|upgrade|downgrade|refund|reissue|re-issue|update|edit|fix|reset|restore|recover|bring back|undo|unlock|unblock|verify|regenerate|set up|setup|put|take (?:it|this|that|them|my \w+) off|turn (?:off|on)|enable|disable|reactivate|activate|apply|credit|waive|extend|approve|mark|close|deactivate|wipe|erase|unsubscribe|send|repost|re-post|republish|resend|re-send)`;
+const VERBS = String.raw`(?:post|publish|delete|remove|disconnect|cancel|change|switch|move|transfer|merge|add|raise|bump|increase|lift|upgrade|downgrade|refund|reissue|re-issue|update|edit|fix|reset|restore|recover|bring back|undo|unlock|unblock|verify|regenerate|set up|setup|put|take (?:it|this|that|them|my \w+) off|turn (?:off|on)|enable|disable|reactivate|activate|apply|credit|waive|extend|approve|mark|close|deactivate|wipe|erase|unsubscribe|send|repost|re-post|republish|resend|re-send|push|force|retry|re-?run|trigger|expedite|speed up|kick off|release|reconnect|re-connect|relink|re-link|reauthori[sz]e|re-authori[sz]e)`;
 const ASK = String.raw`(?:please|pls|plz|kindly|can (?:you|u|someone|your team)|could (?:you|u|someone)|would you|will you|(?:i )?need (?:you|someone|your team) to|i want (?:you|someone|your team) to|i'?d like (?:you|someone) to|i authori[sz]e you to|go ahead and|you (?:need|have) to|you must|have someone|get someone|you (?:have|now have|'ve got) (?:my |full )?permission to|you may now)`;
 // Words that make a request a question or a lookup, not an order: "can you tell me how to delete",
 // "can you check if it posted".
@@ -94,7 +94,10 @@ function staffAction(text) {
       if (r.gapNotSoft && SOFT.test(m[1] || '')) continue;
       if (r.notQuestion && /\?\s*$/.test(sentence.trim())) continue;
       if (r.notSoftBefore && SOFT.test(sentence.slice(0, m.index))) continue;
-      if (/^(?:how|where|what|why|when|which|can i|do i|does|is|are|should i)\b/i.test(sentence.trim()) && /\?\s*$/.test(sentence.trim())) continue;
+      // "How do I delete a post?" is a question, not an order. But a request after a clause break inside the
+      // question ("Which one is it, and can you fix my account?") is still a request.
+      const lead = sentence.slice(0, m.index + (m[0].length - m[0].trimStart().length));
+      if (/^(?:how|where|what|why|when|which|can i|do i|does|is|are|should i)\b/i.test(sentence.trim()) && /\?\s*$/.test(sentence.trim()) && !(r.gapNotSoft && /[,;:]\s*(?:and|but|so|then)?\s*$|\b(?:and|but|so|then)\s*$/i.test(lead))) continue;
       return { words: m[0].trim() };
     }
   }
@@ -174,25 +177,30 @@ export const SIGNALS = {
   'retried': {
     about: 'It failed again and again, or for days.',
     res: [
-      /\b(?:again and again|every time|every single time|each time|in a row|\d+x|\d+ x|keeps? (?:failing|happening|coming back|asking|saying|showing|logging))\b/i,
-      /\b(?:\d+|two|three|four|five|six|several|multiple|many) times\b|\b(?:second|third|fourth|fifth|\d+(?:st|nd|rd|th)) time\b/i,
+      /\b(?:again and again|every single time|(?:\d+|two|three|four|five|six|seven|several|many|multiple) (?:days|weeks|times|mornings|nights|posts) in a row|in a row|over and over|keeps? (?:failing|happening|coming back|breaking|disconnecting|expiring|erroring))\b/i,
+      { weak: true, re: /\b(?:every time|each time|\d+x|\d+ x|keeps? (?:asking|saying|showing|logging))\b/i },
+      { weak: true, re: /\b(?:\d+|two|three|four|five|six|several|multiple|many) times\b|\b(?:second|third|fourth|fifth|\d+(?:st|nd|rd|th)) time\b/i },
       /\b(?:retried|tried again|re-?tried)\b/i,
-      /\bsince (?:monday|tuesday|wednesday|thursday|friday|saturday|sunday|yesterday|last week|\d)/i,
-      /\b(?:for|over) (?:\d+|two|three|four|five|several|a few) (?:days|weeks|months)\b|\b(?:\d+|two|three|four) (?:days|weeks) (?:now|straight)\b/i,
+      { weak: true, re: /\bsince (?:monday|tuesday|wednesday|thursday|friday|saturday|sunday|yesterday|last week|\d)/i },
+      { weak: true, re: /\b(?:for|over) (?:\d+|two|three|four|five|several|a few) (?:days|weeks|months)\b|\b(?:\d+|two|three|four) (?:days|weeks) (?:now|straight)\b/i },
     ],
   },
   'disputes-count': {
     about: 'The customer disputes a limit or a count with their own numbers.',
     res: [
-      /\bonly (?:called|sent|made|published|posted|used|uploaded|did|done|run|ran|have)\b[^.?!\n]{0,25}\b\d+\b/i,
-      /\bonly \d+ (?:times|calls|requests|posts|videos|pins)\b/i,
+      /\bonly (?:called|sent|made|published|posted|used|uploaded|did|done|run|ran|scheduled|queued|connected|created|generated)\b[^.?!\n]{0,25}\b(?:\d+|one|two|three|four|five|six|seven|eight|nine|ten|a few|a couple)\b/i,
+      { weak: true, re: /\bonly (?:have|had)\b[^.?!\n]{0,25}\b\d+\b/i },
+      /\bonly (?:\d+|one|two|three|four|five|six|seven|eight|nine|ten) (?:times|calls|requests|posts|videos|pins|reels|images|accounts|credits|generations)\b/i,
       /\b(?:my |our )?logs? (?:prove|show|say)s?\b/i,
+      // "it says 10, your page says 25", "the error says 10 but the docs say 25": two numbers that disagree.
+      /\b(?:says?|shows?|said|showed|told me|lists?)\b[^.?!\n]{0,40}\b\d+\b[^?!\n]{0,80}\b(?:but|while|yet|however|and|your|the)\b[^?!\n]{0,40}\b(?:says?|shows?|allows?|lists?|states?)\b[^.?!\n]{0,40}\b\d+\b/i,
+      /\b(?:i'?ve|i have|we'?ve|we have) (?:only |just )?(?:published|posted|sent|made|used|uploaded|scheduled)\b[^.?!\n]{0,40}\b(?:\d+|one|two|three|four|five)\b[^.?!\n]{0,60}\b(?:but|yet|and it|still)\b/i,
     ],
   },
   'records-disagree': {
     about: 'Two of Blotato\'s own records disagree (billing says active, but access is blocked).',
     res: [
-      /\b(?:billing|dashboard|portal|stripe|my account|account page|accounts page)\b[^.?!\n]{0,20}\b(?:shows?|says?|is|lists?)\b[^.?!\n]{0,10}\b(?:active|paid|connected)\b/i,
+      { weak: true, re: /\b(?:billing|dashboard|portal|stripe|my account|account page|accounts page)\b[^.?!\n]{0,20}\b(?:shows?|says?|is|lists?)\b[^.?!\n]{0,10}\b(?:active|paid|connected)\b/i },
     ],
   },
   'access-blocked': {
@@ -212,17 +220,88 @@ export const SIGNALS = {
 
 export const SIGNAL_NAMES = Object.keys(SIGNALS);
 
+// Docs-silent items. When a customer asks about a specific named thing (a payment method, a platform or
+// tool, a platform feature, a language, a file type) and the chosen entry never mentions it (not in its
+// title, phrasings, anchors, steps or quotes), the entry does not answer: its reply would be about something
+// near the question, not the question. "Can I pay with PayPal?" is not answered by "how to start a paid
+// subscription". These are categories of named things, not words from any one message. An entry that truly
+// answers questions about one of them names it in a phrasing or an anchor.
+export const NAMED_ITEMS = {
+  'payment method': ['paypal', 'venmo', 'apple pay', 'google pay', 'crypto', 'cryptocurrency', 'bitcoin', 'ethereum', 'usdt', 'wire transfer', 'bank transfer', 'sepa', 'ach transfer', 'klarna', 'afterpay', 'alipay', 'wechat pay', 'cash app', 'zelle', 'gift card', 'purchase order', 'amex', 'american express', 'prepaid card'],
+  'platform or service': ['mastodon', 'reddit', 'snapchat', 'telegram', 'tumblr', 'discord', 'whatsapp', 'twitch', 'quora', 'substack', 'wordpress', 'beehiiv', 'kajabi', 'shopify', 'etsy', 'wix', 'squarespace', 'webflow', 'lemon8', 'rumble', 'vimeo', 'truth social', 'weibo', 'douyin', 'xiaohongshu', 'viber', 'clubhouse', 'behance', 'dribbble', 'flickr', 'patreon', 'linktree', 'mailchimp', 'convertkit', 'hubspot', 'salesforce', 'vk'],
+  'tool': ['zapier', 'make.com', 'ifttt', 'pabbly', 'canva', 'capcut', 'heygen', 'hootsuite', 'later.com', 'sprout social', 'metricool', 'publer', 'notion', 'airtable', 'google sheets', 'excel', 'dropbox', 'google drive', 'onedrive', 'icloud', 'frame.io', 'descript', 'elevenlabs', 'midjourney', 'dall-e', 'gemini', 'perplexity', 'figma', 'photoshop', 'premiere pro', 'final cut', 'lightroom', 'opus clip', 'veed', 'submagic', 'grok', 'copilot', 'chatgpt', 'cursor', 'codex', 'windsurf'],
+  'platform feature': ['retweet', 'retweets', 'quote tweet', 'repost', 'reposts', 'reposting', 'recycle', 'evergreen', 'duet', 'stitch', 'boost post', 'boosted', 'promoted post', 'sponsored', 'ads', 'ad account', 'poll', 'polls', 'go live', 'live stream', 'livestream', 'twitter spaces', 'x spaces', 'story highlights', 'highlights', 'close friends', 'broadcast channel', 'dms', 'direct message', 'direct messages', 'auto reply', 'auto-reply', 'auto dm', 'geotag', 'location tag', 'alt text', 'link in bio', 'link sticker', 'product tag', 'product tags', 'shopping tag', 'watermark', 'analytics', 'insights', 'statistics', 'stats', 'metrics', 'impressions', 'engagement rate', 'white label', 'white-label', 'sso', 'single sign on', '2fa', 'two factor', 'two-factor', 'team members', 'teammates', 'seats', 'user roles', 'permissions', 'webhook', 'webhooks', 'rss', 'emoji', 'emojis'],
+  'language': ['japanese', 'french', 'german', 'portuguese', 'italian', 'arabic', 'chinese', 'mandarin', 'cantonese', 'hindi', 'korean', 'russian', 'dutch', 'polish', 'turkish', 'vietnamese', 'indonesian', 'thai', 'hebrew', 'greek', 'swedish', 'norwegian', 'danish', 'finnish', 'ukrainian', 'tagalog', 'urdu', 'bengali', 'persian', 'farsi', 'malay', 'romanian', 'czech', 'hungarian'],
+  'identifier': ['page id', 'pageid', 'account id', 'accountid', 'post id', 'postid', 'submission id', 'schedule id', 'user id', 'client id', 'app id', 'channel id', 'workspace id', 'media id', 'webhook url', 'callback url', 'redirect url'],
+  'file type': ['gif', 'gifs', 'pdf', 'heic', 'webp', 'svg', 'tiff', 'mov', 'webm', 'avi', 'mkv', 'mp3', 'wav', 'm4a', 'psd', 'docx', 'pptx', 'xlsx', 'zip', 'srt'],
+};
+
+// The platforms Blotato publishes to, with the ways customers write them. An entry whose title names a
+// platform is about that platform; it does not answer for a platform it never mentions ("set a cover image
+// for Instagram Reels" does not answer the same question about YouTube).
+export const PLATFORMS = {
+  instagram: ['instagram', 'insta', 'ig', 'instgram', 'instagam', 'reels', 'reel'],
+  tiktok: ['tiktok', 'tik tok', 'tiktoks'],
+  linkedin: ['linkedin', 'linkdin', 'linked in'],
+  facebook: ['facebook', 'fb', 'facebok', 'facebook page'],
+  x: ['twitter', 'twiter', 'tweet', 'tweets', 'x twitter', 'x post', 'x posts'],
+  threads: ['threads'],
+  bluesky: ['bluesky', 'bsky', 'blue sky'],
+  pinterest: ['pinterest', 'pinterst'],
+  youtube: ['youtube', 'yt', 'youtube shorts', 'shorts', 'you tube'],
+  slack: ['slack'],
+  'google business': ['google business', 'google my business', 'gmb', 'business profile'],
+};
+
+// A question about a number ("how many brands", "what is the limit"). An entry whose steps and quotes hold
+// no number cannot answer it.
+export const ASKS_NUMBER = /\bhow (?:many|much)\b|\b(?:max(?:imum)?|minimum|min|total) (?:number|amount|count)\b|\bhow long\b|\bhow often\b|\bwhat(?:'s| is) the (?:limit|max(?:imum)?|cap|minimum|quota)\b|\bis there an? (?:limit|cap|max(?:imum)?|quota)\b|\b(?:limit|cap|quota) (?:on|of|for) (?:how many|the number|number)\b/i;
+export const GIVES_NUMBER = /\d|\b(?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|twenty|thirty|forty|fifty|hundred|thousand|unlimited|no limit|as many|any number|single)\b/i;
+
+// A named thing the customer may be asking about, written with a capital after "with", "to", "via" and the
+// like ("pay with Payoneer", "post to Lemon8", "connect it to Klaviyo"). Counts only when no entry anywhere
+// uses the word, so a Blotato word ("go to Settings") is never one.
+export const INTRODUCER = /\b(?:with|via|through|using|to|into|onto|on|support|supports|supported|connect|integrate|integrates|integration|sync|syncs)\s+(?:my |our |the |a |an )?([A-Z][A-Za-z0-9]*[a-z0-9][A-Za-z0-9]*|[A-Z][a-z]*[A-Z][A-Za-z0-9]*)\b/g;
+export const COMMON_CAPS = new Set('i blotato starter creator agency pro free trial settings billing api ai mcp utc gmt monday tuesday wednesday thursday friday saturday sunday january february march april may june july august september october november december english spanish posts post accounts account calendar videos video drafts draft remix agent context sources brand kit inbox help support team'.split(' '));
+
 // Words that say something is going wrong. With no entry to lean on, a signal hands a message over only
 // when the message also says this ("I tried twice and it still fails", not "I post in Spanish every time").
 export const TROUBLE = /\b(?:fail\w*|error\w*|broken|not working|doesn'?t work|does not work|won'?t|can'?t|cannot|isn'?t|stopped|stuck|empty|gone|missing|wrong|lost|locked|blocked|down|still|again|nothing)\b|\b(?:4\d\d|5\d\d)\b/i;
 
+// Signals that apply to EVERY entry that answers, whether the entry lists them or not: a repeat failure, a
+// count the customer disputes, two records that disagree, many accounts failing at once ("is something
+// down?"). No entry's steps settle those; a person does. An entry that truly answers one of them can opt out
+// with "needs_person_if": { "ignore": ["retried"] }.
+// A default signal that the entry did not list fires on its strong patterns ("three days in a row", "is
+// something down", "I only posted 4"), and on its weak ones ("every time", "3 times", "since Monday") only
+// when the message also says something is going wrong (TROUBLE), so "I post 3 times a day" is not a repeat
+// failure.
+export const DEFAULT_SIGNALS = ['retried', 'disputes-count', 'records-disagree', 'many-accounts'];
+
+const patternOf = (p) => (p instanceof RegExp ? { re: p, weak: false } : p);
+
 // Which of an entry's signals fire on this text. Plain phrases are matched on words (stems, one-letter typos).
-export function needsPerson(text, spec, { hasTerm, allStems }) {
+// With { defaults: true } the DEFAULT_SIGNALS are added (minus the entry's "ignore" list).
+export function needsPerson(text, spec, { hasTerm, allStems }, { defaults = false } = {}) {
   const hits = [];
-  for (const name of spec?.signals || []) {
+  const listed = spec?.signals || [];
+  const extra = defaults ? DEFAULT_SIGNALS.filter(n => !listed.includes(n) && !(spec?.ignore || []).includes(n)) : [];
+  const sentences = String(text).split(/(?<=[.?!])\s+|\n+/);
+  for (const name of [...listed, ...extra]) {
     const s = SIGNALS[name];
     if (!s) continue;
-    for (const re of s.res) { const m = String(text).match(re); if (m) { hits.push({ signal: name, words: m[0].trim(), about: s.about }); break; } }
+    const byDefault = !listed.includes(name);
+    for (const p of s.res.map(patternOf)) {
+      if (byDefault && p.weak) {
+        // A weak default pattern counts only in a sentence that also says something is going wrong:
+        // "I typed it five times and it writes a LinkedIn post" is not a repeat failure on our side.
+        const sent = sentences.find(x => p.re.test(x) && TROUBLE.test(x));
+        if (sent) { hits.push({ signal: name, words: sent.match(p.re)[0].trim(), about: s.about, byDefault: true }); break; }
+        continue;
+      }
+      const m = String(text).match(p.re);
+      if (m) { hits.push({ signal: name, words: m[0].trim(), about: s.about, ...(byDefault ? { byDefault: true } : {}) }); break; }
+    }
   }
   const stems = allStems(text);
   for (const p of spec?.phrases || []) if (hasTerm(stems, p)) hits.push({ signal: 'phrase', words: p, about: 'The entry says this case needs a person.' });

@@ -8,7 +8,7 @@ import path from 'node:path';
 import { ROOT } from './config.mjs';
 import { pageUrl, quoteOnPage, readCacheDir } from './docs.mjs';
 import { findPromises, findVoice } from './checkreply.mjs';
-import { SIGNAL_NAMES } from './signals.mjs';
+import { SIGNAL_NAMES, DEFAULT_SIGNALS } from './signals.mjs';
 import { contentStems, anchorsMet } from './match.mjs';
 import { createRouter } from './route.mjs';
 
@@ -124,8 +124,11 @@ export function validateShape(entries) {
     if (np !== undefined) {
       if (typeof np !== 'object' || Array.isArray(np)) problems.push(`${where}: "needs_person_if" must be { "signals": [...], "phrases": [...] }.`);
       else {
-        for (const k of Object.keys(np)) if (!['signals', 'phrases'].includes(k)) problems.push(`${where}: "needs_person_if" has an unknown field "${k}".`);
+        for (const k of Object.keys(np)) if (!['signals', 'phrases', 'ignore'].includes(k)) problems.push(`${where}: "needs_person_if" has an unknown field "${k}".`);
         for (const s of np.signals || []) if (!SIGNAL_NAMES.includes(s)) problems.push(`${where}: "${s}" is not a known signal. Known signals: ${SIGNAL_NAMES.join(', ')}.`);
+        if (np.ignore !== undefined && !(Array.isArray(np.ignore) && np.ignore.every(isText))) problems.push(`${where}: "needs_person_if.ignore" must be a list of signal names.`);
+        for (const s of Array.isArray(np.ignore) ? np.ignore : []) if (!DEFAULT_SIGNALS.includes(s)) problems.push(`${where}: "${s}" in "needs_person_if.ignore" is not a default signal. Default signals: ${DEFAULT_SIGNALS.join(', ')}.`);
+        for (const s of Array.isArray(np.ignore) ? np.ignore : []) if ((np.signals || []).includes(s)) problems.push(`${where}: "${s}" is in both "needs_person_if.signals" and "needs_person_if.ignore".`);
         if (np.phrases !== undefined && !(Array.isArray(np.phrases) && np.phrases.every(isText))) problems.push(`${where}: "needs_person_if.phrases" must be a list of text.`);
       }
     }
