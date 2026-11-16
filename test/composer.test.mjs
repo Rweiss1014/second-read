@@ -285,3 +285,36 @@ test('every quote must come from the best-ranked pages (topPages), or the draft 
     assert.equal(any.path, 'composed');
   }
 });
+
+// Compose over a saved entry (Nov 16, 2026 experiment; off by default).
+const savedRoute = (steps = [{ type: 'fact', text: 'Lantern widgets show a small glowing badge.', cite: { url: URL, quote: 'Lantern widgets show a small glowing badge on your calendar.' } }]) =>
+  ({ ...routeMessage(MSG), decision: 'answer', why: null, guard: null, entry: { id: 'lantern-saved', title: 'Lantern widgets', steps } });
+test('over a saved entry: off by default, the saved entry stands and no model is asked', async () => {
+  const f = fake({ write: goodDraft });
+  const r = await composer(f).compose(MSG, savedRoute());
+  assert.equal(r.entry.id, 'lantern-saved');
+  assert.equal(f.calls.length, 0);
+});
+test('over a saved entry: on, a checked draft for this message replaces the saved entry and names it', async () => {
+  const f = fake({ write: goodDraft });
+  const r = await composer(f, { overSaved: true }).compose(MSG, savedRoute());
+  assert.equal(r.decision, 'answer');
+  assert.equal(r.path, 'composed');
+  assert.equal(r.composer.overSaved, 'lantern-saved');
+  assert.match(r.reason, /A saved entry \(lantern-saved\) matched the topic/);
+});
+test('over a saved entry: when the second read objects, the saved entry stands unchanged', async () => {
+  const f = fake({ write: goodDraft, second: { verdict: 'stop', objections: [{ about: 'does not answer the question' }] } });
+  const r0 = savedRoute();
+  const r = await composer(f, { overSaved: true }).compose(MSG, r0);
+  assert.equal(r.decision, 'answer');
+  assert.equal(r.entry, r0.entry);
+  assert.notEqual(r.path, 'composed');
+  assert.equal(r.composer.fellBack, true);
+});
+test('over a saved entry: an entry that reads the account keeps its own reply', async () => {
+  const f = fake({ write: goodDraft });
+  const r = await composer(f, { overSaved: true }).compose(MSG, savedRoute([{ type: 'status', text: 'What your account shows.' }]));
+  assert.equal(r.entry.id, 'lantern-saved');
+  assert.equal(f.calls.length, 0);
+});
