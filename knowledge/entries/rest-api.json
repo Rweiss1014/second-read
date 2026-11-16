@@ -286,11 +286,11 @@
         ]
       ],
       "lookup": "reproduce-schedule",
-      "opening": "Thank you for the exact error. I could reproduce it.",
+      "opening": "Thanks for writing in. I looked up that schedule id myself.",
       "steps": [
         {
           "type": "evidence",
-          "text": "Same result here: {evidence}",
+          "text": "Here is what the lookup gave: {evidence}",
           "ref": "status"
         },
         {
@@ -314,7 +314,7 @@
       "next": "Copy an id from your own GET /v2/schedules list, try that, and tell me what you get.",
       "proof": "Still open: whether the API or the docs example is the one to change. A person on the team decides.",
       "escalate": {
-        "why": "The API and the docs disagree. Only the founder can say which one is right.",
+        "why": "The API and the docs disagree. Only a person on the team can say which one is right.",
         "causes": [
           {
             "text": "The schedule endpoints expect a number id, while the docs examples show a text id.",
@@ -343,7 +343,7 @@
         "before": "\"id\": \"sch_abc123\",",
         "after": "\"id\": \"5100001\",",
         "add": "Schedule ids are numbers, sent as strings. Copy the id from GET /v2/schedules. An id that is not a number is rejected.",
-        "note": "Seen on the real API on Nov 15, 2026 (GET /v2/schedules/<text id> answered 500 \"invalid input syntax for type bigint\"). The OpenAPI file types the id as a plain string. Confirm with the founder before publishing."
+        "note": "Seen on the real API on Nov 15, 2026 (GET /v2/schedules/<text id> answered 500 \"invalid input syntax for type bigint\"). The OpenAPI file types the id as a plain string. Confirm with a person on the team before publishing."
       }
     },
     {
@@ -406,7 +406,7 @@
       "proof": "Still open: the answer itself.",
       "noDocAnswer": true,
       "escalate": {
-        "why": "The docs do not answer this. The founder decides what the answer is.",
+        "why": "The docs do not answer this. A person on the team decides what the answer is.",
         "causes": [
           {
             "text": "There is no test mode, and the docs should say so."
@@ -421,7 +421,7 @@
         "article": "https://help.blotato.com/settings/api-keys",
         "kind": "new",
         "heading": "Is there a test mode for the API?",
-        "add": "[Answer to confirm with the founder: is there a test mode, and if not, how should developers test safely?]",
+        "add": "[Answer to confirm with a person on the team: is there a test mode, and if not, how should developers test safely?]",
         "note": "Two docs searches on Nov 15, 2026 found no page about a sandbox or test mode."
       }
     }

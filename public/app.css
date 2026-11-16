@@ -188,6 +188,9 @@ mark { background: linear-gradient(transparent 10%, var(--mark) 10%, var(--mark)
 .plainline { margin: 2px 0 22px; max-width: 64ch; font: 400 19px/1.5 var(--serif); color: var(--ink); text-wrap: pretty; }
 .plainline b { color: var(--navy); font-weight: 600; }
 .plainline.person b { color: var(--needs); }
+/* said once beside the verdict: what is made up, what is real, what the date means (Nov 16, 2026) */
+.plainline.practice { font-size: 17px; color: var(--muted); max-width: 70ch; }
+.switch-note { display: none; }
 
 /* the stage: the letter, a gutter for the connectors, the margin where the proofs flow */
 .stage { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 64px 420px; max-width: 1184px; align-items: start; }
@@ -465,6 +468,7 @@ kbd { font: 600 14px var(--sans); box-shadow: inset 0 0 0 2px var(--rule), inset
 .choice .tag { grid-column: 2; font: 600 16px/1.3 var(--serif); color: var(--tone); margin-top: -4px; }
 .after-move { margin-top: 22px; }
 .after-move .game-next { margin: 4px 0 0; }
+.write-back > .game-next { margin: 14px 0 0; }
 .after-move h3 { font: 600 20px/1.3 var(--serif); margin: 0 0 6px; }
 .after-move .right-move { margin: 0 0 14px; font: 400 18px/1.5 var(--serif); text-wrap: pretty; }
 .after-move .src { background: var(--paper); border-radius: 12px; padding: 14px 16px; margin: 0 0 18px; box-shadow: var(--shadow-sm); }
@@ -517,6 +521,8 @@ kbd { font: 600 14px var(--sans); box-shadow: inset 0 0 0 2px var(--rule), inset
   .top .switch .track { width: 38px; height: 22px; }
   .top .switch .knob { width: 16px; height: 16px; }
   .top .switch[aria-checked="true"] .knob { transform: translateX(16px); }
+  /* the switch says what it did, right under it, since the details land far below on a phone */
+  .switch-note:not([hidden]) { display: block; order: 1; flex-basis: 100%; margin: -4px 0 2px; text-align: right; font: 500 14px/1.3 var(--sans); color: var(--navy); }
 
   .brand-for { display: none; }
   .nav a { font-size: 16px; }

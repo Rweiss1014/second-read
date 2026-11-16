@@ -1996,7 +1996,7 @@
         "article": "https://help.blotato.com/support/faqs",
         "kind": "change",
         "before": "LinkedIn: first-level comments.",
-        "after": "[Confirm with the founder whether LinkedIn comment metrics exist. If not, remove this line. If so, say that LinkedIn analytics are partly available.]",
+        "after": "[Confirm with a person on the team whether LinkedIn comment metrics exist. If not, remove this line. If so, say that LinkedIn analytics are partly available.]",
         "note": "The same FAQ says LinkedIn analytics are not available and lists LinkedIn first-level comments in the Starter metrics. Make the page agree."
       }
     },

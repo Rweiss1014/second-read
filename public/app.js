@@ -213,7 +213,7 @@ const WHY_PLAIN = {
   'docs-wrong': 'The customer says the help pages are wrong, so a person on the team will check them.',
   'access-blocked': 'The customer cannot reach the screen the steps need, so a person on the team will help.',
   'past-docs': 'This goes past what the help pages cover, so a person on the team will answer it.',
-  pressure: 'The customer is upset and has set a deadline, so a person on the team will answer this one, quickly.',
+  pressure: 'The customer is very upset and wants it fixed now, so a person on the team will answer this one, quickly.',
   'docs-silent': 'The help pages do not cover this yet, so the desk will not guess.',
   tie: 'The desk could not tell which of two questions this is, so it will not guess.',
   'partly-covered': 'The message asks more than one thing. The desk answers the part the help pages cover, and a person on the team takes the rest.',
@@ -225,6 +225,8 @@ const whyOf = (r) => r.route?.why || r.match?.why || null;
 function whyPlain(r) {
   const w = whyOf(r); if (!w || !WHY_PLAIN[w]) return null;
   const d = r.route?.whyDetail || r.match?.whyDetail || null;
+  // The desk had near candidates but none it trusted: it was not sure, which is not the same as "no page answers this".
+  if (w === 'no-coverage' && (r.route?.candidates || []).length) return 'The desk was not sure which help page this is about, so it did not guess.';
   const item = w === 'docs-silent' && d?.item ? String(d.item).trim() : '';
   return item && item.length < 40 ? `${WHY_PLAIN[w]} They say nothing about \u201c${item}\u201d.` : WHY_PLAIN[w];
 }
@@ -235,6 +237,16 @@ function personReason(r) {
   if (d === 'needs-person') return GUARD_PLAIN['needs-person'];
   if (d === 'partial') return 'The message asks two things. The desk answers the part the help pages cover, and a person on the team takes the other part.';
   return null;
+}
+// "Did they mean one of these?" offers only near candidates that are about what the customer wrote: a candidate
+// the matcher scored low, or whose title shares no real word with the message, is a guess, so it is not offered
+// (Nov 16, 2026: a long message about a missing post was offered "Make AI visuals match my brand").
+const CHIP_MIN = 0.2;
+const CHIP_SKIP = new Set('about after again also and are before blotato can could does doing from have help into just like make made many more much need only other post posts should some than that their them then there these they this want what when where which will with would your'.split(' '));
+const keyWords = (s) => new Set((String(s || '').toLowerCase().match(/[a-z]{4,}/g) || []).filter(w => !CHIP_SKIP.has(w)).map(w => w.slice(0, 5)));
+function chipsFor(r) {
+  const said = keyWords(r.ticket?.text);
+  return (r.route?.candidates || []).filter(c => c.title && c.phrasing && (c.score ?? 1) >= CHIP_MIN && [...keyWords(c.title)].some(w => said.has(w))).slice(0, 3);
 }
 // The refusal's heading follows its reason: not guessing, asking another way, or a person taking it.
 const guessing = (r) => { const w = whyOf(r); return !w || ['no-coverage', 'docs-silent', 'tie'].includes(w); };
@@ -323,6 +335,9 @@ function setTech(on, save = true) {
   if (save) store.set('sd-tech', on ? '1' : '0');
   // Before any answer is on screen, the switch says what it will show (it does something you can see).
   if (save && !$('#ask').hidden && $('#view-practice').hidden) $('#filled').textContent = on ? 'The engineer view is on. Each answer will also show the exact links, times and checks behind it, for the people who build Blotato.' : 'The engineer view is off.';
+  // On a phone the details land far below the switch, so the switch says so where the person is looking (Nov 16, 2026).
+  const note = $('#switch-note');
+  if (note && save) { note.hidden = false; note.textContent = on ? 'Details for engineers added below.' : 'Details for engineers hidden.'; }
   if (on) techHome();
   if (moment?.done) moment.layout();
 }
@@ -367,13 +382,17 @@ function pick(btn, { focus = true } = {}) {
   $('#answer-btn').focus({ preventScroll: true });
 }
 
+// One question at a time from the box: a double-click (or Enter twice) sends one request (Nov 16, 2026).
+let sending = false;
 function submit() {
+  if (sending) return;
   const raw = $('#msg').value;
   const text = raw.trim();
   if (!text) { $('#filled').textContent = 'Type or paste what the customer said first.'; $('#msg').focus(); return; }
   const same = picked && picked.text === raw;
   const body = same && picked.id ? { id: picked.id } : { text: text.slice(0, MAX) };
-  start({ body, who: same ? picked.who : null, text: body.text || text });
+  sending = true;
+  start({ body, who: same ? picked.who : null, text: body.text || text }).finally(() => { sending = false; });
 }
 
 async function techHome() {
@@ -408,7 +427,8 @@ function plainEvidence(ev) {
   }
   if (ev.kind === 'recent-activity') return s.replace(/^from/, 'From').replace(/ I see /, ', the account shows ').replace(/\s*\((?:id|post) [^)]*\)/g, '').replace(/(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun), (\d{1,2}) (\w{3}) (\d{4}) (\d\d:\d\d:\d\d) (?:UTC|GMT)/g, (m, d, mon, y, hms) => { const t = Date.parse(`${mon} ${d}, ${y} ${hms} GMT`); return Number.isNaN(t) ? m : when(t); });
   if (ev.kind === 'submission') return ev.missing ? 'There was no post number in the message, so the desk could not look it up.' : `The desk looked up this post. Blotato says it is "${ev.status}".`;
-  if (ev.kind === 'reproduce-schedule') return ev.missing ? 'There was nothing in the message the desk could try again.' : ev.ok ? 'The desk tried the same thing on the account and got the same error back.' : 'The desk tried the same thing and got a different answer back.';
+  // On the practice account the same lookup gives back the answer Blotato's real API gave on Nov 15, 2026 (src/diagnose.mjs).
+  if (ev.kind === 'reproduce-schedule') return ev.missing ? 'There was nothing in the message the desk could try again.' : ev.ok ? (/^The practice account answers/.test(s) ? "The desk tried the same lookup on the practice account. It gives back the error Blotato's real system gave on Nov 15, 2026." : 'The desk tried the same thing on the account and got the same error back.') : 'The desk tried the same thing and got a different answer back.';
   if (ev.kind === 'docs-search') return "The desk searched Blotato's help pages for the question.";
   return s;
 }
@@ -508,18 +528,32 @@ function proofParts(step, r) {
   if (step.type === 'evidence') {
     const search = r.evidence?.kind === 'docs-search';
     // On the practice account, the account a step looked at is made up: it says so where it is used.
-    const src = search ? 'a search of the help pages' : r.mock ? 'their account (practice data)' : 'their account';
+    const copy = r.evidence?.kind === 'reproduce-schedule' && /^The practice account answers/.test(r.evidence.summary || '');
+    const src = search ? 'a search of the help pages' : copy ? 'the practice account (a copy of a real answer)' : r.mock ? 'their account (practice data)' : 'their account';
     const at = (r.steps || []).indexOf(step);
     const first = (r.steps || []).findIndex(s => s.type === 'evidence');
     if (first >= 0 && first < at) return { kind: 'note', compact: `<p class="px">The same look at ${search ? 'the help pages' : 'their account'} as step ${first + 1}.${srcHTML(src)}</p>`, more: '', src };
     return { kind: 'note', compact: `<p class="px">${esc(plainEvidence(r.evidence))}${srcHTML(src)}</p>`, more: '', src };
   }
+  // A step with no page says what it is (Nov 16, 2026: "I can't share anyone else's email" was labeled as the
+  // hand-off note): a rule of this desk, something the desk does itself, or advice for the customer.
   const i = (r.steps || []).indexOf(step);
-  const earlier = (r.steps || []).slice(0, i).some(s => s.type !== 'fact' && s.type !== 'evidence');
-  const what = earlier ? 'The desk does this step itself too.'
-    : r.escalation ? 'The desk does this step itself. It wrote a note for a person on the team, under the letter.'
-      : 'The desk does this step itself, so there is no page to quote.';
-  return { kind: 'note', compact: `<p class="px">${what}${earlier ? '' : srcHTML('no page needed')}</p>`, more: '', src: '' };
+  const kind = actionKind(step.text);
+  const earlier = (r.steps || []).slice(0, i).some(s => s.type !== 'fact' && s.type !== 'evidence' && actionKind(s.text) === 'does');
+  const what = kind === 'rule' ? 'A rule of this desk, so there is no page to quote.'
+    : kind === 'advice' ? 'Advice from the desk, so there is no page to quote.'
+      : earlier ? 'The desk does this step itself too.'
+        : r.escalation && /\bpass(?:ing)?\b/i.test(step.text) ? 'The desk does this step itself. It wrote a note for a person on the team, under the letter.'
+          : 'The desk does this step itself, so there is no page to quote.';
+  const src = 'no page needed';
+  return { kind: 'note', compact: `<p class="px">${what}${kind === 'does' && earlier ? '' : srcHTML(src)}</p>`, more: '', src: '' };
+}
+// rule: what the desk will not do. does: what the desk itself does ("I am passing ..."). advice: a step for the customer.
+function actionKind(text) {
+  const t = String(text || '');
+  if (/\b(?:can'?t|cannot|will not|won'?t|never)\b|\bplease ask the person who owns\b/i.test(t)) return 'rule';
+  if (/\bI (?:am|will|have|'m)\b|\bI'm\b|\bI can\b/.test(t)) return 'does';
+  return 'advice';
 }
 
 function proofHTML(step, i, r) {
@@ -588,7 +622,7 @@ function noteHTML(r, own = true, lead = false) {
     <div class="letterish">
       <p>Hi,</p>
       <p>A customer wrote: <span class="cq">&ldquo;${esc(e.asked)}&rdquo;</span></p>
-      <p><b>Why it needs you.</b> ${termify(both(why))}</p>
+      <p><b>Why it needs you.</b> <span class="plain-only">${esc(personReason(r) || refusalReason(r))}</span><span class="tech-only">${termify(esc(why))}</span></p>
       <p><b>What I checked.</b> ${esc(plainChecked(r))}</p>
       ${causes.length ? `<p><b>What I think it is:</b></p>${li(causes, pn.causes)}` : '<p><b>What I think it is.</b> Not known yet. The help pages have no answer, so I will not guess.</p>'}
       ${(e.ruledOut || []).length ? `<p><b>What I ruled out:</b></p>${li(e.ruledOut, pn.ruledOut)}` : ''}
@@ -658,7 +692,9 @@ function verdictHTML(r, st, typed = false) {
   if (st === 'checked') {
     const notes = (f.notes || []).length;
     // A typed message gets a reply the desk has given before. Say plainly what the check covers: the reply's words.
-    const what = typed ? `A second checker passed this exact reply${at ? ` on ${esc(at)}` : ''}. The desk gives this same reply to messages like this one, so the check is for the reply's words, not for the customer's.` : `A second checker passed these exact words${at ? ` on ${esc(at)}` : ''}.`;
+    // What the date means is said once, at the top (practiceHTML); here only the record.
+    void typed;
+    const what = `A second checker passed these exact words${at ? ` on ${esc(at)}` : ''}.`;
     return `<div class="verdict" style="--tone: var(--pass)"><p class="v1">${what}</p>${disclose('How was it checked?', `<p>${SECOND} The desk found this answer live just now. The second checker read the same words earlier.${notes ? ` It left ${notes === 1 ? 'one small note' : `${notes} small notes`}, which the engineer view shows.` : ''}</p>`)}</div>`;
   }
   if (st === 'stopped') {
@@ -707,12 +743,13 @@ function techHTML(r) {
   const calls = (r.trace || []).map(e => {
     if (e.t === 'page') return `<li><span class="what">Read <a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.url.replace('https://', ''))}</a></span><span class="meta">${e.ok ? `${e.fromCache ? 'saved copy' : 'fetched now'}, read ${esc(techTime(e.fetchedAt))}` : 'could not be read'}, ${e.ms} ms</span></li>`;
     if (e.t === 'search') return `<li><span class="what">Searched the help pages for "${esc(e.query)}"</span><span class="meta">${e.offline ? 'skipped: this copy runs without the network, so it used its saved pages' : `${e.results} results`}, ${e.ms} ms</span></li>`;
-    if (e.t === 'call') return `<li><span class="what"><code>${esc(e.method)} ${esc(decodeURIComponent(e.path))}</code></span><span class="meta">HTTP ${esc(e.status ?? 'none')}${e.error ? `, ${esc(e.error)}` : ''}, ${e.ms} ms${r.mock ? ', sample data' : ''}</span></li>`;
+    // In practice mode a schedule lookup gives back a copy of the real API's answer of Nov 15, 2026; every other lookup reads made-up posts.
+    if (e.t === 'call') return `<li><span class="what"><code>${esc(e.method)} ${esc(decodeURIComponent(e.path))}</code></span><span class="meta">HTTP ${esc(e.status ?? 'none')}${e.error ? `, ${esc(e.error)}` : ''}, ${e.ms} ms${r.mock ? (r.evidence?.kind === 'reproduce-schedule' && /^The practice account answers/.test(r.evidence.summary || '') ? ", practice account: a copy of the answer Blotato's real API gave to a read-only lookup on Nov 15, 2026, not a call made now" : ', practice account: made-up sample data') : ''}</span></li>`;
     return '';
   }).join('');
   const steps = (r.steps || []).map((s, i) => {
     const c = (r.check?.citations || []).find(x => x.step === i + 1);
-    const what = s.type === 'fact' ? `Quote from <a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(String(s.url).replace('https://', ''))}</a>` : s.type === 'evidence' ? 'From the account' : 'An action the desk takes';
+    const what = s.type === 'fact' ? `Quote from <a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(String(s.url).replace('https://', ''))}</a>` : s.type === 'evidence' ? (r.mock ? 'From the practice account' : 'From the account') : ({ rule: 'A rule of this desk', advice: 'Advice for the customer' }[actionKind(s.text)] || 'An action the desk takes');
     return `<li><span class="what">Step ${i + 1}. ${what}</span><span class="meta">${s.quote ? `<code>${esc(s.quote)}</code>` : esc(s.type === 'evidence' ? cleanCall(r.evidence?.summary || '') : 'No page to quote.')}${c ? ` ${c.found ? 'Found on the page' : 'NOT found on the page'}${c.fetchedAt ? `, page read ${esc(techTime(c.fetchedAt))}` : ''}.` : ''}</span></li>`;
   }).join('');
   const findings = f.findings || f.notes || [];
@@ -722,7 +759,7 @@ function techHTML(r) {
   return `<section class="tech" aria-labelledby="tech-h">
     <h2 id="tech-h">The engineer view</h2>
     <dl class="kv">
-      <dt>Account data</dt><dd>${r.mock ? 'Sample data, no account connected' : 'Live, read-only'}</dd>
+      <dt>Account data</dt><dd>${r.mock ? 'Practice account, no real account connected. Its posts are made up; the one error it copies from the real API is marked where it is used.' : 'Live, read-only'}</dd>
       ${whyOf(r) ? `<dt>Why it went to a person</dt><dd><code>${esc(whyOf(r))}</code>${r.route?.reason || r.match?.reason ? ` ${esc(String(r.route?.reason || r.match?.reason).replace(/\s*\(words: [^)]*\)/, ''))}` : ''}</dd>` : ''}
       ${r.entry ? `<dt>A saved, checked answer for this kind of message</dt><dd>${f.state === 'passed' ? 'Yes' : 'No'}</dd>` : ''}
     </dl>
@@ -750,6 +787,17 @@ const VLINE = {
   saved: ['Checked, then one line changed.', 'var(--draft)'],
   draft: ['Not checked yet.', 'var(--draft)'],
 };
+// Said once, in plain view, beside the verdict (Nov 16, 2026: a first-time visitor could not tell the account was a
+// practice one, and "checked Nov 15" confused someone pressing the button on Nov 16): what is made up, what is real,
+// and that the date is when these exact words were checked.
+function practiceHTML(r, st) {
+  const at = r.fresh?.checkedAt ? ` on ${day(r.fresh.checkedAt)}` : '';
+  const acct = r.mock ? 'This is a practice account with made-up customers and posts. The help pages and their sentences are real.' : '';
+  const words = st === 'checked' ? `A second checker read these exact words${at} and passed them, so the same words do not need checking twice.`
+    : st === 'stopped' && r.fresh?.state === 'blocked' ? `A second checker read these exact words${at} and stopped them.` : '';
+  const s = [acct, words].filter(Boolean).join(' ');
+  return s ? `<p class="plainline practice">${esc(s)}</p>` : '';
+}
 function shellHTML(meta, r) {
   const st = stateOf(r);
   const line = r.example ? PLAIN_STOPPED : (r.ticket?.id && PLAIN_LINES[r.ticket.id]) || null;
@@ -767,7 +815,8 @@ function shellHTML(meta, r) {
     ${meta.example ? '<p class="example-tag">A saved example from Nov 15: the desk\'s first reply to this message. The second checker stopped it, and the desk was fixed.</p>' : ''}
     <div class="did-row"><ol class="did" id="did" aria-label="What the desk did"></ol></div>
     ${VLINE[st] ? `<p class="vline away" id="vline" style="--tone: ${VLINE[st][1]}">${VLINE[st][0]}</p>` : ''}
-    ${line ? `<p class="plainline"><b>In plain words:</b> ${esc(line)}</p>` : ''}
+    ${practiceHTML(r, st)}
+    ${line ?`<p class="plainline"><b>In plain words:</b> ${esc(line)}</p>` : ''}
     ${person ? `<p class="plainline person"><b>A person on the team takes this one.</b> ${esc(person)}</p>` : ''}
     <div class="stage" id="stage"></div>
     <div id="after"></div>
@@ -779,7 +828,7 @@ function shellHTML(meta, r) {
 function stageHTML(r) {
   const st = stateOf(r);
   if (st === 'refused') {
-    const cands = (r.route?.candidates || []).filter(c => c.title && c.phrasing).slice(0, 3);
+    const cands = chipsFor(r);
     const nonsense = whyOf(r) === 'nonsense';
     const note = !!r.escalation && !nonsense;
     // Two parts side by side (round 5): the letter that says why, and beside it the note for a person on the team
@@ -794,7 +843,7 @@ function stageHTML(r) {
           ${note ? '<p class="rr unw" data-write><b>Who gets it next.</b> A person on the support team. The desk wrote them a note, and it is on this page, ready to copy and pass on.</p>' : ''}
           <div class="actions refusal-actions away" data-pop><button type="button" class="${note ? 'btn-quiet' : 'btn'}" id="reword-btn">Say it another way</button></div>
           <p class="rr unw" data-write><b>What the desk knows.</b> It can answer questions about posting, scheduling, accounts, plans and error messages.</p>
-          ${cands.length ? `<p class="rr unw" data-write><b>Did they mean one of these?</b></p><div class="chips away" data-pop>${cands.map(c => `<button type="button" class="chip" data-ask="${esc(c.phrasing)}">${esc(dash(c.title))}</button>`).join('')}</div>` : ''}
+          ${cands.length ? `<p class="rr unw" data-write><b>Did they mean one of these?</b></p><div class="chips away" data-pop>${cands.map(c => `<button type="button" class="chip" data-ask="${esc(c.phrasing)}">${both(dash(c.title))}</button>`).join('')}</div>` : ''}
           ${note ? `<div class="away" data-pop>${tryCard}</div>` : ''}
         </div>
       </article>
@@ -1387,8 +1436,13 @@ class Moment {
     window.__lastMoment = this.marks;
     if (this.meta.demo) return demo.done();
     if (this.meta.quiet) return;
+    // Focus goes to the main button only when it is on screen; otherwise to the first thing that is (the answer's
+    // heading, the verdict line, New message). It never scrolls the page (Nov 16, 2026: focus landed off screen).
     const main = $('#closing .btn', root) || $('.refusal-side .btn', root) || $('.refusal-actions .btn', root);
-    main?.focus({ preventScroll: true });
+    const onScreen = (el) => { if (!el) return false; const b = el.getBoundingClientRect(); return b.width > 0 && b.height > 0 && b.top >= 0 && b.bottom <= innerHeight; };
+    const to = [main, $('#letter-h', root), $('#vline', root), $('#back', root)].find(onScreen);
+    if (to && !to.matches('button, a, [tabindex]')) to.setAttribute('tabindex', '-1');
+    to?.focus({ preventScroll: true });
   }
 
   fail(message) {
@@ -1491,7 +1545,7 @@ async function start({ body, who, text, demo: isDemo = false, instant = false, e
 // Back to the box. keepText: put the customer's words back so they can say it another way.
 function back({ keepText = false, fromHistory = false, text: given = null } = {}) {
   const text = given ?? (keepText ? (moment?.meta?.text || '') : '');
-  moment?.stop(); moment = null; asking++;
+  moment?.stop(); moment = null; asking++; sending = false;
   demo.cancel();
   $('#result').hidden = true; $('#result').innerHTML = '';
   $('#ask').hidden = false;
@@ -1785,7 +1839,9 @@ const game = {
     // first move. On a phone both sit right under their reply; on a wide screen, under the stamps.
     const lessonHTML = `<h3>${ch.right ? 'You got it.' : 'The right first move'}</h3><p class="right-move">${both(d.firstCheck)}</p>
       ${fits ? `<div class="src">${quote}<p class="k">Blotato's help page says so.</p><a href="${esc(d.source.url)}" target="_blank" rel="noopener">Open the help page</a></div>` : `<div class="src"><p class="k">Blotato's help page explains why.</p><a href="${esc(d.source.url)}" target="_blank" rel="noopener">Open the help page</a></div>`}${nextHTML}`;
-    if (wide()) $('#after-move').innerHTML = lessonHTML;
+    // Wide (Nov 16, 2026): the next button sits on their reply, so the reply and the button are on screen together;
+    // the lesson stays beside it, under the stamps, where the right stamp is already marked.
+    if (wide()) { $('#after-move').innerHTML = lessonHTML.replace(nextHTML, ''); wbEl.insertAdjacentHTML('beforeend', nextHTML); }
     else { $('#after-move').innerHTML = ''; $('#write-back').insertAdjacentHTML('beforeend', `<div class="after-move">${lessonHTML}</div>`); }
     if (!reduced.matches) {
       wbEl.animate([{ clipPath: 'inset(0 0 100% 0)', transform: 'translateY(-14px) rotate(.8deg)' }, { clipPath: 'inset(0 0 0 0)', transform: 'rotate(.8deg)' }], { duration: 420, delay: T.thud + 120, easing: EASE_OUT, fill: 'backwards' });
@@ -1797,6 +1853,14 @@ const game = {
     if (!wide()) setTimeout(() => {
       const w = $('#write-back')?.getBoundingClientRect(); if (!w) return;
       if (w.bottom > innerHeight - 12 || w.top < 0) scrollTo({ top: scrollY + w.top - 12, behavior: reduced.matches ? 'auto' : 'smooth' });
+    }, reduced.matches ? 0 : 560);
+    // Wide: if their reply (with the next button) ends below the screen, move up only as far as it needs, keeping
+    // their letter's top in view where it can.
+    else setTimeout(() => {
+      if (!wbEl.isConnected) return;
+      const w = wbEl.getBoundingClientRect();
+      const need = w.bottom + 16 - innerHeight;
+      if (need > 0) scrollTo({ top: scrollY + Math.min(need, Math.max(0, w.top - 16)), behavior: reduced.matches ? 'auto' : 'smooth' });
     }, reduced.matches ? 0 : 560);
   },
   next() {
@@ -1867,7 +1931,7 @@ function wire() {
     $('#more-btn').setAttribute('aria-expanded', String(open)); $('#more').hidden = !open;
     $('#more-btn').textContent = open ? 'Show fewer examples' : 'Show more examples';
   });
-  $('#stopped-btn').addEventListener('click', () => { demo.cancel(); start({ body: null, who: 'Someone who posts with n8n', text: (STATE?.tickets.find(x => x.id === 'T07')?.text) || 'My n8n workflow posts 50 videos at once.', example: true }); });
+  $('#stopped-btn').addEventListener('click', () => { demo.cancel(); start({ body: null, who: 'Someone who posts with n8n (an automation tool)', text: (STATE?.tickets.find(x => x.id === 'T07')?.text) || 'My n8n workflow posts 50 videos at once.', example: true }); });
   $('#demo-skip').addEventListener('click', () => demo.skip());
   $('#watch-btn').addEventListener('click', () => { demo.running = false; demo.run(); });
 
@@ -1880,7 +1944,7 @@ function wire() {
     if (e.target.closest('#reword-btn')) return back({ keepText: true });
     const ask = e.target.closest('[data-ask]');
     if (ask) { const text = ask.dataset.ask; back({ text }); return start({ body: { text }, who: null, text }); }
-    if (e.target.closest('#fixed-btn')) { const t = STATE?.tickets.find(x => x.id === 'T07'); return start({ body: { id: 'T07' }, who: 'Someone who posts with n8n', text: t?.text || moment?.meta?.text || '' }); }
+    if (e.target.closest('#fixed-btn')) { const t = STATE?.tickets.find(x => x.id === 'T07'); return start({ body: { id: 'T07' }, who: 'Someone who posts with n8n (an automation tool)', text: t?.text || moment?.meta?.text || '' }); }
     if (e.target.closest('[data-again]')) { leave(); return; }
     const c = e.target.closest('[data-copy]'); if (c) return copy(c.dataset.copy, c);
     const more = e.target.closest('.page-toggle');

@@ -7,6 +7,7 @@
       "title": "Charged after making an API key during the trial",
       "guard": "money",
       "priority": 2,
+      "note": "Its opening says sorry for a surprise charge, so the second anchor group needs words that report a charge (Nov 16, 2026). Any other money message on the trial gets charge-or-refund, whose opening is true for every money message.",
       "phrasings": [
         "I was charged after making an API key during the free trial",
         "made an api key on my trial and got billed",
@@ -18,18 +19,7 @@
           "trial"
         ],
         [
-          "charge",
-          "charged",
-          "charges",
-          "bill",
-          "billed",
-          "billing",
-          "paid",
-          "payment",
-          "invoice",
-          "pay",
-          "took",
-          "money"
+          "/\\b(?:charged|re-?charged|billed|paid|debited|deducted|invoiced|took (?:my |our |the )?money|money (?:was |got )?taken)\\b/"
         ]
       ],
       "opening": "I'm sorry for the surprise. Here is what happened, and who will look at the charge.",
@@ -94,17 +84,18 @@
       "title": "A charge, a refund, or money taken",
       "guard": "money",
       "priority": 1,
+      "note": "The money guard catches more than wrong charges: a threatened chargeback, a demand for a refund or free months, a dollar amount in passing. So the opening says only what is true for all of them: anything about money goes to a person (Nov 16, 2026; it opened \"I'm sorry about the charge\" for customers who reported none).",
       "phrasings": [
         "I was charged and I want a refund",
         "you billed me twice",
         "I want my money back",
         "there is a charge I do not recognize"
       ],
-      "opening": "I'm sorry about the charge. A person on the team needs to look at your payment record, so I am handing this over.",
+      "opening": "Thanks for writing in. Anything about charges, refunds or billing goes to a person on the team who can look at your payment record, so I am handing this over.",
       "steps": [
         {
           "type": "action",
-          "text": "I am passing your message about the charge to a person on the team, with what you told me."
+          "text": "I am passing your message to a person on the team, with what you told me."
         },
         {
           "type": "fact",
@@ -123,8 +114,8 @@
           }
         }
       ],
-      "next": "Reply here with the date of the charge and the email on your account, so the team can find the payment.",
-      "proof": "Still open: the charge itself, and what happens to it. That is a decision for a person on the team, not for me.",
+      "next": "If a payment is part of this, reply here with its date and the email on your account, so the team can find it.",
+      "proof": "Still open: the money part of your message. That is a decision for a person on the team, not for me.",
       "escalate": {
         "why": "A charge or refund is a person's decision. The desk cannot see payments, so it explains, holds, and hands it over. It never promises a refund or a credit.",
         "causes": [

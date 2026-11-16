@@ -84,6 +84,8 @@ async function lookup(kind, ticket, { client, docs, entry, now = Date.now }) {
       ev.summary = `GET /v2/schedules/${id} answers HTTP ${r.status}: "${msg}".`;
       ev.ok = !r.ok && /bigint/i.test(msg); // reproduced = it fails the same way
       if (!ev.ok) ev.summary += ' That is not the error in the ticket, so this is not reproduced.';
+      // The practice account only gives back what the real API answered on Nov 15, 2026 (BUILD-LOG.md, README): it says so.
+      else if (client?.mock) ev.summary = `The practice account answers GET /v2/schedules/${id} with HTTP ${r.status}: "${msg}". That copies the answer Blotato's real API gave on Nov 15, 2026, to a read-only lookup with a schedule id that is not a number. The real API was not called just now.`;
     }
     if (kind === 'docs-search') {
       for (const q of entry?.searchQueries || [text.slice(0, 120)]) {
@@ -126,7 +128,7 @@ export async function diagnose(ticket, { client, docs, agent = 'Support', route 
     out.refused = `The desk will not write a reply: ${r.reason}${cands ? ` Top candidates: ${cands}.` : ''} See the docs search and the proposed help-doc edit.`;
     out.docEdit = {
       article: PAGES.faqs, kind: 'new', heading: ticket.text.split(/[.?!]/)[0].slice(0, 90) + '?',
-      add: '[Answer to confirm with the founder.]',
+      add: '[Answer to confirm with a person on the team.]',
       note: `No playbook entry matched. ${ev.summary}`,
     };
     const causes = (r.candidates || []).length ? [`Not an answer, only where to start: the matcher's top candidates were ${cands}.`] : [];

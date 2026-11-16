@@ -153,9 +153,15 @@ function staffAction(text) {
 }
 
 // Cut the words aimed at the desk out of the message, so only the customer's real question is matched.
+// Web-page markup pasted into a message (a <script> block, an <img> tag) is not words the customer asks with. It is
+// cut out before matching, so it never drowns the real question (Nov 16, 2026: "<script>alert(1)</script> my post
+// failed" was refused, though "my post failed" is answered). It is not an instruction, so it is not recorded as one.
+// The page shows the message as plain text either way.
+const MARKUP = /<(script|style)\b[^>]*>[\s\S]*?<\/\1\s*>|<\/?(?:script|style|img|iframe|svg|object|embed|link|meta|input|form|button|a|div|span|p|br|b|i|u|em|strong|video|audio|source|math|details|marquee)\b[^<>]*>/gi;
+
 export function stripDeskInstructions(text) {
   const found = [];
-  let t = String(text || '').replace(HIDDEN, (m) => { found.push(m.slice(0, 80)); return ' '; });
+  let t = String(text || '').replace(HIDDEN, (m) => { found.push(m.slice(0, 80)); return ' '; }).replace(MARKUP, ' ');
   t = t.replace(/\[[^\]]*\b(?:system|note to|instruction)[^\]]*\]/gi, (m) => { found.push(m.slice(0, 80)); return ' '; });
   const kept = [];
   for (const s of t.split(/(?<=[.?!])\s+|\n+/)) {
@@ -327,8 +333,9 @@ export const SIGNALS = {
   'pressure': {
     about: 'The customer sets a deadline with a threat, threatens to leave, or brings in legal action.',
     res: [
-      /\b(?:or|otherwise|else)\s+(?:we|i)(?:'ll|'re|'m| will| are| am| shall)?\s+(?:going to\s+|have to\s+|be\s+)?(?:cancel\w*|leav\w*|switch\w*|mov\w*(?: to| over)?|go(?:ing)? (?:to|elsewhere)|churn\w*|dispute\w*|file\w*|report\w*|find another|look(?:ing)? (?:for|elsewhere)|take (?:our|my) business)\b/i,
-      /\b(?:we|i)(?:'ll|'re| will| are| am|'m)?\s+(?:going to\s+)?(?:cancel\w*|leav\w*|switch\w*|mov\w*|churn\w*)\b[^.?!\n]{0,60}\b(?:unless|if you (?:don'?t|do not|can'?t|cannot))\b/i,
+      // "quit" added Nov 16, 2026: "fix it right now or i quit" (a live tester) got no pressure signal.
+      /\b(?:or|otherwise|else)\s+(?:we|i)(?:'ll|'re|'m| will| are| am| shall)?\s+(?:going to\s+|have to\s+|be\s+)?(?:cancel\w*|leav\w*|quit\w*|switch\w*|mov\w*(?: to| over)?|go(?:ing)? (?:to|elsewhere)|churn\w*|dispute\w*|file\w*|report\w*|find another|look(?:ing)? (?:for|elsewhere)|take (?:our|my) business)\b/i,
+      /\b(?:we|i)(?:'ll|'re| will| are| am|'m)?\s+(?:going to\s+)?(?:cancel\w*|leav\w*|quit\w*|switch\w*|mov\w*|churn\w*)\b[^.?!\n]{0,60}\b(?:unless|if you (?:don'?t|do not|can'?t|cannot))\b/i,
       /\b(?:legal action|sue you|suing you|lawsuit|small claims|report you to|better business bureau|consumer protection)\b/i,
       /\b(?:last chance|final warning|i'?m done with (?:you|blotato)|we'?re done with (?:you|blotato)|cancel(?:ling)? everything if)\b/i,
     ],
@@ -351,6 +358,19 @@ export const SIGNALS = {
 };
 
 export const SIGNAL_NAMES = Object.keys(SIGNALS);
+
+// The customer's own words say they did something: they followed or tried the steps, sent it again, acted and
+// then something new went wrong, or a fix did not help. The hand-over reply that opens "Thank you for telling me
+// what you have already tried" is true only then (src/route.mjs). A repeat failure ("it keeps failing", "three
+// days in a row"), "still pending", or "the file is only 20 MB" says nothing about what the customer tried.
+const TRIED_TOO = [
+  /\b(?:retried|re-?tried|tried again|tried (?:it |that |this )?(?:twice|\d+ times|(?:two|three|four|five|several|many|multiple) times|everything|all (?:of )?(?:the|your) steps))\b/i,
+  /\b(?:didn'?t|did not|doesn'?t|does not) (?:help|fix it|work either|change anything)\b|\bno luck\b|\bnothing changed\b/i,
+];
+export function saidTried(text) {
+  const t = withoutQuoted(text);
+  return [...SIGNALS['tried-steps'].res, ...SIGNALS['follow-on'].res, ...TRIED_TOO].some(p => (p instanceof RegExp ? p : p.re).test(t));
+}
 
 // Docs-silent items. When a customer asks about a specific named thing (a payment method, a platform or
 // tool, a platform feature, a language, a file type) and the chosen entry never mentions it (not in its
@@ -429,7 +449,10 @@ export function needsPerson(text, spec, { hasTerm, allStems }, { defaults = fals
   const listed = spec?.signals || [];
   const extra = defaults ? DEFAULT_SIGNALS.filter(n => !listed.includes(n) && !(spec?.ignore || []).includes(n)) : [];
   const sentences = String(text).split(/(?<=[.?!])\s+|\n+/);
-  for (const name of [...listed, ...extra]) {
+  // A threat or ultimatum is read first, so it names the reason when it fires (Nov 16, 2026: "my posts keep
+  // breaking ... fix it or i quit" was named a repeat failure and thanked for what the customer had tried).
+  const order = [...listed, ...extra].sort((a, b) => (b === 'pressure') - (a === 'pressure'));
+  for (const name of order) {
     const s = SIGNALS[name];
     if (!s) continue;
     const byDefault = !listed.includes(name);

@@ -170,7 +170,8 @@ function view(r, env, trace) {
       why: r.match.why ?? null, // the named reason for a hand-over (main copy); null for an answer or older data
       whyDetail: r.match.whyDetail ?? null,
       reason: r.match.reason || null,
-      candidates: (r.match.candidates || []).map(c => ({ id: c.id, title: ENTRY_BY_ID.get(c.id)?.title || null, phrasing: c.phrasing || ENTRY_BY_ID.get(c.id)?.phrasings?.[0] || null })),
+      // score added Nov 16, 2026: the page offers a candidate as "Did they mean" only when it is a near one.
+      candidates: (r.match.candidates || []).map(c => ({ id: c.id, title: ENTRY_BY_ID.get(c.id)?.title || null, phrasing: c.phrasing || ENTRY_BY_ID.get(c.id)?.phrasings?.[0] || null, score: c.score ?? null })),
     } : null,
   };
 }

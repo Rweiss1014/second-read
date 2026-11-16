@@ -64,7 +64,9 @@ test('a charge or refund message always goes to a person: a holding reply and an
     assert.equal(r.check.pass, true, `${text}: ${r.check.problems.join(' | ')}`);
     assert.ok(!/cancel/i.test(r.reply), `${text}: the reply should not be cancel steps`);
     assert.ok(!/refund you|will .*refund|full refund/i.test(r.reply), `${text}: the reply must not promise a refund`);
-    assert.match(r.reply, /^Still open: the charge itself/m);
+    assert.match(r.reply, /^Still open: the money part of your message/m);
+    // The opening is true for any money message: it never says sorry about a charge the customer did not report.
+    assert.doesNotMatch(r.reply, /sorry about the charge/i, text);
     assert.match(r.status, /escalated/);
     assert.doesNotMatch(r.status, /cleared/);
   }
@@ -125,7 +127,7 @@ test('a question with no playbook entry gets no reply: it is refused, escalated 
   assert.equal(r.reply, null);
   assert.equal(r.check.pass, false);
   assert.match(r.refused, /will not write a reply/);
-  assert.match(r.docEditText, /\[Answer to confirm with the founder\.\]/);
+  assert.match(r.docEditText, /\[Answer to confirm with a person on the team\.\]/);
   assert.equal(r.status, 'refused: no documented answer');
 });
 
@@ -199,10 +201,10 @@ test('the fresh checker\'s packet holds the reply, the cited page text and the e
   assert.equal(p.hash, replyHash(r.reply));
   assert.ok(p.text.includes(r.reply.trim()));
   assert.match(p.text, /Quoted sentence: "\\"id\\": \\"sch_abc123\\""|Quoted sentence: ""id": "sch_abc123""/);
-  assert.match(p.text, /What it found: GET \/v2\/schedules\/sch_abc123 answers HTTP 500/);
+  assert.match(p.text, /What it found: The practice account answers GET \/v2\/schedules\/sch_abc123 with HTTP 500/);
   assert.match(p.text, /Escalation packet written for the founder: yes/);
   // The writer's notes stay out: the playbook's reasons, causes, ruled-out list and doc-edit note.
-  for (const note of ['Only the founder can say which one is right', 'Two most likely causes', 'Ruled out', 'Confirm with the founder before publishing', 'schedule-id-500']) assert.ok(!p.text.includes(note), note);
+  for (const note of ['Only a person on the team can say which one is right', 'Two most likely causes', 'Ruled out', 'Confirm with a person on the team before publishing', 'schedule-id-500']) assert.ok(!p.text.includes(note), note);
   // Ids keep their underscores in the page text the checker reads.
   assert.match(around('Example: `"id": "sch\_abc123"` in the list.', '"id": "sch_abc123"'), /sch_abc123/);
 });
