@@ -246,7 +246,7 @@
           "text": "In-progress can also mean Blotato found no record for that id, so it does not prove the post exists or failed.",
           "cite": {
             "url": "https://help.blotato.com/rest-api-reference/publish-post/get-post",
-            "quote": "This fallback does not confirm a live queue job or validate a guessed submission ID."
+            "quote": "If none matches, it returns in-progress. This fallback does not confirm a live queue job or validate a guessed submission ID."
           }
         },
         {
@@ -507,7 +507,7 @@
       "steps": [
         {
           "type": "fact",
-          "text": "Open Posts and look under Failed for that post, for the same account and content.",
+          "text": "Open Posts and check the Scheduled, Published, and Failed filters for the same account and content.",
           "cite": {
             "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
             "quote": "Check the Scheduled, Published, and Failed filters in Posts for the same destination and content."
@@ -523,10 +523,10 @@
         },
         {
           "type": "fact",
-          "text": "Before you post it again, check the account it was meant for.",
+          "text": "Check the account it was meant for before you retry. If the error points to a validation or connection problem, correct it first. Retry a temporary failure only after checking that the post is not already there.",
           "cite": {
             "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
-            "quote": "Read the error and check the destination before retrying."
+            "quote": "Read the error and check the destination before retrying. Correct an identified validation or connection problem. Retry a temporary failure only after checking for an existing post."
           }
         },
         {
@@ -538,7 +538,7 @@
           }
         }
       ],
-      "next": "Open Posts, find the post under Failed, and send us the exact error text it shows.",
+      "next": "Open Posts, check the Scheduled, Published, and Failed filters for that post, and send us the exact error text if it shows one.",
       "proof": "Still open: the cause. The exact error on the post decides which fix is the right one.",
       "note": "For a failed post with no error text. With an error text or code in the message (symptom_only), this entry hands over, so that error's own entry or a person takes it."
     },
@@ -630,14 +630,14 @@
         "phrases": []
       },
       "symptom_only": true,
-      "opening": "Let's find out what happened to that post before anything else. A post that did not show up has not always failed.",
+      "opening": "Let's find out what happened to that post before anything else. A missing post does not tell us the cause on its own.",
       "steps": [
         {
           "type": "fact",
-          "text": "Open Posts and check the Scheduled, Published and Failed lists for that account and that post.",
+          "text": "Open Posts and check the Scheduled, Published and Failed lists for that account and that post. If you do not find it, check the platform and time-window filters too.",
           "cite": {
             "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
-            "quote": "Check the Scheduled, Published, and Failed filters in Posts for the same destination and content."
+            "quote": "Check the Scheduled, Published, and Failed filters in Posts for the same destination and content. Check the platform and time-window filters if a record is missing."
           }
         },
         {
