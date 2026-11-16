@@ -25,6 +25,8 @@ node bin/support-desk.mjs ticket --id T10 --mock    # one sample ticket with sam
 node bin/support-desk.mjs ticket "<message>"        # a real message (needs BLOTATO_API_KEY, read-only)
 node bin/support-desk.mjs cleared T10               # may the saved reply be sent? (needs a fresh-checker pass)
 node bin/support-desk.mjs shift --mock              # all 12 sample tickets, then desk/HANDOFF.md
+node bin/support-desk.mjs packets --all --mock --out <dir>   # a checker packet for every entry's reply, plus <dir>/index.json
+node bin/support-desk.mjs record-check --dir <dir>  # save the checkers' passes into knowledge/checks/ (a pass for text nobody packed is refused)
 node bin/support-desk.mjs morning                   # what failed in the last 24 hours, to desk/MORNING.md
 node bin/support-desk.mjs logs                      # summary of the last run
 node bin/support-desk.mjs docs                      # re-read every cited help page through the docs MCP
@@ -38,7 +40,7 @@ node bin/support-desk.mjs serve --mock              # the local page on http://l
    - In Claude Code: start the `reply-checker` subagent with the packet path, and nothing else.
    - In Codex: start a separate run so it has none of this session's notes, for example
      `codex exec -s read-only -o desk/reviews/T10.json "Follow .claude/agents/reply-checker.md for desk/reviews/T10.packet.md. Read only those two files. Reply with only the verdict JSON."`
-3. `node bin/support-desk.mjs cleared T10` clears the saved reply only if that verdict is a pass for this exact text. A block is recorded in `desk/known-failures.md`.
+3. `node bin/support-desk.mjs cleared T10` clears the saved reply only if a pass exists for this exact text, in `knowledge/checks/` (shipped with the repo) or in `desk/reviews/`. A block is recorded in `desk/known-failures.md`.
 
 The full steps are in `.claude/skills/support-desk/SKILL.md`. In Codex, read that file and follow it the same way.
 

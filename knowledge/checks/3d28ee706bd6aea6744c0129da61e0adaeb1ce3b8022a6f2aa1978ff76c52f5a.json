@@ -1,0 +1,10 @@
+{
+  "replySha256": "3d28ee706bd6aea6744c0129da61e0adaeb1ce3b8022a6f2aa1978ff76c52f5a",
+  "verdict": "pass",
+  "findings": [
+    "Style note, not misleading: the success line says the call \"answers 200\", but the cited text never names a 200 code; it says only that an empty array is a successful authenticated response."
+  ],
+  "checkedAt": "2026-11-15T20:59:26Z",
+  "checker": "reply-checker",
+  "entry": "api-401"
+}

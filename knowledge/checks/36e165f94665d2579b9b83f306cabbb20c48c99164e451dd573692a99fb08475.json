@@ -1,0 +1,10 @@
+{
+  "replySha256": "36e165f94665d2579b9b83f306cabbb20c48c99164e451dd573692a99fb08475",
+  "verdict": "pass",
+  "findings": [
+    "Style note: step 2 says in-progress 'can also mean Blotato found no record', while the page says in-progress is what the lookup returns whenever no failed, published or scheduled record matches; the softer wording does not mislead, but 'means no failed, published or scheduled record matched' would be more exact."
+  ],
+  "checkedAt": "2026-11-15T20:59:52Z",
+  "checker": "reply-checker",
+  "entry": "in-progress"
+}

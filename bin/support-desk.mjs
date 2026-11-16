@@ -7,6 +7,8 @@
 //                          the cited page text and the status evidence, nothing else
 //        --require-review  block the reply until the fresh checker's verdict for this exact text is in
 //   support-desk cleared T10                   may the saved reply be sent? (needs a fresh-checker pass)
+//   support-desk packets --all [--mock] --out <dir>   a checker packet for every entry's reply, plus index.json
+//   support-desk record-check <verdict.json> | --dir <folder>   store a checker's pass in knowledge/checks/
 //   support-desk hash <reply.txt>              the hash a checker verdict must carry
 //   support-desk shift                         all 12 sample tickets, then HANDOFF.md
 //   support-desk morning                       what broke overnight, written to MORNING.md
@@ -90,8 +92,51 @@ ${c.reply}`);
     console.log(replyHash(readFileSync(positional[0], 'utf8')));
     return;
   }
+  if (cmd === 'record-check') {
+    // support-desk record-check <verdict.json> [--index <index.json>]   or   record-check --dir <folder> [--index <index.json>]
+    // A pass is written into knowledge/checks/ only for a text that was packed (its hash is in the index).
+    // A block writes nothing: it prints the entry and the checker's notes so the entry can be fixed.
+    const fs = await import('node:fs'); const pathMod = await import('node:path');
+    const { recordChecks } = await import('../src/allpackets.mjs');
+    const { defaultChecksDir } = await import('../src/checkreply.mjs');
+    const dir = flag('--dir');
+    const files = dir
+      ? fs.readdirSync(dir).filter(f => f.endsWith('.json') && f !== 'index.json').map(f => pathMod.join(dir, f))
+      : positional[0] ? [positional[0]] : [];
+    if (!files.length) { console.error('usage: support-desk record-check <verdict.json> [--index <index.json>]   or   record-check --dir <folder>'); process.exitCode = 2; return; }
+    const indexFile = flag('--index') || pathMod.join(dir || pathMod.dirname(files[0]), 'index.json');
+    if (!fs.existsSync(indexFile)) { console.error(`No index at ${indexFile}. Make one with: support-desk packets --all --out <dir>`); process.exitCode = 2; return; }
+    const results = recordChecks({ files, indexFile, checksDir: defaultChecksDir() });
+    let passed = 0, blocked = 0, refused = 0;
+    for (const r of results) {
+      if (!r.ok) { refused++; console.log(`REFUSED ${r.file}: ${r.why}`); }
+      else if (r.recorded) { passed++; console.log(`RECORDED ${r.entry} (${r.sha.slice(0, 12)})`); }
+      else { blocked++; console.log(`BLOCKED ${r.entry}: ${(r.findings || []).join(' | ') || 'no reason given'}
+  Nothing was recorded. Fix the entry, then run packets --all again.`); }
+    }
+    console.log(`
+${passed} recorded, ${blocked} blocked, ${refused} refused.`);
+    process.exitCode = refused || blocked ? 1 : 0;
+    return;
+  }
   const desk = openDesk();
   try {
+    if (cmd === 'packets') {
+      // support-desk packets --all [--mock] --out <dir>: one checker packet per distinct reply text, plus index.json.
+      const { buildAllPackets } = await import('../src/allpackets.mjs');
+      const out = flag('--out');
+      if (!args.includes('--all') || !out) { console.error('usage: support-desk packets --all [--mock] --out <dir>'); process.exitCode = 2; return; }
+      const { resolve } = await import('node:path');
+      const idx = await buildAllPackets(desk, { outDir: resolve(out) });
+      const c = idx.counts;
+      console.log(`Entries: ${c.entries}. Distinct reply texts: ${c.distinct} (${c.duplicates} entries gave a text another entry already had).`);
+      console.log(`Already checked, skipped: ${c.alreadyChecked}. Packets written: ${c.packets}. Holding replies among them: ${c.holding}.`);
+      console.log(`No reply: ${c.noReply}. No message to try: ${c.noMessage}. Blocked by the script checker: ${c.scriptBlocked}.`);
+      if (idx.noReply.length) console.log(`  no reply: ${idx.noReply.join(', ')}`);
+      for (const b of idx.scriptBlocked) console.log(`  script-blocked ${b.entry}: ${b.problem}`);
+      console.log(`Packets and index.json are in ${resolve(out)}. After the checkers write verdicts there: support-desk record-check --dir ${out}`);
+      return;
+    }
     if (cmd === 'ticket') {
       const id = flag('--id');
       const t = id ? TICKETS.find(x => x.id === id) : { id: null, text: positional.join(' ') };
@@ -129,7 +174,7 @@ ${c.reply}`);
     } else if (cmd === 'docs') {
       for (const p of await refreshDocs(desk)) console.log(`${p.ok ? 'ok  ' : 'FAIL'} ${p.url}${p.ok ? ` (${p.via}, ${p.fetchedAt})` : ''}`);
     } else {
-      console.log('commands: ticket "<message>" | ticket --id T01 [--save-reply] | cleared T01 | shift | morning | logs | docs [--all] | check-entries | serve   (add --mock for sample account data)');
+      console.log('commands: ticket "<message>" | ticket --id T01 [--save-reply] | cleared T01 | packets --all --out <dir> | record-check <verdict.json> | shift | morning | logs | docs [--all] | check-entries | serve   (add --mock for sample account data)');
       process.exitCode = cmd ? 2 : 0;
     }
   } finally { await desk.close(); }

@@ -1,0 +1,11 @@
+{
+  "replySha256": "4f44d923ec3d736b5a26bb9388bb2c8cb2f75b251a669285e6fce4248a9b8b8f",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the opening \"Good news first: nothing is broken.\" is a little broader than the page's \"CANCELED is a post status, not a publishing failure\" and \"Nothing went wrong on the social platform\"; it still matches the page's meaning and would not mislead.",
+    "Note: no account lookup was made, so the reply rests on the customer's own report that the post shows CANCELED; every step matches the cited page text."
+  ],
+  "checkedAt": "2026-11-15T20:54:43Z",
+  "checker": "reply-checker",
+  "entry": "canceled-status"
+}

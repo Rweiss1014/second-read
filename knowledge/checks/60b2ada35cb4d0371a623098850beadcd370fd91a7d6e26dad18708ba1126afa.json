@@ -1,0 +1,11 @@
+{
+  "replySha256": "60b2ada35cb4d0371a623098850beadcd370fd91a7d6e26dad18708ba1126afa",
+  "verdict": "pass",
+  "findings": [
+    "Style note, not misleading: the success line \"An empty list still counts\" is not stated in any page text quoted in this packet.",
+    "Style note: the reply does not say what to do if Claude still returns an OAuth error after re-adding the connector, though the cited errors page says that case points to the paid subscription (\"Blotato API and MCP require a paid subscription\")."
+  ],
+  "checkedAt": "2026-11-15T20:59:26Z",
+  "checker": "reply-checker",
+  "entry": "mcp-invalid-grant"
+}

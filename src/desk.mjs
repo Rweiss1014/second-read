@@ -6,13 +6,16 @@ import { createLogger, newRunId } from './log.mjs';
 import { createClient, listPosts } from './api.mjs';
 import { createDocs } from './docs.mjs';
 import { diagnose, renderEscalation, renderDocEdit, nice } from './diagnose.mjs';
-import { checkReply, freshState } from './checkreply.mjs';
+import { checkReply, freshState, defaultChecksDir } from './checkreply.mjs';
 import { readFailures, recordFailure, ensureFailuresFile, unknownId } from './failures.mjs';
 import { explain } from './explain.mjs';
 import { citedPages } from './entries.mjs';
 import { TICKETS, PLAYBOOK, ENTRY_BY_ID } from '../knowledge/playbook.mjs';
+import { MOCK_NOW } from './mock.mjs';
 
-export function openDesk({ env = process.env, run = newRunId(), fetchImpl, mockApi } = {}) {
+// The desk's clock. Sample mode always uses the sample world's own fixed clock, so replies to the sample
+// tickets read the same on every run. A real account uses the real clock (or one passed in, for tests).
+export function openDesk({ env = process.env, run = newRunId(), fetchImpl, mockApi, now } = {}) {
   const paths = deskPaths(env);
   fs.mkdirSync(paths.dir, { recursive: true });
   ensureFailuresFile(paths.failures);
@@ -20,11 +23,12 @@ export function openDesk({ env = process.env, run = newRunId(), fetchImpl, mockA
   const logger = createLogger({ dir: paths.logs, run, key: mock ? undefined : loadKey({ env }), mock });
   const client = createClient({ env, logger, fetchImpl, mockApi });
   const docs = createDocs({ cacheDir: paths.docsCache, env, logger, fetchImpl });
-  return { env, paths, mock, logger, client, docs, run, agent: env.SUPPORT_AGENT_NAME || 'Support', close: () => docs.close() };
+  const clock = mock ? () => MOCK_NOW : (now || Date.now);
+  return { env, paths, checksDir: defaultChecksDir(env), mock, logger, client, docs, run, now: clock, agent: env.SUPPORT_AGENT_NAME || 'Support', close: () => docs.close() };
 }
 
 export async function handleTicket(desk, ticket, { requireReview = false } = {}) {
-  const { paths, logger } = desk;
+  const { paths, logger, checksDir } = desk;
   logger.write({ action: 'ticket', ticket: ticket.id || 'pasted' });
 
   // 1. Known failures first (read before this ticket is recorded).
@@ -34,7 +38,7 @@ export async function handleTicket(desk, ticket, { requireReview = false } = {})
   const d = await diagnose(ticket, desk);
   const entry = d.entry ? ENTRY_BY_ID.get(d.entry.id) : null;
   const seenBefore = entry ? known.filter(f => f.id === entry.id || f.id === `blocked-${entry.id}`) : known.filter(f => f.id === unknownId(ticket.text));
-  const check = checkReply(d, { reviewsDir: paths.reviews, requireReview });
+  const check = checkReply(d, { reviewsDir: paths.reviews, requireReview, checksDir });
 
   // 4. Mistakes teach: record what happened. "Matched words" are the entry's own anchor words or phrasing,
   // never the customer's text.
@@ -51,7 +55,7 @@ export async function handleTicket(desk, ticket, { requireReview = false } = {})
   logger.write({ action: 'ticket-done', ticket: ticket.id || 'pasted', entry: entry?.id || null, outcome: d.outcome, checked: check.pass, ok: check.pass || !entry, error: check.pass ? undefined : check.problems[0] });
 
   // Two checkers. The script's check is above. The fresh checker's verdict (if any) is read from the saved copy.
-  const fresh = check.pass ? freshState(paths.reviews, d) : null;
+  const fresh = check.pass ? freshState(paths.reviews, d, { checksDir }) : null;
   return {
     ...d,
     check,
@@ -124,7 +128,7 @@ export function renderShiftHandoff(results, { mock, run } = {}) {
 }
 
 // What broke overnight: failed posts in the last 24 hours, each explained. Read-only.
-export async function morning(desk, { now = Date.now() } = {}) {
+export async function morning(desk, { now = desk.now ? desk.now() : Date.now() } = {}) {
   const since = new Date(now - 864e5).toISOString();
   let failed = [];
   let error = null;

@@ -11,6 +11,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { quoteOnPage, normalizeText } from './docs.mjs';
+import { ROOT } from './config.mjs';
 
 // The promise check runs on every line of the reply: greeting, opening, every step, next step, proof line.
 // Each pattern names one kind of promise. A step that quotes a help page may repeat the page's own words
@@ -63,7 +64,7 @@ export const replyHash =(reply) => crypto.createHash('sha256').update(String(rep
 // The file name a review is saved under: the sample ticket's id, or a short hash of a pasted message.
 export const reviewName = (ticket) => ticket?.id || `pasted-${replyHash(ticket?.text).slice(0, 12)}`;
 
-export function checkReply(d, { reviewsDir, requireReview = false } = {}) {
+export function checkReply(d, { reviewsDir, requireReview = false, checksDir = defaultChecksDir() } = {}) {
   const problems = [];
   const citations = [];
   if (!d.reply) return { pass: false, problems: ['There is no reply to check. The desk refused to answer without a documented source.'], citations };
@@ -107,16 +108,18 @@ export function checkReply(d, { reviewsDir, requireReview = false } = {}) {
   for (const v of VOICE) if (v.re.test(d.reply)) problems.push(`The reply uses ${v.why}.`);
 
   // The subagent's verdict (written by .claude/agents/reply-checker.md), bound to this exact reply text.
+  // A verdict counts for exactly this text, wherever it was saved: the shipped store (knowledge/checks) or desk/reviews.
   let review = null;
-  if (reviewsDir) {
-    const f = path.join(reviewsDir, `${reviewName(d.ticket)}.json`);
-    try { review = JSON.parse(fs.readFileSync(f, 'utf8')); } catch { review = null; }
-    if (review) {
+  if (reviewsDir || checksDir) {
+    const hit = lookupCheck(d.reply, { reviewsDir, checksDir });
+    if (hit.state === 'pass') review = { verdict: 'pass', checkedAt: hit.checkedAt };
+    else if (hit.state === 'block') problems.push(`The fresh checker blocked it: ${(hit.findings || []).join('; ') || 'no reason given'}`);
+    else if (requireReview) {
       // A verdict for an older text does not apply to this one. It blocks only when this run requires a review
       // (a live lookup can change the text from run to run; the saved copy is what "cleared" checks).
-      if (review.replySha256 !== replyHash(d.reply)) { if (requireReview) problems.push('The fresh checker reviewed a different version of this reply. Review it again.'); review = null; }
-      else if (review.verdict !== 'pass') problems.push(`The fresh checker blocked it: ${(review.findings || []).join('; ') || 'no reason given'}`);
-    } else if (requireReview) problems.push('No fresh-checker verdict yet, and this run requires one.');
+      const older = reviewsDir ? readJson(path.join(reviewsDir, `${reviewName(d.ticket)}.json`)) : null;
+      problems.push(older ? 'The fresh checker reviewed a different version of this reply. Review it again.' : 'No fresh-checker verdict yet, and this run requires one.');
+    }
   }
 
   return { pass: !problems.length, problems, citations, review: review ? { verdict: review.verdict, checkedAt: review.checkedAt } : null };
@@ -124,13 +127,14 @@ export function checkReply(d, { reviewsDir, requireReview = false } = {}) {
 
 // The send gate. Live evidence (times, search results) can change between runs, so the gate reads the reply
 // exactly as it was saved for the checker, and passes only if the checker's verdict is a pass for that text.
-export function clearedToSend(reviewsDir, name) {
-  let reply; let review;
+export function clearedToSend(reviewsDir, name, { checksDir = defaultChecksDir() } = {}) {
+  let reply;
   try { reply = fs.readFileSync(path.join(reviewsDir, `${name}.reply.txt`), 'utf8'); } catch { return { ok: false, why: `No saved reply for ${name}. Run the ticket with --save-reply first.` }; }
-  try { review = JSON.parse(fs.readFileSync(path.join(reviewsDir, `${name}.json`), 'utf8')); } catch { return { ok: false, why: `No fresh-checker verdict for ${name} yet.` }; }
-  if (review.replySha256 !== replyHash(reply)) return { ok: false, why: 'The fresh checker reviewed a different version of this reply. Check it again.' };
-  if (review.verdict !== 'pass') return { ok: false, blocked: true, findings: review.findings || [], why: `The fresh checker blocked it: ${(review.findings || []).join('; ') || 'no reason given'}` };
-  return { ok: true, reply, notes: review.findings || [], checkedAt: review.checkedAt };
+  const hit = lookupCheck(reply, { reviewsDir, checksDir });
+  if (hit.state === 'pass') return { ok: true, reply, notes: hit.findings || [], checkedAt: hit.checkedAt, checker: hit.checker, model: hit.model, source: hit.source };
+  if (hit.state === 'block') return { ok: false, blocked: true, findings: hit.findings || [], why: `The fresh checker blocked it: ${(hit.findings || []).join('; ') || 'no reason given'}` };
+  if (!readJson(path.join(reviewsDir, `${name}.json`))) return { ok: false, why: `No fresh-checker verdict for ${name} yet.` };
+  return { ok: false, why: 'The fresh checker reviewed a different version of this reply. Check it again.' };
 }
 
 // Where the fresh checker stands on this run's reply:
@@ -139,11 +143,82 @@ export function clearedToSend(reviewsDir, name) {
 //   blocked       it blocked the saved copy
 //   stale         its verdict is for an older saved copy
 //   none          no saved copy or no verdict yet
-export function freshState(reviewsDir, d) {
+export function freshState(reviewsDir, d, { checksDir = defaultChecksDir() } = {}) {
   if (!d?.reply) return null;
   const name = reviewName(d.ticket);
-  const c = clearedToSend(reviewsDir, name);
+  // The exact text first: a pass in the shipped store or in desk/reviews clears it, even for a typed message
+  // whose saved copy was never written on this machine.
+  const hit = lookupCheck(d.reply, { reviewsDir, checksDir });
+  if (hit.state === 'pass') return { state: 'passed', name, checkedAt: hit.checkedAt, notes: hit.findings || [], checker: hit.checker, model: hit.model, source: hit.source };
+  if (hit.state === 'block') return { state: 'blocked', name, why: `The fresh checker blocked it: ${(hit.findings || []).join('; ') || 'no reason given'}`, findings: hit.findings || [], checkedAt: hit.checkedAt };
+  const c = clearedToSend(reviewsDir, name, { checksDir });
   if (!c.ok && /No saved reply|No fresh-checker verdict/.test(c.why)) return { state: 'none', name };
   if (!c.ok) return { state: c.blocked ? 'blocked' : 'stale', name, why: c.why };
   return { state: replyHash(c.reply) === replyHash(d.reply) ? 'passed' : 'passed-saved', name, checkedAt: c.checkedAt, notes: c.notes };
+}
+
+// ---- The saved-check store -------------------------------------------------------------------------------------
+// A reply counts as "checked" when a fresh checker passed this exact text. Those passes live in two places:
+//   knowledge/checks/<sha256>.json   shipped with the repo: one small file per checked reply text, nothing private
+//   desk/reviews/*.json              this machine's own verdicts (ignored by git)
+// lookupCheck looks in the store first and desk/reviews second.
+export const defaultChecksDir = (env = process.env) => env.SUPPORT_CHECKS_DIR ? path.resolve(env.SUPPORT_CHECKS_DIR) : path.join(ROOT, 'knowledge', 'checks');
+
+const readJson = (f) => { try { return JSON.parse(fs.readFileSync(f, 'utf8')); } catch { return null; } };
+const SHA = /^[0-9a-f]{64}$/;
+
+// The fields a stored check keeps. No customer message, no account data, no reply text: only who checked what, and when.
+export function storedCheckFrom(v) {
+  const out = { replySha256: v.replySha256, verdict: v.verdict, findings: Array.isArray(v.findings) ? v.findings.map(String) : [], checkedAt: v.checkedAt || null, checker: v.checker || null };
+  if (v.model) out.model = String(v.model);
+  if (v.entry) out.entry = String(v.entry);
+  return out;
+}
+
+// Has a fresh checker passed this exact text? -> { state: 'pass' | 'block' | 'none', source: 'store' | 'desk', ... }
+// One changed character changes the hash, so a verdict for any other text never matches.
+export function lookupCheck(text, { reviewsDir, checksDir = defaultChecksDir() } = {}) {
+  const sha = replyHash(text);
+  if (checksDir) {
+    const v = readJson(path.join(checksDir, `${sha}.json`));
+    if (v && v.replySha256 === sha && v.verdict === 'pass') return { state: 'pass', source: 'store', sha, ...pick(v) };
+  }
+  let block = null;
+  if (reviewsDir) {
+    let files = [];
+    try { files = fs.readdirSync(reviewsDir).filter(f => f.endsWith('.json')); } catch { /* no folder yet */ }
+    for (const f of files) {
+      const v = readJson(path.join(reviewsDir, f));
+      if (!v || v.replySha256 !== sha) continue;
+      if (v.verdict === 'pass') return { state: 'pass', source: 'desk', sha, ...pick(v) };
+      block = block || { state: 'block', source: 'desk', sha, ...pick(v) };
+    }
+  }
+  return block || { state: 'none', sha };
+}
+const pick = (v) => ({ verdict: v.verdict, findings: v.findings || [], checkedAt: v.checkedAt, checker: v.checker, model: v.model, entry: v.entry });
+
+// Why a verdict file cannot be recorded, or null when its shape is right.
+export function verdictProblem(v) {
+  if (!v || typeof v !== 'object') return 'The verdict is not a JSON object.';
+  if (!SHA.test(String(v.replySha256 || ''))) return 'The verdict has no replySha256 (64 hex characters).';
+  if (v.verdict !== 'pass' && v.verdict !== 'block') return `The verdict must be "pass" or "block", not ${JSON.stringify(v.verdict)}.`;
+  if (v.findings !== undefined && !Array.isArray(v.findings)) return 'findings must be a list of sentences.';
+  if (v.verdict === 'pass' && !v.checkedAt) return 'A pass needs checkedAt, the date and time the checker read the text.';
+  if (v.verdict === 'pass' && !v.checker) return 'A pass needs the checker\'s name.';
+  return null;
+}
+
+// Record one checker verdict. A pass goes into the store (only if its sha is in `known`, the shas that were packed).
+// A block writes nothing: the entry has to be fixed. `known` is a Map sha -> { entry, ... } from a packets index.
+export function recordCheck(verdict, { known, checksDir = defaultChecksDir() } = {}) {
+  const bad = verdictProblem(verdict);
+  if (bad) return { ok: false, why: bad };
+  const meta = known?.get(verdict.replySha256);
+  if (!meta) return { ok: false, why: `No packet in the index has the hash ${verdict.replySha256}, so nobody packed this text. Nothing was recorded.` };
+  if (verdict.verdict === 'block') return { ok: true, recorded: false, blocked: true, entry: meta.entry, findings: verdict.findings || [] };
+  fs.mkdirSync(checksDir, { recursive: true });
+  const rec = storedCheckFrom({ ...verdict, entry: meta.entry });
+  fs.writeFileSync(path.join(checksDir, `${rec.replySha256}.json`), JSON.stringify(rec, null, 2) + '\n');
+  return { ok: true, recorded: true, entry: meta.entry, sha: rec.replySha256 };
 }
