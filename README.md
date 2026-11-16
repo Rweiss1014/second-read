@@ -42,15 +42,13 @@ Blotato's "Fix My Automation" button covers broken n8n automations. This desk is
 You need Node 20 or newer and an internet connection. The first run reads the cited help pages through Blotato's docs MCP server. No key is needed for that.
 
 ```bash
-npm install
-npm test
-node bin/support-desk.mjs ticket --id T11 --mock
-node bin/support-desk.mjs serve --mock
+npm install   # the one library it uses: the official MCP SDK, to read the help pages
+npm start     # opens the page with sample data at http://localhost:5610
 ```
 
-Then open http://localhost:5610. If that port is busy, add `--port 5611` to the last line.
+Paste a customer's message, or click one of the examples under the box.
 
-Or run `npm start`: it opens the same page with sample data and prints the link. `npm run serve` opens it on a real account (it needs your key).
+`npm test` runs the 186 checks. `npm run serve` opens the page on a real account (it needs your key). If port 5610 is busy, run `node bin/support-desk.mjs serve --mock --port 5611`.
 
 `--mock` means account lookups use made-up posts. The page says so at the top. The help docs are always the real ones.
 
