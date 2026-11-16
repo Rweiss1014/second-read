@@ -93,7 +93,7 @@ function composedResult(desk, ticket, d, known, { requireReview }) {
     : { id: `blocked-${id}`, title: 'A composed reply was blocked', why: check.problems[0], fix: 'Nothing was sent. A person answers this one.' });
   logger.write({ action: 'ticket-done', ticket: ticket.id || 'pasted', entry: 'composed', path: 'composed', outcome: d.outcome, checked: check.pass, ok: check.pass, error: check.pass ? undefined : check.problems[0] });
   // requireReview asks for a saved fresh-checker pass, which a composed text never has: say so, never claim one.
-  const fresh = { state: check.pass ? d.composer?.state || 'script-checked' : 'blocked', path: 'composed', saved: false, checkedAt: check.pass && sr ? new Date().toISOString() : null, checker: sr ? `second reader (${sr.model}, ${sr.version})` : null, objections: sr?.objections || [] };
+  const fresh = { state: check.pass ? d.composer?.state || 'script-checked' : 'blocked', path: 'composed', saved: false, checkedAt: check.pass && sr ? sr.at || new Date().toISOString() : null, reused: !!sr?.cached, checker: sr ? `second reader (${sr.model}, ${sr.version})` : null, objections: sr?.objections || [] };
   const status = !check.pass ? 'blocked' : `composed reply: ${fresh.state === 'checked-live' ? 'the script checks and the second reader passed it just now' : 'the script checks passed; the second read is off'} (not a saved, pre-checked reply)${requireReview ? '; a saved fresh-checker pass is required and a composed text has none, so it is not cleared to send' : ''}`;
   return { ...d, check, fresh, seenBefore, recorded: recorded?.entry?.id, escalationText: '', docEditText: '', status };
 }

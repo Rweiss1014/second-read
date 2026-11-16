@@ -322,16 +322,22 @@ export function createComposer({ router, env = process.env, call, cacheDir, page
   };
   const stats = { reached: 0, live: { write: 0, second: 0, expand: 0 }, cached: { write: 0, second: 0, expand: 0 }, errors: 0, liveMs: 0, cachedMs: 0, answered: 0, declined: 0, unverified: 0, objected: 0, signals: 0, problems: {} };
   const inflight = new Map();
+  // Who wants to hear about model calls as they happen (the page server, to say what the desk is doing while it
+  // waits). Reporting only: a listener that throws changes nothing about the answer.
+  const hooks = { onModel: null };
+  const tell = (ev) => { try { hooks.onModel?.(ev); } catch { /* reporting only */ } };
 
   async function ask(kind, key, args, version) {
     const hit = cache.get(key);
-    if (hit) { stats.cached[kind]++; stats.cachedMs += hit.ms || 0; return { ...hit, cached: true }; }
+    if (hit) { stats.cached[kind]++; stats.cachedMs += hit.ms || 0; tell({ kind, phase: 'done', model: args.model, ms: 0, cached: true }); return { ...hit, cached: true }; }
     if (inflight.has(key)) return inflight.get(key);
     if (cfg.cacheOnly) throw new Error('not in the cache (cache-only mode)');
     const run = (async () => {
       const t0 = Date.now();
-      const { obj, model } = await backend(args);
+      tell({ kind, phase: 'start', model: args.model });
+      const { obj, model } = await backend(args).catch((e) => { tell({ kind, phase: 'error', model: args.model, ms: Date.now() - t0 }); throw e; });
       const rec = { kind, version, model: args.model, servedBy: model, ms: Date.now() - t0, verdict: obj, at: new Date().toISOString() };
+      tell({ kind, phase: 'done', model: args.model, ms: rec.ms, cached: false });
       stats.live[kind]++; stats.liveMs += rec.ms;
       cache.set(key, rec);
       return { ...rec, cached: false };
@@ -452,7 +458,7 @@ export function createComposer({ router, env = process.env, call, cacheDir, page
         const f = await ask('second', key, { system: SECOND_PROMPTS[cfg.secondPrompt], user: `<message>\n${message}\n</message>\n\n<reply>\n${assembled.reply}\n</reply>\n\n<help-page-sections>\n${sectionsText}\n</help-page-sections>`, schema: SECOND_SCHEMA, model: cfg.secondModel }, cfg.secondPrompt);
         const objections = (f.verdict?.objections || []).filter(o => String(o.about || '').trim());
         const stop = /stop/i.test(String(f.verdict?.verdict || '')) || objections.length > 0;
-        info.secondReadResult = { model: cfg.secondModel, version: cfg.secondPrompt, verdict: stop ? 'stop' : 'send', objections, cached: f.cached, ms: f.ms };
+        info.secondReadResult = { model: cfg.secondModel, version: cfg.secondPrompt, verdict: stop ? 'stop' : 'send', objections, cached: f.cached, ms: f.ms, at: f.at || null };
         if (stop) {
           stats.objected++;
           return { ...r, decision: 'abstain', entry: null, holding: undefined, why: 'second-read-objected', whyDetail: { objections, before }, reason: `No saved entry answers it. A draft from the help pages passed the script's checks, and the second reader objected: ${objections[0]?.about || 'stop'}`, composer: { ...info, state: 'rejected-by-second-read' } };
@@ -473,7 +479,7 @@ export function createComposer({ router, env = process.env, call, cacheDir, page
   }
 
   // page(url): the cached page the composer read (the desk checks the reply against it when the docs client has no copy).
-  return { compose, eligible, stats, config: cfg, name, index: () => load(), page: (u) => { load(); return pageMap[u] || null; } };
+  return { compose, eligible, stats, hooks, config: cfg, name, index: () => load(), page: (u) => { load(); return pageMap[u] || null; } };
 }
 
 export const COMPOSER_OFF = Object.freeze({ backend: 'off' });

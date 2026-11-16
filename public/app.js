@@ -419,6 +419,9 @@ function stateOf(r) {
   if (!r.check.pass || r.fresh?.state === 'blocked') return 'stopped';
   if (r.fresh?.state === 'passed') return 'checked';
   if (r.fresh?.state === 'passed-saved') return 'saved';
+  // Written for this message just now, and a second reader passed it just now. Never the saved stamp: no checker
+  // read these words ahead of time (src/composer.mjs).
+  if (r.path === 'composed' && r.fresh?.state === 'checked-live') return 'composed';
   return 'draft';
 }
 const sealOf = (st) => (st === 'checked' || st === 'stopped' ? st : null);
@@ -718,6 +721,11 @@ function verdictHTML(r, st, typed = false) {
   }
   if (st === 'saved') return `<div class="verdict" style="--tone: var(--draft)"><p class="v1">A second checker read this reply${at ? ` on ${esc(at)}` : ''}. Since then, today's look at their account changed the line about their posts, so read that line yourself before you send it.</p></div>`;
   if (st === 'refused') return '';
+  if (st === 'composed') {
+    // The time the second reader really read these words: an earlier run of this exact message keeps its own time.
+    const when = !f.checkedAt ? '' : day(f.checkedAt) === day(Date.now()) ? ` at ${esc(clock(f.checkedAt))}` : ` on ${esc(dayAt(f.checkedAt))}`;
+    return `<div class="verdict" style="--tone: var(--pass)"><p class="v1">The desk wrote this reply for this message, and a second reader passed it${when}.</p>${disclose('How was it checked?', `<p>Each step quotes a sentence from a help page. A script found every one of those sentences on its page, word for word. Then a second reader, a separate AI that did not write the reply, tried to find a mistake in it and passed it. If either check had failed, you would have seen a saved reply or a note for a person instead.</p><p>There is no stamp because the stamp means a checker read these exact words ahead of time. These words are new.</p>`)}</div>`;
+  }
   return '<div class="verdict" style="--tone: var(--draft)"><p class="v1">The desk wrote this. A second checker has not read it yet, so there is no stamp. Read it yourself before you send it.</p></div>';
 }
 
@@ -758,6 +766,7 @@ function techHTML(r) {
     if (e.t === 'search') return `<li><span class="what">Searched the help pages for "${esc(e.query)}"</span><span class="meta">${e.offline ? 'skipped: this copy runs without the network, so it used its saved pages' : `${e.results} results`}, ${e.ms} ms</span></li>`;
     // In practice mode a schedule lookup gives back a copy of the real API's answer of Nov 15, 2026; every other lookup reads made-up posts.
     if (e.t === 'call') return `<li><span class="what"><code>${esc(e.method)} ${esc(decodeURIComponent(e.path))}</code></span><span class="meta">HTTP ${esc(e.status ?? 'none')}${e.error ? `, ${esc(e.error)}` : ''}, ${e.ms} ms${r.mock ? (r.evidence?.kind === 'reproduce-schedule' && /^The practice account answers/.test(r.evidence.summary || '') ? ", practice account: a copy of the answer Blotato's real API gave to a read-only lookup on Nov 15, 2026, not a call made now" : ', practice account: made-up sample data') : ''}</span></li>`;
+    if (e.t === 'model' && e.phase !== 'start') return `<li><span class="what">${esc({ expand: 'Model call: search words for the help pages', write: 'Model call: the writer', second: 'Model call: the second reader' }[e.kind] || `Model call: ${e.kind}`)}</span><span class="meta">${esc(String(e.model || '').replace(/^claude-/, ''))}, ${e.phase === 'error' ? 'failed, ' : ''}${e.cached ? 'answer reused from an earlier run of this exact message' : `${e.ms} ms`}</span></li>`;
     return '';
   }).join('');
   const steps = (r.steps || []).map((s, i) => {
@@ -768,7 +777,7 @@ function techHTML(r) {
   const findings = f.findings || f.notes || [];
   const ex = r.example;
   const searched = (r.evidence?.searched || []).filter(q => !q.offline).map(q => `<li><span class="what">"${esc(q.query)}"</span><span class="meta">${q.results.slice(0, 4).map(x => esc(x.title || x.url)).join(', ') || 'no results'}</span></li>`).join('');
-  const fstate = { passed: `Passed this exact text${f.checkedAt ? ` on ${esc(techTime(f.checkedAt))}` : ''}.`, blocked: `Stopped this exact text${f.checkedAt ? ` on ${esc(techTime(f.checkedAt))}` : ''}.`, 'passed-saved': `Passed an earlier copy${f.checkedAt ? ` on ${esc(techTime(f.checkedAt))}` : ''}. Today's account lookup changed some words, so this text has not been read.`, stale: 'Its verdict is for an older text.', none: 'Not read yet.' }[f.state || 'none'] || 'Not read yet.';
+  const fstate = { passed: `Passed this exact text${f.checkedAt ? ` on ${esc(techTime(f.checkedAt))}` : ''}.`, blocked: `Stopped this exact text${f.checkedAt ? ` on ${esc(techTime(f.checkedAt))}` : ''}.`, 'passed-saved': `Passed an earlier copy${f.checkedAt ? ` on ${esc(techTime(f.checkedAt))}` : ''}. Today's account lookup changed some words, so this text has not been read.`, stale: 'Its verdict is for an older text.', 'checked-live': `Written for this message. The second reader (${esc(String(f.checker || '').replace(/^second reader \(|\)$/g, ''))}) passed this exact text${f.checkedAt ? ` on ${esc(techTime(f.checkedAt))}` : ''}. No saved verdict exists for new words.`, 'script-checked': 'Written for this message. The second read is turned off, so only the script checked it.', none: 'Not read yet.' }[f.state || 'none'] || 'Not read yet.';
   return `<section class="tech" aria-labelledby="tech-h">
     <h2 id="tech-h">The engineer view</h2>
     <dl class="kv">
@@ -798,6 +807,7 @@ const VLINE = {
   checked: ['Checked. Safe to send.', 'var(--pass)'],
   stopped: ['Stopped. Do not send this one.', 'var(--block)'],
   saved: ['Checked, then one line changed.', 'var(--draft)'],
+  composed: ['Written for this message. A second reader passed it.', 'var(--pass)'],
   draft: ['Not checked yet.', 'var(--draft)'],
 };
 // Said once, in plain view, beside the verdict (Nov 16, 2026: a first-time visitor could not tell the account was a
@@ -1314,7 +1324,7 @@ class Moment {
       // on the practice account, the account is made up: the line says so where it is used
       account: r.mock ? 'Looked at the practice account' : 'Looked at their account',
       write: st === 'refused' ? (whyOf(r) === 'nonsense' ? 'Wrote no reply' : guessing(r) ? 'Wrote no reply. It will not guess.' : 'Wrote no reply') : `Wrote ${(r.steps || []).length} steps`,
-      check: whyOf(r) === 'nonsense' ? 'Asked for a clearer message' : { checked: `A second checker passed it${f.checkedAt ? `, ${day(f.checkedAt)}` : ''}`, stopped: 'A second checker stopped it', saved: 'Checked, then one line changed', draft: 'Not read by a second checker yet', refused: 'A person on the team will take it' }[st],
+      check: whyOf(r) === 'nonsense' ? 'Asked for a clearer message' : { checked: `A second checker passed it${f.checkedAt ? `, ${day(f.checkedAt)}` : ''}`, stopped: 'A second checker stopped it', saved: 'Checked, then one line changed', composed: 'A second reader passed it', draft: 'Not read by a second checker yet', refused: 'A person on the team will take it' }[st],
     };
     this.tick('read', 'pending', this.texts.read);
     if (called && st !== 'refused') this.tick('account', 'pending', this.texts.account);
@@ -1414,7 +1424,7 @@ class Moment {
     // 4. The stamp.
     const seal = sealOf(st);
     this.mark('stampStart');
-    const checkTick = () => this.tick('check', { checked: 'done', stopped: 'stop', saved: 'neutral', draft: 'neutral' }[st]);
+    const checkTick = () => this.tick('check', { checked: 'done', stopped: 'stop', saved: 'neutral', composed: 'done', draft: 'neutral' }[st]);
     if (seal) await this.press($('.stamp', stage), checkTick);
     checkTick();
     $('#vline', root)?.classList.remove('away');
@@ -1438,14 +1448,14 @@ class Moment {
     const st = stateOf(r);
     for (const k of ['read', 'account', 'write', 'check']) {
       const li = $(`#did li[data-k="${k}"]`, root); if (!li) continue;
-      if (li.dataset.s === 'pending' || li.dataset.s === 'wait') this.tick(k, k === 'write' && st === 'refused' ? 'neutral' : k === 'check' ? (whyOf(r) === 'nonsense' ? 'neutral' : { checked: 'done', stopped: 'stop', saved: 'neutral', draft: 'neutral', refused: 'needs' }[st]) : 'done', this.texts[k]);
+      if (li.dataset.s === 'pending' || li.dataset.s === 'wait') this.tick(k, k === 'write' && st === 'refused' ? 'neutral' : k === 'check' ? (whyOf(r) === 'nonsense' ? 'neutral' : { checked: 'done', stopped: 'stop', saved: 'neutral', composed: 'done', draft: 'neutral', refused: 'needs' }[st]) : 'done', this.texts[k]);
     }
     const sk = $('#skip-btn', root); if (sk) sk.style.visibility = 'hidden';
     this.layout();
     for (const g of $$('svg.wires .wire', root)) g.classList.remove('away');
     // Wide screens rest with the first pair lit, to show how pointing works. A phone rests with nothing lit.
     point(wide() ? Math.max(0, (r.steps || []).findIndex(s => s.type === 'fact')) : null);
-    const words2 = { checked: 'Checked. Safe to send.', saved: 'Here is the reply. It changed after it was checked, so have it checked again before you send it.', draft: 'Here is a reply. No second checker has read it yet.', stopped: 'Stopped by the second checker. Do not send it.', refused: 'The desk did not write a reply. A person on the team will take it.' }[st];
+    const words2 = { checked: 'Checked. Safe to send.', saved: 'Here is the reply. It changed after it was checked, so have it checked again before you send it.', composed: 'Here is a reply written for this message. A second reader passed it.', draft: 'Here is a reply. No second checker has read it yet.', stopped: 'Stopped by the second checker. Do not send it.', refused: 'The desk did not write a reply. A person on the team will take it.' }[st];
     say(`${words2}${r.escalation && st !== 'refused' ? ' This one also goes to a person on the team.' : ''}`);
     window.__lastMoment = this.marks;
     if (this.meta.demo) return demo.done();
@@ -1506,7 +1516,7 @@ function showShell(m, meta, r) {
 }
 
 // Ask the desk. The answer comes back first, so every part of the stage has its real place before anything moves.
-async function fetchLive(body) {
+async function fetchLive(body, onEvent = () => {}) {
   const events = []; let result = null; let error = null;
   try {
     const res = await fetch('/api/ticket/live', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) });
@@ -1521,7 +1531,7 @@ async function fetchLive(body) {
           const line = buf.slice(0, nl); buf = buf.slice(nl + 1);
           if (!line.trim()) continue;
           const ev = JSON.parse(line);
-          if (ev.t === 'result') result = ev.result; else if (ev.t === 'error') error = ev.message; else if (ev.t !== 'start') events.push(ev);
+          if (ev.t === 'result') result = ev.result; else if (ev.t === 'error') error = ev.message; else if (ev.t !== 'start') { events.push(ev); onEvent(ev); }
         }
         if (done) break;
       }
@@ -1537,9 +1547,12 @@ async function start({ body, who, text, demo: isDemo = false, instant = false, e
   const my = ++asking;
   const btn = $('#answer-btn');
   const onAsk = !$('#ask').hidden;
-  let slow = null;
-  if (onAsk && !instant) { btn.classList.add('pressed'); slow = setTimeout(() => { if (my === asking) { btn.textContent = 'Reading the help pages...'; } }, 400); }
-  const got = example ? await api('/api/example/stopped').then(r => ({ result: r }), e => ({ error: e.message })) : await fetchLive(body);
+  let slow = null; let told = false;
+  if (onAsk && !instant) { btn.classList.add('pressed'); slow = setTimeout(() => { if (my === asking && !told) { btn.textContent = 'Reading the help pages...'; } }, 400); }
+  // A reply written for this message takes a few model calls (about 15 seconds). Say which one the desk is on.
+  const WAITING = { expand: 'Finding the right help pages...', write: 'Writing a reply for this message...', second: 'A second reader is checking it...' };
+  const progress = (ev) => { if (onAsk && !instant && my === asking && ev.t === 'model' && ev.phase === 'start' && WAITING[ev.kind]) { told = true; btn.textContent = WAITING[ev.kind]; } };
+  const got = example ? await api('/api/example/stopped').then(r => ({ result: r }), e => ({ error: e.message })) : await fetchLive(body, progress);
   clearTimeout(slow); btn.classList.remove('pressed'); btn.textContent = 'Answer it';
   if (my !== asking) return; // a newer question took over
   if (!got.result) {

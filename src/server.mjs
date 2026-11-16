@@ -222,6 +222,8 @@ function tracedDesk(desk, emit) {
       }
     },
   };
+  // The composer's model calls (writer, second reader, search words), so the page can say what it is waiting on.
+  if (desk.composer?.hooks) desk.composer.hooks.onModel = (e) => emit({ t: 'model', kind: e.kind, phase: e.phase, model: e.model, cached: !!e.cached, ms: e.ms ?? null, at: ms(t0) });
   return { ...desk, docs, client };
 }
 
