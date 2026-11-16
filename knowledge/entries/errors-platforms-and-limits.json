@@ -229,7 +229,7 @@
           }
         }
       ],
-      "next": "Disconnect the Instagram account in Accounts, connect it again with Login with Instagram, and accept every permission.",
+      "next": "Disconnect the Instagram account, connect it again with Login with Instagram, and accept every permission.",
       "proof": "You will know it worked when a comment reply posts without error 20203."
     },
     {
@@ -278,51 +278,51 @@
           "still the first"
         ]
       },
-      "opening": "That limit counts the people you reply to or message each month, and it is separate from your posting limits.",
+      "opening": "That error means your account reached its monthly active-contacts limit.",
       "steps": [
         {
           "type": "fact",
-          "text": "You can reach the monthly active-contacts limit by replying to audience comments.",
+          "text": "An active contact is anyone you reach out to through Blotato during a month, by sending a direct message or replying to their comment.",
           "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "You reached your monthly active-contacts limit by replying to audience comments."
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "An active contact is anyone you reach out to through Blotato during a month, by sending a direct message or replying to their comment."
           }
         },
         {
           "type": "fact",
-          "text": "You can also reach it by messaging new people.",
+          "text": "Reaching the same person again through the same connected account during the month does not add another contact.",
           "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "You reached your monthly active-contacts limit by messaging new people."
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "Reaching the same person again through the same connected account during the monthly window does not add another contact."
           }
         },
         {
           "type": "fact",
-          "text": "A DM automation run fails when the message it tried to send hit the limit.",
+          "text": "An automation reaching a new person past the limit fails the send with error code 20101, and the run ends as failed.",
           "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "The DM the automation tried to send hit your monthly active-contacts limit, so the run failed."
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "An automation reaching a new person past the limit fails the send with error code 20101, and the run ends as failed."
           }
         },
         {
           "type": "fact",
-          "text": "Your count resets at the start of next month.",
+          "text": "If you hit the contact limit, wait for your monthly reset or upgrade your plan.",
           "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "Your count resets at the start of next month."
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "If you hit the contact limit, wait for your monthly reset or upgrade your plan."
           }
         },
         {
           "type": "fact",
-          "text": "You can upgrade your plan or check your current account limit.",
+          "text": "To check your current usage and limit, use Get Usage.",
           "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "Upgrade your plan or check your current account limit."
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "To check your current usage and limit, use Get Usage."
           }
         }
       ],
-      "next": "Check your current limit, then decide whether to wait for the monthly reset or upgrade.",
-      "proof": "You will know it worked when comment replies and messages send again without error 20101."
+      "next": "Check your current usage and limit with Get Usage, then decide whether to wait for the monthly reset or upgrade your plan.",
+      "proof": "You will know it worked when replies and messages to new people send again without error 20101."
     },
     {
       "id": "message-failed-20102",
@@ -381,7 +381,7 @@
         },
         {
           "type": "fact",
-          "text": "The message's errorMessage holds the reason, and common causes are a closed 24-hour messaging window, a comment that is invalid or already has a private reply, or lost messaging permissions.",
+          "text": "The message's errorMessage holds the reason. Common causes are a closed 24-hour messaging window, a comment that is invalid or already received a private reply, or lost messaging permissions.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
             "quote": "Check the message's errorMessage for the reason. Common causes: the 24-hour messaging window closed, the comment you replied to is invalid or already received a private reply, or the account lost messaging permissions."
@@ -389,15 +389,31 @@
         },
         {
           "type": "fact",
-          "text": "Instagram limits who you can message and when: if someone sent you a direct message, you have 24 hours to respond to them.",
+          "text": "On Instagram, if the person sent you a direct message, you have 24 hours to respond to them.",
           "cite": {
             "url": "https://help.blotato.com/social-accounts-and-platform-faqs/instagram/faqs",
-            "quote": "If they sent a direct message to you, you have 24 hours to respond to them."
+            "quote": "Instagram limits who you can message and when: If they sent a direct message to you, you have 24 hours to respond to them."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If they commented on one of your posts instead, you have up to 7 days to send a single private reply or direct message to them.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/instagram/faqs",
+            "quote": "If they posted a comment to one of your posts, you have up to 7 days to send a single private reply/direct message to them."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "After that private reply, you may not message them again until they re-open your 24-hour messaging window.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/instagram/faqs",
+            "quote": "You may not message them again after your private reply until they re-open your 24-hour messaging window."
           }
         }
       ],
-      "next": "Open the failed message, read its errorMessage, and check whether the person wrote to you in the last 24 hours.",
-      "proof": "You will know it worked when the message sends without the 20102 error."
+      "next": "Open the failed message, read its errorMessage, and match it to the causes above.",
+      "proof": "You will know it worked when you know which cause the errorMessage names."
     },
     {
       "id": "dm-account-expired-5002-5000",
@@ -634,10 +650,10 @@
         },
         {
           "type": "fact",
-          "text": "The comment length is 2,200 characters on Instagram and 8,000 on Facebook.",
+          "text": "The comment length is 2,200 characters on Instagram and 8,000 on Facebook, and each {{mention}} counts as 31 characters.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
-            "quote": "the platform's comment length (2,200 characters on Instagram and 8,000 on Facebook"
+            "quote": "the platform's comment length (2,200 characters on Instagram and 8,000 on Facebook, counting each {{mention}} as 31 characters)"
           }
         },
         {
@@ -792,7 +808,7 @@
           "reconnected"
         ]
       },
-      "opening": "A follow gate that does not move on usually has one of two causes, and each has its own fix.",
+      "opening": "A follow gate that does not move on has two common causes, and each has its own fix.",
       "steps": [
         {
           "type": "fact",
@@ -1157,7 +1173,7 @@
         ],
         "phrases": []
       },
-      "opening": "Good news first: neither of those statuses is an error.",
+      "opening": "Good news first: an expired run is not an error. Here is what each status means.",
       "steps": [
         {
           "type": "fact",
@@ -1184,7 +1200,7 @@
           }
         }
       ],
-      "next": "If you want people to answer sooner, review the gate message the person received.",
+      "next": "Look at the status on your run and match it to the meaning above.",
       "proof": "You will know it worked when you can tell which of the two statuses your run shows and why."
     },
     {
@@ -1236,6 +1252,14 @@
           "cite": {
             "url": "https://help.blotato.com/support/errors",
             "quote": "A DM automation that fails after the message is queued reports the platform error on the run, not on the request."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To see it, open the automation in Automations, or call List Runs, and read the run's error.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Open the automation in Automations, or call List Runs, and read the run's error."
           }
         },
         {
@@ -1336,7 +1360,7 @@
           }
         }
       ],
-      "next": "Open the failed post in Posts > Failed to read its exact error, then compare your media with the platform's requirements.",
+      "next": "Read the failed post's exact error, then compare your media with the platform's requirements.",
       "proof": "You will know it worked when the post publishes after you fix the media or reconnect the account."
     },
     {
@@ -2020,7 +2044,7 @@
           "ran the invite"
         ]
       },
-      "opening": "Both of these usually mean the Blotato app is not yet inside the Slack channel.",
+      "opening": "Both of these errors are about the Slack channel Blotato tried to post to.",
       "steps": [
         {
           "type": "fact",
@@ -2055,7 +2079,7 @@
           }
         }
       ],
-      "next": "In Slack, run /invite @Blotato in the private channel, then publish again.",
+      "next": "If the channel is private, run /invite @Blotato in that channel in Slack, then publish again.",
       "proof": "You will know it worked when the post appears in the Slack channel."
     },
     {
@@ -2246,8 +2270,8 @@
       "kind": "technical",
       "title": "Slack rejected the post, or could not display it (33005)",
       "phrasings": [
-        "Slack rejected the post error 33005",
         "Slack could not display this post",
+        "Slack rejected the post error 33005",
         "my slack post fails with slack could not display this post",
         "why does slack refuse my message from blotato",
         "slack image url needs to open without signing in",
@@ -2322,7 +2346,7 @@
           }
         }
       ],
-      "next": "Check that each image URL opens without signing in and is a PNG, JPEG, or GIF file, then publish again.",
+      "next": "If you saw \"Slack could not display this post\", check that each image URL opens without signing in and is a PNG, JPEG, or GIF file, then publish again.",
       "proof": "You will know it worked when the post appears in the Slack channel."
     },
     {
@@ -2546,7 +2570,7 @@
           "already used tojsonstring"
         ]
       },
-      "opening": "Line breaks inside JSON text need to be escaped, and n8n has a function for that.",
+      "opening": "Long text with line breaks needs escaping, and n8n has a function for that.",
       "steps": [
         {
           "type": "fact",
@@ -2566,15 +2590,15 @@
         },
         {
           "type": "fact",
-          "text": "The n8n FAQ says to use toJsonString() to preserve newlines in posts with multiple paragraphs.",
+          "text": "To keep the line breaks in posts with several paragraphs, add toJsonString() to the end of the text value, like this: \"text\": $(\"Prepare for Publish\").item.json.final_text_long.toJsonString()",
           "cite": {
             "url": "https://help.blotato.com/integrations-and-automation-templates/n8n/faqs",
-            "quote": "To preserve newlines in posts with multiple paragraphs, use the function toJsonString() in n8n like this:"
+            "quote": "To preserve newlines in posts with multiple paragraphs, use the function toJsonString() in n8n like this: \"text\": $(\"Prepare for Publish\").item.json.final_text_long.toJsonString()"
           }
         }
       ],
-      "next": "Wrap the text value in your publish node with toJsonString(), then run the workflow again.",
-      "proof": "You will know it worked when the post publishes with its paragraph breaks."
+      "next": "In your publish node, add .toJsonString() to the end of the text value, as in the example above.",
+      "proof": "You will know it worked when the next post from your workflow keeps its paragraph breaks."
     },
     {
       "id": "new-account-not-warmed-up",
@@ -3069,38 +3093,42 @@
       "steps": [
         {
           "type": "fact",
-          "text": "The message does not establish an outage, memory exhaustion, or a follower-count threshold.",
-          "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "The message does not establish an outage, memory exhaustion, or a follower-count threshold."
-          }
-        },
-        {
-          "type": "fact",
-          "text": "Check the Page and original submission before retrying, since an error does not prove no publication occurred.",
-          "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "Check the Page and original submission before retrying, since an error does not prove no publication occurred."
-          }
-        },
-        {
-          "type": "fact",
-          "text": "Keep the exact response and request ID.",
-          "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "Retain the exact response and request ID."
-          }
-        },
-        {
-          "type": "fact",
-          "text": "Escalate repeated failures instead of changing the destination or media without evidence.",
+          "text": "The message does not point to a follower-count threshold, memory exhaustion, or an outage.",
           "cite": {
             "url": "https://help.blotato.com/social-accounts-and-platform-faqs/facebook/errors",
-            "quote": "Escalate repeated failures instead of changing the destination or media without evidence."
+            "quote": "The message does not establish a follower-count threshold, memory exhaustion, or an outage."
           }
+        },
+        {
+          "type": "fact",
+          "text": "It also does not prove the post is missing from your Page.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/facebook/errors",
+            "quote": "It also does not prove the post is absent."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "In Blotato, check the Scheduled, Published, and Failed filters in Posts for the same Page and content.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
+            "quote": "Check the Scheduled, Published, and Failed filters in Posts for the same destination and content."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Post it again only once you know it would not make a duplicate.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/facebook/errors",
+            "quote": "Retry only after establishing no duplicate would result."
+          }
+        },
+        {
+          "type": "action",
+          "text": "If the post is not on your Page and the error comes back, keep the exact response and request ID and reply here with them, so a person on the team can look."
         }
       ],
-      "next": "Check your Facebook Page for the post before you try again, and keep the exact response and request ID.",
+      "next": "Check the Scheduled, Published, and Failed filters in Posts, and your Facebook Page, for this post before you post it again.",
       "proof": "You will know it worked when you can tell whether the post is on the Page."
     },
     {
@@ -3175,7 +3203,15 @@
         },
         {
           "type": "fact",
-          "text": "Wait a few minutes and retry from Posts > Failed.",
+          "text": "Before you retry, check your Instagram account for an existing post.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
+            "quote": "Retry a temporary failure only after checking for an existing post."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If the post is not there, wait a few minutes and retry from Posts > Failed.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
             "quote": "Wait a few minutes and retry from Posts > Failed."
@@ -3190,7 +3226,7 @@
           }
         }
       ],
-      "next": "Wait a few minutes, then retry the post from Posts > Failed.",
+      "next": "Check your Instagram account for the post first. If it is not there, wait a few minutes, then retry it from Posts > Failed.",
       "proof": "You will know it worked when the post moves from Failed to Published."
     },
     {
@@ -3333,8 +3369,16 @@
           "under 10"
         ]
       },
-      "opening": "This error is about how many pieces of media are in the carousel.",
+      "opening": "This error is about how many pieces of media are in the carousel: too few or too many.",
       "steps": [
+        {
+          "type": "fact",
+          "text": "The error says the post has too little or too many attachments to qualify as a carousel.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The post has too little or too many attachments to qualify as a carousel"
+          }
+        },
         {
           "type": "fact",
           "text": "Via the API, Instagram supports a maximum of 10 images or videos per carousel.",
@@ -3345,22 +3389,14 @@
         },
         {
           "type": "fact",
-          "text": "The social platform requirements page says the same: Instagram carousels support up to 10 images or videos.",
+          "text": "A single image or a video posts on its own. A carousel uses multiple media URLs.",
           "cite": {
-            "url": "https://help.blotato.com/tips-and-tricks/social-platform-requirements",
-            "quote": "Instagram carousels support up to 10 images or videos."
-          }
-        },
-        {
-          "type": "fact",
-          "text": "The error says the post has too little or too many attachments to qualify as a carousel.",
-          "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "The post has too little or too many attachments to qualify as a carousel"
+            "url": "https://help.blotato.com/platform-publishing/platforms/instagram",
+            "quote": "Use a single image, a video, or multiple media URLs for a carousel."
           }
         }
       ],
-      "next": "Count the media in the carousel and keep it at 10 images or videos or fewer.",
+      "next": "Count the media in the carousel: it needs more than one item and no more than 10 images or videos.",
       "proof": "You will know it worked when the carousel publishes to Instagram."
     },
     {
@@ -3504,7 +3540,7 @@
           "reauthorized"
         ]
       },
-      "opening": "This 403 usually means the X connection needs to be refreshed.",
+      "opening": "This 403 means the X connection needs to be refreshed.",
       "steps": [
         {
           "type": "fact",
@@ -3607,10 +3643,10 @@
         },
         {
           "type": "fact",
-          "text": "Change the caption text, even slightly, before reposting.",
+          "text": "In Blotato, check the Scheduled, Published, and Failed filters in Posts for the same account and text.",
           "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "Change the caption text (even slightly) before reposting."
+            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
+            "quote": "Check the Scheduled, Published, and Failed filters in Posts for the same destination and content."
           }
         },
         {
@@ -3620,10 +3656,18 @@
             "url": "https://help.blotato.com/support/errors",
             "quote": "If you scheduled the same post twice by accident, delete the duplicate from Posts > Scheduled."
           }
+        },
+        {
+          "type": "fact",
+          "text": "If you do want a new post, change the caption text, even slightly, before reposting.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Change the caption text (even slightly) before reposting."
+          }
         }
       ],
-      "next": "Change the caption text slightly and publish again.",
-      "proof": "You will know it worked when the post publishes to X."
+      "next": "Check Posts and your X account for the earlier tweet with this text before you post anything again.",
+      "proof": "You will know it worked when you have found the earlier tweet with this text, or a reworded post publishes to X."
     },
     {
       "id": "post-published-twice",
@@ -3771,7 +3815,7 @@
           "already public"
         ]
       },
-      "opening": "Bluesky media errors usually come down to how many items you attach and whether Blotato can reach them.",
+      "opening": "This error is about the media attached to the Bluesky post: how many items there are, and whether Blotato can reach them.",
       "steps": [
         {
           "type": "fact",
@@ -3969,6 +4013,14 @@
         },
         {
           "type": "fact",
+          "text": "In Blotato, check the Scheduled, Published, and Failed filters in Posts for the same TikTok account and content.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
+            "quote": "Check the Scheduled, Published, and Failed filters in Posts for the same destination and content."
+          }
+        },
+        {
+          "type": "fact",
           "text": "Do not repost because the schedule disappeared, and do not blame a service without evidence.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
@@ -3984,7 +4036,7 @@
           }
         }
       ],
-      "next": "Check Posts > Scheduled, Published and Failed for the same content, and look for the post on your TikTok account.",
+      "next": "Check the Scheduled, Published, and Failed filters in Posts for the same content, and look for the post on your TikTok account.",
       "proof": "Still open: where the post went. A person on the team can look at the details you collect."
     },
     {
@@ -4149,23 +4201,31 @@
         },
         {
           "type": "fact",
-          "text": "Do not disconnect the account, because Reconnect refreshes the token without failing your scheduled posts.",
+          "text": "Then check your TikTok account for the post. If it is not there, retry from Posts > Failed.",
           "cite": {
-            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/tiktok/faqs",
-            "quote": "Do not disconnect the account. Reconnect refreshes the token without failing your scheduled posts."
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Retry from Posts > Failed."
           }
         },
         {
           "type": "fact",
-          "text": "If one TikTok account works while another keeps failing, the block sits on that specific TikTok account.",
+          "text": "If it persists, select Reconnect from the TikTok account actions menu in Accounts.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
-            "quote": "If one TikTok account works while another keeps failing, the block sits on that specific TikTok account."
+            "quote": "If it persists, select Reconnect from the TikTok account actions menu in Accounts."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If it still keeps returning, ask in the in-app chat for the team to remove the TikTok account from the database, then connect it fresh with Connect account > TikTok.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "If it still keeps returning, ask in the in-app chat for the team to remove the TikTok account from the database, then connect it fresh with Connect account > TikTok."
           }
         }
       ],
-      "next": "On the phone connected to that TikTok account, update the app, force close it, clear the cache, and retry from Posts > Failed.",
-      "proof": "You will know it worked when the retried photo post publishes to TikTok."
+      "next": "On the phone connected to that TikTok account, update the app, open it once and log in, force close it, reopen it, and clear the cache.",
+      "proof": "You will know it worked when the photo post you retry from Posts > Failed publishes to TikTok."
     },
     {
       "id": "no-available-slot-9-months",
@@ -4228,6 +4288,14 @@
           "cite": {
             "url": "https://help.blotato.com/support/errors",
             "quote": "No available matching time was found in the search window."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Check that slots exist, that they match the platform, account, Page or channel, and that they have free times. This applies to Next free slot time in the website and useNextFreeSlot: true in API requests. Open Weekly schedule to look.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Check whether slots exist, match the requested platform/account/Page/channel, and have available times. This applies to Next free slot time in the website and useNextFreeSlot: true in API requests. Open Weekly schedule to inspect eligibility."
           }
         },
         {
@@ -4303,7 +4371,7 @@
           "copied from list accounts"
         ]
       },
-      "opening": "This error means the account ID you sent is not one Blotato can match to your API key.",
+      "opening": "This error means Blotato could not match the account ID you sent.",
       "steps": [
         {
           "type": "fact",
@@ -4315,31 +4383,39 @@
         },
         {
           "type": "fact",
-          "text": "Call List Accounts, or use blotato_list_accounts, and then retry with one of the returned IDs.",
+          "text": "Look up your accounts with the same API key or MCP connection you publish with.",
           "cite": {
-            "url": "https://help.blotato.com/support/errors",
-            "quote": "Call List Accounts or blotato_list_accounts, then retry with one of the returned IDs."
+            "url": "https://help.blotato.com/api-and-mcp-concepts/accounts-and-identifiers",
+            "quote": "Retrieve accounts using the same credential or MCP connection used for publishing."
           }
         },
         {
           "type": "fact",
-          "text": "After disconnecting and reconnecting an account, get the current ID before retrying.",
+          "text": "Match the platform and account name that come back to the account you meant to post to.",
           "cite": {
             "url": "https://help.blotato.com/api-and-mcp-concepts/accounts-and-identifiers",
-            "quote": "After disconnecting and reconnecting an account, retrieve the current ID before retrying."
+            "quote": "Match the returned platform and account name to the user's intended destination."
           }
         },
         {
           "type": "fact",
-          "text": "A saved workflow or brand mapping might contain a stale ID.",
+          "text": "Use that account's returned id as accountId.",
           "cite": {
             "url": "https://help.blotato.com/api-and-mcp-concepts/accounts-and-identifiers",
-            "quote": "A saved workflow or brand mapping might contain a stale ID."
+            "quote": "Use the returned account id as accountId."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Before you send another publish request, check the earlier submission's outcome through publishing status.",
+          "cite": {
+            "url": "https://help.blotato.com/api-and-mcp-concepts/accounts-and-identifiers",
+            "quote": "Before sending another publish request, verify the earlier submission's outcome through Publishing status."
           }
         }
       ],
-      "next": "Call List Accounts with the same API key and retry with one of the IDs it returns.",
-      "proof": "You will know it worked when the request is accepted with an ID from your own list."
+      "next": "Look up your accounts with the same API key, find the one that matches the platform and account you meant, and use its id as accountId.",
+      "proof": "You will know it worked when the request is accepted with the id of the account you meant to post to."
     },
     {
       "id": "text-length-exceeds-20005",
@@ -4470,27 +4546,27 @@
           "ad blocker off"
         ]
       },
-      "opening": "This error comes from your browser and not from your Blotato account, and a few steps usually clear it.",
+      "opening": "This error comes from your browser, not your Blotato account. Work through these steps in order.",
       "steps": [
         {
           "type": "fact",
-          "text": "This is almost always a browser issue, not your account.",
+          "text": "Refresh the page first. This clears it more often than you would expect.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
-            "quote": "This is almost always a browser issue, not your account."
+            "quote": "Refresh the page first. This clears it more often than you would expect."
           }
         },
         {
           "type": "fact",
-          "text": "Start with a hard refresh.",
+          "text": "Open my.blotato.com/login in an incognito window, logged out of other accounts. Still stuck? Try a different browser or your phone to see if the issue is only on one device.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
-            "quote": "Start with a hard refresh."
+            "quote": "Open my.blotato.com/login in an incognito window, logged out of other accounts. 3. Still stuck? Try a different browser or your phone to see if the issue is only on one device."
           }
         },
         {
           "type": "fact",
-          "text": "Turn off ad blockers and privacy extensions, then reload.",
+          "text": "Turn off ad blockers and privacy extensions (uBlock, Ghostery, and similar), then reload.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
             "quote": "Turn off ad blockers and privacy extensions (uBlock, Ghostery, and similar), then reload."
@@ -4506,14 +4582,14 @@
         },
         {
           "type": "fact",
-          "text": "If none of that helps, screenshot the browser console when the error shows and send it to support through the in-app messenger.",
+          "text": "If none of that helps, open the browser console when the error shows (right-click the page, Inspect, Console tab), screenshot it, and send it to support through the in-app messenger.",
           "cite": {
             "url": "https://help.blotato.com/support/errors",
             "quote": "If none of that helps, open the browser console when the error shows (right-click the page, Inspect, Console tab), screenshot it, and send it to support through the in-app messenger."
           }
         }
       ],
-      "next": "Refresh the page first, then try an incognito window or another browser.",
+      "next": "Refresh the page first, then go down the list in order until my.blotato.com loads.",
       "proof": "You will know it worked when my.blotato.com loads and you can log in."
     },
     {
