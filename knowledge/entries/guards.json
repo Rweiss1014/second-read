@@ -157,27 +157,32 @@
       "kind": "non-technical",
       "title": "A request for someone else's data or account",
       "guard": "others-data",
-      "opening": "Thanks for writing in. This is about an account that is not yours, so I am passing it to a person on the team.",
+      "note": "A plain, kind no (Nov 15, 2026). A live tester asked for another customer's email and posts and got a reply that read like a maybe. The help pages have no sentence on sharing another customer's data, so the steps say only what the desk itself will and will not do, plus the one related line the pages do have (support messages leave out unrelated customer data), which also gives the reply its help link.",
+      "opening": "Thanks for writing in. I'm sorry, but I can't help with this request.",
       "steps": [
         {
           "type": "action",
-          "text": "I am not able to share details from another person's account here."
-        },
-        {
-          "type": "action",
-          "text": "I am passing your message to a person on the team, with what you told me."
+          "text": "I can't share anyone else's email, posts, or other details from their account."
         },
         {
           "type": "fact",
-          "text": "Please do not send API keys or login codes, yours or anyone else's.",
+          "text": "Blotato's support guide also asks that support messages leave out other customers' data.",
           "cite": {
             "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
             "quote": "Do not include API keys, OAuth codes, signed upload URLs, or unrelated customer data."
           }
+        },
+        {
+          "type": "action",
+          "text": "If you need something from that account, please ask the person who owns it."
+        },
+        {
+          "type": "action",
+          "text": "If you are trying to solve a problem with your own account, I am glad to help with that instead."
         }
       ],
-      "next": "If this is about your own account, reply from the email on that account and tell me what you need.",
-      "proof": "Still open: your request. A person on the team decides it, not me."
+      "next": "If this is about your own account, reply from the email on that account and tell me what you are trying to solve.",
+      "proof": "Still open: only what you need for your own account, if anything."
     },
     {
       "id": "secret-request",

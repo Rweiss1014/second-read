@@ -308,11 +308,11 @@
         },
         {
           "type": "action",
-          "text": "I am passing this to the founder with the steps to reproduce it and a suggested change to the docs."
+          "text": "I am passing this to a person on the team, with the steps to reproduce it and a suggested change to the docs."
         }
       ],
       "next": "Copy an id from your own GET /v2/schedules list, try that, and tell me what you get.",
-      "proof": "Still open: whether the API or the docs example is the one to change. The founder decides.",
+      "proof": "Still open: whether the API or the docs example is the one to change. A person on the team decides.",
       "escalate": {
         "why": "The API and the docs disagree. Only the founder can say which one is right.",
         "causes": [

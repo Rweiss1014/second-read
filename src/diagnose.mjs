@@ -35,7 +35,10 @@ async function lookup(kind, ticket, { client, docs, entry, now = Date.now }) {
       ev.calls.push(`GET /v2/posts?status=published&since=${since.slice(0, 10)}: ${items.length} item(s)`);
       const mine = items.filter(i => !platform || i.platform === platform);
       const p = mine[0];
-      const head = p ? `Blotato shows ${mine.length} published ${nice(p.platform)} post${mine.length === 1 ? '' : 's'} in the last 7 days. The newest is from ` : '';
+      // With no platform named, the count is across every platform, so only the newest post gets a platform name
+      // (it said "2 published Instagram posts" for one Instagram and one LinkedIn post).
+      const newest = platform ? 'from ' : `${/^(?:[AEIOU]|X\b)/.test(nice(p?.platform)) ? 'an' : 'a'} ${nice(p?.platform)} post from `;
+      const head = p ? `Blotato shows ${mine.length} published ${platform ? nice(platform) + ' ' : ''}post${mine.length === 1 ? '' : 's'} in the last 7 days. The newest is ${newest}` : '';
       const tail = p ? `${p.state?.postUrl ? `, with this link: ${p.state.postUrl}` : ', with no platform link returned'}.` : '';
       // summary is what the customer reads: a date a person would write, no internal post id.
       // technical is for the escalation packet and the checker: the raw stamp and the post id.
