@@ -24,7 +24,7 @@ const AHEAD = /\b(?:(?:will|would|do|does|am|is|are|can|could|should|if)\s+(?:i|
 // credits". Both are money a person has to look at.
 const PAID_NOT_GOT = /\b(?:i|we)\s+(?:already\s+|just\s+|have\s+|'ve\s+)?(?:paid|bought|purchased|upgraded and paid)\b[^.?!\n]{0,80}\b(?:but|and|yet|still)\b[^.?!\n]{0,60}\b(?:didn'?t|did not|not|no|never|still|hasn'?t|has not|haven'?t|isn'?t|doesn'?t|won'?t|nothing)\b/i;
 const CREDITS_BACK = /\b(?:give|put|send|add)\s+(?:me\s+|us\s+)?(?:back|return)\b[^.?!\n]{0,30}\b(?:credits?|money|payment)\b|\b(?:give|put|send|add)\b[^.?!\n]{0,30}\b(?:credits?|money)\b[^.?!\n]{0,10}\bback\b|\b(?:return|restore|refill)\s+(?:my\s+|the\s+|those\s+)?(?:\d[\d,]*\s+)?(?:lost\s+|missing\s+|wasted\s+)?credits\b/i;
-const PAID_IN_PASSING = /\b(?:i|we)\s+(?:already\s+|just\s+)?(?:paid|pay already|have paid|'ve paid|renewed|bought|purchased)\b|\balready\s+(?:paid|pay|bought|purchased)\b/i;
+const PAID_IN_PASSING = /\b(?:i|we)\s+(?:already\s+|just\s+)?(?:paid|pay already|have paid|'ve paid|renewed|bought|purchased)\b|\balready\s+(?:paid|pay|bought|purchased)\b|\b(?:i|we)\s+(?:reactivated|resubscribed|upgraded|subscribed|came back)\b[^.?!\n]{0,30}\b(?:and|then)\s+(?:paid|pay)\b/i;
 function moneyTaken(text) {
   for (const m of text.matchAll(new RegExp(MONEY.source, 'gi'))) {
     const before = text.slice(Math.max(0, m.index - 25), m.index);
@@ -61,7 +61,7 @@ const STAFF_ACTION = [
   // "Post this to my LinkedIn now please: ...": a sentence that starts with the order and names what to post.
   { re: /(?:^|[.!\n]\s*)(?:please |now |just )?(?:post|publish|schedule|share|send) (?:this|that|these)\b[^?\n]*?(?:[.!:]|$)/i, notQuestion: true },
   // "I'd like my saved card taken off", "I want you to post this"
-  { re: /\bi'?d like (?:my|the|it|them|this|that|our)\b[^.?!\n]{0,40}\b(?:removed|deleted|taken off|changed|cancel+ed|moved|transferred|refunded|reissued|updated|added|restored|unlocked|switched|disconnected)\b/i },
+  { re: /\b(?:i'?d like|i want|i need|we want|we need|we'?d like)(?: you to have)? (?:my|the|it|them|this|that|our|blotato)\b[^.?!\n]{0,40}\b(?:removed|deleted|taken off|changed|cancel+ed|moved|transferred|refunded|reissued|updated|added|restored|unlocked|switched|disconnected)\b/i },
   // "post this to my Instagram for me", "set it up for me"
   { re: new RegExp(String.raw`\b${VERBS}\b[^.?!\n]{0,50}\bfor (?:me|us)\b`, 'i'), notSoftBefore: true },
   // "Please help to fix the email", "can you help me change my login email" (third tuner): "help" makes most
@@ -103,7 +103,7 @@ const DESK_INSTRUCTIONS = [
   /\[\s*system\b|\bsystem (?:note|prompt|message|override|instruction)s?\b/i,
   /\b(?:assistant|support agent|support ai|ai assistant|note to (?:the )?(?:support )?(?:ai|agent|assistant|bot))\s*:/i,
   /\bpretend\b/i,
-  /\breply with (?:exactly|only)\b|\bjust say (?:yes|it|that|so)\b|\breply ['"]?(?:done|cancelled|canceled|approved|yes)['"]?\b/i,
+  /\breply with (?:exactly|only)\b|\bjust say (?:yes|it|that|so)\b|\b(?:write|reply|respond|answer|type|say|put)(?: back| in your (?:reply|answer))? (?:exactly|only|word for word|verbatim)\b(?=\s*(?:[:'"“‘]|this\b|these\b|the following\b|that\b))|\breply ['"]?(?:done|cancelled|canceled|approved|yes)['"]?\b/i,
   /\bdo what it says\b|\band (?:then )?(?:do|execute|run) (?:it|that|what)\b/i,
   /\byou have (?:my |full )?permission to\b|\bas the support (?:agent|ai|bot)\b|\bauthori[sz]ed by (?:blotato|engineering|the founder|support)\b|\bpre-?approved\b/i,
 ];
@@ -305,6 +305,9 @@ export const SIGNALS = {
       /\b(?:docs|documentation|help pages?|reference|pages?)\s+(?:say|says|show|shows|list|lists|state|states|give|gives)\b[^?!\n]{0,160}\bwhich (?:is it|one is (?:right|correct)|is (?:right|correct|true))\b/i,
       /\b(?:docs|pages|articles|help pages|documentation)\b[^.?!\n]{0,40}\b(?:contradict|disagree|conflict)\w*\b|\btwo (?:pages|docs|articles|help pages)\b[^.?!\n]{0,40}\b(?:say|give|show|list)\b[^.?!\n]{0,40}\bdifferent\b/i,
       /\b(?:typo|mistake|error|bug) in (?:your|the) (?:docs|documentation|help page|reference|example)\b/i,
+      // The account shows what the docs say cannot happen (third tuner): "Your page says my videos come back when I
+      // reactivate. Half my videos are missing." The customer's own words only, and a trouble word must follow.
+      { re: /\b(?:your|the|blotato'?s) (?:page|pages|docs?|documentation|help (?:page|center|article|docs)|faq|site|website|article|guide)\s+(?:says?|said|states?|promises?|claims?|told me)\b[^?!]{0,200}\b(?:missing|gone|not there|isn'?t|aren'?t|doesn'?t|didn'?t|never|still|only|no longer|nothing|wrong|lost)\b/i, unquoted: true },
     ],
   },
   'follow-on': {
@@ -355,7 +358,7 @@ export const SIGNAL_NAMES = Object.keys(SIGNALS);
 export const NAMED_ITEMS = {
   'payment method': ['paypal', 'venmo', 'apple pay', 'google pay', 'crypto', 'cryptocurrency', 'bitcoin', 'ethereum', 'usdt', 'wire transfer', 'bank transfer', 'sepa', 'ach transfer', 'klarna', 'afterpay', 'alipay', 'wechat pay', 'cash app', 'zelle', 'gift card', 'purchase order', 'amex', 'american express', 'prepaid card'],
   'platform or service': ['mastodon', 'reddit', 'snapchat', 'telegram', 'tumblr', 'discord', 'whatsapp', 'twitch', 'quora', 'substack', 'wordpress', 'beehiiv', 'kajabi', 'shopify', 'etsy', 'wix', 'squarespace', 'webflow', 'lemon8', 'rumble', 'vimeo', 'truth social', 'weibo', 'douyin', 'xiaohongshu', 'viber', 'clubhouse', 'behance', 'dribbble', 'flickr', 'patreon', 'linktree', 'mailchimp', 'convertkit', 'hubspot', 'salesforce', 'vk'],
-  'tool': ['zapier', 'make.com', 'ifttt', 'pabbly', 'canva', 'capcut', 'heygen', 'hootsuite', 'later.com', 'sprout social', 'metricool', 'publer', 'notion', 'airtable', 'google sheets', 'excel', 'dropbox', 'google drive', 'onedrive', 'icloud', 'frame.io', 'descript', 'elevenlabs', 'midjourney', 'dall-e', 'gemini', 'perplexity', 'figma', 'photoshop', 'premiere pro', 'final cut', 'lightroom', 'opus clip', 'veed', 'submagic', 'grok', 'copilot', 'chatgpt', 'cursor', 'codex', 'windsurf'],
+  'tool': ['google calendar', 'outlook calendar', 'apple calendar', 'ical', 'calendly', 'zapier', 'make.com', 'ifttt', 'pabbly', 'canva', 'capcut', 'heygen', 'hootsuite', 'later.com', 'sprout social', 'metricool', 'publer', 'notion', 'airtable', 'google sheets', 'excel', 'dropbox', 'google drive', 'onedrive', 'icloud', 'frame.io', 'descript', 'elevenlabs', 'midjourney', 'dall-e', 'gemini', 'perplexity', 'figma', 'photoshop', 'premiere pro', 'final cut', 'lightroom', 'opus clip', 'veed', 'submagic', 'grok', 'copilot', 'chatgpt', 'cursor', 'codex', 'windsurf'],
   'platform feature': ['retweet', 'retweets', 'quote tweet', 'repost', 'reposts', 'reposting', 'recycle', 'evergreen', 'duet', 'stitch', 'boost post', 'boosted', 'promoted post', 'sponsored', 'ads', 'ad account', 'poll', 'polls', 'go live', 'live stream', 'livestream', 'twitter spaces', 'x spaces', 'story highlights', 'highlights', 'close friends', 'broadcast channel', 'dms', 'direct message', 'direct messages', 'auto reply', 'auto-reply', 'auto dm', 'geotag', 'location tag', 'alt text', 'link in bio', 'link sticker', 'product tag', 'product tags', 'shopping tag', 'watermark', 'analytics', 'insights', 'statistics', 'stats', 'metrics', 'impressions', 'engagement rate', 'white label', 'white-label', 'sso', 'single sign on', '2fa', 'two factor', 'two-factor', 'team members', 'teammates', 'seats', 'user roles', 'permissions', 'webhook', 'webhooks', 'rss', 'emoji', 'emojis', 'story', 'stories', 'dm automation', 'dm automations'],
   'language': ['japanese', 'french', 'german', 'portuguese', 'italian', 'arabic', 'chinese', 'mandarin', 'cantonese', 'hindi', 'korean', 'russian', 'dutch', 'polish', 'turkish', 'vietnamese', 'indonesian', 'thai', 'hebrew', 'greek', 'swedish', 'norwegian', 'danish', 'finnish', 'ukrainian', 'tagalog', 'urdu', 'bengali', 'persian', 'farsi', 'malay', 'romanian', 'czech', 'hungarian'],
   'identifier': ['page id', 'pageid', 'account id', 'accountid', 'post id', 'postid', 'submission id', 'schedule id', 'user id', 'client id', 'app id', 'channel id', 'workspace id', 'media id', 'webhook url', 'callback url', 'redirect url'],

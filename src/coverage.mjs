@@ -79,7 +79,9 @@ export function withoutPasted(text) {
     .replace(/(^|[\s:(\[])'[^'\n]{2,300}'(?=$|[\s.,!?;:)\]])/g, '$1 ')
     // A pasted error line ("ClientError: Command failed: ffprobe ...") is what a tool printed.
     .replace(/\b(?:[A-Z][A-Za-z]*Error|Error|Exception|Warning)\s*:[^\n]*/g, ' ')
-    .replace(/\b[a-z]+[A-Z][A-Za-z0-9]*\b|\b[A-Z][a-z]+[A-Z][A-Za-z0-9]*\b|\b[a-z0-9]+_[a-z0-9_]+\b/g, ' ');
+    // Code names (mediaUrl, account_id, TypeError) are pasted; brand names written in capitals inside (LinkedIn,
+    // YouTube, TikTok) are not.
+    .replace(/\b[a-z]+[A-Z][A-Za-z0-9]*\b|\b[A-Z][a-z]+(?:Error|Exception|Warning)\b|\b[a-z0-9]+_[a-z0-9_]+\b/g, ' ');
 }
 
 // Words in order, as written (no stems): "link in" is not "linked in", "short video" is not "Shorts".
@@ -101,7 +103,7 @@ export function specificsText(text) {
   });
   // Questions too short to stand alone ("Why?", "Is that normal?") lean on the whole message.
   const asked = picked.length > 0 && contentStems(withoutPasted(own.join(' '))).length >= 3;
-  return { text: withoutPasted(asked ? picked.join(' ') : text), questions: withoutPasted(asked ? own.join(' ') : text), asked };
+  return { text: withoutPasted(asked ? picked.join(" ") : text), questions: withoutPasted(asked ? own.join(" ") : text), asked, short: asked ? [] : own.map(s => withoutPasted(s)) };
 }
 
 // A typo of a common word is that word: "credts" is "credits", "thes" is "these".
@@ -130,7 +132,7 @@ export function groundedLines(e) {
 
 // Build the check once for a set of entries. rareDf: a word used by more entries than this is common to the
 // knowledge base and is not read as a specific (it is what tickets are about, not what this one is about).
-export function createCoverage(entries, { rareDf = 3, phrasings = true, twoWhenNoQuestion = true, why = false, codes = 'http', names = true } = {}) {
+export function createCoverage(entries, { rareDf = 3, phrasings = true, twoWhenNoQuestion = true, why = false, codes = 'http', names = true, platformQuotes = 1, shortTopic = true, shortDf = 10 } = {}) {
   const matchable = entries.filter(e => !e.guard);
   const df = new Map();
   const g = new Map();
@@ -151,7 +153,7 @@ export function createCoverage(entries, { rareDf = 3, phrasings = true, twoWhenN
       // A general entry that names one platform as an example ("for example, TikTok") is not platform-specific.
       // Read in the title and the quotes only: a step's "for example your Instagram or TikTok page" is the desk's own.
       platformSpecific: Object.values(PLATFORMS).some(al => al.some(a => hasRaw(rawWords(e.title), a)))
-        || Object.values(PLATFORMS).filter(al => al.some(a => hasRaw(rawWords((e.steps || []).map(s => s.cite?.quote || '').join(' | ')), a))).length >= 2,
+        || Object.values(PLATFORMS).filter(al => al.some(a => hasRaw(rawWords((e.steps || []).map(s => s.cite?.quote || '').join(' | ')), a))).length >= (platformQuotes || 2),
       plans: Object.entries(PLANS).filter(([, al]) => al.some(a => has(stems, a))).map(([p]) => p),
       codes: new Set(text.match(CODE) || []),
       routes: new Set([...text.matchAll(/\/v2\/([a-z][a-z-]*)/gi)].map(m => m[1].toLowerCase())),
@@ -222,6 +224,19 @@ export function createCoverage(entries, { rareDf = 3, phrasings = true, twoWhenN
       if (ASKS_PRICE.test(asked) && !c.price) return { kind: 'price', term: asked.match(ASKS_PRICE)[0] };
       if (ASKS_WHEN_SHIP.test(asked) && !c.date) return { kind: 'date', term: asked.match(ASKS_WHEN_SHIP)[0] };
       if (why && ASKS_WHY.test(asked) && !c.cause) return { kind: 'cause', term: 'why' };
+    }
+    if (want('short') && shortTopic) {
+      // A short question names its topic in a word or two ("How can I get the discount?", "Did they get
+      // deleted?", "Is Blotato missing views?"). Those words are the specifics, however common: the entry must
+      // speak about them (its quotes, steps, scope or phrasings).
+      // Words most entries use ("button", "missing") are not a topic, and the action after "I" is not either.
+      for (const q of sp.short) {
+        const qt = foldText(q).match(/[a-z0-9']+/g) || [];
+        const acts = new Set(qt.filter((t, i) => i > 0 && /^(?:i|we|you|they|it)$/.test(qt[i - 1])));
+        const words = [...new Set(rawWords(q))].filter(w => w.length > 3 && !/\d/.test(w) && !acts.has(w) && contentStems(w).length && !CHATTER.has(contentStems(w)[0]) && (df.get(contentStems(w)[0]) || 0) <= shortDf && !STOPWORDS.includes(w) && !ITEM_WORDS.has(w));
+        const off = words.filter(w => !(c.set.has(contentStems(w)[0]) || c.set.has(stem(w)) || c.raw.some(r => nearWord(r, w)) || isCommonTypo(w)));
+        if (words.length && off.length === words.length) return { kind: 'specific', term: off.join(', ') };
+      }
     }
     if (want('word')) {
       const missing = [];
