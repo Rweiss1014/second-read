@@ -165,6 +165,21 @@ node eval/run.mjs --set dev2 --reader claude-cli --composer claude-cli          
 node eval/run.mjs --set dev2 --reader claude-cli --composer claude-cli --cache-only 1 --composer-cache-only 1   # the same numbers, no model call
 ```
 
+### Writing over a saved entry (off by default)
+
+A saved entry is written for a topic ("First Comment"). A customer often asks something narrower ("can I put one on my Story?"), and the saved reply answers the topic.
+With `SUPPORT_DESK_COMPOSE_OVER_SAVED=1`, when a saved entry made only of quoted facts matches, the composer writes the reply to the message itself.
+If the script or the second read stops that draft, the saved entry stands, unchanged.
+It never writes over a reply that reads the customer's account.
+It never writes over one of the 12 sample messages either: their saved replies were written and checked for those exact words.
+
+On Nov 16, 2026, fresh Sonnet graders read the held-out answers blind (they saw numbered packets, and the builder never opened the rows).
+Composed answers: 37 of 40 right. Saved answers: 5 of 17 right, most of the rest "partly" (the key fact buried, or a next step that points the wrong way).
+With writing over saved entries on, right answers on the held-out sets went from 42 to 56, and wrong ones from 3 to 2.
+These sets have now been used several times, so treat the numbers as a direction, not a final score.
+
+A written reply takes three model calls, about 12 to 16 seconds. The page says which one it is waiting on. A message seen before reuses its saved verdicts and answers in about 3 seconds.
+
 The calls go through the same backends and the same kind of verdict cache as the reader: no tools, and files named by a hash of the prompt version, the model, the message and the passages. A saved file never holds the message itself, but it does hold the model's own words (what it found asked, its steps, its search queries), which can paraphrase the message. Keep the cache folder as private as `desk/`.
 
 ## The 12 sample tickets
