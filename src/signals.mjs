@@ -14,7 +14,7 @@
 
 // Money taken, or money asked back. Found by review: "I canceled my plan last month but you charged me again.
 // I want a refund." used to get cancel steps and no escalation.
-export const MONEY = /\b(?:charg(?:e|ed|es|ing)|re-?charged|refunds?|refunded|(?:double|over|re)-?(?:billed|charged)|billed|paid (?:twice|two times|double)|(?:double|duplicate|extra|unexpected|unauthori[sz]ed|surprise) (?:payment|charge|invoice)s?|money (?:back|was taken|taken|out of)|took (?:my )?money|taken (?:my )?money|(?:payment|money) (?:was|got) (?:taken|deducted)|deducted|chargeback|credits? back|(?:want|give me|get) (?:my|the|those) credits back|compensat(?:e|ion)|reimburs\w*|debit(?:ed)?|invoiced|invoice (?:came|arrived|showed up|went through)|receipt|(?:two|2|double|duplicate|extra) payments|(?:card|account|bank) (?:got|was) (?:hit|charged|debited)|\$\s?\d|\d+\s?(?:usd|eur|gbp|aud)|(?:\d+|one|two|three|a) months? (?:for )?free|free (?:month|months|upgrade|credits)|upgraded? [^.?!\n]{0,30}\bfor free)\b/i;
+export const MONEY = /\b(?:charg(?:e|ed|es|ing)|re-?charged|refunds?|refunded|(?:double|over|re)-?(?:billed|charged)|billed|paid (?:twice|two times|double)|(?:double|duplicate|extra|unexpected|unauthori[sz]ed|surprise) (?:payment|charge|invoice)s?|money (?:back|was taken|taken|out of)|took (?:my )?money|taken (?:my )?money|(?:payment|money) (?:was|got) (?:taken|deducted)|deducted|chargeback|credits? back|(?:want|give me|get) (?:my|the|those) credits back|compensat(?:e|ion)|reimburs\w*|payouts?|commissions?|debit(?:ed)?|invoiced|invoice (?:came|arrived|showed up|went through)|receipt|(?:two|2|double|duplicate|extra) payments|(?:card|account|bank) (?:got|was) (?:hit|charged|debited)|\$\s?\d|\d+\s?(?:usd|eur|gbp|aud)|(?:\d+|one|two|three|a) months? (?:for )?free|free (?:month|months|upgrade|credits)|upgraded? [^.?!\n]{0,30}\bfor free)\b/i;
 
 // A money word asked about ahead of time ("will I be charged when the trial ends?") is a policy question,
 // not money taken. Every other money word counts.
@@ -24,6 +24,7 @@ const AHEAD = /\b(?:(?:will|would|do|does|am|is|are|can|could|should|if)\s+(?:i|
 // credits". Both are money a person has to look at.
 const PAID_NOT_GOT = /\b(?:i|we)\s+(?:already\s+|just\s+|have\s+|'ve\s+)?(?:paid|bought|purchased|upgraded and paid)\b[^.?!\n]{0,80}\b(?:but|and|yet|still)\b[^.?!\n]{0,60}\b(?:didn'?t|did not|not|no|never|still|hasn'?t|has not|haven'?t|isn'?t|doesn'?t|won'?t|nothing)\b/i;
 const CREDITS_BACK = /\b(?:give|put|send|add)\s+(?:me\s+|us\s+)?(?:back|return)\b[^.?!\n]{0,30}\b(?:credits?|money|payment)\b|\b(?:give|put|send|add)\b[^.?!\n]{0,30}\b(?:credits?|money)\b[^.?!\n]{0,10}\bback\b|\b(?:return|restore|refill)\s+(?:my\s+|the\s+|those\s+)?(?:\d[\d,]*\s+)?(?:lost\s+|missing\s+|wasted\s+)?credits\b/i;
+const PAID_IN_PASSING = /\b(?:i|we)\s+(?:already\s+|just\s+)?(?:paid|pay already|have paid|'ve paid|renewed|bought|purchased)\b|\balready\s+(?:paid|pay|bought|purchased)\b/i;
 function moneyTaken(text) {
   for (const m of text.matchAll(new RegExp(MONEY.source, 'gi'))) {
     const before = text.slice(Math.max(0, m.index - 25), m.index);
@@ -31,10 +32,17 @@ function moneyTaken(text) {
     return m[0];
   }
   const p = text.match(PAID_NOT_GOT) || text.match(CREDITS_BACK);
-  return p ? p[0] : null;
+  if (p) return p[0];
+  // Money in passing (third tuner): "I pay already the Starter. Now the login code never comes." A payment the
+  // customer made, in a message that says something is wrong, is a person's to check.
+  const paid = text.match(PAID_IN_PASSING);
+  // When the payment is one side of two records that disagree ("billing shows active and I paid, but 403"), the
+  // records-disagree signal names it better; it goes to a person either way.
+  const pair = SIGNALS['records-disagree'].res.some(p => !p.weak && p.re && p.re.test(text) && (!p.needs || p.needs.test(text)));
+  return paid && !pair && TROUBLE.test(text.replace(paid[0], ' ')) ? paid[0] : null;
 }
 
-const VERBS = String.raw`(?:post|publish|delete|remove|disconnect|cancel|change|switch|move|transfer|merge|add|raise|bump|increase|lift|upgrade|downgrade|refund|reissue|re-issue|update|edit|fix|reset|restore|recover|bring back|undo|unlock|unblock|verify|regenerate|set up|setup|put|take (?:it|this|that|them|my \w+) off|turn (?:off|on)|enable|disable|reactivate|activate|apply|credit|waive|extend|approve|mark|close|deactivate|wipe|erase|unsubscribe|send|repost|re-post|republish|resend|re-send|push|force|retry|re-?run|trigger|expedite|speed up|kick off|release|reconnect|re-connect|relink|re-link|reauthori[sz]e|re-authori[sz]e|clean|clean up|clear|strip|scrub|purge|tidy up)`;
+const VERBS = String.raw`(?:post|publish|delete|remove|disconnect|cancel|change|switch|move|transfer|merge|add|raise|bump|increase|lift|upgrade|downgrade|refund|reissue|re-issue|update|edit|fix|reset|restore|recover|bring back|undo|unlock|unblock|verify|regenerate|set up|setup|put|take (?:it|this|that|them|my \w+) off|turn (?:off|on)|enable|disable|reactivate|activate|apply|credit|waive|extend|approve|mark|close|deactivate|wipe|erase|unsubscribe|send|repost|re-post|republish|resend|re-send|push|force|retry|re-?run|trigger|expedite|speed up|kick off|release|reconnect|re-connect|relink|re-link|reauthori[sz]e|re-authori[sz]e|clean|clean up|clear|strip|scrub|purge|tidy up|set|export|migrate|sign|countersign|make (?:my|our|the|it|this|that|them|us|me)|give (?:me|us) (?:more|extra|a higher|higher|unlimited|a bigger|bigger))`;
 const ASK = String.raw`(?:please|pls|plz|kindly|can (?:you|u|someone|your team)|could (?:you|u|someone)|would you|will you|(?:i )?need (?:you|someone|your team) to|i want (?:you|someone|your team) to|i'?d like (?:you|someone) to|i authori[sz]e you to|go ahead and|you (?:need|have) to|you must|have someone|get someone|you (?:have|now have|'ve got) (?:my |full )?permission to|you may now)`;
 // Words that make a request a question or a lookup, not an order: "can you tell me how to delete",
 // "can you check if it posted".
@@ -44,13 +52,18 @@ const STAFF_ACTION = [
   // "please remove", "can you raise mine", "I authorize you to cancel": a request, then an action, with no "how do I" in between
   { re: new RegExp(String.raw`\b${ASK}\b([^.?!\n]{0,40}?)\b${VERBS}\b`, 'i'), gapNotSoft: true },
   // "Delete every scheduled post.", "Take it off.", "Put them back." An order at the start of a sentence (not a question)
-  { re: new RegExp(String.raw`(?:^|[.!\n,;:]\s*|\band\s+)(?:just |now |then |so |please )?(?:repost|re-post|republish|resend|clean|clear (?:the|my|all|out)|delete|remove|disconnect|cancel (?:my|the|it|this|that|all)|change (?:my|the|it)|switch (?:my|me|the|it)|move (?:my|me|the|them|it)|transfer|add (?:them|it|the|my|\d)|raise|bump|refund|reissue|reset (?:my|the)|restore|bring (?:it|them) back|undo|unlock|regenerate|put (?:them|it) back|take (?:it|this|that|them) off|turn off (?:my|the)|reactivate (?:my|me)|apply (?:the|my|it)|waive|wipe|erase)\b(?!\s*(?:\/|https?:|\{))[^?\n]*?(?:[.!]|$)`, 'i'), notQuestion: true },
+  { re: new RegExp(String.raw`(?:^|[.!\n,;:]\s*|\band\s+)(?:just |now |then |so |please )?(?:repost|re-post|republish|resend|clean|clear (?:the|my|all|out)|delete|remove|disconnect|cancel (?:my|the|it|this|that|all)|change (?:my|the|it)|switch (?:my|me|the|it)|move (?:my|me|the|them|it)|transfer|add (?:them|it|the|my|\d)|raise|bump|refund|reissue|reset (?:my|the)|restore|bring (?:it|them) back|undo|unlock|regenerate|put (?:them|it) back|take (?:it|this|that|them) off|turn off (?:my|the)|reactivate (?:my|me)|apply (?:the|my|it)|waive|wipe|erase|set (?:my|the|our|it|this|that|all|every|[a-z]+ to)|export (?:the|my|our|all|it|them|this|that|every)|migrate (?:the|my|our|all|it|them)|make (?:my|our|the) [a-z]+ (?:limit|plan|quota|cap)|increase (?:my|our|the))\b(?!\s*(?:\/|https?:|\{))[^?\n]*?(?:[.!]|$)`, 'i'), notQuestion: true },
   // "Post this to my LinkedIn now please: ...": a sentence that starts with the order and names what to post.
   { re: /(?:^|[.!\n]\s*)(?:please |now |just )?(?:post|publish|schedule|share|send) (?:this|that|these)\b[^?\n]*?(?:[.!:]|$)/i, notQuestion: true },
   // "I'd like my saved card taken off", "I want you to post this"
   { re: /\bi'?d like (?:my|the|it|them|this|that|our)\b[^.?!\n]{0,40}\b(?:removed|deleted|taken off|changed|cancel+ed|moved|transferred|refunded|reissued|updated|added|restored|unlocked|switched|disconnected)\b/i },
   // "post this to my Instagram for me", "set it up for me"
   { re: new RegExp(String.raw`\b${VERBS}\b[^.?!\n]{0,50}\bfor (?:me|us)\b`, 'i'), notSoftBefore: true },
+  // "Please help to fix the email", "can you help me change my login email" (third tuner): "help" makes most
+  // requests soft, but help to change the account itself is still a request to act on it.
+  { re: /\b(?:please|pls|plz|can you|could you|can someone|i need you to)\s+help (?:me |us )?(?:to )?(?:fix|change|update|correct|remove|delete|cancel|move|transfer|restore|recover|merge|reset|unlock|edit)\b(?!\s+(?:understand|figure|know|find))/i },
+  // "sign our DPA", "fill out our vendor security questionnaire" (third tuner): a document only staff can sign.
+  { re: /\b(?:sign|signed|countersign\w*|fill (?:out|in)|complete|return)\b[^.?!\n]{0,30}\b(?:dpa|baa|nda|msa|data processing (?:agreement|addendum)|contract|agreement|questionnaire|vendor (?:form|review|assessment)|w-?9|w-?8\w*|security review)\b/i },
   // "move me to Agency", "upgrade us"
   { re: /\b(?:move|upgrade|downgrade|switch|bump|put|give) (?:me|us) (?:to|up|down|over|on)\b/i },
 ];
@@ -58,7 +71,9 @@ const STAFF_ACTION = [
 const OTHERS_DATA = [
   /\b(?:send|email|e-mail|give|show|list|share|forward|tell|read|pull|export|look up|access)\b[^.?!\n]{0,60}\b(?:another|other|a different|someone else'?s?|other people'?s|former|ex-?)\s+(?:customers?|clients?|users?|persons?|accounts?|people|members?)\b/i,
   /\b(?:list|show|give|send|tell|share|name)\b[^.?!\n]{0,30}\b(?:customers|users|accounts|people|emails)\b[^.?!\n]{0,20}\b(?:who|that|which|with)\b/i,
-  /\b(?:send|email|e-mail|give|show|share|forward|tell|read|pull|export|look up|access)\b[^.?!\n]{0,40}\b(?:their|his|her)\s+(?:blotato\s+)?(?:account|invoices?|billing|data|posts|emails?|password|login|history)\b/i,
+  /\b(?:send|email|e-mail|give|show|share|forward|tell|read|pull|export|look up|access)\b[^.?!\n]{0,40}\b(?:their|his|her)\s+(?:blotato\s+)?(?:account|invoices?|billing|data|posts|emails?|password|login|history|api[ _-]?key|apikey|key|keys|token|tokens|credentials)\b/i,
+  // "paste her API key here", "send me my client's token", "Tessa's key" (third tuner).
+  /\b(?:paste|send|give|show|share|tell|read out|copy)\b[^.?!\n]{0,20}\b(?:her|his|their|my client'?s|the client'?s|our client'?s|another user'?s|someone'?s|[A-Z][a-z]+'s)\s+(?:blotato\s+)?(?:api[ _-]?key|apikey|key|token|password|credentials|login)\b/,
   /\b(?:i'?m|i am) (?:the |an? )?(?:attorney|lawyer|solicitor|investigator|police officer|detective)\b/i,
   // A named third party's posts or account: "tell me which posts my competitor scheduled", "which account our old
   // intern connected the Page to". (Added by the second tuner: these ended as "found nothing".) Team questions
@@ -190,12 +205,22 @@ export const SIGNALS = {
       /\b(?:regenerated|re-?generated|did everything|did all (?:the|of the) steps|followed (?:the|your|all|every)|copied the key (?:again|fresh)|added it back|reconnected|re-?installed)\b/i,
       /\b(?:copied|pasted|entered|re-?entered|generated|created|uploaded|connected)\b[^.?!\n]{0,30}\bagain\b/i,
       /\b(?:cancel+ed|did|tried|done|checked|reconnected|regenerated|changed|updated) (?:it |that |this )?already\b/i,
+      // The same steps told with "-ing" or as a list (third tuner): "after clearing cache and logging out and in",
+      // "same in Chrome, Firefox and on my phone".
+      /\bafter (?:clearing|logging|reconnecting|re-?connecting|removing|re-?adding|refreshing|restarting|reinstalling|re-?installing|regenerating|re-?generating|re-?authori[sz]ing|disconnecting|switching|updating|resetting|trying)\b/i,
+      /\b(?:clearing|cleared|cleaned) (?:the |my |all )?(?:browser )?(?:cache|cookies|site data|history)\b|\blogg(?:ing|ed) out and (?:back )?in\b/i,
+      /\bsame (?:thing |result |problem |issue |error )?(?:in|on|with|from) (?:chrome|firefox|safari|edge|brave|another browser|a different browser|my phone|the app|the mobile app|incognito|a private window|another (?:computer|device|laptop))\b/i,
+      // "I told Claude exactly that": the customer already gave the documented instruction.
+      /\b(?:i|we) (?:told|asked|instructed) (?:claude|chatgpt|the agent|codex|cursor|my agent|the ai|it)\b[^.?!\n]{0,20}\b(?:exactly (?:that|what|this)|what you (?:said|suggested|told me)|as you (?:said|suggested)|like you (?:said|suggested)|the same thing|just that)\b/i,
     ],
   },
   'still-broken': {
     about: 'The problem is still there after a fix.',
     res: [
       /\bstill (?:get|getting|gets|fail|fails|failing|broken|empty|the same|same|says|saying|shows|showing|not working|doesn'?t work|does not work|can'?t|cannot|won'?t|isn'?t|no\b|nothing|there|goes|going|go|see|seeing|sees|active|unauthori[sz]ed|answers|returns|missing|stuck|happening|wrong|down|appears)\b/i,
+      // The past tense and the other states a fix should have ended (third tuner): "still got the reel twice",
+      // "my dashboard is still locked", "still pending".
+      /\bstill (?:got|had|received|sent|sends|sending|posted|posts|posting|published|publishes|went|goes out|ran|runs|running|charged|charges|locked|blocked|pending|processing|disabled|greyed|grayed|duplicated|twice|double|empty)\b/i,
       /\b(?:persists|persisting|keeps? (?:going|posting|showing) to)\b/i,
       // "same error" counts only after a retry or a fix ("I retried and got the same error"), not as a plain
       // reproduction ("same thing in curl").
@@ -230,6 +255,10 @@ export const SIGNALS = {
       // "it says 10, your page says 25", "the error says 10 but the docs say 25": two numbers that disagree.
       /\b(?:says?|shows?|said|showed|told me|lists?)\b[^.?!\n]{0,40}\b\d+\b[^?!\n]{0,80}\b(?:but|while|yet|however|and|your|the)\b[^?!\n]{0,40}\b(?:says?|shows?|allows?|lists?|states?)\b[^.?!\n]{0,40}\b\d+\b/i,
       /\b(?:i'?ve|i have|we'?ve|we have) (?:only |just )?(?:published|posted|sent|made|used|uploaded|scheduled)\b[^.?!\n]{0,40}\b(?:\d+|one|two|three|four|five)\b[^.?!\n]{0,60}\b(?:but|yet|and it|still)\b/i,
+      // The customer's own count next to a limit that says it was reached (third tuner): "that channel only has 12
+      // posts", "Usage shows 14 active contacts used" beside "you have reached the maximum".
+      { re: /\bonly (?:has|have|had|got|shows?|showed|sent|made|lists?)\s+(?:about |around |like )?(?:\d+|one|two|three|four|five|six|seven|eight|nine|ten|a few|a couple)\b|\b(?:usage|counter|dashboard|get usage|my count|the count|stats?|logs?)\b[^.?!\n]{0,20}\b(?:shows?|says?|lists?|reads?|is at)\s+(?:only\s+)?\d+/i,
+        needs: /\b(?:reached|maximum|max(?:imum)? number|exceeded|limit|over the|too many|quota|20101|cap)\b/i },
     ],
   },
   'records-disagree': {
@@ -315,6 +344,8 @@ export const NAMED_ITEMS = {
   'platform feature': ['retweet', 'retweets', 'quote tweet', 'repost', 'reposts', 'reposting', 'recycle', 'evergreen', 'duet', 'stitch', 'boost post', 'boosted', 'promoted post', 'sponsored', 'ads', 'ad account', 'poll', 'polls', 'go live', 'live stream', 'livestream', 'twitter spaces', 'x spaces', 'story highlights', 'highlights', 'close friends', 'broadcast channel', 'dms', 'direct message', 'direct messages', 'auto reply', 'auto-reply', 'auto dm', 'geotag', 'location tag', 'alt text', 'link in bio', 'link sticker', 'product tag', 'product tags', 'shopping tag', 'watermark', 'analytics', 'insights', 'statistics', 'stats', 'metrics', 'impressions', 'engagement rate', 'white label', 'white-label', 'sso', 'single sign on', '2fa', 'two factor', 'two-factor', 'team members', 'teammates', 'seats', 'user roles', 'permissions', 'webhook', 'webhooks', 'rss', 'emoji', 'emojis', 'story', 'stories', 'dm automation', 'dm automations'],
   'language': ['japanese', 'french', 'german', 'portuguese', 'italian', 'arabic', 'chinese', 'mandarin', 'cantonese', 'hindi', 'korean', 'russian', 'dutch', 'polish', 'turkish', 'vietnamese', 'indonesian', 'thai', 'hebrew', 'greek', 'swedish', 'norwegian', 'danish', 'finnish', 'ukrainian', 'tagalog', 'urdu', 'bengali', 'persian', 'farsi', 'malay', 'romanian', 'czech', 'hungarian'],
   'identifier': ['page id', 'pageid', 'account id', 'accountid', 'post id', 'postid', 'submission id', 'schedule id', 'user id', 'client id', 'app id', 'channel id', 'workspace id', 'media id', 'webhook url', 'callback url', 'redirect url'],
+  // Devices and operating systems (third tuner): "in the Claude app on my iPhone" is not answered by a page about the web app.
+  'device': ['iphone', 'ipad', 'ios', 'android', 'apple watch', 'chromebook', 'macbook', 'mac app', 'windows app', 'linux', 'smart tv', 'tablet'],
   'file type': ['gif', 'gifs', 'pdf', 'heic', 'webp', 'svg', 'tiff', 'mov', 'webm', 'avi', 'mkv', 'mp3', 'wav', 'm4a', 'psd', 'docx', 'pptx', 'xlsx', 'zip', 'srt'],
 };
 

@@ -15,6 +15,7 @@
 //      or hand over the whole message when the entry has no room for that line. If the entry covers none
 //      of the message's questions, it matched only the background, and the desk does not answer.
 import { buildIndex, scoreEntries, scoreAgainst, splitSentences, contentStems, allStems, hasTerm, anchorsMet, anchorRegex, rawWords } from './match.mjs';
+import { createCoverage, groundedLines } from './coverage.mjs';
 import { runGuards, stripDeskInstructions, needsPerson, TROUBLE, NAMED_ITEMS, PLATFORMS, ASKS_NUMBER, ASKS_OWN_COUNT, GIVES_NUMBER, INTRODUCER, COMMON_CAPS, notEnglish, specificError, isNonsense } from './signals.mjs';
 
 // Every hand-over carries a stable, machine-readable reason in "why" (and the details in "whyDetail"), beside
@@ -64,8 +65,22 @@ export const GENERAL_SIGNALS = ['tried-steps', 'still-broken', 'retried', 'dispu
 // ("I also want to know whether ...").
 const QUESTION = /\?\s*$|^(?:how|what|why|where|when|which|who|can|could|does|do|is|are|will|would|should|did|has|have|may|also|and also|plus|p\.?s\.?|another thing|one more thing)\b|\b(?:want to know|wondering|wonder|need to know|curious|tell me|let me know)\b(?:\s+\w+){0,2}?\s+(?:if|whether|how|what|when|why|where|which)\b/i;
 
-export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchored = THRESHOLD_UNANCHORED, margin = MARGIN, covered = COVERED } = {}) {
+// The questions of a message, each able to stand alone (three or more content words).
+// Two questions in one sentence ("How many per minute, and how much does the plan cost?", "price + how many
+// credits?") are split, but only when each part can stand on its own.
+export function questionsOf(text) {
+  return splitSentences(text)
+    .filter(s => QUESTION.test(s.trim()))
+    .flatMap(s => {
+      const parts = s.split(/,?\s+(?:and|also|plus|or|\+|&)\s+(?=(?:also\s+)?(?:how|what|why|where|when|which|who|can|could|does|do|is|are|will|would|should)\b)/i);
+      return parts.length > 1 && parts.every(p => contentStems(p).length >= 3) ? parts : [s];
+    })
+    .filter(s => contentStems(s).length >= 3);
+}
+
+export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchored = THRESHOLD_UNANCHORED, margin = MARGIN, covered = COVERED, coverage: coverageOpt = {} } = {}) {
   const matchable = entries.filter(e => !e.guard);
+  const coverage = coverageOpt === false ? null : createCoverage(entries, coverageOpt);
   const index = buildIndex(matchable);
   const guardEntry = (g) => entries.find(e => e.guard === g) || null;
 
@@ -73,9 +88,15 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
   // lines, as stems (a "|" between texts, so a two-word term never spans two texts).
   const vocab = new Map(matchable.map(e => {
     const texts = [e.title, ...(e.phrasings || []), ...(e.anchors || []).flat().filter(t => !anchorRegex(t)), e.opening, e.next, e.proof,
-      ...(e.steps || []).flatMap(s => [s.text, s.cite?.quote])].filter(t => typeof t === 'string');
+      ...(e.steps || []).flatMap(s => [s.text, s.cite?.quote]), ...(e.scope?.covers || [])].filter(t => typeof t === 'string');
     return [e.id, texts.flatMap(t => [...allStems(t), '|'])];
   }));
+  const OUTSIDE = new Set(['payment method', 'platform or service', 'tool', 'device', 'language', 'file type']);
+  const vocabRaw = new Map(matchable.map(e => [e.id, [e.title, ...(e.phrasings || []), ...(e.anchors || []).flat().filter(t => !anchorRegex(t)), ...groundedLines(e)].filter(t => typeof t === 'string').flatMap(t => [...rawWords(t), '|'])]));
+  const groundedRaw = new Map(matchable.map(e => [e.id, groundedLines(e).flatMap(t => [...rawWords(t), '|'])]));
+  // Words in order, as written, a plural allowed either way ("dm automation" = "DM automations"), no other stemming.
+  const same = (a, b) => a === b || a === `${b}s` || b === `${a}s` || a === `${b}es` || b === `${a}es`;
+  const seq = (words, term) => { const t = rawWords(term); outer: for (let i = 0; i + t.length <= words.length; i++) { for (let j = 0; j < t.length; j++) if (!same(words[i + j], t[j])) continue outer; return true; } return false; };
   const everyWord = new Set([...vocab.values()].flat());
   const givesNumber = new Map(matchable.map(e => [e.id, (e.steps || []).some(s => GIVES_NUMBER.test(s.text || '') || GIVES_NUMBER.test(s.cite?.quote || ''))]));
   const items = Object.entries(NAMED_ITEMS).flatMap(([kind, terms]) => terms.map(term => ({ kind, term })));
@@ -89,7 +110,16 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
   function silentOn(entry, text) {
     const stems = allStems(text);
     const v = vocab.get(entry.id) || [];
-    for (const { kind, term } of items) if (has(stems, term) && !has(v, term)) return { kind, term };
+    // A named thing must be in what the desk would say (quotes, steps, declared scope), not only in a phrasing
+    // (third tuner): a writer's phrasing that names OneDrive does not make a Google Drive quote cover it.
+    // Named items are matched on words as written, not stems: "state" is not "stats", "polling" is not "polls".
+    // Things outside Blotato (another service, a tool, a device, a payment method, a language, a file type) must
+    // be in what the desk would say; Blotato's own features and ids may still be claimed by a phrasing.
+    if (coverage) {
+      const words = rawWords(text); const gw = groundedRaw.get(entry.id) || []; const vw = vocabRaw.get(entry.id) || [];
+      const kinds = entry.scope?.coversKinds || [];
+      for (const { kind, term } of items) if (seq(words, term) && !kinds.includes(kind) && !seq(OUTSIDE.has(kind) ? gw : vw, term)) return { kind, term };
+    } else for (const { kind, term } of items) if (has(stems, term) && !has(v, term)) return { kind, term };
     const asked = Object.entries(PLATFORMS).filter(([, al]) => namesPlatform(stems, al));
     const missing = asked.find(([, al]) => !namesPlatform(v, al));
     if (missing && platformSpecific.get(entry.id)) return { kind: 'platform', term: missing[0] };
@@ -245,24 +275,33 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
       }
     }
 
+    // Specifics must be covered: what the customer asks about must be in what the desk would say (its quotes,
+    // its steps, its declared scope), not only in the entry's phrasings. See src/coverage.mjs.
     // Every real question in the message must belong to this entry. A question with fewer than three content
     // words ("Is it stuck?", "Did it post or not?") leans on the rest of the message, so it is not checked on
     // its own. Anchors are for the whole message, so a question is scored against the phrasings without them.
     // If no question is covered, the entry matched only the background ("I'm leaving next month. How do I
     // download my videos?"), so the desk does not answer.
-    const qs = splitSentences(real)
-      .filter(s => QUESTION.test(s.trim()))
-      // Two questions in one sentence ("How many per minute, and how much does the plan cost?") are split,
-      // but only when each part can stand on its own.
-      .flatMap(s => {
-        const parts = s.split(/,?\s+(?:and|also|plus|or)\s+(?=(?:also\s+)?(?:how|what|why|where|when|which|who|can|could|does|do|is|are|will|would|should)\b)/i);
-        return parts.length > 1 && parts.every(p => contentStems(p).length >= 3) ? parts : [s];
-      })
-      .filter(s => contentStems(s).length >= 3);
+    const qs = questionsOf(real);
+
+    // Specifics must be covered: what the customer asks about must be in what the desk would say (its quotes,
+    // its steps, its declared scope), not only in the entry's phrasings. See src/coverage.mjs.
+    // With two or more questions, each is read on its own: a question with a gap is handed over, and the entry
+    // may still answer the others (the partly-covered rule below). With none left, the desk does not answer.
+    const uncovered = new Set();
+    if (coverage && !entry.escalate && !entry.noDocAnswer) {
+      const whole = coverage.gap(entry, real, coverageOpt);
+      if (whole) {
+        const each = qs.length >= 2 ? qs.map(q => [q, coverage.gap(entry, q, coverageOpt)]) : [];
+        if (!each.length || each.every(([, g]) => g)) return { ...base, decision: 'abstain', entry: null, silent: whole, why: 'docs-silent', whyDetail: { kind: whole.kind, item: whole.term, nearest: entry.id }, reason: `"${entry.id}" matched the message, but what it would quote does not cover the ${whole.kind} asked about ("${whole.term}"). The docs may be silent on it.` };
+        for (const [q, g] of each) if (g) uncovered.add(q);
+      }
+    }
     const enough = Math.min(covered, need);
     if (qs.length >= 1) {
       const open = [];
       for (const q of qs) {
+        if (uncovered.has(q)) { const other = scoreEntries(index, q).find(c => !c.excluded && c.id !== entry.id); open.push({ question: q, best: other ? { id: other.id, score: round(other.score) } : null }); continue; }
         const s = scoreAgainst(index, q, entry.id);
         // Covered: close enough to the entry's phrasings, and (if the entry has anchors) naming at least one
         // of its anchor words, so "how much does the Agency plan cost?" is not covered by the cancel entry.
