@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8251,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why the Bluesky video post has been in-progress for 2 days",
+    "sentence": ""
+   },
+   {
+    "point": "What to do now after polling GET /v2/posts/:id every few hours",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer says they already polled the status repeatedly and it is still in-progress after 2 days, which is a \"still fails after trying\" case and needs a live look at their account, so it is not mine to answer; the in-progress entry's only answer depends on a live lookup result that is not in its sentences."
+ },
+ "at": "2026-11-16T06:26:46.820Z"
+}

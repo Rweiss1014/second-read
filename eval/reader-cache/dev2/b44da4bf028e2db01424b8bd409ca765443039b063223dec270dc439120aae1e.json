@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8625,
+ "verdict": {
+  "points": [
+   {
+    "point": "Are 1080x1920 images too tall?",
+    "sentence": "The image limit is based on area, not a maximum side length of 1080 pixels."
+   },
+   {
+    "point": "Should I shrink so the long side is 1080 max?",
+    "sentence": "The image limit is based on area, not a maximum side length of 1080 pixels."
+   },
+   {
+    "point": "Images are PNG",
+    "sentence": "Blotato converts non-JPEG images before submission, so do not reject a source solely because it is PNG."
+   }
+  ],
+  "pick": "tiktok-images-post-info-error",
+  "reason": "This entry covers the same TikTok error. It says the image limit is based on area, not a 1080 px side length, and that PNG alone is not a reason to reject an image."
+ },
+ "at": "2026-11-16T06:32:27.388Z"
+}

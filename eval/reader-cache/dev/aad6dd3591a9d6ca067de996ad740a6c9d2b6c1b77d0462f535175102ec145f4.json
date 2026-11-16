@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7355,
+ "verdict": {
+  "points": [
+   {
+    "point": "what am I missing (why Schedule stays grey)",
+    "sentence": ""
+   },
+   {
+    "point": "Facebook account already picked, button still grey (still fails after trying)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer says they already selected their Facebook account and the Schedule button still stays grey, which is a still-failing-after-trying case that is not mine to answer, and the closest entry (schedule-button-grey) itself says a disabled button alone does not identify the cause."
+ },
+ "at": "2026-11-16T06:43:16.750Z"
+}

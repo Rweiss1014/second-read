@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4893,
+ "verdict": {
+  "points": [
+   {
+    "point": "Official Python SDK or npm package for REST API",
+    "sentence": ""
+   },
+   {
+    "point": "Or raw HTTP calls needed",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether an official Python SDK or npm package exists; the API entries only cover 401 errors, invalid JSON and similar neighboring topics."
+ },
+ "at": "2026-11-16T06:45:43.786Z"
+}

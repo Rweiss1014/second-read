@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7368,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why Analytics shows 'not available' on the free trial",
+    "sentence": ""
+   },
+   {
+    "point": "Pricing says the trial includes everything except the API (contradiction raised)",
+    "sentence": ""
+   },
+   {
+    "point": "Whether old posts fill in after paying",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry says whether analytics works on the free trial or explains the 'not available' status, and none says whether old posts backfill after upgrading, so the closest entry (analytics-dashboard-where) only covers paid-plan inclusion and checkpoint timing."
+ },
+ "at": "2026-11-16T06:42:17.163Z"
+}

@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4782,
+ "verdict": {
+  "points": [
+   {
+    "point": "Will each repeated POST /v2/credits run charge 2,000 credits",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry (how-to-buy-credits) only says POST /v2/credits buys credits. It never says whether repeated calls are charged each time. The question is also about charges, so a person on the team should answer it."
+ },
+ "at": "2026-11-16T06:32:50.114Z"
+}

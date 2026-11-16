@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7914,
+ "verdict": {
+  "points": [
+   {
+    "point": "Error 'Scheduled time is too far in the future' for a date three weeks out",
+    "sentence": ""
+   },
+   {
+    "point": "LinkedIn post, failing in both the app and the API",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The scheduling-horizon entry gives a 9-month limit, so a date three weeks out should not trigger it, and no entry explains this error; the team should look at it."
+ },
+ "at": "2026-11-16T06:23:26.444Z"
+}

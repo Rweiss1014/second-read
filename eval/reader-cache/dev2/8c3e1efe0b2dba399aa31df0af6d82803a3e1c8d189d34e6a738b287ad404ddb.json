@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4271,
+ "verdict": {
+  "points": [
+   {
+    "point": "How Time saved is calculated",
+    "sentence": ""
+   },
+   {
+    "point": "Is it a set number of minutes per post",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry explains how the Analytics \"Time saved\" figure is calculated; the analytics entries cover refresh checkpoints and plan metrics, which are neighboring topics."
+ },
+ "at": "2026-11-16T06:34:07.489Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5548,
+ "verdict": {
+  "points": [
+   {
+    "point": "Endpoint to edit the comment",
+    "sentence": ""
+   },
+   {
+    "point": "Endpoint to delete the comment",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether comments can be edited or deleted; the closest entry (comment-on-posts-support) only lists reading, posting and replying, so it answers a neighboring question."
+ },
+ "at": "2026-11-16T06:26:01.627Z"
+}

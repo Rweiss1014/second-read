@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5545,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why the 4 photos posted to the feed instead of the Story",
+    "sentence": "If you attach multiple images to a Story, Blotato publishes them as a regular feed post instead."
+   },
+   {
+    "point": "Instagram Story with 4 photos (multiple images in one Story)",
+    "sentence": "An Instagram Story accepts only one image or one video per post."
+   }
+  ],
+  "pick": "instagram-story-as-feed-post",
+  "reason": "The customer attached four photos to one Instagram Story, and this entry states both that a Story accepts only one image or video per post and that multiple images to a Story are published as a regular feed post."
+ },
+ "at": "2026-11-16T06:42:39.900Z"
+}

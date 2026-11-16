@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8852,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is TikTok analytics broken on my account",
+    "sentence": ""
+   },
+   {
+    "point": "Can it rank LinkedIn posts",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No single entry answers both parts: linkedin-analytics covers LinkedIn but not TikTok, and analytics-dashboard-where lists TikTok but can't show whether this customer's own account is working, so a person should check it."
+ },
+ "at": "2026-11-16T06:25:43.432Z"
+}

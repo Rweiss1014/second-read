@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5908,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can a PDF file be handed to Blotato and posted as a LinkedIn document",
+    "sentence": ""
+   },
+   {
+    "point": "Would the document show the file name as its title",
+    "sentence": ""
+   },
+   {
+    "point": "LinkedIn company Page posting",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate states that a PDF file can be uploaded to post as a LinkedIn document or how the document title is set; the closest entries (linkedin-company-page covers only the account/page IDs, and google-drive-context covers PDF context for AI, not posting) answer neighboring questions."
+ },
+ "at": "2026-11-16T06:28:45.693Z"
+}

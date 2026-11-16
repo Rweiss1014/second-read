@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4392,
+ "verdict": {
+  "points": [
+   {
+    "point": "Post a PDF file directly as LinkedIn document",
+    "sentence": ""
+   },
+   {
+    "point": "Whether document title is the file name",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether a PDF can be posted as a LinkedIn document or how its title is set; the LinkedIn entries cover company Page IDs, roles and account limits only."
+ },
+ "at": "2026-11-16T06:32:24.702Z"
+}

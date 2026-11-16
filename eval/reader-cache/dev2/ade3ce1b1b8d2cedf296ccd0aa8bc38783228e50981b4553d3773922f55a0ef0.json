@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4666,
+ "verdict": {
+  "points": [
+   {
+    "point": "Trial reel set to Manual (Instagram)",
+    "sentence": ""
+   },
+   {
+    "point": "Where in Blotato to promote it to followers later",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The trial reel entry says Manual means you decide when to promote, but no sentence says where in Blotato to do the promoting, so the \"where\" question is unanswered."
+ },
+ "at": "2026-11-16T06:33:37.956Z"
+}

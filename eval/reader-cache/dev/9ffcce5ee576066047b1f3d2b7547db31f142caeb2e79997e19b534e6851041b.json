@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7589,
+ "verdict": {
+  "points": [
+   {
+    "point": "How to start paying",
+    "sentence": "Go to Settings > API and generate an API key. This will activate your paid subscription."
+   },
+   {
+    "point": "Moving from the trial to paid",
+    "sentence": "Generating an API key from Settings > API immediately ends the free trial and activates your paid Starter subscription."
+   }
+  ],
+  "pick": "start-paid-subscription",
+  "reason": "This entry says how to activate the paid subscription and that doing so ends the free trial, which answers the customer's question."
+ },
+ "at": "2026-11-16T06:44:38.070Z"
+}

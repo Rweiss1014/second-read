@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5428,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can Claude search the Inspiration database via the Blotato MCP server",
+    "sentence": ""
+   },
+   {
+    "point": "Search for viral posts about meal prep (topic and viral-post search)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate says whether the MCP server can search the Inspiration database; the closest entry (free-claude-skills) covers viral hooks skills, a neighboring topic, so no entry answers the question."
+ },
+ "at": "2026-11-16T06:26:33.650Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4417,
+ "verdict": {
+  "points": [
+   {
+    "point": "how to get page 2 of Pinterest boards (pagination cursor/offset)",
+    "sentence": ""
+   },
+   {
+    "point": "250-item cap with 312 boards, missing board",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states anything about pagination, cursors, offsets or a 250-item limit for List Pinterest Boards; the closest entries only cover finding a Board ID or empty lists, and the customer also says they already tried cursor and offset."
+ },
+ "at": "2026-11-16T06:32:54.684Z"
+}

@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8739,
+ "verdict": {
+  "points": [
+   {
+    "point": "LinkedIn profile counts toward the total",
+    "sentence": "LinkedIn: Your profile and each connected company Page count toward your total"
+   },
+   {
+    "point": "Company Pages count toward the total",
+    "sentence": "Facebook Pages, LinkedIn Company Pages, and Slack channels contribute towards this total:"
+   },
+   {
+    "point": "The 20-account limit (Starter plan)",
+    "sentence": "You can connect up to **20** social accounts on the **Starter** plan, **40** on **Creator**, and **100** on **Agency**."
+   }
+  ],
+  "pick": "connected-account-limit",
+  "reason": "The entry states that the LinkedIn profile and each connected company Page count toward the account limit, and it gives the 20-account cap for Starter, so the customer's 4 accounts (profile plus 3 Pages) can be counted against their 20 spots."
+ },
+ "at": "2026-11-16T06:28:36.460Z"
+}

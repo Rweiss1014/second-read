@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6352,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can Analytics dashboard be exported as CSV or PDF, or only viewed on screen",
+    "sentence": ""
+   },
+   {
+    "point": "Monthly performance report for clients (purpose, not a separate question)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks whether Analytics data can be exported as CSV or PDF, and no candidate entry states anything about export. The analytics-dashboard-where entry only covers where to view analytics and how metrics are collected, so it does not answer the export question."
+ },
+ "at": "2026-11-16T06:28:28.250Z"
+}

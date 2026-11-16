@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7459,
+ "verdict": {
+  "points": [
+   {
+    "point": "Agency plan active-contacts limit of 15,000",
+    "sentence": ""
+   },
+   {
+    "point": "Whether the contact count resets on the 19th (renewal date) rather than the 1st",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The active-contacts entry describes a monthly window and a \"monthly reset\" but never says when that reset happens, so it does not confirm the 19th versus the 1st, and none of the entries states a 15,000 contact limit for Agency."
+ },
+ "at": "2026-11-16T06:30:30.199Z"
+}

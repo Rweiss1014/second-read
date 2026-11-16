@@ -1,0 +1,17 @@
+{
+ "kind": "refute",
+ "version": "refute-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9698,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "wrong-for-customer",
+    "about": "The reply says in-progress can mean Blotato found no record of the id. That is unsupported and misleading. The customer's GET calls keep returning a status for their saved id, so the post exists. This sends them toward doubting a valid id instead of explaining why a 40s, 12 MB video has been in progress for 2 days."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:41:15.613Z"
+}

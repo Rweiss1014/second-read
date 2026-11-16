@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5230,
+ "verdict": {
+  "points": [
+   {
+    "point": "app store link (is there a Blotato app to download from an app store)",
+    "sentence": "There are no plans for a separate mobile app."
+   }
+  ],
+  "pick": "mobile-app",
+  "reason": "The customer asks for an App Store link, and the mobile-app entry states that no separate mobile app is planned, so there is no store app to link to."
+ },
+ "at": "2026-11-16T06:43:51.144Z"
+}

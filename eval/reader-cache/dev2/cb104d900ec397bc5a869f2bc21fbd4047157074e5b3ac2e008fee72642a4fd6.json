@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5239,
+ "verdict": {
+  "points": [
+   {
+    "point": "Remove our Facebook Page from the freelancer's Blotato account so we can connect it to ours",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The request concerns another person's account and asks staff to remove a Page from it, which is not something any candidate entry covers or should answer, and none of the entries state how to release a Page from a different user's account."
+ },
+ "at": "2026-11-16T06:28:40.541Z"
+}

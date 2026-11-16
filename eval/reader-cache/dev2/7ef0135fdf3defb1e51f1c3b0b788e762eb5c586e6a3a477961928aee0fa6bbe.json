@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4634,
+ "verdict": {
+  "points": [
+   {
+    "point": "Do I need to pay HeyGen for the API to work with Blotato (free plan error)",
+    "sentence": "HeyGen API requires $99/mo API plan. Free API plan won't work."
+   }
+  ],
+  "pick": "heygen-avatar-video-errors",
+  "reason": "The entry states that the HeyGen API needs a paid API plan and the free plan won't work, which directly answers the customer's question."
+ },
+ "at": "2026-11-16T06:25:48.533Z"
+}

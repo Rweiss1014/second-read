@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6324,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why POST /v2/credits returns 400 Bad Request",
+    "sentence": ""
+   },
+   {
+    "point": "Whether a quantity of 25000 is allowed",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The how-to-buy-credits entry only says POST /v2/credits exists. No entry explains this 400 error or states any limit on quantity, so the message goes to the team."
+ },
+ "at": "2026-11-16T06:33:12.046Z"
+}

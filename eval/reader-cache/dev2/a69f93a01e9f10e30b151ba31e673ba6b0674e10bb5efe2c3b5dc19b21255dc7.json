@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3401,
+ "verdict": {
+  "points": [
+   {
+    "point": "Field for Slack thread reply (thread_ts) in REST post",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry states whether a thread reply field exists for Slack posts via the REST API; the Slack entries cover the 100-post limit and channel errors only."
+ },
+ "at": "2026-11-16T06:33:47.259Z"
+}

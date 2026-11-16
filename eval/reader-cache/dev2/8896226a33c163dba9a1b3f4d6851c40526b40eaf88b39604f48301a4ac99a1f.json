@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9916,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why the Bluesky post links open 'post not found'",
+    "sentence": ""
+   },
+   {
+    "point": "Why the three posts are not on the profile, even logged out or in the app",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer already checked the links and profile and still sees the posts missing, and no candidate states why a Published Bluesky post's link fails: \"published-not-visible\" only says Published does not establish why, and \"post-never-went-up\" covers posts with unknown outcomes, so both are neighboring rather than answering."
+ },
+ "at": "2026-11-16T06:29:49.217Z"
+}

@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4715,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can I post to Google Business Profile from Blotato?",
+    "sentence": "Blotato does not support Google Business Profile."
+   }
+  ],
+  "pick": "google-business-profile",
+  "reason": "The entry directly states that Blotato does not support Google Business Profile, which answers the customer's only question and names the platform they asked about."
+ },
+ "at": "2026-11-16T06:41:47.288Z"
+}

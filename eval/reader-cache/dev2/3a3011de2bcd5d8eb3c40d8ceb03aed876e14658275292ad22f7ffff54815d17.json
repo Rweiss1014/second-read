@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5646,
+ "verdict": {
+  "points": [
+   {
+    "point": "Where to report a security issue (bug bounty or security contact)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "None of the candidate entries mentions a bug bounty program, a security contact, or how to report a security vulnerability, so no entry answers the customer's question."
+ },
+ "at": "2026-11-16T06:28:58.245Z"
+}

@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5513,
+ "verdict": {
+  "points": [
+   {
+    "point": "meaning of 'mediaURL is null or empty'",
+    "sentence": "The submitted URL is empty. Inspect the preceding operation and the field mapped into this request."
+   }
+  ],
+  "pick": "empty-url-or-mediaurl",
+  "reason": "This entry is about the 'mediaURL is null or empty' error and explains that the submitted URL is empty and where to look."
+ },
+ "at": "2026-11-16T06:46:06.719Z"
+}

@@ -1,0 +1,30 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 13499,
+ "verdict": {
+  "points": [
+   {
+    "point": "Missing Meta setting in Accounts Center",
+    "sentence": "Meta's privacy labels differ between account versions."
+   },
+   {
+    "point": "Should I reset my Meta privacy settings?",
+    "sentence": "Do not reset all settings or remove a working connection to find an old menu label."
+   },
+   {
+    "point": "Or disconnect Instagram from Blotato and start over?",
+    "sentence": "Do not reset all settings or remove a working connection to find an old menu label."
+   },
+   {
+    "point": "Whether to change the setting the prompt mentions",
+    "sentence": "Follow its Accounts Center link only if that message asks for a privacy-setting change."
+   }
+  ],
+  "pick": "meta-privacy-setting-missing",
+  "reason": "The entry covers the missing label, says not to reset all settings or remove a connection to hunt for it, and says to follow the Accounts Center link only if the authorization message asks for a privacy-setting change."
+ },
+ "at": "2026-11-16T06:29:31.899Z"
+}

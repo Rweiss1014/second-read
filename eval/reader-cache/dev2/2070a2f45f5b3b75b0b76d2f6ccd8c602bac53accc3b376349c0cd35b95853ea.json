@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8609,
+ "verdict": {
+  "points": [
+   {
+    "point": "Instagram \"isn't eligible\" error when reconnecting",
+    "sentence": ""
+   },
+   {
+    "point": "Should the messaging permission be unchecked to get past it",
+    "sentence": ""
+   },
+   {
+    "point": "Two live DM automations on the account",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry covers the \"isn't eligible\" reconnect error. The follow-gate entry says to leave messaging checked when reconnecting, but only in the context of a stuck follow gate, and none of the entries say what unchecking the permission does to live DM automations, so this needs a person on the team."
+ },
+ "at": "2026-11-16T06:30:59.623Z"
+}

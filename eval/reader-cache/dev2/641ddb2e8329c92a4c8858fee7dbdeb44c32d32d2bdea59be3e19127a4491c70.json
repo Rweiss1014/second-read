@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9925,
+ "verdict": {
+  "points": [
+   {
+    "point": "why the YouTube video is not visible on the channel page after Blotato reports success",
+    "sentence": ""
+   },
+   {
+    "point": "video posted to YouTube via Blotato (platform: YouTube)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate states why a video reported as posted is missing from the channel page; the closest entry, post-failed-no-error-text, only tells the customer to check the platform and otherwise send details to the team, which depends on a fact only this customer's own account can show."
+ },
+ "at": "2026-11-16T06:30:16.744Z"
+}

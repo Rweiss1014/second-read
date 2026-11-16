@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5862,
+ "verdict": {
+  "points": [
+   {
+    "point": "429 response includes Retry-After header?",
+    "sentence": ""
+   },
+   {
+    "point": "429 response includes X-RateLimit-Remaining header?",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The rate-limit entry only says to wait for the retry interval when the response supplies one, and it never states whether Retry-After or X-RateLimit-Remaining headers are returned."
+ },
+ "at": "2026-11-16T06:25:39.387Z"
+}

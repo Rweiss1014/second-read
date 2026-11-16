@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5680,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does Blotato OAuth sign-in work in Gemini CLI, or only the blotato-api-key header?",
+    "sentence": ""
+   },
+   {
+    "point": "Is Gemini CLI an officially supported client?",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate mentions Gemini CLI, so neither the OAuth question nor the supported-client question is answered; the closest entries (Codex setup and the social platform list) cover neighboring topics only."
+ },
+ "at": "2026-11-16T06:26:53.472Z"
+}

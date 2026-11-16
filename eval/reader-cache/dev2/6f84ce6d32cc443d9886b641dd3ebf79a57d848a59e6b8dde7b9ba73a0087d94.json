@@ -1,0 +1,13 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 2901,
+ "verdict": {
+  "points": [],
+  "pick": "none",
+  "reason": "The customer reports a bug where the wrong channel's playlists show up. They also say reconnecting already failed, and no entry covers playlist dropdowns for multiple YouTube channels, so a person on the team should read it."
+ },
+ "at": "2026-11-16T06:34:16.860Z"
+}

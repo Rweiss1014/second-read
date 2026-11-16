@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8704,
+ "verdict": {
+  "points": [
+   {
+    "point": "YouTube brand channel missing from the connect list",
+    "sentence": ""
+   },
+   {
+    "point": "Manager role shown in YouTube Studio, but the channel still doesn't appear",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry covers a YouTube brand channel missing from the connect list. The closest, connect-second-account, only describes switching accounts with the 3-dots button and doesn't mention YouTube brand channels or the Manager role. The LinkedIn entry is about LinkedIn roles, not YouTube."
+ },
+ "at": "2026-11-16T06:23:56.801Z"
+}

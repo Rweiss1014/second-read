@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6892,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can the viral-hooks skill write hooks in Spanish, or only English?",
+    "sentence": ""
+   },
+   {
+    "point": "Clients are in Mexico (Spanish audience), so Spanish output is needed",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "Neither entry states the output language of the viral-hooks skill; \"free-claude-skills\" only describes the bundle and install, and \"english-spanish-content\" covers Blotato's AI Agent and AI video scripts rather than that skill, so no sentence answers the question."
+ },
+ "at": "2026-11-16T06:31:20.785Z"
+}

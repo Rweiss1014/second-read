@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6983,
+ "verdict": {
+  "points": [
+   {
+    "point": "What 'Incomplete' means",
+    "sentence": ""
+   },
+   {
+    "point": "Why the portal won't let them pick Starter when downgrading from Creator",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The incomplete-setup entry explains the message only for a payment that never went through, and change-plan covers the downgrade steps but not this block. Neither explains why this customer's portal won't offer Starter, and that depends on their own account, so a person should review it."
+ },
+ "at": "2026-11-16T06:44:46.473Z"
+}

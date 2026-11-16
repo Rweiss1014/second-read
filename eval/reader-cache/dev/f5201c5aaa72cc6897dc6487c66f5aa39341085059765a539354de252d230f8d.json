@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4748,
+ "verdict": {
+  "points": [
+   {
+    "point": "Undo a deleted video in Videos library",
+    "sentence": ""
+   },
+   {
+    "point": "Staff restore the deleted video",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether a deleted video can be undone or recovered, and the customer asks staff to bring it back, which is a request for staff action that a person on the team should handle."
+ },
+ "at": "2026-11-16T06:44:41.250Z"
+}

@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5538,
+ "verdict": {
+  "points": [
+   {
+    "point": "Whose data is the webhook payload from an unowned IG account",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer is asking about data that appears to belong to another person's or account (an Instagram account 77812 they don't own), which needs the team to investigate, and no entry's sentences state an answer."
+ },
+ "at": "2026-11-16T06:34:16.767Z"
+}

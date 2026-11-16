@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4434,
+ "verdict": {
+  "points": [
+   {
+    "point": "Customer asks us to log in to their Instagram account with their password and connect it to Blotato",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks staff to log in to their Instagram account with a password and connect it, which is a request for an action on their account that no candidate entry covers, and the password should not be used or repeated in a reply."
+ },
+ "at": "2026-11-16T06:22:05.394Z"
+}

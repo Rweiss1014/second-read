@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7841,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does the 10 requests/hour limit apply to GET /v2/credits",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks whether the 10/hour Buy Credits limit also covers GET /v2/credits, and no candidate states a rate limit for that endpoint; the how-to-buy-credits entry names the endpoint but gives no limit, and the rate-limit entry only covers 30 requests/minute for publishing and media uploads."
+ },
+ "at": "2026-11-16T06:31:09.397Z"
+}

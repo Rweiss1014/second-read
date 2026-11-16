@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5340,
+ "verdict": {
+  "points": [
+   {
+    "point": "Get a separate version per platform (LinkedIn and Facebook)",
+    "sentence": ""
+   },
+   {
+    "point": "Does the old remix screen use Brand Kit",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The 'different-post-per-platform' entry answers only the per-platform question and 'old-remix-screen' answers only the Brand Kit question, so no single entry covers both."
+ },
+ "at": "2026-11-16T06:44:57.470Z"
+}

@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9122,
+ "verdict": {
+  "points": [
+   {
+    "point": "HeyGen avatar videos don't show up in Blotato (how HeyGen works with Blotato)",
+    "sentence": "Make your avatar video in the Heygen web app, download the completed video, and attach it to your post in blotato"
+   }
+  ],
+  "pick": "heygen-with-blotato",
+  "reason": "The entry explains that HeyGen videos don't sync into Blotato on their own. You download them and attach them to a post, or you automate it through make.com and the API."
+ },
+ "at": "2026-11-16T06:32:06.119Z"
+}

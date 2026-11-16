@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4267,
+ "verdict": {
+  "points": [
+   {
+    "point": "Switch Blotato menus and buttons to German (interface language)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "None of the candidate entries mention changing the interface language, so no entry answers the German-language question and the message should go to the team."
+ },
+ "at": "2026-11-16T06:42:32.457Z"
+}

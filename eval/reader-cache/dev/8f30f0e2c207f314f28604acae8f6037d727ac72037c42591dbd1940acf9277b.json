@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6463,
+ "verdict": {
+  "points": [
+   {
+    "point": "what mediaURL is null or empty means",
+    "sentence": "The submitted URL is empty."
+   }
+  ],
+  "pick": "empty-url-or-mediaurl",
+  "reason": "The entry's title is the customer's exact question, and its quoted help-page sentence states what a null or empty mediaURL means, though it is framed around the visual-creation step."
+ },
+ "at": "2026-11-16T06:43:47.179Z"
+}

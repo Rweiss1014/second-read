@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6634,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does animating a still with the free generate skill use the 5,000 Creator credits?",
+    "sentence": ""
+   },
+   {
+    "point": "Specific: the free generate skill route, which no entry describes as using or not using credits",
+    "sentence": ""
+   },
+   {
+    "point": "Specific: Seedance model, which the credit entry does not name (it names Gemini Omni Flash 1.1)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entries cover credit use for generated video in general, and the free-skills entry says skills are outside the subscription dashboard, but none states whether a video made through the free generate skill with Seedance draws from credits, so the question is unanswered."
+ },
+ "at": "2026-11-16T06:26:36.792Z"
+}

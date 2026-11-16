@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4466,
+ "verdict": {
+  "points": [
+   {
+    "point": "Where the Overview page went",
+    "sentence": ""
+   },
+   {
+    "point": "Menu shows only Post editor",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry mentions an Overview page or says where it went. The navigation and Post editor entries cover neighboring questions, so none answers this one."
+ },
+ "at": "2026-11-16T06:33:02.135Z"
+}

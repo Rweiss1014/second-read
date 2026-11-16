@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 12027,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can I tie each brand kit to its own accounts (through the Claude connector)?",
+    "sentence": ""
+   },
+   {
+    "point": "Scheduling via Claude/MCP connector (not the website)",
+    "sentence": ""
+   },
+   {
+    "point": "Prevent posts going to the wrong brand's account",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The only sentence saying brand kits cannot be linked to accounts is scoped to the Blotato website, not the Claude connector the customer uses, and the MCP sentence gives a mapping workaround rather than stating whether a link exists or prevents the error, so no entry fully answers the message."
+ },
+ "at": "2026-11-16T06:42:52.073Z"
+}

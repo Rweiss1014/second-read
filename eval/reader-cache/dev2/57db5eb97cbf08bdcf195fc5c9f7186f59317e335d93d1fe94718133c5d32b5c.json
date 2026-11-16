@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5263,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is there a yearly plan",
+    "sentence": "The same steps switch you between monthly and yearly billing. You do not need to cancel first."
+   },
+   {
+    "point": "Must cancel monthly before moving to yearly",
+    "sentence": "The same steps switch you between monthly and yearly billing. You do not need to cancel first."
+   }
+  ],
+  "pick": "change-plan",
+  "reason": "The change-plan entry says you can switch between monthly and yearly billing, which shows yearly billing exists. It also says you don't need to cancel first."
+ },
+ "at": "2026-11-16T06:34:18.373Z"
+}

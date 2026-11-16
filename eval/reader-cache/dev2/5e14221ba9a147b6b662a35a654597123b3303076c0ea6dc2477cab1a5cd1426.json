@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4959,
+ "verdict": {
+  "points": [
+   {
+    "point": "mixing six images and one video in a LinkedIn carousel",
+    "sentence": ""
+   },
+   {
+    "point": "LinkedIn media limits",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states LinkedIn carousel media mix or limits; the LinkedIn entries cover only company page IDs, and the carousel limits quoted are for Instagram and Bluesky."
+ },
+ "at": "2026-11-16T06:25:53.598Z"
+}

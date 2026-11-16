@@ -1,0 +1,30 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 13961,
+ "verdict": {
+  "points": [
+   {
+    "point": "What the 'No LinkedIn pages found' message means",
+    "sentence": "This message appears in the Select LinkedIn pages window after your LinkedIn sign-in succeeds."
+   },
+   {
+    "point": "Whether the message is an error",
+    "sentence": "Not an error."
+   },
+   {
+    "point": "Analyst role, so should the Page be listed",
+    "sentence": "It means the signed-in profile has no company Pages where it holds the Super Admin or Content Admin role."
+   },
+   {
+    "point": "Whether the personal profile connection worked",
+    "sentence": "Your personal LinkedIn profile remains connected."
+   }
+  ],
+  "pick": "linkedin-no-pages-found",
+  "reason": "This entry explains the exact message the customer sees and says only Super Admin or Content Admin roles list a Page, which plainly leaves out an Analyst."
+ },
+ "at": "2026-11-16T06:34:21.522Z"
+}

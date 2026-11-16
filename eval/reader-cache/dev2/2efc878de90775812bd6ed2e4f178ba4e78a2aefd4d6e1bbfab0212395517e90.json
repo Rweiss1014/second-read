@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7455,
+ "verdict": {
+  "points": [
+   {
+    "point": "Reconnect button on TikTok row does nothing, no error",
+    "sentence": ""
+   },
+   {
+    "point": "On Starter with 20 accounts connected",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The reconnect-account entry covers reconnecting but doesn't mention Starter or the 20-account limit, and the connected-account-limit entry covers the limit but not a Reconnect button that does nothing, so no single entry answers both points."
+ },
+ "at": "2026-11-16T06:23:47.937Z"
+}

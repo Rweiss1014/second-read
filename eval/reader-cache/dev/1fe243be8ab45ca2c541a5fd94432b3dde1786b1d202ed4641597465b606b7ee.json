@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6422,
+ "verdict": {
+  "points": [
+   {
+    "point": "LinkedIn comments and DMs in Inbox after connecting",
+    "sentence": "Publishing support for other platforms does not add their conversations to Inbox."
+   },
+   {
+    "point": "TikTok comments and DMs in Inbox after connecting",
+    "sentence": "Publishing support for other platforms does not add their conversations to Inbox."
+   }
+  ],
+  "pick": "supported-inboxes",
+  "reason": "The entry says Inbox covers only Instagram and Facebook, and that connecting other platforms such as LinkedIn and TikTok doesn't add their conversations."
+ },
+ "at": "2026-11-16T06:46:13.285Z"
+}

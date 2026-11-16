@@ -1,0 +1,30 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6346,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why Blotato can't read the artifact link",
+    "sentence": "A claude.ai/artifact link is not a public image file, and Blotato cannot read the image from it."
+   },
+   {
+    "point": "How to get slides in: export from Claude",
+    "sentence": "Export the image files from Claude before posting."
+   },
+   {
+    "point": "How to get slides in: download files",
+    "sentence": "Download the PNG files to your computer."
+   },
+   {
+    "point": "How to get slides in: upload in editor",
+    "sentence": "Open your draft in the Blotato Post editor and click Photo / Video."
+   }
+  ],
+  "pick": "claude-artifact-images",
+  "reason": "The entry covers the unreadable claude.ai/artifact link and gives the steps to export, download and upload the images."
+ },
+ "at": "2026-11-16T06:45:01.726Z"
+}

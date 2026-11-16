@@ -1,0 +1,21 @@
+{
+ "kind": "refute",
+ "version": "refute-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6936,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "not-answered",
+    "about": "The customer asked directly whether they need to pay HeyGen to make this work, and the reply never clearly says so. It lists three vague causes and tells them to match their error, even though the \"Free Plan\" error already points to the plan."
+   },
+   {
+    "kind": "wrong-for-customer",
+    "about": "The reply offers wrong IDs and the matting setting as likely causes. The customer's error names the HeyGen free plan, so those causes don't fit. It also tells them to match their error to a cause, but they already gave the exact error."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:39:47.525Z"
+}

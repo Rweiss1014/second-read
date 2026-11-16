@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5475,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does wait-an-hour apply to Threads",
+    "sentence": ""
+   },
+   {
+    "point": "Threads daily post limit",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry mentions Threads, its wait time, or its daily post limit; the closest entries cover YouTube, LinkedIn, Facebook, TikTok, or a generic workflow rate limit."
+ },
+ "at": "2026-11-16T06:34:07.267Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5629,
+ "verdict": {
+  "points": [
+   {
+    "point": "Joint Reel (video post) with collaborators",
+    "sentence": ""
+   },
+   {
+    "point": "Collaborators on two Facebook Pages (not Instagram)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks for Facebook Page collaborators on a joint Reel, but the only collaborator entry (instagram-collaborators) covers Instagram collaborators and never names Facebook Pages, so no candidate answers the request."
+ },
+ "at": "2026-11-16T06:29:35.045Z"
+}

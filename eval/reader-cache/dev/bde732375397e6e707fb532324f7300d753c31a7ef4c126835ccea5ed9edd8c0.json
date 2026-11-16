@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5183,
+ "verdict": {
+  "points": [
+   {
+    "point": "what to do after the out of AI credits error",
+    "sentence": "In the app, go to Settings > Billing to check your credits and add more."
+   }
+  ],
+  "pick": "out-of-ai-credits-error",
+  "reason": "The customer asks what to do about the \"ran out of AI credits\" error, and this entry's step says to go to Settings > Billing to check and add credits."
+ },
+ "at": "2026-11-16T06:45:52.920Z"
+}

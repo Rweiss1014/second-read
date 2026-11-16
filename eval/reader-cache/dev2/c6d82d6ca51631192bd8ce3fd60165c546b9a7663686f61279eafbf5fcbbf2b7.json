@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7477,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why the video fails on Bluesky but worked on X",
+    "sentence": ""
+   },
+   {
+    "point": "Signed storage URL with no file extension",
+    "sentence": ""
+   },
+   {
+    "point": "H.264 mp4 format",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry, bluesky-media-rejected, only says to use a public URL and a supported format. It doesn't say whether a signed link with no file extension works on Bluesky, and the customer gave no error, so the cause would be a guess."
+ },
+ "at": "2026-11-16T06:32:40.104Z"
+}

@@ -22,7 +22,10 @@ import { runGuards, stripDeskInstructions, needsPerson, TROUBLE, NAMED_ITEMS, PL
 // Every hand-over carries a stable, machine-readable reason in "why" (and the details in "whyDetail"), beside
 // the human "reason" text, so a page can say it plainly. The codes are listed in knowledge/ENTRY-GUIDE.md.
 // An answer has why: null. A "partial" answer has why: 'partly-covered' for the part it hands over.
-export const WHY_CODES = ['money', 'others-data', 'secret', 'staff-action', 'desk-instructions', 'tried-already', 'outage', 'records-disagree', 'docs-wrong', 'access-blocked', 'past-docs', 'docs-silent', 'tie', 'partly-covered', 'not-english', 'no-coverage', 'nonsense', 'pressure'];
+export const WHY_CODES = ['money', 'others-data', 'secret', 'staff-action', 'desk-instructions', 'tried-already', 'outage', 'records-disagree', 'docs-wrong', 'access-blocked', 'past-docs', 'docs-silent', 'tie', 'partly-covered', 'not-english', 'no-coverage', 'nonsense', 'pressure', 'reader-abstained', 'reader-refuted'];
+// reader-abstained: the matcher would have answered, but the reader (src/reader.mjs) picked no entry, or its pick
+//   failed the script's checks. reader-refuted: the reader's pick passed, and the refuter named a real objection.
+// Both only appear when a reader backend is on; with it off the desk never gives them.
 const SIGNAL_WHY = {
   'tried-steps': 'tried-already', 'still-broken': 'tried-already', retried: 'tried-already', 'follow-on': 'tried-already', 'cause-ruled-out': 'tried-already',
   'many-accounts': 'outage', 'records-disagree': 'records-disagree', 'disputes-count': 'records-disagree', 'docs-wrong': 'docs-wrong', 'access-blocked': 'access-blocked', phrase: 'past-docs', pressure: 'pressure',
@@ -334,7 +337,48 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
     return { ...base, decision: 'answer', entry, why: null, whyDetail: null, reason: `Matched "${entry.id}" (${round(best.score)}, ahead by ${round(gap)}).` };
   }
 
-  return { route, index, entries };
+  // For the reader (src/reader.mjs). route() above is unchanged; these only re-use its checks.
+  //
+  // The lexical candidates for a message, best first, with the threshold and margin ignored (anchor-excluded
+  // entries included, since a new phrasing often misses an anchor word).
+  function lexical(text) {
+    const real = withoutPleasantries(stripDeskInstructions(String(text || '')).text);
+    return scoreEntries(index, real).slice().sort((a, b) => b.score - a.score);
+  }
+
+  // Every script check that applies once an entry is chosen, run for an entry the reader picked:
+  //   signals: the entry's own hand-over signals (plus the defaults), exactly as route() reads them.
+  //   gaps:    every gap the docs-silent and coverage rules raise, each marked hard or soft.
+  // Hard: no sentence of this entry can close it, because the rule already found the entry's own lines silent on
+  // that platform, plan, code, route, price, date, number, named outside thing, or scope. Soft: a vocabulary gap
+  // (a word, a short question's topic, a capitalized name) that a verbatim sentence the reader points to may close.
+  const SOFT_GAPS = new Set(['specific', 'name', 'cause']);
+  function reviewPick(entryId, text) {
+    const entry = index.byId.get(entryId);
+    if (!entry) return null;
+    const full = stripDeskInstructions(String(text || '')).text;
+    const real = withoutPleasantries(full);
+    let signals = null;
+    const hits = needsPerson(full, entry.needs_person_if, { hasTerm, allStems }, { defaults: true });
+    if (hits.length && !entry.escalate && !entry.noDocAnswer) {
+      const w = whyOfSignals(hits);
+      signals = { hits, ...w, holding: entry.holding || guardEntry(holdingGuardFor(w.why)), reason: `${hits[0].about} ("${hits[0].words}")` };
+    }
+    const gaps = [];
+    if (entry.symptom_only) { const err = specificError(real); if (err) gaps.push({ kind: 'error', term: err, hard: true, rule: 'symptom-only' }); }
+    if (isErrorEntryLike(entry)) { const wc = countMismatch(entry.title, real); if (wc) gaps.push({ kind: 'number', term: wc.said, hard: true, rule: 'count' }); }
+    if (!entry.escalate && !entry.noDocAnswer) {
+      const s = silentOn(entry, askedText(real));
+      if (s) gaps.push({ ...s, hard: !SOFT_GAPS.has(s.kind), rule: 'docs-silent' });
+      if (coverage) for (const only of ['scope', 'platform', 'plan', 'endpoint', 'name', 'code', 'type', 'short', 'word']) {
+        const g = coverage.gap(entry, real, { ...coverageOpt, only: [only] });
+        if (g) gaps.push({ ...g, hard: !SOFT_GAPS.has(g.kind), rule: `coverage:${only}` });
+      }
+    }
+    return { entry, full, real, signals, gaps };
+  }
+
+  return { route, index, entries, lexical, reviewPick, guardEntry };
 }
 
 function guardReason(g) {

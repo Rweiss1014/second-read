@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4872,
+ "verdict": {
+  "points": [
+   {
+    "point": "What does All LinkedIn slot do (one post to both profile and Page?)",
+    "sentence": ""
+   },
+   {
+    "point": "Why only profile got the post with Next free slot",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states what the \"All LinkedIn\" slot option does or whether it posts to both a profile and a company Page, so the closest entries only cover neighboring topics (slot matching, Page IDs, limits)."
+ },
+ "at": "2026-11-16T06:33:16.344Z"
+}

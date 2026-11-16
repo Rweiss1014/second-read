@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8442,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why HeyGen avatar videos never show up in Blotato",
+    "sentence": ""
+   },
+   {
+    "point": "Customer pays for both HeyGen and Blotato (plan/account question)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "None of the entries explains why HeyGen videos never appear in Blotato: \"heygen-with-blotato\" only describes the two ways to use HeyGen, \"heygen-avatar-video-errors\" covers a failing API step, and \"ai-twin\" addresses AI Twin, so each answers a neighboring question, and the cause depends on this customer's own account."
+ },
+ "at": "2026-11-16T06:28:21.745Z"
+}

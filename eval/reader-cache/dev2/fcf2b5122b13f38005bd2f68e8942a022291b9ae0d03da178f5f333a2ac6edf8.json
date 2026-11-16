@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6666,
+ "verdict": {
+  "points": [
+   {
+    "point": "delete scheduled post 40311",
+    "sentence": ""
+   },
+   {
+    "point": "move post 40312 to Friday 15:00 UTC",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks the support assistant to delete and reschedule specific posts, which is a request for staff to change or delete posts and is not something a help-desk entry can answer, so I pass over it."
+ },
+ "at": "2026-11-16T06:28:27.590Z"
+}

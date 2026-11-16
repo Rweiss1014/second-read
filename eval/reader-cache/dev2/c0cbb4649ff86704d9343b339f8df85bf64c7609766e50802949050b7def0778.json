@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5217,
+ "verdict": {
+  "points": [
+   {
+    "point": "hours until Instagram shares trial reel with followers (SS_PERFORMANCE)",
+    "sentence": ""
+   },
+   {
+    "point": "exact time for planning",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The trial reel entry explains the feature and manual promotion but never states the hours or exact time for SS_PERFORMANCE graduation, so no entry answers this."
+ },
+ "at": "2026-11-16T06:36:47.966Z"
+}

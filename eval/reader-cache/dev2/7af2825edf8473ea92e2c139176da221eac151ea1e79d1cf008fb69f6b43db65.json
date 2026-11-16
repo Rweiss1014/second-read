@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3488,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is the missing post in the picker a bug?",
+    "sentence": "The post picker lists posts published through Blotato only."
+   },
+   {
+    "point": "Post made in Meta Business Suite",
+    "sentence": "A post you published directly in the Instagram or Facebook app, in Meta Business Suite, or through another tool never appears in the picker."
+   }
+  ],
+  "pick": "dm-automation-post-picker",
+  "reason": "The entry states the picker lists only Blotato-published posts and that posts made in Meta Business Suite never appear, so it isn't a bug."
+ },
+ "at": "2026-11-16T06:36:53.662Z"
+}

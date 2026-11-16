@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4567,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is there an API endpoint to edit a posted comment (typo fix)?",
+    "sentence": ""
+   },
+   {
+    "point": "Is there an API endpoint to delete a posted comment, or can Blotato not do that?",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry, comment-on-posts-support, only covers reading, posting and replying to comments, and none of the candidate sentences state whether comments can be edited or deleted through the API, so the customer's question is unanswered."
+ },
+ "at": "2026-11-16T06:22:18.059Z"
+}

@@ -1,0 +1,21 @@
+{
+ "kind": "refute",
+ "version": "refute-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 10794,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "wrong-for-customer",
+    "about": "The customer already quoted the exact prompt from the authorization screen, but the reply tells them to read that message and only follow its link if it asks for a privacy change. It also treats this as a connection failure and a working connection, and the customer described neither."
+   },
+   {
+    "kind": "not-answered",
+    "about": "The customer named the specific setting, 'future activity history off Meta technologies', and said it isn't in their Accounts Center. The reply never says whether they need to switch it off, where it is now, or what to do when it can't be found."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:41:03.520Z"
+}

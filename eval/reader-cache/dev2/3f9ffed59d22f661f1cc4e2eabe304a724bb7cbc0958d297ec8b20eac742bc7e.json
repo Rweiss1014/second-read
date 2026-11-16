@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3224,
+ "verdict": {
+  "points": [
+   {
+    "point": "Slack error 7000: video not supported, what to change",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The Slack entry's quotes and steps are only generic hand-off text and never say what to change for the video-not-supported error 7000, so no entry answers this customer."
+ },
+ "at": "2026-11-16T06:33:05.479Z"
+}

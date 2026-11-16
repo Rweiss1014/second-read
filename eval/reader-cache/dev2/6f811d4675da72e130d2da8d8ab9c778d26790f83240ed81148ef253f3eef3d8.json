@@ -1,0 +1,17 @@
+{
+ "kind": "refute",
+ "version": "refute-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8244,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "wrong-for-customer",
+    "about": "The customer said they made the post in Meta Business Suite, and the reply's own point 2 says such posts never appear in the picker. Even so, the next step says to search the caption and check the connected account, and it says they'll know it worked when the post shows in the picker. That can't happen for this customer, and it never tells them to use 'On any Post or Reel' or to publish through Blotato."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:41:12.669Z"
+}

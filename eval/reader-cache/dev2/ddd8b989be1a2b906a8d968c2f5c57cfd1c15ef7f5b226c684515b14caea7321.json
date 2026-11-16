@@ -1,0 +1,30 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 11185,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is there a 100 MB Google Drive limit?",
+    "sentence": "Blotato does not impose a 100 MB Google Drive cutoff."
+   },
+   {
+    "point": "Drive warning page instead of the file",
+    "sentence": "Google Drive sometimes returns a warning page instead of the file for large videos."
+   },
+   {
+    "point": "How to fix it for the 350 MB video",
+    "sentence": "First, share the file as \"Anyone with the link\" and use https://drive.usercontent.google.com/download?id=FILE_ID&export=download&confirm=t."
+   },
+   {
+    "point": "Creator plan and 350 MB size",
+    "sentence": "Check your Blotato plan limit and the destination platform's media limit separately."
+   }
+  ],
+  "pick": "google-drive-warning-page",
+  "reason": "This entry says there is no 100 MB Drive cutoff, explains the warning page, gives the link fix, and says plan limits apply separately."
+ },
+ "at": "2026-11-16T06:25:27.955Z"
+}

@@ -1,0 +1,13 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4553,
+ "verdict": {
+  "points": [],
+  "pick": "none",
+  "reason": "The customer asks for other people's emails and plan data, which is not theirs to receive and no entry covers, so this goes to the team."
+ },
+ "at": "2026-11-16T06:33:04.918Z"
+}

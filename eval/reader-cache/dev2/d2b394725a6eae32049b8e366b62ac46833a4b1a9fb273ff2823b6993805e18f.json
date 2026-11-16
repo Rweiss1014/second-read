@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6691,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is the monthly reset midnight UTC or Sydney calendar time",
+    "sentence": ""
+   },
+   {
+    "point": "Customer is in Sydney (timezone)",
+    "sentence": ""
+   },
+   {
+    "point": "Launching a DM giveaway right after the reset",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry, active-contacts-limit-20101, explains what counts as an active contact and that the limit resets monthly, but none of its sentences state what timezone the monthly reset uses, so the timezone question is not answered."
+ },
+ "at": "2026-11-16T06:26:38.869Z"
+}

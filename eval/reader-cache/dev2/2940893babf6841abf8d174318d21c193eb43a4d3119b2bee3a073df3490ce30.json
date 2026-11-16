@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6850,
+ "verdict": {
+  "points": [
+   {
+    "point": "after how many hours Instagram shares the trial reel to followers",
+    "sentence": ""
+   },
+   {
+    "point": "graduationStrategy SS_PERFORMANCE setting",
+    "sentence": ""
+   },
+   {
+    "point": "exact time for planning posting",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks for an exact hour count and a graduationStrategy SS_PERFORMANCE setting, but the instagram-trial-reels entry only says that manual promotion is up to the user and never gives a time or mentions graduationStrategy, so no sentence answers the question."
+ },
+ "at": "2026-11-16T06:37:31.330Z"
+}

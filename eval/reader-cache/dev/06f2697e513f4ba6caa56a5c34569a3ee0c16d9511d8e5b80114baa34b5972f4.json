@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3888,
+ "verdict": {
+  "points": [
+   {
+    "point": "Uptime guarantee",
+    "sentence": ""
+   },
+   {
+    "point": "Service credits for missed scheduled posts",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states an uptime guarantee or service credits; the candidates cover agency setup, account limits and missing posts, which are neighboring topics."
+ },
+ "at": "2026-11-16T06:45:14.531Z"
+}

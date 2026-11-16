@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8490,
+ "verdict": {
+  "points": [
+   {
+    "point": "Do you have a yearly plan (yearly billing option)",
+    "sentence": "The same steps switch you between monthly and yearly billing."
+   },
+   {
+    "point": "Must cancel monthly subscription before moving to yearly",
+    "sentence": "You do not need to cancel first."
+   }
+  ],
+  "pick": "change-plan",
+  "reason": "The change-plan entry states that yearly billing is an option you can switch to and that you do not need to cancel first, which together answer both questions."
+ },
+ "at": "2026-11-16T06:31:30.310Z"
+}

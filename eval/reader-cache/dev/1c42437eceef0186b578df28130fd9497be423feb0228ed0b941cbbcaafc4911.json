@@ -1,0 +1,17 @@
+{
+ "kind": "refute",
+ "version": "refute-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7083,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "wrong-for-customer",
+    "about": "The reply ends by telling the customer to create the post, click Schedule and enter the collaborator handle. She already does this for single photo posts. It also contradicts the reply's own point that carousels with collaborators fail, because it implies the same steps will work for her carousel."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:47:32.315Z"
+}

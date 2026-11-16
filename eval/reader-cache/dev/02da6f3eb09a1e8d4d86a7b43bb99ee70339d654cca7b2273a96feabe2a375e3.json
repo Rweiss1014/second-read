@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4192,
+ "verdict": {
+  "points": [
+   {
+    "point": "Where to download the SOC 2 Type II report",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "None of the candidate entries mention SOC 2, compliance reports, or security documentation, so no sentence answers where the customer can download the report."
+ },
+ "at": "2026-11-16T06:43:18.059Z"
+}

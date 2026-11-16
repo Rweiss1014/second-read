@@ -1,0 +1,21 @@
+{
+ "kind": "refute",
+ "version": "refute-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9633,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "not-answered",
+    "about": "The customer asked why the log says \"follow gate skipped (confirmed follower)\", and the reply never says that the gate is skipped because the test account is already confirmed as a follower, which is the direct answer."
+   },
+   {
+    "kind": "wrong-for-customer",
+    "about": "The reply tells the customer to turn on Ask for a follow, reconnect the account, and rewrite the gate message, but the customer already has a working follow gate that passed last week on the same account, so these steps don't address their situation and may send them chasing a problem that isn't there."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:58:05.113Z"
+}

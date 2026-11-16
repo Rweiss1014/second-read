@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6051,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is the REST parameter named diff (instead of cleanTranscript) on GET /v2/source-resolutions-v3/:id",
+    "sentence": ""
+   },
+   {
+    "point": "Why cleanTranscript=true still returns timestamps on that endpoint",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate mentions source-resolutions, cleanTranscript, transcript timestamps, or a parameter name, and the customer says the parameter still fails after they tried it, so this needs a person."
+ },
+ "at": "2026-11-16T06:30:43.241Z"
+}

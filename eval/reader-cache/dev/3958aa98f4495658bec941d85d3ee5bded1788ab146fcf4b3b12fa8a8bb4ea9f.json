@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6189,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does Blotato repost failed Instagram posts automatically forever?",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks for confirmation of an automatic repost forever for failed Instagram posts, and no candidate says that; the closest entry (instagram-temporary-error-20003) only says Blotato retries on its own before reporting a temporary error and tells the user to check for an existing post before retrying, so it does not confirm the \"forever\" claim."
+ },
+ "at": "2026-11-16T06:42:21.288Z"
+}

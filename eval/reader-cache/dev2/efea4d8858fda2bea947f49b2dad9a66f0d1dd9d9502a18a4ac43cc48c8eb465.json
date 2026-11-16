@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8716,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why POST /v2/credits with quantity 25000 returns 400",
+    "sentence": ""
+   },
+   {
+    "point": "Buying 25k credits through the API",
+    "sentence": "Through the API, you can check your balance with GET /v2/credits and buy more with POST /v2/credits."
+   }
+  ],
+  "pick": "none",
+  "reason": "The how-to-buy-credits entry shows the POST /v2/credits endpoint but never says why this request returns 400 or what quantity limit applies, so naming the cause would be a guess."
+ },
+ "at": "2026-11-16T06:29:54.316Z"
+}

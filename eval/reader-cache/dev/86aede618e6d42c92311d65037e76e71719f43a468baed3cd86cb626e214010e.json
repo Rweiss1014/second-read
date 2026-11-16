@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8985,
+ "verdict": {
+  "points": [
+   {
+    "point": "how to tell the AI to make one post for Facebook and one for LinkedIn",
+    "sentence": "name the platforms in your prompt so Blotato generates one draft per platform."
+   }
+  ],
+  "pick": "different-post-per-platform",
+  "reason": "This entry's quoted sentence states that naming the platforms in the prompt makes Blotato generate one draft per platform, which answers the customer's request for a separate Facebook and LinkedIn post."
+ },
+ "at": "2026-11-16T06:43:02.271Z"
+}

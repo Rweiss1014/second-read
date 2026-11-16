@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6031,
+ "verdict": {
+  "points": [
+   {
+    "point": "where in Blotato to promote the trial reel later",
+    "sentence": ""
+   },
+   {
+    "point": "trial reel set to Manual",
+    "sentence": "Manual: You decide when to promote the reel to your followers"
+   }
+  ],
+  "pick": "none",
+  "reason": "The instagram-trial-reels entry explains that with the manual option you decide when to promote the reel, but none of its sentences say where in Blotato to do the promoting later, so the location question is not answered."
+ },
+ "at": "2026-11-16T06:30:33.438Z"
+}

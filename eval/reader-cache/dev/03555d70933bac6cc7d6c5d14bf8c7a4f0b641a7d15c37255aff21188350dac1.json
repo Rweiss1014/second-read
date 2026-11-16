@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5413,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can I pay with PayPal (payment method question)",
+    "sentence": ""
+   },
+   {
+    "point": "PayPal as a named payment method",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks about paying with PayPal, and none of the candidate entries names PayPal or states which payment methods Blotato accepts; the closest entries cover starting or cancelling the subscription, not payment methods."
+ },
+ "at": "2026-11-16T06:42:20.944Z"
+}

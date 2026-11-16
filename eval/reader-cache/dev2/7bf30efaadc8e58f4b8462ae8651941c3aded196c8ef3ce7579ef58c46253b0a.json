@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8612,
+ "verdict": {
+  "points": [
+   {
+    "point": "Reconnect button does nothing when clicked, with no error",
+    "sentence": ""
+   },
+   {
+    "point": "Starter plan with 20 accounts connected (account count)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer reports that the Reconnect button still does nothing after they clicked it, which is a failure after trying and not something this help content can answer; the reconnect entry only describes the normal steps and a general incognito workaround, and no entry says what to do when the button is unresponsive."
+ },
+ "at": "2026-11-16T06:37:46.097Z"
+}

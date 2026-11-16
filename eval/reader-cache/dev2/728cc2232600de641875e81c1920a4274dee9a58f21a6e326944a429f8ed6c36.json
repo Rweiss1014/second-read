@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4514,
+ "verdict": {
+  "points": [
+   {
+    "point": "Search the Inspiration database for viral posts via Claude with Blotato MCP",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether the Blotato MCP server can search the Inspiration database; the Claude setup entry covers connecting only, and the viral-hooks entry is about free skills, not this feature."
+ },
+ "at": "2026-11-16T06:23:35.739Z"
+}

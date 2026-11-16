@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5583,
+ "verdict": {
+  "points": [
+   {
+    "point": "Month Threads gets First Comment (a date the entry never states)",
+    "sentence": ""
+   },
+   {
+    "point": "Threads as a platform (entry names only Instagram and Facebook for First Comment)",
+    "sentence": ""
+   },
+   {
+    "point": "Deadline with consequences (contract renews Monday)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The first-comment entry covers only Instagram and Facebook and gives no month for Threads, and the customer's Monday contract deadline is a matter for the team rather than an automated reply."
+ },
+ "at": "2026-11-16T06:28:48.488Z"
+}

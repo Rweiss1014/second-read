@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4017,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why TikTok video posted muted / music removed",
+    "sentence": ""
+   },
+   {
+    "point": "TikTok video (not photo slideshow) music behavior",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry explains why a TikTok video's audio is muted after Blotato posts it; the music entries only cover autoAddMusic for photo posts (no effect on videos) and Instagram, so they answer a neighboring question."
+ },
+ "at": "2026-11-16T06:32:10.233Z"
+}

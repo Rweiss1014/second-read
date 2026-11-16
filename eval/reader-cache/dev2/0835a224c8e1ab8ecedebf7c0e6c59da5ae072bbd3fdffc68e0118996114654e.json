@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4837,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does a 429 response include a Retry-After header?",
+    "sentence": ""
+   },
+   {
+    "point": "Does a 429 response include X-RateLimit-Remaining?",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry (rate-limit) says to wait for the retry interval when the response supplies one, but it never states whether 429 responses carry Retry-After or X-RateLimit-Remaining headers."
+ },
+ "at": "2026-11-16T06:23:33.750Z"
+}

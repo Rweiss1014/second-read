@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8586,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why Blotato tools don't load in Hermes",
+    "sentence": ""
+   },
+   {
+    "point": "Hermes client config (~/.hermes/config.yaml)",
+    "sentence": ""
+   },
+   {
+    "point": "Still failing after restarting twice",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "Hermes is named by none of the entries, and the customer says the issue persists after two restarts, which is a still-failing case for the team to handle, not a saved reply."
+ },
+ "at": "2026-11-16T06:30:31.160Z"
+}

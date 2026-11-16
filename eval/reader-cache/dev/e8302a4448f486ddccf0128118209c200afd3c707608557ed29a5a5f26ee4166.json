@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6669,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is it a bug that the poller never sees status 'publishing'",
+    "sentence": ""
+   },
+   {
+    "point": "Status jumps from nothing straight to 'published' (whether 'publishing' status exists)",
+    "sentence": ""
+   },
+   {
+    "point": "Behavior described in the 'Fix Silent Failures' blog post",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate states whether a 'publishing' status exists or whether skipping it is a bug, and the 'Fix Silent Failures' blog post is not among the entries, so no entry answers the customer's question."
+ },
+ "at": "2026-11-16T06:42:28.055Z"
+}

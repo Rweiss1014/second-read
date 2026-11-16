@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5957,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does All LinkedIn post to both my profile and my company Page?",
+    "sentence": ""
+   },
+   {
+    "point": "Why only the profile got a post scheduled with Next free slot",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate explains what the \"All LinkedIn\" selection does in the app, and the only LinkedIn Page entry covers API accountId/pageId behavior rather than the customer's scheduling choice, so no entry answers the question with its own sentences."
+ },
+ "at": "2026-11-16T06:30:00.461Z"
+}

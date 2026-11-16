@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9647,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why the same video fails on Bluesky when it worked on X",
+    "sentence": ""
+   },
+   {
+    "point": "Whether a signed storage URL with no file extension is accepted for Bluesky",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No single entry explains why this video fails on Bluesky but works on X: the Bluesky entry only lists the 4-image/1-video limit and a generic \"confirm every media URL is public and uses a supported format,\" which does not say whether a signed URL without an extension is accepted, and the other entries cover different errors or platforms, so this needs a human to check the failed post."
+ },
+ "at": "2026-11-16T06:29:04.894Z"
+}

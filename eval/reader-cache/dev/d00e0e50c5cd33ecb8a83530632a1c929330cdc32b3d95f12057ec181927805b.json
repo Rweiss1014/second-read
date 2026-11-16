@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5583,
+ "verdict": {
+  "points": [
+   {
+    "point": "can Blotato post to Instagram broadcast channel (Instagram broadcast channel specific)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate mentions Instagram broadcast channels; the closest Instagram entry covers a different error (\"No Error\" from the Instagram API), so no entry answers the customer's question."
+ },
+ "at": "2026-11-16T06:42:15.503Z"
+}

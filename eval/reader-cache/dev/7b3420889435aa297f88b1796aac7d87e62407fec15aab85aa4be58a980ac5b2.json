@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6646,
+ "verdict": {
+  "points": [
+   {
+    "point": "is my account blocked",
+    "sentence": "Do not infer an account-wide publishing block from this message."
+   },
+   {
+    "point": "what the already-queued error means and what to do after one publish",
+    "sentence": "If the existing submission is processing, wait for its result. If it is scheduled or published, do not submit a duplicate."
+   }
+  ],
+  "pick": "already-queued-error",
+  "reason": "The entry covers this exact error. It says not to read it as an account-wide block, and it says what to do if the post is already processing, scheduled or published."
+ },
+ "at": "2026-11-16T06:46:12.440Z"
+}

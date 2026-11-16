@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5131,
+ "verdict": {
+  "points": [
+   {
+    "point": "filter GET /v2/comments to only audience comments (isAuthor false)",
+    "sentence": ""
+   },
+   {
+    "point": "?isAuthor=false parameter does nothing",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry says comments include audience replies and your own, but no entry states whether the comments endpoint can filter by isAuthor, and the customer says the parameter they tried did nothing."
+ },
+ "at": "2026-11-16T06:23:24.594Z"
+}

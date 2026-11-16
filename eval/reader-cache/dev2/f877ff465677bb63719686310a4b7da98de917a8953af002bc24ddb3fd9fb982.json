@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4908,
+ "verdict": {
+  "points": [
+   {
+    "point": "Which country Blotato servers and data are stored in",
+    "sentence": ""
+   },
+   {
+    "point": "EU storage for GDPR",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks where Blotato's servers and data are stored and needs EU storage for GDPR, but no candidate entry states a storage country or location; the closest entry, \"What IP address posts come from,\" only says posts originate from Blotato's cloud servers, which does not answer the question."
+ },
+ "at": "2026-11-16T06:29:15.566Z"
+}

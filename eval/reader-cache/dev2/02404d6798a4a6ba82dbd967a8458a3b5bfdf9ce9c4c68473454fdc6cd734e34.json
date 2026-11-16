@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5214,
+ "verdict": {
+  "points": [
+   {
+    "point": "Instagram Story publishes but caption text never shows on it",
+    "sentence": ""
+   },
+   {
+    "point": "Asks whether the caption is in the wrong field",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate states whether a Story can show a caption or which field the text belongs in; \"first-comment\" only says First comments are not supported on Stories, which is a neighboring question, so this should go to a person."
+ },
+ "at": "2026-11-16T06:21:49.054Z"
+}

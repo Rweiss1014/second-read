@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8051,
+ "verdict": {
+  "points": [
+   {
+    "point": "What 'Failed after 3 retries (Unknown error reason)' means",
+    "sentence": "Unknown error reason is a fallback for an unmapped failure reason, not proof of an outage or credit problem."
+   },
+   {
+    "point": "Whether to turn off retries and resubmit repeatedly",
+    "sentence": "Check the destination before another submission, then send support the full error and reference IDs."
+   }
+  ],
+  "pick": "tiktok-failed-after-3-retries",
+  "reason": "This entry covers the exact TikTok error and says to check the destination before submitting again instead of resubmitting right away."
+ },
+ "at": "2026-11-16T06:46:01.125Z"
+}

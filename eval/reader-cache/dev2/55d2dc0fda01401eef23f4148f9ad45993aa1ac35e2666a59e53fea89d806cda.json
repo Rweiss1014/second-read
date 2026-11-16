@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 14224,
+ "verdict": {
+  "points": [
+   {
+    "point": "what happened to the photo after the AI caption edit",
+    "sentence": ""
+   },
+   {
+    "point": "why the scheduled time stayed the same",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The mcp-edit-made-duplicate entry explains the photo loss only conditionally (\"leaving out mediaUrls removes the post's media\"), and the customer's account does not show whether Claude sent a partial post, so answering would require guessing about their own account; the entry's main topic is also duplicate posts, which the customer did not report."
+ },
+ "at": "2026-11-16T06:28:42.774Z"
+}

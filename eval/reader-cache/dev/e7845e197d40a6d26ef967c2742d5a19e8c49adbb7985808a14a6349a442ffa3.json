@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5914,
+ "verdict": {
+  "points": [
+   {
+    "point": "Where is the media library / can I upload photos once and reuse them",
+    "sentence": "No. The Blotato web app does not have a reusable media library."
+   },
+   {
+    "point": "Reuse of the 30 product photos across different posts all month",
+    "sentence": "Images and videos are attached to individual post drafts."
+   }
+  ],
+  "pick": "no-media-library",
+  "reason": "The entry directly answers the customer's question that Blotato has no reusable media library, and states that images are attached to individual post drafts, so the customer's plan to upload once and reuse all month is not supported."
+ },
+ "at": "2026-11-16T06:42:01.682Z"
+}

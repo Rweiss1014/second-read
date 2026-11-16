@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4810,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does moving a scheduled post to drafts get it published by accident?",
+    "sentence": "Moving to drafts removes the schedule without publishing."
+   },
+   {
+    "point": "If I only want to change the time, is that a different button?",
+    "sentence": "To change only the time, use Reschedule instead."
+   }
+  ],
+  "pick": "move-to-drafts",
+  "reason": "The move-to-drafts entry states both answers in its own sentences: moving to drafts removes the schedule without publishing, and changing only the time uses Reschedule instead."
+ },
+ "at": "2026-11-16T06:42:43.579Z"
+}

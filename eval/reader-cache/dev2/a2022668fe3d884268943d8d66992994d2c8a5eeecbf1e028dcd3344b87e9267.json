@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5901,
+ "verdict": {
+  "points": [
+   {
+    "point": "can the customer create a poll on X",
+    "sentence": ""
+   },
+   {
+    "point": "X as the platform",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry mentions polls or X polls; the closest entries cover carousels, trial reels, and other posting topics, which do not answer whether a poll can be made on X."
+ },
+ "at": "2026-11-16T06:29:00.504Z"
+}

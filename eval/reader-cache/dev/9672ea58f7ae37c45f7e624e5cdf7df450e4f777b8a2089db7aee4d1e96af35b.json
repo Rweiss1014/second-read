@@ -1,0 +1,17 @@
+{
+ "kind": "refute",
+ "version": "refute-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9037,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "wrong-for-customer",
+    "about": "The customer said they are already using Codex with the Blotato MCP, but step 1 and the closing 'Next step' tell them to open Settings > API and connect Codex, which they have already done."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:47:05.246Z"
+}

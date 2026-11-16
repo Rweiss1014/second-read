@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5515,
+ "verdict": {
+  "points": [
+   {
+    "point": "Asks for a working demo API key",
+    "sentence": ""
+   },
+   {
+    "point": "Wants to try the API before paying",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry says a demo or test key is available; the closest entry, sandbox-question, covers test mode rather than a demo key and says it is passing the question to the team, and the other entries cover 401 errors, billing, video sources, and account lookups."
+ },
+ "at": "2026-11-16T06:43:45.036Z"
+}

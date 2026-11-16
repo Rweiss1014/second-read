@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6380,
+ "verdict": {
+  "points": [
+   {
+    "point": "credits used by scheduling posts with own photos (not AI-generated)",
+    "sentence": "Credits are only used for AI-generated images and videos."
+   }
+  ],
+  "pick": "what-uses-credits",
+  "reason": "The customer's question is how many credits 300 monthly posts with their own photos use, and the sentence \"Credits are only used for AI-generated images and videos.\" answers that scheduling your own photos uses no credits, while the other entries cover plan allowances, plan changes, or scheduling limits rather than credit use for own photos."
+ },
+ "at": "2026-11-16T06:43:13.829Z"
+}

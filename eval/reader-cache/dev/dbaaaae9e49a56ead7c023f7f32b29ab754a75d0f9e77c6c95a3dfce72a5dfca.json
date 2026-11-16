@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4583,
+ "verdict": {
+  "points": [
+   {
+    "point": "nonprofit discount available",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "None of the entries mention nonprofit discounts or pricing, so no entry answers this question."
+ },
+ "at": "2026-11-16T06:45:38.794Z"
+}

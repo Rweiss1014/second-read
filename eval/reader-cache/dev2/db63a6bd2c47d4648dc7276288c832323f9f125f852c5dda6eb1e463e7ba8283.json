@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7189,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can claim the reward again for a second review (Capterra)",
+    "sentence": ""
+   },
+   {
+    "point": "Eligibility of a second review after a reward was already sent",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry, review-reward, explains how to get the $100 reward for a G2 or Capterra review, but none of its sentences say whether a customer can receive a second reward for another review, so the customer's question is not answered and it needs a person on the team."
+ },
+ "at": "2026-11-16T06:30:13.455Z"
+}

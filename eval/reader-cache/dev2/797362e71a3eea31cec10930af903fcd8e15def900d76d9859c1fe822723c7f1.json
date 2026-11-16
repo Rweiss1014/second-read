@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6197,
+ "verdict": {
+  "points": [
+   {
+    "point": "Scheduling a LinkedIn post for 2026-12-06T15:00:00Z (about three weeks out)",
+    "sentence": ""
+   },
+   {
+    "point": "Error 'Scheduled time is too far in the future.'",
+    "sentence": ""
+   },
+   {
+    "point": "Happens every time, in the app and via the API (already tried)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry, scheduling-horizon, states a 9-month limit, but the customer's date is about three weeks out, so its sentences do not explain why this error occurs, and the customer says it fails every time after trying in both the app and the API, which is outside what this entry can answer."
+ },
+ "at": "2026-11-16T06:21:49.568Z"
+}

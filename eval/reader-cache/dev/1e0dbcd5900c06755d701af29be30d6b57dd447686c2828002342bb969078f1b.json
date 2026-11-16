@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5539,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can I get a working demo key",
+    "sentence": ""
+   },
+   {
+    "point": "Try the API before paying",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry says a demo key or free API test exists. The closest entries only say that generating a key during the trial ends it and starts billing, which doesn't answer the request, so a team member should read it."
+ },
+ "at": "2026-11-16T06:46:03.758Z"
+}

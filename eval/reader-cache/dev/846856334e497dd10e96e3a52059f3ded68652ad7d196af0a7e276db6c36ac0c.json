@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3160,
+ "verdict": {
+  "points": [
+   {
+    "point": "Instagram story to Close Friends only",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether Blotato can limit an Instagram story to a Close Friends list; the Instagram story entry only covers one image or video per story and feed-post fallback."
+ },
+ "at": "2026-11-16T06:44:24.619Z"
+}

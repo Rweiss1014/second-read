@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5926,
+ "verdict": {
+  "points": [
+   {
+    "point": "REST param name for cleanTranscript / timestamps still appear",
+    "sentence": ""
+   },
+   {
+    "point": "is the param named diff in REST",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry covers source-resolutions transcript parameters or timestamp stripping, and the customer says cleanTranscript=true still fails, so a person should handle it."
+ },
+ "at": "2026-11-16T06:33:48.173Z"
+}

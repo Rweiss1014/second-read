@@ -1,0 +1,30 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 12927,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is the Creator limit 40 connected accounts",
+    "sentence": "You can connect up to **20** social accounts on the **Starter** plan, **40** on **Creator**, and **100** on **Agency**."
+   },
+   {
+    "point": "Facebook Pages, LinkedIn Pages and Slack channels count separately",
+    "sentence": "Facebook Pages, LinkedIn Company Pages, and Slack channels contribute towards this total:"
+   },
+   {
+    "point": "Do I have to disconnect something to add another account",
+    "sentence": "If you hit the limit, first disconnect an account in Accounts or upgrade your plan."
+   },
+   {
+    "point": "Why am I blocked at 24 connections when the Creator limit is 40",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The entry confirms the Creator limit of 40 and the disconnect-or-upgrade option, but the customer is blocked at 24 connections, and nothing in the entry's sentences explains that mismatch, which would need a check of their own account."
+ },
+ "at": "2026-11-16T06:29:51.205Z"
+}

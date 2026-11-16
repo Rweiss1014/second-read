@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6683,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is reset at midnight UTC or calendar timezone (Sydney)?",
+    "sentence": ""
+   },
+   {
+    "point": "Timing of reset for giveaway launch",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry (active-contacts-limit-20101) only says to wait for the monthly reset, and none of the entries say whether the reset happens at midnight UTC or in the account's timezone."
+ },
+ "at": "2026-11-16T06:25:46.333Z"
+}

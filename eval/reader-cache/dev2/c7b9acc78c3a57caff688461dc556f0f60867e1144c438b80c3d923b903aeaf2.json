@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7153,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why the follow gate is skipped (log says confirmed follower)",
+    "sentence": ""
+   },
+   {
+    "point": "Automation published November 12, after an old automation passed the gate",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry says a follow gate is skipped for someone already confirmed as a follower. The closest entries cover the email gate skip rule, or what happens after the gate message is sent. Explaining this run would also need a look at the customer's own account and run log."
+ },
+ "at": "2026-11-16T06:32:55.815Z"
+}

@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5526,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is 9 months calendar months or about 270 days?",
+    "sentence": ""
+   },
+   {
+    "point": "Is there a time-of-day cutoff?",
+    "sentence": ""
+   },
+   {
+    "point": "Can August 14, 2027 be scheduled from November 15, 2026?",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The scheduling-horizon entry only says the limit is 9 months and that Blotato errors past it. It doesn't say whether that means calendar months or days, and it doesn't mention a time-of-day cutoff, so the entry can't settle the customer's August 14 question."
+ },
+ "at": "2026-11-16T06:33:00.329Z"
+}

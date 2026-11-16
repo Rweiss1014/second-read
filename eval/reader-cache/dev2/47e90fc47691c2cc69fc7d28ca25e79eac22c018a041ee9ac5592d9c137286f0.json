@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6175,
+ "verdict": {
+  "points": [
+   {
+    "point": "max video length for Bluesky, in minutes",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate states a maximum video length for Bluesky: bluesky-media-rejected only limits the count to 1 video per post, and video-over-120-seconds covers Blotato's 120-second automatic conversion limit, not a Bluesky length cap, so the question is unanswered."
+ },
+ "at": "2026-11-16T06:28:58.916Z"
+}

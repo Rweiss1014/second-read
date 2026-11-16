@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6120,
+ "verdict": {
+  "points": [
+   {
+    "point": "how to get more (buy more) points",
+    "sentence": ""
+   },
+   {
+    "point": "\"magic picture points\" is the feature the customer means",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks how to buy more \"magic picture points\", but no candidate names or plainly includes that term; the buying entry covers \"AI Credits\", which I can't confirm is the same thing, so I'm passing it to the team."
+ },
+ "at": "2026-11-16T06:43:40.653Z"
+}

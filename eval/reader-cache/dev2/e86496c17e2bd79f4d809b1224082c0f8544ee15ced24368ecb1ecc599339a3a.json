@@ -1,0 +1,21 @@
+{
+ "kind": "refute",
+ "version": "refute-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3501,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "not-answered",
+    "about": "The customer asked how many of their 20 spots their LinkedIn profile plus 3 company pages use, and the reply never states the number (4 of 20, with 16 left)."
+   },
+   {
+    "kind": "wrong-for-customer",
+    "about": "The reply tells them to count their pages and disconnect an account or upgrade, though they never said they hit the limit and likely have room."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:39:23.385Z"
+}

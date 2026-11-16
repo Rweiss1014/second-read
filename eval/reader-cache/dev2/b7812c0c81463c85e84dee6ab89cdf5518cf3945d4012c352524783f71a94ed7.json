@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6026,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does the contact count reset on the 19th (renewal date) or the 1st",
+    "sentence": ""
+   },
+   {
+    "point": "Agency plan 15,000 active-contacts limit",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry (active-contacts-limit-20101) mentions a monthly reset but never says whether it falls on the renewal date or the 1st, and it doesn't state the Agency 15,000 limit."
+ },
+ "at": "2026-11-16T06:33:37.446Z"
+}

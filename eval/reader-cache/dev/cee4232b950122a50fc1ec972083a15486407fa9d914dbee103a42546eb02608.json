@@ -1,0 +1,30 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7538,
+ "verdict": {
+  "points": [
+   {
+    "point": "how to get the Claude artifact slides into Blotato (question)",
+    "sentence": "Export the image files from Claude before posting."
+   },
+   {
+    "point": "the claude.ai/artifact link is what they gave Blotato (specific)",
+    "sentence": "Blotato cannot read the image from that link."
+   },
+   {
+    "point": "the slides are the media to add (specific: images/PNG)",
+    "sentence": "Upload the PNG files."
+   },
+   {
+    "point": "where in Blotato to add them (specific: draft media button)",
+    "sentence": "Click Photo / Video on the draft."
+   }
+  ],
+  "pick": "claude-artifact-images",
+  "reason": "The entry answers the customer's question of how to get the artifact slides into Blotato, and its quoted sentences cover the artifact link, the export and upload steps, and the Photo / Video button."
+ },
+ "at": "2026-11-16T06:42:34.171Z"
+}

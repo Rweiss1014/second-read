@@ -1,0 +1,17 @@
+{
+ "kind": "refute",
+ "version": "refute-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6902,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "wrong-for-customer",
+    "about": "The reply tells the customer to connect a Facebook Page, but they said they already connected Facebook and can post to their Page. It also never directly answers whether any setting or Facebook-side approval would let the same posts go to their group."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:52:34.284Z"
+}

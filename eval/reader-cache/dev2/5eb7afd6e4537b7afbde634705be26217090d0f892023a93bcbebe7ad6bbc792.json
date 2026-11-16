@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9811,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does the LinkedIn profile count toward the total",
+    "sentence": "LinkedIn: Your profile and each connected company Page count toward your total"
+   },
+   {
+    "point": "Do 3 company pages count as spots",
+    "sentence": "Facebook Pages, LinkedIn Company Pages, and Slack channels contribute towards this total:"
+   },
+   {
+    "point": "The 20-spot limit",
+    "sentence": "You can connect up to **20** social accounts on the **Starter** plan, **40** on **Creator**, and **100** on **Agency**."
+   }
+  ],
+  "pick": "connected-account-limit",
+  "reason": "The entry says a LinkedIn profile and each connected company Page each count toward the total, so the customer's 4 accounts use 4 of the 20 spots."
+ },
+ "at": "2026-11-16T06:32:18.707Z"
+}

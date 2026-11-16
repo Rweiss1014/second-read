@@ -1,0 +1,12 @@
+{
+ "kind": "refute",
+ "version": "refute-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6784,
+ "verdict": {
+  "objections": [],
+  "verdict": "send"
+ },
+ "at": "2026-11-16T06:52:35.926Z"
+}

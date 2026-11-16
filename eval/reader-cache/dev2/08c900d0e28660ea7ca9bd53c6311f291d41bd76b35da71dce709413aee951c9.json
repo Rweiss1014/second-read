@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4950,
+ "verdict": {
+  "points": [
+   {
+    "point": "Filter GET /v2/comments to audience comments only (isAuthor false)",
+    "sentence": ""
+   },
+   {
+    "point": "Exclude my own replies from the results",
+    "sentence": ""
+   },
+   {
+    "point": "Query parameter ?isAuthor=false has no effect",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry, comment-on-posts-support, says the comments include audience replies and your own but never states any way to filter the GET /v2/comments endpoint by isAuthor, so no sentence answers the question and it is a neighboring topic."
+ },
+ "at": "2026-11-16T06:21:49.100Z"
+}

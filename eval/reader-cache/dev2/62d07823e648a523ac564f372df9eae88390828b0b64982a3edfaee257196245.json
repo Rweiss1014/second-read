@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6452,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does the Fix My Automation button appear for Make.com scenarios",
+    "sentence": ""
+   },
+   {
+    "point": "Is the button hidden on the customer's plan",
+    "sentence": ""
+   },
+   {
+    "point": "Where the button shows on a failed request in Logs",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate states whether Fix My Automation is available for Make.com or on which plans; the only mention, in mcp-invalid-grant, says it \"only works for n8n,\" which is a neighboring fact, not an answer to this customer's question."
+ },
+ "at": "2026-11-16T06:26:47.259Z"
+}

@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3657,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is my connection broken (empty list result)?",
+    "sentence": "A successful empty list means the connection works but no social accounts are connected."
+   }
+  ],
+  "pick": "claude-clients-support",
+  "reason": "The entry states that a successful empty list means the connection works but no social accounts are connected, which answers the customer's question."
+ },
+ "at": "2026-11-16T06:37:02.513Z"
+}

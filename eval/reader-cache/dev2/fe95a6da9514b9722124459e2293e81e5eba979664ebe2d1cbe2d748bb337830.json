@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9336,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why the slide 3 video plays with no sound on Instagram (carousel, baked-in voiceover)",
+    "sentence": ""
+   },
+   {
+    "point": "Whether a carousel video keeps its own audio on Instagram",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry, add-music-audio, only says Instagram Reels keep audio already in the video and that music cannot be added to carousels, so it does not state whether a carousel video's baked-in voiceover plays, which the customer asks about."
+ },
+ "at": "2026-11-16T06:26:45.748Z"
+}

@@ -1,0 +1,30 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5723,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why the AI Agent can't edit the video",
+    "sentence": ""
+   },
+   {
+    "point": "Cut the first 3 seconds (specific edit)",
+    "sentence": ""
+   },
+   {
+    "point": "Add captions (specific edit)",
+    "sentence": ""
+   },
+   {
+    "point": "Customer says they already tried five times and it still fails",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer says they already tried five times and it still fails, which is outside what this reply should answer, so none is picked even though \"The in-app AI Agent does not generate or edit videos through chat.\" addresses the why."
+ },
+ "at": "2026-11-16T06:43:12.193Z"
+}

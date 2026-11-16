@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7040,
+ "verdict": {
+  "points": [
+   {
+    "point": "How to get a different version of the same draft for LinkedIn and Facebook",
+    "sentence": ""
+   },
+   {
+    "point": "Whether the old remix screen uses Brand Kit",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks two questions, and no single entry answers both: \"different-post-per-platform\" covers the per-platform drafts but not Brand Kit, and \"old-remix-screen\" covers the Brand Kit question but not per-platform drafts."
+ },
+ "at": "2026-11-16T06:42:28.130Z"
+}

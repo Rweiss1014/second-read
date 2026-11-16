@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4116,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does the Blotato editor work with VoiceOver (screen reader)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry says anything about VoiceOver, screen readers, or accessibility; the closest, mobile-app, covers mobile and desktop use only, so the question is unanswered."
+ },
+ "at": "2026-11-16T06:44:01.482Z"
+}

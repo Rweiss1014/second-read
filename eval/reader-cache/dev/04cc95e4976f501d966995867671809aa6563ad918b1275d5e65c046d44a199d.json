@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6168,
+ "verdict": {
+  "points": [
+   {
+    "point": "biggest file I can upload on Starter",
+    "sentence": "The largest file size you can upload to Blotato in a single request: 400 MB on Starter, 1 GB on Creator and Agency."
+   },
+   {
+    "point": "650MB file is over the Starter limit / what to do about it",
+    "sentence": "If your file is too large, compress or trim it, or upgrade your plan."
+   }
+  ],
+  "pick": "max-upload-size",
+  "reason": "The entry states the Starter upload cap of 400 MB, which answers the customer's question and explains why a 650 MB file fails, and the entry's sentences cover both points."
+ },
+ "at": "2026-11-16T06:43:08.477Z"
+}

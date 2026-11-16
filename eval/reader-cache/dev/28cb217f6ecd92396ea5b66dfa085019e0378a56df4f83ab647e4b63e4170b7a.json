@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3983,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can brand kit be tied to its own accounts",
+    "sentence": "The Blotato website does not support account groups or automatic links between social accounts and Brand Kits."
+   },
+   {
+    "point": "Prevent wrong-account posting via Claude/MCP",
+    "sentence": "When you use Claude, ChatGPT, or another AI agent through Blotato MCP, create a brand-to-account mapping with each brand name, platform, account name, and account ID."
+   }
+  ],
+  "pick": "group-accounts-by-brand",
+  "reason": "The entry states that Brand Kits can't be linked to accounts automatically and gives the MCP mapping workaround for Claude, which answers both points."
+ },
+ "at": "2026-11-16T06:45:10.590Z"
+}

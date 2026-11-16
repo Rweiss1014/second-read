@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3887,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is the old version deleted?",
+    "sentence": "The older \"remix\" screen is still available."
+   },
+   {
+    "point": "How to return to the old version",
+    "sentence": "Click View old remix screen in the left sidebar of the AI Agent."
+   }
+  ],
+  "pick": "old-remix-screen",
+  "reason": "The customer asks whether the old paste-text-to-posts screen is gone and how to return, and this entry says the old remix screen is still available and gives the click path."
+ },
+ "at": "2026-11-16T06:45:45.789Z"
+}

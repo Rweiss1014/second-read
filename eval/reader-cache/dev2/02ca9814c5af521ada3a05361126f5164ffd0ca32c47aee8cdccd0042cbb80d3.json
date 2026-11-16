@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6524,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why Hermes doesn't load Blotato tools",
+    "sentence": ""
+   },
+   {
+    "point": "Hermes client config (duplicate mcp_servers key in config.yaml)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry covers Hermes or its config.yaml. The Codex and Claude entries are for other clients, and the customer also says they restarted twice and it still fails."
+ },
+ "at": "2026-11-16T06:33:37.715Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6170,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can two videos go in one post?",
+    "sentence": "Attach up to 4 images or 1 video per Bluesky post."
+   },
+   {
+    "point": "Platform is Bluesky",
+    "sentence": "Each Bluesky post supports up to 4 images or 1 video."
+   }
+  ],
+  "pick": "bluesky-media-rejected",
+  "reason": "The entry states that a Bluesky post allows only 1 video, which answers the customer's question about putting two videos in one Bluesky post."
+ },
+ "at": "2026-11-16T06:31:21.694Z"
+}

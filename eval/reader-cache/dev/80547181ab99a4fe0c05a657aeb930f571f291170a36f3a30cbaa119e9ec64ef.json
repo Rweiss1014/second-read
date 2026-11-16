@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3770,
+ "verdict": {
+  "points": [
+   {
+    "point": "Publish step failed with URL is empty",
+    "sentence": "The submitted URL is empty. Inspect the preceding operation and the field mapped into this request."
+   },
+   {
+    "point": "Previous step was Create Visual",
+    "sentence": "For a visual, verify completion and use its returned mediaUrl or imageUrls."
+   }
+  ],
+  "pick": "empty-url-or-mediaurl",
+  "reason": "The entry covers an empty URL in a step after Create Visual, and its sentences say to check the preceding step and use the visual's returned media URL."
+ },
+ "at": "2026-11-16T06:46:07.511Z"
+}

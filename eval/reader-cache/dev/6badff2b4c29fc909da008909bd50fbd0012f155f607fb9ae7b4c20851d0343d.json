@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5946,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can the plan be frozen or paused for Jun-Aug",
+    "sentence": ""
+   },
+   {
+    "point": "Will credits be kept during a freeze",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The cancel-subscription entry says Blotato has no pause or freeze feature, but none of the candidates' sentences say what happens to credits, so the second question is unanswered."
+ },
+ "at": "2026-11-16T06:44:30.436Z"
+}

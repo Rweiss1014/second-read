@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3353,
+ "verdict": {
+  "points": [
+   {
+    "point": "keyboard shortcuts for the calendar",
+    "sentence": ""
+   },
+   {
+    "point": "keyboard shortcuts for the post editor",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry lists keyboard shortcuts; the entries only cover where the calendar and Post editor are, which is a neighboring topic."
+ },
+ "at": "2026-11-16T06:32:09.270Z"
+}

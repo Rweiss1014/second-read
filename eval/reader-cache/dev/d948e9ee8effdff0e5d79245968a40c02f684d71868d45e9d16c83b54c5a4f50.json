@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4985,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is there an official Python SDK or npm package for the REST API",
+    "sentence": ""
+   },
+   {
+    "point": "Or do we write raw HTTP calls",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "None of the candidate entries states whether an official Python SDK or npm package exists or whether raw HTTP calls are needed; the closest entries (API 401, ChatGPT/Codex MCP setup) cover different questions."
+ },
+ "at": "2026-11-16T06:43:25.382Z"
+}

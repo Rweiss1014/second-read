@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3925,
+ "verdict": {
+  "points": [
+   {
+    "point": "Stripe says invoice can no longer be paid",
+    "sentence": ""
+   },
+   {
+    "point": "Card declined days ago; must old invoice be paid before using Blotato again",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "This is a billing and payment-record issue about a declined card and an unpayable invoice, which only the customer's own account can show, and no entry states whether the old invoice must be paid first."
+ },
+ "at": "2026-11-16T06:23:49.627Z"
+}

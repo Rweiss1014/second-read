@@ -1,0 +1,30 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 13875,
+ "verdict": {
+  "points": [
+   {
+    "point": "what in-progress means after 2 days",
+    "sentence": "In-progress can also mean Blotato found no record for that id, so it does not prove the post exists or failed."
+   },
+   {
+    "point": "saved submission id: is it right",
+    "sentence": "Please check that the id came from the original create response."
+   },
+   {
+    "point": "what to do now (don't repost)",
+    "sentence": "A long wait is not proof it failed, so please do not post it again yet."
+   },
+   {
+    "point": "where to look for a failure",
+    "sentence": "Failed posts are also listed at https://my.blotato.com/posts?status=failed, so please look there too."
+   }
+  ],
+  "pick": "in-progress",
+  "reason": "The customer has only polled a status that stays in-progress, and this entry says what in-progress can mean and what to do next. Its sentences are general, so they cover the Bluesky video case."
+ },
+ "at": "2026-11-16T06:25:59.405Z"
+}

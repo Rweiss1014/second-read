@@ -1,0 +1,21 @@
+{
+ "kind": "refute",
+ "version": "refute-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9179,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "not-answered",
+    "about": "The customer asked what is wrong with their body, but the reply never names the problem; the error points at body/template/id, and the reply does not say whether the tmpl_quote_card value or the templateId field name is the issue."
+   },
+   {
+    "kind": "wrong-for-customer",
+    "about": "The reply tells the customer to switch to the templateId and inputs format and the from-templates endpoint, but the customer already sent templateId and inputs to /v2/videos/creations, so the instruction repeats what they already did and rests on an unverified diagnosis of an older Create Visual format."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:38:28.866Z"
+}

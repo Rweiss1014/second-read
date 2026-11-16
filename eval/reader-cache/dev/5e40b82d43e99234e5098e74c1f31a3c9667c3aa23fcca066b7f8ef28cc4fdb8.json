@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4056,
+ "verdict": {
+  "points": [
+   {
+    "point": "retention period for videos and data after account deletion",
+    "sentence": ""
+   },
+   {
+    "point": "whether backups are wiped",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states how long data is kept after account deletion or whether backups are wiped; the closest entries cover cancelling a subscription, which is a different question."
+ },
+ "at": "2026-11-16T06:44:42.167Z"
+}

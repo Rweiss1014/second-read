@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6449,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why TikTok video posted muted / music removed",
+    "sentence": ""
+   },
+   {
+    "point": "Business account on TikTok",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry explains why a TikTok video's music is missing after Blotato posts it; the music entries cover only slideshow autoAddMusic (no effect on videos) or Instagram, so the closest ones answer neighboring questions."
+ },
+ "at": "2026-11-16T06:36:47.080Z"
+}

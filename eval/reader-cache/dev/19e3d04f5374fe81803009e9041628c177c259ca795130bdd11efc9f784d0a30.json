@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8169,
+ "verdict": {
+  "points": [
+   {
+    "point": "What the 'Incomplete' message means",
+    "sentence": "This message means Stripe started your subscription but the payment itself never went through, so the subscription is stuck in an incomplete state."
+   },
+   {
+    "point": "Downgrade from Creator to Starter in the portal",
+    "sentence": ""
+   },
+   {
+    "point": "Why the portal won't let them pick Starter while the subscription is Incomplete",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The subscription-setup-incomplete entry explains what 'Incomplete' means, but no entry says how to downgrade while the subscription is Incomplete or why the portal blocks the Starter choice, and the change-plan entry does not mention the Incomplete state; the customer's blocked status is also a fact only their account and the team can check."
+ },
+ "at": "2026-11-16T06:42:14.964Z"
+}

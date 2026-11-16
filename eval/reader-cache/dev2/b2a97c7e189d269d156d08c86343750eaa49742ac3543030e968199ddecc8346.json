@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8253,
+ "verdict": {
+  "points": [
+   {
+    "point": "What gives: why the TikTok shows this error even though it is public and plays",
+    "sentence": "Right now, Blotato can only analyze TikToks that have a subtitle track."
+   }
+  ],
+  "pick": "tiktok-missing-subtitle-track",
+  "reason": "The customer's question is why this TikTok errors, and the entry's first quoted sentence states that Blotato can only analyze TikToks with a subtitle track, which explains the error regardless of the video being public and playable."
+ },
+ "at": "2026-11-16T06:26:30.292Z"
+}

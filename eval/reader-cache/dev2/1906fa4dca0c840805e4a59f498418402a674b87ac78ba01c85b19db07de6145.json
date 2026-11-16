@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8058,
+ "verdict": {
+  "points": [
+   {
+    "point": "how many requests per minute for media upload",
+    "sentence": "Rate limit exceeded. Upload Media: 30 requests/minute. Publish Post: 30 requests/minute."
+   },
+   {
+    "point": "meaning of the 'too many requests' error",
+    "sentence": "That message means too many requests in one minute."
+   }
+  ],
+  "pick": "rate-limit",
+  "reason": "The entry states the Upload Media limit of 30 requests per minute, which answers the customer's question about POST /v2/media and explains the error they are seeing."
+ },
+ "at": "2026-11-16T06:26:38.394Z"
+}

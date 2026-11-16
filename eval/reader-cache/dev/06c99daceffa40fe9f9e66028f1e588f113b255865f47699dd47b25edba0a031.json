@@ -1,0 +1,17 @@
+{
+ "kind": "refute",
+ "version": "refute-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 12140,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "wrong-for-customer",
+    "about": "Step 3 tells the customer to publish the carousel and then add music in the Instagram app. Instagram generally doesn't let you add music to a post after it is published, so this advice would likely fail for their 6-photo carousel."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:47:30.942Z"
+}

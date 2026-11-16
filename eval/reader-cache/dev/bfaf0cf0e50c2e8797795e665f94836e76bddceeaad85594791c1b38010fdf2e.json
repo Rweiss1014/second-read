@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5605,
+ "verdict": {
+  "points": [
+   {
+    "point": "What uptime Blotato guarantees",
+    "sentence": ""
+   },
+   {
+    "point": "Whether service credits apply if scheduled posts miss their time",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate states an uptime guarantee or service-credit policy; the agency entries cover multi-client setup and the connected-account limit, and the scheduled-post entries cover troubleshooting a specific missing post, not credits, and credit or refund questions are not mine to answer."
+ },
+ "at": "2026-11-16T06:42:49.256Z"
+}

@@ -1,0 +1,17 @@
+{
+ "kind": "refute",
+ "version": "refute-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 10199,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "wrong-for-customer",
+    "about": "The customer already says they are using Codex with the Blotato MCP, but the reply's first step and \"Next step\" tell them to open Settings > API and follow the Codex connection steps again, which does not address their attachment problem."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:56:12.626Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6043,
+ "verdict": {
+  "points": [
+   {
+    "point": "can Blotato make a YouTube video a premiere",
+    "sentence": ""
+   },
+   {
+    "point": "premiere with the countdown feature",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "None of the candidate entries mention YouTube premieres or a countdown; the closest entries cover using YouTube videos as a source or AI disclosure labels, which answer neighboring questions, so this is passed over for staff."
+ },
+ "at": "2026-11-16T06:29:38.809Z"
+}

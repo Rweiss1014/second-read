@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8147,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why GET /v2/users/me/accounts returns 401",
+    "sentence": "A 401 means Blotato did not accept the key."
+   },
+   {
+    "point": "The .env key is missing the trailing '==' that the Settings key has",
+    "sentence": "Copy the full key, including any trailing `=` characters."
+   }
+  ],
+  "pick": "api-401",
+  "reason": "The .env key has no trailing '==' while the Settings key does, and this entry says to copy the full key including trailing = characters."
+ },
+ "at": "2026-11-16T06:46:07.915Z"
+}

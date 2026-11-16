@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4881,
+ "verdict": {
+  "points": [
+   {
+    "point": "Should I log in with Facebook when connecting Instagram?",
+    "sentence": ""
+   },
+   {
+    "point": "Instagram linked to a Facebook Page",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry, connect-social-accounts, only says to sign in to the intended social identity. It doesn't say whether Instagram should be connected through a Facebook login."
+ },
+ "at": "2026-11-16T06:34:01.492Z"
+}

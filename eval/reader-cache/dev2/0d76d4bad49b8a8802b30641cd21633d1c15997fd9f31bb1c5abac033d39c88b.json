@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5833,
+ "verdict": {
+  "points": [
+   {
+    "point": "Where the green Fix My Automation button is for a failed Make.com request in Logs",
+    "sentence": ""
+   },
+   {
+    "point": "Whether the button is hidden on the customer's plan",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry says whether Fix My Automation exists for Make.com, where it appears in Logs, or whether a plan hides it; the closest entry (mcp-invalid-grant) only says the button works for n8n and is about an MCP sign-in error, and the plan question would need account-specific facts."
+ },
+ "at": "2026-11-16T06:22:11.314Z"
+}

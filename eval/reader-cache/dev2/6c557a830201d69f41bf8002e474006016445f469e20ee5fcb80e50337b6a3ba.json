@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5816,
+ "verdict": {
+  "points": [
+   {
+    "point": "Which query parameter sorts GET /v2/posts oldest first",
+    "sentence": ""
+   },
+   {
+    "point": "Filters status=scheduled and status=failed on /v2/posts",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "None of the candidate entries covers API sorting or the sortBy parameter on /v2/posts; the closest entries (post status, failed posts, Schedule button, error handling) answer neighboring questions, so no entry answers the customer's question."
+ },
+ "at": "2026-11-16T06:30:16.818Z"
+}

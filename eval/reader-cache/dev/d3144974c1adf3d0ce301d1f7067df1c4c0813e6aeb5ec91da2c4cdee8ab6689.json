@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4372,
+ "verdict": {
+  "points": [
+   {
+    "point": "guarantee post publishes at exactly 9:00 tomorrow",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states that a scheduled post is guaranteed to publish at an exact time, and the customer is asking staff to promise something, so the message is left for a person on the team."
+ },
+ "at": "2026-11-16T06:45:54.142Z"
+}

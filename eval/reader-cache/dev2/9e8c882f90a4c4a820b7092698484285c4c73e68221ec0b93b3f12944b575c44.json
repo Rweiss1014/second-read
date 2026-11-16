@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8002,
+ "verdict": {
+  "points": [
+   {
+    "point": "How many media upload requests per minute",
+    "sentence": "Publishing and media uploads each allow 30 a minute."
+   }
+  ],
+  "pick": "rate-limit",
+  "reason": "The rate-limit entry says media uploads allow 30 a minute, which answers the customer's one question about this error."
+ },
+ "at": "2026-11-16T06:25:45.366Z"
+}

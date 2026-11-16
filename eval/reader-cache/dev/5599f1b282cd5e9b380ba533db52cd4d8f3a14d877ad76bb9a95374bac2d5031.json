@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3940,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why Story posted as feed post (4 photos)",
+    "sentence": "If you attach multiple images to a Story, Blotato publishes them as a regular feed post instead."
+   }
+  ],
+  "pick": "instagram-story-as-feed-post",
+  "reason": "The entry states that attaching multiple images to a Story makes Blotato publish a regular feed post, which explains the customer's 4-photo Story."
+ },
+ "at": "2026-11-16T06:45:07.859Z"
+}

@@ -1,0 +1,30 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6406,
+ "verdict": {
+  "points": [
+   {
+    "point": "Brand new X account (made Tuesday)",
+    "sentence": ""
+   },
+   {
+    "point": "Every post fails",
+    "sentence": ""
+   },
+   {
+    "point": "Error text: 'You are not permitted to perform this action'",
+    "sentence": ""
+   },
+   {
+    "point": "Asks why it happens",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The entry titled for this exact error (x-not-permitted-403) only tells the customer to hold off and passes the case to the team, so none of its sentences state a cause; the new-account entry fits the account age but quotes a different error text (\"Account not warmed up.\"), so neither answers the customer's question."
+ },
+ "at": "2026-11-16T06:21:55.492Z"
+}

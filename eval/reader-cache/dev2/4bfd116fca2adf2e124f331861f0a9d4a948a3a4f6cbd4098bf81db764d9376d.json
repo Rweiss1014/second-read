@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5470,
+ "verdict": {
+  "points": [
+   {
+    "point": "how to make music go on the TikTok slideshow (n8n/API publishing)",
+    "sentence": "Add autoAddMusic: true parameter in PUBLISH TO TIKTOK step for music."
+   },
+   {
+    "point": "applies to picture/slideshow posts",
+    "sentence": "Add music to photo posts. No effect on videos."
+   }
+  ],
+  "pick": "tiktok-slideshow-no-music",
+  "reason": "This entry tells the customer to set autoAddMusic: true in the publish to TikTok step, and it says this works for photo posts."
+ },
+ "at": "2026-11-16T06:33:11.337Z"
+}

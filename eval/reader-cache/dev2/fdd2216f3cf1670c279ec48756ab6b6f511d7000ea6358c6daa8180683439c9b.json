@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8358,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is the video dead or failed after 3 hours?",
+    "sentence": "A persistent loading state does not identify the cause or prove a failed job."
+   },
+   {
+    "point": "Should I start another video and burn more credits?",
+    "sentence": "Do not create another paid job because a status request failed or time elapsed."
+   },
+   {
+    "point": "No error field in the response",
+    "sentence": "Do not assume a credit problem or a silent failure."
+   }
+  ],
+  "pick": "visual-stuck-generating",
+  "reason": "This entry says a long loading state does not prove failure and says not to start another paid job just because time passed, which covers each point the customer raised."
+ },
+ "at": "2026-11-16T06:33:53.113Z"
+}

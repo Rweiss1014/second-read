@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4973,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is the Blotato MCP server open source?",
+    "sentence": ""
+   },
+   {
+    "point": "Link to the repo",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate states whether the Blotato MCP server is open source or gives a repo link; the MCP mentions only cover connection setup or are unrelated."
+ },
+ "at": "2026-11-16T06:34:03.085Z"
+}

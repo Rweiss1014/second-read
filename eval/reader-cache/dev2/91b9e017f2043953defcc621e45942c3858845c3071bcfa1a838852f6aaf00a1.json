@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6040,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does an archived Slack channel still count toward the 20-account limit?",
+    "sentence": ""
+   },
+   {
+    "point": "Is the slot freed automatically after archiving?",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry (connected-account-limit) says Slack channels count toward the 20-account Starter total. It never says what happens to that count when a channel is archived in Slack, or whether archiving frees the slot, so answering would be a guess."
+ },
+ "at": "2026-11-16T06:34:07.076Z"
+}

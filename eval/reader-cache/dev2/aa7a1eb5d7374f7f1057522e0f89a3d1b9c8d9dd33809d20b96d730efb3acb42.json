@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7917,
+ "verdict": {
+  "points": [
+   {
+    "point": "Bluesky video post in-progress for 2 days",
+    "sentence": ""
+   },
+   {
+    "point": "Polling GET /v2/posts/:id shows no change",
+    "sentence": ""
+   },
+   {
+    "point": "40s, 12 MB mp4 with a working URL, and what to do now",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The in-progress entry covers stuck statuses in general but never names Bluesky or video limits, and the Bluesky media entry only covers rejected attachments, so no single entry answers this stuck Bluesky video post."
+ },
+ "at": "2026-11-16T06:23:48.201Z"
+}

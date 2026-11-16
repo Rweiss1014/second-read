@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5272,
+ "verdict": {
+  "points": [
+   {
+    "point": "Where to find Page ID (question)",
+    "sentence": "For Facebook Pages, use Copy page ID beside the Page you want in Accounts."
+   },
+   {
+    "point": "Facebook needs both Account ID and Page ID (the Account ID-only setup is the problem)",
+    "sentence": "Facebook needs both an Account ID and a Page ID."
+   },
+   {
+    "point": "Copy the ID rather than typing it (how to get the value)",
+    "sentence": "Copy the Page ID with the \"Copy Page ID\" button instead of typing it."
+   }
+  ],
+  "pick": "facebook-wrong-page-id",
+  "reason": "The entry answers the customer's question of where to find the Page ID, and its sentences state that Facebook needs both IDs and that the Copy page ID button in Accounts, beside the Page, provides it."
+ },
+ "at": "2026-11-16T06:43:32.686Z"
+}

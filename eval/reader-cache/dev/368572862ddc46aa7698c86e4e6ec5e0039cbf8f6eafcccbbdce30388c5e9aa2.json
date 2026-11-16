@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7711,
+ "verdict": {
+  "points": [
+   {
+    "point": "GET /v2/analytics returns 404 for a published Instagram post",
+    "sentence": ""
+   },
+   {
+    "point": "Post id from List Posts and same key (already tried; 404 persists)",
+    "sentence": ""
+   },
+   {
+    "point": "Creator plan",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate covers the 404 from GET /v2/analytics: the 401 entry is about rejected keys, the analytics entries describe the dashboard and refresh timing rather than endpoint errors, and the customer says they already tried the key and the call still fails, so this needs the team."
+ },
+ "at": "2026-11-16T06:42:15.060Z"
+}

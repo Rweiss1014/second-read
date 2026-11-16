@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3403,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why post went out at 4:00 am New York time instead of 9:00 (timezone offset of scheduledTime)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states how scheduledTime without a timezone offset is interpreted (e.g., as UTC, which would explain 9:00 UTC becoming 4:00 am in New York), so none answers this timezone question."
+ },
+ "at": "2026-11-16T06:33:15.495Z"
+}

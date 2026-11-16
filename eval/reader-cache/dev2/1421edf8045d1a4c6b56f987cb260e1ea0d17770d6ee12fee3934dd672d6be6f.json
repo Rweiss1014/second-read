@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5661,
+ "verdict": {
+  "points": [
+   {
+    "point": "Guarantee limit never lowers for 12 months",
+    "sentence": ""
+   },
+   {
+    "point": "Written confirmation of 30 requests/minute upload limit",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer wants a written guarantee that the limit won't change for 12 months. The rate-limit entry only states the current 30/minute limit, not any future commitment, and this needs a staff decision."
+ },
+ "at": "2026-11-16T06:33:43.765Z"
+}

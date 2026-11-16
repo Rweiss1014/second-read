@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3729,
+ "verdict": {
+  "points": [
+   {
+    "point": "whose data is this (another account's data in webhook runs)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer reports webhook runs from an Instagram account they don't own, which involves another person's data or account and a fact only account investigation can show, so staff must handle it and no entry answers it."
+ },
+ "at": "2026-11-16T06:37:04.023Z"
+}

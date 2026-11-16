@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5318,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is sending the image as base64 wrong?",
+    "sentence": "It does not take a base64 string or a data blob."
+   },
+   {
+    "point": "slides.image field expects what kind of value",
+    "sentence": "The image field expects a short public URL."
+   },
+   {
+    "point": "400 character limit error on slides.image",
+    "sentence": "Keep image URLs under 400 characters."
+   }
+  ],
+  "pick": "slides-image-too-long",
+  "reason": "The entry covers the exact slides.image 400-character error and states that the field takes a short public URL, not base64, so the customer's question is answered by its own sentences."
+ },
+ "at": "2026-11-16T06:43:22.204Z"
+}

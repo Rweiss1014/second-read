@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6964,
+ "verdict": {
+  "points": [
+   {
+    "point": "credit cost of a 10-second clip at 1080p",
+    "sentence": ""
+   },
+   {
+    "point": "Gemini Omni Flash 1.1 image-to-video uses credits",
+    "sentence": "Generating AI video clips (text-to-video or image-to-video, including Gemini Omni Flash 1.1, the video editor's default)"
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks for the exact credit cost of a 10-second, 1080p clip, and no candidate entry states a per-second, per-resolution, or per-clip credit amount; \"what-uses-credits\" only confirms that Gemini Omni Flash 1.1 image-to-video uses credits."
+ },
+ "at": "2026-11-16T06:28:16.424Z"
+}

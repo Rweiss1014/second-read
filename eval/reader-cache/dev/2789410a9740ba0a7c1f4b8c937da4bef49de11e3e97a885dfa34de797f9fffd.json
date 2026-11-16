@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7061,
+ "verdict": {
+  "points": [
+   {
+    "point": "How to tell the AI which platforms to write for (no choose-platforms step)",
+    "sentence": "name the platforms in your prompt so Blotato generates one draft per platform."
+   },
+   {
+    "point": "Getting one separate post each for Facebook and LinkedIn",
+    "sentence": "name the platforms in your prompt so Blotato generates one draft per platform."
+   }
+  ],
+  "pick": "different-post-per-platform",
+  "reason": "This entry says to name the platforms in the prompt and that Blotato then makes one draft per platform. That covers both asking for platforms and getting a separate post for each, while the other generating entry doesn't mention one draft per platform."
+ },
+ "at": "2026-11-16T06:45:23.439Z"
+}

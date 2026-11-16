@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7786,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does the customer need to pay HeyGen to make the avatar step work with Blotato (they only have the free account)",
+    "sentence": "HeyGen API requires $99/mo API plan. Free API plan won't work."
+   },
+   {
+    "point": "Error message shown: \"You're On Heygen Free Plan\"",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The entry answers the payment question, but the customer's quoted error message \"You're On Heygen Free Plan\" is not named in any of its sentences, so the match is not complete and the case goes to the team."
+ },
+ "at": "2026-11-16T06:22:12.700Z"
+}

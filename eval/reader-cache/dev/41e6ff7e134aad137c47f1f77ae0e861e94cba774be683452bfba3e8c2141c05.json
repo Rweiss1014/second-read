@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 13187,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why two posts appeared after asking Claude to fix a typo",
+    "sentence": ""
+   },
+   {
+    "point": "How to remove the extra (duplicate) post from the calendar",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The mcp-edit-made-duplicate entry explains the likely cause, but none of its sentences say how to remove the extra post, which the customer's report needs, so the entry does not answer every point."
+ },
+ "at": "2026-11-16T06:43:45.896Z"
+}

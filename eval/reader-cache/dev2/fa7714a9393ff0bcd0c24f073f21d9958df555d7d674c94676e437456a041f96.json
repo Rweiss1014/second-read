@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4690,
+ "verdict": {
+  "points": [
+   {
+    "point": "Export produced slides.zip instead of an mp4",
+    "sentence": ""
+   },
+   {
+    "point": "How to get an mp4 output",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry explains why an export gives slides.zip or how to get an mp4 from it. The slideshow entry covers making a video from a template, not changing an export format, and the other entries cover neighboring topics."
+ },
+ "at": "2026-11-16T06:32:48.327Z"
+}

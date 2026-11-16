@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8863,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is the 5-hashtag error a Blotato bug or an Instagram rule?",
+    "sentence": "This is a Blotato guardrail, not an Instagram rule."
+   },
+   {
+    "point": "Instagram allows 30 hashtags, so why the 5 cap?",
+    "sentence": "Instagram itself allows more hashtags, but Blotato caps posts at 5 on purpose because more than 5 hashtags reduces your reach on Instagram, TikTok, and Facebook."
+   },
+   {
+    "point": "How to get the post published",
+    "sentence": "Fix: trim your caption to 5 hashtags or fewer and republish."
+   }
+  ],
+  "pick": "instagram-five-hashtag-limit",
+  "reason": "This entry says the 5-hashtag cap is an intentional Blotato guardrail, not an Instagram rule or a bug. It also gives the fix of trimming the caption to 5 hashtags or fewer."
+ },
+ "at": "2026-11-16T06:45:12.261Z"
+}

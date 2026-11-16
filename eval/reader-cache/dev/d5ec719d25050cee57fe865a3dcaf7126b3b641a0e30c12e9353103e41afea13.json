@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5075,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why POST /v2/posts returns 422",
+    "sentence": ""
+   },
+   {
+    "point": "Specific: 422 status code (not 401, 403, or 400)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer reports a 422 from POST /v2/posts, and no candidate's sentences mention a 422 status or that endpoint; the closest entry, api-401, covers a 401 Unauthorized, which is a different error."
+ },
+ "at": "2026-11-16T06:42:55.818Z"
+}

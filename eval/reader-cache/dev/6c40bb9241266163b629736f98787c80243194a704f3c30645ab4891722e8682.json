@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4090,
+ "verdict": {
+  "points": [
+   {
+    "point": "download list of published posts as spreadsheet",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether published post history can be exported as a spreadsheet; the CSV entry covers only importing, and the visuals entry covers only downloading generated media."
+ },
+ "at": "2026-11-16T06:45:42.804Z"
+}

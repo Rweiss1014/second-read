@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6654,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does a Tolt affiliate code in the referral field earn commission on clients' credit purchases?",
+    "sentence": ""
+   },
+   {
+    "point": "Referral field in POST /v2/credits",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks whether the Tolt affiliate referral code earns commission, and no candidate entry states anything about affiliate programs, referral codes, or commission; the \"how-to-buy-credits\" entry only covers buying credits via POST /v2/credits, which is a neighboring topic."
+ },
+ "at": "2026-11-16T06:31:13.254Z"
+}

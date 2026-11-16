@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5687,
+ "verdict": {
+  "points": [
+   {
+    "point": "Video clip in slide 3 of an Instagram carousel plays with no sound",
+    "sentence": ""
+   },
+   {
+    "point": "The file already has the voiceover baked in",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry, add-music-audio, says that audio already in a Reel plays when posted, but no entry states whether a video inside an Instagram carousel keeps its baked-in audio, so none answers this."
+ },
+ "at": "2026-11-16T06:22:09.586Z"
+}

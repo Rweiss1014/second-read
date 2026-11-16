@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6494,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why the post went out at 4:00 am New York time instead of 9:00 (time shift in scheduledTime)",
+    "sentence": ""
+   },
+   {
+    "point": "Customer is in New York and scheduledTime has no timezone offset",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate explains how scheduledTime without a timezone offset is interpreted or why a 9:00 time would publish at 4:00 am New York time; the closest entries cover publish-now behavior, free slots, rescheduling, or failed posts, which are neighboring questions."
+ },
+ "at": "2026-11-16T06:30:01.586Z"
+}

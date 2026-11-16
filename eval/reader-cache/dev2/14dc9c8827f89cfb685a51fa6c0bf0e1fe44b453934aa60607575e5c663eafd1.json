@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7065,
+ "verdict": {
+  "points": [
+   {
+    "point": "YouTube brand channel missing from the connect list",
+    "sentence": ""
+   },
+   {
+    "point": "Manager role on the brand channel",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry covers a YouTube brand channel missing from the connect list or the Manager role. The LinkedIn Page entry is about a different platform, and the second-account entry only describes switching accounts without addressing brand channels."
+ },
+ "at": "2026-11-16T06:37:05.756Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 11846,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why the Pinterest link returns a 404",
+    "sentence": ""
+   },
+   {
+    "point": "Pin shows as published in Blotato but the link is broken",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry, published-not-visible, covers a post missing from the feed and only says that Blotato's \"Published\" status does not establish why a platform URL is inaccessible, so no entry states the cause or a fix for a 404 on a Pinterest link."
+ },
+ "at": "2026-11-16T06:43:03.972Z"
+}

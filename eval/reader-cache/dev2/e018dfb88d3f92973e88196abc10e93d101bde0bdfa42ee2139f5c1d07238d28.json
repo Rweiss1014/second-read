@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7527,
+ "verdict": {
+  "points": [
+   {
+    "point": "cap on rollover credits",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry says anything about rollover credits or a cap on them; the credits entry only covers what uses credits and how to check the balance."
+ },
+ "at": "2026-11-16T06:25:24.170Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8291,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is it still loading? Why no post after 10 minutes",
+    "sentence": "Adding Text context does not generate a post automatically."
+   },
+   {
+    "point": "Whether the pasted source finished loading",
+    "sentence": "Confirm the source finished loading and its checkbox is selected in Context."
+   }
+  ],
+  "pick": "text-context-no-post",
+  "reason": "The customer pasted the article as Text context and got no post after 10 minutes, and this entry states that adding Text context does not generate a post automatically and tells them to confirm the source has finished loading and is selected."
+ },
+ "at": "2026-11-16T06:42:50.711Z"
+}

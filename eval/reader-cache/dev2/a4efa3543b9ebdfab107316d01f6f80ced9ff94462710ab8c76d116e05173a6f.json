@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5973,
+ "verdict": {
+  "points": [
+   {
+    "point": "why the dental brand channel is missing from the YouTube list when connecting",
+    "sentence": ""
+   },
+   {
+    "point": "whether a Manager role on a brand channel lets Blotato connect it",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether a YouTube brand channel with the Manager role can be connected or why it would be missing from the list; the closest entry, \"connect-social-accounts\", only says to sign in to the intended identity and approve permissions, and the other entries cover different platforms or problems."
+ },
+ "at": "2026-11-16T06:37:49.969Z"
+}

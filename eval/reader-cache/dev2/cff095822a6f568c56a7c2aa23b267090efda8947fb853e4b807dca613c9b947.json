@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4127,
+ "verdict": {
+  "points": [
+   {
+    "point": "Where the other 18 triggered runs went (analytics don't add up)",
+    "sentence": ""
+   },
+   {
+    "point": "Did those people get their DM / are leads lost",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry explains DM automation analytics counts or what happened to the unaccounted 18 runs, and answering would require this customer's own account data."
+ },
+ "at": "2026-11-16T06:25:31.045Z"
+}

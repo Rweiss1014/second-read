@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5588,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does a 429 response include a Retry-After header?",
+    "sentence": ""
+   },
+   {
+    "point": "Does a 429 response include an X-RateLimit-Remaining header?",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry, rate-limit, covers workflow \"Too many requests\" messages and says to wait for the retry interval when the response supplies one, but none of its sentences say whether a 429 response includes a Retry-After or X-RateLimit-Remaining header, so the customer's header question is unanswered."
+ },
+ "at": "2026-11-16T06:26:32.007Z"
+}

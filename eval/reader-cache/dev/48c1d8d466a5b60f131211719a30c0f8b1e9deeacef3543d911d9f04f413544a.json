@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 10895,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why line breaks vanish, post shows as one block",
+    "sentence": "Long text with linebreaks needs escaping."
+   },
+   {
+    "point": "Escape Multi-Line Paragraphs error in n8n",
+    "sentence": "In n8n use toJsonString() function."
+   },
+   {
+    "point": "Keep line breaks in a multi-paragraph post (LinkedIn)",
+    "sentence": "To preserve newlines in posts with multiple paragraphs, use the function toJsonString() in n8n like this: \"text\": $(\"Prepare for Publish\").item.json.final_text_long.toJsonString()"
+   }
+  ],
+  "pick": "n8n-multiline-text-escape",
+  "reason": "The entry covers the n8n line-break and escape problem with sentences that apply to any multi-paragraph post, including LinkedIn, and it gives the toJsonString() fix for the Escape Multi-Line Paragraphs error."
+ },
+ "at": "2026-11-16T06:43:03.076Z"
+}

@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5821,
+ "verdict": {
+  "points": [
+   {
+    "point": "Will each run of the POST top-up charge 2,000 credits",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "This is a question about being charged, which is not mine to answer, and the how-to-buy-credits entry shows the POST call but never says whether each call bills 2,000 credits, so no entry covers it."
+ },
+ "at": "2026-11-16T06:29:18.157Z"
+}

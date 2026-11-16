@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7396,
+ "verdict": {
+  "points": [
+   {
+    "point": "Same person messaged two Pages, replied on each: counts once or twice?",
+    "sentence": ""
+   },
+   {
+    "point": "Do commenters we never answer count?",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry, active-contacts-limit-20101, says repeat contact through the same connected account adds no new contact, but it doesn't say how one person reached through two different Facebook Pages is counted, so the first question has no answering sentence."
+ },
+ "at": "2026-11-16T06:32:01.689Z"
+}

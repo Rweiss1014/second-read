@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5804,
+ "verdict": {
+  "points": [
+   {
+    "point": "number of brands allowed in Brand Kit",
+    "sentence": ""
+   },
+   {
+    "point": "Starter plan",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states a brand limit for Brand Kit on Starter; the Brand Kit entries cover setup and grouping, and the Starter sentences concern analytics metrics."
+ },
+ "at": "2026-11-16T06:45:03.763Z"
+}

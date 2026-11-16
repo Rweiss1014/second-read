@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4998,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does an \"All LinkedIn\" calendar slot post to both profile and company page?",
+    "sentence": ""
+   },
+   {
+    "point": "Why the post went only to the company page, and whether the customer broke something",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry says what an \\\"All LinkedIn\\\" calendar slot does or why a post reached only the company page. The company-page entry covers API pageId targeting, which is a neighboring topic."
+ },
+ "at": "2026-11-16T06:33:50.714Z"
+}

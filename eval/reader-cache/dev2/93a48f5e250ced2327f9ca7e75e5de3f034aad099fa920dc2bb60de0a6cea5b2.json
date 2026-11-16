@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 14562,
+ "verdict": {
+  "pick": "gateway-503",
+  "points": [
+   {
+    "point": "Right way to handle a 503 on a status check (a read)",
+    "sentence": "For a read, retry after a delay and stop after a set number of tries."
+   },
+   {
+    "point": "Should I send the post again (a write) after a 503",
+    "sentence": "After a write, check first for work that already exists."
+   },
+   {
+    "point": "The specific 503 Service Unavailable response",
+    "sentence": "A 503 alone does not prove a social platform outage, and it does not rule out a Blotato issue."
+   }
+  ],
+  "reason": "The customer's status check is a read, and this entry gives the read-specific handling (delayed, bounded retry) and says a write needs an existing-work check first, so it answers the question without resending; the entry does not explicitly say \"do not resend,\" so the reply should make that inference clear."
+ },
+ "at": "2026-11-16T06:30:45.872Z"
+}

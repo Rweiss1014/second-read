@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6380,
+ "verdict": {
+  "points": [
+   {
+    "point": "Get from Developer Platform view to the writing screen",
+    "sentence": "Select Switch to Content Studio if you are in Developer Platform."
+   },
+   {
+    "point": "Open the screen where the AI Agent is",
+    "sentence": "Select Post editor."
+   },
+   {
+    "point": "Built-in AI Agent (not an external assistant)",
+    "sentence": "Post editor opens the in-app AI Agent. It is separate from an external assistant connected through MCP."
+   }
+  ],
+  "pick": "find-post-editor",
+  "reason": "The entry tells the customer to switch from Developer Platform to Content Studio and select Post editor, which it names as the in-app AI Agent, so it answers all of the customer's points."
+ },
+ "at": "2026-11-16T06:43:57.576Z"
+}

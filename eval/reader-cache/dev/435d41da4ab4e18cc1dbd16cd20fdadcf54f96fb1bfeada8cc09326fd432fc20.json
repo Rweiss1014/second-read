@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6016,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can Blotato post to Substack (Notes)?",
+    "sentence": "You cannot crosspost to Substack from Blotato -- not in the web app, the API, or via MCP/Cowork."
+   }
+  ],
+  "pick": "substack-not-supported",
+  "reason": "The entry states Blotato cannot post to Substack in any way, which covers Notes and answers the customer's question."
+ },
+ "at": "2026-11-16T06:44:35.263Z"
+}

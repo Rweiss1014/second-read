@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5125,
+ "verdict": {
+  "points": [
+   {
+    "point": "Customer asks for a 10-minute Zoom call",
+    "sentence": "Blotato does not offer Zoom calls, phone calls, or live meetings with customers."
+   }
+  ],
+  "pick": "calls-and-meetings",
+  "reason": "The customer asks for a Zoom call, and the calls-and-meetings entry states directly that Blotato does not offer Zoom calls or live meetings with customers."
+ },
+ "at": "2026-11-16T06:42:00.237Z"
+}

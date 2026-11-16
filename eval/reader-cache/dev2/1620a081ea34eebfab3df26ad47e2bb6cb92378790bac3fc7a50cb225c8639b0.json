@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7715,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why Blotato mutes the music on a TikTok video after posting",
+    "sentence": ""
+   },
+   {
+    "point": "Video (not slideshow) on TikTok, music plays when uploaded manually",
+    "sentence": ""
+   },
+   {
+    "point": "Business account condition",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry explains why Blotato would mute a TikTok video's music; the closest, tiktok-slideshow-no-music, only says autoAddMusic has no effect on videos, and the other entries cover Instagram, slideshows, or unrelated topics, and the issue also depends on this account's own post, so a person should review it."
+ },
+ "at": "2026-11-16T06:28:31.152Z"
+}

@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 10784,
+ "verdict": {
+  "points": [
+   {
+    "point": "Should the company Page be listed? (why it isn't shown)",
+    "sentence": "It means the signed-in profile has no company Pages where it holds the Super Admin or Content Admin role."
+   },
+   {
+    "point": "Customer's role is Analyst, not Super Admin or Content Admin",
+    "sentence": "It means the signed-in profile has no company Pages where it holds the Super Admin or Content Admin role."
+   },
+   {
+    "point": "Is the message a problem or normal (\"odd thing\")",
+    "sentence": "Not an error."
+   }
+  ],
+  "pick": "linkedin-no-pages-found",
+  "reason": "The customer's Analyst role is not Super Admin or Content Admin, and the entry's sentences state that the \"No LinkedIn pages found\" message means the signed-in profile holds neither role on any company Page and is not an error, which answers their question."
+ },
+ "at": "2026-11-16T06:31:26.475Z"
+}

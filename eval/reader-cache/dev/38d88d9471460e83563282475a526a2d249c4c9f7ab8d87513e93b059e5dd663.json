@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5367,
+ "verdict": {
+  "points": [
+   {
+    "point": "what 'it' is (which platform or tool to connect)",
+    "sentence": ""
+   },
+   {
+    "point": "walkthrough of connecting",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The message never says what \"it\" is (which platform or tool), so no entry's connection steps can be matched to it, and the closest entries cover other topics."
+ },
+ "at": "2026-11-16T06:45:02.909Z"
+}

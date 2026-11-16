@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 13437,
+ "verdict": {
+  "points": [
+   {
+    "point": "Which number is the real one / why they differ",
+    "sentence": "Blotato and the YouTube watch page count views differently, so the two numbers never match exactly."
+   },
+   {
+    "point": "Is Blotato missing views",
+    "sentence": "The watch page count updates in near real time and includes views YouTube has not validated yet. Blotato's count comes from the YouTube Analytics API, which reports only finalized views."
+   },
+   {
+    "point": "Is the connection broken / need to reconnect YouTube",
+    "sentence": "To confirm this yourself, open YouTube Studio. The realtime card matches the watch page, and the Analytics tab matches what Blotato reports."
+   }
+  ],
+  "pick": "youtube-views-lower",
+  "reason": "This entry explains that the YouTube watch page and Blotato count views differently, and that YouTube Studio's Analytics tab matches Blotato. That shows the gap is expected and the connection is not at fault. No sentence says outright that reconnecting isn't needed, so that point is covered only by implication."
+ },
+ "at": "2026-11-16T06:46:25.855Z"
+}

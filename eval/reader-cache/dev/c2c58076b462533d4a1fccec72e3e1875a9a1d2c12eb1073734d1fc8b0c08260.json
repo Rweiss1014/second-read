@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6365,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can the user plug in their own OpenAI key",
+    "sentence": ""
+   },
+   {
+    "point": "Image generation would not use Blotato credits with that key",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry, \"What uses credits and what does not\", says which actions spend credits but never says whether a customer can bring their own OpenAI key to avoid them, so no entry answers the question."
+ },
+ "at": "2026-11-16T06:42:28.203Z"
+}

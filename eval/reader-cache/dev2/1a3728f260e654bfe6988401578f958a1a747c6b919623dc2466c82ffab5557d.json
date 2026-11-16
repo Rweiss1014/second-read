@@ -1,0 +1,17 @@
+{
+ "kind": "refute",
+ "version": "refute-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6857,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "wrong-for-customer",
+    "about": "The customer published the post directly in Meta Business Suite, and the reply itself says such posts never appear in the picker, yet its next step tells them to search the picker for the caption, which cannot work for their post and sets an expectation that it will show."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:38:51.054Z"
+}

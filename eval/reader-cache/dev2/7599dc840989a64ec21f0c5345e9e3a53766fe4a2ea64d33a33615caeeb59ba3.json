@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7705,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can GET /v2/comments be filtered to audience comments only (isAuthor false)?",
+    "sentence": ""
+   },
+   {
+    "point": "Customer says ?isAuthor=false already tried and does nothing (still fails after trying)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate states whether GET /v2/comments supports an isAuthor filter; the closest entry, comment-on-posts-support, only says reading returns audience replies and your own, which is a neighboring question, and the customer also reports the parameter already failed after trying."
+ },
+ "at": "2026-11-16T06:26:22.313Z"
+}

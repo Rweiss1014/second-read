@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3993,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does Viral AI Coach use AI credits",
+    "sentence": ""
+   },
+   {
+    "point": "Monthly cap on videos checked on Creator plan",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry mentions the Viral AI Coach, whether it uses credits, or a monthly video-check cap; the plan-credit entries only list credit allotments."
+ },
+ "at": "2026-11-16T06:32:28.767Z"
+}

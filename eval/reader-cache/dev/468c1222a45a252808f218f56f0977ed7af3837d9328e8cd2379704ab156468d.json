@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6801,
+ "verdict": {
+  "points": [
+   {
+    "point": "What is missing after picking a Facebook account (grey Schedule button)",
+    "sentence": "Open the draft and its Schedule panel, select a destination account, and complete its destination selector: Facebook Page, LinkedIn profile or company Page, Pinterest board, or Slack channels."
+   }
+  ],
+  "pick": "schedule-button-grey",
+  "reason": "The entry says that after selecting an account you must also complete its destination selector, which for Facebook is the Facebook Page, and this covers the grey Schedule button."
+ },
+ "at": "2026-11-16T06:45:36.442Z"
+}

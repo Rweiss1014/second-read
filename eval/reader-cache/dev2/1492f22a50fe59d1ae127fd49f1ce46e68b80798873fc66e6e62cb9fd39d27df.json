@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7309,
+ "verdict": {
+  "points": [
+   {
+    "point": "Should I log in with Facebook when connecting Instagram linked to a Facebook Page",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate states whether to sign in with Facebook when connecting a Facebook-linked Instagram account; \"connect-social-accounts\" only says to \"Sign in to the intended social identity,\" which does not answer the login-method question."
+ },
+ "at": "2026-11-16T06:31:07.353Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4227,
+ "verdict": {
+  "points": [
+   {
+    "point": "GET /v2/analytics returns 404 for Instagram post",
+    "sentence": ""
+   },
+   {
+    "point": "Creator plan",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry explains a 404 from GET /v2/analytics; the analytics entries cover dashboard, plan metrics and refresh timing, not this error."
+ },
+ "at": "2026-11-16T06:44:45.537Z"
+}

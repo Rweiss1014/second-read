@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7912,
+ "verdict": {
+  "points": [
+   {
+    "point": "error 'too many requests' meaning, from Make workflow",
+    "sentence": "That message means too many requests in one minute."
+   },
+   {
+    "point": "how many media uploads per minute (POST /v2/media)",
+    "sentence": "Rate limit exceeded. Upload Media: 30 requests/minute. Publish Post: 30 requests/minute."
+   }
+  ],
+  "pick": "rate-limit",
+  "reason": "The rate-limit entry covers the too-many-requests error from a workflow and states that media uploads are limited to 30 requests per minute."
+ },
+ "at": "2026-11-16T06:23:41.753Z"
+}

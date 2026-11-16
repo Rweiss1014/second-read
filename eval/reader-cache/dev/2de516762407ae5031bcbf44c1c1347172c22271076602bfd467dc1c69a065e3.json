@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3810,
+ "verdict": {
+  "points": [
+   {
+    "point": "max length of YouTube description via API",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate states a maximum length for a YouTube description; the closest entries (YouTube upload limit, TikTok/Reels caption) answer neighboring questions, so none is picked."
+ },
+ "at": "2026-11-16T06:41:51.801Z"
+}

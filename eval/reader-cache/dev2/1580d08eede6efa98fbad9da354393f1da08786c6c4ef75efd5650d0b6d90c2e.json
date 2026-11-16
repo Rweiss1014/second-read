@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5477,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does 10/hr limit apply to GET /v2/credits polling",
+    "sentence": ""
+   },
+   {
+    "point": "Rate limit for credits endpoint at 30s polling (avoid 429s)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether the 10 requests per hour limit applies to GET /v2/credits; the credits entries only mention the endpoint exists, and the rate-limit entry covers only publish and media upload."
+ },
+ "at": "2026-11-16T06:34:04.717Z"
+}

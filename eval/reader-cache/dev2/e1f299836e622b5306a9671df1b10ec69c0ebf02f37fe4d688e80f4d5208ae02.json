@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 10689,
+ "verdict": {
+  "points": [
+   {
+    "point": "Are the 1080x1920 images too tall / should they be shrunk to a 1080 px long side",
+    "sentence": "The image limit is based on area, not a maximum side length of 1080 pixels."
+   },
+   {
+    "point": "PNG format (customer's images are PNGs)",
+    "sentence": "Blotato converts non-JPEG images before submission, so do not reject a source solely because it is PNG."
+   }
+  ],
+  "pick": "tiktok-images-post-info-error",
+  "reason": "This entry matches the customer's exact TikTok \"post info is empty or incorrect\" error, and its quoted sentences state that the image limit is area-based rather than a 1080-pixel maximum side, which answers the shrink question, and that PNGs are converted before submission."
+ },
+ "at": "2026-11-16T06:28:47.306Z"
+}

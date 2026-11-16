@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8415,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why the Slack step fails with error 7000 (video not supported)",
+    "sentence": ""
+   },
+   {
+    "point": "What to change so the Slack part goes through",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The Slack entry's title mentions video not supported, but none of its quoted or step sentences state that Slack accepts only images or how to change the post, so it does not answer the customer's question."
+ },
+ "at": "2026-11-16T06:29:47.209Z"
+}

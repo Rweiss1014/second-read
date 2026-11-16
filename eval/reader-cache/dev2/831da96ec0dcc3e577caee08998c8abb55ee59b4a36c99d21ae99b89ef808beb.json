@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6758,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can the source links be moved to the top of the post?",
+    "sentence": ""
+   },
+   {
+    "point": "Can the source links be shown as numbered footnotes?",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The include-sources-toggle entry says the links are appended to the bottom of the post, but no sentence says whether they can be moved to the top or formatted as numbered footnotes, so answering would require a fact the help text does not state."
+ },
+ "at": "2026-11-16T06:30:30.782Z"
+}

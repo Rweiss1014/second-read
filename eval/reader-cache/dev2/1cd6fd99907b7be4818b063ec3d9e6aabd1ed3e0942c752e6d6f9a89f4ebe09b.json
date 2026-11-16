@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6778,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does running Viral AI Coach use AI credits?",
+    "sentence": ""
+   },
+   {
+    "point": "Is there a monthly cap on videos checked on the Creator plan?",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate mentions the Viral AI Coach or a monthly video-check cap; the credit entries only list plan credit totals, which do not say whether the coach uses credits or limit video checks."
+ },
+ "at": "2026-11-16T06:28:52.566Z"
+}

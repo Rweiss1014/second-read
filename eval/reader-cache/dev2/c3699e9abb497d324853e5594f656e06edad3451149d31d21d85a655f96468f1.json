@@ -1,0 +1,25 @@
+{
+ "kind": "refute",
+ "version": "refute-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7916,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "wrong-for-customer",
+    "about": "The reply opens with \"Yes, all three work through a custom connector,\" which answers a different question. The customer asked whether their connection is broken and never mentioned three of anything."
+   },
+   {
+    "kind": "wrong-for-customer",
+    "about": "The reply tells the customer to add the custom connector and check their subscription. The customer's Claude already ran blotato_list_accounts, so the connector is already set up."
+   },
+   {
+    "kind": "not-answered",
+    "about": "The reply only mentions in passing that an empty list can mean no social accounts are connected. It never tells the customer plainly that this is the likely cause and that they should connect accounts in Blotato. It also never says the connection is probably fine, which is what they asked."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:41:16.281Z"
+}

@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4496,
+ "verdict": {
+  "points": [
+   {
+    "point": "Month Threads gets First Comment",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The first-comment entry says First Comment is for Instagram and Facebook but gives no release month or date for Threads, so no entry answers this."
+ },
+ "at": "2026-11-16T06:32:25.289Z"
+}

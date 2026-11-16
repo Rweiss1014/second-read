@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4918,
+ "verdict": {
+  "points": [
+   {
+    "point": "how to move a scheduled post to a new date (Friday)",
+    "sentence": "Select Reschedule."
+   },
+   {
+    "point": "choose the new date and time",
+    "sentence": "Choose the new date and time."
+   }
+  ],
+  "pick": "reschedule-post",
+  "reason": "The customer wants to move a scheduled post to Friday, and the reschedule-post entry gives the Reschedule steps, including choosing the new date and time."
+ },
+ "at": "2026-11-16T06:45:52.823Z"
+}

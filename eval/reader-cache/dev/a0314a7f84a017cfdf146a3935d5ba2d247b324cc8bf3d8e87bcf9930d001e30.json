@@ -1,0 +1,30 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7904,
+ "verdict": {
+  "points": [
+   {
+    "point": "upgrade from Starter to Creator",
+    "sentence": ""
+   },
+   {
+    "point": "switch to yearly billing",
+    "sentence": ""
+   },
+   {
+    "point": "whether cancelling first is needed",
+    "sentence": ""
+   },
+   {
+    "point": "whether it is two separate steps",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The change-plan entry covers the cancel-first question and the monthly/yearly switch, but none of its sentences say whether the Starter-to-Creator change and the yearly switch can be done in one change or must be done as two separate steps, so the question is not fully answered."
+ },
+ "at": "2026-11-16T06:44:10.015Z"
+}

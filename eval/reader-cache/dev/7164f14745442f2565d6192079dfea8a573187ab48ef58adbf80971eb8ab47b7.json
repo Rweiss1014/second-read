@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 10225,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why the upload fails with the 'Failed to upload stream to Supabase' error",
+    "sentence": "Common causes: the source URL is not publicly accessible, the URL points to a preview page instead of the direct file, the file is too large, or the media file is corrupted."
+   },
+   {
+    "point": "Customer pasted a Google Drive /view link",
+    "sentence": "If using Google Drive, use a direct download link, not a /view link."
+   }
+  ],
+  "pick": "media-storage-upload-failed",
+  "reason": "The error matches this entry's title, and its sentence \"If using Google Drive, use a direct download link, not a /view link.\" covers the customer's /view link; the customer's note that the file is small does not change that fix, though the entry does not explicitly rule out size."
+ },
+ "at": "2026-11-16T06:42:21.181Z"
+}

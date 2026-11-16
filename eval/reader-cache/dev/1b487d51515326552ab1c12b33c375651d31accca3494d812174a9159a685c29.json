@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5350,
+ "verdict": {
+  "points": [
+   {
+    "point": "walk through connecting it (the product or account is never named)",
+    "sentence": ""
+   },
+   {
+    "point": "hypothetical framing, no real account or error",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The message asks for a walkthrough of connecting an unnamed \"it\" in a hypothetical, and no candidate entry names or answers that; the only connection walkthrough (ChatGPT Work / Codex) requires the customer to have named that product, so passing is safer."
+ },
+ "at": "2026-11-16T06:42:33.458Z"
+}

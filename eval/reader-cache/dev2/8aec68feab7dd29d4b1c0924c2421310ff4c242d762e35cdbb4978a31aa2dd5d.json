@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7738,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is it because I'm low on credits?",
+    "sentence": "This is not a rate-limit or credits problem, and retrying the same media without changes will not help."
+   },
+   {
+    "point": "Should I just hit retry?",
+    "sentence": "This is not a rate-limit or credits problem, and retrying the same media without changes will not help."
+   },
+   {
+    "point": "Same error on Twitter, LinkedIn and Facebook at once",
+    "sentence": "When the same message appears on every platform at once, check each post's error separately, because the cause can differ per platform."
+   }
+  ],
+  "pick": "could-not-upload-media",
+  "reason": "The entry directly answers the credits question and the retry question, and its quoted sentences cover the same error appearing on every platform at once, so it answers the whole message."
+ },
+ "at": "2026-11-16T06:28:54.940Z"
+}

@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 2945,
+ "verdict": {
+  "points": [
+   {
+    "point": "presigned URL validity in minutes",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states how long a presignedUrl is valid; the presigned-upload entries only describe the PUT flow, not an expiry time."
+ },
+ "at": "2026-11-16T06:32:48.548Z"
+}

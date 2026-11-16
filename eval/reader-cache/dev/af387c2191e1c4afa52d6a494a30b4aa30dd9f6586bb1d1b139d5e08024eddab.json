@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4775,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can a second API key be read-only (no publishing)?",
+    "sentence": ""
+   },
+   {
+    "point": "Second API key creation",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether API keys can be scoped to read-only or whether multiple keys can be made; the closest entries cover trial billing and 401 errors, which are different questions."
+ },
+ "at": "2026-11-16T06:45:34.330Z"
+}

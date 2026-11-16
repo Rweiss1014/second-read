@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8097,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why the carousel with a collaborator fails",
+    "sentence": "They are not supported on carousels, and a carousel with collaborators fails to publish."
+   },
+   {
+    "point": "Single photo posts with a collaborator work",
+    "sentence": "Collaborators are supported on single image posts and reels."
+   },
+   {
+    "point": "What to do for a carousel",
+    "sentence": "For a carousel, publish it first, then add the collaborator in the Instagram app."
+   }
+  ],
+  "pick": "instagram-collaborators",
+  "reason": "The entry says Instagram collaborators are not supported on carousels, so those posts fail. It also says single image posts are supported, which matches what the customer sees."
+ },
+ "at": "2026-11-16T06:45:47.813Z"
+}

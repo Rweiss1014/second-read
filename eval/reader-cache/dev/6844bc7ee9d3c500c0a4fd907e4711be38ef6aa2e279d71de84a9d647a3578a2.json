@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3486,
+ "verdict": {
+  "points": [
+   {
+    "point": "Publish node account dropdown empty after refresh in n8n",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry says why the n8n Publish node account dropdown is empty when the key works and the accounts call returns items, and the customer's checks already show the key is valid."
+ },
+ "at": "2026-11-16T06:45:06.469Z"
+}

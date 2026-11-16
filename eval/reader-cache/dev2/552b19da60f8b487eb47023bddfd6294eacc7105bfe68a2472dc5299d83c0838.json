@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 11764,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does the customer need to pay HeyGen to make the avatar step work",
+    "sentence": "HeyGen API requires $99/mo API plan. Free API plan won't work."
+   },
+   {
+    "point": "Customer is on HeyGen's free plan, which is the cause of the avatar step message",
+    "sentence": "The HeyGen API needs its paid API plan, and the free API plan will not work."
+   }
+  ],
+  "pick": "heygen-avatar-video-errors",
+  "reason": "The customer asks whether a paid HeyGen plan is needed, and this entry states that the HeyGen API requires a paid API plan and the free API plan will not work, which matches the \"You're On Heygen Free Plan\" message."
+ },
+ "at": "2026-11-16T06:26:48.707Z"
+}

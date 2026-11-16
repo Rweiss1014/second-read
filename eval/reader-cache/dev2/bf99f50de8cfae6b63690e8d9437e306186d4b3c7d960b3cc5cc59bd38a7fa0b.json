@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6088,
+ "verdict": {
+  "points": [
+   {
+    "point": "Status of a Make version of the Hacker News to AI Clone Videos template",
+    "sentence": ""
+   },
+   {
+    "point": "Whether Blotato provides a Make integration or template version",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer is asking for the status of a Make version of a specific template, and no candidate mentions Make, the Hacker News template, or any plan to build one; the closest entries cover unrelated topics, and the status question is a request for staff, so this should go to the team."
+ },
+ "at": "2026-11-16T06:30:16.491Z"
+}

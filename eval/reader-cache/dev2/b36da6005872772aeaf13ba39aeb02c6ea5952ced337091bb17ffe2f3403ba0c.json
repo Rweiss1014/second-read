@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7187,
+ "verdict": {
+  "points": [
+   {
+    "point": "Which template to pick for the video",
+    "sentence": "For a generated character video, select AI Selfie Talking Video with Consistent Character."
+   },
+   {
+    "point": "Made-up person (generated character, not a real person or clone)",
+    "sentence": "A generated character, an existing talking-head recording, and a trained clone of a real person are different tasks."
+   },
+   {
+    "point": "Talking to the camera, selfie style",
+    "sentence": "For a generated character video, select AI Selfie Talking Video with Consistent Character."
+   }
+  ],
+  "pick": "avatar-ugc-videos",
+  "reason": "The entry names the template for a generated character video, and that template is the AI Selfie Talking Video with Consistent Character, which matches a made-up, selfie-style talking person."
+ },
+ "at": "2026-11-16T06:31:20.537Z"
+}

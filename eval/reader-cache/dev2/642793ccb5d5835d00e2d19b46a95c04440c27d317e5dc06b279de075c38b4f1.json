@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8000,
+ "verdict": {
+  "points": [
+   {
+    "point": "Am I in the wrong place (ChatGPT desktop app, Plugins > MCPs > Add MCP server)",
+    "sentence": ""
+   },
+   {
+    "point": "Form asks for a launch command, but I only have a URL",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry covers Codex (Settings > MCP servers > Add server > Streamable HTTP) and ChatGPT.com OAuth. It never mentions the ChatGPT desktop app, its Plugins > MCPs form, or a launch-command field, so it can't say whether this customer is in the right place."
+ },
+ "at": "2026-11-16T06:32:43.205Z"
+}

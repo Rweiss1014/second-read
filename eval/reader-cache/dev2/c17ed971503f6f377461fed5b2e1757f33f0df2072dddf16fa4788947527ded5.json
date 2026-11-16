@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6229,
+ "verdict": {
+  "points": [
+   {
+    "point": "How many hashtags to use on Instagram posts",
+    "sentence": ""
+   },
+   {
+    "point": "Whether to bother with hashtags on LinkedIn",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry, hashtag-count, answers the Instagram limit but never names LinkedIn, and its \"other platforms\" line does not state the LinkedIn answer directly, so the message is only partly covered."
+ },
+ "at": "2026-11-16T06:21:56.509Z"
+}

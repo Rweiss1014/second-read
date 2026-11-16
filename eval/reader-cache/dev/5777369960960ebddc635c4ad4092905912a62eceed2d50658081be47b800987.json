@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6829,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can a post be scheduled 11 months ahead",
+    "sentence": "The furthest date in the future you can schedule a post for is 9 months on every plan."
+   }
+  ],
+  "pick": "scheduling-horizon",
+  "reason": "The entry states the 9-month scheduling limit on every plan, which answers whether a post 11 months out can be scheduled."
+ },
+ "at": "2026-11-16T06:45:31.275Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7139,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can the automation ask for a phone number instead of an email",
+    "sentence": ""
+   },
+   {
+    "point": "Can the phone number be sent to a webhook",
+    "sentence": "To receive the address, turn on Call a webhook on the same automation."
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks about collecting a phone number, but every candidate only covers collecting email addresses through the email gate, and no entry's sentences state that a phone number can be collected."
+ },
+ "at": "2026-11-16T06:28:54.630Z"
+}

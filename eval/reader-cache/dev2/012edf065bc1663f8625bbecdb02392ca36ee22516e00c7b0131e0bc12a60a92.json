@@ -1,0 +1,13 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3468,
+ "verdict": {
+  "points": [],
+  "pick": "none",
+  "reason": "No entry says whether Instagram Story caption text is shown or which field to use. The first-comment entry only says first comments are not supported on Stories, which is a different question."
+ },
+ "at": "2026-11-16T06:23:22.344Z"
+}

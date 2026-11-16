@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9264,
+ "verdict": {
+  "points": [
+   {
+    "point": "Where is the carousel made through the n8n flow (question)",
+    "sentence": "are saved at Videos, regardless of how you created them (in the web app, in n8n or Make.com, through the REST API, or through MCP)."
+   },
+   {
+    "point": "Carousel created through n8n flow (specific)",
+    "sentence": "are saved at Videos, regardless of how you created them (in the web app, in n8n or Make.com, through the REST API, or through MCP)."
+   },
+   {
+    "point": "Not seeing it anywhere in the app (what to do if it cannot be found)",
+    "sentence": "If you can't find a visual, go directly to my.blotato.com/videos and look for your recent creations there."
+   }
+  ],
+  "pick": "where-are-generated-visuals",
+  "reason": "The customer is looking for a carousel generated through n8n that they cannot find in the app, and the where-are-generated-visuals entry states that n8n-created visuals are saved at Videos and gives the my.blotato.com/videos fallback, with the assumption that a carousel counts as a generated visual."
+ },
+ "at": "2026-11-16T06:42:30.530Z"
+}

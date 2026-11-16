@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4189,
+ "verdict": {
+  "points": [
+   {
+    "point": "API endpoint to get current price per 1000 credits",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states an API endpoint or method for retrieving the current price per 1000 credits; the credits entry only covers balance and purchase, and the pricing entries give static plan prices."
+ },
+ "at": "2026-11-16T06:23:28.841Z"
+}

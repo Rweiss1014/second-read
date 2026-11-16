@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5768,
+ "verdict": {
+  "points": [
+   {
+    "point": "Should I turn off retries? (setting question, not covered by entry)",
+    "sentence": ""
+   },
+   {
+    "point": "Should I resubmit the post repeatedly (spam it)? (answer not stated in entry)",
+    "sentence": ""
+   },
+   {
+    "point": "TikTok post still failing after the 3 retries the customer already tried",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks whether to turn off retries and resubmit, and the closest entry (tiktok-failed-after-3-retries) only says to check the destination before another submission and not to reconnect for an unknown reason, which does not state an answer to either question; the message also reports a post that still fails after retries the customer already tried, which is not for me to answer."
+ },
+ "at": "2026-11-16T06:43:39.482Z"
+}

@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3429,
+ "verdict": {
+  "points": [
+   {
+    "point": "Where to add VAT number on invoices",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry covers adding a VAT number to invoices or billing details; the closest (subscription-setup-incomplete) is about incomplete payments, a different topic."
+ },
+ "at": "2026-11-16T06:32:05.169Z"
+}

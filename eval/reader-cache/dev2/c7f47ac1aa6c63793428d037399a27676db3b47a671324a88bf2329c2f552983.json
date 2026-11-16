@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5743,
+ "verdict": {
+  "points": [
+   {
+    "point": "max length of public reply on Instagram",
+    "sentence": "The comment length is 2,200 characters on Instagram and 8,000 on Facebook, and each {{mention}} counts as 31 characters."
+   },
+   {
+    "point": "how {{mention}} counts toward the length",
+    "sentence": "The comment length is 2,200 characters on Instagram and 8,000 on Facebook, and each {{mention}} counts as 31 characters."
+   }
+  ],
+  "pick": "dm-public-reply-errors-20303",
+  "reason": "The entry is about error 20303 on a public reply and its steps state the Instagram limit of 2,200 characters and that each {{mention}} counts as 31 characters, which answers both questions."
+ },
+ "at": "2026-11-16T06:29:04.092Z"
+}

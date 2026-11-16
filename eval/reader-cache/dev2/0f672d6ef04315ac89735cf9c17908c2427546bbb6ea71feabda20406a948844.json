@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4537,
+ "verdict": {
+  "points": [
+   {
+    "point": "score threshold for Viral Coach to give the 10 hooks",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "None of the candidate entries states a score needed for Viral Coach to return the 10 hooks; the closest entry (free-claude-skills) covers the viral-hooks skill but not any score requirement, so this should go to a person on the team."
+ },
+ "at": "2026-11-16T06:29:29.387Z"
+}

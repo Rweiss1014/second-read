@@ -1,0 +1,13 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4886,
+ "verdict": {
+  "points": [],
+  "pick": "none",
+  "reason": "The customer asks for the email addresses and plans of other people who signed up through their affiliate link, which is other people's personal data and a request that only staff can handle, and no candidate entry covers it."
+ },
+ "at": "2026-11-16T06:29:38.550Z"
+}

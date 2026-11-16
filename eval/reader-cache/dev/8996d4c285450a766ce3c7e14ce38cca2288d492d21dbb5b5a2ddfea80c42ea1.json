@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9782,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is the drop from 60 to 12 credits a glitch?",
+    "sentence": "Each time you click \"Generate\" on an image or video, credits are spent -- even if you're testing."
+   },
+   {
+    "point": "Pressing Generate several times",
+    "sentence": "Each time you click \"Generate\" on an image or video, credits are spent -- even if you're testing."
+   },
+   {
+    "point": "Trial account (applies to all accounts, including trial)",
+    "sentence": "Each time you click \"Generate\" on an image or video, credits are spent -- even if you're testing."
+   }
+  ],
+  "pick": "what-uses-credits",
+  "reason": "The entry states that every Generate click spends credits, even when testing, which answers whether the drop is expected without any account-specific guess; the trial point is covered because the sentence applies to all Generate clicks."
+ },
+ "at": "2026-11-16T06:42:42.324Z"
+}

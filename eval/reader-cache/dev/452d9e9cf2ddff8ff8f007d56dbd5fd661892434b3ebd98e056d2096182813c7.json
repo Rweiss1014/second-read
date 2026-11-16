@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5791,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why the stars (asterisks) appear in the post text",
+    "sentence": "Most social platforms do not support markdown."
+   }
+  ],
+  "pick": "markdown-asterisks",
+  "reason": "The customer asks why asterisks appear in their post, and the markdown-asterisks entry states that most social platforms do not support markdown, which is the cause; no platform or other specific is named that the entry fails to cover."
+ },
+ "at": "2026-11-16T06:43:01.640Z"
+}

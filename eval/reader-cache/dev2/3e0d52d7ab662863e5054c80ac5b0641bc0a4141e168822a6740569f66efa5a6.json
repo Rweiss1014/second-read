@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6585,
+ "verdict": {
+  "points": [
+   {
+    "point": "Do I need to pick something else after the account (Facebook)",
+    "sentence": "Open the draft and its Schedule panel, select a destination account, and complete its destination selector: Facebook Page, LinkedIn profile or company Page, Pinterest board, or Slack channels."
+   }
+  ],
+  "pick": "schedule-button-grey",
+  "reason": "The customer can't finish scheduling after choosing Facebook, and this entry says to complete the destination selector (a Facebook Page) after picking the account."
+ },
+ "at": "2026-11-16T06:33:22.959Z"
+}

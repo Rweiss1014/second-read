@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6392,
+ "verdict": {
+  "points": [
+   {
+    "point": "Facebook Page missing from Duplicate account list",
+    "sentence": ""
+   },
+   {
+    "point": "Whether a step is missing to duplicate to Facebook",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry explains how Duplicate chooses accounts or why a Facebook Page would be missing from its list; the connect-accounts entry only covers connecting an account, so using it would be a guess about this customer's account."
+ },
+ "at": "2026-11-16T06:33:15.827Z"
+}

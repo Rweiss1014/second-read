@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5021,
+ "verdict": {
+  "points": [
+   {
+    "point": "nano-banana-pro image costs 1 credit each",
+    "sentence": ""
+   },
+   {
+    "point": "40 images fit within 300 remaining credits",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states how many credits a nano-banana-pro image costs, so none can confirm the 40-credit estimate; the credit-usage entry only says generating images spends credits."
+ },
+ "at": "2026-11-16T06:32:45.294Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4610,
+ "verdict": {
+  "points": [
+   {
+    "point": "Point the repurpose TikTok template at a YouTube Shorts channel instead of TikTok",
+    "sentence": ""
+   },
+   {
+    "point": "New Shorts automatically reposted to Instagram and Facebook",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry says the repurpose-TikTok template can take a YouTube channel as its source or auto-repost new Shorts to Instagram and Facebook; the closest entry, remix-youtube-video, only covers pasting a single YouTube URL as Context for AI drafts."
+ },
+ "at": "2026-11-16T06:21:58.678Z"
+}

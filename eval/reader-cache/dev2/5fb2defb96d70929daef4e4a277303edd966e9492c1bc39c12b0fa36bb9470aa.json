@@ -1,0 +1,30 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 18178,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is my account broken, since analytics shows pending",
+    "sentence": ""
+   },
+   {
+    "point": "When numbers should show on Starter",
+    "sentence": ""
+   },
+   {
+    "point": "Starter plan",
+    "sentence": ""
+   },
+   {
+    "point": "TikTok posts on Starter",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The timing sentence in analytics-no-data-yet covers when numbers show on Starter, but that entry never names TikTok, and the sentence stating TikTok analytics are included on paid plans sits only in analytics-dashboard-where, so no single entry answers every point; whether the account itself is broken can only be checked on the customer's own account, so this goes to the team."
+ },
+ "at": "2026-11-16T06:31:08.817Z"
+}

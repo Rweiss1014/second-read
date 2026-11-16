@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9219,
+ "verdict": {
+  "points": [
+   {
+    "point": "What's wrong with my body (wrong endpoint or schema)",
+    "sentence": "Legacy POST /v2/videos/creations uses a template object and a different schema. Current POST /v2/videos/from-templates uses templateId and inputs."
+   },
+   {
+    "point": "Fix: send the templateId body to the current endpoint",
+    "sentence": "Use its complete ID in templateId and send the matching body to POST /v2/videos/from-templates."
+   }
+  ],
+  "pick": "template-id-equal-to-constant",
+  "reason": "The customer posts a templateId and inputs body to the legacy /v2/videos/creations endpoint, and this entry's quoted sentences state that this endpoint uses a different schema and that the current endpoint is /v2/videos/from-templates."
+ },
+ "at": "2026-11-16T06:28:16.786Z"
+}

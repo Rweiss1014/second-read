@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9074,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does the personal Facebook login use one of the 20 accounts?",
+    "sentence": "Facebook: Each connected Page counts as one account (the Facebook login does not count)."
+   },
+   {
+    "point": "Starter plan with a 20-account limit",
+    "sentence": "You can connect up to **20** social accounts on the **Starter** plan, **40** on **Creator**, and **100** on **Agency**."
+   }
+  ],
+  "pick": "connected-account-limit",
+  "reason": "The customer asks whether the personal Facebook login counts toward the Starter 20-account limit, and the connected-account-limit entry directly states that the Facebook login does not count while each connected Page does."
+ },
+ "at": "2026-11-16T06:30:06.107Z"
+}

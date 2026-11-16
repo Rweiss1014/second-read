@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5932,
+ "verdict": {
+  "points": [
+   {
+    "point": "Which count is right: 7 free skills or 8 folders in the ZIP",
+    "sentence": "The seven free Claude content skills are on the Free Claude Skills page."
+   },
+   {
+    "point": "Is the extra skill named generate free to use",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The entry says there are seven free content skills but never names a \"generate\" skill or says whether an eighth folder is free, so answering the second question would require a guess."
+ },
+ "at": "2026-11-16T06:43:39.726Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4333,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is Blotato down (outage question)",
+    "sentence": ""
+   },
+   {
+    "point": "DNS error resolving api.blotato.com",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks whether Blotato is down because of a DNS error for api.blotato.com, which is a possible outage or one only staff can check, and no entry's sentences address DNS errors or confirm service status."
+ },
+ "at": "2026-11-16T06:23:56.851Z"
+}

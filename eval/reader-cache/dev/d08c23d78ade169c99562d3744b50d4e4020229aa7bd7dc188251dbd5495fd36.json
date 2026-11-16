@@ -1,0 +1,30 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7448,
+ "verdict": {
+  "points": [
+   {
+    "point": "LinkedIn company Page needs both ids",
+    "sentence": "For LinkedIn company pages, you need both an accountId and a pageId."
+   },
+   {
+    "point": "Page id was used as accountId (cause of 'Account not found')",
+    "sentence": "A common mistake is passing the pageId where accountId is expected."
+   },
+   {
+    "point": "How to get the correct accountId and pageId",
+    "sentence": "Use GET /v2/users/me/accounts to get the accountId, then GET /v2/users/me/accounts/{accountId}/subaccounts to get the pageId."
+   },
+   {
+    "point": "Where to put each id in the request",
+    "sentence": "Pass accountId in post.accountId and pageId in post.target.pageId."
+   }
+  ],
+  "pick": "account-not-found-linkedin",
+  "reason": "The customer put the company Page id from the subaccounts call into accountId, and this entry covers that exact mistake and the fix for it."
+ },
+ "at": "2026-11-16T06:46:20.838Z"
+}

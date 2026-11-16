@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6555,
+ "verdict": {
+  "points": [
+   {
+    "point": "Trial reel is shared with followers (the graduation behaviour)",
+    "sentence": "Trial reels are shared with non-followers first, letting you test content before promoting it to your followers."
+   },
+   {
+    "point": "Exact hours after which it goes to followers with graduationStrategy SS_PERFORMANCE",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The instagram-trial-reels entry explains that trial reels are promoted to followers and that the manual option lets the user decide when, but none of its sentences mention graduationStrategy SS_PERFORMANCE or give an exact number of hours, so the question cannot be answered from the entry."
+ },
+ "at": "2026-11-16T06:29:20.724Z"
+}

@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4127,
+ "verdict": {
+  "points": [
+   {
+    "point": "Pinterest error 'This site doesn't allow you to save Pins'",
+    "sentence": "This error is from Pinterest."
+   },
+   {
+    "point": "Why it happens on own blog link",
+    "sentence": "Two common causes are that the website indicated it does not want to be pinned, or that Pinterest's blocklist flagged your URL, often as a false positive."
+   },
+   {
+    "point": "How to get around it",
+    "sentence": "A workaround is to append parameters to your link, such as ?ref=pin&v=111."
+   }
+  ],
+  "pick": "pinterest-site-does-not-allow-pins",
+  "reason": "The entry covers this exact Pinterest error, its likely causes (including a false-positive blocklist flag), and the workaround the customer asked for."
+ },
+ "at": "2026-11-16T06:33:09.705Z"
+}

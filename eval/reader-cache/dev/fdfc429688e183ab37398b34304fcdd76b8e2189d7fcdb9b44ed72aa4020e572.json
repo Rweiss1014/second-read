@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5413,
+ "verdict": {
+  "points": [
+   {
+    "point": "Codex can't attach local mp4 to blotato_create_post",
+    "sentence": "Ask it to call blotato_create_presigned_upload_url for each local file, then send the file bytes to presignedUrl with an HTTP PUT."
+   },
+   {
+    "point": "Right sequence for a laptop file",
+    "sentence": "Ask it to use the returned publicUrl with blotato_create_post for the social account and time you choose, then ask it to verify the publishing result."
+   }
+  ],
+  "pick": "codex-chatgpt-upload-media",
+  "reason": "This entry gives the Codex sequence for local files: get a presigned upload URL, PUT the bytes, then pass the publicUrl to blotato_create_post."
+ },
+ "at": "2026-11-16T06:45:04.514Z"
+}

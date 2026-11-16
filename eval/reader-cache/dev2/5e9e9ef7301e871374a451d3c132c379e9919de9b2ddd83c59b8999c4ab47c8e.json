@@ -1,0 +1,17 @@
+{
+ "kind": "refute",
+ "version": "refute-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 14147,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "wrong-for-customer",
+    "about": "The reply is mostly about a duplicate post and a new post created by mistake, but the customer never mentioned a second post. It also says only the time would be applied, but the customer says the caption was fixed and the time stayed the same. The one relevant point is that leaving out mediaUrls removes the media, and it is buried under that wrong diagnosis. The success check, that no second post shows in the calendar, doesn't match the customer's problem of a missing photo."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:53:01.717Z"
+}

@@ -1,0 +1,29 @@
+{
+ "kind": "refute",
+ "version": "refute-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7964,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "wrong-for-customer",
+    "about": "The reply contains an unfilled placeholder, \"[the result of a live lookup in the customer's account]\", and claims \"I looked it up\", so the customer would get no real lookup result."
+   },
+   {
+    "kind": "wrong-for-customer",
+    "about": "It says in-progress can mean Blotato found no record for that id, which is misleading because the customer is getting an in-progress status back for the id. It also asks them to check that the id came from the create response, though they said they saved the submission id."
+   },
+   {
+    "kind": "not-answered",
+    "about": "The customer asked what to do about a Bluesky video stuck in-progress for 2 days, and gave specifics (40s mp4, 12 MB, url opens fine). The reply doesn't address whether those meet Bluesky's video limits or what to do next. It only says to wait, check the failed list and send more details."
+   },
+   {
+    "kind": "not-our-call",
+    "about": "A post stuck for 2 days needs a team member to check the post and account on the backend, but the reply promises that check itself."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:39:49.204Z"
+}

@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7616,
+ "verdict": {
+  "pick": "clear-all-scheduled",
+  "points": [
+   {
+    "point": "Where is delete all / bulk delete for scheduled posts",
+    "sentence": "The current Posts list does not have the older bulk-delete control."
+   },
+   {
+    "point": "How to remove a scheduled post from the queue",
+    "sentence": "Select Move to drafts and confirm the move."
+   },
+   {
+    "point": "Clearing many posts (80) one by one",
+    "sentence": "Repeat for each post you want to remove from the queue."
+   }
+  ],
+  "reason": "The entry states there is no bulk-delete control and gives the per-post method (Move to drafts, repeated for each post), which answers the customer's question about where delete all is, though it does not offer a faster way for 80 posts."
+ },
+ "at": "2026-11-16T06:41:50.306Z"
+}

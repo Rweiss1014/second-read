@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6996,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can the team get on a Zoom call",
+    "sentence": "Blotato does not offer Zoom calls, phone calls, or live meetings with customers."
+   },
+   {
+    "point": "Where support happens instead",
+    "sentence": "All support happens in the in-app chat."
+   }
+  ],
+  "pick": "calls-and-meetings",
+  "reason": "The customer asks for a Zoom call, and this entry states that Blotato does not offer Zoom calls and that all support happens in the in-app chat."
+ },
+ "at": "2026-11-16T06:44:37.151Z"
+}

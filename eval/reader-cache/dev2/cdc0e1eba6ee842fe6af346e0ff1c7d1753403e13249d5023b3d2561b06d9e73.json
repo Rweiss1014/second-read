@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4486,
+ "verdict": {
+  "points": [
+   {
+    "point": "What 'it' refers to and what kind of tags (hashtags, people, collaborators)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The message doesn't say what \"it\" is or what kind of tags the customer means, so no entry's sentences answer it without a guess, and a person should follow up."
+ },
+ "at": "2026-11-16T06:33:42.184Z"
+}

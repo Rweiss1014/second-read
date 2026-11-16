@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4789,
+ "verdict": {
+  "points": [
+   {
+    "point": "when Slack will support videos in posts",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The Slack video-support entry quotes only generic handoff text and nothing about when Slack will support video, so no entry answers this."
+ },
+ "at": "2026-11-16T06:32:05.238Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4392,
+ "verdict": {
+  "points": [
+   {
+    "point": "Which country are Blotato servers located in",
+    "sentence": ""
+   },
+   {
+    "point": "Which country is customer data stored in / EU storage for GDPR",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states where Blotato's servers or customer data are located; the IP address entry only says posts come from Blotato's cloud servers, without naming a country or EU storage."
+ },
+ "at": "2026-11-16T06:32:49.085Z"
+}

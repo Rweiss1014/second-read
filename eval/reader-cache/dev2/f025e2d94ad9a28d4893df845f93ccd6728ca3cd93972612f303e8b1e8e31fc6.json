@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6664,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can the DM robot reply in Spanish to Spanish speakers and English to English speakers",
+    "sentence": ""
+   },
+   {
+    "point": "Language matched per person, in DMs (not posts)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry, english-spanish-content, covers language for posts and AI videos, not for DM replies, and no candidate says DM automations pick a reply language per person, so no entry answers the question."
+ },
+ "at": "2026-11-16T06:30:59.916Z"
+}

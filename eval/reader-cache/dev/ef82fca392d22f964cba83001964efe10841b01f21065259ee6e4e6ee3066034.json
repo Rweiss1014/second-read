@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4485,
+ "verdict": {
+  "points": [
+   {
+    "point": "YouTube description max length via API",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate states a YouTube description length limit; the YouTube entry covers only the upload limit error, and the others are about different topics."
+ },
+ "at": "2026-11-16T06:44:29.167Z"
+}

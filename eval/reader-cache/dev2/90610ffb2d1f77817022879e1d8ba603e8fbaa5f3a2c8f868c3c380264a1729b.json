@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8444,
+ "verdict": {
+  "points": [
+   {
+    "point": "Brand new X account, made Tuesday",
+    "sentence": ""
+   },
+   {
+    "point": "Every post fails with 'You are not permitted to perform this action'",
+    "sentence": ""
+   },
+   {
+    "point": "Why it is happening",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The x-not-permitted-403 entry matches the error but its sentences only hold a handoff and caution text, with no cause. The warm-up entry names neither X nor this error message, so linking them would be a guess about this account."
+ },
+ "at": "2026-11-16T06:23:30.879Z"
+}

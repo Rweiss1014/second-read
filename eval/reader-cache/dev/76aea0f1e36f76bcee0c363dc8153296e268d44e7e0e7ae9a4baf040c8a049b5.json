@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6297,
+ "verdict": {
+  "points": [
+   {
+    "point": "Account 77120 not found after reconnecting TikTok",
+    "sentence": "After disconnecting and reconnecting an account, retrieve the current ID before retrying."
+   },
+   {
+    "point": "Same saved dropdown choice in n8n",
+    "sentence": "Saved dropdowns and earlier AI lookups are not proof the ID is current."
+   }
+  ],
+  "pick": "account-id-not-found",
+  "reason": "This entry covers both points. Reconnecting an account means you must look up its current ID, and a saved dropdown choice doesn't prove the ID is still current."
+ },
+ "at": "2026-11-16T06:44:43.546Z"
+}

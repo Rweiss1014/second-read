@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6522,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why Reconnect now shows the 20-account limit error",
+    "sentence": ""
+   },
+   {
+    "point": "Customer says the same account is being reconnected, not added, and they already tried Reconnect and it still fails",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer already tried Reconnect and it still fails with a limit error, which is a bug report and not something the entries answer; no entry states that reconnecting an existing account avoids the limit, so this goes to the team."
+ },
+ "at": "2026-11-16T06:30:03.094Z"
+}

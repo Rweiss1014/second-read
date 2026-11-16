@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4765,
+ "verdict": {
+  "points": [
+   {
+    "point": "Old July invoice still showing after card update",
+    "sentence": ""
+   },
+   {
+    "point": "Dashboard won't open after the card update (still failing after a fix they tried)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer is following up on a billing issue after already updating their card, and the dashboard still fails after that attempt, so this is a still-failing case and a question about their own account's invoice that no entry's sentences answer; the closest entry (subscription-setup-incomplete) covers a stuck payment and tells them not to retry, which does not match this message, so it should go to a person."
+ },
+ "at": "2026-11-16T06:43:44.148Z"
+}

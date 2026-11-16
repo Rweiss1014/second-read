@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3385,
+ "verdict": {
+  "points": [
+   {
+    "point": "create new YouTube playlist from Blotato when uploading",
+    "sentence": ""
+   },
+   {
+    "point": "or must create on YouTube first",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry mentions YouTube playlists or creating them, so none answers this question."
+ },
+ "at": "2026-11-16T06:36:51.341Z"
+}

@@ -13,3 +13,4 @@ logs/
 # Copies of Blotato's help pages, fetched through its docs MCP server on first run.
 # They are Blotato's to publish, so they are not republished here.
 .cache/
+eval/reader-cache/test*/

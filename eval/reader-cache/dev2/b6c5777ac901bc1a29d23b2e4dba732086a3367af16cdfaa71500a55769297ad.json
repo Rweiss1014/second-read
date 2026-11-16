@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6050,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does the wait-an-hour fix apply to Threads (rate limit error)",
+    "sentence": ""
+   },
+   {
+    "point": "How many Threads posts per day are allowed",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate names Threads or gives a Threads posting limit, and the closest entries cover YouTube, LinkedIn, Facebook, TikTok, or workflow rate limits, which are neighboring topics rather than the customer's Threads questions."
+ },
+ "at": "2026-11-16T06:31:13.791Z"
+}

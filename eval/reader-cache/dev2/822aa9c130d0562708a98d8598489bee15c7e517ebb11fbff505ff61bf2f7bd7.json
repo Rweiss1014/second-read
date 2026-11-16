@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5900,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is the Blotato MCP server open source?",
+    "sentence": ""
+   },
+   {
+    "point": "Link to the repo",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry states whether the Blotato MCP server is open source or gives a repository link; the closest entry, connect-chatgpt-codex, only covers how to set up the connection."
+ },
+ "at": "2026-11-16T06:31:06.438Z"
+}

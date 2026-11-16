@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 2991,
+ "verdict": {
+  "points": [
+   {
+    "point": "Make version of Hacker News to AI Clone Videos template",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry mentions Make, n8n, or the Hacker News to AI Clone Videos template, so none answers whether a Make version exists."
+ },
+ "at": "2026-11-16T06:33:24.187Z"
+}

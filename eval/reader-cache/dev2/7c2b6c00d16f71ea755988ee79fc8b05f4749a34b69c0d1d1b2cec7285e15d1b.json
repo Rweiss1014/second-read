@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6716,
+ "verdict": {
+  "points": [
+   {
+    "point": "Asks staff to post 'Fall menu drops Friday!' to Instagram now",
+    "sentence": ""
+   },
+   {
+    "point": "Why Reels show up on the main grid",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks staff to publish a post right now, which is a request for staff action that is not mine to answer, so I pass even though the Reels question matches the reels-on-main-feed entry."
+ },
+ "at": "2026-11-16T06:30:10.200Z"
+}

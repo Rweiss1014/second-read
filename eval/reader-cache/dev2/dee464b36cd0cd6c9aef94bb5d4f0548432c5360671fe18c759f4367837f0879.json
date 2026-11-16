@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8580,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is TikTok analytics broken on this account (top posts omit TikTok)",
+    "sentence": ""
+   },
+   {
+    "point": "Can LinkedIn posts be ranked in analytics",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry, analytics-dashboard-where, says TikTok is included on paid plans but does not say whether TikTok missing from top posts is a fault or why it happens, and whether it is broken on this account is a fact only the account can show; the linkedin-analytics entry says LinkedIn analytics are not available but also lists conflicting content and a team handoff, so no single entry answers both questions."
+ },
+ "at": "2026-11-16T06:37:34.816Z"
+}

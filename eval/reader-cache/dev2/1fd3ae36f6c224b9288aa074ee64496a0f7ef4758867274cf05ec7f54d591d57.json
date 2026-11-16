@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6295,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why X threads (additionalPosts) post in reverse order since Friday",
+    "sentence": ""
+   },
+   {
+    "point": "Happens on every thread this week (6 so far), so it is a bug affecting many posts",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry covers X thread ordering or a reported bug where threads publish out of order, and the report describes a repeating fault across six threads that only the team can investigate."
+ },
+ "at": "2026-11-16T06:30:53.010Z"
+}

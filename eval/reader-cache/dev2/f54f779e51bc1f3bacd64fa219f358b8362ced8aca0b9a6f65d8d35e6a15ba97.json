@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5440,
+ "verdict": {
+  "points": [
+   {
+    "point": "Whose data is this (unknown Instagram account x-source-account 77812 sending runs)",
+    "sentence": ""
+   },
+   {
+    "point": "Why runs come from an account the customer does not own (only account 51230 connected, Duplicate never used)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer is asking whose data this is about an Instagram account they don't own, which concerns another person's data and account, and no entry's sentences answer that; this is for staff to look into."
+ },
+ "at": "2026-11-16T06:31:26.326Z"
+}

@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6405,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why the dental brand YouTube channel is missing from the connect list (Manager role)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "None of the entries states that a YouTube brand channel shared with a Manager role should appear in the connect list, or what causes it to be missing; the closest entries (connect-social-accounts, connect-second-account) cover generic connecting steps and switching accounts, not a channel that does not appear at all."
+ },
+ "at": "2026-11-16T06:26:53.800Z"
+}

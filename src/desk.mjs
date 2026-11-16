@@ -10,12 +10,14 @@ import { checkReply, freshState, defaultChecksDir } from './checkreply.mjs';
 import { readFailures, recordFailure, ensureFailuresFile, unknownId } from './failures.mjs';
 import { explain } from './explain.mjs';
 import { citedPages } from './entries.mjs';
-import { TICKETS, PLAYBOOK, ENTRY_BY_ID } from '../knowledge/playbook.mjs';
+import { TICKETS, PLAYBOOK, ENTRY_BY_ID, ROUTER } from '../knowledge/playbook.mjs';
+import { createReader } from './reader.mjs';
+import path from 'node:path';
 import { MOCK_NOW } from './mock.mjs';
 
 // The desk's clock. Sample mode always uses the sample world's own fixed clock, so replies to the sample
 // tickets read the same on every run. A real account uses the real clock (or one passed in, for tests).
-export function openDesk({ env = process.env, run = newRunId(), fetchImpl, mockApi, now } = {}) {
+export function openDesk({ env = process.env, run = newRunId(), fetchImpl, mockApi, now, readerCall } = {}) {
   const paths = deskPaths(env);
   fs.mkdirSync(paths.dir, { recursive: true });
   ensureFailuresFile(paths.failures);
@@ -24,7 +26,10 @@ export function openDesk({ env = process.env, run = newRunId(), fetchImpl, mockA
   const client = createClient({ env, logger, fetchImpl, mockApi });
   const docs = createDocs({ cacheDir: paths.docsCache, env, logger, fetchImpl });
   const clock = mock ? () => MOCK_NOW : (now || Date.now);
-  return { env, paths, checksDir: defaultChecksDir(env), mock, logger, client, docs, run, now: clock, agent: env.SUPPORT_AGENT_NAME || 'Support', close: () => docs.close() };
+  // The reader (src/reader.mjs): off unless SUPPORT_DESK_READER names a backend. Its verdict cache lives in the
+  // desk folder unless SUPPORT_DESK_READER_CACHE says where.
+  const reader = createReader({ router: ROUTER, env, call: readerCall, cacheDir: env.SUPPORT_DESK_READER_CACHE || path.join(paths.dir, 'reader-cache') });
+  return { env, paths, checksDir: defaultChecksDir(env), mock, logger, client, docs, run, now: clock, reader, agent: env.SUPPORT_AGENT_NAME || 'Support', close: () => docs.close() };
 }
 
 export async function handleTicket(desk, ticket, { requireReview = false } = {}) {

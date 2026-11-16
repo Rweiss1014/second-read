@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5909,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can background music fade out over the last 3 seconds (API, Combine Clips / Apply Basic Edits, musicConfig)?",
+    "sentence": ""
+   },
+   {
+    "point": "Fade option for transitions applies to clips, not music",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "None of the candidates states whether background music can fade out or how to set a music fade in the API, and the add-music entry only covers uploading or adding audio in the editor and TikTok autoAddMusic, so no entry answers the question."
+ },
+ "at": "2026-11-16T06:28:47.057Z"
+}

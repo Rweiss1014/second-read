@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6406,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why Reconnect of an existing account hits the 20-account limit",
+    "sentence": ""
+   },
+   {
+    "point": "How to get past the limit when not adding a new account",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry, connected-account-limit, explains the 20-account Starter limit and says to disconnect an account or upgrade. It never says whether Reconnect on an existing account counts against the limit, and the reconnect entries don't mention the limit, so no entry covers the customer's situation."
+ },
+ "at": "2026-11-16T06:36:54.128Z"
+}

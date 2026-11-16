@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7744,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why the export gave slides.zip instead of an mp4",
+    "sentence": ""
+   },
+   {
+    "point": "How to get an mp4 export instead",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry states what format a slides export produces or how to get an mp4 from it; the closest entries (carousel creation, unsupported media format, invalid file format) cover neighboring topics and do not answer this question."
+ },
+ "at": "2026-11-16T06:29:15.251Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3554,
+ "verdict": {
+  "points": [
+   {
+    "point": "Use own OpenAI key for image generation",
+    "sentence": ""
+   },
+   {
+    "point": "Avoid using Blotato credits",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry says whether a customer's own OpenAI key can be used for image generation; the credits entry only says what uses credits, which is a neighboring question."
+ },
+ "at": "2026-11-16T06:44:57.788Z"
+}

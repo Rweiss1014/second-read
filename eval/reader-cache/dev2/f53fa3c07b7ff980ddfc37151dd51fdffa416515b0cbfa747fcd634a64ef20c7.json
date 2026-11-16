@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4665,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does a 429 response include a Retry-After header?",
+    "sentence": ""
+   },
+   {
+    "point": "Does a 429 response include an X-RateLimit-Remaining header?",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry, rate-limit, covers the 30-requests-per-minute limits and says to wait \"when the response supplies one,\" but none of its sentences state whether the 429 response includes a Retry-After or X-RateLimit-Remaining header, so the customer's header question goes unanswered."
+ },
+ "at": "2026-11-16T06:22:00.147Z"
+}

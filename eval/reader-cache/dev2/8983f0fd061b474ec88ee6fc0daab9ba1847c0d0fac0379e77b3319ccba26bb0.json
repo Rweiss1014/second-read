@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8008,
+ "verdict": {
+  "points": [
+   {
+    "point": "Fix My Automation button missing for a Make.com scenario",
+    "sentence": ""
+   },
+   {
+    "point": "Whether the button is hidden on the customer's plan",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "Only the invalid_grant entry mentions the button, and it does so only for that MCP error, so it doesn't answer this Make.com failed request or say whether the plan hides the button."
+ },
+ "at": "2026-11-16T06:23:49.934Z"
+}

@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4374,
+ "verdict": {
+  "pick": "none",
+  "points": [
+   {
+    "point": "Can Claude, via the Blotato MCP server, search the Inspiration database for viral posts?",
+    "sentence": ""
+   },
+   {
+    "point": "Can it search for viral posts about meal prep?",
+    "sentence": ""
+   },
+   {
+    "point": "Does this match what the customer can do in the web app?",
+    "sentence": ""
+   }
+  ],
+  "reason": "None of the candidates states whether the MCP server can search the Inspiration database. The closest entry, free-claude-skills, covers the viral-hooks skill, which is a neighboring question, so I'm passing this one over."
+ },
+ "at": "2026-11-16T06:22:00.922Z"
+}

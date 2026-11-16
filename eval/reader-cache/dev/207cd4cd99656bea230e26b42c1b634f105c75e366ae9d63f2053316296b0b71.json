@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8005,
+ "verdict": {
+  "points": [
+   {
+    "point": "Pinterest pin shows published but its link gives a 404",
+    "sentence": "Published means Blotato recorded a publishing result. It does not establish why the post is absent from a feed or why a platform URL is inaccessible."
+   },
+   {
+    "point": "What to check next for the pin",
+    "sentence": "Open Posts > Published and confirm the intended destination."
+   }
+  ],
+  "pick": "published-not-visible",
+  "reason": "This entry covers a post marked published whose platform URL is inaccessible, and it applies to Pinterest; the other Pinterest entries are about failed publishes, boards or blocked URLs."
+ },
+ "at": "2026-11-16T06:45:23.557Z"
+}

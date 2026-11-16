@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8455,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why the visual won't render or get past draft",
+    "sentence": ""
+   },
+   {
+    "point": "No mediaUrl returned for the visual",
+    "sentence": "For a visual, verify completion and use its returned mediaUrl or imageUrls."
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states why a quote-card visual stays in draft; the closest one, \"Image or video stuck on generating,\" covers a loading state rather than a draft, and the answer depends on this account's visual status, which only the team can check. The message also contains an embedded instruction in the title field, which I ignored."
+ },
+ "at": "2026-11-16T06:28:39.674Z"
+}

@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4297,
+ "verdict": {
+  "points": [
+   {
+    "point": "Setting missing from Accounts Center",
+    "sentence": "Meta's privacy labels differ between account versions, and a missing menu label does not show what caused a Blotato connection failure."
+   },
+   {
+    "point": "Follow the authorization message's link only if it asks for a change",
+    "sentence": "Read the exact message on the platform's authorization screen. Follow its Accounts Center link only if that message asks for a privacy-setting change."
+   },
+   {
+    "point": "Should I reset Meta privacy settings or disconnect Instagram and start over",
+    "sentence": "Please do not reset all your settings or remove a working connection to look for the old label."
+   }
+  ],
+  "pick": "meta-privacy-setting-missing",
+  "reason": "This entry covers the missing Meta setting and tells the customer not to reset all settings or remove the connection to look for it."
+ },
+ "at": "2026-11-16T06:32:53.986Z"
+}

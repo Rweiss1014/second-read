@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5231,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does the referrer get 50% of each month a referred paid customer stays (Tolt affiliate commission)",
+    "sentence": ""
+   },
+   {
+    "point": "Monthly Creator plan referral (Tolt program terms)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "None of the candidate entries covers Tolt, affiliate or referral commissions, or the 50% payout, so the customer's question about what they would earn is not answered by any entry's sentences."
+ },
+ "at": "2026-11-16T06:41:57.448Z"
+}

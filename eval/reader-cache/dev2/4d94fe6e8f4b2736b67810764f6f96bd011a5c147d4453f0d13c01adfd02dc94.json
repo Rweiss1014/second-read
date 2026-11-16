@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7506,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does an archived Slack channel still count toward the 20-account limit, or is it freed automatically?",
+    "sentence": ""
+   },
+   {
+    "point": "Slack channels count toward the account limit (context)",
+    "sentence": "Facebook Pages, LinkedIn company Pages, and Slack channels count toward the total."
+   },
+   {
+    "point": "Starter plan with a 20-account limit (context)",
+    "sentence": "You can connect up to 20 social accounts on Starter, 40 on Creator, and 100 on Agency."
+   }
+  ],
+  "pick": "none",
+  "reason": "The candidate entries state that Slack channels count toward the account limit, but none of their sentences say whether an archived channel stops counting or is freed automatically, so the customer's actual question is not answered."
+ },
+ "at": "2026-11-16T06:31:14.505Z"
+}

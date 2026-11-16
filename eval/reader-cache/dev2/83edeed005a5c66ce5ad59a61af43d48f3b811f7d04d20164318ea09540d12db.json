@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8674,
+ "verdict": {
+  "points": [
+   {
+    "point": "Reconnect button on TikTok does nothing, no error",
+    "sentence": ""
+   },
+   {
+    "point": "Starter plan with 20 accounts connected",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer says the Reconnect button already fails when clicked, and no entry states what happens to Reconnect on Starter at 20 connected accounts, so the message goes to the team."
+ },
+ "at": "2026-11-16T06:25:55.106Z"
+}

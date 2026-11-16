@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3920,
+ "verdict": {
+  "points": [
+   {
+    "point": "Max DM automations per Instagram account",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states a limit on how many DM automations one Instagram account can have; the closest entry only covers triggers per automation."
+ },
+ "at": "2026-11-16T06:32:35.634Z"
+}

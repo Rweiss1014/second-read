@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8319,
+ "verdict": {
+  "points": [
+   {
+    "point": "Customer messaged two Facebook Pages and we replied on each: counts once or twice?",
+    "sentence": ""
+   },
+   {
+    "point": "Commenters we never answer: do they count?",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The entry defines an active contact as someone reached by DM or a reply to a comment, which answers the commenter question, but its only same-person rule covers the same connected account, not two different Facebook Pages, so the first question is not answered and the message needs a team member."
+ },
+ "at": "2026-11-16T06:28:16.302Z"
+}

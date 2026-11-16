@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6124,
+ "verdict": {
+  "points": [
+   {
+    "point": "Will LinkedIn comments and DMs show in Inbox once connected",
+    "sentence": "Publishing support for other platforms does not add their conversations to Inbox."
+   },
+   {
+    "point": "Will TikTok comments and DMs show in Inbox once connected",
+    "sentence": "Publishing support for other platforms does not add their conversations to Inbox."
+   },
+   {
+    "point": "Which platforms Inbox does cover (Instagram comments already work)",
+    "sentence": "Blotato's Inbox combines comments and direct messages from connected Instagram accounts and Facebook Pages."
+   }
+  ],
+  "pick": "supported-inboxes",
+  "reason": "The entry states that Inbox covers comments and direct messages only from Instagram accounts and Facebook Pages, and that publishing support for other platforms does not add their conversations, which covers LinkedIn and TikTok for both comments and DMs."
+ },
+ "at": "2026-11-16T06:43:53.333Z"
+}

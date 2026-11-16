@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4496,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does OAuth sign-in work in Gemini CLI, or only the blotato-api-key header",
+    "sentence": ""
+   },
+   {
+    "point": "Is Gemini CLI an officially supported client",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate names Gemini CLI or says whether OAuth or the blotato-api-key header works there, and the closest entry (connect-chatgpt-codex) covers Codex and ChatGPT, not Gemini CLI, so answering would require facts the sentences do not state."
+ },
+ "at": "2026-11-16T06:22:17.245Z"
+}

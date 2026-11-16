@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6130,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can Blotato create a new Pinterest board for the customer",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks whether Blotato can create a new Pinterest board, and no candidate states that Blotato can create boards; the closest entries (Pinterest board ID lookups) only explain how to find existing board IDs, which is a neighboring question."
+ },
+ "at": "2026-11-16T06:29:22.054Z"
+}

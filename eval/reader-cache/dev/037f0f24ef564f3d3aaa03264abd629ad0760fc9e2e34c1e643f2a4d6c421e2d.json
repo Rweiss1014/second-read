@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7340,
+ "verdict": {
+  "points": [
+   {
+    "point": "carousel with collaborator tagged fails to publish",
+    "sentence": "They are **not supported on carousels** (multi-image/video posts) - a carousel with collaborators will fail to publish."
+   },
+   {
+    "point": "single photo post with collaborator works",
+    "sentence": "Collaborators are supported on **single image posts and reels**."
+   },
+   {
+    "point": "how to get the carousel out with the collaborator (implied fix)",
+    "sentence": "For a carousel, publish it first, then add the collaborator in the Instagram app."
+   }
+  ],
+  "pick": "instagram-collaborators",
+  "reason": "The customer's carousel with a tagged collaborator fails while single photo posts with her tagged succeed, and this entry's quoted sentences state that carousels with collaborators fail and that collaborators work on single image posts, with the publish-then-tag workaround for carousels."
+ },
+ "at": "2026-11-16T06:43:28.437Z"
+}

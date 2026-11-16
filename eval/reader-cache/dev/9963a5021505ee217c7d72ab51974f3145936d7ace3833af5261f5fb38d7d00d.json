@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5670,
+ "verdict": {
+  "points": [
+   {
+    "point": "what to do after running out of AI credits",
+    "sentence": "In the app, go to Settings > Billing to check your credits and add more."
+   }
+  ],
+  "pick": "out-of-ai-credits-error",
+  "reason": "The customer's message is the \"ran out of AI credits\" error and asks what to do, and this entry's own step says to go to Settings > Billing to check and add credits, with no platform, plan, or account-specific detail needed."
+ },
+ "at": "2026-11-16T06:43:33.657Z"
+}

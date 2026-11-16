@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7396,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is the old version deleted?",
+    "sentence": "The older \"remix\" screen is still available."
+   },
+   {
+    "point": "How to return to the old version",
+    "sentence": "Click View old remix screen in the left sidebar of the AI Agent."
+   }
+  ],
+  "pick": "old-remix-screen",
+  "reason": "The entry says the older remix screen is still available and how to open it, which answers both questions; it does not explicitly say the remix screen is the pasted-text, 5-posts feature, so that link is an inference."
+ },
+ "at": "2026-11-16T06:43:29.654Z"
+}

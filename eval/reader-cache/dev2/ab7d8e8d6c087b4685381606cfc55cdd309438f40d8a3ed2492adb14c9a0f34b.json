@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7110,
+ "verdict": {
+  "points": [
+   {
+    "point": "can the customer use Blotato in the Claude iPhone app",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks about the Claude app on iPhone, which no candidate names or plainly includes: \"claude-clients-support\" covers only Claude.ai, Claude Desktop and Claude Cowork, and \"mobile-app\" is about a Blotato mobile app, not the Claude app."
+ },
+ "at": "2026-11-16T06:31:06.771Z"
+}

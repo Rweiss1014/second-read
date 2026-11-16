@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6561,
+ "verdict": {
+  "points": [
+   {
+    "point": "Error \"The service is receiving too many requests from you\" during bulk upload",
+    "sentence": "That message means too many requests in one minute."
+   },
+   {
+    "point": "How many requests per minute can be sent to POST /v2/media (media upload)",
+    "sentence": "Rate limit exceeded. Upload Media: 30 requests/minute. Publish Post: 30 requests/minute."
+   }
+  ],
+  "pick": "rate-limit",
+  "reason": "The rate-limit entry states the media upload limit of 30 requests per minute and explains that this error means too many requests in one minute, which answers both parts of the message."
+ },
+ "at": "2026-11-16T06:22:05.338Z"
+}
