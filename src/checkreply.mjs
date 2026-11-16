@@ -60,6 +60,67 @@ const VOICE = [
 // The house-voice problems in a piece of text (an em dash, "simply", an easy-sounding "just", a hype word).
 export const findVoice = (text) => VOICE.filter(v => v.re.test(String(text || ''))).map(v => v.why);
 
+// ---- Retry only after the platform itself was checked -----------------------------------------------------------
+// Found by a fresh checker (Nov 15, 2026), five times: "If the post is not there, retry it" after a check of
+// Blotato's own Posts lists only. When the first attempt's outcome is unknown, the post may already be live, and
+// Blotato's publishing-status page says "Do not submit a replacement while the original outcome is unknown".
+// The rule: a line that tells the customer to retry, resend, repost, resubmit or try again blocks, unless an
+// EARLIER numbered step (or the same sentence, before it acts) has them check the platform itself for the first
+// post: the post's platform URL, "the intended account on the platform", or "your Instagram account" and the like.
+// Checking Blotato's Scheduled, Published and Failed filters is not enough on its own.
+// Not a retry instruction: a negated one ("do not post it again yet"), a noun ("a resend can make a copy",
+// "its retry loop"), Blotato's own retries ("Blotato retries"), and retrying something that is not a post
+// (an authorization, a checkout, a DM automation, a read).
+const RETRY_OBJ = String.raw`(?: (?:it|this|that|them|(?:the|your|a) [\w-]+(?: [\w-]+)?))?`;
+const RETRY = new RegExp(String.raw`\b(?:re-?try(?:ing)?|try${RETRY_OBJ} again|re-?send(?:ing)?|send(?:ing)?${RETRY_OBJ} again|re-?post(?:ing)?|post(?:ing)?${RETRY_OBJ} again|re-?submit(?:ting)?|submit(?:ting)?${RETRY_OBJ} again|re-?publish(?:ing)?|publish(?:ing)?${RETRY_OBJ} again)\b`, 'i');
+// The negation must govern the retry verb itself ("do not post it again"), not some other clause ("If the post is not there, retry it").
+const RETRY_NEGATED = /\b(?:do not|don'?t|never|not|no need to|instead of|avoid|without|rather than)\s+(?:(?:please|yet|ever|immediately)\s+)?$/i;
+const RETRY_UNHELPFUL = /^[^.!?;]*\b(?:will not|won'?t|does not|doesn'?t|cannot|can'?t) (?:help|fix|work)/i;
+const NOT_A_POST = /\b(?:authori[sz]ation|checkout|automation|for a read|sign[- ]?in|log[- ]?in)\b/i;
+const NETWORKS = '(?:instagram|facebook|tiktok|youtube|linkedin|x|twitter|threads|bluesky|pinterest|slack)';
+export const PLATFORM_CHECK = new RegExp(String.raw`\b(?:check|open|look|search|visit|confirm|make sure)\b[^.!?]*?(?:\bon the (?:social )?platform\b|\bthe platform itself\b|\bplatform url\b|\bthe (?:intended|destination) account on\b|\b(?:your|the) ${NETWORKS}(?: business)? (?:account|page|profile|channel|feed|grid|board|workspace|channel)\b(?! in accounts)|\bon ${NETWORKS}\b(?! is)|\bin the ${NETWORKS} app\b|\bthe (?:slack )?channel\b)`, 'i');
+
+const sentences = (text) => String(text || '').split(/(?<=[.!?])\s+/).filter(Boolean);
+
+// Does this sentence tell the customer to retry a post? Returns the retry words, or null.
+export function retryInstruction(sentence) {
+  const s = String(sentence || '');
+  if (NOT_A_POST.test(s)) return null;
+  for (const m of s.matchAll(new RegExp(RETRY.source, 'gi'))) {
+    const before = s.slice(0, m.index);
+    const after = s.slice(m.index + m[0].length);
+    // A noun, not a verb: "a resend can make a copy", "its retry loop", "schedule the post again".
+    if (/\b(?:a|an|the|its|each|every|one|any|this|that|your)\s+$/i.test(before)) continue;
+    if (/^\s+(?:loop|path|logic|policy|button|limit|attempts?|that|which)\b/i.test(after)) continue;
+    // A gerund that opens the sentence is its subject, not an instruction: "Sending it again unchanged often fails".
+    if (!before.trim() && /^\w+ing\b/i.test(m[0])) continue;
+    if (RETRY_NEGATED.test(before)) continue;
+    if (RETRY_UNHELPFUL.test(after)) continue;
+    return m[0];
+  }
+  return null;
+}
+
+// lines: [{ name, text, step: true|false }] in the order the customer reads them.
+// Returns the lines that tell the customer to retry before any earlier step had them check the platform itself.
+export function findUncheckedRetries(lines) {
+  const hits = [];
+  let checked = false;
+  for (const { name, text, step } of lines) {
+    // Within one line, a check in an earlier sentence also comes first: "Check your TikTok account. If it is not
+    // there, retry." Only a numbered step carries the check on to the lines after it.
+    let here = false;
+    for (const s of sentences(text)) {
+      if (PLATFORM_CHECK.test(s)) here = true;
+      const words = retryInstruction(s);
+      if (words && !checked && !here) hits.push({ name, words, sentence: s });
+    }
+    if (step && here) checked = true;
+  }
+  return hits;
+}
+export const RETRY_WHY = 'tells the customer to retry before any earlier step has them check the platform itself for the first post (Blotato\'s Posts lists alone do not show whether it went out)';
+
 export const replyHash =(reply) => crypto.createHash('sha256').update(String(reply || '').trim()).digest('hex');
 // The file name a review is saved under: the sample ticket's id, or a short hash of a pasted message.
 export const reviewName = (ticket) => ticket?.id || `pasted-${replyHash(ticket?.text).slice(0, 12)}`;
@@ -106,6 +167,10 @@ export function checkReply(d, { reviewsDir, requireReview = false, checksDir = d
   }
 
   for (const v of VOICE) if (v.re.test(d.reply)) problems.push(`The reply uses ${v.why}.`);
+
+  // Retry only after the platform was checked: read the lines in order; only numbered steps count as "earlier".
+  const replyLines = d.reply.split('\n').map(line => ({ name: line, text: line.replace(/^\d+\.\s+/, ''), step: stepAt.has(line) }));
+  for (const h of findUncheckedRetries(replyLines)) problems.push(`The line "${h.name}" ${RETRY_WHY} ("${h.words}").`);
 
   // The subagent's verdict (written by .claude/agents/reply-checker.md), bound to this exact reply text.
   // A verdict counts for exactly this text, wherever it was saved: the shipped store (knowledge/checks) or desk/reviews.

@@ -7,7 +7,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { ROOT } from './config.mjs';
 import { pageUrl, quoteOnPage, readCacheDir } from './docs.mjs';
-import { findPromises, findVoice } from './checkreply.mjs';
+import { findPromises, findVoice, findUncheckedRetries, RETRY_WHY } from './checkreply.mjs';
 import { SIGNAL_NAMES, DEFAULT_SIGNALS, GENERIC_WORDS, STATUS_MEANING } from './signals.mjs';
 import { contentStems, anchorsMet, anchorRegex, foldText } from './match.mjs';
 import { createRouter } from './route.mjs';
@@ -75,6 +75,9 @@ function checkReplyBlock(where, b, e, problems) {
     for (const p of findPromises(text, { quote: quote || undefined })) problems.push(`${where}, ${name}: makes ${p.why} ("${p.words}").`);
     for (const v of findVoice(text)) problems.push(`${where}, ${name}: uses ${v}.`);
   }
+  // A retry only after an earlier step has the customer check the platform itself (see checkreply.mjs).
+  const ordered = [{ name: 'opening', text: b.opening }, ...(b.steps || []).map((s, i) => ({ name: `step ${i + 1}`, text: s?.text, step: true })), { name: 'next', text: b.next }, { name: 'proof', text: b.proof }];
+  for (const h of findUncheckedRetries(ordered)) problems.push(`${where}, ${h.name}: ${RETRY_WHY} ("${h.words}").`);
 }
 
 // Shape checks that need no network and no cache. Returns a list of problems, each naming the entry.
