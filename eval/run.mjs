@@ -25,7 +25,7 @@
 //   --passages 16 --pages 5 --per-page 4   how many passages the script retrieves, from how many pages
 //   --expand on|off [--expand-model m]     the search step: a fast model writes queries in the pages' words (default on, haiku)
 //   --gaps reader|all                 which coverage gaps block a draft (default reader)
-//   --top-pages 2                     every quote from the N best-ranked pages (0: any page shown; default 2)
+//   --top-pages 3                     every quote from the N best-ranked pages (0: any page shown; default 3)
 //   --composer-cache <dir>            (default eval/composer-cache/<set>); --composer-cache-only 1 makes no live call
 //
 // Held-out sets (any set whose name starts with "test") print the summary tables only: no row is printed, and no

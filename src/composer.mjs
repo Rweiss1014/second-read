@@ -291,7 +291,10 @@ export function composerConfig(env = process.env) {
     // Every quote must come from one of the N pages the search ranked highest (0: any page shown). Chosen on dev2 to
     // bring wrong answers to 3% (COMPOSE-REPORT.md has the curve): a reply stitched from lower-ranked pages more often
     // answers a neighboring question, or cites a page other than the one the question came from.
-    topPages: Number(env.SUPPORT_DESK_COMPOSER_TOP_PAGES ?? 2),
+    // Nov 16, 2026: 2 -> 3. The curve above was graded by page match, which counts a right answer from another page
+    // as wrong. On dev2, 3 pages added 8 answers and lost none, and a strict blind read found all 8 right
+    // (exam2-check/top3/VERDICTS.json and regrade/). The script checks and the second read are unchanged.
+    topPages: Number(env.SUPPORT_DESK_COMPOSER_TOP_PAGES ?? 3),
     timeoutMs: Number(env.SUPPORT_DESK_COMPOSER_TIMEOUT_MS || 180000),
     cacheDir: env.SUPPORT_DESK_COMPOSER_CACHE || null,
     cacheOnly: env.SUPPORT_DESK_COMPOSER_CACHE_ONLY === '1',
