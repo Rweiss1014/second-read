@@ -299,13 +299,11 @@ Not proven yet:
 
 ## The MCP servers I used while building this, and why
 
-<!-- TO CONFIRM BEFORE PUBLISHING: this list holds only what the build log shows. Add or remove in your own words. -->
 - **Blotato's docs MCP server.** The desk reads every cited help page through it, so each reply quotes the docs instead of guessing.
 - Headless page checks used the Playwright library, not an MCP server.
 
 ## The hardest part
 
-<!-- TO CONFIRM BEFORE PUBLISHING, IN YOUR OWN WORDS. Drawn only from the build log. -->
 Getting a reply that is checked, not only cited.
 
 My script checker passed all 12 replies. Every quote was really on its page.
@@ -320,7 +318,6 @@ I fixed each one from the page's own words. The second round passed 9 of 10. The
 
 ## How I debugged it
 
-<!-- TO CONFIRM BEFORE PUBLISHING, IN YOUR OWN WORDS. Drawn only from the build log. -->
 - **Read-only calls against the real API.** The docs show schedule ids like `sch_abc123`. A real lookup with one answered 500 "invalid input syntax for type bigint". That became ticket T11.
 - **The request id in every log line.** Blotato's error bodies carry a `reqId`. The log keeps it, so a ticket can quote it.
 - **Tests that try to break it.** One test checks that the key never shows up in an error. It failed at first: an error message could have carried the key. Now the key is scrubbed from every response before anything reads it.
@@ -328,7 +325,7 @@ I fixed each one from the page's own words. The second round passed 9 of 10. The
 
 ## What is not done
 
-- More entries. Thirteen kinds of tickets is a start, not the help center. The format for the rest is in `knowledge/ENTRY-GUIDE.md`.
+- More entries. 274 saved answers cover the common tickets, and the composer writes from any help page, but neither covers everything. The format for the rest is in `knowledge/ENTRY-GUIDE.md`.
 - A refused ticket can still have an answer in the docs. "Can Blotato post to my Mastodon server?" is refused, because no entry matches and the search's top results miss it. Blotato's FAQ does answer it: its platform list says Blotato does not publish outside that list. So the proposed FAQ entry for it is not needed. The desk is safe here, since it refuses instead of guessing, but a person still has to look.
 - The sample posts in `--mock` are fixed. They do not come from a recording of a real account.
 - The known-failures list counts every run, including test runs on your own machine.
