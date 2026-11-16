@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3631,
+ "verdict": {
+  "points": [
+   {
+    "point": "Rate limit on schedules routes (DELETE /v2/schedules/:id)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The rate-limit entry only states limits for Upload Media and Publish Post (30/minute), and none of the entries states a limit for the schedules or delete routes, so no entry answers this."
+ },
+ "at": "2026-11-16T06:34:13.060Z"
+}

@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4146,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is a language setting needed for Spanish posts / where is it",
+    "sentence": "There is no language setting or toggle to switch."
+   }
+  ],
+  "pick": "english-spanish-content",
+  "reason": "The entry directly states there is no language setting or toggle, which answers the customer's question about where to change it."
+ },
+ "at": "2026-11-16T06:44:54.190Z"
+}

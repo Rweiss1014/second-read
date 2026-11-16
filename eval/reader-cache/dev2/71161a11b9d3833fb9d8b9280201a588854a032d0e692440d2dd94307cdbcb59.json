@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5976,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can I claim the reward a second time for a Capterra review after already claiming for G2",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The review-reward entry explains how to claim a $100 gift card for a G2 or Capterra review, but no sentence says whether a customer who already claimed for one site can claim again for the other."
+ },
+ "at": "2026-11-16T06:33:26.148Z"
+}

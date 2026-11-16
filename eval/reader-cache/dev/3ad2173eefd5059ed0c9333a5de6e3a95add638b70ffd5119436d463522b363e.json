@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7462,
+ "verdict": {
+  "points": [
+   {
+    "point": "how to get more AI credits after running out",
+    "sentence": "On the website, open Settings > Billing, find AI Credits and Usage, and choose a quantity."
+   }
+  ],
+  "pick": "how-to-buy-credits",
+  "reason": "The customer almost certainly means AI credits, and this entry gives the steps to buy more."
+ },
+ "at": "2026-11-16T06:46:03.692Z"
+}

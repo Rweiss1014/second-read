@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4279,
+ "verdict": {
+  "points": [
+   {
+    "point": "where is delete all for scheduled posts",
+    "sentence": "The current Posts list does not have the older bulk-delete control."
+   },
+   {
+    "point": "how to remove posts from the queue",
+    "sentence": "Repeat for each post you want to remove from the queue."
+   }
+  ],
+  "pick": "clear-all-scheduled",
+  "reason": "The entry states there is no bulk-delete control and gives the one-by-one Move to drafts method for clearing scheduled posts."
+ },
+ "at": "2026-11-16T06:44:25.644Z"
+}

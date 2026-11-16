@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3527,
+ "verdict": {
+  "points": [
+   {
+    "point": "list AI apps connected to account",
+    "sentence": ""
+   },
+   {
+    "point": "disconnect former assistant's Claude connection",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer wants staff to look up their account's connected AI apps and disconnect another person's connection, which needs their own account data and a staff change, and no entry's sentences state how to do that."
+ },
+ "at": "2026-11-16T06:33:29.832Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7135,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can choose a Pinterest section, not only the board, when making a pin",
+    "sentence": ""
+   },
+   {
+    "point": "Platform is Pinterest",
+    "sentence": "You need a Board ID when publishing a pin to a specific board."
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate states whether Blotato lets you pick a Pinterest section; the closest entry, \"Find my Pinterest Board ID,\" only covers choosing a board, which answers a neighboring question."
+ },
+ "at": "2026-11-16T06:30:11.786Z"
+}

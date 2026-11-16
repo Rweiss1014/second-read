@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8458,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why the limit is 5 hashtags (Blotato-imposed, not Instagram)",
+    "sentence": "This is a Blotato guardrail, not an Instagram rule."
+   },
+   {
+    "point": "Customer's claim that Instagram allows 30 hashtags",
+    "sentence": ""
+   },
+   {
+    "point": "Request to fix the bug (change the cap)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The entry explains the 5-hashtag cap is a deliberate Blotato guardrail and that Instagram allows more, but it never states the figure 30 that the customer names, and the customer's demand to change the cap is a product or staff change the entry does not answer, so it should go to a person."
+ },
+ "at": "2026-11-16T06:42:42.067Z"
+}

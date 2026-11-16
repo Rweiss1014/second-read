@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8572,
+ "verdict": {
+  "points": [
+   {
+    "point": "Creator plan price",
+    "sentence": "Creator is $97 a month and includes 5,000 AI credits a month."
+   },
+   {
+    "point": "Creator credits per month",
+    "sentence": "Creator is $97 a month and includes 5,000 AI credits a month."
+   }
+  ],
+  "pick": "plans-and-pricing",
+  "reason": "The plans-and-pricing entry has one sentence that states both the Creator price ($97 a month) and its monthly credits (5,000), while the other credits entry doesn't state the Creator price."
+ },
+ "at": "2026-11-16T06:32:05.886Z"
+}

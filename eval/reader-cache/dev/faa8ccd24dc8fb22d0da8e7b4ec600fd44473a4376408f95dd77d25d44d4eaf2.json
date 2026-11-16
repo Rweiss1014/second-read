@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7100,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why New post opens a chat instead of the tutorial's buttons",
+    "sentence": "The chat IS the starting point -- the AI Agent creates your posts from what you type."
+   },
+   {
+    "point": "Where is the add video button (add media to a post)",
+    "sentence": "To add media to a post: open the draft and click Photo / Video."
+   },
+   {
+    "point": "Where the AI image button from the tutorial is",
+    "sentence": "To generate AI images, carousels, or videos: go to Videos, click \"Create New Video,\" and pick a template."
+   }
+  ],
+  "pick": "new-post-opens-basic-chat",
+  "reason": "This entry answers all three points: the chat is the starting point, media is added via Photo / Video on the draft, and AI images are made from the Videos section."
+ },
+ "at": "2026-11-16T06:43:06.432Z"
+}

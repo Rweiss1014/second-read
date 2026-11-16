@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6296,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why GET /v2/users/me/accounts returns 401 with the key",
+    "sentence": ""
+   },
+   {
+    "point": "Customer already tried the key in .env and in curl, and it still fails",
+    "sentence": ""
+   },
+   {
+    "point": "Key in .env differs from the key in Settings (ends in ==)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer says they already tried the key in both .env and curl and it still returns 401, and the mismatch between their .env key and the Settings key is a fact only their own account can show, so the api-401 entry's \"copy the key again\" steps do not cover this case."
+ },
+ "at": "2026-11-16T06:43:46.134Z"
+}

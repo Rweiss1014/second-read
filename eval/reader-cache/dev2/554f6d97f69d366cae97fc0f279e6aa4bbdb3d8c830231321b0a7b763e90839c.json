@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5537,
+ "verdict": {
+  "points": [
+   {
+    "point": "Will the 30 requests/minute upload limit stay the same for 12 months (guarantee)",
+    "sentence": ""
+   },
+   {
+    "point": "Request for staff to write a guarantee, which is a commitment about future limits",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states that the limit will not change in the next 12 months. The closest entry, \"Too many requests\" from a workflow, gives only the current 30 requests/minute limit, and the message asks staff to commit to a future guarantee, which is not mine to give."
+ },
+ "at": "2026-11-16T06:30:37.061Z"
+}

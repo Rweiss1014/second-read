@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 10496,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why the 'No available slot time found in the next 9 months' error appears",
+    "sentence": ""
+   },
+   {
+    "point": "What slots are",
+    "sentence": ""
+   },
+   {
+    "point": "Exact-time scheduling without using slots",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry (no-available-slot-9-months) says exact-time scheduling does not require slots, but none of its sentences explain what a slot is, which the customer asks directly, so a person should answer."
+ },
+ "at": "2026-11-16T06:44:45.819Z"
+}

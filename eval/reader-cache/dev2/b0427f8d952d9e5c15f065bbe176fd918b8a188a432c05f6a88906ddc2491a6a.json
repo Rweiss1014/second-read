@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5937,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can Blotato be used in the Claude app on iPhone",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The Claude clients entry covers Claude.ai, Desktop and Cowork but never mentions the iPhone app, and the mobile-app entry is about Blotato's own screens, so no entry states whether the Claude iPhone app works."
+ },
+ "at": "2026-11-16T06:34:00.942Z"
+}

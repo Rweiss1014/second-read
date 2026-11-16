@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4882,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does it add tags (question about automatic tagging)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry mentions tags, hashtags, or automatic tagging, so none of their sentences answer whether Blotato adds tags; the closest entries (AI labels, collaborators, music, links) cover different features."
+ },
+ "at": "2026-11-16T06:30:35.939Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4910,
+ "verdict": {
+  "points": [
+   {
+    "point": "Same Instagram connected in agency and client's own Blotato accounts allowed?",
+    "sentence": ""
+   },
+   {
+    "point": "Will one connection invalidate the other's token?",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The agency entries explain how to set up client accounts, but none says whether one Instagram can be connected in two Blotato accounts or whether that affects tokens."
+ },
+ "at": "2026-11-16T06:36:53.494Z"
+}

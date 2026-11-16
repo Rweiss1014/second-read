@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7822,
+ "verdict": {
+  "points": [
+   {
+    "point": "Do posts published on Starter move to the Creator checkpoint schedule after upgrading?",
+    "sentence": ""
+   },
+   {
+    "point": "Starter 1, 7, 14, 30 day schedule",
+    "sentence": "Starter has 4 checkpoints over 30 days: 1, 7, 14 and 30 days after publish."
+   },
+   {
+    "point": "Creator daily snapshot schedule",
+    "sentence": "Creator has 18 checkpoints over 30 days: 2 hours after publish, every day from day 1 through day 8, then days 10, 12, 14, 17, 20, 22, 24, 27, and 30."
+   }
+  ],
+  "pick": "none",
+  "reason": "The analytics-refresh-schedule entry describes each plan's checkpoints but never says whether posts published before an upgrade keep their original schedule or switch to the new plan's schedule, so the customer's main question is not answered by any sentence."
+ },
+ "at": "2026-11-16T06:30:38.299Z"
+}

@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5824,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is there a field to post as a reply inside an existing Slack thread (thread_ts)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry states whether Blotato supports posting a reply into an existing Slack thread or names a thread_ts field; the Slack entries cover channel post limits and channel-not-found errors, which are neighboring topics."
+ },
+ "at": "2026-11-16T06:30:46.586Z"
+}

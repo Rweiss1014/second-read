@@ -86,6 +86,39 @@ The key goes only into the request header. It is never printed, logged or saved,
    The page and the shift handoff say "ready to send" only then. Before that, they say the script check passed and the fresh check has not run yet.
 7. If no entry is a clear match, the desk does not write a reply. It hands the message to a person with its top three candidates, and proposes a doc edit.
 
+## The reader: a model that picks an entry, or says none (off by default)
+
+Word matching misses a question asked in new words. The reader puts a language model where it helps, and keeps it from writing anything.
+The reply is still the entry's saved text, which a fresh checker passed. The model only chooses which saved reply, or none.
+
+1. The guards and the hand-over signals run first, exactly as before. The model never sees those messages.
+2. A script picks up to about ten candidate entries: the matcher's best five (its threshold ignored) and the best five from a plain search over each entry's whole text.
+3. One model call picks ONE entry that answers every point of the message, and copies, for each point, the sentence from that entry that covers it. "None" is a good answer.
+4. A script checks the pick: the id is a candidate, every sentence is in that entry's own quotes or steps word for word, the entry's own hand-over signals still apply, and the coverage rules find no gap the pick leaves open. If anything fails, a person gets the message, as before.
+5. Optional: a second, separate call reads only the message and the chosen reply and tries to find what it leaves unanswered. Any real objection hands the message over.
+6. Any error, timeout or unreadable answer leaves the matcher's own decision exactly as it was.
+
+Turn it on with environment variables (or the same flags on `eval/run.mjs`):
+
+| Variable | Values | Default |
+|---|---|---|
+| `SUPPORT_DESK_READER` | `off`, `claude-cli` (the Claude Code CLI, signed in on this machine), `anthropic` (the Messages API) | `off` |
+| `SUPPORT_DESK_READER_MODEL` | `haiku`, `sonnet`, or a full model id | `haiku` |
+| `SUPPORT_DESK_REFUTER` | `on` or `off` | `off` |
+| `SUPPORT_DESK_REFUTER_MODEL` | as above | the reader's model |
+| `SUPPORT_DESK_READER_CACHE` | a folder for saved verdicts | `desk/reader-cache` |
+| `ANTHROPIC_API_KEY` | your key, for the `anthropic` backend only | none |
+
+```bash
+SUPPORT_DESK_READER=claude-cli SUPPORT_DESK_READER_MODEL=sonnet node bin/support-desk.mjs ticket "<customer message>" --mock
+node eval/run.mjs --set dev2 --reader claude-cli --model sonnet            # the exam, with the reader
+node eval/run.mjs --set dev2 --reader claude-cli --model sonnet --cache-only 1   # the same numbers from the saved verdicts, no model call
+```
+
+The `claude-cli` backend runs `claude -p` with no tools, no MCP servers, no CLAUDE.md, no hooks and no saved session, in an empty folder. It sends the customer's message and the candidates' own text, nothing else.
+Every verdict is saved under a hash of the prompt version, the model, the message and the candidates, so a second run costs nothing and gives the same answer. The saved file holds the hash and the verdict, not the message.
+The result of every ticket has a `reader` field: backend, model, candidates, the pick or none, each point with its sentence, the refuter's verdict, and whether it came from the cache. Two reason codes are new: `reader-abstained` and `reader-refuted` (see `knowledge/ENTRY-GUIDE.md`).
+
 ## The 12 sample tickets
 
 They are made up, and they cover the three kinds in the job post: non-technical, billing, and mildly technical.

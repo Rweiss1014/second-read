@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4126,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does Instagram post auto-appear on Facebook Page",
+    "sentence": "Blotato's Instagram publisher submits to Instagram."
+   },
+   {
+    "point": "Picking both Facebook and Instagram: seen twice / duplicates",
+    "sentence": "If Instagram's native crossposting is enabled, check Facebook before sending an additional Facebook post to avoid duplicates."
+   }
+  ],
+  "pick": "instagram-also-facebook",
+  "reason": "The entry states Blotato's Instagram publisher only submits to Instagram, and it covers the duplicate risk when also posting to Facebook with native crossposting enabled."
+ },
+ "at": "2026-11-16T06:46:16.677Z"
+}

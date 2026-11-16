@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6682,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why a Facebook Page post publishes a different image than the one attached",
+    "sentence": ""
+   },
+   {
+    "point": "Facebook Page as the platform",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate explains why an attached image is replaced by a different one on a Facebook Page post; the closest entries cover failed posts, uploads, or other platforms, and the customer reports a failure after their own upload, which is not mine to answer."
+ },
+ "at": "2026-11-16T06:28:07.488Z"
+}

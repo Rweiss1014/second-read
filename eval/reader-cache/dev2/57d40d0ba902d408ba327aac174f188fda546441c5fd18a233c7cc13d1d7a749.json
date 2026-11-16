@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4226,
+ "verdict": {
+  "points": [
+   {
+    "point": "Will the $29 price stay if Blotato raises prices later (price lock)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The pricing entries only state current prices (Starter $29) and don't say whether an existing subscriber's price stays the same after a future increase."
+ },
+ "at": "2026-11-16T06:33:31.565Z"
+}

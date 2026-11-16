@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7413,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is the Creator limit really 40?",
+    "sentence": ""
+   },
+   {
+    "point": "Must I disconnect something to add the 25th connection?",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The connected-account-limit entry says Creator allows 40 and that you should disconnect or upgrade at the limit, but this customer is blocked at 24 connections. Explaining that mismatch would need facts only their own account can show, so a person on the team should review it."
+ },
+ "at": "2026-11-16T06:33:09.345Z"
+}

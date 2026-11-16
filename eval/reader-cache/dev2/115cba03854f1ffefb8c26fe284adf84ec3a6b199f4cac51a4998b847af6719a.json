@@ -1,0 +1,12 @@
+{
+ "kind": "refute",
+ "version": "refute-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7701,
+ "verdict": {
+  "objections": [],
+  "verdict": "send"
+ },
+ "at": "2026-11-16T06:38:27.774Z"
+}

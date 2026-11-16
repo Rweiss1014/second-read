@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5418,
+ "verdict": {
+  "points": [
+   {
+    "point": "7 free skills vs 8 folders in ZIP: which is right",
+    "sentence": ""
+   },
+   {
+    "point": "Is the extra 'generate' skill free",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry (free-claude-skills) says there are 7 free skills, but it doesn't mention the 8th folder or say whether the 'generate' skill is free, so it can't answer both questions."
+ },
+ "at": "2026-11-16T06:45:59.636Z"
+}

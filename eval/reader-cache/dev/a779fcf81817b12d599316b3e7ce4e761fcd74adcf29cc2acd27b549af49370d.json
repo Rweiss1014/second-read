@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8677,
+ "verdict": {
+  "points": [
+   {
+    "point": "429 errors in the status-check loop",
+    "sentence": ""
+   },
+   {
+    "point": "workflow stops after the 429s, and what to do",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The rate-limit entry only states limits for Upload Media and Publish Post (30 a minute each) and never mentions status-check requests, so it would answer a neighboring question rather than this customer's loop."
+ },
+ "at": "2026-11-16T06:46:29.659Z"
+}

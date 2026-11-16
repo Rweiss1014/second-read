@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5711,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is there a master agency dashboard where each client gets a sub-account (answer: no)",
+    "sentence": "A master agency account for managing all client subaccounts from one dashboard is not available yet, and there is no firm release date."
+   },
+   {
+    "point": "When is it coming (no firm release date)",
+    "sentence": "A master agency account for managing all client subaccounts from one dashboard is not available yet, and there is no firm release date."
+   }
+  ],
+  "pick": "agency-multiple-clients",
+  "reason": "The entry's quoted sentence states that the master agency dashboard with client subaccounts is not available yet and has no firm release date, which answers both the existence question and the timing question."
+ },
+ "at": "2026-11-16T06:43:07.424Z"
+}

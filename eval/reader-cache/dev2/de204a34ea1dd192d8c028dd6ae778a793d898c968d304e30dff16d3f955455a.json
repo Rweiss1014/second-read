@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5904,
+ "verdict": {
+  "points": [
+   {
+    "point": "keyboard shortcuts for the calendar",
+    "sentence": ""
+   },
+   {
+    "point": "keyboard shortcuts for the post editor",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "None of the candidate entries mention keyboard shortcuts for the calendar or the post editor; the closest ones (find-post-editor, view-scheduled-posts) only say where those screens are, which does not answer the question."
+ },
+ "at": "2026-11-16T06:28:29.013Z"
+}

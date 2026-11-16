@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3455,
+ "verdict": {
+  "points": [
+   {
+    "point": "Remove Page from another person's Blotato account",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks staff to change another person's account (remove a Page from the freelancer's Blotato account), which involves another person's data and a staff action, and no entry covers it."
+ },
+ "at": "2026-11-16T06:32:20.676Z"
+}

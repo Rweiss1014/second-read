@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5795,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does Blotato automatically repost failed Instagram posts?",
+    "sentence": ""
+   },
+   {
+    "point": "Does it keep retrying forever, with no limit?",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry (instagram-temporary-error-20003) says only that Blotato retries on its own before reporting a temporary error. It doesn't say failed posts are reposted automatically or that retries never stop, and it tells the customer to retry manually."
+ },
+ "at": "2026-11-16T06:44:52.317Z"
+}

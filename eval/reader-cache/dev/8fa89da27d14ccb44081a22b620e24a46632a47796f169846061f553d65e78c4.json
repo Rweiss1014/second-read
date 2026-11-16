@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5868,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does Blotato post to Mastodon (platform not on the list)",
+    "sentence": "Blotato does not publish to platforms outside this list."
+   },
+   {
+    "point": "Mastodon is outside the supported platform list",
+    "sentence": "This list is exhaustive for the Blotato web app, API, MCP, and Cowork."
+   }
+  ],
+  "pick": "supported-platforms",
+  "reason": "The customer asks about Mastodon, which is not among the listed platforms, and the entry states that Blotato does not publish to any platform outside its exhaustive list, which plainly covers Mastodon."
+ },
+ "at": "2026-11-16T06:43:56.989Z"
+}

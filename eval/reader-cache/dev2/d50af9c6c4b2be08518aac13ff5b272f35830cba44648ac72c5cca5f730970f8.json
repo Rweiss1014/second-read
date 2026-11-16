@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7708,
+ "verdict": {
+  "points": [
+   {
+    "point": "What is the file size limit for uploading to Viral Coach",
+    "sentence": ""
+   },
+   {
+    "point": "180MB reel fails to upload to Viral Coach (still fails after trying)",
+    "sentence": ""
+   },
+   {
+    "point": "Why publishing accepts the same file",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate states a file size limit for uploading to Viral Coach, and the closest one (the 8MB cover image limit in reels-cover-image) is a different field; the upload still failing after the customer's attempt is also outside what this desk should answer."
+ },
+ "at": "2026-11-16T06:30:31.326Z"
+}

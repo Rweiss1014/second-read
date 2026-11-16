@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6150,
+ "verdict": {
+  "points": [
+   {
+    "point": "How to make Claude post every morning automatically without typing",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks how to set up recurring, unprompted posting each morning, and none of the candidate entries states how to schedule a repeating or automatic post or how to trigger Claude without typing, so the closest entries (Claude skills, post editing, reel creation) answer neighboring questions."
+ },
+ "at": "2026-11-16T06:28:52.678Z"
+}

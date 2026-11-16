@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4047,
+ "verdict": {
+  "points": [
+   {
+    "point": "LinkedIn profile plus 3 company Pages: 1 account or 4",
+    "sentence": "LinkedIn: Your profile and each connected company Page count toward your total"
+   },
+   {
+    "point": "Starter plan limit of 20",
+    "sentence": "You can connect up to **20** social accounts on the **Starter** plan, **40** on **Creator**, and **100** on **Agency**."
+   }
+  ],
+  "pick": "connected-account-limit",
+  "reason": "The entry states that a LinkedIn profile and each connected company Page count toward the total, so the customer's setup counts as 4 of the 20 Starter accounts."
+ },
+ "at": "2026-11-16T06:44:29.822Z"
+}

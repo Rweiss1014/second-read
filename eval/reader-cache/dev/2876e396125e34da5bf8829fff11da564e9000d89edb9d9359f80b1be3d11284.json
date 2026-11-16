@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7066,
+ "verdict": {
+  "pick": "free-claude-skills",
+  "points": [
+   {
+    "point": "Customer's 100 viral hooks bonus is what the promotion refers to",
+    "sentence": "The promotion in the app refers to the free Claude skills bundle, which includes the viral-hooks skill"
+   },
+   {
+    "point": "Customer can't find it in the dashboard (why)",
+    "sentence": "The skills do not appear inside your Blotato subscription dashboard."
+   },
+   {
+    "point": "Where to find the bonus",
+    "sentence": "The seven free Claude content skills are on the Free Claude Skills page."
+   }
+  ],
+  "reason": "The entry explains that the promotion is the free Claude skills bundle with the viral-hooks skill, states it does not appear in the Blotato subscription dashboard, and points to the Free Claude Skills page where it is found."
+ },
+ "at": "2026-11-16T06:43:20.354Z"
+}

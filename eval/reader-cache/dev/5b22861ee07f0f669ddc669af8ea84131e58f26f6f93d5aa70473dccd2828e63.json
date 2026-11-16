@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6395,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does changing the email lose credits?",
+    "sentence": "Change the email on your existing account instead of creating a new one. This keeps your credits, videos, posts, and settings."
+   },
+   {
+    "point": "Does changing the email lose videos?",
+    "sentence": "Change the email on your existing account instead of creating a new one. This keeps your credits, videos, posts, and settings."
+   },
+   {
+    "point": "Is making a new account better?",
+    "sentence": "Credits and content are tied to your account and do not transfer between separate accounts."
+   }
+  ],
+  "pick": "different-email-keep-data",
+  "reason": "The entry states that changing the email on the existing account keeps credits and videos, and that a new account would start without them, which answers all three of the customer's questions."
+ },
+ "at": "2026-11-16T06:43:50.588Z"
+}

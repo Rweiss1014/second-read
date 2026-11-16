@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8042,
+ "verdict": {
+  "points": [
+   {
+    "point": "Trial shows 60 credits in Billing",
+    "sentence": ""
+   },
+   {
+    "point": "Signup bonus credits missing, is that normal",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry, plan-credits-per-month, states that the trial includes 60 credits. It says nothing about a signup offer or bonus credits, so whether the bonus should appear depends on facts about this customer's account."
+ },
+ "at": "2026-11-16T06:31:54.310Z"
+}

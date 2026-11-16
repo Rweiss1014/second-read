@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7982,
+ "verdict": {
+  "points": [
+   {
+    "point": "how to start paying for the subscription",
+    "sentence": "Go to Settings > API and generate an API key. This will activate your paid subscription."
+   },
+   {
+    "point": "keep going after the trial ends Friday",
+    "sentence": "Generating an API key from Settings > API immediately ends the free trial and activates your paid Starter subscription."
+   }
+  ],
+  "pick": "start-paid-subscription",
+  "reason": "The entry directly answers how to start the paid subscription from the trial, and its sentences state that generating an API key from Settings > API activates the paid Starter subscription and ends the trial."
+ },
+ "at": "2026-11-16T06:42:05.519Z"
+}

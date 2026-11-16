@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4665,
+ "verdict": {
+  "points": [
+   {
+    "point": "automatic retweeting of old tweets",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry states anything about retweeting or reposting old tweets automatically; the X/Twitter entries cover different topics (duplicate content errors, context import)."
+ },
+ "at": "2026-11-16T06:45:16.909Z"
+}

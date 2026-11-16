@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7285,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is the same Instagram allowed on an agency account and the client's own account?",
+    "sentence": ""
+   },
+   {
+    "point": "Will one connection invalidate the other's token?",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry says whether one Instagram account can be connected to two Blotato accounts or what that does to tokens. The agency entries only describe setting up client accounts, so a person should answer this."
+ },
+ "at": "2026-11-16T06:33:30.918Z"
+}

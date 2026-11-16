@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7694,
+ "verdict": {
+  "points": [
+   {
+    "point": "Canceled screen while Billing says ACTIVE",
+    "sentence": ""
+   },
+   {
+    "point": "Asked whether they must pay a second time to get in",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer is asking whether they will be charged twice, which is a billing and charge question for a person. Their account state also conflicts (canceled screen but ACTIVE billing), and no entry's sentences explain that."
+ },
+ "at": "2026-11-16T06:32:17.161Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5095,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why DELETE /v2/schedules/{id} returns 404 for an id that GET lists",
+    "sentence": ""
+   },
+   {
+    "point": "Customer already tried the DELETE call and it still fails",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer's DELETE call already fails with a 404 after they tried it, and no candidate entry states what a 404 on DELETE /v2/schedules/{id} means or how to fix it, so none of the entries answers this."
+ },
+ "at": "2026-11-16T06:42:47.279Z"
+}

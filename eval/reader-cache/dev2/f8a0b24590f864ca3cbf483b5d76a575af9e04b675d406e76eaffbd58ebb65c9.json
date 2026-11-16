@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6938,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is ~/.claude/skills the wrong place for Cowork?",
+    "sentence": ""
+   },
+   {
+    "point": "Do skills only work for coders?",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer already tried a restart and the skills still don't work in Cowork. The free-claude-skills entry says the skills work in Cowork, but it never says where to put the folders, so a person should handle this."
+ },
+ "at": "2026-11-16T06:31:54.143Z"
+}

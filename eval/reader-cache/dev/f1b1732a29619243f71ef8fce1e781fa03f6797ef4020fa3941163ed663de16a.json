@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5193,
+ "verdict": {
+  "points": [
+   {
+    "point": "why stars/asterisks appear in post text",
+    "sentence": "Most social platforms do NOT support markdown."
+   },
+   {
+    "point": "how to get rid of them",
+    "sentence": "Permanently disable markdown by going to Settings > Disable Markdown (toggle)."
+   }
+  ],
+  "pick": "markdown-asterisks",
+  "reason": "The stars are markdown asterisks, and this entry explains that platforms don't support markdown and how to turn it off."
+ },
+ "at": "2026-11-16T06:45:24.348Z"
+}

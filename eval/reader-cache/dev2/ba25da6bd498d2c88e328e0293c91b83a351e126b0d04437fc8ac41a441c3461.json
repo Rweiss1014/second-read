@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7774,
+ "verdict": {
+  "points": [
+   {
+    "point": "Reconnect button does nothing, no error",
+    "sentence": ""
+   },
+   {
+    "point": "TikTok account",
+    "sentence": ""
+   },
+   {
+    "point": "Starter plan with 20 accounts connected",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The reconnect entry only gives generic reconnect steps, and the limit entry never says that hitting 20 accounts on Starter stops Reconnect from working, so neither entry fully answers this customer and a person should review it."
+ },
+ "at": "2026-11-16T06:36:59.897Z"
+}

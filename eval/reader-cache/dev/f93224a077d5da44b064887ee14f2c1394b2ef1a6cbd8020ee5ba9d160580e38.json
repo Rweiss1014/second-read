@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6092,
+ "verdict": {
+  "points": [
+   {
+    "point": "biggest file size allowed",
+    "sentence": "The largest file you can upload in a single request is 400 MB on Starter, and 1 GB on Creator and Agency."
+   },
+   {
+    "point": "Starter plan specific",
+    "sentence": "The largest file you can upload in a single request is 400 MB on Starter, and 1 GB on Creator and Agency."
+   },
+   {
+    "point": "650 MB video won't upload (too large)",
+    "sentence": "If your file is too large, compress or trim it, or upgrade your plan."
+   }
+  ],
+  "pick": "max-upload-size",
+  "reason": "The entry states the Starter cap of 400 MB, which explains why the 650 MB file fails, and it gives the fix of compressing, trimming or upgrading."
+ },
+ "at": "2026-11-16T06:45:29.573Z"
+}

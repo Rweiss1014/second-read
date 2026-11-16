@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5229,
+ "verdict": {
+  "points": [
+   {
+    "point": "Where are b.jpg and c.jpg (only the first attachment published as a story)",
+    "sentence": "If more than one is provided, only the first is used and published."
+   },
+   {
+    "point": "Facebook post with media type Story (platform and target in the request)",
+    "sentence": "Facebook stories require one video or image attachment."
+   }
+  ],
+  "pick": "facebook-stories",
+  "reason": "The customer sent three images to a Facebook Story, and this entry states that Facebook Stories take one attachment and only the first is published, which answers why b and c did not appear."
+ },
+ "at": "2026-11-16T06:41:55.019Z"
+}

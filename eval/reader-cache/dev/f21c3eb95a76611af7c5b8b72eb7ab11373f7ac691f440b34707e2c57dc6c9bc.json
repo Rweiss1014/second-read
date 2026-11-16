@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3475,
+ "verdict": {
+  "points": [
+   {
+    "point": "unexpected A$155 charge after $1 offer",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer is disputing a charge of A$155 on their bank statement, which is a money matter that needs a person on the team, and no entry explains it."
+ },
+ "at": "2026-11-16T06:45:11.389Z"
+}

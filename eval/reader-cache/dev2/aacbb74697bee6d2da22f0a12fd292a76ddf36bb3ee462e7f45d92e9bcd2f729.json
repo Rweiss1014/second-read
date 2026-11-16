@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7685,
+ "verdict": {
+  "points": [
+   {
+    "point": "What's wrong with the body (URL and schema mismatch)",
+    "sentence": "Legacy POST /v2/videos/creations uses a template object and a different schema. Current POST /v2/videos/from-templates uses templateId and inputs."
+   },
+   {
+    "point": "Which endpoint to send templateId and inputs to",
+    "sentence": "Use its complete ID in templateId and send the matching body to POST /v2/videos/from-templates."
+   }
+  ],
+  "pick": "template-id-equal-to-constant",
+  "reason": "The customer sent a current-style body (templateId and inputs) to the legacy /v2/videos/creations endpoint, which expects a template object. This entry explains that mismatch and names the endpoint to use."
+ },
+ "at": "2026-11-16T06:32:00.423Z"
+}

@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4663,
+ "verdict": {
+  "points": [
+   {
+    "point": "add alt text to each Bluesky image",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states anything about alt text or an altText field for Bluesky; the Bluesky entry only covers media limits and formats."
+ },
+ "at": "2026-11-16T06:33:51.964Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6417,
+ "verdict": {
+  "points": [
+   {
+    "point": "LinkedIn post loses line breaks",
+    "sentence": "To preserve newlines in posts with multiple paragraphs, use the function toJsonString() in n8n like this: \"text\": $(\"Prepare for Publish\").item.json.final_text_long.toJsonString()"
+   },
+   {
+    "point": "Escape Multi-Line Paragraphs error in n8n",
+    "sentence": "Long text with linebreaks needs escaping."
+   }
+  ],
+  "pick": "n8n-multiline-text-escape",
+  "reason": "This entry covers both the lost line breaks in posts and the n8n escaping error for multi-line text, and the fix is to use toJsonString()."
+ },
+ "at": "2026-11-16T06:45:22.497Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6913,
+ "verdict": {
+  "points": [
+   {
+    "point": "429 errors in the status-check loop (feature not named in any entry sentence)",
+    "sentence": ""
+   },
+   {
+    "point": "Workflow stops after a few runs (implied question: is this expected and what to do)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The rate-limit entry covers 429 \"too many requests\" limits only for publishing and media uploads, and none of its sentences name or plainly include the status-check loop the customer is hitting, so it does not fully answer this message."
+ },
+ "at": "2026-11-16T06:44:12.308Z"
+}

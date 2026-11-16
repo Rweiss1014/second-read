@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5845,
+ "verdict": {
+  "points": [
+   {
+    "point": "How many minutes a presignedUrl from POST /v2/media/uploads is valid",
+    "sentence": ""
+   },
+   {
+    "point": "Sizing the queue for a worker that delays the PUT (needs the validity duration)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks for the exact validity period of a presignedUrl, and no candidate entry states an expiry time; the closest entry (codex-chatgpt-upload-media) covers the upload steps but not how long the URL lasts, so it does not answer the question."
+ },
+ "at": "2026-11-16T06:29:18.495Z"
+}

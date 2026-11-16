@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6123,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can't pay the old invoice; Stripe says it can no longer be paid",
+    "sentence": ""
+   },
+   {
+    "point": "Card was declined days ago (payment already failed; customer already tried paying and it still fails)",
+    "sentence": ""
+   },
+   {
+    "point": "Must pay this old invoice before using Blotato again (account access question on this customer's own account)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The message is a failed invoice payment that still fails after the customer tried to pay, and whether access is blocked depends on this customer's own account and invoice, which no entry's sentences state; the closest entry (subscription-setup-incomplete) covers a stuck subscription setup, not an unpayable invoice, so this should go to the team."
+ },
+ "at": "2026-11-16T06:37:47.298Z"
+}

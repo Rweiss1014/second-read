@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6158,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can Blotato post my video to a TikTok Story (platform: TikTok Story)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate states whether Blotato can post to TikTok Stories; the Story entries cover only Instagram and Facebook, and the TikTok entries cover captions, music and slideshows, not Stories."
+ },
+ "at": "2026-11-16T06:31:15.599Z"
+}

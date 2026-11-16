@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8090,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does an Instagram-only post also show on the Facebook Page automatically",
+    "sentence": "Do not assume an Instagram-only submission also published to Facebook."
+   },
+   {
+    "point": "Will people see it twice if I also pick Facebook",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The entry answers the first question, but the duplicate question is answered only conditionally on whether Instagram's native crossposting is enabled, which is a setting on this customer's own account that the sentences do not let us confirm, so no entry fully answers the message."
+ },
+ "at": "2026-11-16T06:44:02.764Z"
+}

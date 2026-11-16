@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5029,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can posts go to the Facebook group automatically",
+    "sentence": "Unfortunately, Facebook does NOT allow publishing to personal profiles or groups."
+   },
+   {
+    "point": "Is there a setting or Facebook-side approval to enable it",
+    "sentence": "Blotato publishes only to a Page."
+   }
+  ],
+  "pick": "facebook-profiles-groups",
+  "reason": "The entry states that Facebook doesn't allow publishing to groups and that Blotato publishes only to a Page, so no setting or approval can enable it."
+ },
+ "at": "2026-11-16T06:45:47.922Z"
+}

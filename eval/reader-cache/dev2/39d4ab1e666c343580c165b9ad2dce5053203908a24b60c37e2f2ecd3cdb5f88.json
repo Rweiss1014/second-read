@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 10622,
+ "verdict": {
+  "points": [
+   {
+    "point": "Did the upload and self-written caption use credits?",
+    "sentence": "Credits are only used for AI-generated images and videos."
+   },
+   {
+    "point": "No AI used: own photos uploaded and caption written by hand",
+    "sentence": "Credits are only used for AI-generated images and videos."
+   }
+  ],
+  "pick": "what-uses-credits",
+  "reason": "The entry's sentence that credits are only used for AI-generated images and videos answers the customer's question, since uploading their own photos and writing their own caption involves no AI generation."
+ },
+ "at": "2026-11-16T06:28:41.002Z"
+}

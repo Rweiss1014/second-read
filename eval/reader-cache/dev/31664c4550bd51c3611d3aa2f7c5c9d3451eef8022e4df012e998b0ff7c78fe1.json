@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7740,
+ "verdict": {
+  "points": [
+   {
+    "point": "Connecting a second Instagram account (same platform)",
+    "sentence": "If you're connecting a second account for the same platform, look for a button with 3 dots to switch between accounts and select the correct one."
+   },
+   {
+    "point": "Login keeps going into the first account automatically",
+    "sentence": "If that doesn't work, or if it keeps auto-logging into the wrong account, use an incognito browser as a last resort:"
+   }
+  ],
+  "pick": "connect-second-account",
+  "reason": "The entry covers connecting a second account on the same platform and the case where connecting keeps auto-logging into the wrong account, so it answers the whole message."
+ },
+ "at": "2026-11-16T06:44:05.349Z"
+}

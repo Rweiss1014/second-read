@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7067,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why Pinterest is not verified",
+    "sentence": "Once you get 100+ views per month, then reconnect your Pinterest account with Blotato and it will be automatically verified."
+   },
+   {
+    "point": "Needs to post this week (any faster way)",
+    "sentence": "Blotato no longer verifies Pinterest accounts manually. There is no request to send. Verification happens automatically once you reconnect with 100+ monthly views. There is no manual override -- the 100 monthly views threshold is the only unlock criterion."
+   }
+  ],
+  "pick": "pinterest-not-verified",
+  "reason": "This entry explains that verification happens automatically at 100+ monthly views and that there is no manual override, which answers both the 'why' and the need to post this week."
+ },
+ "at": "2026-11-16T06:46:23.828Z"
+}

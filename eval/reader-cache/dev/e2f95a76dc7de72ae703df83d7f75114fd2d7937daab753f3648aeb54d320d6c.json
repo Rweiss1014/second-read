@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4634,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is missing 'publishing' status a bug",
+    "sentence": ""
+   },
+   {
+    "point": "Status values the API returns / poller behavior",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether a 'publishing' status exists or whether jumping straight to 'published' is expected; the closest entries cover other statuses or topics."
+ },
+ "at": "2026-11-16T06:44:57.935Z"
+}

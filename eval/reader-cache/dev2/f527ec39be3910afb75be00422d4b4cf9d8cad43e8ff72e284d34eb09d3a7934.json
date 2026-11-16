@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6835,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can four photos go out together on Threads, or must one be picked (Threads platform, multiple images)",
+    "sentence": ""
+   },
+   {
+    "point": "The 'Threads only supports a single image or a video' error (already tried, still fails)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate states whether Threads accepts multiple images in one post or gives a workaround; the Instagram carousel entry covers only Instagram, and the Threads entry covers connection errors, so the customer's request that already failed after trying is not answered by any single entry."
+ },
+ "at": "2026-11-16T06:29:12.497Z"
+}

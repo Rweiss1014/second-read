@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6822,
+ "verdict": {
+  "points": [
+   {
+    "point": "Add a second user with her own login",
+    "sentence": ""
+   },
+   {
+    "point": "Give her her own password",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry says whether a second user or team member can be added to an account. The agency entry covers separate client logins, and the login entry only says there is no password, so neither answers this request."
+ },
+ "at": "2026-11-16T06:32:44.554Z"
+}

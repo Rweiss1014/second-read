@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8640,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why Published Bluesky posts show 'post not found' links",
+    "sentence": ""
+   },
+   {
+    "point": "Posts missing from profile, logged out and in app",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer already checked the platform themselves and the posts are still missing, and the closest entry (published-not-visible) only says Published doesn't explain the absence and relies on a live account lookup, so a team member needs to look at this account."
+ },
+ "at": "2026-11-16T06:33:13.620Z"
+}

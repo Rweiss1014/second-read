@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 13164,
+ "verdict": {
+  "points": [
+   {
+    "point": "why the follow question is skipped (log says confirmed follower)",
+    "sentence": "A follower gets your link. Someone who does not follow gets the gate message again."
+   },
+   {
+    "point": "follow gate on Instagram (the account in question)",
+    "sentence": "Follow gating works on Instagram. Turn on Ask for a follow in the automation."
+   }
+  ],
+  "pick": "dm-automation-follow-gate",
+  "reason": "The customer's log shows the test account is a confirmed follower, and this entry's sentence states that a follower gets the link directly without the gate message, which covers why the gate is skipped on an Instagram automation."
+ },
+ "at": "2026-11-16T06:29:28.587Z"
+}

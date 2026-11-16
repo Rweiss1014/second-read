@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8431,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is there a direct link for OneDrive that Blotato can use",
+    "sentence": ""
+   },
+   {
+    "point": "Same kind of trick as the Google Drive direct link",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry, cloud-storage-media, says Blotato needs a public direct file URL and has no cloud storage integration, but it never says OneDrive links work or how to get one, and the Google Drive entries are specific to Google Drive, so the OneDrive answer would need facts the sentences do not state."
+ },
+ "at": "2026-11-16T06:31:23.055Z"
+}

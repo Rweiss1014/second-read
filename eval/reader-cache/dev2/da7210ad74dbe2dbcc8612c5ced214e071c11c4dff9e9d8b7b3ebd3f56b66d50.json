@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5987,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does mcp.blotato.com expose an SSE (/sse) endpoint",
+    "sentence": ""
+   },
+   {
+    "point": "Any fallback for SSE-only clients",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks whether mcp.blotato.com has an SSE endpoint or a fallback for SSE-only clients, and no candidate entry mentions SSE, /sse, or any transport fallback; the closest entry (claude-clients-support) only gives the https://mcp.blotato.com/mcp URL for Claude clients, which does not answer the SSE question."
+ },
+ "at": "2026-11-16T06:28:54.568Z"
+}

@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6296,
+ "verdict": {
+  "points": [
+   {
+    "point": "how to add assistant as a second user",
+    "sentence": ""
+   },
+   {
+    "point": "assistant gets her own login",
+    "sentence": ""
+   },
+   {
+    "point": "assistant gets her own password",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No single entry answers the question of how to add a second user with her own login: agency-multiple-clients says there are no separate client logins in one workspace and only describes a shared-email option, and login-magic-link says there is no password but does not explain adding a user, so no entry covers all points."
+ },
+ "at": "2026-11-16T06:29:10.440Z"
+}

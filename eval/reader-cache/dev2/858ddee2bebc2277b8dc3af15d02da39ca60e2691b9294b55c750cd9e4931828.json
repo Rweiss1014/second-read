@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9547,
+ "verdict": {
+  "points": [
+   {
+    "point": "When numbers show on Starter",
+    "sentence": "Blotato collects the first metrics around 2 hours after a post publishes on Creator and Agency, and up to 1 day after on Starter."
+   },
+   {
+    "point": "Is the account broken, or is pending normal",
+    "sentence": "Data is not instant."
+   },
+   {
+    "point": "Analytics on a paid plan (Starter)",
+    "sentence": "Analytics need a paid plan."
+   }
+  ],
+  "pick": "analytics-no-data-yet",
+  "reason": "This entry says Starter's first metrics can take up to 1 day and that analytics are not instant, so a post from 5 hours ago can still show no data. That answers both the timing and the 'is it broken' question."
+ },
+ "at": "2026-11-16T06:34:00.349Z"
+}

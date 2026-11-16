@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 10934,
+ "verdict": {
+  "points": [
+   {
+    "point": "why the photo disappeared after the caption edit",
+    "sentence": "Fields you leave out of a complete post are not kept, and leaving out mediaUrls removes the post's media."
+   },
+   {
+    "point": "what the AI tool should have done when editing the caption",
+    "sentence": "To change the caption or media: pass the **whole `post` object**, not just the field you're editing."
+   }
+  ],
+  "pick": "mcp-edit-made-duplicate",
+  "reason": "This entry explains that an AI-tool edit which leaves out mediaUrls removes the post's media, and that a caption edit must pass the whole post."
+ },
+ "at": "2026-11-16T06:32:20.177Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3369,
+ "verdict": {
+  "points": [
+   {
+    "point": "hours after which Instagram shares trial reel to followers (SS_PERFORMANCE)",
+    "sentence": ""
+   },
+   {
+    "point": "exact time for planning",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The trial reel entry only says trial reels go to non-followers first and the manual option lets you choose when to promote, but it never states SS_PERFORMANCE or any hour count for sharing to followers."
+ },
+ "at": "2026-11-16T06:32:51.868Z"
+}

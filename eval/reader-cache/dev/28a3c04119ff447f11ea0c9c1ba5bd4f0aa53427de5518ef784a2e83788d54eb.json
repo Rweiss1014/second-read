@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3903,
+ "verdict": {
+  "points": [
+   {
+    "point": "Where to add music in Blotato",
+    "sentence": "For single image posts and carousels, music cannot be added through Blotato. Publish first, then open the post in the Instagram app and add music there."
+   },
+   {
+    "point": "Instagram carousel specifically",
+    "sentence": "For single image posts and carousels, music cannot be added through Blotato. Publish first, then open the post in the Instagram app and add music there."
+   }
+  ],
+  "pick": "add-music-audio",
+  "reason": "The entry states directly that music for Instagram carousels can't be added in Blotato and should be added in the Instagram app after publishing."
+ },
+ "at": "2026-11-16T06:45:35.298Z"
+}

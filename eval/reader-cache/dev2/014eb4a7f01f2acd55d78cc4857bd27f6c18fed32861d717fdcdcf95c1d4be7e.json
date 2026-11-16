@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6792,
+ "verdict": {
+  "points": [
+   {
+    "point": "Am I in the wrong place? (adding the server under ChatGPT desktop Plugins > MCPs)",
+    "sentence": ""
+   },
+   {
+    "point": "Form asks for a command to launch; only the URL mcp.blotato.com/mcp is available",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry, connect-chatgpt-codex, covers Codex and ChatGPT.com, while none of its sentences name the ChatGPT desktop app's Plugins > MCPs form or explain the \"command to launch\" field, so no entry answers this customer."
+ },
+ "at": "2026-11-16T06:29:07.480Z"
+}

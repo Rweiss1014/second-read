@@ -1,0 +1,30 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8670,
+ "verdict": {
+  "points": [
+   {
+    "point": "which view number is the real one",
+    "sentence": ""
+   },
+   {
+    "point": "is Blotato missing views",
+    "sentence": ""
+   },
+   {
+    "point": "is something broken with the connection",
+    "sentence": ""
+   },
+   {
+    "point": "do I need to reconnect YouTube",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The youtube-views-lower entry explains why the two counts differ, but none of its sentences say whether the YouTube connection is working or whether reconnecting is needed, so the message is not fully answered."
+ },
+ "at": "2026-11-16T06:44:02.050Z"
+}

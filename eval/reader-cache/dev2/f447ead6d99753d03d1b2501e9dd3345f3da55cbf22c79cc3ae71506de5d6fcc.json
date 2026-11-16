@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5406,
+ "verdict": {
+  "points": [
+   {
+    "point": "rate limit for DELETE /v2/schedules/:id (schedules routes)",
+    "sentence": ""
+   },
+   {
+    "point": "avoid 429s in a bulk cleanup of about 800 posts",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry, \"rate-limit\", only gives limits for Upload Media and Publish Post (30 requests/minute each), not the schedules routes the customer asks about, so no entry answers the question."
+ },
+ "at": "2026-11-16T06:31:26.061Z"
+}

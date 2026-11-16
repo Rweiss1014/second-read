@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5351,
+ "verdict": {
+  "points": [
+   {
+    "point": "how do I cancel",
+    "sentence": "Go to Settings > Billing and click \"View Billing Portal\" to cancel your subscription."
+   },
+   {
+    "point": "is there a contract",
+    "sentence": "There are no long-term commitments. You can cancel anytime."
+   }
+  ],
+  "pick": "cancel-subscription",
+  "reason": "The entry's quoted sentences directly answer both the how-to-cancel question and the contract question, and the message raises no refund, outage, or account-specific issue that would rule it out."
+ },
+ "at": "2026-11-16T06:41:55.689Z"
+}

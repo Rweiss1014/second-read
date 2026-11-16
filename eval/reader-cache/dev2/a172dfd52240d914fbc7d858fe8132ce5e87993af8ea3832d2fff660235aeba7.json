@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4446,
+ "verdict": {
+  "points": [
+   {
+    "point": "Credits granted on mid-month upgrade (full vs prorated)",
+    "sentence": ""
+   },
+   {
+    "point": "Starter to Creator, 5,000 credits",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry says whether credits are granted in full or prorated on a mid-month upgrade; the closest entries only state the monthly credit amounts and how to change plan."
+ },
+ "at": "2026-11-16T06:33:47.318Z"
+}

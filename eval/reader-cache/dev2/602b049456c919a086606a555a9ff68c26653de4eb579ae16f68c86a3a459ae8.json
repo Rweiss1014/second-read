@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9147,
+ "verdict": {
+  "points": [
+   {
+    "point": "what to pick after selecting the Facebook account (Facebook selector)",
+    "sentence": ""
+   },
+   {
+    "point": "customer's Facebook account is a Page, not a personal profile (type unknown)",
+    "sentence": ""
+   },
+   {
+    "point": "won't let me finish the schedule (no grey-button or specific symptom described)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry, schedule-button-grey, mentions completing a Facebook Page destination selector, but it is about a grey disabled button, which the customer never described, and the answer depends on whether their Facebook connection is a Page or a personal profile, which only their account can show; no single entry answers the whole message, so this is passed over for the team."
+ },
+ "at": "2026-11-16T06:30:10.784Z"
+}

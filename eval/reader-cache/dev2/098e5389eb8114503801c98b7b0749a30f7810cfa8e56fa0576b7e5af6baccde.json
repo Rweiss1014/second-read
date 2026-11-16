@@ -1,0 +1,13 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4586,
+ "verdict": {
+  "points": [],
+  "pick": "none",
+  "reason": "The customer asks whose data is coming from an Instagram account they don't own (x-source-account 77812), which is another person's data and account, a question no entry's sentences can answer for this customer's account, so it is passed over for the team."
+ },
+ "at": "2026-11-16T06:37:52.473Z"
+}

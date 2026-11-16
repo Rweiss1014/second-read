@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5785,
+ "verdict": {
+  "points": [
+   {
+    "point": "Will the customer keep paying $29 if prices rise later (price lock for existing subscribers)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate states whether existing subscribers keep their current price after a price change; plans-and-pricing only lists current prices and says to check the pricing page, so the answer would require a fact the sentences do not state."
+ },
+ "at": "2026-11-16T06:30:22.632Z"
+}

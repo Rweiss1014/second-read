@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5178,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can the AI write a caption for my dog photo",
+    "sentence": "In the AI Agent, add text Context describing what the photo is about."
+   }
+  ],
+  "pick": "ai-caption-for-photo",
+  "reason": "This entry explains how to get an AI-written caption for a photo: describe the photo in text Context, since the photo can't be uploaded as Context."
+ },
+ "at": "2026-11-16T06:44:39.449Z"
+}

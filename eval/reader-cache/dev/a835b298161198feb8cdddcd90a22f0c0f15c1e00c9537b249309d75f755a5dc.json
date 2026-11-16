@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3360,
+ "verdict": {
+  "points": [
+   {
+    "point": "how to cancel",
+    "sentence": "Go to Settings > Billing and click \"View Billing Portal\" to cancel your subscription."
+   },
+   {
+    "point": "is there a contract",
+    "sentence": "There are no long-term commitments. You can cancel anytime."
+   }
+  ],
+  "pick": "cancel-subscription",
+  "reason": "The cancel-subscription entry states both how to cancel and that there is no long-term commitment."
+ },
+ "at": "2026-11-16T06:44:30.256Z"
+}

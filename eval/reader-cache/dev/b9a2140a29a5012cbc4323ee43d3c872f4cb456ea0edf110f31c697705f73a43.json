@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5157,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can an Instagram story be sent only to the Close Friends list through Blotato?",
+    "sentence": ""
+   },
+   {
+    "point": "Audience restriction (Close Friends) for an Instagram story",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry mentions Close Friends or any way to limit an Instagram story's audience; the closest entries (Story posted as a feed post, trial reels, Facebook Stories) answer neighboring questions about image count, trial reels, and Facebook."
+ },
+ "at": "2026-11-16T06:41:47.943Z"
+}

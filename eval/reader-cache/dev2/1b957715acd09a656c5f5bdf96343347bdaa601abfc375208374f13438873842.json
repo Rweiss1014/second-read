@@ -1,0 +1,21 @@
+{
+ "kind": "refute",
+ "version": "refute-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9885,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "wrong-for-customer",
+    "about": "The reply tells the customer that a PNG is not a reason to reject the source because Blotato converts non-JPEG images, a claim it gives no basis for, while the error may be caused by the image format, so the customer may skip the one change that could fix the failure."
+   },
+   {
+    "kind": "not-answered",
+    "about": "The customer asked whether 1080x1920 is too tall and whether to shrink to a 1080 maximum side, but the reply never says whether 1080x1920 is within limits and only says the limit is 'area-based' without giving the number, so the customer cannot check their size."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:38:36.058Z"
+}

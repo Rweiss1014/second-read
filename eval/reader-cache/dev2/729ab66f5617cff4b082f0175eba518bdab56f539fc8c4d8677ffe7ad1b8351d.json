@@ -1,0 +1,13 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4984,
+ "verdict": {
+  "points": [],
+  "pick": "none",
+  "reason": "The customer asks staff to delete one scheduled post and reschedule another, which is a request for staff to change account data, so it is left for a person on the team."
+ },
+ "at": "2026-11-16T06:32:08.985Z"
+}

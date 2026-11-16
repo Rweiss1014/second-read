@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3263,
+ "verdict": {
+  "points": [
+   {
+    "point": "Where to download SOC 2 Type II report",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry mentions SOC 2 reports or compliance documents, so none of them answers this question."
+ },
+ "at": "2026-11-16T06:45:38.647Z"
+}

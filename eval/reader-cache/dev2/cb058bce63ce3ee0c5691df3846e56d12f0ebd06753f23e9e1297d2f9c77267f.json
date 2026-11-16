@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3534,
+ "verdict": {
+  "points": [
+   {
+    "point": "Export Analytics dashboard as CSV or PDF",
+    "sentence": ""
+   },
+   {
+    "point": "Or only view on screen",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The analytics entry describes how to view the dashboard but never says whether it can be exported as CSV or PDF, and the CSV entry covers calendar import, not analytics export."
+ },
+ "at": "2026-11-16T06:32:08.752Z"
+}

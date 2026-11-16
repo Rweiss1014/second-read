@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7663,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why the AI Agent can't edit my video via chat",
+    "sentence": "The in-app AI Agent does not generate or edit videos through chat."
+   }
+  ],
+  "pick": "edit-video-with-prompts",
+  "reason": "The entry states directly that the in-app AI Agent does not edit videos through chat, which answers the customer's single question."
+ },
+ "at": "2026-11-16T06:45:34.169Z"
+}

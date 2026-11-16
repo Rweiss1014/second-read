@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4884,
+ "verdict": {
+  "points": [
+   {
+    "point": "can the plan be frozen (pause) for Jun-Aug",
+    "sentence": "Blotato does not have a pause or freeze feature."
+   },
+   {
+    "point": "keep my credits while the plan is off/cancelled",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The entry answers the freeze question (no pause or freeze feature), but no sentence says whether AI credits are kept if the plan is cancelled or paused, so the question is not fully answered."
+ },
+ "at": "2026-11-16T06:41:52.195Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3831,
+ "verdict": {
+  "points": [
+   {
+    "point": "Post four photos on Threads",
+    "sentence": ""
+   },
+   {
+    "point": "Threads single image or video limit",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry addresses the Threads \"single image or a video\" error or multi-image posting on Threads; the Instagram carousel entries cover a different platform and error."
+ },
+ "at": "2026-11-16T06:32:45.433Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5594,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is there an approval link to send the client?",
+    "sentence": "Blotato does not have a built-in approval-link feature in the web app."
+   },
+   {
+    "point": "How to hold one post back for edits",
+    "sentence": "To pause a post for edits, open the three-dot menu and choose Move to Drafts. Publish or reschedule once you are satisfied."
+   }
+  ],
+  "pick": "post-approval",
+  "reason": "The post-approval entry states there is no approval-link feature and explains how to pause a post for edits via Move to Drafts, covering both questions."
+ },
+ "at": "2026-11-16T06:46:13.407Z"
+}

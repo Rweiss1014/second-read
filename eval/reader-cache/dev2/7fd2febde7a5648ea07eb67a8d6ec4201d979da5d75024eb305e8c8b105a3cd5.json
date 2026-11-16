@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3514,
+ "verdict": {
+  "points": [
+   {
+    "point": "Tolt affiliate code in referral on API credit purchases earns commission",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The entries cover buying credits via POST /v2/credits, but none say anything about Tolt, referral codes, or commission on client credit purchases."
+ },
+ "at": "2026-11-16T06:34:03.987Z"
+}

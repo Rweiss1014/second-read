@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3300,
+ "verdict": {
+  "points": [
+   {
+    "point": "sort param on GET /v2/posts for oldest first",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry mentions API sorting parameters for /v2/posts, so none answers this question; the closest entries only cover post statuses or failures."
+ },
+ "at": "2026-11-16T06:33:26.318Z"
+}

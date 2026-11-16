@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6075,
+ "verdict": {
+  "points": [
+   {
+    "point": "Where is the media library",
+    "sentence": "No. The Blotato web app does not have a reusable media library."
+   },
+   {
+    "point": "Upload 30 photos once and reuse them in different posts",
+    "sentence": "Images and videos are attached to individual post drafts."
+   }
+  ],
+  "pick": "no-media-library",
+  "reason": "The entry says the web app has no reusable media library and that media is attached to individual drafts, so it answers both the location question and the reuse request."
+ },
+ "at": "2026-11-16T06:44:36.467Z"
+}

@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5960,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can a deleted video be undone or restored",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate states whether a video deleted from the Videos library can be undone or restored; the closest entries cover where visuals are saved and cancellation access, which are neighboring topics, and restoring the video would be a staff action."
+ },
+ "at": "2026-11-16T06:42:06.676Z"
+}

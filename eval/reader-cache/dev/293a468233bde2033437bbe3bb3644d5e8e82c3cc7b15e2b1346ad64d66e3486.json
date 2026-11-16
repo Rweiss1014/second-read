@@ -1,0 +1,21 @@
+{
+ "kind": "refute",
+ "version": "refute-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8346,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "not-our-call",
+    "about": "The customer is asking staff to do something (get on a Zoom call), and a person on the team should decide whether to grant or decline that, not an automated reply."
+   },
+   {
+    "kind": "wrong-for-customer",
+    "about": "The customer said they have already been going back and forth in chat for 2 days, but the reply tells them to open the in-app chat and describe their problem again, which is what they already did."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:46:52.045Z"
+}

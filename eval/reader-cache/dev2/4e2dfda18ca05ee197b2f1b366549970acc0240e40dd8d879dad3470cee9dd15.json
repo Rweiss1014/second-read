@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6700,
+ "verdict": {
+  "points": [
+   {
+    "point": "Right way to handle a 503 on the status check (a read)",
+    "sentence": "For a read, use a delayed, bounded retry."
+   },
+   {
+    "point": "Whether to send the post again",
+    "sentence": "After a write, check for existing work first."
+   }
+  ],
+  "pick": "gateway-503",
+  "reason": "The gateway-503 entry says to retry a read after a delay with a limit, and to check for existing work before repeating a write. That covers both the status-check 503 and the question of resending the post."
+ },
+ "at": "2026-11-16T06:33:44.509Z"
+}

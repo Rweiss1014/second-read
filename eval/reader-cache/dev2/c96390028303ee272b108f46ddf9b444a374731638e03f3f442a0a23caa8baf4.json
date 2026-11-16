@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7877,
+ "verdict": {
+  "points": [
+   {
+    "point": "Make.com Blotato app has Delete Visual module",
+    "sentence": ""
+   },
+   {
+    "point": "Automatically delete old carousels",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether a Delete Visual module exists in the Make.com Blotato app or how to delete carousels automatically; the closest entries cover where visuals are saved or creating carousels, which are neighboring topics."
+ },
+ "at": "2026-11-16T06:36:48.168Z"
+}

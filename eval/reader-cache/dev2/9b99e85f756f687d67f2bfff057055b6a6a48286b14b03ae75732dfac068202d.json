@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6955,
+ "verdict": {
+  "points": [
+   {
+    "point": "Did I break something? (whether the setup is wrong)",
+    "sentence": ""
+   },
+   {
+    "point": "Why the post went only to the company Page, not also to my profile, despite the All LinkedIn slot",
+    "sentence": ""
+   },
+   {
+    "point": "Specific: LinkedIn profile plus company Page both receiving a post from an All LinkedIn slot",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry states how an \"All LinkedIn\" calendar slot routes posts to a profile and a company Page; the closest entry (linkedin-company-page) covers only API parameters, and the rest cover neighboring topics like limits, missing Pages, or account caps, while \"did I break something\" needs an account-specific check."
+ },
+ "at": "2026-11-16T06:30:50.769Z"
+}

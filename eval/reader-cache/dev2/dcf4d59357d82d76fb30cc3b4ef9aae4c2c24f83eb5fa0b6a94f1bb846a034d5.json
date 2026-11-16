@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8204,
+ "verdict": {
+  "points": [
+   {
+    "point": "Was the skills folder put in the wrong place (~/.claude/skills)?",
+    "sentence": ""
+   },
+   {
+    "point": "Do the skills only work for coders, or do they work in Cowork?",
+    "sentence": "You install each skill once, then use it forever in Claude Code, Claude Desktop, and Claude Cowork."
+   },
+   {
+    "point": "content-coach does not show up in Cowork after copying and restarting (already tried, still fails)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The entry says the skills work in Claude Cowork but never states where to install them, so it cannot confirm whether ~/.claude/skills is the wrong location, and the customer says they already copied the folders and restarted with content-coach still missing, which is a still-failing case that is not mine to answer."
+ },
+ "at": "2026-11-16T06:28:09.318Z"
+}

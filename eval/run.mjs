@@ -10,7 +10,8 @@
 // The reader (src/reader.mjs), off by default:
 //   --reader claude-cli|anthropic     pick-or-abstain with a model (claude-cli: the signed-in Claude Code CLI)
 //   --model haiku|sonnet|<full id>    the reader's model (default haiku)
-//   --refuter on [--refuter-model m]  also run the refuter on each verified pick
+//   --refuter on|new [--refuter-model m]  the refuter on each verified pick (on), or only on picks the matcher
+//                                     would not have made itself (new)
 //   --prompt pick-r2                  which pick prompt (default: PICK_VERSION in src/reader.mjs)
 //   --k 5                             candidates from each script retriever (matcher, BM25)
 //   --concurrency 5                   model calls at once while the verdicts are gathered
@@ -158,7 +159,7 @@ function report(name, rows) {
     const c = ri.config; const s = ri.warm.stats;
     const live = s.live.pick + s.live.refute; const cached = s.cached.pick + s.cached.refute;
     const modelSec = (s.liveMs + s.cachedMs) / 1000 / (s.reached || 1);
-    L.push(`Reader: ${c.backend}, model ${c.model}, prompt ${c.prompt}${c.refuter ? `, refuter ${c.refuterModel} (${REFUTE_VERSION})` : ', no refuter'}, k ${c.k}. Messages that reached it: ${s.reached} of ${t.n}. Model calls: ${live} live, ${cached} from the cache, ${s.errors} errors. Model time per message that reached it: ${modelSec.toFixed(1)} s (from the call records); wall time to gather: ${(ri.warm.wallMs / 1000).toFixed(0)} s at ${concurrency} at once.`);
+    L.push(`Reader: ${c.backend}, model ${c.model}, prompt ${c.prompt}${c.refuter ? `, refuter ${c.refuterModel} (${REFUTE_VERSION}${c.refuter === 'new' ? ', only on picks the matcher would not make' : ', every pick'})` : ', no refuter'}, k ${c.k}. Messages that reached it: ${s.reached} of ${t.n}. Model calls: ${live} live, ${cached} from the cache, ${s.errors} errors. Model time per message that reached it: ${modelSec.toFixed(1)} s (from the call records); wall time to gather: ${(ri.warm.wallMs / 1000).toFixed(0)} s at ${concurrency} at once.`);
   }
   L.push(`Answers among messages that should be answered: ${(t.byExpected.answer || { right: 0 }).right} right of ${(t.byExpected.answer || { n: 0 }).n}.`);
   L.push('');

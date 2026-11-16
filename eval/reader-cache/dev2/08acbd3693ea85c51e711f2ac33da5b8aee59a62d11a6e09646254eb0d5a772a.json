@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5595,
+ "verdict": {
+  "points": [
+   {
+    "point": "How long uploaded files are kept / whether database.blotato.io links expire or get cleaned up",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks how long Blotato keeps presigned-upload files and whether those links are cleaned up, and no candidate entry states a retention period or cleanup policy for uploads; the closest entries cover analytics checkpoints, media-rejection errors, and Google Drive links, which are neighboring topics."
+ },
+ "at": "2026-11-16T06:28:06.247Z"
+}

@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8642,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why the 'Account not found' error occurs when the Page id is used as accountId",
+    "sentence": "A common mistake is passing the pageId where accountId is expected."
+   },
+   {
+    "point": "LinkedIn company Page (not a personal profile) needs both IDs",
+    "sentence": "For LinkedIn company pages, you need both an accountId and a pageId."
+   },
+   {
+    "point": "Where the pageId goes in the request (customer's target lacks pageId)",
+    "sentence": "Pass accountId in post.accountId and pageId in post.target.pageId."
+   }
+  ],
+  "pick": "account-not-found-linkedin",
+  "reason": "The entry's title matches the customer's exact error on a LinkedIn company Page, and its quoted sentences explain that the Page id was used as accountId and that the pageId belongs in post.target.pageId."
+ },
+ "at": "2026-11-16T06:44:05.727Z"
+}

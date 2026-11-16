@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3030,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can DM be delayed (e.g. 10 minutes) after the comment",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether a DM automation can wait a set delay after a comment before sending; the DM entries cover other topics (triggers, errors, email capture, own comments)."
+ },
+ "at": "2026-11-16T06:32:58.916Z"
+}

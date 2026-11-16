@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4003,
+ "verdict": {
+  "points": [
+   {
+    "point": "Tag a LinkedIn company page in a post",
+    "sentence": ""
+   },
+   {
+    "point": "@ stays as plain text in Blotato",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry explains how to @-mention or tag a LinkedIn company page in a post; the LinkedIn entries cover posting to a Page, connecting Pages, or limits, and the tagging entry is Instagram-only."
+ },
+ "at": "2026-11-16T06:32:55.905Z"
+}

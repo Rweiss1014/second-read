@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6007,
+ "verdict": {
+  "points": [
+   {
+    "point": "AI voice speaks Spanish",
+    "sentence": ""
+   },
+   {
+    "point": "Captions in English in the same video",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry (english-spanish-content) covers the Spanish voiceover but never says whether captions can be in a different language from the voice in one video, so answering would be a guess."
+ },
+ "at": "2026-11-16T06:32:49.429Z"
+}

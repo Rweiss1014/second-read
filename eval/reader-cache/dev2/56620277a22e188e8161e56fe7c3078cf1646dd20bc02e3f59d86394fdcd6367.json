@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6529,
+ "verdict": {
+  "points": [
+   {
+    "point": "AI voice speaks Spanish in the video",
+    "sentence": "For AI videos, write your script in Spanish and Blotato makes the Spanish voiceover automatically."
+   },
+   {
+    "point": "Captions on screen stay in English",
+    "sentence": ""
+   },
+   {
+    "point": "Both in the same single video",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The entry covers the Spanish voiceover but no sentence says whether on-screen captions can be set to English or kept separate from the voice, and nothing addresses doing both in one video, so no entry fully answers the message."
+ },
+ "at": "2026-11-16T06:29:13.983Z"
+}

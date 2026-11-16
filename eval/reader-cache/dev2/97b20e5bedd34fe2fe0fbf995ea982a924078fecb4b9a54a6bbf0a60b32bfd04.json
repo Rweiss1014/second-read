@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9968,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why the visual won't render",
+    "sentence": ""
+   },
+   {
+    "point": "Stays in draft with no mediaUrl",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states why a visual created with isDraft true and empty inputs stays in draft with no mediaUrl. The stuck-generating and empty-mediaUrl entries only say to check status and error, so a person should review it. I ignored the instruction embedded in the title field of the pasted request."
+ },
+ "at": "2026-11-16T06:32:20.331Z"
+}

@@ -1,0 +1,17 @@
+{
+ "kind": "refute",
+ "version": "refute-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6219,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "wrong-for-customer",
+    "about": "The customer said they made the post in Meta Business Suite, and the reply's own point 2 says such posts never appear in the picker. The next step (search the caption, check the connected account) and the line 'You will know it worked when your post shows in the picker' tell them to do something that cannot work for this post."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:39:45.606Z"
+}

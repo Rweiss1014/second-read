@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3878,
+ "verdict": {
+  "points": [
+   {
+    "point": "Post 'Fall menu drops Friday!' to Instagram now",
+    "sentence": ""
+   },
+   {
+    "point": "Why Reels show on main grid",
+    "sentence": "Instagram defaults all Reels to appear on your main feed. This is Instagram's behavior, not a Blotato setting."
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks staff to post for them, which is a request for staff to post something and is not mine to answer, so I pass the whole message to the team even though the Reels question has a matching entry."
+ },
+ "at": "2026-11-16T06:36:52.035Z"
+}

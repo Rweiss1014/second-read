@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4667,
+ "verdict": {
+  "points": [
+   {
+    "point": "Carousel from Videos templates",
+    "sentence": ""
+   },
+   {
+    "point": "Use brand details (Brand Kit) in that carousel",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "brand-kit-setup explains how to fill in Brand Kit, and make-carousel-slideshow explains how to make carousels. Neither says that Videos carousel templates use Brand Kit details or how to apply them, so no entry answers both parts."
+ },
+ "at": "2026-11-16T06:36:58.730Z"
+}

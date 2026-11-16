@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5765,
+ "verdict": {
+  "points": [
+   {
+    "point": "Did my account break? (blank page with no calendar or settings)",
+    "sentence": "You do not need to generate a draft to access the rest of Blotato."
+   },
+   {
+    "point": "How to reach calendar and settings",
+    "sentence": "Select Calendar, Posts, Videos, Accounts, or Settings."
+   },
+   {
+    "point": "Sidebar/menu not visible",
+    "sentence": "If the sidebar is hidden, open the menu button."
+   }
+  ],
+  "pick": "navigation-menu-missing",
+  "reason": "The entry covers the blank Post editor with no calendar or settings and says how to reach the rest of Blotato through the menu."
+ },
+ "at": "2026-11-16T06:45:29.516Z"
+}

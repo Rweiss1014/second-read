@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4175,
+ "verdict": {
+  "points": [
+   {
+    "point": "Download a list of everything published this year as a spreadsheet",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate says whether Blotato can export published posts to a spreadsheet; the closest entry, csv-bulk-upload, covers importing a CSV into the calendar, not exporting published posts, so none fits."
+ },
+ "at": "2026-11-16T06:43:22.269Z"
+}

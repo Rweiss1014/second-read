@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6995,
+ "verdict": {
+  "pick": "update-email",
+  "points": [
+   {
+    "point": "Why no code arrived in the old inbox (where the code is sent)",
+    "sentence": "Blotato sends a verification code to your new email, not the old one."
+   }
+  ],
+  "reason": "The customer expects the code in their old inbox, and the update-email entry states the code goes to the new address, not the old one, which answers their question without any guessing about their account."
+ },
+ "at": "2026-11-16T06:41:49.736Z"
+}

@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8430,
+ "verdict": {
+  "points": [
+   {
+    "point": "is my account blocked now",
+    "sentence": "Do not infer an account-wide publishing block from this message."
+   },
+   {
+    "point": "why it says already queued (did a previous submission exist)",
+    "sentence": "Check Posts > Scheduled, Posts > Published, and Posts > Failed for the same content and destination."
+   },
+   {
+    "point": "what to do about the already-queued status",
+    "sentence": "If the existing submission is processing, wait for its result. If it is scheduled or published, do not submit a duplicate."
+   }
+  ],
+  "pick": "already-queued-error",
+  "reason": "The entry's own sentences say not to infer an account-wide block from this error and explain how to check whether an earlier submission already exists, which covers the customer's question about being blocked and the \"already queued\" message."
+ },
+ "at": "2026-11-16T06:43:54.631Z"
+}

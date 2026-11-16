@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3131,
+ "verdict": {
+  "points": [
+   {
+    "point": "score threshold for viral coach to give 10 hooks",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states a viral coach score threshold for unlocking 10 hooks; the free-claude-skills entry only mentions the viral-hooks skill generally."
+ },
+ "at": "2026-11-16T06:32:57.175Z"
+}

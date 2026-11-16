@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4536,
+ "verdict": {
+  "points": [
+   {
+    "point": "how to log out of Blotato on this computer",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks how to sign out of Blotato on a computer, and none of the candidate entries mention logging out or signing out, so no entry answers the question."
+ },
+ "at": "2026-11-16T06:42:21.714Z"
+}

@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3575,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does Blotato offer a nonprofit discount (question)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "None of the candidate entries mention pricing, discounts, or nonprofit plans; they all cover API, DM automation, and publishing errors, so no entry answers the customer's question."
+ },
+ "at": "2026-11-16T06:43:15.804Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4342,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why two posts after AI edit of scheduled post",
+    "sentence": "Two posts for what should have been an edit most likely means the AI tool also called blotato_create_post."
+   },
+   {
+    "point": "How to avoid duplicate / edit in place",
+    "sentence": "Tell it in so many words: use only blotato_update_schedule, and do not create a new post."
+   }
+  ],
+  "pick": "mcp-edit-made-duplicate",
+  "reason": "The customer asked Claude to edit a scheduled post and got a duplicate, which is the exact situation this entry explains and fixes."
+ },
+ "at": "2026-11-16T06:45:57.204Z"
+}

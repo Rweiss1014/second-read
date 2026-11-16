@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6368,
+ "verdict": {
+  "points": [
+   {
+    "point": "why Analytics not available on free trial",
+    "sentence": ""
+   },
+   {
+    "point": "will old posts fill in after paying",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether old posts fill in after paying, and the trial entry's quotes don't explain the trial analytics behavior, so no entry answers both questions."
+ },
+ "at": "2026-11-16T06:44:48.675Z"
+}

@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8226,
+ "verdict": {
+  "points": [
+   {
+    "point": "can the AI write a caption for a photo",
+    "sentence": "Add text Context describing what the photo is about"
+   },
+   {
+    "point": "AI reads the photo itself (not just text)",
+    "sentence": "You cannot upload a photo as Context."
+   },
+   {
+    "point": "attach the dog photo to the post",
+    "sentence": "Click Photo / Video on the post to attach your photo"
+   }
+  ],
+  "pick": "ai-caption-for-photo",
+  "reason": "The entry states that the AI writes the caption from text describing the photo, that the photo itself cannot be uploaded as Context, and how to attach the photo to the post, which together answer the customer's question."
+ },
+ "at": "2026-11-16T06:42:07.222Z"
+}

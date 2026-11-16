@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7213,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is my account broken, and is pending normal (account-status question)",
+    "sentence": ""
+   },
+   {
+    "point": "When numbers should show (timing, about 5 hours after posting)",
+    "sentence": ""
+   },
+   {
+    "point": "Starter plan includes TikTok analytics",
+    "sentence": "Analytics is included on paid plans for X, Instagram, Facebook, Threads, Bluesky, TikTok, YouTube, and Pinterest."
+   }
+  ],
+  "pick": "none",
+  "reason": "The analytics-dashboard-where entry shows Starter includes TikTok analytics, but no sentence says when numbers appear or whether a \"pending\" status is normal, and whether this account is broken can only be checked on the account itself."
+ },
+ "at": "2026-11-16T06:37:50.111Z"
+}

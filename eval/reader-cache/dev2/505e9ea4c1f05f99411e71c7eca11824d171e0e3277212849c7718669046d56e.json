@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 10536,
+ "verdict": {
+  "points": [
+   {
+    "point": "is the AI video dead after 3 hours exporting",
+    "sentence": ""
+   },
+   {
+    "point": "do not want to make another one and burn credits",
+    "sentence": ""
+   },
+   {
+    "point": "polling GET /v2/videos/creations/ every 20 sec, no error field in response",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer already polled the status endpoint and got no error, so the entry's \"look up the existing visual's status and error\" step is already done, and its sentences never say whether a 3-hour export is dead, which would need account-specific information. Passing this to the team is the safer choice."
+ },
+ "at": "2026-11-16T06:30:54.197Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6053,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can a photo be sent in a DM reply via POST /v2/messages",
+    "sentence": ""
+   },
+   {
+    "point": "Request body supports only text, buttons and quick replies",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "None of the candidates state whether POST /v2/messages can carry an image or photo; the closest entries cover DM buttons, follow gates, and the post picker, which answer neighboring questions only."
+ },
+ "at": "2026-11-16T06:31:00.363Z"
+}

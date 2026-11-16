@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4081,
+ "verdict": {
+  "points": [
+   {
+    "point": "Upload spreadsheet of captions and dates directly into calendar",
+    "sentence": "Blotato has no native CSV import for the content calendar. You cannot upload a spreadsheet of captions, links, and dates directly in the web app."
+   }
+  ],
+  "pick": "csv-bulk-upload",
+  "reason": "The csv-bulk-upload entry directly states that a spreadsheet of captions and dates cannot be uploaded straight into the calendar."
+ },
+ "at": "2026-11-16T06:45:39.531Z"
+}

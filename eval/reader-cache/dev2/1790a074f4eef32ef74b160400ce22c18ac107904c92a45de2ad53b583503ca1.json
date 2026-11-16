@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4403,
+ "verdict": {
+  "points": [
+   {
+    "point": "Reply to another person's comment (nested reply) not triggering automation",
+    "sentence": ""
+   },
+   {
+    "point": "Whether setup is wrong",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry says whether comment automations fire on replies under someone else's comment; the closest DM automation entries cover email gates and error 20303, which are different questions."
+ },
+ "at": "2026-11-16T06:32:57.607Z"
+}

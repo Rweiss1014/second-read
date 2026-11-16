@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4668,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can the keyword match only the exact word \"free\" and not \"freezing\" or \"carefree\"",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry says how keyword matching works (whole word versus partial match), so the question about matching only the exact word \"free\" is not answered by any entry's sentences."
+ },
+ "at": "2026-11-16T06:29:05.492Z"
+}

@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8074,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why Account 77120 is not found (the error itself)",
+    "sentence": "The submitted account ID does not match the authenticated Blotato user and requested platform."
+   },
+   {
+    "point": "Whether the saved dropdown choice is still valid",
+    "sentence": "Saved dropdowns and earlier AI lookups are not proof the ID is current."
+   },
+   {
+    "point": "What to do after reconnecting TikTok",
+    "sentence": "After disconnecting and reconnecting an account, retrieve the current ID before retrying."
+   }
+  ],
+  "pick": "account-id-not-found",
+  "reason": "The entry covers the not-found error, the stale saved dropdown ID, and the need to retrieve the current ID after a TikTok reconnect, all stated in its own quoted sentences."
+ },
+ "at": "2026-11-16T06:42:09.867Z"
+}

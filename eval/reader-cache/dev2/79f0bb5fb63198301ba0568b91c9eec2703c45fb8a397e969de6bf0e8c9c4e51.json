@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4510,
+ "verdict": {
+  "points": [
+   {
+    "point": "DM automation won't fire on keyword comment",
+    "sentence": ""
+   },
+   {
+    "point": "Tested from a friend's Instagram account",
+    "sentence": ""
+   },
+   {
+    "point": "Runs and logs show no run at all",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer already tested from a different account and checked the runs and logs, and it still fails, so the own-comment entry doesn't fit and a person should look at it."
+ },
+ "at": "2026-11-16T06:33:20.111Z"
+}

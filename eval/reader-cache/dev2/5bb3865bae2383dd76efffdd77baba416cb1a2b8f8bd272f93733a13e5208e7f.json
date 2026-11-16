@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5358,
+ "verdict": {
+  "points": [
+   {
+    "point": "Which AI apps are still connected to the account (account-specific fact)",
+    "sentence": ""
+   },
+   {
+    "point": "Disconnect the former assistant's AI app (staff account change)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks us to list which AI apps are connected to their account and to disconnect one, which needs a fact only the account can show and a change that staff must make, and no candidate entry answers either part."
+ },
+ "at": "2026-11-16T06:30:22.082Z"
+}

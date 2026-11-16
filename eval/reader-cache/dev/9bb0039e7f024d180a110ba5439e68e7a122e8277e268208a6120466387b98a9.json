@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6019,
+ "verdict": {
+  "points": [
+   {
+    "point": "Publish failed with empty URL after Create Visual (what is wrong and where to look)",
+    "sentence": "The submitted URL is empty. Inspect the preceding operation and the field mapped into this request."
+   },
+   {
+    "point": "Which URL to use (the finished visual's media address)",
+    "sentence": "For a visual, verify completion and use its returned mediaUrl or imageUrls."
+   }
+  ],
+  "pick": "empty-url-or-mediaurl",
+  "reason": "The customer reports an empty URL at the Publish step right after Create Visual, and this entry's own sentences state that cause and the fix (inspect the preceding operation and use the visual's returned media URL)."
+ },
+ "at": "2026-11-16T06:43:51.097Z"
+}

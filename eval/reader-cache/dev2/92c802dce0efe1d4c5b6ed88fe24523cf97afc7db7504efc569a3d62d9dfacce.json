@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5655,
+ "verdict": {
+  "points": [
+   {
+    "point": "YouTube playlist dropdown shows the wrong channel's playlists",
+    "sentence": ""
+   },
+   {
+    "point": "Reconnecting both channels did not fix it (still fails after trying)",
+    "sentence": ""
+   },
+   {
+    "point": "A video landed in a gaming playlist (wrong-destination post)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer reports a bug that still fails after reconnecting both channels, and no candidate entry covers playlist dropdowns or a video landing in the wrong playlist, so none of the entries answers the message and it should go to the team."
+ },
+ "at": "2026-11-16T06:31:28.797Z"
+}

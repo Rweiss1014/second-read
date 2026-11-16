@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6865,
+ "verdict": {
+  "points": [
+   {
+    "point": "app store link for Blotato",
+    "sentence": "There are no plans for a separate mobile app."
+   }
+  ],
+  "pick": "mobile-app",
+  "reason": "The mobile-app entry says Blotato has no separate mobile app and none is planned, so there is no app store link to give."
+ },
+ "at": "2026-11-16T06:46:10.650Z"
+}

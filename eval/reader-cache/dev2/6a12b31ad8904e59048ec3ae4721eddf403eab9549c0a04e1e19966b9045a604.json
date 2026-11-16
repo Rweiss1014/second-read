@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9025,
+ "verdict": {
+  "points": [
+   {
+    "point": "how to make music play on the TikTok picture slideshow sent from n8n",
+    "sentence": "Add autoAddMusic: true parameter in PUBLISH TO TIKTOK step for music."
+   },
+   {
+    "point": "the music applies to a picture slideshow (photo post) on TikTok",
+    "sentence": "Add music to photo posts. No effect on videos."
+   }
+  ],
+  "pick": "tiktok-slideshow-no-music",
+  "reason": "The entry tells the customer to set autoAddMusic: true in the TikTok publish step, and states that this adds music to photo posts, which matches a TikTok picture slideshow sent through the API."
+ },
+ "at": "2026-11-16T06:29:56.408Z"
+}

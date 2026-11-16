@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5525,
+ "verdict": {
+  "points": [
+   {
+    "point": "Where did the TikTok draft go",
+    "sentence": "It lands in the TikTok app's notifications (often labeled \"System Notifications\"), shown as \"Draft Video from Blotato.\""
+   },
+   {
+    "point": "Not in the AI Agent or Remix screen (TikTok draft)",
+    "sentence": "A TikTok post published as a draft does not appear in Blotato at all -- not in the AI Agent and not in the Remix screen."
+   }
+  ],
+  "pick": "draft-in-remix",
+  "reason": "The entry states that a TikTok post published as a draft doesn't appear in Blotato and lands in the TikTok app's notifications."
+ },
+ "at": "2026-11-16T06:44:26.843Z"
+}

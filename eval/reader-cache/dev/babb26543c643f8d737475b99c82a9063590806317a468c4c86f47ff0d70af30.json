@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5234,
+ "verdict": {
+  "points": [
+   {
+    "point": "how to move a scheduled post to a new date",
+    "sentence": "Open Posts > Scheduled, then open the post's actions menu."
+   },
+   {
+    "point": "reschedule action to pick",
+    "sentence": "Select Reschedule."
+   },
+   {
+    "point": "set the new date (Friday)",
+    "sentence": "Choose the new date and time."
+   }
+  ],
+  "pick": "reschedule-post",
+  "reason": "The customer asks how to move a scheduled post from tomorrow to Friday, and the reschedule-post entry gives the full path (Posts > Scheduled, actions menu, Reschedule, new date and time) in its own sentences."
+ },
+ "at": "2026-11-16T06:43:33.726Z"
+}

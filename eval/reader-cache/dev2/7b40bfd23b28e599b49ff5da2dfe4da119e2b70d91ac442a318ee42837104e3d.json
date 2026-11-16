@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5321,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is my account broken (analytics says pending)",
+    "sentence": ""
+   },
+   {
+    "point": "When should numbers show for a TikTok post",
+    "sentence": ""
+   },
+   {
+    "point": "Starter plan with TikTok",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry, analytics-dashboard-where, says metrics are collected at checkpoints, but none of the entries' sentences say when TikTok numbers appear or what 'pending' means, so a person should answer."
+ },
+ "at": "2026-11-16T06:37:03.244Z"
+}

@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6984,
+ "verdict": {
+  "points": [
+   {
+    "point": "Do I need to change a language setting for Spanish posts?",
+    "sentence": "There is no language setting or toggle to switch."
+   },
+   {
+    "point": "Where is the language setting?",
+    "sentence": "There is no language setting or toggle to switch."
+   },
+   {
+    "point": "Posting to English and Spanish clients",
+    "sentence": "To publish to both audiences, create two separate posts (one per language) and cross-post each to the matching accounts."
+   }
+  ],
+  "pick": "english-spanish-content",
+  "reason": "The entry states there is no language setting to switch, which answers both the \"do I need to change it\" and \"where is it\" questions, and its last sentence covers posting to both English and Spanish audiences."
+ },
+ "at": "2026-11-16T06:42:26.595Z"
+}

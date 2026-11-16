@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6052,
+ "verdict": {
+  "points": [
+   {
+    "point": "Do API keys expire on their own?",
+    "sentence": ""
+   },
+   {
+    "point": "Can Blotato rotate the key automatically (90-day rotation)?",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate states whether Blotato API keys expire or whether Blotato can rotate them automatically; the closest entry (api-401) only covers a key that is rejected and does not address expiry or rotation."
+ },
+ "at": "2026-11-16T06:30:27.308Z"
+}

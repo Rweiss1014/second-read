@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5444,
+ "verdict": {
+  "points": [
+   {
+    "point": "How long a shared login code keeps the assistant signed in (days or weeks)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry states how long a login stays signed in; the closest, login-magic-link, covers only codes that fail to arrive, so this needs a person on the team."
+ },
+ "at": "2026-11-16T06:30:23.811Z"
+}

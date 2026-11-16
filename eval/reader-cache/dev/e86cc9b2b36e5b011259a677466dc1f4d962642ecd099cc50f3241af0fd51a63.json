@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3781,
+ "verdict": {
+  "points": [
+   {
+    "point": "Where to find the 100 viral hooks bonus",
+    "sentence": "The skills do not appear inside your Blotato subscription dashboard."
+   }
+  ],
+  "pick": "free-claude-skills",
+  "reason": "The customer can't find the viral hooks bonus in their dashboard, and this entry says the free Claude skills bundle, which includes viral-hooks, isn't shown in the subscription dashboard."
+ },
+ "at": "2026-11-16T06:45:38.165Z"
+}

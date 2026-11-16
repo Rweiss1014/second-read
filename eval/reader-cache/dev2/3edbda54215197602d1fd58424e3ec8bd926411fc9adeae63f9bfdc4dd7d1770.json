@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6774,
+ "verdict": {
+  "points": [
+   {
+    "point": "Video not visible on YouTube channel page despite success message",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry explains why a post that Blotato shows as successful is missing from the YouTube channel. The closest one, post-failed-no-error-text, covers failed posts, so a team member should review this."
+ },
+ "at": "2026-11-16T06:33:27.316Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4976,
+ "verdict": {
+  "points": [
+   {
+    "point": "Do posts published on Starter move to the Creator checkpoint schedule after upgrading?",
+    "sentence": ""
+   },
+   {
+    "point": "Or do they stay on the Starter 1, 7, 14, 30 day schedule?",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The analytics-refresh-schedule entry lists the Starter and Creator checkpoints, but none of its sentences say what happens to posts published before an upgrade, so answering would need a guess."
+ },
+ "at": "2026-11-16T06:33:41.561Z"
+}

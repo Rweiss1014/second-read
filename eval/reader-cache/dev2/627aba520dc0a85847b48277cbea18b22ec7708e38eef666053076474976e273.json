@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4513,
+ "verdict": {
+  "points": [
+   {
+    "point": "Post made in Meta Business Suite missing from post picker (is it a bug?)",
+    "sentence": "A post you published directly in the Instagram or Facebook app, in Meta Business Suite, or through another tool never appears in the picker."
+   }
+  ],
+  "pick": "dm-automation-post-picker",
+  "reason": "The entry states that posts published in Meta Business Suite never appear in the picker, which answers the customer's question and shows it is not a bug."
+ },
+ "at": "2026-11-16T06:33:28.912Z"
+}

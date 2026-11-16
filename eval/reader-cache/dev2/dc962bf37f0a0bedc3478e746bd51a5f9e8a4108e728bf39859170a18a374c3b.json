@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6773,
+ "verdict": {
+  "points": [
+   {
+    "point": "when Slack will allow video in posts (timing question)",
+    "sentence": ""
+   },
+   {
+    "point": "Slack video support (specific platform feature)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks when Slack will support video, a future timing question that no entry answers. The \"video not supported\" entry (slack-text-image-video-33004-7000) only has handoff and security wording, and none of the other entries state a Slack video timeline, so I am passing it over."
+ },
+ "at": "2026-11-16T06:28:23.234Z"
+}

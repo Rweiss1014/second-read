@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5409,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can the DM be delayed about 10 minutes after the comment",
+    "sentence": ""
+   },
+   {
+    "point": "Specific: a 10-minute wait before the DM is sent",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks whether a DM automation can wait a set time (about 10 minutes) after a comment before sending, and none of the candidate entries states that a delay or wait setting exists; the closest entry, dm-automation-comments-and-dms, covers triggers and keywords but not timing."
+ },
+ "at": "2026-11-16T06:29:32.579Z"
+}

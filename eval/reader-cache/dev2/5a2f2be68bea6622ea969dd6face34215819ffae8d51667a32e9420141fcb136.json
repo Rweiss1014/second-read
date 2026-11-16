@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5926,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does the customer have to pay again to regain access (charge question)",
+    "sentence": ""
+   },
+   {
+    "point": "Canceled screen shows while Billing says ACTIVE (account state only staff can check)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The message asks about being charged a second time, which is a charge question no entry answers and which is not mine to handle, and the conflicting canceled-versus-ACTIVE status can only be checked on this customer's own account."
+ },
+ "at": "2026-11-16T06:28:35.162Z"
+}

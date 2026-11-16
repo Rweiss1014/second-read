@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8118,
+ "verdict": {
+  "points": [
+   {
+    "point": "Did my account break? (yes/no question about the account)",
+    "sentence": ""
+   },
+   {
+    "point": "No calendar or settings visible (where to reach them)",
+    "sentence": "If the sidebar is hidden, open the menu button."
+   },
+   {
+    "point": "Calendar and Settings specifically",
+    "sentence": "From the menu you can pick Calendar, Posts, Videos, Accounts, or Settings."
+   }
+  ],
+  "pick": "none",
+  "reason": "The entry explains how to reach Calendar and Settings through the menu, but no sentence states whether the account is broken, so the customer's \"did my account break?\" question is not answered."
+ },
+ "at": "2026-11-16T06:43:11.249Z"
+}

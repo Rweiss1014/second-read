@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3206,
+ "verdict": {
+  "points": [
+   {
+    "point": "Threads daily posting cap",
+    "sentence": ""
+   },
+   {
+    "point": "Facebook 25 per Page or per login",
+    "sentence": "Facebook publishing is limited to 25 posts per 24 hours per Page."
+   }
+  ],
+  "pick": "none",
+  "reason": "The Facebook entry answers the second question, but no entry states a Threads daily cap, so no single entry answers both."
+ },
+ "at": "2026-11-16T06:33:12.961Z"
+}

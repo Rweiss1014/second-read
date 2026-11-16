@@ -1,0 +1,30 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 10617,
+ "verdict": {
+  "points": [
+   {
+    "point": "Codex with Blotato MCP connection (named client)",
+    "sentence": "Connect Blotato to ChatGPT Work or Codex through MCP: open Settings > API, select ChatGPT Work / Codex, and follow the Codex connection steps."
+   },
+   {
+    "point": "Codex needs access to the local file it cannot attach",
+    "sentence": "Ask the assistant to list your connected Blotato accounts with blotato_list_accounts, then give it access to the files you want to post."
+   },
+   {
+    "point": "Right sequence for a local file: get upload URL and send bytes",
+    "sentence": "Ask it to call blotato_create_presigned_upload_url for each local file, then send the file bytes to presignedUrl with an HTTP PUT."
+   },
+   {
+    "point": "Publish the uploaded file with blotato_create_post",
+    "sentence": "Ask it to use the returned publicUrl with blotato_create_post for the social account and time you choose, then ask it to verify the publishing result."
+   }
+  ],
+  "pick": "codex-chatgpt-upload-media",
+  "reason": "This entry gives the exact sequence for uploading a local file through Codex and Blotato MCP (presigned upload, PUT the bytes, then blotato_create_post with the returned publicUrl), which answers the customer's question about a file on their laptop."
+ },
+ "at": "2026-11-16T06:42:41.266Z"
+}

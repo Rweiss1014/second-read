@@ -1,0 +1,13 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4576,
+ "verdict": {
+  "points": [],
+  "pick": "none",
+  "reason": "No entry addresses a 422 from POST /v2/posts; the closest entries cover 401, a 400 template error, or LinkedIn page fields, none of which state the cause of a 422."
+ },
+ "at": "2026-11-16T06:45:19.135Z"
+}

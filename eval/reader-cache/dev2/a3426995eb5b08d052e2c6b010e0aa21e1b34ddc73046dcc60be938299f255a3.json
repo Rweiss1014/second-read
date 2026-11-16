@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4994,
+ "verdict": {
+  "points": [
+   {
+    "point": "Show source links at top of post",
+    "sentence": ""
+   },
+   {
+    "point": "Show source links as numbered footnotes",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The include-sources-toggle entry says links are appended to the bottom of the post, but it doesn't say whether they can go at the top or be numbered footnotes, so it answers a neighboring question."
+ },
+ "at": "2026-11-16T06:33:38.184Z"
+}

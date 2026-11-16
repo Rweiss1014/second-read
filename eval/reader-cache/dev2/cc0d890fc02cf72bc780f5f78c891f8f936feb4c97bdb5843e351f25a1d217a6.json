@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5954,
+ "verdict": {
+  "points": [
+   {
+    "point": "How to make a carousel from Videos templates",
+    "sentence": "Go to Videos > Create New Video and select a carousel or slideshow template, for example Image Slideshow with Text Overlays."
+   },
+   {
+    "point": "Use my brand details in the carousel (Brand Kit applied to Videos templates)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The make-carousel-slideshow entry covers how to create a carousel, but no sentence in any entry says that Brand Kit details are applied to Videos template carousels; brand-kit-setup only says Brand Kit stores business, audience, and style context, which is not an answer to the question."
+ },
+ "at": "2026-11-16T06:37:44.841Z"
+}

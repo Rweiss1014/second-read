@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7713,
+ "verdict": {
+  "points": [
+   {
+    "point": "carousel from Videos templates uses brand details (how to get it)",
+    "sentence": "For template-based videos, carousels, and slideshows, enter a prompt and enable \"Use brand kit\"."
+   },
+   {
+    "point": "the Use brand kit setting is turned on",
+    "sentence": "The toggle starts off."
+   }
+  ],
+  "pick": "brand-kit-visuals",
+  "reason": "This entry's quoted sentence states that carousels made from template-based videos use the brand kit when \"Use brand kit\" is enabled, and that the toggle starts off, which answers how to get the carousel to use brand details."
+ },
+ "at": "2026-11-16T06:30:43.685Z"
+}

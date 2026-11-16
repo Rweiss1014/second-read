@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6810,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why the DM automation does not fire after a friend's comment with PDF",
+    "sentence": ""
+   },
+   {
+    "point": "Customer already tried a friend's account and it still fails",
+    "sentence": ""
+   },
+   {
+    "point": "No run appears in automation runs and logs (account-specific fact)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer says they already tried a different account and it still fails, and the runs and logs show nothing, which is a fact only their own account can show, so this is not for an entry to answer; the closest entry (dm-automation-own-comment) covers only commenting from the connected account, not a friend's account that still fails."
+ },
+ "at": "2026-11-16T06:30:04.562Z"
+}

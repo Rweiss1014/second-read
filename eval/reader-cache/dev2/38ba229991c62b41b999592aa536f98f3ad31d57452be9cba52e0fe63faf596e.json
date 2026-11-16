@@ -1,0 +1,21 @@
+{
+ "kind": "refute",
+ "version": "refute-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8454,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "wrong-for-customer",
+    "about": "The customer has already run blotato_list_accounts, so the connector works, but the reply opens with \"Yes\" to \"Is my connection broken?\" and then walks through adding the custom connector again, which contradicts its own later line that an empty list means the connection works."
+   },
+   {
+    "kind": "not-answered",
+    "about": "The reply never says that the empty list means no social accounts are linked to the Blotato account, and never explains how to connect a social account in Blotato so the list fills in."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:38:59.494Z"
+}

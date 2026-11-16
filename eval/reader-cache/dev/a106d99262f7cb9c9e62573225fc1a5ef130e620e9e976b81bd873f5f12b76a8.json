@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4756,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does Blotato sign webhook requests (HMAC header or shared secret) so the endpoint can verify them",
+    "sentence": ""
+   },
+   {
+    "point": "Webhook publish target is in use",
+    "sentence": "To publish to a blog, WordPress, or any other custom destination, use the webhook publish target."
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks whether Blotato signs webhook requests (HMAC header or shared secret), and no candidate entry states anything about request signing or verification; the closest entry (blog-wordpress-webhook) only describes when to use the webhook target, so it does not answer the question."
+ },
+ "at": "2026-11-16T06:44:07.588Z"
+}

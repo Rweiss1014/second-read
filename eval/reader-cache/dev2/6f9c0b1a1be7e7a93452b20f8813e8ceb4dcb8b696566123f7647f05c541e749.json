@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6649,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does the Make.com Blotato app have a Delete Visual module?",
+    "sentence": ""
+   },
+   {
+    "point": "Automatic deletion of old carousels (Make.com, recurring cleanup)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate states whether the Make.com Blotato app has a Delete Visual module or any way to delete visuals automatically; the closest entry, \"clear-all-scheduled\", covers scheduled posts rather than visuals, so it answers a neighboring question."
+ },
+ "at": "2026-11-16T06:28:23.051Z"
+}

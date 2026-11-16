@@ -1,0 +1,17 @@
+{
+ "kind": "refute",
+ "version": "refute-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5633,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "not-answered",
+    "about": "The customer asked when a master agency dashboard is coming, and the reply only says it is not available yet. It gives no timeline and doesn't say that no date has been set."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:47:16.458Z"
+}

@@ -1,0 +1,21 @@
+{
+ "kind": "refute",
+ "version": "refute-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 11500,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "not-our-call",
+    "about": "The customer calls this a Blotato bug and tells staff to fix it. The reply decides on its own that it is an intentional guardrail, and a team member should make that call."
+   },
+   {
+    "kind": "wrong-for-customer",
+    "about": "The reply says the cap is Blotato's own and not Instagram's, but the error the customer saw says 'Instagram allows a maximum of 5 hashtags'. The reply also gives a reason for the cap, reduced reach on Instagram, TikTok and Facebook, that it can't back up and that doesn't explain the error."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:47:08.007Z"
+}

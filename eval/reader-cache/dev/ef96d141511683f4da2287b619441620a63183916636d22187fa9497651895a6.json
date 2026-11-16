@@ -1,0 +1,17 @@
+{
+ "kind": "refute",
+ "version": "refute-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7813,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "not-answered",
+    "about": "The customer asked whether to turn off retries and resubmit repeatedly. The reply never says whether to disable retries or whether repeated submissions are a good idea. It only says to check TikTok before another submission, and it doesn't mention that this is the third failure this week."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:47:40.184Z"
+}

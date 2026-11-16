@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4534,
+ "verdict": {
+  "points": [
+   {
+    "point": "Did I set up the automation wrong (why a LINK reply under someone else's comment got nothing)",
+    "sentence": ""
+   },
+   {
+    "point": "Whether a LINK reply under another person's comment (not the post itself) triggers the automation",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry says whether a comment reply under another user's comment triggers a comment automation; the closest entries (dm-automation-email-gate-skipped, dm-automation-invalid-20303) cover different questions, so none answers this message."
+ },
+ "at": "2026-11-16T06:29:26.751Z"
+}

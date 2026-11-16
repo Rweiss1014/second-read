@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3533,
+ "verdict": {
+  "points": [
+   {
+    "point": "error: slides.image must be at most 400 characters",
+    "sentence": "Keep image URLs under 400 characters."
+   },
+   {
+    "point": "is sending base64 image wrong",
+    "sentence": "It does not take a base64 string or a data blob."
+   }
+  ],
+  "pick": "slides-image-too-long",
+  "reason": "The entry states that the image field takes a short public URL, not base64, and must stay under 400 characters, which answers both points."
+ },
+ "at": "2026-11-16T06:45:41.784Z"
+}

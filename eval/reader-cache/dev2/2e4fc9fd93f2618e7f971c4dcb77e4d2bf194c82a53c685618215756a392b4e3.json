@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5797,
+ "verdict": {
+  "points": [
+   {
+    "point": "How long uploaded files are kept / do links expire",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states how long uploaded files or publicUrl links are retained; the presigned-upload entries only describe how to upload and publish, so the retention question is unanswered."
+ },
+ "at": "2026-11-16T06:31:52.413Z"
+}

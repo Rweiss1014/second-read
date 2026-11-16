@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4346,
+ "verdict": {
+  "points": [
+   {
+    "point": "Ask for phone number instead of email",
+    "sentence": ""
+   },
+   {
+    "point": "Send phone number to webhook",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The entries only describe collecting email addresses and sending them to a webhook, and none states that a phone number can be requested instead."
+ },
+ "at": "2026-11-16T06:32:29.794Z"
+}

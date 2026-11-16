@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9056,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does Blotato shorten long URLs automatically",
+    "sentence": "I don't have automatic link shortening as a feature in Blotato yet."
+   },
+   {
+    "point": "X (Twitter) as the platform where links use up characters",
+    "sentence": "short-text platforms like Twitter, Threads, or Bluesky, I recommend using a free link shortener, such as Bitly or Shorturl."
+   }
+  ],
+  "pick": "long-link-in-post",
+  "reason": "The entry directly answers that Blotato has no automatic link shortening and names Twitter (X's former name) among short-text platforms where a free shortener is recommended."
+ },
+ "at": "2026-11-16T06:29:44.209Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3680,
+ "verdict": {
+  "points": [
+   {
+    "point": "post 'Fall menu drops Friday!' to Instagram now",
+    "sentence": ""
+   },
+   {
+    "point": "why Reels show on main grid",
+    "sentence": "Instagram defaults all Reels to appear on your main feed."
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks staff to post something to their Instagram right now, which is a request for staff to post, so it is not mine to answer even though the Reels question has a matching entry."
+ },
+ "at": "2026-11-16T06:33:21.081Z"
+}

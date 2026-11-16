@@ -1,0 +1,17 @@
+{
+ "kind": "refute",
+ "version": "refute-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7545,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "not-answered",
+    "about": "The customer named the specific Meta setting \"future activity history off Meta technologies\" and asked whether to switch it off, but the reply never mentions that setting or says whether it is needed for the Blotato connection."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:38:41.463Z"
+}

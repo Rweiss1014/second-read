@@ -1,0 +1,17 @@
+{
+ "kind": "refute",
+ "version": "refute-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9198,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "wrong-for-customer",
+    "about": "The reply treats this as an error with the customer's post and tells them to check that their media URLs are public and in a supported format. The customer only asked whether 2 videos fit in one Bluesky post and never mentioned an error. The reply also never says plainly that two videos aren't allowed."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:41:22.301Z"
+}

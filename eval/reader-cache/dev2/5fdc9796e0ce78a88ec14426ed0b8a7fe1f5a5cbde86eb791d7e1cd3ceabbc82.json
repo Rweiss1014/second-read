@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6406,
+ "verdict": {
+  "points": [
+   {
+    "point": "401 invalid API key error",
+    "sentence": "A 401 means Blotato did not accept the key."
+   },
+   {
+    "point": "dropped trailing = signs on the key",
+    "sentence": "Copy the full key, including any trailing `=` characters."
+   }
+  ],
+  "pick": "api-401",
+  "reason": "The api-401 entry says a 401 means the key was not accepted and that the full key must include any trailing = characters, which answers whether the dropped = signs are related."
+ },
+ "at": "2026-11-16T06:33:02.353Z"
+}

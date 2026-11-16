@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4234,
+ "verdict": {
+  "points": [
+   {
+    "point": "Automatic top-up when balance falls under 1,000",
+    "sentence": ""
+   },
+   {
+    "point": "Charging saved card automatically",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The entries only say how to buy credits manually (website or POST /v2/credits) and don't state that auto top-up at a balance threshold exists, so the closest entry answers a neighboring question."
+ },
+ "at": "2026-11-16T06:33:51.610Z"
+}

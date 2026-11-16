@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6034,
+ "verdict": {
+  "points": [
+   {
+    "point": "can create a brand new YouTube playlist inside Blotato during upload",
+    "sentence": ""
+   },
+   {
+    "point": "or must create the playlist on YouTube first (only old playlists show in dropdown)",
+    "sentence": ""
+   },
+   {
+    "point": "platform is YouTube",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "None of the candidate entries mention YouTube playlists, so none of their sentences answer whether a new playlist can be created inside Blotato during upload or whether it must be made on YouTube first; the closest entries (YouTube as Context, first comment, long links) cover neighboring topics only."
+ },
+ "at": "2026-11-16T06:30:06.599Z"
+}

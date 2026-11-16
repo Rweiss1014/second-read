@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6868,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is my connection broken?",
+    "sentence": "A successful empty list means the connection works but no social accounts are connected."
+   },
+   {
+    "point": "blotato_list_accounts returned an empty list in Claude",
+    "sentence": "After setup, ask Claude to list your connected Blotato accounts."
+   }
+  ],
+  "pick": "claude-clients-support",
+  "reason": "The entry states that a successful empty account list means the connection works but no social accounts are connected, which directly answers whether the connection is broken."
+ },
+ "at": "2026-11-16T06:37:51.829Z"
+}

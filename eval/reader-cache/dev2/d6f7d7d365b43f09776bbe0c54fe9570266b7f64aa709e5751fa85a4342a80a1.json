@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6094,
+ "verdict": {
+  "points": [
+   {
+    "point": "how to get page 2 of the boards list",
+    "sentence": ""
+   },
+   {
+    "point": "endpoint returns 250 items with no cursor; 312 boards exist",
+    "sentence": ""
+   },
+   {
+    "point": "customer already tried ?cursor= and ?offset=250 with the same result",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate explains how to page through the Pinterest boards endpoint; the closest entries cover empty board lists and finding a Board ID, and the customer says they already tried cursor/offset with the same failing result, which is outside what I can answer."
+ },
+ "at": "2026-11-16T06:29:24.713Z"
+}

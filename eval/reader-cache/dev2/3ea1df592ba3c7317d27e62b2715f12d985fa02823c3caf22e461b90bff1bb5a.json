@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 2840,
+ "verdict": {
+  "points": [
+   {
+    "point": "Make YouTube video a Premiere with countdown",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether Blotato can publish a YouTube video as a Premiere with a countdown; the candidates cover YouTube as a source, upload errors, and AI labels, which are different questions."
+ },
+ "at": "2026-11-16T06:33:01.813Z"
+}

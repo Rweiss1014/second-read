@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7247,
+ "verdict": {
+  "points": [
+   {
+    "point": "Should I uncheck the messaging permission when reconnecting Instagram",
+    "sentence": "Leave every permission checked, including messaging, and finish connecting."
+   }
+  ],
+  "pick": "follow-gate-run-stuck",
+  "reason": "The entry says to leave every permission checked, including messaging, when reconnecting Instagram, which directly answers whether to uncheck it."
+ },
+ "at": "2026-11-16T06:33:59.035Z"
+}

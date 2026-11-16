@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5519,
+ "verdict": {
+  "points": [
+   {
+    "point": "Bank shows A$155 charged after a $1 offer (money taken or charge dispute)",
+    "sentence": ""
+   },
+   {
+    "point": "Customer calls it a scam (accusation, not a question)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer reports an unexpected charge on their bank statement, which is a money-taken or charge dispute that only the team can review, and no candidate entry answers it."
+ },
+ "at": "2026-11-16T06:42:46.875Z"
+}

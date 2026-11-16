@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3549,
+ "verdict": {
+  "points": [
+   {
+    "point": "security issue report / security contact",
+    "sentence": ""
+   },
+   {
+    "point": "bug bounty program",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states a security contact or bug bounty program; the MCP mentions are about setup or visuals, so a person on the team should handle this security report."
+ },
+ "at": "2026-11-16T06:32:32.358Z"
+}

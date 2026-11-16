@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4283,
+ "verdict": {
+  "points": [
+   {
+    "point": "Stripe says invoice can no longer be paid",
+    "sentence": ""
+   },
+   {
+    "point": "Must old invoice be paid before using Blotato again",
+    "sentence": ""
+   },
+   {
+    "point": "Card declined days ago",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether an old unpayable invoice must be paid before using Blotato again, and this concerns a declined payment and the customer's own payment record, which only a person on the team can check."
+ },
+ "at": "2026-11-16T06:36:58.588Z"
+}

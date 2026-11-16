@@ -1,0 +1,21 @@
+{
+ "kind": "refute",
+ "version": "refute-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9879,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "wrong-for-customer",
+    "about": "The reply says the body was built for the older template-object format and tells the customer to use templateId and inputs, but their body already uses templateId and inputs. The error is about body/template/id on /v2/videos/creations, so the diagnosis doesn't match what they sent."
+   },
+   {
+    "kind": "not-answered",
+    "about": "The reply never says what is wrong with this specific body or endpoint. It doesn't explain why /v2/videos/creations expects a template.id constant, and it doesn't confirm that tmpl_quote_card is a valid complete ID. It gives generic steps and a vague 'switch to the from-templates endpoint' with no path."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:39:28.733Z"
+}

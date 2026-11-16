@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3233,
+ "verdict": {
+  "points": [
+   {
+    "point": "How to add Instagram location when scheduling in Blotato",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry says anything about adding a location tag to an Instagram post in Blotato; the closest ones (first comment, collaborators, music) cover different features."
+ },
+ "at": "2026-11-16T06:33:05.782Z"
+}

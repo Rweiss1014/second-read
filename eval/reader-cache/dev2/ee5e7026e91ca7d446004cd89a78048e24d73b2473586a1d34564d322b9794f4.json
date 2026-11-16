@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5788,
+ "verdict": {
+  "points": [
+   {
+    "point": "Facebook Page post shows wrong image (blog picture instead of attached photo)",
+    "sentence": ""
+   },
+   {
+    "point": "Request for staff to fix it",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry addresses a Facebook post publishing a different image than the one attached, and the customer asks staff to fix it, so a team member should review it."
+ },
+ "at": "2026-11-16T06:31:52.706Z"
+}

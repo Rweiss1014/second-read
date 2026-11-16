@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3713,
+ "verdict": {
+  "points": [
+   {
+    "point": "Bluesky platform, 2 videos in one post",
+    "sentence": "Each Bluesky post supports up to 4 images or 1 video."
+   }
+  ],
+  "pick": "bluesky-media-rejected",
+  "reason": "The entry states a Bluesky post supports only 1 video, which answers that two videos can't go in one post."
+ },
+ "at": "2026-11-16T06:34:11.138Z"
+}

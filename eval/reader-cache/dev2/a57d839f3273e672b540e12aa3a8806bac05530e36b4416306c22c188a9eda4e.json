@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3208,
+ "verdict": {
+  "points": [
+   {
+    "point": "Which template for a made-up (generated) person talking selfie style",
+    "sentence": "In the web app, open Videos > Create New Video. For a generated character video, select AI Selfie Talking Video with Consistent Character."
+   }
+  ],
+  "pick": "avatar-ugc-videos",
+  "reason": "The avatar-ugc-videos entry names the template for a generated character selfie talking video, which answers the customer's one question."
+ },
+ "at": "2026-11-16T06:37:03.096Z"
+}

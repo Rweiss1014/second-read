@@ -1,0 +1,17 @@
+{
+ "kind": "refute",
+ "version": "refute-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5516,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "wrong-for-customer",
+    "about": "The reply's next step and success check tell the customer to look in the Remix screen, which they said they already checked. It also contradicts the reply's own point that a TikTok draft never appears in Blotato. The customer should instead be sent to the TikTok app's notifications."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:46:43.599Z"
+}

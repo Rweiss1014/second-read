@@ -1,0 +1,21 @@
+{
+ "kind": "refute",
+ "version": "refute-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6900,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "wrong-for-customer",
+    "about": "The reply opens with \"Yes, all three work through a custom connector.\" That answers a different question and implies the connection is broken. The customer's tool call actually ran and returned [], and the reply's own step 5 says an empty list means the connection works."
+   },
+   {
+    "kind": "wrong-for-customer",
+    "about": "The reply tells the customer to set up the custom connector and check their subscription. They already have a working connection, because Claude ran blotato_list_accounts. The real next step is to connect a social account in Blotato, and the reply never says that."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:39:53.346Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4856,
+ "verdict": {
+  "points": [
+   {
+    "point": "Where to find the built-in AI Agent to write a post",
+    "sentence": "Post editor opens the in-app AI Agent. It is separate from an external assistant connected through MCP."
+   },
+   {
+    "point": "Customer is in Developer Platform view (only Overview, Logs, Posts)",
+    "sentence": "Select Switch to Content Studio if you are in Developer Platform."
+   }
+  ],
+  "pick": "find-post-editor",
+  "reason": "The entry says to switch from Developer Platform to Content Studio and select Post editor, which opens the in-app AI Agent."
+ },
+ "at": "2026-11-16T06:46:15.594Z"
+}

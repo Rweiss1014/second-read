@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4497,
+ "verdict": {
+  "points": [
+   {
+    "point": "Transfer credits to sister's account",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether credits can be transferred between accounts; the credits entry only covers what uses credits and checking balance, which is a neighboring question."
+ },
+ "at": "2026-11-16T06:32:24.887Z"
+}

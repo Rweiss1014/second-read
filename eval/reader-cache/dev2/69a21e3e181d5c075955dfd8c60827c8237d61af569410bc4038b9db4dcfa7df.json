@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4335,
+ "verdict": {
+  "points": [
+   {
+    "point": "Ask TikTok to restore banned shop account (staff action)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks staff to contact TikTok and get their banned account back, which is a request for staff action, and no entry covers a TikTok account ban."
+ },
+ "at": "2026-11-16T06:31:56.944Z"
+}

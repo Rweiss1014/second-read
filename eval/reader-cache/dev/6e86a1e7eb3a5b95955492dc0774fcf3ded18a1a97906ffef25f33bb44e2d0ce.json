@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6710,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why no post after adding Text context",
+    "sentence": "Adding Text context does not generate a post automatically."
+   },
+   {
+    "point": "Is it still loading",
+    "sentence": "Confirm the source finished loading and its checkbox is selected in Context."
+   }
+  ],
+  "pick": "text-context-no-post",
+  "reason": "This entry says Text context doesn't create a post by itself and tells the customer how to check whether the source finished loading."
+ },
+ "at": "2026-11-16T06:45:16.250Z"
+}

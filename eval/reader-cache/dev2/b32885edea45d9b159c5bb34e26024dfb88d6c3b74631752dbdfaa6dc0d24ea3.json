@@ -1,0 +1,21 @@
+{
+ "kind": "refute",
+ "version": "refute-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8497,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "wrong-for-customer",
+    "about": "The reply says \"I looked it up\" but the result is an unfilled template placeholder (\"[the result of a live lookup in the customer's account]\"), so it claims a lookup that never happened and shows the customer raw placeholder text."
+   },
+   {
+    "kind": "not-answered",
+    "about": "The customer asked what to do about a Bluesky video stuck in-progress for 2 days, and the reply defers with a request for the creation time and account instead of giving a usable next step or a clear answer about the post's status."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T06:38:53.166Z"
+}

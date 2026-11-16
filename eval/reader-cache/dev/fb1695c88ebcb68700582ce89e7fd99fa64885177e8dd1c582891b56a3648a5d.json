@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4627,
+ "verdict": {
+  "points": [
+   {
+    "point": "Guarantee the post goes out at exactly 9:00 tomorrow",
+    "sentence": ""
+   },
+   {
+    "point": "Customer wants a promise to tell their boss",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks for a guarantee of exact publish timing for a specific post, and no candidate entry states that Blotato guarantees publishing at an exact time; the closest entries (scheduling horizon, reschedule, upload and schedule) cover neighboring topics only."
+ },
+ "at": "2026-11-16T06:43:34.501Z"
+}

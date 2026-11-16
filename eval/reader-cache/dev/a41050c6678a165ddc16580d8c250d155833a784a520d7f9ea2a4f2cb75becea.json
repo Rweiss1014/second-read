@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4129,
+ "verdict": {
+  "points": [
+   {
+    "point": "DELETE /v2/schedules/{id} returns 404 despite post existing",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry explains why the DELETE schedules API returns 404 for an id that GET lists; the closest entries cover other topics (canceled status, moving to drafts), so a team member should review."
+ },
+ "at": "2026-11-16T06:45:12.217Z"
+}

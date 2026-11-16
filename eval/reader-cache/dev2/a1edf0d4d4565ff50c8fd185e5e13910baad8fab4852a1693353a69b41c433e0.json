@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6752,
+ "verdict": {
+  "points": [
+   {
+    "point": "Creator yearly: are all 60,000 credits given upfront or 5,000 monthly?",
+    "sentence": ""
+   },
+   {
+    "point": "Yearly billing term (specific that would change the answer)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The candidates state that Creator includes 5,000 credits per month, but none says how yearly billing delivers credits (upfront as 60,000 or monthly), and the 60,000 figure appears in no entry, so the question is not answered."
+ },
+ "at": "2026-11-16T06:30:23.533Z"
+}

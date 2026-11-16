@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7382,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is 60 credits on the trial normal?",
+    "sentence": ""
+   },
+   {
+    "point": "Signup offer with bonus credits not shown in Billing",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The plan-credits entry confirms the trial includes 60 AI credits, but none of its sentences mention a signup or bonus-credit offer, so the customer's main question about the missing bonus is not answered."
+ },
+ "at": "2026-11-16T06:28:07.656Z"
+}

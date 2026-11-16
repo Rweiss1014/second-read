@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7185,
+ "verdict": {
+  "points": [
+   {
+    "point": "Error text matches: Unsupported media format on a file named promo.mp4",
+    "sentence": "Blotato did not recognize the file's container brand. A filename ending in .mp4 does not establish the format."
+   },
+   {
+    "point": "Why a file that is literally an mp4 is rejected (customer asks 'It's literally an mp4?')",
+    "sentence": "Blotato did not recognize the file's container brand. A filename ending in .mp4 does not establish the format."
+   }
+  ],
+  "pick": "unsupported-media-format-container-list",
+  "reason": "This entry has the same title as the customer's exact error, and its quoted sentence directly answers why a file named .mp4 is rejected, while the customer's message names no platform, plan, or other condition that the entry fails to cover."
+ },
+ "at": "2026-11-16T06:43:23.969Z"
+}

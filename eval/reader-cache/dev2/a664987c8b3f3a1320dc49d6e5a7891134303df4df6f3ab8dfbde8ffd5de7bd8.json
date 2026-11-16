@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4773,
+ "verdict": {
+  "points": [
+   {
+    "point": "upload limit for the viral coach (180MB reel)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states a file size limit for the viral coach; the closest (own-video-as-source) says Context does not accept direct video uploads but gives no limit, and the posting-limits entry has no relevant sentences."
+ },
+ "at": "2026-11-16T06:33:36.396Z"
+}

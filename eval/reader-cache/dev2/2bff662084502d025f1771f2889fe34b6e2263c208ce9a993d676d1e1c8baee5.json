@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4207,
+ "verdict": {
+  "points": [
+   {
+    "point": "YouTube error: exceeded number of videos",
+    "sentence": "The error means YouTube's upload limit was reached."
+   },
+   {
+    "point": "exact daily video limit for unverified channel",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry explains the error and says to wait 24 hours and verify, but no entry states how many videos per day an unverified YouTube channel is allowed."
+ },
+ "at": "2026-11-16T06:32:09.544Z"
+}

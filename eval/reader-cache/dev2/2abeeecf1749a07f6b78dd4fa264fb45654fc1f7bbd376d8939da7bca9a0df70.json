@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3360,
+ "verdict": {
+  "points": [
+   {
+    "point": "Facebook Page collaborators on a Reel",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The only collaborator entry covers Instagram handles, and no entry says Blotato can add Facebook Pages as collaborators on a Reel."
+ },
+ "at": "2026-11-16T06:33:00.555Z"
+}

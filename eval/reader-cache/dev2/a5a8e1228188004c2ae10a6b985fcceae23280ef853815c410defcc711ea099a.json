@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4113,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does mcp.blotato.com expose an SSE endpoint",
+    "sentence": ""
+   },
+   {
+    "point": "Fallback for SSE-only clients",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The only related entry (claude-clients-support) gives the /mcp URL but never says whether an SSE endpoint or an SSE fallback exists, so no entry answers this."
+ },
+ "at": "2026-11-16T06:32:31.561Z"
+}

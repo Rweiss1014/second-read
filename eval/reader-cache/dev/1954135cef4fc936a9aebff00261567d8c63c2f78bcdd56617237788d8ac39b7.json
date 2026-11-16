@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3761,
+ "verdict": {
+  "points": [
+   {
+    "point": "Facebook Story with multiple images, only first showed",
+    "sentence": "If more than one is provided, only the first is used and published."
+   },
+   {
+    "point": "Where are b and c (Story needs one attachment)",
+    "sentence": "Facebook stories require one video or image attachment."
+   }
+  ],
+  "pick": "facebook-stories",
+  "reason": "The facebook-stories entry states that a Facebook Story takes one attachment and only the first of several is published, which explains why b and c are missing."
+ },
+ "at": "2026-11-16T06:44:30.096Z"
+}

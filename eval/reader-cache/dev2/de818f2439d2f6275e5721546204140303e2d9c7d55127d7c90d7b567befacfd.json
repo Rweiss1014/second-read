@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7256,
+ "verdict": {
+  "points": [
+   {
+    "point": "exact videos per day YouTube allows for an unverified channel",
+    "sentence": ""
+   },
+   {
+    "point": "the YouTube upload-limit error for a new, unverified channel",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks for the exact daily upload number for an unverified YouTube channel, and no candidate entry states that number; the closest entry, youtube-upload-limit-exceeded, only says to wait 24 hours, check API quota, and verify the account, so it does not answer the question."
+ },
+ "at": "2026-11-16T06:28:30.188Z"
+}

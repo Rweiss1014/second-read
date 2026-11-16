@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 10620,
+ "verdict": {
+  "points": [
+   {
+    "point": "Did uploading own photos and writing own caption use credits?",
+    "sentence": "Credits are only used for AI-generated images and videos."
+   }
+  ],
+  "pick": "what-uses-credits",
+  "reason": "The entry says credits are only used for AI-generated images and videos, so uploading your own photos and writing your own caption doesn't use any."
+ },
+ "at": "2026-11-16T06:32:20.410Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5218,
+ "verdict": {
+  "points": [
+   {
+    "point": "how long videos and data are kept after account deletion",
+    "sentence": ""
+   },
+   {
+    "point": "whether backups are wiped too",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks about data retention after account deletion and about backups, and no candidate states either; the closest entry, old-videos-after-cancel, covers cancellation and reactivation, not deletion, retention periods, or backups."
+ },
+ "at": "2026-11-16T06:42:10.772Z"
+}

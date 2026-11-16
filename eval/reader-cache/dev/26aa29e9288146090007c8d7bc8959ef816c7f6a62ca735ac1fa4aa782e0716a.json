@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8145,
+ "verdict": {
+  "points": [
+   {
+    "point": "Did the TikTok post go through after the 504?",
+    "sentence": "The downstream operation's outcome is not established by this response."
+   },
+   {
+    "point": "Is it safe to run the Make scenario again?",
+    "sentence": "A timeout does not tell us whether the post was created, so please do not send it again yet."
+   }
+  ],
+  "pick": "unknown-outcome-resend",
+  "reason": "This entry says a timeout leaves the outcome unknown and tells the customer not to resend yet, which answers both questions."
+ },
+ "at": "2026-11-16T06:45:56.162Z"
+}

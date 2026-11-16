@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4530,
+ "verdict": {
+  "points": [
+   {
+    "point": "old July invoice still showing",
+    "sentence": ""
+   },
+   {
+    "point": "dashboard won't open",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The message involves billing and a past card update, plus a dashboard that won't open, which depends on this customer's own account. No entry states an answer to either point, so a person should read it."
+ },
+ "at": "2026-11-16T06:46:01.785Z"
+}

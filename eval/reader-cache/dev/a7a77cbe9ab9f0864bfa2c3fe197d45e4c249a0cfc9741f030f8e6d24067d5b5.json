@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9329,
+ "verdict": {
+  "points": [
+   {
+    "point": "What slots are (customer is confused by the term)",
+    "sentence": ""
+   },
+   {
+    "point": "Why an exact-time schedule shows the no-slot error",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry, no-available-slot-9-months, explains the error only for Next free slot time and useNextFreeSlot, and its one line on exact-time scheduling (\"Exact-time scheduling does not require slots.\") does not explain why this customer gets the error or define what slots are, so passing it on would require a guess."
+ },
+ "at": "2026-11-16T06:42:09.664Z"
+}

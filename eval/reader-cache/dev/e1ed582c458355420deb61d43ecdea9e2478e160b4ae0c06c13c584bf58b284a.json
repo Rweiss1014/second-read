@@ -1,0 +1,30 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9647,
+ "verdict": {
+  "points": [
+   {
+    "point": "Did it post or not? (answer depends on the customer's own account)",
+    "sentence": ""
+   },
+   {
+    "point": "Is it safe to run the scenario again? (rerun after a timeout)",
+    "sentence": "A timeout does not tell us whether the post was created, so please do not send it again yet."
+   },
+   {
+    "point": "TikTok destination (platform named by customer)",
+    "sentence": ""
+   },
+   {
+    "point": "Make HTTP call / 504 Gateway Timeout (error the entry is about)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks whether the post went out, which only their own account can show, and the closest entry (unknown-outcome-resend) depends on a live account lookup placeholder and does not name TikTok or Make, so it cannot fully answer the message and this should go to a person."
+ },
+ "at": "2026-11-16T06:43:39.354Z"
+}
