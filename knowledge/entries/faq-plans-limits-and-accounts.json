@@ -609,19 +609,11 @@
           "blocked"
         ]
       },
-      "opening": "Thank you for telling me what you have already tried. That helps a lot.",
+      "opening": "Thanks for writing in. A person on the team needs to look at this one.",
       "steps": [
         {
           "type": "action",
-          "text": "Since the usual steps have not solved it, I am passing your message to a person on the team, with everything you have already tried."
-        },
-        {
-          "type": "fact",
-          "text": "We carry forward the checks you already did, so you should not get the same checklist from us again unless there is something new to go on.",
-          "cite": {
-            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
-            "quote": "Carry forward completed checks and their results. Do not resend the same checklist without new evidence."
-          }
+          "text": "I am passing your message to a person on the team, with what you told me."
         },
         {
           "type": "fact",
@@ -641,13 +633,13 @@
         }
       ],
       "next": "If you have them, reply with the exact error, the time it happened with your time zone, and any id you see.",
-      "proof": "Still open: what is causing this. A person on the team has your message and what you tried.",
+      "proof": "Still open: the answer to your message. A person on the team has it.",
       "escalate": {
         "why": "The customer asks about posting limits per platform. Help page: Social Accounts (https://help.blotato.com/settings/social-accounts), Platform Posting Limits. Pinterest caps depend on the connection, and existing account-specific or legacy limits apply to stored connections, so use the limit in the customer's returned error if there is one.",
         "causes": [],
         "ruledOut": []
       },
-      "note": "A hand-over since Nov 15, 2026: its own reply failed the fresh checker three times (checks-run3/BLOCKS-R3.md), so it sends the shared needs-person holding reply word for word, and a person takes it with the escalation note."
+      "note": "A hand-over since Nov 15, 2026: its own reply failed the fresh checker three times (checks-run3/BLOCKS-R3.md), so it sends the neutral handover holding reply word for word (since Nov 15, 2026: the needs-person reply thanks the customer for what they tried, which is not true here), and a person takes it with the escalation note."
     },
     {
       "id": "connected-account-limit",

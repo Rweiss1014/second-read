@@ -7,10 +7,11 @@
 //      left, the message is handed over.
 //   3. The matcher scores every entry. Below the threshold, or too close to the runner-up, the desk does not
 //      answer: a person gets the message with the top three candidates. If the message also says the customer
-//      already tried things and it still fails (GENERAL_SIGNALS plus a trouble word), the customer gets the
-//      general holding reply.
+//      already tried things and it still fails (GENERAL_SIGNALS plus a trouble word), the customer gets a
+//      holding reply.
 //   4. The entry's needs_person_if signals: the customer already did the steps, or it is past the docs.
-//      The answer becomes a holding reply and an escalation.
+//      The answer becomes a holding reply and an escalation. The holding reply is chosen by the reason code
+//      (HOLDING_FOR), so its opening is true for the case.
 //   5. A second question the entry does not cover: answer the part it can cite and hand over the rest,
 //      or hand over the whole message when the entry has no room for that line. If the entry covers none
 //      of the message's questions, it matched only the background, and the desk does not answer.
@@ -26,6 +27,11 @@ const SIGNAL_WHY = {
   'many-accounts': 'outage', 'records-disagree': 'records-disagree', 'disputes-count': 'records-disagree', 'docs-wrong': 'docs-wrong', 'access-blocked': 'access-blocked', phrase: 'past-docs',
 };
 const whyOfSignals = (hits) => ({ why: SIGNAL_WHY[hits[0].signal] || 'tried-already', whyDetail: { signal: hits[0].signal, words: hits[0].words } });
+// Which holding reply a hand-over sends, by its reason code (guard names in knowledge/entries/guards.json).
+// needs-person opens "Thank you for telling me what you have already tried", which is true only for tried-already.
+// An outage question gets the possible-outage reply. Every other reason gets the neutral handover reply.
+export const HOLDING_FOR = { 'tried-already': 'needs-person', outage: 'possible-outage' };
+export const holdingGuardFor = (why) => HOLDING_FOR[why] || 'handover';
 
 // The same test as isErrorEntry in entries.mjs (kept here so route.mjs does not import entries.mjs, which imports it).
 const isErrorEntryLike = (e) => !!e && ((e.steps || []).some(s => /\/errors?\b|error-handling|limitations/.test(s?.cite?.url || '')) || /\b(?:error|errors|failed|fails|rejected|not found|invalid|exceeded|unsupported)\b/i.test(e.title || ''));
@@ -200,7 +206,11 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
       // The strong default signals ("three days in a row", "is something down", "I only posted 3") count on
       // their own; the rest need a trouble word.
       const hits = needsPerson(full, { signals: TROUBLE.test(full) ? GENERAL_SIGNALS : [] }, { hasTerm, allStems }, { defaults: true });
-      if (hits.length) return { ...base, decision: 'needs-person', entry: guardEntry('needs-person'), holding: guardEntry('needs-person'), signals: hits, ...whyOfSignals(hits), reason: `${why} And: ${hits[0].about} ("${hits[0].words}")` };
+      if (hits.length) {
+        const w = whyOfSignals(hits);
+        const holding = guardEntry(holdingGuardFor(w.why));
+        return { ...base, decision: 'needs-person', entry: holding, holding, signals: hits, ...w, reason: `${why} And: ${hits[0].about} ("${hits[0].words}")` };
+      }
       const tied = best && second && best.score >= need && gap < margin;
       const code = tied ? { why: 'tie', whyDetail: { candidates: [best, second].map(c => ({ id: c.id, title: index.byId.get(c.id)?.title, score: round(c.score) })) } }
         : isNonsense(real, { contentStems, rawWords, known: (w) => everyWord.has(w) }) ? { why: 'nonsense', whyDetail: null }
@@ -215,7 +225,8 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
     // The entry's own signals, plus the default ones every answering entry has (signals.mjs DEFAULT_SIGNALS).
     const hits = needsPerson(full, entry.needs_person_if, { hasTerm, allStems }, { defaults: true });
     if (hits.length && !entry.escalate && !entry.noDocAnswer) {
-      return { ...base, decision: 'needs-person', entry, signals: hits, holding: entry.holding || guardEntry('needs-person'), ...whyOfSignals(hits), reason: `${hits[0].about} ("${hits[0].words}")` };
+      const w = whyOfSignals(hits);
+      return { ...base, decision: 'needs-person', entry, signals: hits, holding: entry.holding || guardEntry(holdingGuardFor(w.why)), ...w, reason: `${hits[0].about} ("${hits[0].words}")` };
     }
 
     // An entry for a symptom with no error text ("my post failed", "it never went up") gives the first steps
