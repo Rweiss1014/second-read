@@ -13,15 +13,28 @@
 <script type="module" src="/app.js"></script>
 </head>
 <body>
+<svg class="defs" aria-hidden="true" focusable="false">
+  <!-- Ink: a stamp's edge is never a clean vector line. A little roughness, a little grain. -->
+  <filter id="ink" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="2" seed="7" result="rough"/>
+    <feDisplacementMap in="SourceGraphic" in2="rough" scale="2.4" xChannelSelector="R" yChannelSelector="G" result="edge"/>
+    <feTurbulence type="fractalNoise" baseFrequency="1.6" numOctaves="1" seed="11" result="grain"/>
+    <feColorMatrix in="grain" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.2 1.75" result="holes"/>
+    <feComposite in="edge" in2="holes" operator="in" result="inked"/>
+    <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3" result="blot"/>
+    <feColorMatrix in="blot" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.1 1.45" result="press"/>
+    <feComposite in="inked" in2="press" operator="in"/>
+  </filter>
+</svg>
 <a class="skip-link" href="#main">Skip to the main part</a>
 
 <header class="top">
-  <a class="brand" href="#answer" id="brand"><!--app-mark--><span class="brand-name">Support Desk</span><span class="brand-for">for Blotato's support team</span></a>
+  <a class="brand" href="#answer" id="brand"><!--app-mark--><span class="brand-name">Support Desk</span><span class="brand-for">for the support team at Blotato</span></a>
   <nav class="nav" aria-label="Main">
     <a href="#answer" id="nav-answer" aria-current="page">Answer a customer</a>
     <a href="#practice" id="nav-practice">Practice game</a>
   </nav>
-  <button type="button" class="switch" role="switch" aria-checked="false" data-tech-switch><span class="track" aria-hidden="true"><span class="knob"></span></span><span class="switch-label">Technical view</span></button>
+  <button type="button" class="switch" role="switch" aria-checked="false" data-tech-switch><span class="track" aria-hidden="true"><span class="knob"></span></span><span class="switch-label">Details for engineers</span></button>
 </header>
 
 <main id="main" tabindex="-1">
@@ -31,32 +44,35 @@
     <div class="ask" id="ask">
       <div class="ask-main">
         <h1 id="ask-h">What did the customer say?</h1>
-        <p class="lede">Paste their message. The desk finds the answer in Blotato's help pages and writes a kind reply. Every step shows the sentence it came from.</p>
+        <p class="lede"><b>Blotato is a tool for posting to social media.</b> Paste what one of its customers wrote. The desk writes a kind reply from Blotato's help pages.<span class="long"> Every step shows the sentence it came from.</span></p>
 
         <form class="box" id="ask-form" novalidate>
-          <div class="box-top">
-            <label for="msg">Their message, in their own words</label>
-            <button type="button" class="demo-skip" id="demo-skip" hidden>Skip the example</button>
-          </div>
-          <textarea id="msg" name="msg" rows="3" maxlength="2000" placeholder="Hi, my post says published but I can't find it..." aria-describedby="box-note"></textarea>
+          <label for="msg" class="sr-only">Their message, in their own words</label>
+          <button type="button" class="demo-skip" id="demo-skip" hidden>Skip the example</button>
+          <textarea id="msg" name="msg" rows="3" placeholder="Paste what the customer wrote..." aria-describedby="box-note"></textarea>
           <div class="go">
             <p id="box-note">The desk writes the reply. It never sends anything. You copy it and send it yourself.</p>
             <button class="btn" type="submit" id="answer-btn">Answer it</button>
           </div>
           <p class="filled" id="filled" aria-live="polite"></p>
         </form>
+      </div>
 
+      <div class="ask-more">
         <div class="tries">
           <h2 id="tries-h">Not sure what to type? Try one of these.</h2>
           <ul class="tries-list" id="tries" aria-labelledby="tries-h">
             <li><button type="button" data-id="T02" data-who="A small business owner" aria-pressed="false"><span class="q" aria-hidden="true">&ldquo;</span><span class="t">Three of my posts show CANCELED in the calendar. Are they failing? I'm worried something is broken.</span><span class="who">A small business owner</span></button></li>
-            <li><button type="button" data-id="T01" data-who="A creator" aria-pressed="false"><span class="q" aria-hidden="true">&ldquo;</span><span class="t">Hi! Blotato says my Instagram post is published, but I can't find it on my profile. Did it actually go out?</span><span class="who">A creator</span></button></li>
-            <li><button type="button" data-id="T04" data-who="A coach on the free trial" aria-pressed="false"><span class="q" aria-hidden="true">&ldquo;</span><span class="t">I was still on my free trial, I made an API key to try n8n, and now I've been charged. Why?</span><span class="who">A coach on the free trial</span></button></li>
             <li><button type="button" data-id="T05" data-who="A podcaster" aria-pressed="false"><span class="q" aria-hidden="true">&ldquo;</span><span class="t">How do I cancel my subscription? Or can I pause it for two months while I travel?</span><span class="who">A podcaster</span></button></li>
+            <li><button type="button" data-id="T04" data-who="A coach on the free trial" aria-pressed="false"><span class="q" aria-hidden="true">&ldquo;</span><span class="t">I was still on my free trial, I made an API key to try n8n, and now I've been charged. Why?</span><span class="who">A coach on the free trial</span></button></li>
+            <li><button type="button" data-id="T07" data-who="Someone who posts with n8n" aria-pressed="false"><span class="q" aria-hidden="true">&ldquo;</span><span class="t">My n8n workflow posts 50 videos at once and half of them fail with 'The service is receiving too many requests from you'.</span><span class="who">Someone who posts with n8n</span></button></li>
           </ul>
           <button type="button" class="more-btn" id="more-btn" aria-expanded="false" aria-controls="more">Show more examples</button>
           <div id="more" class="more" hidden>
-            <ul class="tries-list" id="more-list" aria-label="More examples"></ul>
+            <h3 id="more-cust-h">More from customers</h3>
+            <ul class="tries-list" id="more-cust" aria-labelledby="more-cust-h"></ul>
+            <h3 id="more-dev-h">From developers</h3>
+            <ul class="tries-list" id="more-dev" aria-labelledby="more-dev-h"></ul>
             <p class="stopped-line">What happens when the second checker finds a mistake? <button type="button" class="link" id="stopped-btn">See a reply it stopped</button></p>
           </div>
         </div>
@@ -66,27 +82,25 @@
       <aside class="how" aria-labelledby="how-h">
         <h2 id="how-h">How you know a reply is right</h2>
         <div class="how-sheet" aria-hidden="true">
-          <p class="how-k">From the reply</p>
           <p class="how-step"><span class="how-n">1</span>CANCELED is not a failure. It is a status.</p>
           <i class="how-wire"></i>
-          <p class="how-k">From Blotato's help page</p>
-          <p class="how-proof"><mark>No. CANCELED is a post status, not a publishing failure.</mark></p>
+          <p class="how-proof"><mark>No. CANCELED is a post status, not a publishing failure.</mark> <span class="src">FAQs</span></p>
           <span class="how-stamp" data-stamp="checked"></span>
         </div>
         <ol class="how-list">
-          <li>Every step sits beside the help-page sentence it came from, lit in yellow.</li>
-          <li>A script makes sure each sentence is really on its page.</li>
-          <li>A second checker reads the reply and looks for mistakes. Only then does it get the stamp.</li>
+          <li>Each step of the reply sits beside the sentence on Blotato's help page that says so, lit in yellow.</li>
+          <li>The desk checks that each yellow sentence is really on that help page.</li>
+          <li>A second checker, a fresh AI that has not seen the desk's work, reads the reply too. The stamp shows the day it passed those exact words.</li>
         </ol>
         <button type="button" class="btn-quiet watch" id="watch-btn">Watch it answer one</button>
       </aside>
 
       <section class="tech tech-home" id="tech-home" aria-labelledby="tech-home-h">
-        <h2 id="tech-home-h">Technical view</h2>
+        <h2 id="tech-home-h">Details for engineers</h2>
         <dl class="kv" id="tech-state"><dt>Loading</dt><dd>Reading the desk's state.</dd></dl>
         <h3>What this page calls</h3>
         <ul class="mono-list">
-          <li><code>POST /api/ticket/live</code> one message, each read reported as it happens (one JSON object per line), the result last. The moment on this page waits for these events.</li>
+          <li><code>POST /api/ticket/live</code> one message, each read reported as it happens (one JSON object per line), the result last. The page shows the work in the order it happened.</li>
           <li><code>POST /api/ticket</code> the same work, one JSON answer</li>
           <li><code>GET /api/example/stopped</code> the saved reply the second checker stopped, with its hash checked against the verdict on every load</li>
           <li><code>GET /api/state</code>, <code>/api/practice</code>, <code>/api/art</code></li>
