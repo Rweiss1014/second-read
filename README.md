@@ -49,6 +49,8 @@ Or run `npm start`: it opens the same page with sample data and prints the link.
 node bin/support-desk.mjs ticket "<customer message>"      # one ticket
 node bin/support-desk.mjs ticket --id T01 --save-reply     # a sample ticket, plus the packet for the fresh checker
 node bin/support-desk.mjs cleared T01                      # may this saved reply be sent?
+node bin/support-desk.mjs packets --all --mock --out <dir> # a checker packet for every entry's reply, plus <dir>/index.json
+node bin/support-desk.mjs record-check --dir <dir>         # save the checkers' passes into knowledge/checks/
 node bin/support-desk.mjs shift                            # all 12 sample tickets, then desk/HANDOFF.md
 node bin/support-desk.mjs morning                          # what failed in the last 24 hours, to desk/MORNING.md
 node bin/support-desk.mjs logs                             # what the last run did, with request ids
@@ -210,6 +212,7 @@ I fixed each one from the page's own words. The second round passed 9 of 10. The
 - `knowledge/entries/*.json`: one file per help-center area, one entry per kind of ticket, each step tied to a help-page sentence. How to write one: `knowledge/ENTRY-GUIDE.md`.
 - `knowledge/playbook.mjs`: loads and checks the entries, and routes each message (guards, matcher, signals).
 - `knowledge/tickets.json`: the 12 sample tickets.
+- `knowledge/checks/`: saved passes from the fresh checker, one small file per checked reply text (named by its sha256). A reply counts as checked when its exact text has a pass here or in `desk/reviews/`. See its README.
 - `knowledge/practice.mjs`: the practice shift.
 - `src/`: the desk, diagnosis, both checkers, the docs client, the read-only API client, logs and sample data.
 - `examples/`: a shift handoff, a morning note, the known-failures list, a checker packet (T02) with its pass, and a first-round block (T07).

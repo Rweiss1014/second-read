@@ -47,6 +47,8 @@ node bin/support-desk.mjs cleared T10
 
 It clears the reply only if the checker passed that exact saved text. If the checker blocked it, the gate says why and records it in `desk/known-failures.md`. Fix the playbook step or its citation, run step 2 again, and check again. Never send a blocked reply.
 
+A pass saved in `knowledge/checks/` for this exact text counts too. To check every entry's reply at once: `packets --all --out <dir>`, one fresh `reply-checker` per packet, then `record-check --dir <dir>` saves the passes (blocks print the entry and the notes, and nothing is saved).
+
 (`ticket --require-review` does the same check on a fresh run. Use it for replies with no live lookup; a live lookup can change the text between runs.)
 
 ## 4. Hand it over
