@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4375,
+ "verdict": {
+  "points": [
+   {
+    "point": "Microsoft Teams channel posting support",
+    "sentence": ""
+   },
+   {
+    "point": "Same as Slack channels",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry mentions Microsoft Teams or states whether Blotato can post to Teams; the Slack entries only cover Slack-specific issues."
+ },
+ "at": "2026-11-16T08:07:10.751Z"
+}

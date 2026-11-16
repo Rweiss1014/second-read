@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4611,
+ "verdict": {
+  "queries": [
+   "get post status postSubmissionId API response",
+   "postSubmissionId unknown or invalid ID 404 not found",
+   "post status in-progress published failed API"
+  ]
+ },
+ "at": "2026-11-16T08:11:44.118Z"
+}

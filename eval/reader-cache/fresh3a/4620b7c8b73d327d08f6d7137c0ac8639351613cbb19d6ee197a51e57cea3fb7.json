@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4282,
+ "verdict": {
+  "points": [
+   {
+    "point": "boost/paid promote a Facebook post from Blotato after publishing",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether Blotato can boost or paid-promote a Facebook post; the first-comment entry covers Facebook posts only for auto-comments, which is a different feature."
+ },
+ "at": "2026-11-16T08:10:36.679Z"
+}

@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3259,
+ "verdict": {
+  "asked": [
+   {
+    "item": "See scheduled posts inside Google Calendar",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages describe Blotato's own Calendar and Posts > Scheduled views but say nothing about showing or syncing scheduled posts in Google Calendar.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:09:45.393Z"
+}

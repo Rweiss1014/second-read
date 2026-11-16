@@ -1,0 +1,13 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3851,
+ "verdict": {
+  "points": [],
+  "pick": "none",
+  "reason": "The customer asks staff to pull old Instagram DM history from servers for a legal dispute, which is a staff data request tied to legal action, and no entry covers it."
+ },
+ "at": "2026-11-16T08:10:03.500Z"
+}

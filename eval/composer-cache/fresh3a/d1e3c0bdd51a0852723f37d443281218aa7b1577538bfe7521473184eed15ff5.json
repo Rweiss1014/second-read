@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3812,
+ "verdict": {
+  "queries": [
+   "Blotato cancel subscription billing settings",
+   "Blotato discount coupon promo code subscription plan",
+   "Blotato pricing plans brands workspaces annual billing",
+   "Blotato downgrade plan change subscription billing period",
+   "Blotato refund policy cancellation effective date"
+  ]
+ },
+ "at": "2026-11-16T08:09:14.338Z"
+}

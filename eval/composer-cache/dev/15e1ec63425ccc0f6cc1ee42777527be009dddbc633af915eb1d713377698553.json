@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5598,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Create a second API key limited to reading posts, not publishing",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences say how to generate a Blotato API key but say nothing about creating a second key or making a read-only key, so they don't answer this.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:51:00.005Z"
+}

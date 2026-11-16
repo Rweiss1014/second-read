@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3506,
+ "verdict": {
+  "queries": [
+   "Upgrade plan from Starter to Creator Blotato",
+   "Change billing cycle monthly to yearly subscription Blotato",
+   "Switch subscription plan upgrade without cancelling Blotato",
+   "Cancel subscription before changing plan Blotato billing"
+  ]
+ }
+}

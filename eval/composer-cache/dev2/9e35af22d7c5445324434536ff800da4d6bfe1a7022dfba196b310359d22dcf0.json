@@ -1,0 +1,51 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3936,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is there a yearly plan?",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Must I cancel monthly subscription first when moving to yearly?",
+    "steps": [
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S17 and S25 directly answer both questions.",
+  "steps": [
+   {
+    "text": "Yes, there is a yearly plan.",
+    "quotes": [
+     "S16",
+     "S17"
+    ]
+   },
+   {
+    "text": "You do not need to cancel your monthly subscription first.",
+    "quotes": [
+     "S25"
+    ]
+   },
+   {
+    "text": "To switch, go to Settings > Billing, click View Billing Portal, click the purple Update subscription button next to your current plan, select the yearly option for the plan you want, and confirm the change.",
+    "quotes": [
+     "S20",
+     "S21",
+     "S22",
+     "S23",
+     "S24"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:49:15.412Z"
+}

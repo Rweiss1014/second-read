@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5659,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Link sticker on a Facebook Story of a shop Page via Blotato",
+    "steps": []
+   },
+   {
+    "item": "Contrast with Instagram (user says Instagram is not possible)",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences only say Instagram's API does not support link stickers on Stories published by third-party tools, and nothing states whether link stickers can be added to a Facebook Story, so the Facebook question has no answer in the help pages.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:28:06.385Z"
+}

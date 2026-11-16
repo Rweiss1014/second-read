@@ -1,0 +1,57 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8320,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Where Overview went / why menu shows only Post editor",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "How to get to Overview",
+    "steps": [
+     3,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages state that Overview is in Developer Platform and Post editor is in Content Studio, and that the mode switch moves between them, which answers the customer's question about the missing menu item.",
+  "steps": [
+   {
+    "text": "Overview is in Developer Platform, and Post editor is in Content Studio.",
+    "quotes": [
+     "S3",
+     "S4"
+    ]
+   },
+   {
+    "text": "Your menu shows Post editor, so you are probably in Content Studio mode.",
+    "quotes": [
+     "S4",
+     "S12"
+    ]
+   },
+   {
+    "text": "If the sidebar is hidden, open the navigation menu.",
+    "quotes": [
+     "S44"
+    ]
+   },
+   {
+    "text": "Select Switch to Developer Platform beneath the Blotato name to get the Overview screen.",
+    "quotes": [
+     "S45",
+     "S20"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:59:21.799Z"
+}

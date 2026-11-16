@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3972,
+ "verdict": {
+  "queries": [
+   "two-factor authentication login authenticator app",
+   "enable 2FA security settings authenticator app TOTP",
+   "Blotato API key authentication",
+   "MCP server authentication API key",
+   "single sign-on SSO login requirements"
+  ]
+ },
+ "at": "2026-11-16T08:10:00.092Z"
+}

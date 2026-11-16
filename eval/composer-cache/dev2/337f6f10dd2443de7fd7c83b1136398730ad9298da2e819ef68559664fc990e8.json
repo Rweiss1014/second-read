@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4305,
+ "verdict": {
+  "queries": [
+   "Blotato API rate limits requests per minute",
+   "POST /v2/media upload media rate limit",
+   "429 Too Many Requests Retry-After header Blotato API",
+   "The service is receiving too many requests from you",
+   "Blotato Make integration upload media bulk"
+  ]
+ }
+}

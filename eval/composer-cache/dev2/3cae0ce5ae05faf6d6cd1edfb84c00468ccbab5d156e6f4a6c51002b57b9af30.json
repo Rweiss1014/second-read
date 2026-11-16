@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3242,
+ "verdict": {
+  "queries": [
+   "AI image generation credits usage history",
+   "credits deducted for AI features Blotato",
+   "uploaded media posts no credits consumed",
+   "AI caption generator credit cost",
+   "view credit usage log Blotato account"
+  ]
+ }
+}

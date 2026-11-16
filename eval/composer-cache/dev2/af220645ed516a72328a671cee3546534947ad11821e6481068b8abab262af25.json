@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5410,
+ "verdict": {
+  "asked": [
+   {
+    "item": "tag supplier's company page in LinkedIn post so name turns blue and they get notified",
+    "steps": []
+   },
+   {
+    "item": "typing @ in Blotato leaves the @ sign as text",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences explain how to choose which LinkedIn Company Page a post publishes to, but none explains how to tag or mention another company page inside post text, so the customer's question about the @ tag and notification is not answered.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:59:11.085Z"
+}

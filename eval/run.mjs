@@ -22,8 +22,10 @@
 //   --composer claude-cli|anthropic   compose from any help page, every step quoted, then a second read
 //   --writer-model haiku|sonnet|<id>  the writer's model (default sonnet)
 //   --second on|off [--second-model m]  the second read (default on, the writer's model)
-//   --passages 12 --pages 4 --per-page 4   how many passages the script retrieves, from how many pages
+//   --passages 16 --pages 5 --per-page 4   how many passages the script retrieves, from how many pages
+//   --expand on|off [--expand-model m]     the search step: a fast model writes queries in the pages' words (default on, haiku)
 //   --gaps reader|all                 which coverage gaps block a draft (default reader)
+//   --top-pages 2                     every quote from the N best-ranked pages (0: any page shown; default 2)
 //   --composer-cache <dir>            (default eval/composer-cache/<set>); --composer-cache-only 1 makes no live call
 //
 // Held-out sets (any set whose name starts with "test") print the summary tables only: no row is printed, and no
@@ -71,9 +73,12 @@ const composerEnv = (set) => composerBackend === 'off' ? {} : {
   ...(opt('second-model') ? { SUPPORT_DESK_SECOND_READ_MODEL: opt('second-model') } : {}),
   ...(opt('write-prompt') ? { SUPPORT_DESK_COMPOSER_PROMPT: opt('write-prompt') } : {}),
   ...(opt('second-prompt') ? { SUPPORT_DESK_SECOND_READ_PROMPT: opt('second-prompt') } : {}),
-  SUPPORT_DESK_COMPOSER_PASSAGES: opt('passages', '12'),
-  SUPPORT_DESK_COMPOSER_PAGES: opt('pages', '4'),
-  SUPPORT_DESK_COMPOSER_PER_PAGE: opt('per-page', '4'),
+  ...(opt('passages') ? { SUPPORT_DESK_COMPOSER_PASSAGES: opt('passages') } : {}),
+  ...(opt('pages') ? { SUPPORT_DESK_COMPOSER_PAGES: opt('pages') } : {}),
+  ...(opt('per-page') ? { SUPPORT_DESK_COMPOSER_PER_PAGE: opt('per-page') } : {}),
+  ...(opt('expand') ? { SUPPORT_DESK_COMPOSER_EXPAND: opt('expand') } : {}),
+  ...(opt('top-pages') !== undefined ? { SUPPORT_DESK_COMPOSER_TOP_PAGES: opt('top-pages') } : {}),
+  ...(opt('expand-model') ? { SUPPORT_DESK_COMPOSER_EXPAND_MODEL: opt('expand-model') } : {}),
   SUPPORT_DESK_COMPOSER_GAPS: opt('gaps', 'reader'),
   SUPPORT_DESK_COMPOSER_CACHE: path.resolve(opt('composer-cache', path.join(here, 'composer-cache', set))),
   ...(opt('composer-cache-only') === '1' ? { SUPPORT_DESK_COMPOSER_CACHE_ONLY: '1' } : {}),
@@ -211,9 +216,9 @@ function report(name, rows) {
   if (!ci) L.push('Composer: off.');
   else {
     const c = ci.config; const s = ci.warm.stats;
-    const live = s.live.write + s.live.second; const cached = s.cached.write + s.cached.second;
+    const live = s.live.write + s.live.second + s.live.expand; const cached = s.cached.write + s.cached.second + s.cached.expand;
     const modelSec = (s.liveMs + s.cachedMs) / 1000 / (s.reached || 1);
-    L.push(`Composer: ${c.backend}, writer ${c.writerModel} (${c.writePrompt}), ${c.secondRead ? `second read ${c.secondModel} (${c.secondPrompt})` : 'no second read'}, passages ${c.limit} from up to ${c.maxPages} pages (${c.perPage} per page), gaps ${c.gapRule}. Messages that reached it: ${s.reached} of ${t.n}. Writer said not answerable: ${s.declined}; rejected by the script: ${s.unverified}; objected by the second read: ${s.objected}; signals: ${s.signals}; composed and sent: ${s.answered}. Model calls: ${live} live (${s.live.write} writer, ${s.live.second} second read), ${cached} from the cache, ${s.errors} errors. Model time per message that reached it: ${modelSec.toFixed(1)} s; wall time to gather: ${(ci.warm.wallMs / 1000).toFixed(0)} s at ${concurrency} at once.`);
+    L.push(`Composer: ${c.backend}, writer ${c.writerModel} (${c.writePrompt}), ${c.secondRead ? `second read ${c.secondModel} (${c.secondPrompt})` : 'no second read'}, ${c.expand ? `search step ${c.expandModel}` : 'no search step'}, passages ${c.limit} from up to ${c.maxPages} pages (${c.perPage} per page), quotes from the top ${c.topPages || 'any'} page(s), gaps ${c.gapRule}. Messages that reached it: ${s.reached} of ${t.n}. Writer said not answerable: ${s.declined}; rejected by the script: ${s.unverified}; objected by the second read: ${s.objected}; signals: ${s.signals}; composed and sent: ${s.answered}. Model calls: ${live} live (${s.live.expand} search, ${s.live.write} writer, ${s.live.second} second read), ${cached} from the cache, ${s.errors} errors. Model time per message that reached it: ${modelSec.toFixed(1)} s; wall time to gather: ${(ci.warm.wallMs / 1000).toFixed(0)} s at ${concurrency} at once.`);
     L.push(`Composed replies: ${t.composed} (right ${t.composedRight}, wrong ${t.composedWrong}). Script rejections by kind: ${Object.entries(s.problems).map(([k, v]) => `${k} ${v}`).join(', ') || 'none'}.`);
   }
   L.push(`Answers among messages that should be answered: ${(t.byExpected.answer || { right: 0 }).right} right of ${(t.byExpected.answer || { n: 0 }).n}.`);

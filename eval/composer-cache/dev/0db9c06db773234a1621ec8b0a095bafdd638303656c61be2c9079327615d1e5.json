@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3990,
+ "verdict": {
+  "queries": [
+   "mediaURL is null or empty error",
+   "mediaUrl required field API post",
+   "media URL null or empty Blotato error",
+   "image or video must be uploaded before publishing media URL",
+   "media upload failed mediaUrl empty post creation"
+  ]
+ }
+}

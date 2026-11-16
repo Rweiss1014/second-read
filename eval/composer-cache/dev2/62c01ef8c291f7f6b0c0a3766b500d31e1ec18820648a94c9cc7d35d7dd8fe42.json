@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3594,
+ "verdict": {
+  "queries": [
+   "Instagram hashtags recommended number per post",
+   "adding hashtags to Instagram posts in Blotato",
+   "LinkedIn post hashtags best practice",
+   "hashtag field LinkedIn post settings"
+  ]
+ }
+}

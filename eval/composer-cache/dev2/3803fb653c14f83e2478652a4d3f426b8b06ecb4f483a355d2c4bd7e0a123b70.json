@@ -1,0 +1,62 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7001,
+ "verdict": {
+  "asked": [
+   {
+    "item": "how to get carousel from Videos templates to use brand details",
+    "steps": [
+     1,
+     2,
+     3,
+     4
+    ]
+   },
+   {
+    "item": "brand details applied to the carousel",
+    "steps": [
+     1,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages give the exact steps for carousels made from Videos templates: set the primary brand, pick a template, enter a prompt, and enable \"Use brand kit\".",
+  "steps": [
+   {
+    "text": "Set up your brand in Settings > My Brand and mark the brand you want as Primary, since the primary brand is used by default.",
+    "quotes": [
+     "S7",
+     "S10",
+     "S17"
+    ]
+   },
+   {
+    "text": "For carousels, go to Videos > Create New Video and select a template.",
+    "quotes": [
+     "S16",
+     "S18"
+    ]
+   },
+   {
+    "text": "Enter a prompt, because the brand context is not applied without one.",
+    "quotes": [
+     "S19",
+     "S23"
+    ]
+   },
+   {
+    "text": "Turn on \"Use brand kit\" before you generate; the toggle starts off, and when it is on it adds the primary brand's context to the prompt-based generation.",
+    "quotes": [
+     "S20",
+     "S21",
+     "S22"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:00:22.506Z"
+}

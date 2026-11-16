@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4485,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is a 2-second clip long enough for a Facebook Page Reel (minimum duration)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states a minimum Facebook Reel duration; the video-length entries only cover the 120-second maximum for conversion, which is a neighboring question."
+ },
+ "at": "2026-11-16T08:10:58.026Z"
+}

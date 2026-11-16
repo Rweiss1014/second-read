@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4315,
+ "verdict": {
+  "queries": [
+   "Blotato post language setting",
+   "change language for individual post Blotato",
+   "Blotato AI caption language option",
+   "Blotato account default language setting",
+   "Blotato Spanish content generation language"
+  ]
+ }
+}

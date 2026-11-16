@@ -1,0 +1,55 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5983,
+ "verdict": {
+  "asked": [
+   {
+    "item": "What is different about carousels (collaborators error)",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Collaborators work on single image posts",
+    "steps": [
+     2
+    ]
+   },
+   {
+    "item": "How to get a collaborator on a carousel",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The Collaborators on carousels section explains the error, the difference from single image posts, and the workaround.",
+  "steps": [
+   {
+    "text": "Instagram applies a collaborator tag to a carousel as a single unit, not to each photo or video inside it.",
+    "quotes": [
+     "S28"
+    ]
+   },
+   {
+    "text": "Because of this, adding collaborators to a carousel is not supported through Blotato and the post fails with an error like The param collaborators is not allowed for carousel child, while collaborator tagging does work on single image posts and reels.",
+    "quotes": [
+     "S29",
+     "S30"
+    ]
+   },
+   {
+    "text": "To get a collaborator on a carousel, publish it through Blotato without collaborators, then open the Instagram app and add the collaborator to the published post.",
+    "quotes": [
+     "S32",
+     "S33"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:08:13.197Z"
+}

@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4588,
+ "verdict": {
+  "queries": [
+   "Reconnect account expired Instagram access token",
+   "maximum number of connected accounts reached for your plan",
+   "connected accounts limit per plan Blotato",
+   "reconnecting an existing social account does not count toward account limit",
+   "Instagram account reconnect error plan limit 20 accounts"
+  ]
+ }
+}

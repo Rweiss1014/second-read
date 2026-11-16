@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4703,
+ "verdict": {
+  "asked": [
+   {
+    "item": "old July invoice still showing",
+    "steps": []
+   },
+   {
+    "item": "dashboard won't open after updating card",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer already updated the card and the dashboard still won't open, and the help pages say to contact support in the in-app chat when an old unpaid invoice still blocks access.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:14:32.761Z"
+}

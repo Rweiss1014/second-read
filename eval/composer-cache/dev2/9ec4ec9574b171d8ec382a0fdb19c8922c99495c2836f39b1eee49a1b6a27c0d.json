@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3070,
+ "verdict": {
+  "queries": [
+   "Instagram automation public reply maximum length character limit",
+   "error 20303 Public reply exceeds the maximum length",
+   "{{mention}} variable character count public reply Instagram",
+   "Instagram comment auto-reply public reply character limit mention variable"
+  ]
+ }
+}

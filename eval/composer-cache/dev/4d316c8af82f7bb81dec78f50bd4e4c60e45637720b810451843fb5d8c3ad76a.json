@@ -1,0 +1,53 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7851,
+ "verdict": {
+  "asked": [
+   {
+    "item": "automatically post to the Facebook Group",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "missing setting or Facebook approval for the Group",
+    "steps": [
+     2
+    ]
+   },
+   {
+    "item": "Page posting already works",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages directly state that Blotato cannot publish to Facebook Groups, which answers the customer's question about posting to the Group.",
+  "steps": [
+   {
+    "text": "Blotato cannot post to Facebook Groups; it publishes to Facebook Pages only.",
+    "quotes": [
+     "S14"
+    ]
+   },
+   {
+    "text": "Facebook does not let third-party tools like Blotato post to Facebook Groups.",
+    "quotes": [
+     "S15"
+    ]
+   },
+   {
+    "text": "Blotato publishes to Facebook Pages, so your connected Page is where posts can go.",
+    "quotes": [
+     "S52"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:14:29.979Z"
+}

@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6594,
+ "verdict": {
+  "points": [
+   {
+    "point": "Will *stars* show as bold in a Slack channel, or as literal stars",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry says only that most social platforms do not support markdown, and it never names Slack, so it doesn't say how Slack shows asterisks."
+ },
+ "at": "2026-11-16T08:10:59.909Z"
+}

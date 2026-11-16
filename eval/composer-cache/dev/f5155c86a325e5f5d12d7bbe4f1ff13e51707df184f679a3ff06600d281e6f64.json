@@ -1,0 +1,74 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 10179,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Which number is the real one",
+    "steps": [
+     1,
+     2,
+     5
+    ]
+   },
+   {
+    "item": "Is Blotato missing views",
+    "steps": [
+     1,
+     3
+    ]
+   },
+   {
+    "item": "Is something broken with the connection",
+    "steps": [
+     4
+    ]
+   },
+   {
+    "item": "Do I need to reconnect YouTube",
+    "steps": [
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The YouTube FAQ and Analytics page explain that the lower Blotato count is expected and that no action is needed.",
+  "steps": [
+   {
+    "text": "For YouTube, Blotato reads the YouTube Analytics API, which reports only finalized views after YouTube filters spam and invalid traffic.",
+    "quotes": [
+     "S13"
+    ]
+   },
+   {
+    "text": "The count on the YouTube watch page updates in near real time and includes views YouTube has not validated yet, so it reads higher.",
+    "quotes": [
+     "S14"
+    ]
+   },
+   {
+    "text": "The two numbers are not expected to match, and the gap narrows as YouTube finalizes more data.",
+    "quotes": [
+     "S15"
+    ]
+   },
+   {
+    "text": "Neither delay is a bug and no action is needed.",
+    "quotes": [
+     "S62"
+    ]
+   },
+   {
+    "text": "To check this yourself, open YouTube Studio: the Analytics tab matches what Blotato reports.",
+    "quotes": [
+     "S50",
+     "S52"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:51:31.339Z"
+}

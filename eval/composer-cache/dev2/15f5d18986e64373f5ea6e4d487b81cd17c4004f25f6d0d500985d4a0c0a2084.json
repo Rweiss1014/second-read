@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4890,
+ "verdict": {
+  "queries": [
+   "Threads carousel multiple images post",
+   "Threads only supports a single image or a video error",
+   "Threads targetType mediaUrls single image video",
+   "Threads post multiple photos thread reply chain",
+   "Blotato Threads image limit API"
+  ]
+ }
+}

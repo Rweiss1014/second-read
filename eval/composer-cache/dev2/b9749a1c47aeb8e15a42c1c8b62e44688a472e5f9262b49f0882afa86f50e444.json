@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3870,
+ "verdict": {
+  "queries": [
+   "Threads First Comment feature Blotato",
+   "First Comment setting Threads post",
+   "Threads first comment availability release date",
+   "Blotato Threads integration first comment supported",
+   "first_comment field Threads API"
+  ]
+ },
+ "at": "2026-11-16T07:45:49.934Z"
+}

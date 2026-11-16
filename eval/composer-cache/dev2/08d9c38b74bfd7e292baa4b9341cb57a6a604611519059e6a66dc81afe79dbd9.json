@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4893,
+ "verdict": {
+  "queries": [
+   "YouTube post published successfully but video not showing on channel",
+   "YouTube video privacy status private unlisted Blotato",
+   "YouTube video processing time after publishing via Blotato",
+   "Connected YouTube account and channel selection in Blotato",
+   "YouTube post status published Blotato post logs"
+  ]
+ }
+}

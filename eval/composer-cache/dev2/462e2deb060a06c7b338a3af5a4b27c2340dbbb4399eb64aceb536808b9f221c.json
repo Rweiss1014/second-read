@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5238,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can I give Blotato the PDF file itself to post as a LinkedIn document",
+    "steps": []
+   },
+   {
+    "item": "Would the document show the file name as its title",
+    "steps": []
+   },
+   {
+    "item": "Posting to a LinkedIn company Page",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences only say carousels are built from 2-10 JPG or PNG image URLs and never state whether a PDF file can be supplied as input, and nothing says how a document title is set, so both questions are unanswered.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:58:21.030Z"
+}

@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4392,
+ "verdict": {
+  "queries": [
+   "Blotato referral program referred user discount first month",
+   "Tolt referral link sign up benefits new user credits",
+   "referral program invitee reward bonus credits Blotato",
+   "Blotato affiliate program terms referral link eligibility",
+   "referred customers free trial extension promo code Blotato"
+  ]
+ },
+ "at": "2026-11-16T07:45:56.244Z"
+}

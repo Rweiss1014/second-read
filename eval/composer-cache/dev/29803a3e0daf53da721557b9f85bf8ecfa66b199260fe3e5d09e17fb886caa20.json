@@ -1,0 +1,42 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7101,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Request for a Zoom call with the team",
+    "steps": [
+     1,
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help page says directly that Blotato offers no Zoom calls and that support happens in the in-app chat.",
+  "steps": [
+   {
+    "text": "Blotato does not offer Zoom calls, phone calls, or live meetings with customers.",
+    "quotes": [
+     "S27"
+    ]
+   },
+   {
+    "text": "All support happens in the in-app chat.",
+    "quotes": [
+     "S28"
+    ]
+   },
+   {
+    "text": "In the chat, describe what you are trying to do, and share screenshots or screen recordings of where you are stuck.",
+    "quotes": [
+     "S30"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:37:56.420Z"
+}

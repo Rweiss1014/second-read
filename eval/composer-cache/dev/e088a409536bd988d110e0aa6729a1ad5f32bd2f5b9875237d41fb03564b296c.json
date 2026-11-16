@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3292,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Post to Instagram broadcast channel",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages list Instagram posts, stories, reels and carousels, but none say whether Instagram broadcast channels are supported, so this is a neighboring question.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:38:01.726Z"
+}

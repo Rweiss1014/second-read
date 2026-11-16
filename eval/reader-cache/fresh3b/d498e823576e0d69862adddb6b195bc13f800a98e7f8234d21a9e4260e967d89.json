@@ -1,0 +1,17 @@
+{
+ "kind": "refute",
+ "version": "refute-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7770,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "wrong-for-customer",
+    "about": "The customer said they already followed the transfer steps and only the last step failed, because the buyer's code arrived an hour late and was rejected as expired. The reply restarts from logging in and going to Profile, and it frames the change as the customer's own email change. It never tells them that the expired code means they should request a new one and enter it as soon as the buyer sends it."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T08:11:59.635Z"
+}

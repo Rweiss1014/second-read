@@ -1,0 +1,42 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7716,
+ "verdict": {
+  "asked": [
+   {
+    "item": "date the payout for March affiliate commissions is generated",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages state the general NET-15 payout rule and give a month-to-date example, which directly answers when a March commission's payout is generated.",
+  "steps": [
+   {
+    "text": "Affiliate payouts are generated on a NET-15 basis, meaning 15 days after the end of each month.",
+    "quotes": [
+     "S10"
+    ]
+   },
+   {
+    "text": "So commissions earned in March would have payouts generated on April 15th, following the page's example of September commissions producing payouts on October 15th.",
+    "quotes": [
+     "S10",
+     "S11"
+    ]
+   },
+   {
+    "text": "Commission approval and payout timing are managed in Tolt, so you can check your Tolt affiliate dashboard for status.",
+    "quotes": [
+     "S34"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:28:07.491Z"
+}

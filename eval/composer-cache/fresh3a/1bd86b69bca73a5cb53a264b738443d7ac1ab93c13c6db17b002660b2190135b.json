@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4717,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Setup instructions for the Blotato MCP server in the Windsurf editor",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence mentions Windsurf; the closest sentences cover other clients such as Cursor, VS Code, and Antigravity, and the help pages say not to infer support for a client from the general \"MCP-compatible\" phrase.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:27:06.704Z"
+}

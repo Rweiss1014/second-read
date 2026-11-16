@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4640,
+ "verdict": {
+  "asked": [
+   {
+    "item": "rate limit for DELETE /v2/schedules/:id (schedules routes)",
+    "steps": []
+   },
+   {
+    "item": "how to avoid 429 responses in a bulk cleanup of about 800 deletes",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The rate-limit table lists no schedules route, and S19 says to consult each endpoint's reference for other limits, which is not among the provided sentences, so the limit for DELETE /v2/schedules/:id is not stated.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:01:12.158Z"
+}

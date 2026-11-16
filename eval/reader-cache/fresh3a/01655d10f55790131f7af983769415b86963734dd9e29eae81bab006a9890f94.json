@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4011,
+ "verdict": {
+  "points": [
+   {
+    "point": "maximum AI video length / duration",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states a maximum AI video duration; the upload size entry covers file size (MB/GB), not length in time, and the credits entry only says video generation uses credits."
+ },
+ "at": "2026-11-16T08:06:58.017Z"
+}

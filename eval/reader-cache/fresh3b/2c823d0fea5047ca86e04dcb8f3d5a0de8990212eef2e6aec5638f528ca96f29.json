@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4564,
+ "verdict": {
+  "points": [
+   {
+    "point": "12 AI Agent drafts missing",
+    "sentence": ""
+   },
+   {
+    "point": "same laptop and Chrome, nothing cleared",
+    "sentence": ""
+   },
+   {
+    "point": "not in Remix either",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer says they already checked Remix and are on the same browser and device, so the entry's steps have already been tried and a person on the team needs to look at it."
+ },
+ "at": "2026-11-16T08:11:55.769Z"
+}

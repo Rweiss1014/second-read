@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5420,
+ "verdict": {
+  "asked": [
+   {
+    "item": "whose data the unknown-account webhook runs are",
+    "steps": []
+   },
+   {
+    "item": "how runs from an account they don't own reached their endpoint",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages do not say whose data these runs contain or which account sent them, and identifying the source account (x-source-account 77812) is a fact only the customer's own account records can show, so this needs the team.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:01:16.148Z"
+}

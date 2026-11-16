@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6718,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Walkthrough for connecting \"it\" (the platform or tool isn't named)",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The message doesn't say what \"it\" is, and the sentences cover different things (LinkedIn, Bluesky, n8n). The LinkedIn page only points to another page for the authorization steps, so I can't tell which walkthrough applies.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:50:25.245Z"
+}

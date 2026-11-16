@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4132,
+ "verdict": {
+  "asked": [
+   {
+    "item": "send emails and plans of people who signed up via affiliate link",
+    "steps": []
+   },
+   {
+    "item": "chase referrals who didn't pay",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer asks staff to hand over other people's data (emails and plans of referred users), which is not something to answer; the team must review it.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:47:07.206Z"
+}

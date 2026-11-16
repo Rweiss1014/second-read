@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8117,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Export button in Inbox to download comments and DMs as CSV",
+    "steps": []
+   },
+   {
+    "item": "Records before the 45 days run out",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences say comments and messages are kept for up to 45 days, but none say whether the Inbox has an export or CSV download, so the team needs to answer.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:12:35.680Z"
+}

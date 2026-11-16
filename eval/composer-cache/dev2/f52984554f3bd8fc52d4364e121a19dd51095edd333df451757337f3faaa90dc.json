@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4641,
+ "verdict": {
+  "queries": [
+   "No LinkedIn pages found for this account",
+   "LinkedIn company page not showing in page picker",
+   "LinkedIn Page role required to connect company page Analyst Admin",
+   "connect LinkedIn organization page Blotato account settings",
+   "LinkedIn page admin permissions Blotato connection"
+  ]
+ }
+}

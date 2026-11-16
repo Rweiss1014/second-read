@@ -1,0 +1,47 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 12415,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does Viral AI Coach use AI credits?",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Monthly cap on videos checked on Creator plan",
+    "steps": [
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The FAQ says the Viral AI Coach uses no credits and is unlimited on all paid plans, and the billing page lists Creator as a paid plan.",
+  "steps": [
+   {
+    "text": "Viral AI Coach does not use any credits.",
+    "quotes": [
+     "S82"
+    ]
+   },
+   {
+    "text": "Viral AI Coach is included in all paid plans with unlimited use.",
+    "quotes": [
+     "S81"
+    ]
+   },
+   {
+    "text": "Creator is one of the paid plans.",
+    "quotes": [
+     "S27"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:54:51.600Z"
+}

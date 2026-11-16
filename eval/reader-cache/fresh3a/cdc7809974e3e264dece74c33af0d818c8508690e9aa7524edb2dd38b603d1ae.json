@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3113,
+ "verdict": {
+  "points": [
+   {
+    "point": "Facebook DM character limit with buttons",
+    "sentence": ""
+   },
+   {
+    "point": "DM with 2 link buttons won't send",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states a message length limit for Facebook DMs with link buttons; the button entries cover optional buttons and Instagram display, not this limit."
+ },
+ "at": "2026-11-16T08:09:47.329Z"
+}

@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5206,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can Blotato post an Instagram Note",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry says whether Blotato supports Instagram Notes; the Instagram entries cover errors, carousels and Facebook cross-posting, which are different questions."
+ },
+ "at": "2026-11-16T08:09:44.446Z"
+}

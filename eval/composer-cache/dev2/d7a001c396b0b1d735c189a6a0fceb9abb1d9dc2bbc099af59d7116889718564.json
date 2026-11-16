@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4452,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can Blotato publish a video to a TikTok story",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences list only TikTok videos and TikTok slideshows as supported TikTok formats and never mention TikTok Stories; the Story sentences cover Instagram and Facebook, a neighboring question.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:01:04.372Z"
+}

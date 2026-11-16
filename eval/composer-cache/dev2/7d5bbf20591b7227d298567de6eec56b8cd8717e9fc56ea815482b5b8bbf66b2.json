@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4671,
+ "verdict": {
+  "queries": [
+   "maximum scheduling window 9 months in advance",
+   "schedule post more than 9 months ahead limit calendar months",
+   "scheduling horizon cutoff time day timezone",
+   "how far in advance can I schedule posts",
+   "schedule date beyond maximum allowed scheduling period error"
+  ]
+ },
+ "at": "2026-11-16T07:46:51.898Z"
+}

@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4691,
+ "verdict": {
+  "queries": [
+   "Schedule button disabled grey Facebook account selected",
+   "Facebook page required to schedule post Blotato",
+   "Schedule button greyed out requirements post content media",
+   "Facebook target page selection before scheduling",
+   "publish or schedule button inactive missing required fields"
+  ]
+ }
+}

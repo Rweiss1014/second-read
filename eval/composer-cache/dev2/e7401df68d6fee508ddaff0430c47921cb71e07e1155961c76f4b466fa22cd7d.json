@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3319,
+ "verdict": {
+  "queries": [
+   "Bluesky video upload fails media URL requirements",
+   "Video URL without file extension media upload error",
+   "Bluesky video format H.264 mp4 supported specifications",
+   "signed URL media source requirements Blotato"
+  ]
+ }
+}

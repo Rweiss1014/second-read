@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4505,
+ "verdict": {
+  "points": [
+   {
+    "point": "Add company name and address to invoices",
+    "sentence": ""
+   },
+   {
+    "point": "Self-serve setup vs emailing monthly",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry mentions invoice details such as company name or address, or how to set them. The entries only cover billing portal plan checks and pricing, which are neighboring topics."
+ },
+ "at": "2026-11-16T08:08:54.447Z"
+}

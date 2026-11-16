@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3568,
+ "verdict": {
+  "asked": [
+   {
+    "item": "how long videos and data are kept after support deletes account",
+    "steps": []
+   },
+   {
+    "item": "are backups wiped too",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences say support removes account data from Blotato's database directly, but give no retention period and nothing about backups, so a team member should answer.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:49:55.479Z"
+}

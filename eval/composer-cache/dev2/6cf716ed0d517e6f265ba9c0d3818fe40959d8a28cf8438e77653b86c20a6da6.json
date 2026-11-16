@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 5112,
+ "verdict": {
+  "queries": [
+   "Facebook Page post uploaded image replaced by link preview image",
+   "Facebook link preview og:image overrides attached media",
+   "Blotato Facebook Pages post media attachment",
+   "Blotato Facebook post link URL preview thumbnail",
+   "Facebook post image not displayed image URL mismatch"
+  ]
+ }
+}

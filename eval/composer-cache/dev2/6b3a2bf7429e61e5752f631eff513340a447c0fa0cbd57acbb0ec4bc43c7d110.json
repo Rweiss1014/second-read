@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4345,
+ "verdict": {
+  "queries": [
+   "active contacts limit reset billing cycle",
+   "Agency plan active contacts 15,000 monthly limit",
+   "subscription renewal date billing period usage reset",
+   "giveaway contacts limit plan upgrade",
+   "active contacts count resets on renewal date"
+  ]
+ },
+ "at": "2026-11-16T07:48:01.884Z"
+}

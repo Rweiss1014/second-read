@@ -1,0 +1,41 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4342,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is the old version deleted?",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "How to return to the old paste-text-to-5-posts version",
+    "steps": [
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The FAQ states the older remix screen is still available and how to reach it.",
+  "steps": [
+   {
+    "text": "The old version is not deleted; the older \"remix\" screen is still available.",
+    "quotes": [
+     "S2"
+    ]
+   },
+   {
+    "text": "Click View old remix screen in the left sidebar of the AI Agent, which opens my.blotato.com/remix, where you paste your source text and generate up to 5 posts.",
+    "quotes": [
+     "S4",
+     "S5"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:51:04.589Z"
+}

@@ -1,0 +1,17 @@
+{
+ "kind": "second",
+ "version": "second-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7824,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "not-answered",
+    "about": "The customer asked directly, \"Did I break something?\", and the reply never says whether anything is wrong with their setup or account. It only explains how All LinkedIn slots work."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T08:02:20.865Z"
+}

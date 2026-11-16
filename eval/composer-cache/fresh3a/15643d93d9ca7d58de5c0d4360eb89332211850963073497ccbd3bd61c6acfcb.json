@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8224,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Bluesky daily post cap per account",
+    "steps": []
+   },
+   {
+    "item": "Confirm config claim of 500 posts per day",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages list daily posting limits for other platforms but none states a Bluesky daily post cap, and the 500 figure appears only in the customer's config note, not in any sentence.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:10:06.012Z"
+}

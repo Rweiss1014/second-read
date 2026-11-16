@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4568,
+ "verdict": {
+  "queries": [
+   "LinkedIn carousel images and video in same post",
+   "LinkedIn document carousel PDF slides API",
+   "LinkedIn multi-image post mediaItems video not supported",
+   "Blotato LinkedIn company page API post with multiple images"
+  ]
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4107,
+ "verdict": {
+  "queries": [
+   "Published by Blotato Facebook post attribution",
+   "remove Blotato branding from Facebook posts",
+   "Facebook page post footer Published by Blotato setting",
+   "Blotato white label or hide Blotato attribution on social posts"
+  ]
+ }
+}

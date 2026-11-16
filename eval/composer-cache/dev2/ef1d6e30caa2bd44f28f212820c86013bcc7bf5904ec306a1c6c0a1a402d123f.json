@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3982,
+ "verdict": {
+  "queries": [
+   "Blotato reactivate cancelled subscription billing",
+   "Blotato subscription renewal after cancellation no charge for inactive period",
+   "Blotato billing cycle start date resubscribe",
+   "Blotato cancel subscription effective date and final invoice"
+  ]
+ }
+}

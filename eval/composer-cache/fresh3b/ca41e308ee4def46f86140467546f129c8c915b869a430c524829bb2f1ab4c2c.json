@@ -1,0 +1,55 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9362,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why the code gave \"Invalid or expired token\"",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "What to do now after the code came an hour later",
+    "steps": [
+     3,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The transfer FAQ explains that codes expire in about 15 minutes, what the error means, and how to get a fresh code.",
+  "steps": [
+   {
+    "text": "An \"Invalid or expired token\" error during this flow means the code was entered in the wrong session or after it expired.",
+    "quotes": [
+     "S14"
+    ]
+   },
+   {
+    "text": "Codes expire in about 15 minutes.",
+    "quotes": [
+     "S12"
+    ]
+   },
+   {
+    "text": "Request a fresh code at my.blotato.com/login and use it immediately.",
+    "quotes": [
+     "S13"
+    ]
+   },
+   {
+    "text": "Redo the transfer steps from your original browser, and enter the code in the session that started the change, not on the new owner's device.",
+    "quotes": [
+     "S15",
+     "S10"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:12:12.845Z"
+}

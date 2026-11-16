@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4723,
+ "verdict": {
+  "queries": [
+   "YouTube title character limit Blotato API",
+   "YouTube upload error invalid title",
+   "YouTube video title requirements restricted characters",
+   "Blotato YouTube API post failed error message",
+   "title field YouTube createPost validation error"
+  ]
+ },
+ "at": "2026-11-16T08:09:50.606Z"
+}

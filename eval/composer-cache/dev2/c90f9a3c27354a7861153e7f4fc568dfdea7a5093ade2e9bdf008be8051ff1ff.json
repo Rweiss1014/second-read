@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5834,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Use Blotato in the Claude app on an iPhone",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say Claude.ai, Claude Desktop and Claude Cowork are supported, and that Blotato itself is meant for desktop. None of them say whether the Claude iPhone app works with Blotato.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:48:52.442Z"
+}

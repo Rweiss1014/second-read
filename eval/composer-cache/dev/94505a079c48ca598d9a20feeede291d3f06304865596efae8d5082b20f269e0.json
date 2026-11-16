@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5619,
+ "verdict": {
+  "asked": [
+   {
+    "item": "429 errors in the n8n status-check loop after a few runs",
+    "steps": []
+   },
+   {
+    "item": "Workflow stops when the 429 happens",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence mentions 429 errors or rate limits; the polling sentences cover wait times between checks, which is a neighboring question, so the team should answer this.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:39:14.912Z"
+}

@@ -1,0 +1,50 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9811,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Do I need to pick something else after selecting the Facebook account?",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Can't finish scheduling",
+    "steps": [
+     1,
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages say a Facebook destination also needs a Facebook Page chosen in Options, and that Pick a time needs a date and time before submitting.",
+  "steps": [
+   {
+    "text": "Yes, after you select the destination account, complete its destination selector in Options, which for Facebook is a Facebook Page.",
+    "quotes": [
+     "S89",
+     "S118"
+    ]
+   },
+   {
+    "text": "Select the Facebook Page for this post.",
+    "quotes": [
+     "S145"
+    ]
+   },
+   {
+    "text": "If you are using Pick a time, select a date and time before submitting.",
+    "quotes": [
+     "S122"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:47:40.323Z"
+}

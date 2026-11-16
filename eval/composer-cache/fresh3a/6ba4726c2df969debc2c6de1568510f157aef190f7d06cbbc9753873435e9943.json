@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3417,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Written guarantee of no Pinterest shadowban",
+    "steps": []
+   },
+   {
+    "item": "Legal responsibility threat",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer demands a written guarantee and threatens legal action, and the help pages give no guarantee, so the team must handle this.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:08:04.741Z"
+}

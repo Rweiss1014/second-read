@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4067,
+ "verdict": {
+  "queries": [
+   "Supported file formats for media upload Blotato",
+   "Upload video file mp4 size limit Blotato",
+   "Generate posts from video AI post writer context Blotato",
+   "Unsupported file type error upload Blotato",
+   "Add media to AI content generation Blotato"
+  ]
+ }
+}

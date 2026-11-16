@@ -1,0 +1,56 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 11494,
+ "verdict": {
+  "asked": [
+   {
+    "item": "400 error on voiceName \"Brian\"",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Brian is in my voice list though?",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "scenes fields in the request body (text, description)",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages state that the shortened name \"Brian\" is not a valid value for this template and give the exact value to use, which explains the 400 error.",
+  "steps": [
+   {
+    "text": "The shortened name \"Brian\" is not a valid voiceName value for the AI Video with AI Voice template.",
+    "quotes": [
+     "S5"
+    ]
+   },
+   {
+    "text": "Send the exact enum value, such as \"Brian (American, deep)\", in inputs.voiceName.",
+    "quotes": [
+     "S3",
+     "S4"
+    ]
+   },
+   {
+    "text": "Each scene in scenes needs a script field for the voiceover text and a mediaSource field.",
+    "quotes": [
+     "S18",
+     "S19"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:27:48.468Z"
+}

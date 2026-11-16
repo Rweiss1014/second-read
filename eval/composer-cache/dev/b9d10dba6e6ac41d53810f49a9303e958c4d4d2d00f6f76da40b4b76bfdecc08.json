@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6400,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Undo a deleted video",
+    "steps": []
+   },
+   {
+    "item": "Staff restoring the deleted video",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences only explain how to delete a video and say nothing about undoing a deletion or restoring one, and the customer is asking staff to bring it back.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:49:57.410Z"
+}

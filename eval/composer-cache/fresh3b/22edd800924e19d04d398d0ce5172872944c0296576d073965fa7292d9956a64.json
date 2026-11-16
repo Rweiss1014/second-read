@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4937,
+ "verdict": {
+  "queries": [
+   "Pinterest carousel maximum number of images per pin",
+   "Pinterest multi-image pin mediaUrls limit API",
+   "Pinterest carousel post failed error",
+   "Pinterest target boardId required API post"
+  ]
+ },
+ "at": "2026-11-16T08:12:17.732Z"
+}

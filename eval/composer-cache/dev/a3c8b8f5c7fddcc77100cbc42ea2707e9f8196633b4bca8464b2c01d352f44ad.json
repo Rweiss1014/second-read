@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5052,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Send an Instagram Story only to Close Friends list through Blotato",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the help sentences say whether Blotato can publish an Instagram Story to only the Close Friends list, so the closest sentences about Story publishing answer a neighboring question.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:37:50.815Z"
+}

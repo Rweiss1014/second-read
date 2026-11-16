@@ -1,0 +1,65 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 10120,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why the blog image shows instead of my attached photo",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "How to keep my own cake photo on the Facebook Page post",
+    "steps": [
+     3,
+     4,
+     5
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help page explains that a link in a Facebook post makes Facebook show the linked page's image, and gives steps to remove the link so the attached image is kept.",
+  "steps": [
+   {
+    "text": "When a Facebook post contains a link, Facebook creates a link preview and uses the linked page's featured image.",
+    "quotes": [
+     "S14"
+    ]
+   },
+   {
+    "text": "Facebook shows that image instead of the image you attached.",
+    "quotes": [
+     "S15"
+    ]
+   },
+   {
+    "text": "This behavior comes from Facebook, not Blotato.",
+    "quotes": [
+     "S16"
+    ]
+   },
+   {
+    "text": "To keep your own image, remove the link from the post: open the post in Content Studio > Post editor and delete the link from the post text.",
+    "quotes": [
+     "S17",
+     "S18",
+     "S19"
+    ]
+   },
+   {
+    "text": "If you still want to share the URL, paste it as plain text in the caption instead of as a preview link, then confirm your attached image is the one you want and schedule or publish the post.",
+    "quotes": [
+     "S20",
+     "S21",
+     "S22"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:57:54.444Z"
+}

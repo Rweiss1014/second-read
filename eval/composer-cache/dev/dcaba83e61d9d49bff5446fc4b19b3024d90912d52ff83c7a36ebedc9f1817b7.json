@@ -1,0 +1,31 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6862,
+ "verdict": {
+  "asked": [
+   {
+    "item": "GET /v2/analytics returns 404 for a published Instagram post",
+    "steps": []
+   },
+   {
+    "item": "Creator plan includes analytics",
+    "steps": []
+   },
+   {
+    "item": "post id taken from List Posts",
+    "steps": []
+   },
+   {
+    "item": "same API key",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer says the call still fails with 404 after they tried it, and the page's 404 has three possible causes (missing post, post not on this account, or no plan access) that only the customer's own account can show, while GET /v2/analytics is the list endpoint rather than the per-post endpoint.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:13:53.989Z"
+}

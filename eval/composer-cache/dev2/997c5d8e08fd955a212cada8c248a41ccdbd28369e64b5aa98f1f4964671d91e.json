@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3902,
+ "verdict": {
+  "queries": [
+   "TikTok video is missing the subtitle track error",
+   "TikTok subtitle track required for video posts",
+   "TikTok media upload requirements captions subtitles",
+   "TikTok account connected video processing error",
+   "Blotato TikTok media validation error message"
+  ]
+ }
+}

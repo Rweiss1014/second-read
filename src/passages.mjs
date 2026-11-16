@@ -164,8 +164,16 @@ export function buildPassageIndex(pages, { skip = SKIP_PAGES } = {}) {
   // The top passages, from at most `maxPages` pages, `limit` in all. A page's best passage brings its page in;
   // the page's next best passages follow while room is left, so one page cannot fill the list on its own
   // (at most `perPage` from each).
-  function retrieve(message, { limit = 12, maxPages = 4, perPage = 4 } = {}) {
-    const ranked = score(message);
+  // With `queries` (search queries in the help pages' own words, src/composer.mjs), the message's ranking and each
+  // query's ranking are fused by reciprocal rank (each list's top 50; the message counts 1, each query `w`).
+  function fuse(message, queries, w) {
+    const lists = [score(message), ...queries.map(q => score(q, { phraseBonus: 0 }))];
+    const sc = new Map();
+    lists.forEach((l, li) => l.slice(0, 50).forEach(({ d }, rank) => { const x = sc.get(d.id) || { d, s: 0 }; x.s += (li === 0 ? 1 : w) / (10 + rank); sc.set(d.id, x); }));
+    return [...sc.values()].sort((a, b) => b.s - a.s);
+  }
+  function retrieve(message, { limit = 12, maxPages = 4, perPage = 4, queries = [], w = 0.5 } = {}) {
+    const ranked = queries.length ? fuse(message, queries, w) : score(message);
     const pagesIn = [];
     const picked = [];
     const count = new Map();

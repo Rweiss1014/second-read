@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3552,
+ "verdict": {
+  "points": [
+   {
+    "point": "Dormant (not new) TikTok account: still need full 4 weeks warm-up?",
+    "sentence": ""
+   },
+   {
+    "point": "Can it be connected now?",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry covers TikTok or a dormant older account; the warm-up entries cover only brand new accounts (generic or Pinterest/Instagram), and none states whether an old inactive account needs warm-up."
+ },
+ "at": "2026-11-16T08:11:42.700Z"
+}

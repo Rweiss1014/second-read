@@ -1,0 +1,48 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3895,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does personal Facebook login use one of the 20 accounts?",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Do not want to pay for it",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages state the personal Facebook login does not count toward the account limit, while each connected Page counts as one.",
+  "steps": [
+   {
+    "text": "No, the personal Facebook login does not count toward your plan's connected-account limit.",
+    "quotes": [
+     "S24"
+    ]
+   },
+   {
+    "text": "Each connected Facebook Page counts as one account.",
+    "quotes": [
+     "S25"
+    ]
+   },
+   {
+    "text": "You must keep the personal Facebook login connected, because Meta uses it to authorize Blotato's access to your Pages.",
+    "quotes": [
+     "S19"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:47:27.539Z"
+}

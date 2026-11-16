@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5709,
+ "verdict": {
+  "queries": [
+   "Instagram DM automation comment keyword trigger not firing",
+   "automation runs logs no runs recorded",
+   "Instagram auto DM reel specific post comment trigger keyword setup",
+   "Instagram automation test from own account not triggered",
+   "Instagram comment to DM automation requirements Business Creator account"
+  ]
+ },
+ "at": "2026-11-16T07:47:31.004Z"
+}

@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4273,
+ "verdict": {
+  "queries": [
+   "Instagram first comment scheduling",
+   "schedule first comment Instagram post Blotato",
+   "auto comment after publishing Instagram",
+   "Instagram link in first comment feature",
+   "Instagram post first comment setting"
+  ]
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4350,
+ "verdict": {
+  "queries": [
+   "JSON value expected but got '<' error TikTok",
+   "API returns HTML instead of JSON Unexpected token <",
+   "TikTok post failed to publish error",
+   "TikTok post payload required fields API"
+  ]
+ }
+}

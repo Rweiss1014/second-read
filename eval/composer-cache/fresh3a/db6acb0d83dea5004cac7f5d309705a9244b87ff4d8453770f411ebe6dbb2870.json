@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4286,
+ "verdict": {
+  "queries": [
+   "LinkedIn analytics not showing",
+   "Reconnect LinkedIn account in Blotato",
+   "Analytics data availability by social network",
+   "LinkedIn account permissions analytics scope",
+   "Account disconnected reconnect social account"
+  ]
+ },
+ "at": "2026-11-16T08:07:25.272Z"
+}

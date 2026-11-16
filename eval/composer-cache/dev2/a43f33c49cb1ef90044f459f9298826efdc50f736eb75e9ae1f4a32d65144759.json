@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4600,
+ "verdict": {
+  "queries": [
+   "Blotato rollover credits cap maximum balance",
+   "Blotato rollover credits expiration unused credits carry over",
+   "Blotato plan credits rollover limit how long credits are kept"
+  ]
+ },
+ "at": "2026-11-16T07:45:16.160Z"
+}

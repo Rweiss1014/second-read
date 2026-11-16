@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5293,
+ "verdict": {
+  "asked": [
+   {
+    "item": "use Blotato in the Claude app on iPhone",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence says whether the Claude iPhone app can use the Blotato connector; the closest sentences cover Blotato's own mobile browser use and Claude.ai, Claude Desktop, and Claude Cowork setup, which is a neighboring question.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:00:51.209Z"
+}

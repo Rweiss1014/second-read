@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6985,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Staff log in to Instagram and connect the account for them",
+    "steps": []
+   },
+   {
+    "item": "Customer shared their Instagram password",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer asks staff to log in with their password and connect the account for them, which is a request for staff to act, and the help pages say not to share passwords, so a person on the team should handle this.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:47:44.145Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7646,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is regenerating to preview other versions free?",
+    "sentence": ""
+   },
+   {
+    "point": "Check credit cost before or after generating?",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The what-uses-credits entry answers the first question (each Generate click spends credits, even when testing). None of the entries says whether the credit cost can be checked before or after generating, because they only cover checking the balance."
+ },
+ "at": "2026-11-16T08:12:23.044Z"
+}

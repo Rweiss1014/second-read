@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5197,
+ "verdict": {
+  "asked": [
+   {
+    "item": "how long uploaded files are kept / whether publicUrl links stay up",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence says how long uploaded files are stored or whether they are cleaned up; the only expiry stated (S8, S23) applies to the presignedUrl used for the upload, not to the publicUrl.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:57:49.373Z"
+}

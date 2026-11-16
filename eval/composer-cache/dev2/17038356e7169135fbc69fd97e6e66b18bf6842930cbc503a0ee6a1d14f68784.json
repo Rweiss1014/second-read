@@ -1,0 +1,54 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8890,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Dental brand channel missing when connecting YouTube",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Manager role shown in YouTube Studio",
+    "steps": [
+     2
+    ]
+   },
+   {
+    "item": "What to do to get the channel to appear",
+    "steps": [
+     1,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages say a channel may not appear when you are listed only as a Manager, and they give the fix.",
+  "steps": [
+   {
+    "text": "For branded or managed Youtube accounts, you typically need to click into your main account to see all the channels.",
+    "quotes": [
+     "S14"
+    ]
+   },
+   {
+    "text": "If you are listed only as a Manager, the channel may not appear when connecting.",
+    "quotes": [
+     "S17"
+    ]
+   },
+   {
+    "text": "Ask the current Owner to make you an Owner of the channel (or transfer ownership to you), then reconnect.",
+    "quotes": [
+     "S18"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:48:40.150Z"
+}

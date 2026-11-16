@@ -1,0 +1,49 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8955,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why the visual won't render, stuck at draft",
+    "steps": [
+     1,
+     2,
+     3
+    ]
+   },
+   {
+    "item": "No mediaUrl in the response",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The request sets isDraft, which the docs say saves without rendering. The docs also say mediaUrl only appears once the status is done.",
+  "steps": [
+   {
+    "text": "The isDraft field saves the visual as a draft without rendering.",
+    "quotes": [
+     "S52"
+    ]
+   },
+   {
+    "text": "The documented request sends inputs: {}, a prompt, and render: true.",
+    "quotes": [
+     "S7"
+    ]
+   },
+   {
+    "text": "A status of draft is a draft, not a completed render, and mediaUrl and/or imageUrls are only available once the status is done.",
+    "quotes": [
+     "S144",
+     "S139"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:45:49.776Z"
+}

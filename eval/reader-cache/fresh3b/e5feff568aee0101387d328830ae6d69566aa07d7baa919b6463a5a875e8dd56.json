@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8225,
+ "verdict": {
+  "points": [
+   {
+    "point": "No View pricing button for laptop viewers in Instagram DMs",
+    "sentence": "Instagram shows DM buttons in the Instagram mobile app only. Someone reading your message on instagram.com in a desktop browser sees the text with no buttons under it."
+   },
+   {
+    "point": "Button shows fine on the phone",
+    "sentence": "Instagram shows DM buttons in the Instagram mobile app only. Someone reading your message on instagram.com in a desktop browser sees the text with no buttons under it."
+   }
+  ],
+  "pick": "dm-automation-buttons-missing",
+  "reason": "This entry says Instagram shows DM buttons only in the mobile app, so desktop readers see no buttons. That explains the customers' reports and the working phone view."
+ },
+ "at": "2026-11-16T08:12:02.146Z"
+}

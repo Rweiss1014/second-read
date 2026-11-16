@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4903,
+ "verdict": {
+  "queries": [
+   "POST /v2/credits endpoint quantity purchase credits",
+   "Blotato API credits top-up charged per request",
+   "credits purchase billing each API call",
+   "blotato-api-key credits endpoint response charge",
+   "Blotato credits balance API top up billing"
+  ]
+ }
+}

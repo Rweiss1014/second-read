@@ -1,0 +1,62 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8756,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Tie each brand kit to its own accounts",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Stop Claude posting to the wrong brand's account",
+    "steps": [
+     2,
+     3,
+     4,
+     5
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages say accounts can't be linked to brands and give a mapping method for Claude and other AI agents.",
+  "steps": [
+   {
+    "text": "You can't tie a brand to accounts: social accounts are not tied or linked to a brand, and there is no setting to assign an account to a brand profile.",
+    "quotes": [
+     "S20",
+     "S22"
+    ]
+   },
+   {
+    "text": "With Claude, create a mapping with the brand name, platform, account name, and account ID for each destination.",
+    "quotes": [
+     "S27"
+    ]
+   },
+   {
+    "text": "Save the mapping in the agent's project instructions or working file.",
+    "quotes": [
+     "S28"
+    ]
+   },
+   {
+    "text": "Tell the agent to read the mapping and select only the accounts assigned to each brand before scheduling or publishing.",
+    "quotes": [
+     "S29"
+    ]
+   },
+   {
+    "text": "Use List Connected Accounts to verify account names and IDs.",
+    "quotes": [
+     "S30"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:50:33.395Z"
+}

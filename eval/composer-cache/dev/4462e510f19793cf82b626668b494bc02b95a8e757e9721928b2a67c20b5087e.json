@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4334,
+ "verdict": {
+  "queries": [
+   "AI post generator select target accounts",
+   "create separate posts for each connected account Facebook LinkedIn",
+   "Blotato AI writer generate post for multiple platforms",
+   "select social accounts before generating post with AI"
+  ]
+ }
+}

@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8578,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Hours until Instagram shares trial reel with followers under SS_PERFORMANCE",
+    "steps": []
+   },
+   {
+    "item": "Exact time for planning posting",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences say SS_PERFORMANCE means Instagram auto-promotes based on performance, but none state a number of hours or an exact time, so the team should answer.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:46:40.387Z"
+}

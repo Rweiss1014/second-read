@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4494,
+ "verdict": {
+  "queries": [
+   "Upload video media in the post editor",
+   "New post creation screen media upload button",
+   "AI chat assistant vs post editor in Create Post",
+   "Add video to a social media post Blotato",
+   "Media library attach video to post"
+  ]
+ }
+}

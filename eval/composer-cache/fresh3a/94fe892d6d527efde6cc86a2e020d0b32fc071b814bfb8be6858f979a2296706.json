@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9382,
+ "verdict": {
+  "asked": [
+   {
+    "item": "12 posts not published, not in Failed or Scheduled",
+    "steps": []
+   },
+   {
+    "item": "where the 12 missing posts are",
+    "steps": []
+   },
+   {
+    "item": "resubmitting the batch without double posting the 38",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer's 12 posts are missing from every Posts list, and the only matching help text is TikTok-specific and says this is an unresolved outcome that support must check, while the \"Find a post's outcome\" guidance it points to is not among the provided sentences.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:26:29.249Z"
+}

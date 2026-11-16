@@ -1,0 +1,47 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5915,
+ "verdict": {
+  "asked": [
+   {
+    "item": "LinkedIn posts show no analytics",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Do I need to reconnect LinkedIn?",
+    "steps": [
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages state LinkedIn analytics are not available, so missing metrics are expected and reconnecting is not the cause.",
+  "steps": [
+   {
+    "text": "Analytics for LinkedIn are not available yet, so LinkedIn posts will not show metrics.",
+    "quotes": [
+     "S31"
+    ]
+   },
+   {
+    "text": "Reconnecting is for when authorization is missing or expired, and the pages give no LinkedIn analytics fix through reconnecting.",
+    "quotes": [
+     "S27",
+     "S31"
+    ]
+   },
+   {
+    "text": "For LinkedIn, use LinkedIn's native analytics for now.",
+    "quotes": [
+     "S12"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:07:31.210Z"
+}

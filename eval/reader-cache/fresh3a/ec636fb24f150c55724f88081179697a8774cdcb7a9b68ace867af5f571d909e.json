@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3504,
+ "verdict": {
+  "points": [
+   {
+    "point": "Show Blotato scheduled posts inside Google Calendar",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether Blotato scheduled posts can be synced to Google Calendar; the closest entry only covers viewing them inside Blotato's own Scheduled list and Calendar view."
+ },
+ "at": "2026-11-16T08:09:39.147Z"
+}

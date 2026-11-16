@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5513,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Spanish AI voice in the video",
+    "steps": []
+   },
+   {
+    "item": "English on-screen captions alongside the Spanish voice in the same video",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences say the voice and the video language follow the script language, but none say whether the on-screen captions can be in a different language from the voiceover, so the English-captions-with-Spanish-voice question is not answered.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:58:55.719Z"
+}

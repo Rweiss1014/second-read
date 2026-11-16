@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4458,
+ "verdict": {
+  "asked": [
+   {
+    "item": "How long uploaded files / publicUrl links are kept",
+    "steps": []
+   },
+   {
+    "item": "Whether old uploads are cleaned out",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the sentences state how long uploaded files or their publicUrl links are kept or whether old uploads are deleted; they only cover how to upload and that the presigned URL expires.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:45:09.506Z"
+}

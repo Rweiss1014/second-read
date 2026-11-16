@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5743,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is there a cap on rollover credits, or do they stack up forever",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say credits roll over each month, but none says whether rollover has a cap or a limit, so a team member should answer.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:45:21.915Z"
+}

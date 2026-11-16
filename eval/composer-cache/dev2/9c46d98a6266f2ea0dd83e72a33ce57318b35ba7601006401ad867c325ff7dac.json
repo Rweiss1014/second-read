@@ -1,0 +1,43 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7360,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Only 60 credits shown during trial, no bonus",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Is that normal?",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S29-S31 state that promotional bonus credits from a signup offer are added when the paid subscription activates, and that only the 60 trial credits show during the trial.",
+  "steps": [
+   {
+    "text": "Yes, that is normal: during the free trial you see only the trial credit balance (60 credits).",
+    "quotes": [
+     "S30"
+    ]
+   },
+   {
+    "text": "Promotional bonus credits, such as extra credits from a signup offer, are added when your paid subscription activates, and they appear after the trial ends and your first payment processes.",
+    "quotes": [
+     "S29",
+     "S31"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:45:07.606Z"
+}

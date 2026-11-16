@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3626,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is there an AI info label option for Instagram in Blotato (hidden or nonexistent)?",
+    "sentence": "Instagram and Facebook do not get Meta's AI info label yet, because Blotato does not pass Meta's is_ai_generated flag through."
+   },
+   {
+    "point": "TikTok and YouTube have AI toggle (customer's comparison)",
+    "sentence": "TikTok and YouTube have AI disclosure fields in Blotato."
+   }
+  ],
+  "pick": "ai-generated-label",
+  "reason": "The ai-generated-label entry states directly that Instagram does not get Meta's AI info label because Blotato doesn't pass the flag through, so it isn't hidden, and it confirms TikTok and YouTube have the fields."
+ },
+ "at": "2026-11-16T08:09:16.931Z"
+}

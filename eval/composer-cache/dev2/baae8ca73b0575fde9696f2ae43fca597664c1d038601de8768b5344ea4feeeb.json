@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4250,
+ "verdict": {
+  "queries": [
+   "X thread additionalPosts publishing order",
+   "thread posts published in reverse order X",
+   "additionalPosts field order API",
+   "scheduled X thread posts out of order",
+   "Twitter thread posting order troubleshooting"
+  ]
+ },
+ "at": "2026-11-16T07:48:34.355Z"
+}

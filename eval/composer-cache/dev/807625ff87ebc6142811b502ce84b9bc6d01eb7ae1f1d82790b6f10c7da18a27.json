@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4523,
+ "verdict": {
+  "queries": [
+   "Instagram Story vs feed post media type setting",
+   "Instagram carousel posted to feed instead of Story",
+   "Instagram Stories multiple images not supported Blotato",
+   "Blotato Instagram post type Story option",
+   "Instagram Story publishing API media_type STORIES"
+  ]
+ }
+}

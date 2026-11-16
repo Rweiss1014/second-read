@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4143,
+ "verdict": {
+  "queries": [
+   "Bluesky post multiple videos",
+   "Bluesky video limit per post",
+   "Bluesky attach multiple media images videos carousel",
+   "Bluesky maximum number of videos in one post"
+  ]
+ }
+}

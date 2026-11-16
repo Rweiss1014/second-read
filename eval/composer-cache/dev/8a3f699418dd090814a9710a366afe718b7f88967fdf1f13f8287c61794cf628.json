@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4207,
+ "verdict": {
+  "queries": [
+   "Substack Notes connect account Blotato",
+   "Blotato supported platforms Substack",
+   "Substack publish post schedule Blotato",
+   "Substack Notes API integration platform",
+   "Connect Substack account social accounts Blotato"
+  ]
+ }
+}

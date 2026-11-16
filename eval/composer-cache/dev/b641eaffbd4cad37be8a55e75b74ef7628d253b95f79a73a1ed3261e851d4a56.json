@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4513,
+ "verdict": {
+  "asked": [
+   {
+    "item": "can Blotato post to Instagram broadcast channel",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages list the Instagram formats Blotato supports (carousels, stories, posts, reels, comments, direct messaging), but no sentence mentions broadcast channels, so the closest sentences answer a neighboring question.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:13:53.733Z"
+}

@@ -1,0 +1,36 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 12956,
+ "verdict": {
+  "asked": [
+   {
+    "item": "14 quick-reply chips in one message",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages state the per-message chip limit, which applies to this 14-chip message on both Facebook and Instagram.",
+  "steps": [
+   {
+    "text": "Quick-reply chips are limited to 1 to 13 per message.",
+    "quotes": [
+     "S11"
+    ]
+   },
+   {
+    "text": "Facebook and Instagram both allow 13 quick-reply chips per message.",
+    "quotes": [
+     "S38",
+     "S82"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:28:14.464Z"
+}

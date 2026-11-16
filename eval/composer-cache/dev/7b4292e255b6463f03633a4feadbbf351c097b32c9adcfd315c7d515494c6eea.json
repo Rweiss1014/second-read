@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4744,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Promise that the post goes out at exactly 9:00 tomorrow",
+    "steps": []
+   },
+   {
+    "item": "Confirmation that the timing is guaranteed for the boss",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer asks for a guarantee of an exact publish time for their own post, and no sentence promises that a scheduled post publishes at an exact time, and whether this specific post is set up correctly depends on the customer's own account.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:14:30.073Z"
+}

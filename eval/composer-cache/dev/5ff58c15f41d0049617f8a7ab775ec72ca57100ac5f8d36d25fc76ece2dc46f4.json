@@ -1,0 +1,42 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4334,
+ "verdict": {
+  "asked": [
+   {
+    "item": "LinkedIn profile plus 3 company Pages: 1 account or 4?",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Starter plan with 20 accounts",
+    "steps": [
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S21 and S22 state that a LinkedIn profile with 3 company Pages counts as 4, and S27 gives the Starter limit of 20.",
+  "steps": [
+   {
+    "text": "It counts as 4 accounts: your LinkedIn profile counts as one account, and each connected company Page counts as one more.",
+    "quotes": [
+     "S21",
+     "S22"
+    ]
+   },
+   {
+    "text": "The Starter plan allows 20 connected social accounts.",
+    "quotes": [
+     "S27"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:49:43.166Z"
+}

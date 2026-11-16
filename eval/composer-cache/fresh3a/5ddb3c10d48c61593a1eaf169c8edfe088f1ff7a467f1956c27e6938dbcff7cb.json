@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4197,
+ "verdict": {
+  "asked": [
+   {
+    "item": "number of brands in My Brand on Starter",
+    "steps": []
+   },
+   {
+    "item": "whether Creator allows more brands",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the provided sentences mention brands or the My Brand feature, so no sentence states the brand limit for Starter or Creator; the plan limits given cover AI credits, connected accounts, upload size, and queued posts only.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:26:36.551Z"
+}

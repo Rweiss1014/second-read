@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4237,
+ "verdict": {
+  "queries": [
+   "Mute preview player does not affect exported video audio",
+   "Remove audio track from video before export MP4",
+   "Video editor mute setting applies to exported video",
+   "Background music still present in downloaded MP4 after muting",
+   "Disable audio on video export download"
+  ]
+ },
+ "at": "2026-11-16T08:07:27.306Z"
+}

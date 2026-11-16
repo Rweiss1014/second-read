@@ -1,0 +1,48 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8893,
+ "verdict": {
+  "asked": [
+   {
+    "item": "What Claude did to remove the photo after a caption edit",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "How a caption edit should be done",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The MCP edit FAQ explains that leaving out mediaUrls when updating a schedule removes the post's media.",
+  "steps": [
+   {
+    "text": "To change a caption through MCP, the whole post object has to be passed, not just the field being edited.",
+    "quotes": [
+     "S19"
+    ]
+   },
+   {
+    "text": "Fields left out of a complete post are not kept, and leaving out mediaUrls removes the post's media.",
+    "quotes": [
+     "S22"
+    ]
+   },
+   {
+    "text": "The recommended flow is to use blotatogetschedule to fetch the current full post object, then blotatoupdateschedule with the full post object and your edit applied.",
+    "quotes": [
+     "S25",
+     "S26"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:45:41.517Z"
+}

@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4518,
+ "verdict": {
+  "queries": [
+   "Blotato MCP server Inspiration database search tool",
+   "Inspiration search viral posts by keyword",
+   "Blotato MCP server available tools list",
+   "Inspiration tab filter viral posts web app",
+   "Blotato MCP server connect Claude"
+  ]
+ }
+}

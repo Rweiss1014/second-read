@@ -1,0 +1,35 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5611,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Payout date for commissions earned in March",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S10 and S11 state payouts are generated 15 days after the end of each month, with an example.",
+  "steps": [
+   {
+    "text": "Payouts are automatically generated on a NET-15 basis, meaning 15 days after the end of each month.",
+    "quotes": [
+     "S10"
+    ]
+   },
+   {
+    "text": "For example, commissions earned in September will have payouts generated on October 15th.",
+    "quotes": [
+     "S11"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:12:03.031Z"
+}

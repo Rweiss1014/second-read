@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3155,
+ "verdict": {
+  "points": [
+   {
+    "point": "Tolt minimum payout balance",
+    "sentence": ""
+   },
+   {
+    "point": "Fees deducted from payout",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry covers Tolt affiliate payouts, minimum balances, or fees; all are about other topics."
+ },
+ "at": "2026-11-16T08:10:56.868Z"
+}

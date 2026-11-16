@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7255,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Blotato automatically reposts failed Instagram posts forever",
+    "steps": []
+   },
+   {
+    "item": "Which error the failed Instagram post had (not named by customer)",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The only automatic-retry sentence covers the \"Error posting to Instagram: An internal server error occurred\" error and says Blotato retries 2 times, so it neither confirms nor denies \"forever,\" and the customer's own error is not named, so no sentence states the answer for this case.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:13:59.878Z"
+}

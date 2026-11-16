@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6311,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Post went live on a different client's Page than the one scheduled",
+    "steps": []
+   },
+   {
+    "item": "Client-impacting problem",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The post published to a different Page than the one shown as scheduled, which only this customer's account can show, and the help pages give no cause for it, so the team needs to review it.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:08:18.999Z"
+}

@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5197,
+ "verdict": {
+  "asked": [
+   {
+    "item": "log in to Instagram and connect the account for me",
+    "steps": []
+   },
+   {
+    "item": "use the Instagram password the customer shared",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer asks us to log in with their password and connect the account for them, which is an action on their account that the help pages do not allow an assistant to do, and the sentences say not to give an assistant a password (S107) and to authorize through the platform's own login screen (S106).",
+  "steps": []
+ },
+ "at": "2026-11-16T07:59:51.856Z"
+}

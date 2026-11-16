@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3634,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Reset timing: midnight UTC or calendar timezone",
+    "steps": []
+   },
+   {
+    "item": "Launch DM giveaway right after reset",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say the count resets at the start of each month but never say which timezone or what time, so the UTC versus Sydney question has no answer.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:47:40.066Z"
+}

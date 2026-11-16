@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4217,
+ "verdict": {
+  "queries": [
+   "Remove connected Facebook Page from account",
+   "Facebook Page already connected to another Blotato account",
+   "Disconnect social account Facebook Page settings",
+   "Transfer social account ownership to another workspace",
+   "Facebook Pages connection error page in use by another account"
+  ]
+ },
+ "at": "2026-11-16T07:45:41.945Z"
+}

@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4297,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is there a Delete Visual module in the Make.com Blotato app",
+    "steps": []
+   },
+   {
+    "item": "Can old carousels be cleaned up automatically with it",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences name only Create Visual and Get Visual for Make, and no sentence says whether a delete visual operation exists in the Make module or the REST API.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:58:03.099Z"
+}

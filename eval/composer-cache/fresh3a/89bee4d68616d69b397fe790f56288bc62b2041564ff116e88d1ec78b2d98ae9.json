@@ -1,0 +1,17 @@
+{
+ "kind": "second",
+ "version": "second-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6313,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "not-answered",
+    "about": "The customer asked whether the post will show as failed. The section only says scheduling fails instead of publishing immediately. It doesn't say any post status or failed label appears, and the reply never says that point is unclear. The reply also never answers the first question directly with a plain no."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T08:25:13.262Z"
+}

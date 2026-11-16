@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3738,
+ "verdict": {
+  "queries": [
+   "Instagram comment reply failed status",
+   "Instagram private reply to comment time limit",
+   "Instagram comment older than 7 days reply not possible",
+   "REST API v2 messages target commentId instagram",
+   "Instagram direct message failed error recipientId"
+  ]
+ },
+ "at": "2026-11-16T08:11:40.374Z"
+}

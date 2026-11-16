@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5845,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Walk through connecting \"it\" (what \"it\" is isn't stated)",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The message never says what to connect (a platform, an account, an API or a tool), and the sentences cover different things, such as LinkedIn and n8n or Make, so any walkthrough would be a guess.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:38:15.762Z"
+}

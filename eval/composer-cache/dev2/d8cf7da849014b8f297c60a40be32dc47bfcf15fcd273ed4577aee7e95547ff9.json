@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4846,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Send a photo in a DM reply via POST /v2/messages",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences describe text, buttons and quick replies for Send Message but never say whether a photo can be sent through it, so no sentence answers this.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:48:50.246Z"
+}

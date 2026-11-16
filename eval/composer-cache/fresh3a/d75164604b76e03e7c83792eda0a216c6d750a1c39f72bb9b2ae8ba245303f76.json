@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4544,
+ "verdict": {
+  "queries": [
+   "LinkedIn Repost button automation",
+   "repost existing LinkedIn post to company Page",
+   "Blotato LinkedIn Page posting supported actions",
+   "LinkedIn reshare API limitation Blotato",
+   "automatically repost LinkedIn personal profile post"
+  ]
+ },
+ "at": "2026-11-16T08:08:29.482Z"
+}

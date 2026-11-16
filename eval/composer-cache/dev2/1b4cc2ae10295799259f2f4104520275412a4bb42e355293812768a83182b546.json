@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4802,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does mcp.blotato.com expose an SSE endpoint (/sse)",
+    "steps": []
+   },
+   {
+    "item": "Any fallback for SSE-only clients",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences only state that the Blotato MCP server runs at https://mcp.blotato.com/mcp using Streamable HTTP (S4, S57, S72), and nothing mentions SSE, an /sse endpoint, or any fallback for SSE-only clients, so they do not answer whether one exists.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:58:31.067Z"
+}

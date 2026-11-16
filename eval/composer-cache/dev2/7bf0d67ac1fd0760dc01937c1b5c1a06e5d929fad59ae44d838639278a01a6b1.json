@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3712,
+ "verdict": {
+  "queries": [
+   "repurpose skill Instagram Facebook posts not generated",
+   "repurpose content platforms supported Instagram Facebook LinkedIn X threads video scripts",
+   "connected accounts Instagram Facebook Pages required for repurposing",
+   "Blotato MCP repurpose newsletter output platforms selection"
+  ]
+ }
+}

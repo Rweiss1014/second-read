@@ -1,0 +1,46 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9345,
+ "verdict": {
+  "asked": [
+   {
+    "item": "limit for Viral AI Coach uploads",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "why publishing accepts the same file",
+    "steps": [
+     2
+    ]
+   },
+   {
+    "item": "180MB reel failing on the coach",
+    "steps": [
+     1
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages state the Viral AI Coach upload limit and that this limit is specific to the coach and not the publishing uploader.",
+  "steps": [
+   {
+    "text": "The Viral AI Coach upload screen accepts a video up to 100MB.",
+    "quotes": [
+     "S5"
+    ]
+   },
+   {
+    "text": "This 100MB limit applies only to the Viral AI Coach, not to the publishing uploader.",
+    "quotes": [
+     "S6"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:00:09.242Z"
+}

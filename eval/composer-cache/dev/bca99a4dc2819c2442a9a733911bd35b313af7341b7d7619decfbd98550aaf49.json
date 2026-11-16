@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4231,
+ "verdict": {
+  "queries": [
+   "GET /v2/analytics 404 Not Found",
+   "analytics endpoint postId published post",
+   "Instagram post analytics availability by plan",
+   "Creator plan API analytics access",
+   "List Posts response id used for analytics"
+  ]
+ },
+ "at": "2026-11-16T07:49:57.887Z"
+}

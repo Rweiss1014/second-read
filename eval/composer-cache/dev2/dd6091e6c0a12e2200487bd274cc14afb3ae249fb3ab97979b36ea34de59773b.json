@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3343,
+ "verdict": {
+  "queries": [
+   "Blotato data storage location EU servers",
+   "Blotato GDPR data processing agreement",
+   "Blotato where are servers hosted region",
+   "Blotato privacy policy data residency"
+  ]
+ },
+ "at": "2026-11-16T07:46:27.719Z"
+}

@@ -1,0 +1,49 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9892,
+ "verdict": {
+  "asked": [
+   {
+    "item": "status-check loop getting 429s and workflow stops",
+    "steps": [
+     1,
+     2,
+     3,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The rate limits page gives general handling steps for 429 responses, including polling with intervals, and these apply whichever status route the loop calls.",
+  "steps": [
+   {
+    "text": "After a 429, stop requests to the limited route.",
+    "quotes": [
+     "S67"
+    ]
+   },
+   {
+    "text": "Wait for the retry interval when the response supplies one.",
+    "quotes": [
+     "S68"
+    ]
+   },
+   {
+    "text": "Reduce concurrency and request frequency before resuming.",
+    "quotes": [
+     "S69"
+    ]
+   },
+   {
+    "text": "Use polling intervals rather than repeated status calls without a delay.",
+    "quotes": [
+     "S70"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:51:41.051Z"
+}

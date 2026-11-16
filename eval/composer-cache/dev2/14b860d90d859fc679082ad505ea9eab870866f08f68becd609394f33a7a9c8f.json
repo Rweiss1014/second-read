@@ -1,0 +1,49 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8359,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is my account broken, given analytics says pending",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "When numbers should show on Starter",
+    "steps": [
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The sentences explain that pending doesn't mean a connection failure and give the Starter first-collection timing.",
+  "steps": [
+   {
+    "text": "\"Analytics pending\" means no metric history is available yet, and it does not establish an account-connection failure.",
+    "quotes": [
+     "S47",
+     "S48"
+    ]
+   },
+   {
+    "text": "On Starter, Blotato collects the first metrics up to 1 day after a post publishes.",
+    "quotes": [
+     "S19"
+    ]
+   },
+   {
+    "text": "Collection is scheduled from the post's publication time, not from opening the analytics page, and checkpoint times are targets, not a live-refresh guarantee.",
+    "quotes": [
+     "S47",
+     "S52"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:48:39.054Z"
+}

@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4636,
+ "verdict": {
+  "queries": [
+   "The user has exceeded the number of videos they may upload YouTube error",
+   "YouTube unverified channel daily video upload limit",
+   "YouTube channel verification phone number to increase upload limit",
+   "Blotato YouTube upload limit exceeded"
+  ]
+ },
+ "at": "2026-11-16T07:45:29.290Z"
+}

@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5829,
+ "verdict": {
+  "asked": [
+   {
+    "item": "422 from POST /v2/posts (cause and fix)",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer gives no error text, platform, or account type, and the help pages only describe 422 responses for specific cases (an invalid URL on the /media call, a Slack channelId outside the connected channels, an expired LinkedIn connection, or an account-not-found error), so none of the sentences state which cause applies to this 422 on POST /v2/posts.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:14:19.056Z"
+}

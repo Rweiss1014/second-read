@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4869,
+ "verdict": {
+  "queries": [
+   "DM automation analytics triggered completed failed issues",
+   "DM automation run status breakdown pending in progress",
+   "DM automation failed status error reasons",
+   "DM automation issues status meaning",
+   "automation analytics triggered vs completed count difference"
+  ]
+ }
+}

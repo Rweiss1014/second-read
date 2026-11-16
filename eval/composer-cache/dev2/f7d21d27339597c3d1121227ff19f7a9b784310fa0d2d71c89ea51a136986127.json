@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4596,
+ "verdict": {
+  "queries": [
+   "Overview page monitoring dashboard sidebar menu",
+   "Overview menu missing plan availability post editor navigation",
+   "Blotato sidebar navigation Post editor Overview Accounts Calendar",
+   "Overview tab not showing workspace permissions role"
+  ]
+ }
+}

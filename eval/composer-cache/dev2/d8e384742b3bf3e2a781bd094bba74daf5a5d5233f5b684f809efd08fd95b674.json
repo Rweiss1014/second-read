@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3710,
+ "verdict": {
+  "queries": [
+   "Connect Instagram account to Blotato via Facebook login",
+   "Instagram Business account linked to Facebook Page connection",
+   "Connect Instagram Business account Facebook Page permissions Blotato",
+   "Instagram account connection requirements Facebook Page admin"
+  ]
+ }
+}

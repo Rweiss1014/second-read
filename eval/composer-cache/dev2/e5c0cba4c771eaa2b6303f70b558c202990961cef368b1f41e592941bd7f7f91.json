@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5948,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is 9 months calendar months or days",
+    "steps": []
+   },
+   {
+    "item": "Does it cut off at a certain time of day",
+    "steps": []
+   },
+   {
+    "item": "Whether August 14, 2027 is within the limit",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences say the horizon is 9 months on every plan but don't say whether it is counted in calendar months or days, or whether there is a time-of-day cutoff, so the customer's specific date can't be confirmed.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:46:57.867Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3075,
+ "verdict": {
+  "points": [
+   {
+    "point": "match 50% off price demand",
+    "sentence": ""
+   },
+   {
+    "point": "cancel by Friday deadline, moving 6 brands",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer demands a price match and threatens to cancel by a Friday deadline, which is a pricing and cancellation matter for the team, and no entry covers it."
+ },
+ "at": "2026-11-16T08:09:10.523Z"
+}

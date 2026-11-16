@@ -1,0 +1,47 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8451,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is the drop from 60 to 12 credits a glitch after pressing Generate several times on the trial",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Where to check the balance",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The sentences say each Generate click on an image or video spends credits, even when testing, and they say where to check the balance.",
+  "steps": [
+   {
+    "text": "Each time you click \"Generate\" on an image or video, credits are spent, even if you're testing.",
+    "quotes": [
+     "S76"
+    ]
+   },
+   {
+    "text": "Credits are only used for AI-generated images and videos.",
+    "quotes": [
+     "S64"
+    ]
+   },
+   {
+    "text": "To check your balance, go to Settings > Billing.",
+    "quotes": [
+     "S77"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:38:23.123Z"
+}

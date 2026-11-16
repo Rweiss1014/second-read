@@ -1,0 +1,50 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7946,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can Blotato post Substack Notes like it does for LinkedIn",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Doesn't understand the API stuff",
+    "steps": [
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The FAQ says Substack is not supported and describes only an unofficial workaround built outside Blotato.",
+  "steps": [
+   {
+    "text": "Substack is not a supported platform, and you cannot crosspost to Substack from Blotato.",
+    "quotes": [
+     "S2",
+     "S3"
+    ]
+   },
+   {
+    "text": "That applies to the web app, the API, and MCP/Cowork, so the API isn't a way around it.",
+    "quotes": [
+     "S3"
+    ]
+   },
+   {
+    "text": "There is an unofficial workaround for Substack Notes. Blotato does not officially support it, Substack does not officially allow automated posting, and you use it at your own risk. You build and run it yourself, outside Blotato.",
+    "quotes": [
+     "S5",
+     "S6"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:49:46.883Z"
+}

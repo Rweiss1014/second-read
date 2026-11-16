@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4293,
+ "verdict": {
+  "queries": [
+   "Blotato API scheduledTime top-level field create post",
+   "Blotato API schedule post for later scheduledTime ISO 8601 timezone",
+   "Blotato post published immediately instead of scheduled",
+   "Blotato API request body post object structure accountId content target",
+   "n8n HTTP Request node Blotato schedule post"
+  ]
+ },
+ "at": "2026-11-16T08:11:44.548Z"
+}

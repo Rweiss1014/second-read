@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9717,
+ "verdict": {
+  "points": [
+   {
+    "point": "iCloud Drive as the source",
+    "sentence": "Blotato has no direct integration with Dropbox, Google Drive, or other cloud storage."
+   },
+   {
+    "point": "Will a share link work as the media URL",
+    "sentence": "Get a public direct file URL for the image or video (a link to the file itself, not a shared preview page)."
+   }
+  ],
+  "pick": "cloud-storage-media",
+  "reason": "The entry says iCloud-style cloud storage has no integration and that media needs a public direct file URL rather than a shared preview page, which answers whether a share link will work."
+ },
+ "at": "2026-11-16T08:08:21.467Z"
+}

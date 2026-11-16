@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4293,
+ "verdict": {
+  "asked": [
+   {
+    "item": "can I add my own .srt subtitle file when Blotato posts to YouTube",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence says whether a custom .srt subtitle file can be attached when publishing to YouTube; the captions sentences cover Blotato's own caption tracks, YouTube Source extraction, and AI voiceover, which answer neighboring questions instead.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:27:59.699Z"
+}

@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4180,
+ "verdict": {
+  "queries": [
+   "LinkedIn post line breaks removed single block text",
+   "LinkedIn post formatting preserve paragraphs new lines",
+   "Blotato n8n Escape Multi-Line Paragraphs error",
+   "n8n Blotato node content newline characters escape",
+   "Blotato API LinkedIn post text field line breaks"
+  ]
+ }
+}

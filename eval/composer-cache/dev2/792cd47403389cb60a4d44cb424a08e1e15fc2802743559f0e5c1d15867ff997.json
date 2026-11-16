@@ -1,0 +1,58 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 17009,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does the 10 requests/hour limit also apply to GET /v2/credits?",
+    "steps": [
+     1,
+     2,
+     3
+    ]
+   },
+   {
+    "item": "How to avoid 429s on the limited route",
+    "steps": [
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The sentences tie the 10 requests per hour limit to POST /v2/credits only and show no limit for GET /v2/credits, though they do not confirm the GET reference lists no limit.",
+  "steps": [
+   {
+    "text": "The 10 requests per hour limit is listed for Buy Credits, which is POST /v2/credits.",
+    "quotes": [
+     "S55",
+     "S76"
+    ]
+   },
+   {
+    "text": "The endpoint table shows a dash for GET /v2/credits, and a dash means no limit is stated in that table, not unlimited access.",
+    "quotes": [
+     "S75",
+     "S64"
+    ]
+   },
+   {
+    "text": "Rate limits are route-specific, and for other limits you should consult each endpoint's reference.",
+    "quotes": [
+     "S3",
+     "S19"
+    ]
+   },
+   {
+    "text": "If you get a 429, stop requests to the limited route and wait for the retry interval when the response gives one.",
+    "quotes": [
+     "S22",
+     "S23"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:01:10.906Z"
+}

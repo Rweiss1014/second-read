@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6758,
+ "verdict": {
+  "asked": [
+   {
+    "item": "post 'Fall menu drops Friday!' to Instagram right now",
+    "steps": []
+   },
+   {
+    "item": "why Reels show on the main grid",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer asks the team to post to their Instagram now, which is a request for staff to post and is never ours to answer, so the whole message goes to a person.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:59:48.381Z"
+}

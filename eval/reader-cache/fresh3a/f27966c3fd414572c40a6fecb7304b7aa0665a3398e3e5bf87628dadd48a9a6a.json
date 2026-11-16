@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3511,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is there a Blotato Make module for post analytics",
+    "sentence": ""
+   },
+   {
+    "point": "Another way to get analytics into Make",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry says anything about a Make module or about getting analytics into Make; the analytics entries only cover the dashboard, refresh schedule and platform support, which is a neighboring topic."
+ },
+ "at": "2026-11-16T08:06:57.764Z"
+}

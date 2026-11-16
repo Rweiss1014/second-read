@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5447,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Bluesky posts show Published with links, but links open 'post not found' and nothing is on the profile",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences have no explanation for posts marked Published that are missing on Bluesky. The FAQ heading for that issue has no passage under it, so the team needs to check this customer's posts.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:47:16.846Z"
+}

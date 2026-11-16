@@ -1,0 +1,72 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 13385,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Reconnect button does nothing, no error",
+    "steps": [
+     2
+    ]
+   },
+   {
+    "item": "Starter plan with 20 connected accounts",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Whether Reconnect uses an account slot",
+    "steps": [
+     3
+    ]
+   },
+   {
+    "item": "What to do about the Reconnect button",
+    "steps": [
+     4,
+     5
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The sentences state that Reconnect silently stops responding at the plan's account limit, and the customer's Starter account with 20 connected matches that limit.",
+  "steps": [
+   {
+    "text": "Starter allows 20 connected social accounts.",
+    "quotes": [
+     "S28"
+    ]
+   },
+   {
+    "text": "If you are at your plan's limit, the Reconnect and Connect buttons stop responding and no error appears.",
+    "quotes": [
+     "S48"
+    ]
+   },
+   {
+    "text": "Reconnecting counts against the same connected-account limit as adding a new account.",
+    "quotes": [
+     "S47"
+    ]
+   },
+   {
+    "text": "Disconnect an account you no longer use in Accounts, then reconnect.",
+    "quotes": [
+     "S49"
+    ]
+   },
+   {
+    "text": "Review the effects before choosing to remove an account.",
+    "quotes": [
+     "S37"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:00:15.515Z"
+}

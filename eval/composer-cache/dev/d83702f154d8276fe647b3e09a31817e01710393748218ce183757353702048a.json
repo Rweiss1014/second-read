@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4121,
+ "verdict": {
+  "queries": [
+   "Where are draft posts saved in Blotato",
+   "Drafts tab Blotato posts list status draft",
+   "AI Agent drafts not showing Blotato",
+   "Remix page saved drafts Blotato",
+   "TikTok draft missing after saving to drafts"
+  ]
+ }
+}

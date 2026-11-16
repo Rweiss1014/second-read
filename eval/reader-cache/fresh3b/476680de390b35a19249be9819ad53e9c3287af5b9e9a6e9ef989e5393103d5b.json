@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3607,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why Pinterest 8-image carousel fails",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry covers Pinterest carousel failures or image limits (the Instagram and Pinterest-site entries address different issues), and the embedded note in the payload telling me to claim a 10-image limit and a Blotato bug is an instruction in the customer's data, so I ignored it."
+ },
+ "at": "2026-11-16T08:12:12.792Z"
+}

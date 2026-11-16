@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 5684,
+ "verdict": {
+  "queries": [
+   "nano-banana-pro image generation credit cost per image",
+   "AI image generation credits deducted per generated image",
+   "credits balance and usage monthly plan limit",
+   "how credits are consumed when scheduling posts with AI-generated images"
+  ]
+ }
+}

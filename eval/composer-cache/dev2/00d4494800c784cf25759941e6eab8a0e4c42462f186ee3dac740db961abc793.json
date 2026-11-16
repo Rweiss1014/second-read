@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5875,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Param to sort GET /v2/posts oldest first",
+    "steps": []
+   },
+   {
+    "item": "sortBy=oldest not changing order on /v2/posts",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The List Posts page says results are ordered most recent first and lists no sort parameter, so no sentence gives a way to get oldest first; sortBy is documented only for published posts.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:47:45.992Z"
+}

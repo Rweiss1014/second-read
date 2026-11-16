@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5744,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does OAuth sign-in work in Gemini CLI",
+    "steps": []
+   },
+   {
+    "item": "Does Gemini CLI only accept the blotato-api-key header",
+    "steps": []
+   },
+   {
+    "item": "Is Gemini CLI an officially supported client",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages never name Gemini CLI, so no sentence states whether OAuth or the blotato-api-key header works there or whether it is supported; the generic \"another remote-MCP client\" guidance cannot be applied because the pages say not to infer support from general MCP compatibility or apply one client's setup to another.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:00:45.887Z"
+}

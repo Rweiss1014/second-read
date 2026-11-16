@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4238,
+ "verdict": {
+  "queries": [
+   "review reward eligibility one reward per customer",
+   "G2 review incentive Amazon gift card claim",
+   "Capterra review reward gift card eligibility",
+   "multiple review platforms reward limit per account",
+   "review reward claim form submission terms and conditions"
+  ]
+ },
+ "at": "2026-11-16T07:54:48.262Z"
+}

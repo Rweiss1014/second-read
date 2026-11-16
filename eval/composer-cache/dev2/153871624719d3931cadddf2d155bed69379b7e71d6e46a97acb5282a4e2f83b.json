@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5663,
+ "verdict": {
+  "asked": [
+   {
+    "item": "X thread posts going out in reverse order (post 3, then 2, then 1)",
+    "steps": []
+   },
+   {
+    "item": "Started since Friday, affecting every thread this week (6 so far)",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences say how to build a thread with additionalPosts and that reply chaining is handled, but none say what order posts publish in or explain reversed order, and this is a bug report about many threads failing at once that only the team can investigate.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:00:42.432Z"
+}

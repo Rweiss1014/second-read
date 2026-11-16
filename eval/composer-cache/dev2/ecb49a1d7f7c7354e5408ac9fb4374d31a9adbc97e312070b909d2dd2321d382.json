@@ -1,0 +1,80 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 10142,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Am I in the wrong place (Plugins > MCPs > Add MCP server)",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Command to launch and arguments fields (form asks for them)",
+    "steps": [
+     4
+    ]
+   },
+   {
+    "item": "Only have the address mcp.blotato.com/mcp",
+    "steps": [
+     5,
+     6
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help page describes this exact ChatGPT desktop path, notes the form opens on STDIO, and says to select Streamable HTTP and enter the URL, so the customer's question is answered.",
+  "steps": [
+   {
+    "text": "You are in the right place: in the ChatGPT desktop app, open Plugins, then MCPs.",
+    "quotes": [
+     "S73"
+    ]
+   },
+   {
+    "text": "Click Add, then Add MCP server.",
+    "quotes": [
+     "S74"
+    ]
+   },
+   {
+    "text": "Name it blotato.",
+    "quotes": [
+     "S75"
+    ]
+   },
+   {
+    "text": "The form opens on STDIO, so select Streamable HTTP instead.",
+    "quotes": [
+     "S76",
+     "S77"
+    ]
+   },
+   {
+    "text": "Enter https://mcp.blotato.com/mcp as the URL.",
+    "quotes": [
+     "S78"
+    ]
+   },
+   {
+    "text": "Under Headers, set blotato-api-key to your full API key, and leave Bearer token env var blank.",
+    "quotes": [
+     "S79",
+     "S80"
+    ]
+   },
+   {
+    "text": "Save and restart the MCP connection or client.",
+    "quotes": [
+     "S81"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:58:48.124Z"
+}

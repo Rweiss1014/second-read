@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6045,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Saving 300+ podcast episodes as separate sources in the Sources library (is that allowed, any limit)",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences explain how to save a source but state no limit on how many sources the library can hold, and the plan limits section only points to billing pages.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:10:32.377Z"
+}

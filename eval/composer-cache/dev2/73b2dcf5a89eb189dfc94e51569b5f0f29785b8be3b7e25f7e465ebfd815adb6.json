@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4024,
+ "verdict": {
+  "queries": [
+   "visual stuck in draft status not rendering",
+   "mediaUrl empty missing quote card template render",
+   "isDraft true visual creation API response",
+   "quote-card template inputs prompt render error",
+   "visual generation status failed mediaUrl not returned"
+  ]
+ }
+}

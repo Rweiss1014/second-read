@@ -1,0 +1,57 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 16546,
+ "verdict": {
+  "asked": [
+   {
+    "item": "429s on the status-check loop",
+    "steps": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages explain how 429 responses work on status routes and how to space out polling, which covers the customer's status-check loop, though the page does not say which endpoint their loop calls or why the whole workflow stops.",
+  "steps": [
+   {
+    "text": "Blotato applies route-specific request limits.",
+    "quotes": [
+     "S48"
+    ]
+   },
+   {
+    "text": "After a 429, stop sending requests to the limited route.",
+    "quotes": [
+     "S67"
+    ]
+   },
+   {
+    "text": "If the 429 response gives a retry interval, wait for that interval.",
+    "quotes": [
+     "S68"
+    ]
+   },
+   {
+    "text": "Reduce concurrency and request frequency before resuming.",
+    "quotes": [
+     "S69"
+    ]
+   },
+   {
+    "text": "Get Post Status allows 60 requests per minute and asks for at least 10 seconds between status requests.",
+    "quotes": [
+     "S80",
+     "S90"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:14:49.632Z"
+}

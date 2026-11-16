@@ -1,0 +1,31 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6247,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Should I turn off retries",
+    "steps": []
+   },
+   {
+    "item": "Should I resubmit/spam the post repeatedly",
+    "steps": []
+   },
+   {
+    "item": "TikTok publish failed after 3 retries with Unknown error reason",
+    "steps": []
+   },
+   {
+    "item": "Third failure this week (recurring pattern)",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences do not say whether retries can be turned off, and they direct the customer to send the full error and evidence to support rather than give a fix, so this needs a team member.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:14:34.111Z"
+}

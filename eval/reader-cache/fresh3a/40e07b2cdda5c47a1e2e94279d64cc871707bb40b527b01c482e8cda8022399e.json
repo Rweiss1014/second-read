@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 2983,
+ "verdict": {
+  "points": [
+   {
+    "point": "Custom cover image for Facebook Page Reels",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The only cover-image entry is about Instagram Reels, and no entry says whether Facebook Page Reels can have a custom cover image."
+ },
+ "at": "2026-11-16T08:07:13.694Z"
+}

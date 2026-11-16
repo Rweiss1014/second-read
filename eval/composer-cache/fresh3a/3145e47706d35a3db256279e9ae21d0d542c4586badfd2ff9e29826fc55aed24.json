@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4792,
+ "verdict": {
+  "asked": [
+   {
+    "item": "where is the setting to turn off the 'Published by Blotato' text on Facebook Page posts",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the help sentences mention a 'Published by Blotato' text or any setting that controls post attribution, so the question has no stated answer; the closest Facebook sentences only cover Page connection and permissions.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:25:55.149Z"
+}

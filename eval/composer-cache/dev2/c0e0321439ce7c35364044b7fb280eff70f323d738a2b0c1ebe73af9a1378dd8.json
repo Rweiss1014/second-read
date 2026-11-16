@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4474,
+ "verdict": {
+  "queries": [
+   "Article context URL not supported JavaScript cookies required",
+   "Adding article context from a website URL",
+   "Article context fetch error enable JavaScript and cookies",
+   "Website blocks content extraction for article context",
+   "Article context URL import troubleshooting"
+  ]
+ }
+}

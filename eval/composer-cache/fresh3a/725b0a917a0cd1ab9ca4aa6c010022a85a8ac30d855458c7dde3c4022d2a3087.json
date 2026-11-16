@@ -1,0 +1,35 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9809,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is the title the problem?",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The YouTube API page says a title must not include < or >, and the customer's title includes both characters.",
+  "steps": [
+   {
+    "text": "For YouTube, the title is required and can be up to 100 characters.",
+    "quotes": [
+     "S86"
+    ]
+   },
+   {
+    "text": "The title must not include < or >, and the title you sent includes both, so it doesn't meet the title requirements.",
+    "quotes": [
+     "S86"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:10:00.436Z"
+}

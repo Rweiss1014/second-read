@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4185,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is there a page limit for PDF sources?",
+    "steps": []
+   },
+   {
+    "item": "Can a 400-page ebook be used as PDF context?",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence states a page limit for PDF sources; the closest sentences (S56-S61) give upload file size limits by plan, which is a neighboring question, and the help pages say nothing about page counts.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:26:13.948Z"
+}

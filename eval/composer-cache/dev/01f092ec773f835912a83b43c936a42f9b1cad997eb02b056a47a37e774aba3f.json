@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3160,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can I pay with PayPal?",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence says which payment methods, including PayPal, Blotato accepts; the closest sentences cover how to start a subscription and Stripe checkout.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:38:06.911Z"
+}

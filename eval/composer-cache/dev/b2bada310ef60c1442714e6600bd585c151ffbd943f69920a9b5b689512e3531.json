@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4293,
+ "verdict": {
+  "queries": [
+   "Generate button credit cost per generation",
+   "credits deducted when generating AI content",
+   "trial plan credit balance and usage",
+   "credit usage history transactions",
+   "AI image generation credits consumed"
+  ]
+ }
+}

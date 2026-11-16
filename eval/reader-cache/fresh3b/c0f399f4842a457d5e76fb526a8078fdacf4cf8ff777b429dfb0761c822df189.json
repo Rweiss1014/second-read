@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3236,
+ "verdict": {
+  "points": [
+   {
+    "point": "Normal wait time for adding creators to Inspiration",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry covers Inspiration creator requests or wait times, and the customer is asking about a request they already made to staff, so a person should read it."
+ },
+ "at": "2026-11-16T08:12:13.960Z"
+}

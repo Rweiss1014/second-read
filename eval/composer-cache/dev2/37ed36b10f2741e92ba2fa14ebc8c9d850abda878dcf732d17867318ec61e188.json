@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5545,
+ "verdict": {
+  "asked": [
+   {
+    "item": "maximum number of DM automations per Instagram account",
+    "steps": []
+   },
+   {
+    "item": "creating about 150 automations with one keyword each via blotatocreateautomation",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence states a limit on how many DM automations one Instagram account can have; the closest sentences cover triggers per automation and active-contacts limits, which are a neighboring topic.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:58:39.436Z"
+}

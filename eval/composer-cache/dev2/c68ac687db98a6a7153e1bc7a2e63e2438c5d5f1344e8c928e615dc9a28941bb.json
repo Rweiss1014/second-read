@@ -1,0 +1,75 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 20229,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Did I put the skills in the wrong place (~/.claude/skills) for Cowork?",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Do the skills only work for coders?",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "How to get content-coach to show up in Cowork",
+    "steps": [
+     2,
+     3,
+     4,
+     5
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages state that Cowork does not read the ~/.claude/skills folder and give the personal-account ZIP upload route for Cowork, which answers the placement question and the content-coach setup.",
+  "steps": [
+   {
+    "text": "Cowork does not read the ~/.claude/skills folder, so the copies you put there will not show up in Cowork; for Cowork, use the personal-account upload route instead.",
+    "quotes": [
+     "S6",
+     "S39",
+     "S40"
+    ]
+   },
+   {
+    "text": "Package only the content-coach folder as a ZIP containing its SKILL.md and support files, and do not upload the entire 8-skill pack as one skill.",
+    "quotes": [
+     "S23",
+     "S31",
+     "S49"
+    ]
+   },
+   {
+    "text": "In Claude, open Customize > Skills, select +, then + Create skill, and then select Upload a skill.",
+    "quotes": [
+     "S24",
+     "S25",
+     "S26"
+    ]
+   },
+   {
+    "text": "Upload the content-coach ZIP, enable the uploaded skill, and then start a conversation using the same Claude account.",
+    "quotes": [
+     "S27",
+     "S28",
+     "S29"
+    ]
+   },
+   {
+    "text": "If upload is unavailable, check Anthropic's account and organization requirements.",
+    "quotes": [
+     "S32"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:58:04.630Z"
+}

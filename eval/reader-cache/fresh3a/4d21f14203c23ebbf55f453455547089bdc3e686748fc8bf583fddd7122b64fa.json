@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3113,
+ "verdict": {
+  "points": [
+   {
+    "point": "public comment replies vary between runs",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry explains why public comment replies from an automation differ from one run to the next; the closest entries cover reply errors, text length limits, or per-platform post text, which are different questions."
+ },
+ "at": "2026-11-16T08:09:21.251Z"
+}

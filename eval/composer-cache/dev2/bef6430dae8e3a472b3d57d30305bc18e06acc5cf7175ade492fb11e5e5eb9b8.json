@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7602,
+ "verdict": {
+  "asked": [
+   {
+    "item": "does archived #old-promos still count toward the Starter 20-account limit",
+    "steps": []
+   },
+   {
+    "item": "is the archived channel freed up automatically",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences say each connected channel counts toward the limit and that archived channels do not appear in the channel list, but none says whether a channel archived in Slack while still connected still counts or is freed automatically, so the closest sentences answer a neighboring question.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:01:04.260Z"
+}

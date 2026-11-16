@@ -1,0 +1,41 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6282,
+ "verdict": {
+  "asked": [
+   {
+    "item": "can Blotato answer WhatsApp messages automatically",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "same as the Instagram auto-reply",
+    "steps": [
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages directly state that DM Automations do not support WhatsApp, which answers the customer's auto-reply question.",
+  "steps": [
+   {
+    "text": "No, Blotato does not support WhatsApp for DM Automations.",
+    "quotes": [
+     "S42"
+    ]
+   },
+   {
+    "text": "DM Automations are supported on Instagram and Facebook Pages.",
+    "quotes": [
+     "S38",
+     "S39"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:25:40.465Z"
+}

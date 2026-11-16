@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3826,
+ "verdict": {
+  "points": [
+   {
+    "point": "carousels still show stock-looking corporate people",
+    "sentence": ""
+   },
+   {
+    "point": "already tried specific prompt, brand visuals, Use brand kit, regenerating scenes",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer says they already tried the usual fixes (specific prompt, brand visuals, brand kit, regenerating scenes) and it still fails, so a team member should handle it, and no entry explains why the style is ignored."
+ },
+ "at": "2026-11-16T08:09:42.636Z"
+}

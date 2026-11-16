@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5014,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does Blotato support Pinterest Idea Pins with multiple pages",
+    "steps": []
+   },
+   {
+    "item": "Does Blotato support only standard Pinterest pins",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the provided sentences mention Pinterest Idea Pins, multi-page pins, or standard pins, so the question cannot be answered from them.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:25:46.252Z"
+}

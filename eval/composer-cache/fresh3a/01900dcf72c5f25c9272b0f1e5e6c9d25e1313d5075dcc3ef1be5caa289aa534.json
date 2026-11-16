@@ -1,0 +1,40 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6960,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is there a Blotato Make module for post analytics",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Another way to get analytics into Make",
+    "steps": [
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S2 says the Make module has no analytics yet, and S3 says to use Make's HTTP module with the analytics endpoints and API key header.",
+  "steps": [
+   {
+    "text": "No, the official Blotato Make.com module does not include analytics yet.",
+    "quotes": [
+     "S2"
+    ]
+   },
+   {
+    "text": "To pull analytics from a Make scenario, call the two endpoints on the Analytics page with Make's HTTP module, passing your API key in the blotato-api-key header.",
+    "quotes": [
+     "S3"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:07:08.716Z"
+}

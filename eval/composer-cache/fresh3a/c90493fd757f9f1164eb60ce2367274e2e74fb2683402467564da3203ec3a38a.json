@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4334,
+ "verdict": {
+  "queries": [
+   "GET /v2/published-posts/{id} 404 not found",
+   "published-posts API list query parameter returns post id",
+   "published posts API key workspace scope",
+   "Posts > Published post ID API",
+   "API error 404 post not found Blotato"
+  ]
+ },
+ "at": "2026-11-16T08:07:03.386Z"
+}

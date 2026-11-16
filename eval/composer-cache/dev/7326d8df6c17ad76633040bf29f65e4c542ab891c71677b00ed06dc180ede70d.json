@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4426,
+ "verdict": {
+  "asked": [
+   {
+    "item": "How many brands can I make in Brand Kit on Starter",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences say you can set up more than one brand but state no number of brands, and no Starter brand limit appears in the Plan Limits text, so the question cannot be answered from them.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:14:08.037Z"
+}

@@ -1,0 +1,50 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8668,
+ "verdict": {
+  "asked": [
+   {
+    "item": "date for First Comment on LinkedIn",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "whether First Comment is available on LinkedIn",
+    "steps": [
+     1
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages state directly that First Comment is not supported for LinkedIn and give no release date for the blocking LinkedIn API access.",
+  "steps": [
+   {
+    "text": "First Comment is not available for LinkedIn in Blotato.",
+    "quotes": [
+     "S5",
+     "S37"
+    ]
+   },
+   {
+    "text": "LinkedIn restricts access to the comment and messaging API endpoints Blotato needs, and Blotato is seeking approved API access with no release date.",
+    "quotes": [
+     "S7",
+     "S8"
+    ]
+   },
+   {
+    "text": "First Comment works on Instagram and Facebook posts.",
+    "quotes": [
+     "S6",
+     "S70"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:26:28.027Z"
+}

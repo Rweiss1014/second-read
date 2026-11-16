@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5996,
+ "verdict": {
+  "asked": [
+   {
+    "item": "can the TikTok repurpose template use a YouTube Shorts channel as its source",
+    "steps": []
+   },
+   {
+    "item": "new Shorts reposted to Instagram and Facebook",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages describe this template only as triggered by an RSS feed of new TikTok videos, and no sentence says the trigger or source can be changed to a YouTube Shorts channel, so the customer's question is not answered.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:59:19.567Z"
+}

@@ -1,0 +1,35 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4305,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Add TikTok Shop link to videos posted with Blotato",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S2 and S3 directly state TikTok Shop product links cannot be added to posts published through Blotato.",
+  "steps": [
+   {
+    "text": "No, you can't add TikTok Shop product links to posts published through Blotato or any third-party tool.",
+    "quotes": [
+     "S3"
+    ]
+   },
+   {
+    "text": "This is because TikTok's posting API does not support attaching Shop product links to posts.",
+    "quotes": [
+     "S2"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:10:20.475Z"
+}

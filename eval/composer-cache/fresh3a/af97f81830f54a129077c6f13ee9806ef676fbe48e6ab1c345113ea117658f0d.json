@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4529,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can Blotato post to a Slack Connect channel shared with a partner's workspace",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence says whether Blotato can post to a Slack Connect channel that belongs to another workspace; the sentences only cover channels inside the connected workspace, public channels, and private channels where the Blotato app was invited.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:25:52.257Z"
+}

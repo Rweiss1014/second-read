@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5057,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Where did the 12 AI Agent drafts from yesterday go",
+    "steps": []
+   },
+   {
+    "item": "Drafts still missing after checking Remix on the same laptop and Chrome",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer says the drafts are missing and not in Remix after they already checked, and the help pages send missing-draft cases like this to support with the screen URL, approximate time, and last action, rather than giving a fix.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:28:05.283Z"
+}

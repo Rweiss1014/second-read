@@ -1,0 +1,53 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4331,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Did uploading own photos use credits?",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Did writing own caption (no AI) use credits?",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Where to check credits",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages state that uploading your own images and drafting text do not use credits, and where to check the balance.",
+  "steps": [
+   {
+    "text": "No, uploading your own image and drafting text do not use credits.",
+    "quotes": [
+     "S3"
+    ]
+   },
+   {
+    "text": "Credits are only used for generating AI images and AI videos.",
+    "quotes": [
+     "S128"
+    ]
+   },
+   {
+    "text": "You can check your balance by opening Settings > Billing and reading AI Credits and Usage.",
+    "quotes": [
+     "S4"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:45:39.467Z"
+}

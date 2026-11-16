@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4979,
+ "verdict": {
+  "asked": [
+   {
+    "item": "split-test two different messages (A to half, B to the rest)",
+    "steps": []
+   },
+   {
+    "item": "show which version got more clicks",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences say an automation sends one message by default (S5) and describe Read the Stats only by heading, with no sentence on splitting messages between contacts or comparing click results, so the question cannot be answered from them.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:26:19.750Z"
+}

@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5087,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Score threshold for getting the 10 hooks",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say AI generates 10 suggested hooks if you score below a certain threshold, but they never state what that threshold is.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:46:49.250Z"
+}

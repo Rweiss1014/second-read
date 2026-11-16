@@ -1,0 +1,65 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7163,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why Stripe says invoice can no longer be paid",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Must I pay the old invoice before using Blotato again",
+    "steps": [
+     2,
+     3,
+     4
+    ]
+   },
+   {
+    "item": "Card was declined some days ago",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The page explains this exact Stripe message, says the old expired invoice need not be paid, and gives the steps to subscribe again with a working card.",
+  "steps": [
+   {
+    "text": "That message means the invoice expired and Stripe closed it, so you cannot pay that specific invoice anymore.",
+    "quotes": [
+     "S30"
+    ]
+   },
+   {
+    "text": "You do not need to pay the old expired invoice.",
+    "quotes": [
+     "S39"
+    ]
+   },
+   {
+    "text": "To fix it, start a fresh subscription with a working card: go to Settings > Billing, click View Billing Portal, update your payment method and add a different card if your current card was declined, select the plan you want, and confirm checkout.",
+    "quotes": [
+     "S32",
+     "S33",
+     "S34",
+     "S35",
+     "S36",
+     "S37"
+    ]
+   },
+   {
+    "text": "Subscribing again generates a new invoice and reactivates your account.",
+    "quotes": [
+     "S38"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:48:25.833Z"
+}

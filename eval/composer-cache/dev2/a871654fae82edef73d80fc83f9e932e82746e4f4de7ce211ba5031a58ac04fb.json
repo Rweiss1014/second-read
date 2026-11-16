@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3838,
+ "verdict": {
+  "queries": [
+   "Creator plan yearly billing credits allocated upfront",
+   "Blotato Creator plan annual subscription monthly credit allocation",
+   "Blotato pricing plans credits per month yearly vs monthly billing",
+   "Blotato credits renewal annual plan 60,000 credits"
+  ]
+ },
+ "at": "2026-11-16T07:47:49.843Z"
+}

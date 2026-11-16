@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5024,
+ "verdict": {
+  "points": [
+   {
+    "point": "Were the Context articles deleted?",
+    "sentence": "Context (videos, articles, PDFs, text) is stored locally in your browser. If you switch from laptop to phone, re-add your context on the new device."
+   },
+   {
+    "point": "Laptop to another device (home computer)",
+    "sentence": "Context is stored locally in your browser, so on a new device you add it again."
+   }
+  ],
+  "pick": "drafts-not-synced-devices",
+  "reason": "The entry says Context is stored locally in the browser and must be re-added on a new device, which explains why the articles are missing and that they weren't deleted."
+ },
+ "at": "2026-11-16T08:07:45.856Z"
+}

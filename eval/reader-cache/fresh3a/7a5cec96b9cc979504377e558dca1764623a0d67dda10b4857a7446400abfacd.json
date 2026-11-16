@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8202,
+ "verdict": {
+  "points": [
+   {
+    "point": "Next free slot time with no weekly slots: does it publish right away?",
+    "sentence": ""
+   },
+   {
+    "point": "Will it show as failed instead?",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry (no-available-slot-9-months) covers Next free slot time on the website but never states whether a post with no slots publishes immediately or shows as failed, and the API entry doesn't cover the website."
+ },
+ "at": "2026-11-16T08:09:53.723Z"
+}

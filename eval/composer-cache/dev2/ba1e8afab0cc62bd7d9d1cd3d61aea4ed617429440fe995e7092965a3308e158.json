@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5426,
+ "verdict": {
+  "asked": [
+   {
+    "item": "how Blotato calculates the Time saved figure",
+    "steps": []
+   },
+   {
+    "item": "whether Time saved is a set number of minutes per post",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences list \"Time saved\" as a dashboard item (S71) but do not explain how it is calculated or whether it uses a fixed number of minutes per post, so the customer's question has no answer in the help pages.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:01:05.293Z"
+}

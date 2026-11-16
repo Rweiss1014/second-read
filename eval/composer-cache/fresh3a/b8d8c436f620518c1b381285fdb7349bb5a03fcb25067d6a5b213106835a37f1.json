@@ -1,0 +1,40 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 10122,
+ "verdict": {
+  "asked": [
+   {
+    "item": "max First Comment length on Instagram (customer's comment is about 3,000 characters)",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "whether the First Comment length is the same on Facebook",
+    "steps": [
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The sentences state the First Comment character limit for both Instagram and Facebook, which answers both questions.",
+  "steps": [
+   {
+    "text": "On Instagram, First Comments support up to 2,200 characters.",
+    "quotes": [
+     "S17"
+    ]
+   },
+   {
+    "text": "The limit is not the same on Facebook, where First Comments support up to 8,000 characters.",
+    "quotes": [
+     "S16"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:25:47.224Z"
+}

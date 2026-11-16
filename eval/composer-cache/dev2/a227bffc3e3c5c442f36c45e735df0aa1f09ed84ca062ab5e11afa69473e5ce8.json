@@ -1,0 +1,52 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8243,
+ "verdict": {
+  "asked": [
+   {
+    "item": "video published to YouTube but not showing on my channel page",
+    "steps": [
+     1,
+     2,
+     3,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help page explains that Blotato web app uploads default to Unlisted and that Unlisted videos do not show on the public channel page, and gives the steps to check and change visibility in YouTube Studio.",
+  "steps": [
+   {
+    "text": "Publishing from the Blotato web app defaults to Unlisted unless you change the \"Video privacy status\" dropdown.",
+    "quotes": [
+     "S14"
+    ]
+   },
+   {
+    "text": "Unlisted and private videos do not appear on your public channel page, but they still exist in your account.",
+    "quotes": [
+     "S15"
+    ]
+   },
+   {
+    "text": "In YouTube Studio, click Content in the left sidebar and find your video in the list.",
+    "quotes": [
+     "S16",
+     "S17",
+     "S18"
+    ]
+   },
+   {
+    "text": "Check the Visibility column, then click the visibility value and change it to Public.",
+    "quotes": [
+     "S19",
+     "S20"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:59:54.163Z"
+}

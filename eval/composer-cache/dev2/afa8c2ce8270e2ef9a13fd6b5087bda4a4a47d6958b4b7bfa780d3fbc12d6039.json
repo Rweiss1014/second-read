@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3226,
+ "verdict": {
+  "queries": [
+   "GET /v2/comments query parameters filter",
+   "GET /v2/comments isAuthor filter audience comments",
+   "Blotato API comments isAuthor parameter",
+   "Blotato API list comments filter by author replies"
+  ]
+ },
+ "at": "2026-11-16T07:46:12.961Z"
+}

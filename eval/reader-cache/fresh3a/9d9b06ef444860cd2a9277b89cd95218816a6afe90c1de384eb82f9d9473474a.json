@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3787,
+ "verdict": {
+  "points": [
+   {
+    "point": "Windsurf editor MCP setup instructions",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry mentions Windsurf or covers setup for it; the Codex and Claude entries cover other clients, so they don't answer this."
+ },
+ "at": "2026-11-16T08:10:33.276Z"
+}

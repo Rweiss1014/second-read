@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3561,
+ "verdict": {
+  "queries": [
+   "Blotato keyboard shortcuts calendar view",
+   "Blotato post editor keyboard shortcuts",
+   "Blotato hotkeys list shortcuts for scheduling calendar",
+   "Blotato shortcuts save post, undo, redo, duplicate post editor"
+  ]
+ },
+ "at": "2026-11-16T07:45:29.105Z"
+}

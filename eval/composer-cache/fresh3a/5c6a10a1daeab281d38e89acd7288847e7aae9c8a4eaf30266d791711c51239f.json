@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4699,
+ "verdict": {
+  "queries": [
+   "Facebook Page direct message character limit",
+   "Facebook Messenger message with buttons text length limit",
+   "Facebook Page DM link button not sending",
+   "Facebook Messenger button template text character limit 640",
+   "Blotato Facebook Page messages with buttons"
+  ]
+ },
+ "at": "2026-11-16T08:09:52.041Z"
+}

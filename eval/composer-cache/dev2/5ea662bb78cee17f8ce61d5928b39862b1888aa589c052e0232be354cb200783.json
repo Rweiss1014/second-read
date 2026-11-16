@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6135,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Use a YouTube Shorts channel as the trigger instead of TikTok",
+    "steps": []
+   },
+   {
+    "item": "Repost new Shorts to Instagram and Facebook with that template",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The template pages only describe an RSS trigger for new TikTok videos, and none of the sentences say whether a YouTube Shorts channel can be the source.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:47:06.405Z"
+}

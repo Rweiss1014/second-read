@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6482,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is it a bug that status goes from nothing to 'published' without showing 'publishing'",
+    "steps": []
+   },
+   {
+    "item": "Whether the poll loop condition is correct",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say 'publishing' means the post is being processed, but they don't say whether a poll can skip it or what the first poll returns. They also don't say whether this is a bug, so a team member should check.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:38:13.958Z"
+}

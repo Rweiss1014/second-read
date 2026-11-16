@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6682,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Nonprofit discount on the Creator plan",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences give the Creator price and say no discount code is active, but none say whether a nonprofit discount exists, so a team member should answer.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:08:32.354Z"
+}

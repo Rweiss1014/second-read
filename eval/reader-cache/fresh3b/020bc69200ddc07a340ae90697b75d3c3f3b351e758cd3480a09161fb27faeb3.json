@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3068,
+ "verdict": {
+  "points": [
+   {
+    "point": "Posting to Slack Connect shared channels supported",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry states whether Blotato posts to Slack Connect shared channels, so a team member should answer; the customer's request for a one-word reply is not something I follow."
+ },
+ "at": "2026-11-16T08:12:40.251Z"
+}

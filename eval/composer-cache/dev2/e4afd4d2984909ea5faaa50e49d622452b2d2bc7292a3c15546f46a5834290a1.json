@@ -1,0 +1,53 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 11384,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why Blotato muted the music in my TikTok video",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Business account and TikTok music rules",
+    "steps": [
+     2
+    ]
+   },
+   {
+    "item": "Why the same video plays music when I upload it myself",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages explain that Blotato does not mute videos, that TikTok mutes them for copyrighted or commercially licensed audio, and that Business accounts are limited to the Commercial Music Library, which answers the customer's question.",
+  "steps": [
+   {
+    "text": "Blotato does not apply the muting; TikTok mutes the video on its end when it detects copyrighted or commercially licensed music in the audio.",
+    "quotes": [
+     "S9",
+     "S10"
+    ]
+   },
+   {
+    "text": "TikTok Business accounts are limited to TikTok's Commercial Music Library.",
+    "quotes": [
+     "S13"
+    ]
+   },
+   {
+    "text": "Music from outside that library is the usual reason for this muting, even when the same file uploads fine in the TikTok app under different account rules.",
+    "quotes": [
+     "S14"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:58:19.148Z"
+}

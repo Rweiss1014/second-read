@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3467,
+ "verdict": {
+  "queries": [
+   "TikTok low views reach troubleshooting",
+   "TikTok posts not getting views shadowban",
+   "TikTok account not eligible for For You feed reach",
+   "TikTok post privacy settings audience visibility",
+   "Blotato TikTok post settings privacy level"
+  ]
+ }
+}

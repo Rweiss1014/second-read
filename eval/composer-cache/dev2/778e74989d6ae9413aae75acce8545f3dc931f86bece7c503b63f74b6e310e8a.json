@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4193,
+ "verdict": {
+  "queries": [
+   "New draft empty content",
+   "Context YouTube video URL AI post generation",
+   "Context sources not used in generated draft",
+   "YouTube video transcript import post creation"
+  ]
+ }
+}

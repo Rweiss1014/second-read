@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4543,
+ "verdict": {
+  "queries": [
+   "Blotato agency dashboard multiple client workspaces",
+   "Blotato sub-accounts for clients agency plan",
+   "Blotato workspaces white label agency accounts",
+   "Blotato agency feature release date roadmap"
+  ]
+ }
+}

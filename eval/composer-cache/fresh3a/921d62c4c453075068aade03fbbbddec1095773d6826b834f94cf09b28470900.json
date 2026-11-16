@@ -1,0 +1,42 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7388,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why 4,600 Greek characters fails when under 8000",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Facebook public reply to a comment fails with 'text too long'",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The sentences explain that Facebook's public reply limit is 8000 bytes, not characters, and that Greek text fails above about 4000 characters.",
+  "steps": [
+   {
+    "text": "Facebook limits a comment or a public reply to 8000 bytes, not characters.",
+    "quotes": [
+     "S15"
+    ]
+   },
+   {
+    "text": "Greek and Cyrillic text fails above about 4000 characters, so a Greek text of about 4,600 characters is over that limit.",
+    "quotes": [
+     "S16"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:10:17.624Z"
+}

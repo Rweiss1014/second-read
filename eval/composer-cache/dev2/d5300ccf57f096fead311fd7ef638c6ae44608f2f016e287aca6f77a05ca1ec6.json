@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3774,
+ "verdict": {
+  "queries": [
+   "Include Sources toggle",
+   "Include Sources placement in post text",
+   "sources links position top of post",
+   "numbered footnotes source links",
+   "Include Sources AI post generation citations"
+  ]
+ },
+ "at": "2026-11-16T07:54:55.362Z"
+}

@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3028,
+ "verdict": {
+  "points": [
+   {
+    "point": "YouTube community post with a picture",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether Blotato supports YouTube community posts with images; the YouTube entries cover remixing videos and an Unauthorized error, which are different questions."
+ },
+ "at": "2026-11-16T08:09:04.671Z"
+}

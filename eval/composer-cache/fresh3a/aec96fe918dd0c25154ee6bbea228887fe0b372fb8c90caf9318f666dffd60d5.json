@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4874,
+ "verdict": {
+  "asked": [
+   {
+    "item": "written guarantee that Pinterest account will not be shadowbanned from automated posting",
+    "steps": []
+   },
+   {
+    "item": "legal responsibility if the account is shadowbanned (legal threat)",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The message threatens legal action and asks for a written guarantee, which is outside what the help pages say and is a matter for the team.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:25:59.796Z"
+}

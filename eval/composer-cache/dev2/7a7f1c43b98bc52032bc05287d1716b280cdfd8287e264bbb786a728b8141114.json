@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4790,
+ "verdict": {
+  "queries": [
+   "DM automation keyword trigger exact match whole word",
+   "comment trigger keyword contains vs exact match setting",
+   "Instagram auto DM keyword matching substring false positive",
+   "keyword filter match entire word only comment automation"
+  ]
+ }
+}

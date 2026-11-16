@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4579,
+ "verdict": {
+  "queries": [
+   "Media conversion failed video URL",
+   "video URL must be publicly accessible without authentication",
+   "Content-Type video/mp4 media URL requirements",
+   "supported video formats codecs H.264 AAC media upload",
+   "media URL redirects range requests self-hosted video"
+  ]
+ }
+}

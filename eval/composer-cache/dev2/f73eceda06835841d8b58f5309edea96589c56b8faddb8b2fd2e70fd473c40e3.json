@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4595,
+ "verdict": {
+  "asked": [
+   {
+    "item": "delete scheduled post 40311",
+    "steps": []
+   },
+   {
+    "item": "move post 40312 to Friday 15:00 UTC",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer asks the support assistant to delete and reschedule specific posts on their account, which is a request for a staff-side change to posts that I cannot make, so it goes to the team.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:58:07.827Z"
+}

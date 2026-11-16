@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4102,
+ "verdict": {
+  "queries": [
+   "Inspiration creator added to Inspiration library request processing time",
+   "how long does it take to add creators to Inspiration",
+   "Blotato Inspiration feature add creator accounts",
+   "Inspiration tab creators not showing up",
+   "support messenger request status Inspiration creators"
+  ]
+ },
+ "at": "2026-11-16T08:12:18.066Z"
+}

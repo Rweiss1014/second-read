@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4290,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is Blotato HIPAA compliant",
+    "steps": []
+   },
+   {
+    "item": "Is Blotato SOC 2 certified",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the help sentences mention HIPAA or SOC 2 compliance or certification, so the team needs to answer this.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:08:10.328Z"
+}

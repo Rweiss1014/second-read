@@ -1,0 +1,12 @@
+{
+ "kind": "second",
+ "version": "second-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5337,
+ "verdict": {
+  "objections": [],
+  "verdict": "send"
+ },
+ "at": "2026-11-16T08:00:53.761Z"
+}

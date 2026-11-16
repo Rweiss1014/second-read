@@ -1,0 +1,48 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6556,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Meaning of 'You're On Heygen Free Plan' error",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Do I need to pay HeyGen for this to work with Blotato",
+    "steps": [
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The CREATE HEYGEN AVATAR VIDEO errors section says the HeyGen API requires a paid API plan and the Free API plan won't work.",
+  "steps": [
+   {
+    "text": "\"You're On Heygen Free Plan\" is one of the most common reasons the CREATE HEYGEN AVATAR VIDEO step fails.",
+    "quotes": [
+     "S2",
+     "S6"
+    ]
+   },
+   {
+    "text": "HeyGen API requires you to pay for its $99/mo API plan.",
+    "quotes": [
+     "S7"
+    ]
+   },
+   {
+    "text": "The Free API plan won't work.",
+    "quotes": [
+     "S8"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:47:52.943Z"
+}

@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3601,
+ "verdict": {
+  "queries": [
+   "X (Twitter) daily post limit per account",
+   "Blotato X posting limits posts per day",
+   "X account rate limits 24-hour post cap API",
+   "Blotato Twitter X connected account daily posting limit",
+   "X posts per day limit news account scheduling"
+  ]
+ },
+ "at": "2026-11-16T08:07:43.683Z"
+}

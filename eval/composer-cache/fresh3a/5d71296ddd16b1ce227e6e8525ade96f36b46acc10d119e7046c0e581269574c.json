@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6241,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Remove 'Published by Blotato' label from Page posts",
+    "steps": []
+   },
+   {
+    "item": "Where is the setting to turn it off",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the sentences mention a 'Published by Blotato' label on Facebook Page posts or any setting to turn it off, so the question has no answer in the provided pages.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:07:58.949Z"
+}

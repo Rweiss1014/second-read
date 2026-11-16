@@ -120,6 +120,40 @@ The `claude-cli` backend runs `claude -p` with no tools, no MCP servers, no CLAU
 Every verdict is saved under a hash of the prompt version, the model, the message and the candidates, so a second run costs nothing and gives the same answer. The saved file holds the hash and the verdict, not the message.
 The result of every ticket has a `reader` field: backend, model, candidates, the pick or none, each point with its sentence, the refuter's verdict, and whether it came from the cache. Two reason codes are new: `reader-abstained` and `reader-refuted` (see `knowledge/ENTRY-GUIDE.md`).
 
+## The composer: an answer from any help page, every sentence proven, then a second read (off by default)
+
+The saved entries quote only 36 of Blotato's 278 help pages, so for most questions no saved reply holds the answer.
+The composer writes one from the pages themselves, and the script proves every step before anyone sees it.
+
+It runs only when the guards and the hand-over signals did not take the message, and no saved entry answered it (the matcher or the reader).
+
+1. **The script finds the passages.** Every cached help page is split into citable units: a heading, a sentence, a list item, a table row. A plain BM25 search ranks the passages. A fast model may first write three to five search queries in the pages' own words; the script ranks for the message and for each query and merges the lists. The writer sees the top 16 passages from up to 5 pages, every unit numbered S1, S2, ...
+2. **The writer** (one model call) says whether the passages answer everything the customer asked, lists what was asked, and writes 1 to 5 short steps, each with the ids of the sentences that prove it. "Not answerable" is a good outcome.
+3. **The script verifies, never trusts.** The draft is dropped (a person gets the message, as before) unless every id exists and its sentence is on the cached page word for word; every step cites at least one; every number, URL, route, file type, plan, platform, name with digits, quoted label, menu path and capitalized name in a step is also in that step's own sentences; every thing asked is tied to a step; no quote sends the customer to support; the script checker (promises, retries, shape) passes on the assembled reply; and the coverage rules find no gap the quotes leave open.
+4. **The second read** (a fresh call, another prompt, no memory of the first) sees the message, the assembled reply and the full help-page sections cited, and tries to break it. Any real objection hands the message to a person.
+5. The greeting, the opening line, the fixed lines that keep the 3-to-5-step shape, the next step, the "Still open:" line, the help-page links and the sign-off are the script's. Only the step sentences are the model's.
+
+A composed reply is never one of the saved, pre-checked replies. Its result says `path: "composed"`, carries every step with its sentences and pages, the script checks and the second reader's verdict, and its state is `checked-live` (the second read passed it just now), never the fresh checker's `passed`.
+Two reason codes are new: `compose-unverified` and `second-read-objected`.
+
+| Variable | Values | Default |
+|---|---|---|
+| `SUPPORT_DESK_COMPOSER` | `off`, `claude-cli`, `anthropic` | `off` |
+| `SUPPORT_DESK_COMPOSER_MODEL` | the writer's model: `haiku`, `sonnet`, or a full id | `sonnet` |
+| `SUPPORT_DESK_SECOND_READ` | `on`, `off` | `on` |
+| `SUPPORT_DESK_SECOND_READ_MODEL` | the second reader's model | the writer's |
+| `SUPPORT_DESK_COMPOSER_EXPAND` | the search step, `on` or `off` | `on` |
+| `SUPPORT_DESK_COMPOSER_EXPAND_MODEL` | its model | `haiku` |
+| `SUPPORT_DESK_COMPOSER_CACHE` | a folder for saved verdicts | `desk/composer-cache` |
+
+```bash
+SUPPORT_DESK_READER=claude-cli SUPPORT_DESK_COMPOSER=claude-cli node bin/support-desk.mjs ticket "<customer message>" --mock
+node eval/run.mjs --set dev2 --reader claude-cli --composer claude-cli          # the exam, both on
+node eval/run.mjs --set dev2 --reader claude-cli --composer claude-cli --cache-only 1 --composer-cache-only 1   # the same numbers, no model call
+```
+
+The calls go through the same backends and the same kind of verdict cache as the reader: no tools, and files named by a hash of the prompt version, the model, the message and the passages. A saved file never holds the message itself, but it does hold the model's own words (what it found asked, its steps, its search queries), which can paraphrase the message. Keep the cache folder as private as `desk/`.
+
 ## The 12 sample tickets
 
 They are made up, and they cover the three kinds in the job post: non-technical, billing, and mildly technical.

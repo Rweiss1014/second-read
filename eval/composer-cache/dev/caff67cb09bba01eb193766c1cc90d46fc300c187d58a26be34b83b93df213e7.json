@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3276,
+ "verdict": {
+  "queries": [
+   "Blotato Instagram post also published to connected Facebook Page",
+   "Blotato Facebook Page selected account publish same post",
+   "Blotato Instagram and Facebook selected together duplicate post",
+   "Blotato Facebook Page target Instagram cross-post behavior"
+  ]
+ }
+}

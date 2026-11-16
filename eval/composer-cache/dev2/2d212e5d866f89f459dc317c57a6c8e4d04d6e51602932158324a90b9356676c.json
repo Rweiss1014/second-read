@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3860,
+ "verdict": {
+  "asked": [
+   {
+    "item": "How to tag a company page in a LinkedIn post (blue name, notification)",
+    "steps": []
+   },
+   {
+    "item": "Typing @ in Blotato leaves the @ sign",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences cover posting to a company page and DM comment mentions, but none say how to tag or @mention a company page inside a LinkedIn post's text.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:46:47.685Z"
+}

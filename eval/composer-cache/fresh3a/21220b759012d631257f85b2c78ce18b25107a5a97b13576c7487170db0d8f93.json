@@ -1,0 +1,17 @@
+{
+ "kind": "second",
+ "version": "second-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 10381,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "says-more",
+    "about": "The help page says Instagram's API 'does not yet support' link stickers only for Stories published via third-party tools, but the reply states flatly that 'you cannot add one through the API', dropping the 'yet' and widening the scope."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T08:27:10.812Z"
+}

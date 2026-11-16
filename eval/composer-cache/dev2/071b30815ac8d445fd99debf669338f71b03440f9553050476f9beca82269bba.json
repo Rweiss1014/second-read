@@ -1,0 +1,48 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6363,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Mix six images and one video in a single LinkedIn carousel",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Posting via the API to a company page",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages state that videos cannot be mixed into a LinkedIn carousel, that carousels use 2-10 JPG or PNG image URLs, and that pageId goes in the target object for a company page.",
+  "steps": [
+   {
+    "text": "No, videos cannot be mixed into a carousel.",
+    "quotes": [
+     "S7"
+    ]
+   },
+   {
+    "text": "For a carousel, pass 2-10 image URLs (JPG, PNG) in content.mediaUrls, and Blotato auto-builds a LinkedIn Document carousel.",
+    "quotes": [
+     "S5",
+     "S6"
+    ]
+   },
+   {
+    "text": "To post to a company page, add pageId in the target object.",
+    "quotes": [
+     "S78"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:48:16.350Z"
+}

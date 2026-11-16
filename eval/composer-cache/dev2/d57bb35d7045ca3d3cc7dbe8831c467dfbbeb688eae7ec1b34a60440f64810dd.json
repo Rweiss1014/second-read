@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4415,
+ "verdict": {
+  "queries": [
+   "Stripe Checkout session charged only after payment completed",
+   "Stripe checkout link not opened no charge",
+   "Blotato credits purchase Stripe checkout session",
+   "Checkout session expired unpaid no charge",
+   "Blotato API credits top-up checkout URL"
+  ]
+ }
+}

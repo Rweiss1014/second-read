@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3381,
+ "verdict": {
+  "points": [
+   {
+    "point": "move existing DM automation to a different IG account",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether an existing DM automation can be switched to another Instagram account; the connect-account entry covers connecting accounts, and the Slack entry only says disconnecting archives DM automations."
+ },
+ "at": "2026-11-16T08:09:22.108Z"
+}

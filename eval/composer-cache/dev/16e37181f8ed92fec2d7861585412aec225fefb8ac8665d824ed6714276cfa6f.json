@@ -1,0 +1,29 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3451,
+ "verdict": {
+  "asked": [
+   {
+    "item": "YouTube description max length",
+    "steps": [
+     1
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S81 and S82 state the YouTube video description maximum length.",
+  "steps": [
+   {
+    "text": "The maximum length for a YouTube video description is 5,000 characters.",
+    "quotes": [
+     "S81",
+     "S82"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:37:49.290Z"
+}

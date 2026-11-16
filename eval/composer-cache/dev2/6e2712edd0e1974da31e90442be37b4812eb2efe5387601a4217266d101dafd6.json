@@ -1,0 +1,68 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 10384,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is there a 100 MB Google Drive limit?",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Will a 350 MB file fit on Creator?",
+    "steps": [
+     2
+    ]
+   },
+   {
+    "item": "Virus scan warning page instead of the file",
+    "steps": [
+     3,
+     4,
+     5
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The sentences say there is no 100 MB Drive cutoff, give the Creator upload limit, and give the direct URL fix and the fallback options.",
+  "steps": [
+   {
+    "text": "That isn't true: Blotato does not impose a 100 MB Google Drive cutoff.",
+    "quotes": [
+     "S18"
+    ]
+   },
+   {
+    "text": "The file still must fit your Blotato plan's upload limit and the destination platform's media limit, and the Creator plan's max media upload size is 1 GB.",
+    "quotes": [
+     "S19",
+     "S72"
+    ]
+   },
+   {
+    "text": "For Google Drive files, including large videos, replace the standard share link with this format: https://drive.usercontent.google.com/download?id={FILE_ID}&export=download&confirm=t",
+    "quotes": [
+     "S9",
+     "S10"
+    ]
+   },
+   {
+    "text": "Make sure the file is shared with \"Anyone with the link\" as Viewer.",
+    "quotes": [
+     "S16"
+    ]
+   },
+   {
+    "text": "If the direct download URL still returns the warning page, use the Presigned Upload flow, frame.io, AWS S3, or Google Cloud Storage.",
+    "quotes": [
+     "S23"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:45:32.286Z"
+}

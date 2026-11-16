@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9631,
+ "verdict": {
+  "asked": [
+   {
+    "item": "404 from GET /v2/analytics for a published Instagram post",
+    "steps": []
+   },
+   {
+    "item": "Creator plan, post id from List Posts, same key",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say GET /v2/analytics is the top-posts ranking and list the 404 reasons only for the per-post endpoint, so they don't say why this call returns 404 and the team needs to check it.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:50:07.554Z"
+}

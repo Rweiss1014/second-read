@@ -1,0 +1,42 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7164,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Schedule a campaign about 11 months ahead",
+    "steps": [
+     1,
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The scheduling horizon sentences state the 9-month limit on every plan, the error past it, and the suggested workaround.",
+  "steps": [
+   {
+    "text": "The furthest date in the future you can schedule a post for is 9 months on every plan.",
+    "quotes": [
+     "S52"
+    ]
+   },
+   {
+    "text": "If you try to schedule a post past 9 months, Blotato returns an error.",
+    "quotes": [
+     "S53"
+    ]
+   },
+   {
+    "text": "Pick a time within the 9-month window or break longer campaigns into shorter batches.",
+    "quotes": [
+     "S54"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:38:38.555Z"
+}

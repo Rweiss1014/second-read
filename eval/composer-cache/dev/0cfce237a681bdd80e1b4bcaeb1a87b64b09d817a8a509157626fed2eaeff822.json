@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3934,
+ "verdict": {
+  "queries": [
+   "Blotato pause subscription",
+   "Blotato freeze plan billing pause",
+   "Blotato unused credits carry over after cancel or pause",
+   "Blotato subscription pause resume dates"
+  ]
+ }
+}

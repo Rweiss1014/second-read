@@ -1,0 +1,29 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5277,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Bluesky-side setup needed before videos work",
+    "steps": [
+     1
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The Bluesky video FAQ says the email address must be verified with Bluesky before videos can be posted.",
+  "steps": [
+   {
+    "text": "Yes, you can post videos to Bluesky with Blotato, but you must verify your email address with Bluesky so that you are allowed to post videos.",
+    "quotes": [
+     "S105",
+     "S106"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:46:12.211Z"
+}

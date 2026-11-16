@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3598,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Official Python SDK or npm package for REST API",
+    "steps": []
+   },
+   {
+    "item": "Or raw HTTP calls",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences show raw REST examples and an n8n community node package, but none states whether an official Python SDK or npm package for the REST API exists.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:51:04.867Z"
+}

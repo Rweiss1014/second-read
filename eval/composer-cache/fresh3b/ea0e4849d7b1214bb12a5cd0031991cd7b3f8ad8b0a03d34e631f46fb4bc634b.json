@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3732,
+ "verdict": {
+  "queries": [
+   "Google Drive folder access request not approved",
+   "Gamma templates Google Drive folder shared with you",
+   "Request access Google Drive folder owner approval pending"
+  ]
+ },
+ "at": "2026-11-16T08:12:42.898Z"
+}

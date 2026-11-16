@@ -1,0 +1,63 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 13538,
+ "verdict": {
+  "asked": [
+   {
+    "item": "How to tell Blotato to post as a Short (no Shorts button found)",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Is a 45-second vertical video treated as a Short",
+    "steps": [
+     2,
+     3
+    ]
+   },
+   {
+    "item": "Where to set up the YouTube post",
+    "steps": [
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages say YouTube decides Short status from length and aspect ratio, with no separate Shorts upload, and the customer's 45-second vertical video fits those rules if it is 9:16.",
+  "steps": [
+   {
+    "text": "Blotato does not use a separate Shorts upload, and YouTube decides whether a video appears as a Short.",
+    "quotes": [
+     "S53",
+     "S54"
+    ]
+   },
+   {
+    "text": "A video under 3 minutes with a 9:16 (vertical) aspect ratio is automatically posted as a YouTube Short.",
+    "quotes": [
+     "S2",
+     "S7"
+    ]
+   },
+   {
+    "text": "Your 45-second video is under 3 minutes, so it meets the length rule, and it also needs to be 9:16 to qualify.",
+    "quotes": [
+     "S2",
+     "S17"
+    ]
+   },
+   {
+    "text": "Connect your YouTube account in Accounts, then open Content Studio > Post editor, select New draft, and select your YouTube account when scheduling.",
+    "quotes": [
+     "S5",
+     "S6"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:28:19.993Z"
+}

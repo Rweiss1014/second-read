@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4833,
+ "verdict": {
+  "queries": [
+   "DELETE /v2/schedules/{id} returns 404 not found",
+   "API schedule id vs calendar post id mismatch",
+   "delete scheduled post via API schedules endpoint",
+   "scheduled post already published or processing cannot be deleted",
+   "API key workspace scope for schedules endpoint"
+  ]
+ },
+ "at": "2026-11-16T07:50:30.806Z"
+}

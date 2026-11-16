@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3285,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Number of brands allowed in Brand Kit on Starter",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the sentences state a limit on the number of brands in Brand Kit, for Starter or any other plan.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:38:16.204Z"
+}

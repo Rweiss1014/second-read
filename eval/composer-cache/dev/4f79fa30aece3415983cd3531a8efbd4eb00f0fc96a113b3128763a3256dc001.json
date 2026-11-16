@@ -1,0 +1,28 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5177,
+ "verdict": {
+  "asked": [
+   {
+    "item": "how to put a smiley face (emoji) in a post",
+    "steps": [
+     1
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help page states how to open the emoji picker in the AI Agent where draft posts are, which answers how to add an emoji.",
+  "steps": [
+   {
+    "text": "In the AI Agent where you have draft posts, type a colon \":\" and you should see the emoji picker.",
+    "quotes": [
+     "S10"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:14:27.875Z"
+}

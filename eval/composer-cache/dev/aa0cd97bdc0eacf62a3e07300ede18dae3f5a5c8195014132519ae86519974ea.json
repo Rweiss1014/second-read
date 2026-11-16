@@ -1,0 +1,68 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 12596,
+ "verdict": {
+  "asked": [
+   {
+    "item": "What the 3-retries Unknown error reason means",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Whether to resend repeatedly (spam it)",
+    "steps": [
+     3
+    ]
+   },
+   {
+    "item": "Third failure this week, what to do next",
+    "steps": [
+     4,
+     5
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The TikTok FAQ explains this error, says to check for an existing post before retrying, and says to send evidence to support.",
+  "steps": [
+   {
+    "text": "This error means Blotato exhausted its publishing retry loop.",
+    "quotes": [
+     "S15"
+    ]
+   },
+   {
+    "text": "Unknown error reason means the stored TikTok failure reason has no matching description, and it does not prove a TikTok outage, a Blotato fault, or a credit problem.",
+    "quotes": [
+     "S16",
+     "S17"
+    ]
+   },
+   {
+    "text": "Check the TikTok account for an existing post before retrying.",
+    "quotes": [
+     "S19"
+    ]
+   },
+   {
+    "text": "Record the complete error, submission ID when available, destination, and time, then send that evidence to support so the team checks the raw TikTok failure reason and publishing logs.",
+    "quotes": [
+     "S18",
+     "S20"
+    ]
+   },
+   {
+    "text": "Do not reconnect solely because the reason is unknown.",
+    "quotes": [
+     "S22"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:39:01.339Z"
+}

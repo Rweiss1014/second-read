@@ -1,0 +1,62 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 10617,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why Blotato tools don't load in Hermes",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Two mcp_servers keys in config.yaml",
+    "steps": [
+     1,
+     3
+    ]
+   },
+   {
+    "item": "Correct Blotato entry format",
+    "steps": [
+     3,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The customer's config has a second mcp_servers key, which the help pages say makes the file invalid so Hermes loads the previous configuration without Blotato, and the pages give the correct single-key format.",
+  "steps": [
+   {
+    "text": "Your config.yaml has two mcp_servers keys, and a second key makes the file invalid.",
+    "quotes": [
+     "S55"
+    ]
+   },
+   {
+    "text": "When the file is invalid, Hermes keeps loading the previous configuration without Blotato.",
+    "quotes": [
+     "S55"
+    ]
+   },
+   {
+    "text": "Keep one mcp_servers key and add only the blotato entry under it.",
+    "quotes": [
+     "S54"
+    ]
+   },
+   {
+    "text": "Under that key, the blotato entry sets the url to https://mcp.blotato.com/mcp and sets blotato-api-key under headers, with your full API key in place of the placeholder.",
+    "quotes": [
+     "S53",
+     "S50"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:00:09.979Z"
+}

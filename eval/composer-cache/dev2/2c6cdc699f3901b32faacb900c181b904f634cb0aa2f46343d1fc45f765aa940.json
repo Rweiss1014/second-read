@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4682,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can a poll be made on X with Blotato",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences only cover LinkedIn polls, not polls on X, so none states whether X polls are supported.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:46:09.685Z"
+}

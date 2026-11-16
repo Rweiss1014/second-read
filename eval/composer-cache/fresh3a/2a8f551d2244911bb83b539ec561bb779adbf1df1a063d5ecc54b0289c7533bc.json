@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4621,
+ "verdict": {
+  "queries": [
+   "Use brand kit carousel template image style not applied",
+   "brand kit uploaded brand visuals reference images AI image generation",
+   "What do you post about field topic prompt carousel imagery",
+   "regenerate single slide scene carousel image style consistency",
+   "AI generated people stock photo style image settings carousel"
+  ]
+ },
+ "at": "2026-11-16T08:09:47.260Z"
+}

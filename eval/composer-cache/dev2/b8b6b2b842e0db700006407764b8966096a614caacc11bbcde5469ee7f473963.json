@@ -1,0 +1,33 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5708,
+ "verdict": {
+  "asked": [
+   {
+    "item": "What the Include Sources? toggle does / where links appear",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Show source links at top of post",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Show source links as numbered footnotes",
+    "steps": [
+     1
+    ]
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say the toggle appends source links to the bottom of the post, but they don't say whether links can go at the top or as numbered footnotes.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:55:01.083Z"
+}

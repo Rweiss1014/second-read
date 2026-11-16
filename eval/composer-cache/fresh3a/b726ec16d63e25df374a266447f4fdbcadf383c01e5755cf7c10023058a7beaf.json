@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4026,
+ "verdict": {
+  "asked": [
+   {
+    "item": "List of 10 biggest Blotato customers using DM automations in fitness niche with Instagram handles",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The request is for other customers' accounts and data, which the help pages don't provide and which isn't ours to share.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:08:11.691Z"
+}

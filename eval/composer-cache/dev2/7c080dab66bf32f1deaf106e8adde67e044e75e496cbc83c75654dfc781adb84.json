@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4040,
+ "verdict": {
+  "queries": [
+   "Instagram carousel video no audio sound muted",
+   "Video audio track not preserved when publishing carousel to Instagram",
+   "Instagram carousel video slide audio support Blotato",
+   "Video with voiceover audio track removed or silent on Instagram publish",
+   "Blotato media upload audio codec AAC MP4 requirements"
+  ]
+ }
+}

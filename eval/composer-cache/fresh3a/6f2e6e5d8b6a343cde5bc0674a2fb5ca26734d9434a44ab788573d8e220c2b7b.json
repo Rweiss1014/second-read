@@ -1,0 +1,68 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8626,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Did I do something wrong when typing the caption",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Caption is gone from the draft",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "How to get the caption back before posting",
+    "steps": [
+     3
+    ]
+   },
+   {
+    "item": "Where the draft shows up",
+    "steps": [
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages state directly that captions are not carried over when a TikTok post is published as a draft, and give the step to re-enter the caption in the TikTok app.",
+  "steps": [
+   {
+    "text": "Captions are not carried over when you publish a TikTok post as a draft.",
+    "quotes": [
+     "S23",
+     "S52"
+    ]
+   },
+   {
+    "text": "This is a TikTok API limitation.",
+    "quotes": [
+     "S24"
+    ]
+   },
+   {
+    "text": "After the draft is created, open the TikTok app and re-enter your caption before publishing the draft.",
+    "quotes": [
+     "S25",
+     "S53"
+    ]
+   },
+   {
+    "text": "The draft appears in the TikTok app's notifications, not in the standard Drafts folder in your profile. Look for a notification from TikTok about your draft.",
+    "quotes": [
+     "S19",
+     "S22"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:25:54.951Z"
+}

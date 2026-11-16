@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4917,
+ "verdict": {
+  "queries": [
+   "API key invalid 401 error blotato-api-key header",
+   "Settings > API copy full API key trailing characters",
+   "API key format padding equals sign copy paste truncated",
+   "where to find and regenerate API key Settings API"
+  ]
+ }
+}

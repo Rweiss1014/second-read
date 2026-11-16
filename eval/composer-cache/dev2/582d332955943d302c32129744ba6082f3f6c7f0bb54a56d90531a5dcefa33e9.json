@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4033,
+ "verdict": {
+  "queries": [
+   "source-resolutions-v3 cleanTranscript parameter",
+   "cleanTranscript query parameter REST API timestamps removed",
+   "GET source-resolutions-v3 transcript timestamp options",
+   "source resolutions transcript clean timestamps parameter name"
+  ]
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3181,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does Inspiration library include LinkedIn posts",
+    "sentence": ""
+   },
+   {
+    "point": "Is it only TikTok and Instagram",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry mentions the Inspiration library or which platforms it covers, so none answers this question."
+ },
+ "at": "2026-11-16T08:07:20.519Z"
+}

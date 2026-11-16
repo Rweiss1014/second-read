@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8053,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is the comment's age (9 days) the problem?",
+    "sentence": "If they posted a comment to one of your posts, you have up to 7 days to send a single private reply/direct message to them."
+   },
+   {
+    "point": "Instagram messaging limits",
+    "sentence": "Instagram limits who you can message and when: If they sent a direct message to you, you have 24 hours to respond to them."
+   }
+  ],
+  "pick": "message-failed-20102",
+  "reason": "The entry says a private reply to an Instagram comment must go out within 7 days, and this comment is 9 days old, so it answers the customer's question."
+ },
+ "at": "2026-11-16T08:11:30.249Z"
+}

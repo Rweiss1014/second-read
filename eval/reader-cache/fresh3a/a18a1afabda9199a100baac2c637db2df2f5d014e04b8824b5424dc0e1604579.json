@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4659,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why carousel fails with collaborators error / what differs about carousels",
+    "sentence": "They are **not supported on carousels** (multi-image/video posts) - a carousel with collaborators will fail to publish."
+   },
+   {
+    "point": "Collaborators work on single image posts",
+    "sentence": "Collaborators are supported on **single image posts and reels**."
+   }
+  ],
+  "pick": "instagram-collaborators",
+  "reason": "The entry states collaborators are supported on single image posts but not carousels, which would fail to publish, so it answers the customer's question about the difference."
+ },
+ "at": "2026-11-16T08:07:58.065Z"
+}

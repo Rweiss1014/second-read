@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4403,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can I pay with PayPal?",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the sentences mention PayPal or list which payment methods are accepted; the closest sentences only describe paying through Stripe Checkout and the Billing Portal, which is a neighboring topic.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:13:58.160Z"
+}

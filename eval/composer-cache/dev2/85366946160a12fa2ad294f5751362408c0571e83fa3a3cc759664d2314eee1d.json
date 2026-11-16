@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5930,
+ "verdict": {
+  "asked": [
+   {
+    "item": "When a Make version of the Hacker News to AI Clone Videos template will be available",
+    "steps": []
+   },
+   {
+    "item": "Whether the customer is still waiting on a Make version (status request)",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages list Make as not supported for this template (S93-S98) but give no timeline or plans for a Make version, so the customer's status question is not answered; this needs the team.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:59:54.301Z"
+}

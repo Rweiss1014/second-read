@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5219,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can Blotato's team pull 4-month-old Instagram DM history from servers",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "This asks staff to retrieve data for a legal dispute, which is a request for the team to act and a matter the help pages do not cover; the pages only say Blotato does not import past direct messages.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:26:48.443Z"
+}

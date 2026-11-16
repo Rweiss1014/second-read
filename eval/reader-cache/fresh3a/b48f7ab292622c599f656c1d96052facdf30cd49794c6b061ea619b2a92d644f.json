@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6819,
+ "verdict": {
+  "points": [
+   {
+    "point": "Did Blotato remove yearly plans?",
+    "sentence": ""
+   },
+   {
+    "point": "Why the pricing page shows only monthly plans",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The change-plan entry says billing can be switched between monthly and yearly, and the plans-and-pricing entry lists only monthly prices. Neither says whether yearly pricing was removed or why the pricing page shows only monthly plans."
+ },
+ "at": "2026-11-16T08:10:24.482Z"
+}

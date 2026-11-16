@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4243,
+ "verdict": {
+  "queries": [
+   "isFollower null webhook payload",
+   "email gate automation webhook body fields",
+   "follow gate isFollower field value",
+   "email gate without follow gate setting"
+  ]
+ }
+}

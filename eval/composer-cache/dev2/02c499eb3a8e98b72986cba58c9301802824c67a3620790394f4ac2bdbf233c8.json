@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6688,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Posts published on Starter: do they move to the Creator schedule after upgrading",
+    "steps": []
+   },
+   {
+    "item": "Whether to republish a few posts",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages list the checkpoints for each plan, but none says whether posts published on Starter switch to the Creator schedule after an upgrade, so the team needs to answer this.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:48:09.950Z"
+}

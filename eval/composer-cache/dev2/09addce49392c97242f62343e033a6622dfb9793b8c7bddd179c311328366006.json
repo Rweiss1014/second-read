@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4036,
+ "verdict": {
+  "queries": [
+   "connect same Instagram account to multiple Blotato accounts",
+   "Instagram account already connected to another workspace",
+   "Instagram connection token invalidated when reconnected",
+   "reconnect Instagram account Blotato expired access token",
+   "Instagram Business account connected in multiple accounts"
+  ]
+ },
+ "at": "2026-11-16T07:47:44.291Z"
+}

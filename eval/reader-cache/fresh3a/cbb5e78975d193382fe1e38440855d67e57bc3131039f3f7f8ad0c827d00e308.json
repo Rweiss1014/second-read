@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3061,
+ "verdict": {
+  "points": [
+   {
+    "point": "Whether 300+ sources in the Sources library is supported (limit on number of sources)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer implicitly asks whether 300+ sources is okay, but no entry states a limit on the number of saved sources; the save-source entry only explains how to save."
+ },
+ "at": "2026-11-16T08:10:22.201Z"
+}

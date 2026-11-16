@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4846,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Make a YouTube video a Premiere with countdown",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the sentences say whether Blotato supports YouTube Premieres or countdowns, so the closest sentences about scheduling and privacy answer a neighboring question.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:47:05.971Z"
+}

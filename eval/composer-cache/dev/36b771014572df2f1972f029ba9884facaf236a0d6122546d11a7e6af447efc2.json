@@ -1,0 +1,54 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9466,
+ "verdict": {
+  "asked": [
+   {
+    "item": "YOUR_API_KEY example doesn't work",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Working demo key to try the API before paying",
+    "steps": [
+     2,
+     3,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages say YOUR_API_KEY is a placeholder, API access is not in the free trial, and generating a key starts the paid plan.",
+  "steps": [
+   {
+    "text": "YOUR_API_KEY is a placeholder, so replace it with your own key and keep that key in your personal configuration.",
+    "quotes": [
+     "S53"
+    ]
+   },
+   {
+    "text": "The Blotato free trial includes everything except API access.",
+    "quotes": [
+     "S14"
+    ]
+   },
+   {
+    "text": "If you generate an API key in Settings > API, your free trial ends at that moment and your paid subscription begins.",
+    "quotes": [
+     "S76"
+    ]
+   },
+   {
+    "text": "Until you are ready to subscribe, use the Blotato web app instead.",
+    "quotes": [
+     "S81"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:51:20.750Z"
+}

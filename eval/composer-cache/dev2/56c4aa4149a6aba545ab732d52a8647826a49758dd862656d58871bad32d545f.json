@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4212,
+ "verdict": {
+  "queries": [
+   "API rate limits GET /v2/credits",
+   "Buy Credits API rate limit 10 requests per hour",
+   "API rate limit 429 Too Many Requests Blotato",
+   "Blotato API rate limits per endpoint credits",
+   "Retry-After header rate limit exceeded API"
+  ]
+ },
+ "at": "2026-11-16T07:48:53.231Z"
+}

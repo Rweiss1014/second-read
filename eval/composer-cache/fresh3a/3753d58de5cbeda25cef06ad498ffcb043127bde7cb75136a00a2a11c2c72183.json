@@ -1,0 +1,42 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 11191,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Message of 960 characters says too long",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Could family and skin-tone emojis be the cause",
+    "steps": [
+     1
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The sentences say Instagram's limit is 1000 characters and that family and skin-tone emojis count as several characters, and they give a lower limit for messages with buttons.",
+  "steps": [
+   {
+    "text": "Yes, that could be it, because an emoji built from several code points, like a family or a skin-tone emoji, counts as several characters.",
+    "quotes": [
+     "S3"
+    ]
+   },
+   {
+    "text": "Instagram limits a message to 1000 characters, and Blotato limits a message with buttons to 640 characters.",
+    "quotes": [
+     "S2",
+     "S4"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:10:27.609Z"
+}

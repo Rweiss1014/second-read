@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4169,
+ "verdict": {
+  "points": [
+   {
+    "point": "Brand limit in My Brand on Starter",
+    "sentence": ""
+   },
+   {
+    "point": "Whether Creator allows more brands",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states how many brands each plan allows; the connected-account-limit entry covers social accounts, a neighboring question, and brand-kit-setup only explains how to edit a brand."
+ },
+ "at": "2026-11-16T08:09:28.669Z"
+}

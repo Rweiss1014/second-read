@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4138,
+ "verdict": {
+  "queries": [
+   "Blotato single sign-on SSO Google Workspace",
+   "Blotato two-factor authentication 2FA login setting",
+   "Blotato team members workspace login security",
+   "Blotato enable two-step verification account security"
+  ]
+ },
+ "at": "2026-11-16T08:11:18.285Z"
+}

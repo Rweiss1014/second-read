@@ -1,0 +1,60 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4205,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Sequence for local mp4 with Codex and blotato_create_post",
+    "steps": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages give the upload sequence for a local file with Codex and blotatocreatepost.",
+  "steps": [
+   {
+    "text": "Give the assistant access to the file you want to post.",
+    "quotes": [
+     "S68",
+     "S120"
+    ]
+   },
+   {
+    "text": "Ask it to call blotatocreatepresigneduploadurl with the filename and extension.",
+    "quotes": [
+     "S69",
+     "S121"
+    ]
+   },
+   {
+    "text": "Ask it to send the file bytes to presignedUrl with an HTTP PUT.",
+    "quotes": [
+     "S70",
+     "S122"
+    ]
+   },
+   {
+    "text": "Check that the upload succeeded before using publicUrl.",
+    "quotes": [
+     "S135"
+    ]
+   },
+   {
+    "text": "Then ask it to use the returned publicUrl with blotatocreatepost.",
+    "quotes": [
+     "S71",
+     "S123"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:38:18.208Z"
+}

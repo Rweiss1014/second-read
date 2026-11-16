@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8686,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can Blotato reply to a reply (not just top comments)",
+    "sentence": "Replies to replies are not supported. You can reply to a top-level comment, but not to a reply."
+   },
+   {
+    "point": "Instagram comments",
+    "sentence": "Reply to a top-level comment on your published Instagram and Facebook posts."
+   }
+  ],
+  "pick": "comment-on-posts-support",
+  "reason": "This entry says Blotato can reply to top-level comments on Instagram but not to replies, which answers the question and likely explains the failure."
+ },
+ "at": "2026-11-16T08:11:16.784Z"
+}

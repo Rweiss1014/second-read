@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5600,
+ "verdict": {
+  "asked": [
+   {
+    "item": "How many brand voices allowed on the Creator plan (limit, 14 needed)",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences say you can create multiple brand voices but give no number or plan-specific limit, so they don't say whether 14 is allowed on the Creator plan.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:11:20.676Z"
+}

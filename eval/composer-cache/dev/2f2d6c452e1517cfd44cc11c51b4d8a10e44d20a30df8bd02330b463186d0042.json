@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6336,
+ "verdict": {
+  "asked": [
+   {
+    "item": "422 error from POST /v2/posts",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The message gives no error text or platform, and the pages only tie 422 to other endpoints or to specific platform cases (like Slack), so the cause for POST /v2/posts can't be determined.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:50:50.273Z"
+}

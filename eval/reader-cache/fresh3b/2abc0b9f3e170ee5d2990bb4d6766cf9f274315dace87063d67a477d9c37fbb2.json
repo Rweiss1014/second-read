@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3967,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does Next free slot skip public holidays like Thanksgiving",
+    "sentence": ""
+   },
+   {
+    "point": "Will it still post into Thursday slot",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate's sentences say anything about holidays or whether Next free slot skips them, so none answers this question."
+ },
+ "at": "2026-11-16T08:12:33.427Z"
+}

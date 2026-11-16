@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3791,
+ "verdict": {
+  "queries": [
+   "Threads poll options Blotato",
+   "Create a poll Threads post",
+   "Threads poll duration and poll options settings",
+   "Threads poll not supported Blotato",
+   "Threads API poll attachment fields"
+  ]
+ },
+ "at": "2026-11-16T08:07:52.611Z"
+}

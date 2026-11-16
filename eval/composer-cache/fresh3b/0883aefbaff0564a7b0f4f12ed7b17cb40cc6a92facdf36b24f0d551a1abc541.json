@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5731,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Do *stars* around words show as bold in a Slack post, or as literal stars?",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say most social platforms do not support markdown, but none says how Slack shows asterisks, so the closest sentence answers a neighboring question.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:11:09.468Z"
+}

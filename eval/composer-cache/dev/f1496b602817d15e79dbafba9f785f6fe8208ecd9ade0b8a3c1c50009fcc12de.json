@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4467,
+ "verdict": {
+  "queries": [
+   "Blotato plans connected social accounts limit Starter",
+   "LinkedIn personal profile and company Pages counted as connected accounts",
+   "How many accounts count toward plan limit LinkedIn Page",
+   "Connect LinkedIn company page Blotato account limit"
+  ]
+ }
+}

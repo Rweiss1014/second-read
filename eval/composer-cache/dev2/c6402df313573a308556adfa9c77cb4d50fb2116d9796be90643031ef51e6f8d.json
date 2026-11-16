@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4889,
+ "verdict": {
+  "queries": [
+   "MCP server list accounts returns empty connected accounts",
+   "connected social accounts not showing API accountId",
+   "reconnect disconnected social media account Blotato",
+   "account suspended billing subscription status Blotato"
+  ]
+ }
+}

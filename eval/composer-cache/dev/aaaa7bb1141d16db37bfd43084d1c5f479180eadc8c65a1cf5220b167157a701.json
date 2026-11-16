@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4329,
+ "verdict": {
+  "queries": [
+   "Magic Picture points refill",
+   "buy additional Magic Picture points",
+   "Magic Picture points plan limit monthly allowance",
+   "out of Magic Picture points upgrade subscription",
+   "Magic Pictures credits top up billing"
+  ]
+ }
+}

@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4315,
+ "verdict": {
+  "asked": [
+   {
+    "item": "which AI apps are still connected to our account",
+    "steps": []
+   },
+   {
+    "item": "disconnect the former assistant's AI app connection",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences do not say how to list or disconnect AI app connections to an account, and removing a former staff member's access requires the team to act on the account.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:59:56.283Z"
+}

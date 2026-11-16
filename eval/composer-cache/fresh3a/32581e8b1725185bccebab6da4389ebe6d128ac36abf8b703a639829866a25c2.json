@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3844,
+ "verdict": {
+  "queries": [
+   "My Brand number of brands per plan Starter",
+   "Creating a brand in My Brand brand limit",
+   "Creator plan brands included My Brand",
+   "Blotato pricing plans brands limit Starter Creator"
+  ]
+ },
+ "at": "2026-11-16T08:09:32.516Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3379,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can HEIC be used as slide imageSource",
+    "sentence": ""
+   },
+   {
+    "point": "Need to convert to JPG first",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether HEIC is accepted for slide image uploads; the slideshow entry only gives the 20MB limit and the TikTok entry's JPEG advice is specific to TikTok."
+ },
+ "at": "2026-11-16T08:12:39.210Z"
+}

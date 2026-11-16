@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5311,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can the Blotato menus and buttons be switched to German",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences only describe the language used for generated text content (S62, S64-S65) and the video language, not whether the app's menus and buttons can be translated, so the closest sentences answer a neighboring question.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:14:06.769Z"
+}

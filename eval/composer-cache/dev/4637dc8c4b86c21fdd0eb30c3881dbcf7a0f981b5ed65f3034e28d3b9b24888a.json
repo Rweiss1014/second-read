@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3879,
+ "verdict": {
+  "queries": [
+   "AI credits run out",
+   "AI credits balance and usage limit",
+   "buy more AI credits top up",
+   "AI credits reset monthly plan allowance",
+   "upgrade plan to increase AI credits"
+  ]
+ }
+}

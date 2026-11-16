@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4684,
+ "verdict": {
+  "points": [
+   {
+    "point": "Instagram DM too long at 960 characters",
+    "sentence": ""
+   },
+   {
+    "point": "Do emojis (family, skin-tone) count extra toward the limit",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states a DM length limit or how emojis count; the closest entries cover comment length, image URL length, or generic handoff text, so none answers this."
+ },
+ "at": "2026-11-16T08:10:13.028Z"
+}

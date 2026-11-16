@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3613,
+ "verdict": {
+  "queries": [
+   "affiliate program commission 50% recurring",
+   "affiliate commission annual billing yearly subscription",
+   "Agency plan yearly plan affiliate commission calculation",
+   "affiliate commission first payment vs monthly recurring payments",
+   "affiliate referral sign-up payout amount"
+  ]
+ }
+}

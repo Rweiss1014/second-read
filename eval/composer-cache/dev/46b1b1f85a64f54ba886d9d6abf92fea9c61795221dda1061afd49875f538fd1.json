@@ -1,0 +1,63 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6472,
+ "verdict": {
+  "asked": [
+   {
+    "item": "get a different version for each platform (LinkedIn and Facebook) from one draft",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "does the old remix screen use my Brand Kit",
+    "steps": [
+     3,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "Both questions are general how-to and feature questions, and the help pages state the answers directly.",
+  "steps": [
+   {
+    "text": "When you publish one draft to several platforms, Blotato sends that draft's text to each one.",
+    "quotes": [
+     "S27"
+    ]
+   },
+   {
+    "text": "To get a separate post for each platform, name the platforms in your prompt in the AI Agent so Blotato generates one draft per platform, for example by asking for one LinkedIn post and one Facebook post.",
+    "quotes": [
+     "S29",
+     "S30",
+     "S31"
+    ]
+   },
+   {
+    "text": "You can also open a draft and use the Chat panel on the right to adapt or shorten the text for a specific platform.",
+    "quotes": [
+     "S32"
+    ]
+   },
+   {
+    "text": "The old remix screen does not apply your Brand Kit.",
+    "quotes": [
+     "S24",
+     "S36"
+    ]
+   },
+   {
+    "text": "Use the AI Agent if you want on-brand content.",
+    "quotes": [
+     "S17"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:14:02.859Z"
+}

@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3617,
+ "verdict": {
+  "queries": [
+   "Mastodon integration Blotato supported platforms",
+   "Connect Mastodon account Blotato accounts",
+   "Mastodon instance server URL Blotato connection",
+   "Blotato schedule post to Mastodon"
+  ]
+ }
+}

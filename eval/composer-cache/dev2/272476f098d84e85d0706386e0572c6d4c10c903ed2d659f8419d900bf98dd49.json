@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7071,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Create a new YouTube playlist from inside Blotato while uploading",
+    "steps": []
+   },
+   {
+    "item": "Whether the playlist must be made on YouTube first",
+    "steps": []
+   },
+   {
+    "item": "Only old playlists show in the dropdown",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say you can add a video to an existing playlist, but no sentence says whether Blotato can create a new playlist or whether it has to be made on YouTube first.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:47:37.098Z"
+}

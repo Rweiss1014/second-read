@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5599,
+ "verdict": {
+  "asked": [
+   {
+    "item": "where in Blotato to promote the Manual trial reel to followers later",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences explain that Manual means you decide when to promote the reel, but none say where or how to do the promotion in Blotato, so the location question is not answered.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:00:07.207Z"
+}

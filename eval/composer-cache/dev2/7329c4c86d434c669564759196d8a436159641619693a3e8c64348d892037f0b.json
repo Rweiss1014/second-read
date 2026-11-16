@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 6589,
+ "verdict": {
+  "queries": [
+   "delete a scheduled post",
+   "reschedule a scheduled post to a new date and time",
+   "edit scheduled time of a post in the calendar",
+   "scheduled post timezone UTC setting",
+   "post queue delete or change publish time"
+  ]
+ }
+}

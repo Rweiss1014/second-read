@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3447,
+ "verdict": {
+  "asked": [
+   {
+    "item": "keyboard shortcuts for the calendar",
+    "steps": []
+   },
+   {
+    "item": "keyboard shortcuts for the post editor",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence lists keyboard shortcuts for the calendar or post editor; the only shortcut mentioned is the \"a\" key for Align to Captions in the video editor, which is a different screen.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:45:32.566Z"
+}

@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5668,
+ "verdict": {
+  "asked": [
+   {
+    "item": "do API keys expire on their own",
+    "steps": []
+   },
+   {
+    "item": "can Blotato rotate the key automatically",
+    "steps": []
+   },
+   {
+    "item": "90-day rotation requirement",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences only describe manually regenerating a key in Settings > API (which invalidates the old key), and do not say whether keys expire automatically or whether Blotato offers automatic rotation.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:00:02.020Z"
+}

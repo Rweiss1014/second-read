@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4137,
+ "verdict": {
+  "queries": [
+   "Pinterest shadowban automated posting",
+   "Pinterest account restrictions third-party scheduling",
+   "Blotato Pinterest connection troubleshooting",
+   "Blotato terms of service limitation of liability",
+   "Blotato Pinterest posting limits and guarantees"
+  ]
+ },
+ "at": "2026-11-16T08:08:01.310Z"
+}

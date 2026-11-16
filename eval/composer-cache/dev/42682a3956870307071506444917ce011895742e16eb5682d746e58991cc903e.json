@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4026,
+ "verdict": {
+  "queries": [
+   "AI agent video editing trim clip captions",
+   "AI agent limitations video editing not supported",
+   "Blotato AI agent prompt examples text posts vs video",
+   "trim video start time captions subtitles Blotato",
+   "AI agent generates text post instead of editing video"
+  ]
+ }
+}

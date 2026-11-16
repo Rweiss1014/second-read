@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3424,
+ "verdict": {
+  "queries": [
+   "Blotato move scheduled post back to draft",
+   "Blotato draft status scheduled post will not publish",
+   "Blotato reschedule post change publish time",
+   "Blotato edit scheduled time without changing post",
+   "Blotato scheduled posts publish date and time setting"
+  ]
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3418,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Send Instagram story only to Close Friends list",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages explain how to publish an Instagram Story but say nothing about Close Friends audience targeting, so the question has no stated answer.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:49:46.173Z"
+}

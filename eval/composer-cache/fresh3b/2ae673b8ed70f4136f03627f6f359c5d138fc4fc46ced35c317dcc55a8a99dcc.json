@@ -1,0 +1,35 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5203,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Next free slot time reports no available time for LinkedIn company Page",
+    "steps": []
+   },
+   {
+    "item": "Monday 8:30 slot exists in Weekly schedule",
+    "steps": []
+   },
+   {
+    "item": "Accounts on slot includes the Page",
+    "steps": []
+   },
+   {
+    "item": "Added a second matching slot",
+    "steps": []
+   },
+   {
+    "item": "Post must go out tomorrow morning",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer already checked the slot weekday and time, the Accounts selection, and added a matching slot, and the problem still fails after those steps, so this needs the team to look at the account.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:28:19.772Z"
+}

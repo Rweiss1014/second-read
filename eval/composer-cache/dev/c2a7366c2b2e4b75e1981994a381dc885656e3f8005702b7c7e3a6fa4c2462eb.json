@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4096,
+ "verdict": {
+  "queries": [
+   "LinkedIn analytics availability",
+   "LinkedIn analytics release date",
+   "LinkedIn analytics launched",
+   "Analytics dashboard LinkedIn post metrics",
+   "LinkedIn analytics changelog"
+  ]
+ }
+}

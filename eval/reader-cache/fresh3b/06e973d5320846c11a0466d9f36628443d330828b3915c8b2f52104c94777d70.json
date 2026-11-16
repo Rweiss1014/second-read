@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3376,
+ "verdict": {
+  "points": [
+   {
+    "point": "affiliate payout date for first commissions earned in March",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry covers affiliate commissions or payout timing, so none of their sentences answer this question."
+ },
+ "at": "2026-11-16T08:11:53.249Z"
+}

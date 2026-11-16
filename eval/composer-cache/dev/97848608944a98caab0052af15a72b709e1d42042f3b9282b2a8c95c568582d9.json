@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9391,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Which count is right: 7 or 8 free Claude skills / folders in the ZIP",
+    "steps": []
+   },
+   {
+    "item": "Is the generate skill free to use",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages give the ZIP count (8 folders) but no sentence says whether generate is free to use; the \"free\" wording does not name generate, and its provider credentials are set up separately with no cost stated, so this needs a person on the team.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:14:37.353Z"
+}

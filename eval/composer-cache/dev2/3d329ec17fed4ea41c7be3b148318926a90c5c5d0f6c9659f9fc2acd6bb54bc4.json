@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5992,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Where in Blotato to promote a Manual trial reel to followers later",
+    "steps": []
+   },
+   {
+    "item": "Trial reel set to Manual",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences say Manual means you decide when to promote the reel, but none say where in Blotato to do that.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:48:07.646Z"
+}

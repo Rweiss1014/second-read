@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3515,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Credits on mid-month upgrade Starter to Creator: full 5,000 or prorated",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences give Creator's 5,000 monthly credits and proration only for monthly-to-yearly switches, but none say how credits are handled when upgrading plans mid-month.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:48:19.545Z"
+}

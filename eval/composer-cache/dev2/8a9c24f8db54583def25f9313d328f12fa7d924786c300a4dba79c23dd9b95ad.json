@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4840,
+ "verdict": {
+  "queries": [
+   "Publish now Instagram post immediately",
+   "Instagram Reels share to feed profile grid setting",
+   "Instagram reel media_type REELS share_to_feed",
+   "Blotato Publish Now button schedule post Instagram"
+  ]
+ }
+}

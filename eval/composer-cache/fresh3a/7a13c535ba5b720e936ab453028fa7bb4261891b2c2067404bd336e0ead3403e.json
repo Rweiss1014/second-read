@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7689,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Scheduled post still published to a channel removed on Monday",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages say removing a channel moves its scheduled posts to drafts. They don't explain why a post still went out, and only this customer's account can show what happened, so the team needs to review it.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:08:15.003Z"
+}

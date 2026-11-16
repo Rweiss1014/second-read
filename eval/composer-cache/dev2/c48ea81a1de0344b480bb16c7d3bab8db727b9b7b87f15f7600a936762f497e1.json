@@ -1,0 +1,17 @@
+{
+ "kind": "second",
+ "version": "second-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 10973,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "caveat",
+    "about": "Step 3 tells the customer to follow the Accounts Center link, but the help page says to review the change before approving it, and the reply leaves that condition out for a privacy-setting change."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T07:56:50.760Z"
+}

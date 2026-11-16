@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4338,
+ "verdict": {
+  "queries": [
+   "Generate multiple posts from text AI post generator",
+   "Where to find AI post creation tool in Blotato dashboard",
+   "Deleted or moved feature: restore previous post generation tool",
+   "Create posts from pasted text multiple variations"
+  ]
+ }
+}

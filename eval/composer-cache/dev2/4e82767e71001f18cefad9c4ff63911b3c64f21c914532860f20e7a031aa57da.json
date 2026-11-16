@@ -1,0 +1,28 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3604,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can credits be given to her separate account",
+    "steps": [
+     1
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S16 states credits belong to a single account and are non-transferable, which answers the question.",
+  "steps": [
+   {
+    "text": "No, credits belong to a single account and are non-transferable, so you can't give some of yours to your sister's account.",
+    "quotes": [
+     "S16"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:45:47.707Z"
+}

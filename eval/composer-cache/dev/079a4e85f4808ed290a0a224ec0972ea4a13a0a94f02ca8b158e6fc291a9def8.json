@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4015,
+ "verdict": {
+  "queries": [
+   "Blotato REST API official SDK",
+   "Blotato Python SDK pip package",
+   "Blotato npm package API client library",
+   "Blotato API raw HTTP requests endpoint authentication header"
+  ]
+ },
+ "at": "2026-11-16T07:51:01.249Z"
+}

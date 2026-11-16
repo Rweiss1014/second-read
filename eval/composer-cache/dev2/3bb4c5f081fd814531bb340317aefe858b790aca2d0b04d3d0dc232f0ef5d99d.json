@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3651,
+ "verdict": {
+  "queries": [
+   "upgrade plan prorated credits billing cycle",
+   "Blotato Creator plan 5,000 credits included per month",
+   "change subscription plan mid-cycle proration",
+   "Starter to Creator upgrade credit allocation",
+   "monthly credits reset billing period upgrade"
+  ]
+ },
+ "at": "2026-11-16T07:48:16.012Z"
+}

@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6977,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Starter posts published before upgrading: do they move to the Creator checkpoint schedule or keep the Starter schedule",
+    "steps": []
+   },
+   {
+    "item": "Whether to republish a few posts based on this",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences give each plan's checkpoint schedule (S5, S6, S9, S10) but never say which schedule applies to posts published before a plan change, and the republish decision is not covered beyond an empty-chart note (S108) that does not fit this case.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:00:14.337Z"
+}

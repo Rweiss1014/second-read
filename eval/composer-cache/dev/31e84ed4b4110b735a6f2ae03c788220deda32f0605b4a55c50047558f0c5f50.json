@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8860,
+ "verdict": {
+  "asked": [
+   {
+    "item": "what slots are",
+    "steps": []
+   },
+   {
+    "item": "why the 'No available slot time found in the next 9 months' error appears when scheduling for a specific time",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages describe the 'No available slot time found' error only for Next free slot time, and they do not say why it appears when a post is scheduled for a specific time or whether the customer selected Next free slot.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:13:48.647Z"
+}

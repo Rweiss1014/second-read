@@ -1,0 +1,50 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6373,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Story caption text not showing",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Is content.text the wrong field / what to do instead",
+    "steps": [
+     1,
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The Instagram Story limitation sentences explain that caption text does not appear on Stories and say to add the text to the image or video instead.",
+  "steps": [
+   {
+    "text": "Instagram Stories do not support captions through Meta's publishing API, so text in an API, MCP, n8n, or Make.com caption field does not appear on the published Story.",
+    "quotes": [
+     "S61",
+     "S62"
+    ]
+   },
+   {
+    "text": "For REST API requests, set the required content.text field to \"\".",
+    "quotes": [
+     "S66"
+    ]
+   },
+   {
+    "text": "To show text, add it to the image or video before publishing, then publish the finished media as a Story.",
+    "quotes": [
+     "S64",
+     "S65"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:46:11.098Z"
+}

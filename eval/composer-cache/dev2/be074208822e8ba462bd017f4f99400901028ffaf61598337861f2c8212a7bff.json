@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3442,
+ "verdict": {
+  "queries": [
+   "Pinterest board section selection when creating pin",
+   "Blotato Pinterest pin board section",
+   "Pinterest Board Section ID API field pinterest target options",
+   "Blotato Pinterest target boardId sectionId"
+  ]
+ },
+ "at": "2026-11-16T07:47:34.417Z"
+}

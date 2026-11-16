@@ -1,0 +1,47 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9207,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is regenerating to preview other versions free?",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Check credit cost before or after generating?",
+    "steps": [
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages say regenerating is another generation action, not a free preview, and that credit cost should be reviewed before generation.",
+  "steps": [
+   {
+    "text": "Regenerating media is another generation action, not a free preview.",
+    "quotes": [
+     "S155"
+    ]
+   },
+   {
+    "text": "Review the credit cost before generation.",
+    "quotes": [
+     "S147"
+    ]
+   },
+   {
+    "text": "To see the cost, click a GREEN clip (image) or PURPLE clip (video) and look right above the \"Regenerate\" button.",
+    "quotes": [
+     "S22"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:12:37.157Z"
+}

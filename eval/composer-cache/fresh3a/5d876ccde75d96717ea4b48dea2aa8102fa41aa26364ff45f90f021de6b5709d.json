@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4202,
+ "verdict": {
+  "queries": [
+   "Instagram Notes post type supported",
+   "Publish Instagram Note with Blotato",
+   "Instagram Notes API not supported",
+   "Instagram account types and post types Blotato"
+  ]
+ },
+ "at": "2026-11-16T08:09:48.650Z"
+}

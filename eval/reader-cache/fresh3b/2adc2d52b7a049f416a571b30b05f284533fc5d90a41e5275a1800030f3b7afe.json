@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6469,
+ "verdict": {
+  "points": [
+   {
+    "point": "Link sticker on a Facebook Story",
+    "sentence": ""
+   },
+   {
+    "point": "Facebook Page (shop) story posting",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The facebook-stories entry says Blotato can post Facebook Stories, but none of its sentences mention link stickers, so it answers a neighboring question."
+ },
+ "at": "2026-11-16T08:11:59.032Z"
+}

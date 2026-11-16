@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4460,
+ "verdict": {
+  "queries": [
+   "\"You are not permitted to perform this action\" X Twitter posting error",
+   "X account connected Blotato publish failed permissions reconnect",
+   "X API free tier posting limits new account",
+   "X developer app read and write permissions Blotato"
+  ]
+ }
+}

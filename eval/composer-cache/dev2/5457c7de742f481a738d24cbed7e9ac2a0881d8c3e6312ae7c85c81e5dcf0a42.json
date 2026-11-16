@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3563,
+ "verdict": {
+  "queries": [
+   "Duplicate automation to another connected account Blotato",
+   "Facebook Page not showing in account list when duplicating automation",
+   "Connect Facebook Page Blotato account",
+   "Comment-to-DM automation Facebook Page setup Blotato",
+   "Instagram comment automation Facebook Messenger DM requirements"
+  ]
+ }
+}

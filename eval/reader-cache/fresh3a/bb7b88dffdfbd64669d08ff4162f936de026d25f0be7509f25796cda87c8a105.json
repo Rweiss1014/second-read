@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 2972,
+ "verdict": {
+  "points": [
+   {
+    "point": "Upload limit for Brand Visuals",
+    "sentence": ""
+   },
+   {
+    "point": "80 product photos fit?",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry mentions Brand Visuals or any upload count limit; the upload and photo entries cover other topics."
+ },
+ "at": "2026-11-16T08:10:30.643Z"
+}

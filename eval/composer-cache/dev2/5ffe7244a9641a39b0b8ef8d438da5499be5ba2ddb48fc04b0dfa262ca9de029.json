@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3781,
+ "verdict": {
+  "queries": [
+   "AI avatar video HeyGen integration requirements",
+   "\"You're On Heygen Free Plan\" error AI avatar step",
+   "HeyGen paid plan required for AI avatar video creation",
+   "HeyGen API key connect Blotato AI avatar"
+  ]
+ }
+}

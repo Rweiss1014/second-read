@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6198,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Maximum length for audio sources",
+    "steps": []
+   },
+   {
+    "item": "Maximum file size for audio sources (250MB mp3)",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages give no length or size limit for Audio sources; the only upload limits are for media uploads by plan, which is a neighboring question, and nothing gives a duration limit.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:08:51.188Z"
+}

@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6766,
+ "verdict": {
+  "asked": [
+   {
+    "item": "maximum length for audio sources",
+    "steps": []
+   },
+   {
+    "item": "maximum size for audio sources (250MB mp3)",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No help page states a length limit for audio sources, and the only size limits (S116-S121) are general media upload limits by plan, with no statement that they apply to audio sources, so the customer's size question cannot be confirmed.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:26:19.219Z"
+}

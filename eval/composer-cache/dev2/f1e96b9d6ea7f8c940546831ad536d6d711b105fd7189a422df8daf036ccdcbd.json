@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4358,
+ "verdict": {
+  "queries": [
+   "Gemini Omni Flash 1.1 image-to-video credit cost",
+   "video generation credits per second resolution 1080p",
+   "image to video credits per second duration pricing",
+   "Gemini Omni Flash video generation credit usage table",
+   "AI video model credit cost 10 seconds 1080p"
+  ]
+ }
+}

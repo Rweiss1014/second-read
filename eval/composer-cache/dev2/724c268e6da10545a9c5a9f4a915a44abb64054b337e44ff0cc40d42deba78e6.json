@@ -1,0 +1,35 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4599,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Did I set something up wrong (reply LINK under another comment got nothing)",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages state that replies to comments never trigger automations, which explains the customer's observation.",
+  "steps": [
+   {
+    "text": "This is not a setup mistake: only top-level comments count, and a reply to another comment does not start a run.",
+    "quotes": [
+     "S5"
+    ]
+   },
+   {
+    "text": "A reply inside a comment thread is skipped, even with a matching keyword.",
+    "quotes": [
+     "S47"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:46:43.945Z"
+}

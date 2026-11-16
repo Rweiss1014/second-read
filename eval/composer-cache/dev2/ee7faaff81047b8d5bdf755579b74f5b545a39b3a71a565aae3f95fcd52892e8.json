@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5574,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does Blotato add tags (which kind and platform is not stated)",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The message doesn't say which tags or platform it means. The help pages cover YouTube tags, Instagram collaborator tags and hashtags separately, so any answer would be a guess.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:48:11.816Z"
+}

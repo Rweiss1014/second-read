@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4798,
+ "verdict": {
+  "queries": [
+   "YouTube tags field",
+   "YouTube video tags SEO",
+   "YouTube post settings title description tags",
+   "Blotato YouTube hashtags tags",
+   "YouTube Shorts tags setting"
+  ]
+ }
+}

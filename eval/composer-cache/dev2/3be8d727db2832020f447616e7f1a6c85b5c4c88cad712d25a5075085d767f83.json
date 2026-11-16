@@ -1,0 +1,65 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8243,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Caption text not showing on the Instagram Story",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Is the caption field the wrong field?",
+    "steps": [
+     2
+    ]
+   },
+   {
+    "item": "How to get text to show on the Story",
+    "steps": [
+     3
+    ]
+   },
+   {
+    "item": "What to put in the caption field for a Story",
+    "steps": [
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages directly state that caption text does not appear on published Instagram Stories and give the workaround of rendering text into the media.",
+  "steps": [
+   {
+    "text": "Instagram Stories do not support captions through Meta's publishing API.",
+    "quotes": [
+     "S61"
+    ]
+   },
+   {
+    "text": "Text entered in an API, MCP, n8n, or Make.com caption field does not appear on the published Story, so the caption field is not a place to show text on a Story.",
+    "quotes": [
+     "S62"
+    ]
+   },
+   {
+    "text": "To show text on a Story, add the text to the image or video before publishing.",
+    "quotes": [
+     "S64"
+    ]
+   },
+   {
+    "text": "In n8n, leave the Caption field empty for an Instagram Story.",
+    "quotes": [
+     "S87"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:58:42.847Z"
+}

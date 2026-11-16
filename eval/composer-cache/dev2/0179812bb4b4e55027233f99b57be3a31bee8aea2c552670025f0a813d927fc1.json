@@ -1,0 +1,62 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 10803,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is TikTok analytics broken on my account / Claude can't filter TikTok",
+    "steps": [
+     1,
+     2,
+     3,
+     4
+    ]
+   },
+   {
+    "item": "Can it rank my LinkedIn posts",
+    "steps": [
+     5
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages explain that the MCP top-posts tool covers fewer platforms than the web app and REST API, and that LinkedIn analytics are not available.",
+  "steps": [
+   {
+    "text": "The blotatolisttopposts MCP tool currently ranks posts from Twitter/X, Instagram, Facebook, Threads, and Bluesky.",
+    "quotes": [
+     "S93"
+    ]
+   },
+   {
+    "text": "The MCP filter list is narrower than the backend's collection coverage, so TikTok not being in Claude's filter reflects that.",
+    "quotes": [
+     "S141"
+    ]
+   },
+   {
+    "text": "Use the REST API for top-post rankings on TikTok, YouTube, or Pinterest.",
+    "quotes": [
+     "S94"
+    ]
+   },
+   {
+    "text": "The Blotato web app also covers TikTok, and its Top posts section has a ranking selector.",
+    "quotes": [
+     "S57",
+     "S76"
+    ]
+   },
+   {
+    "text": "LinkedIn and Slack analytics are not available, so LinkedIn posts can't be ranked.",
+    "quotes": [
+     "S58"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:47:16.898Z"
+}

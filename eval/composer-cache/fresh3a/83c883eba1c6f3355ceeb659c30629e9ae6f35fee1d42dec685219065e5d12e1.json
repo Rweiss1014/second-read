@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4380,
+ "verdict": {
+  "asked": [
+   {
+    "item": "how often new posts are added to Inspiration",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence states how often new posts are added to Inspiration; the pages only cover using Inspiration and requesting topics.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:09:18.684Z"
+}

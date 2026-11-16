@@ -1,0 +1,49 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8894,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is there something on the Bluesky side to set up before videos work",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Video format and URL requirements for a Bluesky video post",
+    "steps": [
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages state the Bluesky email verification requirement for posting videos and the supported video formats and URL rules, which answer the setup question; they do not say why this specific post failed.",
+  "steps": [
+   {
+    "text": "Yes, to post videos to Bluesky through Blotato, you must verify your email address with Bluesky.",
+    "quotes": [
+     "S105",
+     "S106"
+    ]
+   },
+   {
+    "text": "Bluesky videos must be in MP4, WebM, or MOV format, and each Bluesky post supports one video.",
+    "quotes": [
+     "S19",
+     "S20"
+    ]
+   },
+   {
+    "text": "The public media URL for the video must end in .mp4, .webm, or .mov so Blotato recognizes it as a video.",
+    "quotes": [
+     "S21"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:58:45.368Z"
+}

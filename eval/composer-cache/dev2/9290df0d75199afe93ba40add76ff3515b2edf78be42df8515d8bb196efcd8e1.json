@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5640,
+ "verdict": {
+  "asked": [
+   {
+    "item": "429 response includes a Retry-After header",
+    "steps": []
+   },
+   {
+    "item": "429 response includes an X-RateLimit-Remaining header",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages describe the 429 response only by its JSON body and \"message\" text (retry timing is in the message), and no sentence says whether Retry-After or X-RateLimit-Remaining headers are returned, so the customer's header question has no answer in the sentences.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:59:23.494Z"
+}

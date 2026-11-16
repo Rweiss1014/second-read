@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3082,
+ "verdict": {
+  "queries": [
+   "Slack video upload support Blotato",
+   "Slack integration post video attachment",
+   "Slack channel posting videos not supported",
+   "Blotato Slack platform supported media types"
+  ]
+ },
+ "at": "2026-11-16T07:45:20.181Z"
+}

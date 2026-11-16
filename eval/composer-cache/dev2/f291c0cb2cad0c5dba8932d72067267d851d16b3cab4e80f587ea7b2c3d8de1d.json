@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5171,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Do referred sign-ups get a discount on their first month",
+    "steps": []
+   },
+   {
+    "item": "Do referred sign-ups get extra credits",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences only describe the referrer's 50% commission and never say whether a person who signs up through a referral link gets a discount or extra credits.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:46:01.442Z"
+}

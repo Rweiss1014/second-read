@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3398,
+ "verdict": {
+  "points": [
+   {
+    "point": "List of biggest Blotato customers in fitness using DM automations with Instagram handles",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks for other customers' names and Instagram handles, which is another person's data, and no entry states that information."
+ },
+ "at": "2026-11-16T08:08:03.253Z"
+}

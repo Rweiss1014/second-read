@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4106,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Are affiliate payouts sent to PayPal or a bank account",
+    "steps": []
+   },
+   {
+    "item": "Can the payout go to a Brazilian bank account without PayPal",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages explain when payouts are generated and how commissions work, but none of the sentences say which payout methods are available (PayPal, bank account, or other) or whether a Brazilian bank can be used.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:27:40.735Z"
+}

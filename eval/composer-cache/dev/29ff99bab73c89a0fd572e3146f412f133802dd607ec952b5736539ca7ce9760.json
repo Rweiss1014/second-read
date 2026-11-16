@@ -1,0 +1,58 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9604,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Account 77120 not found in n8n after reconnecting TikTok",
+    "steps": [
+     1,
+     2,
+     3,
+     4
+    ]
+   },
+   {
+    "item": "Same saved dropdown choice as before",
+    "steps": [
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The sentences say a saved workflow can hold an ID from before a reconnect, and that a saved dropdown selection needs checking and refreshing.",
+  "steps": [
+   {
+    "text": "After an account is disconnected and reconnected, a saved workflow might still contain a stale ID.",
+    "quotes": [
+     "S45",
+     "S46"
+    ]
+   },
+   {
+    "text": "Official node dropdowns reduce copying, but saved selections still need verification.",
+    "quotes": [
+     "S21"
+    ]
+   },
+   {
+    "text": "Refresh the account selection in a Publish node and select the intended platform and account.",
+    "quotes": [
+     "S135"
+    ]
+   },
+   {
+    "text": "Retrieve the current account list using the same credential the failing publish step uses, then use the returned account id as accountId.",
+    "quotes": [
+     "S14",
+     "S15"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:49:57.760Z"
+}

@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4076,
+ "verdict": {
+  "queries": [
+   "Blotato API key creation multiple API keys",
+   "Blotato API key permissions read-only scope",
+   "Blotato API key scopes posts read access without publish",
+   "Blotato revoke or regenerate API key",
+   "Blotato team member roles API access"
+  ]
+ },
+ "at": "2026-11-16T07:50:54.370Z"
+}

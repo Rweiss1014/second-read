@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 12354,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why the Reel was rejected (1340x2160 size)",
+    "sentence": "Video dimensions are not supported by the target platform."
+   },
+   {
+    "point": "Which dimensions work for a portrait Instagram Reel",
+    "sentence": "For a portrait Instagram Reel, 1080 x 1920 or 720 x 1280 is a compatible export preset."
+   },
+   {
+    "point": "Video is 3m10s, over 120 seconds, so resizing is needed",
+    "sentence": "Videos longer than 120 seconds need any required resizing before upload."
+   }
+  ],
+  "pick": "invalid-video-dimensions",
+  "reason": "The customer's 1340x2160, 190-second Reel matches this entry's statements on unsupported dimensions, compatible Reel sizes, and resizing before upload for videos over 120 seconds."
+ },
+ "at": "2026-11-16T08:09:33.746Z"
+}

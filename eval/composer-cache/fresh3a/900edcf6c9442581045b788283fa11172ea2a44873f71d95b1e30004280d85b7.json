@@ -1,0 +1,37 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8017,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can Blotato automatically repost CEO's posts with native LinkedIn Repost to the company Page",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The Reposting sentences say LinkedIn's API does not support reposting an existing post, so Blotato cannot do it, and they give the manual option.",
+  "steps": [
+   {
+    "text": "No. LinkedIn's API does not support reposting an existing LinkedIn post, so Blotato can't do it.",
+    "quotes": [
+     "S9",
+     "S42"
+    ]
+   },
+   {
+    "text": "To repost, open LinkedIn manually and click Repost on the post.",
+    "quotes": [
+     "S10",
+     "S43"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:08:37.514Z"
+}

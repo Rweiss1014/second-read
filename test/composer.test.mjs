@@ -8,7 +8,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { ROUTER, routeMessage } from '../knowledge/playbook.mjs';
-import { createComposer, composerConfig, unsupported, numbersIn, assembleReply, FRAME, WRITE_PROMPTS, WRITE_VERSION, SECOND_PROMPTS, SECOND_VERSION } from '../src/composer.mjs';
+import { createComposer, composerConfig, unsupported, numbersIn, assembleReply, FRAME, WRITE_PROMPTS, WRITE_VERSION, SECOND_PROMPTS, SECOND_VERSION, EXPAND_PROMPTS, EXPAND_VERSION } from '../src/composer.mjs';
 import { splitPage, buildPassageIndex, numberPassages } from '../src/passages.mjs';
 import { checkReply } from '../src/checkreply.mjs';
 import { openDesk, handleTicket } from '../src/desk.mjs';
@@ -58,7 +58,8 @@ const goodDraft = (args) => ({
     { text: 'Open Settings > Widgets to add one.', quotes: [idOf(args.user, 'Open Settings > Widgets to add one.')] },
   ],
 });
-const composer = (f, over = {}) => createComposer({ router: ROUTER, call: f.call, pages, cacheDir: null, ...over });
+// The search step is off in most tests, so each test counts only the writer and the second reader.
+const composer = (f, over = {}) => createComposer({ router: ROUTER, call: f.call, pages, cacheDir: null, expand: false, ...over });
 
 test('off is the default: no composer, and the result says so', async () => {
   assert.equal(composerConfig({}).backend, 'off');
@@ -132,7 +133,7 @@ test('a draft that passes every check becomes a composed reply, in the saved rep
 test('through the desk: the result says composed, carries the steps with their sentences, and never claims a saved check', async () => {
   const { env } = tempDesk({ extraPages: { [URL]: PAGE } });
   const f = fake({ write: goodDraft });
-  const desk = openDesk({ env, composerCall: f.call });
+  const desk = openDesk({ env: { ...env, SUPPORT_DESK_COMPOSER_EXPAND: 'off' }, composerCall: f.call });
   try {
     const d = await handleTicket(desk, { text: MSG });
     assert.equal(d.path, 'composed');
@@ -232,4 +233,55 @@ test('the verdict cache: a second run makes no call and gives the same answer; i
   assert.deepEqual(b.composed.steps, a.composed.steps);
   assert.equal(b.composer.cached, true);
   for (const file of fs.readdirSync(dir)) assert.doesNotMatch(fs.readFileSync(path.join(dir, file), 'utf8'), /where do I add them/);
+});
+
+test('the search step: its queries widen what the script retrieves; if it fails, the message alone is ranked', async () => {
+  const r0 = routeMessage(MSG);
+  const seen = [];
+  const call = async (args) => {
+    seen.push(args.system === EXPAND_PROMPTS[EXPAND_VERSION] ? 'expand' : args.system === SECOND_PROMPTS[SECOND_VERSION] ? 'second' : 'write');
+    if (args.system === EXPAND_PROMPTS[EXPAND_VERSION]) return { obj: { queries: ['lantern widgets per workspace limit'] }, model: 'fake' };
+    if (args.system === SECOND_PROMPTS[SECOND_VERSION]) return { obj: { objections: [], verdict: 'send' }, model: 'fake' };
+    return { obj: goodDraft(args), model: 'fake' };
+  };
+  const r = await createComposer({ router: ROUTER, call, pages, cacheDir: null }).compose(MSG, r0);
+  assert.deepEqual(seen, ['expand', 'write', 'second']);
+  assert.deepEqual(r.composer.queries, ['lantern widgets per workspace limit']);
+  assert.equal(r.path, 'composed');
+  // The search model sees only the message.
+  const failing = async (args) => { if (args.system === EXPAND_PROMPTS[EXPAND_VERSION]) throw new Error('down'); return call(args); };
+  const r2 = await createComposer({ router: ROUTER, call: failing, pages, cacheDir: null }).compose(MSG, r0);
+  assert.equal(r2.path, 'composed');
+  assert.match(r2.composer.expandError, /down/);
+});
+
+test('a quoted sentence that sends the customer to support hands the message over', async () => {
+  const page = `# Lantern support
+
+## Lantern widgets disappeared
+
+If your lantern widgets disappeared, contact support so the team can restore them.
+`;
+  const u = 'https://help.blotato.com/test-pages/lantern-support';
+  const pg = { [u]: { url: u, fetchedAt: '2026-11-16T01:00:00.000Z', via: 'test fixture', text: page } };
+  const text = 'My lantern widgets disappeared from my calendar. What should I do?';
+  const write = (a) => ({ asked: [{ item: 'lantern widgets disappeared', steps: [1] }], answerable: true, reason: 'test', steps: [{ text: 'Contact support so the team can restore your lantern widgets.', quotes: [idOf(a.user, 'If your lantern widgets disappeared, contact support so the team can restore them.')] }] });
+  const r = await createComposer({ router: ROUTER, call: fake({ write }).call, pages: pg, cacheDir: null, expand: false }).compose(text, routeMessage(text));
+  assert.equal(r.why, 'compose-unverified');
+  assert.match(r.composer.problem, /^quote-hands-over/);
+});
+
+test('every quote must come from the best-ranked pages (topPages), or the draft is handed over', async () => {
+  const u2 = 'https://help.blotato.com/test-pages/glow-colors';
+  const pg = { ...pages, [u2]: { url: u2, fetchedAt: '2026-11-16T01:00:00.000Z', via: 'test fixture', text: '# Glow colors\n\n## Colors\n\nA lantern glow can be amber or teal.\n' } };
+  const write = (a) => ({ ...goodDraft(a), steps: [...goodDraft(a).steps, { text: 'A lantern glow can be amber or teal.', quotes: [idOf(a.user, 'A lantern glow can be amber or teal.')] }] });
+  const r0 = routeMessage(MSG);
+  const one = await createComposer({ router: ROUTER, call: fake({ write }).call, pages: pg, cacheDir: null, expand: false, topPages: 1 }).compose(MSG, r0);
+  assert.ok(one.composer.passages.some(p => p.url === u2), "the second page is retrieved");
+  {
+    assert.equal(one.why, 'compose-unverified');
+    assert.match(one.composer.problem, /^outside-top-pages/);
+    const any = await createComposer({ router: ROUTER, call: fake({ write }).call, pages: pg, cacheDir: null, expand: false, topPages: 0 }).compose(MSG, r0);
+    assert.equal(any.path, 'composed');
+  }
 });

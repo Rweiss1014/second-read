@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5895,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Tag people in photo (not collaborators) on Instagram posts via Blotato",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences only cover Instagram collaborators and never say whether photo user tags are supported, so they answer a neighboring question.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:09:35.622Z"
+}

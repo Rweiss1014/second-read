@@ -1,0 +1,52 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4219,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does moving a scheduled post to drafts publish it by accident?",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Is changing only the time a different button?",
+    "steps": [
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S39, S103, S41, S90 and S94 directly answer both questions.",
+  "steps": [
+   {
+    "text": "No, moving a scheduled post to drafts removes the schedule without publishing it.",
+    "quotes": [
+     "S39",
+     "S103"
+    ]
+   },
+   {
+    "text": "Yes, to change only the time, use Reschedule instead of Move to drafts.",
+    "quotes": [
+     "S41"
+    ]
+   },
+   {
+    "text": "In Posts > Scheduled, select Reschedule on the post, choose the new date and time, then select Save, and the post stays scheduled.",
+    "quotes": [
+     "S89",
+     "S90",
+     "S91",
+     "S92",
+     "S94"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:50:27.426Z"
+}

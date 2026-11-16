@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4310,
+ "verdict": {
+  "queries": [
+   "TikTok stories not supported Blotato",
+   "Blotato TikTok post video upload",
+   "TikTok account connect Blotato publish video",
+   "TikTok story publishing API limitation"
+  ]
+ },
+ "at": "2026-11-16T07:49:02.317Z"
+}

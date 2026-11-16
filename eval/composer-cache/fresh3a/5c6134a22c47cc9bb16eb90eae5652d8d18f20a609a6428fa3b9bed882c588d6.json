@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5230,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is Blotato HIPAA compliant?",
+    "steps": []
+   },
+   {
+    "item": "Is Blotato SOC 2 certified?",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the help sentences state whether Blotato is HIPAA compliant or SOC 2 certified; the Security passage (S55-S59) covers only login authorization, password handling, and separate data permissions, which is a neighboring topic, so this needs a team reply.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:26:00.823Z"
+}

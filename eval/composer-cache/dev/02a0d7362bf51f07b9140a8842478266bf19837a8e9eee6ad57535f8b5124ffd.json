@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5260,
+ "verdict": {
+  "asked": [
+   {
+    "item": "why bank shows A$155 after using $1 offer",
+    "steps": []
+   },
+   {
+    "item": "is this a currency conversion issue or a scam",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer is disputing a specific charge of A$155, which is a charge and money-taken matter that only their own account and billing records can show, and the help pages' explanation (the plan chosen at checkout) depends on a fact about their account that I cannot verify.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:14:11.778Z"
+}

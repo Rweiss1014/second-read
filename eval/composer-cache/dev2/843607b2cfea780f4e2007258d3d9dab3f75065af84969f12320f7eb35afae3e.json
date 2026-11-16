@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3950,
+ "verdict": {
+  "queries": [
+   "Blotato X (Twitter) URL shortening automatic link shortener",
+   "Blotato X character limit links counted",
+   "Blotato X post URL shortener setting disable",
+   "Blotato X link length 23 characters t.co"
+  ]
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3511,
+ "verdict": {
+  "asked": [
+   {
+    "item": "max background video length",
+    "steps": []
+   },
+   {
+    "item": "max file size",
+    "steps": []
+   },
+   {
+    "item": "customer's 3 min, 200mb video",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The backgroundMedia parameter only says it takes an image or video URL; no sentence gives a maximum video length or file size.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:12:18.780Z"
+}

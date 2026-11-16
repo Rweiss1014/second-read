@@ -1,0 +1,48 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 14182,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why posts show 'Analytics not available' on the free trial",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Pricing says trial includes everything except API, so why",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Will old posts fill in once I pay",
+    "steps": [
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages state that analytics need a paid plan, that trial posts show \"Analytics not available,\" and that older posts do not backfill, which answers both questions for this customer.",
+  "steps": [
+   {
+    "text": "Analytics need a paid plan, and on the free trial posts show \"Analytics not available.\"",
+    "quotes": [
+     "S27",
+     "S28"
+    ]
+   },
+   {
+    "text": "Analytics exist only for posts published while analytics was active on your account, and older posts do not backfill.",
+    "quotes": [
+     "S32",
+     "S33"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:14:02.943Z"
+}

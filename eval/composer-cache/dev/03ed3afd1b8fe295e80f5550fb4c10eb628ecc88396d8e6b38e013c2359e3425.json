@@ -1,0 +1,44 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4795,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does Tolt's 'Earn 50% on all paid customers' mean half of every month for a referred monthly Creator customer",
+    "steps": [
+     1,
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages say the Tolt message is generic and the commission is only on the first payment.",
+  "steps": [
+   {
+    "text": "No, the message \"Earn 50% on all paid customers.\" is generic Tolt text.",
+    "quotes": [
+     "S26"
+    ]
+   },
+   {
+    "text": "It does not mean you receive commission on every recurring subscription payment.",
+    "quotes": [
+     "S27"
+    ]
+   },
+   {
+    "text": "Blotato's standard commission is 50% of the referred customer's first payment only, and for a monthly subscription that first payment is the monthly charge.",
+    "quotes": [
+     "S23",
+     "S24",
+     "S41"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:49:43.789Z"
+}

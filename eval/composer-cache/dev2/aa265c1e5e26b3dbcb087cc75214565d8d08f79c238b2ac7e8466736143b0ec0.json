@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4102,
+ "verdict": {
+  "queries": [
+   "Blotato view connected apps authorized applications list",
+   "Blotato disconnect revoke access third-party AI app connector",
+   "Blotato MCP server connection remove client",
+   "Blotato API key delete revoke regenerate",
+   "Blotato team members remove user access workspace"
+  ]
+ },
+ "at": "2026-11-16T07:47:48.341Z"
+}

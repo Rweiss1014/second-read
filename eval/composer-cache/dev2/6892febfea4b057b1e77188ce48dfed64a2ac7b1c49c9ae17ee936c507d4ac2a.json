@@ -1,0 +1,65 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8308,
+ "verdict": {
+  "asked": [
+   {
+    "item": "add assistant as a second user with her own login",
+    "steps": [
+     1,
+     3
+    ]
+   },
+   {
+    "item": "her own password",
+    "steps": [
+     2
+    ]
+   },
+   {
+    "item": "how to set this up",
+    "steps": [
+     3,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages state that separate teammate logins are not available and that Blotato has no passwords, and they describe the only sharing method.",
+  "steps": [
+   {
+    "text": "Blotato supports one user per account, and separate teammate logins are not live yet.",
+    "quotes": [
+     "S2",
+     "S3"
+    ]
+   },
+   {
+    "text": "Blotato does not use passwords, so there is no password to set for your assistant.",
+    "quotes": [
+     "S87",
+     "S91"
+    ]
+   },
+   {
+    "text": "Today, you share access by giving your assistant your login email and the authentication code sent to your email; whoever has the code signs in as you, with no separate roles or audit trail.",
+    "quotes": [
+     "S4",
+     "S5"
+    ]
+   },
+   {
+    "text": "Have your assistant enter your email address when logging in, give her the authentication code sent to your email, and she completes the login process.",
+    "quotes": [
+     "S8",
+     "S9",
+     "S10"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:58:51.200Z"
+}

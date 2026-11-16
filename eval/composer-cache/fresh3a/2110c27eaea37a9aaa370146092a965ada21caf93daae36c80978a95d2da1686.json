@@ -1,0 +1,55 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6839,
+ "verdict": {
+  "asked": [
+   {
+    "item": "no spot to pick a custom cover image for Facebook Reels",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Facebook has no custom thumbnail option like YouTube",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "where custom cover images are available",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The sentences directly state that Facebook video posts do not support a custom cover image through Blotato, so the answer is clear for this customer.",
+  "steps": [
+   {
+    "text": "Blotato does not support custom cover images for Facebook video posts, so there is no cover field for Facebook.",
+    "quotes": [
+     "S95",
+     "S96"
+    ]
+   },
+   {
+    "text": "Facebook picks the cover for its videos itself.",
+    "quotes": [
+     "S38"
+    ]
+   },
+   {
+    "text": "Custom cover images are available for Instagram Reels.",
+    "quotes": [
+     "S16"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:25:37.038Z"
+}

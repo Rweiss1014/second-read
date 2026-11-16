@@ -1,0 +1,44 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4083,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Ask Claude via Blotato MCP to search Inspiration database for viral posts",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Doing it the way as in the web app",
+    "steps": [
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S8 states the MCP tool catalog has no Inspiration Database search tool, and the tutorial describes the web app search.",
+  "steps": [
+   {
+    "text": "The MCP tool catalog does not expose an Inspiration Database search tool.",
+    "quotes": [
+     "S8"
+    ]
+   },
+   {
+    "text": "To search Inspiration, open the navigation menu in the web app, expand Tools, select Inspiration, and use Search posts... to enter a topic.",
+    "quotes": [
+     "S81",
+     "S82",
+     "S83",
+     "S84"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:47:12.577Z"
+}

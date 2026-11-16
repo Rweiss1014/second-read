@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 5885,
+ "verdict": {
+  "queries": [
+   "Facebook story mediaType only first image in mediaUrls",
+   "Facebook Page stories single image or video per story",
+   "POST /v2/posts target mediaType story facebook",
+   "Facebook story multiple mediaUrls ignored",
+   "Facebook carousel vs story media limit API"
+  ]
+ }
+}

@@ -1,0 +1,55 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4713,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does an Instagram post show on Facebook Page automatically?",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Will picking Facebook too cause people to see it twice?",
+    "steps": [
+     3,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The Instagram auto-share sentences state Blotato's Instagram publisher submits only to Instagram and explain the duplicate check when native crossposting is enabled.",
+  "steps": [
+   {
+    "text": "Do not assume an Instagram-only post also published to Facebook.",
+    "quotes": [
+     "S2"
+    ]
+   },
+   {
+    "text": "Blotato's Instagram publisher submits to Instagram, and Instagram's native sharing behavior is separate from Blotato's destination results.",
+    "quotes": [
+     "S3",
+     "S4"
+    ]
+   },
+   {
+    "text": "If you want both destinations, connect Instagram and the intended Facebook Page, then select both in Blotato and verify each result.",
+    "quotes": [
+     "S5"
+    ]
+   },
+   {
+    "text": "If Instagram's native crossposting is enabled, check Facebook before sending an additional Facebook post to avoid duplicates.",
+    "quotes": [
+     "S6"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:51:27.345Z"
+}

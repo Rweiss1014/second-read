@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9659,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Max First Comment length on Instagram",
+    "steps": []
+   },
+   {
+    "item": "Whether Facebook has the same limit",
+    "steps": []
+   },
+   {
+    "item": "Customer's comment is about 3,000 characters",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The First Comment pages give 8,000 characters for Facebook, but another page says Facebook limits comments to 8000 bytes, not characters, and fails Chinese above about 2600. Whether a 3,000-character comment fits depends on its language, which the message doesn't give.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:07:45.789Z"
+}

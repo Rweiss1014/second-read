@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3441,
+ "verdict": {
+  "points": [
+   {
+    "point": "how long Inbox keeps comments and DMs",
+    "sentence": ""
+   },
+   {
+    "point": "imports older Instagram DMs from before connecting",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states how long Inbox retains comments and DMs or whether older pre-connection Instagram DMs are imported; supported-inboxes only covers which platforms the Inbox includes."
+ },
+ "at": "2026-11-16T08:11:13.319Z"
+}

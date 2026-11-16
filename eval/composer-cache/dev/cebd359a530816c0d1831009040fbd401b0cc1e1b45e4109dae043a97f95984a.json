@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3624,
+ "verdict": {
+  "queries": [
+   "Customize post per platform LinkedIn Facebook different content for each account",
+   "Blotato remix post screen Brand Kit",
+   "Edit content for each social account before publishing",
+   "Remix tool brand kit colors fonts logo applied"
+  ]
+ }
+}

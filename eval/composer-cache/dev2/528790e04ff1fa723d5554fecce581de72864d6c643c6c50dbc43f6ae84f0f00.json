@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4830,
+ "verdict": {
+  "queries": [
+   "Fix My Automation button",
+   "Fix My Automation Make.com scenario failed request Logs",
+   "Fix My Automation availability by plan",
+   "Make.com scenario error logs failed request troubleshooting"
+  ]
+ }
+}

@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4453,
+ "verdict": {
+  "queries": [
+   "LinkedIn video post \"Media attachment\" label",
+   "LinkedIn API video title parameter",
+   "LinkedIn video post caption text under video",
+   "Blotato LinkedIn media title field API",
+   "LinkedIn post video attachment title hidden"
+  ]
+ }
+}

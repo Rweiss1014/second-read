@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4841,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Joint Reel showing two Facebook Pages as collaborators",
+    "steps": []
+   },
+   {
+    "item": "Whether it works like Instagram collab posts",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences only describe adding collaborators to Instagram posts and reels; none says Facebook Pages can be tagged as collaborators on a Facebook Reel, so the question has no stated answer.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:59:16.969Z"
+}

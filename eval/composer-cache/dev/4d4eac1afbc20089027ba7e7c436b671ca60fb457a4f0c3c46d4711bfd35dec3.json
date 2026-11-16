@@ -1,0 +1,52 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8045,
+ "verdict": {
+  "asked": [
+   {
+    "item": "credits used for scheduling about 300 posts a month",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "credits used for using own photos",
+    "steps": [
+     2
+    ]
+   },
+   {
+    "item": "whether any credits are used in this case",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages state that scheduling posts and uploading your own images do not use credits, which answers the customer's question about their use case.",
+  "steps": [
+   {
+    "text": "Scheduling or publishing posts does not use credits.",
+    "quotes": [
+     "S56"
+    ]
+   },
+   {
+    "text": "Uploading your own images or videos does not use credits.",
+    "quotes": [
+     "S59"
+    ]
+   },
+   {
+    "text": "Credits are only used for AI-generated images and videos.",
+    "quotes": [
+     "S50"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:14:24.769Z"
+}

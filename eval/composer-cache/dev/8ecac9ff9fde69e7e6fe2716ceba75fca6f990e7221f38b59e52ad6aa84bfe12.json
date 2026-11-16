@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4587,
+ "verdict": {
+  "queries": [
+   "Blotato failed post automatic retry Instagram",
+   "Instagram post publishing failed status retry limit",
+   "Blotato scheduled post error status Instagram troubleshooting",
+   "Automatic retry failed posts maximum number of attempts"
+  ]
+ },
+ "at": "2026-11-16T07:50:04.755Z"
+}

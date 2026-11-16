@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3508,
+ "verdict": {
+  "queries": [
+   "Videos library delete video recover deleted video",
+   "Blotato undo delete video Videos library",
+   "restore deleted video from Videos library trash",
+   "Videos library deleted items retention period permanently deleted"
+  ]
+ },
+ "at": "2026-11-16T07:49:50.995Z"
+}

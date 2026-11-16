@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3463,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Support for Pinterest Idea Pins with multiple pages",
+    "steps": []
+   },
+   {
+    "item": "Whether only standard pins are supported",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences cover creating Pinterest pins (board, title, link) but never state whether Idea Pins with multiple pages are supported or only standard pins.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:07:45.619Z"
+}

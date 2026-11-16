@@ -1,0 +1,47 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9812,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why the post went out at a different time than the scheduledTime sent",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "How to schedule for New York time",
+    "steps": [
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The Timezone page says a timestamp without an offset is treated as UTC, and it explains how to send the time with an offset.",
+  "steps": [
+   {
+    "text": "A timestamp without an offset is treated as UTC, and the scheduledTime you sent had no offset or Z.",
+    "quotes": [
+     "S101"
+    ]
+   },
+   {
+    "text": "Resolve your timezone for the intended date, then send scheduledTime as ISO-8601 with an explicit offset or Z.",
+    "quotes": [
+     "S99"
+    ]
+   },
+   {
+    "text": "Account for daylight-saving changes when you resolve the offset.",
+    "quotes": [
+     "S107"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:47:31.838Z"
+}

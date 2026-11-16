@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4567,
+ "verdict": {
+  "queries": [
+   "connect YouTube brand account channel not showing in list",
+   "YouTube channel missing when connecting account Manager role permissions",
+   "Google account switch brand account YouTube channel selection authorization",
+   "YouTube channel access manager role Blotato connect account"
+  ]
+ }
+}

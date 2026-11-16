@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3640,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Link to a Discord for developers building on the Blotato API",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence mentions a developer Discord or gives a link for one; the closest sentences cover support channels and office hours, which is a different question.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:50:42.420Z"
+}

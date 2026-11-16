@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6426,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why the caption is missing from the TikTok draft",
+    "sentence": ""
+   },
+   {
+    "point": "Whether the customer typed the caption wrong",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry, draft-in-remix, only says where a TikTok draft lands, in the TikTok app notifications. No entry says why a caption is missing from the draft or whether typing it caused that."
+ },
+ "at": "2026-11-16T08:07:41.939Z"
+}

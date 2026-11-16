@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4326,
+ "verdict": {
+  "queries": [
+   "DM automation keyword matching accents diacritics",
+   "comment trigger keyword accent-insensitive match",
+   "multiple keywords for auto DM trigger",
+   "keyword variations spelling comment automation Blotato",
+   "keyword case sensitive comment to DM trigger"
+  ]
+ }
+}

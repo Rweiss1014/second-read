@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4389,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can invoices be issued in euros instead of dollars",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence says whether invoices can be issued in euros; the only currency mention is that credit pricing is in US dollars (S73), so the question is not answered by the help pages.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:14:27.971Z"
+}

@@ -1,0 +1,53 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4671,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why Blotato tools don't load in Hermes (two mcp_servers keys in config)",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "How to fix the config",
+    "steps": [
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S54 and S55 state that a second mcpservers key makes the file invalid and Hermes keeps the previous config without Blotato, which matches the customer's file.",
+  "steps": [
+   {
+    "text": "Your config has a second mcp_servers key, and a second key makes the file invalid.",
+    "quotes": [
+     "S55"
+    ]
+   },
+   {
+    "text": "When that happens, Hermes keeps loading the previous configuration without Blotato, which is why only the github tools load.",
+    "quotes": [
+     "S55"
+    ]
+   },
+   {
+    "text": "If mcp_servers is already in the file, add only the blotato entry under it.",
+    "quotes": [
+     "S54"
+    ]
+   },
+   {
+    "text": "After you save, restart Hermes.",
+    "quotes": [
+     "S51"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:48:03.610Z"
+}

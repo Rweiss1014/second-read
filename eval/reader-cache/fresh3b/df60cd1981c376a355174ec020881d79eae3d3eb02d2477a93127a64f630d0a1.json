@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 2986,
+ "verdict": {
+  "points": [
+   {
+    "point": "support response time",
+    "sentence": ""
+   },
+   {
+    "point": "SLA on Agency plan",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry states Blotato's support response time or any SLA for the Agency plan, so a person on the team should answer this."
+ },
+ "at": "2026-11-16T08:11:25.416Z"
+}

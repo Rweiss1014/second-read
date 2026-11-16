@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9756,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can an old, dormant TikTok account connect now without the full 4 weeks",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The warm-up pages are written for brand new accounts, and no sentence says whether a dormant, previously used TikTok account can skip the 4-week warm-up, so the customer's question is not answered.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:28:04.877Z"
+}

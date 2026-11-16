@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4946,
+ "verdict": {
+  "queries": [
+   "scheduledTime timezone UTC API post scheduling",
+   "scheduledTime ISO 8601 UTC offset required",
+   "API scheduled post time zone default interpreted as UTC",
+   "schedule post via API time zone conversion local time",
+   "Blotato REST API create post scheduledTime field format"
+  ]
+ },
+ "at": "2026-11-16T07:47:21.983Z"
+}

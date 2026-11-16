@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4337,
+ "verdict": {
+  "asked": [
+   {
+    "item": "how many pictures can I upload to Brand Visuals",
+    "steps": []
+   },
+   {
+    "item": "uploading about 80 product photos",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages give supported formats and the 10MB max file size for Brand Visuals but state no maximum number of uploads, and the page only says Brand Visuals guide style and do not place product photos into videos, so the count question is not answered.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:27:03.652Z"
+}

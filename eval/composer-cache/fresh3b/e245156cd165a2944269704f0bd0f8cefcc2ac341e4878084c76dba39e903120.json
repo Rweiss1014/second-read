@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8328,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can slides[].imageSource be a HEIC photo",
+    "steps": []
+   },
+   {
+    "item": "Need to convert HEIC to JPG first",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say imageSource takes an upload image URL or AI prompt text, but none state which file types the template accepts, and the HEIC conversion details cover publishing to platforms, not this template's input.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:12:50.728Z"
+}

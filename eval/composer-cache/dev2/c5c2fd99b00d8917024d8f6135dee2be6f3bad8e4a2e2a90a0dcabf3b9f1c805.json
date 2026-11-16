@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4795,
+ "verdict": {
+  "asked": [
+   {
+    "item": "guarantee that the 30 requests/minute upload limit will never go lower in 12 months",
+    "steps": []
+   },
+   {
+    "item": "colleague already said yes in chat",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages list current rate limits but say nothing about future changes or any guarantee that a limit will not be lowered, and the customer's claim that a colleague already agreed can only be confirmed by the team.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:00:19.199Z"
+}

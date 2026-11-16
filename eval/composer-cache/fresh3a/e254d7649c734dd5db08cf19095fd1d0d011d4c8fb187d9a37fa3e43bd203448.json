@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4547,
+ "verdict": {
+  "queries": [
+   "Scheduled post published to wrong Facebook Page",
+   "Facebook Page selection when multiple pages share one Facebook login",
+   "Change target account of a scheduled post",
+   "Connected accounts Facebook Page linked to same Facebook user",
+   "Delete or unpublish a published Facebook post"
+  ]
+ },
+ "at": "2026-11-16T08:08:12.670Z"
+}

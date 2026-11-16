@@ -1,0 +1,49 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3963,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is there an approval link to send to client",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "How to hold one post back for edits",
+    "steps": [
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S2 says no approval link exists in the web app, and S5-S8 explain how to pause a scheduled post for edits.",
+  "steps": [
+   {
+    "text": "Blotato does not have a built-in approval-link feature in the web app.",
+    "quotes": [
+     "S2"
+    ]
+   },
+   {
+    "text": "Create your post and schedule it for a future time, then review it in Posts > Scheduled.",
+    "quotes": [
+     "S5",
+     "S6"
+    ]
+   },
+   {
+    "text": "To pause a post for edits, open the three-dot menu and choose Move to Drafts, then publish or reschedule once you are satisfied.",
+    "quotes": [
+     "S7",
+     "S8"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:39:02.126Z"
+}

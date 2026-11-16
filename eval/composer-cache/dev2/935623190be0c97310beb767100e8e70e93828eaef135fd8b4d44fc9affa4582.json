@@ -1,0 +1,65 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 15436,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Reconnect shows the 20-account limit error for the same account",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "How to get past the limit so Reconnect works",
+    "steps": [
+     2,
+     3,
+     4,
+     5
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages state that reconnecting counts against the connected-account limit, which is this exact error, and give the steps to free a slot or upgrade.",
+  "steps": [
+   {
+    "text": "Reconnecting an existing account counts against the connected-account limit, so Reconnect fails until you free a slot.",
+    "quotes": [
+     "S38"
+    ]
+   },
+   {
+    "text": "Go to Accounts and disconnect an account you no longer use, then reconnect.",
+    "quotes": [
+     "S132",
+     "S38"
+    ]
+   },
+   {
+    "text": "To increase your limit instead, go to Settings > Billing, click View Billing Portal, and click the purple Update subscription button.",
+    "quotes": [
+     "S49",
+     "S50",
+     "S51",
+     "S52"
+    ]
+   },
+   {
+    "text": "Select Creator for up to 40 accounts or Agency for up to 100 accounts, then confirm the change.",
+    "quotes": [
+     "S53"
+    ]
+   },
+   {
+    "text": "Reconnecting a removed account does not restore archived automations.",
+    "quotes": [
+     "S121"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:59:48.277Z"
+}

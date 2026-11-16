@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6649,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Earn commission on clients' credit purchases when my Tolt code is passed in `referral`",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages describe `referral` only as an optional referral code and describe commission on a referred customer's first subscription payment, but no sentence says whether credit purchases earn commission.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:49:00.890Z"
+}

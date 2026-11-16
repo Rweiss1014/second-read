@@ -1,0 +1,17 @@
+{
+ "kind": "refute",
+ "version": "refute-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6381,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "not-answered",
+    "about": "The customer asked whether the comment being 9 days old is the problem. The reply states a 7-day limit for private replies to comments but never says that 9 days is past it. It sends them to read errorMessage instead."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T08:11:36.633Z"
+}

@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5151,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is there a OneDrive direct download link like Google Drive's",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences cover Google Drive direct links and say a public direct file URL is needed, but none say how to get a direct link from OneDrive.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:49:13.400Z"
+}

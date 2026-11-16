@@ -1,0 +1,66 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8563,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is this caused by low credits?",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Should I just hit retry?",
+    "steps": [
+     2
+    ]
+   },
+   {
+    "item": "Same error on all three platforms at once",
+    "steps": [
+     3,
+     4,
+     5
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S61 covers this exact error on every platform: it isn't a credits problem, retrying unchanged media won't help, and it lists what to check.",
+  "steps": [
+   {
+    "text": "This error is not a rate-limit or credits problem.",
+    "quotes": [
+     "S61"
+    ]
+   },
+   {
+    "text": "Retrying the same media without changes will not help.",
+    "quotes": [
+     "S61"
+    ]
+   },
+   {
+    "text": "Open each failed post in Posts > Failed to read its exact error, because the cause can differ per platform even when the message is the same.",
+    "quotes": [
+     "S61"
+    ]
+   },
+   {
+    "text": "Common causes are media that doesn't meet the platform's format or size specs, or a stale connection.",
+    "quotes": [
+     "S61"
+    ]
+   },
+   {
+    "text": "For a stale connection, reconnect the account in Accounts and retry.",
+    "quotes": [
+     "S61"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:46:02.616Z"
+}

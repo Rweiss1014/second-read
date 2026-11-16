@@ -1,0 +1,42 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8600,
+ "verdict": {
+  "asked": [
+   {
+    "item": "How to get from 100 to 130 connected accounts on Agency",
+    "steps": [
+     1,
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help page says the Agency plan stops at 100 accounts and tells customers who need more to ask in the in-app chat.",
+  "steps": [
+   {
+    "text": "The Agency plan supports up to 100 connected accounts.",
+    "quotes": [
+     "S21"
+    ]
+   },
+   {
+    "text": "If you need more than 100 accounts, ask in the in-app chat and include the total number of accounts you need.",
+    "quotes": [
+     "S22"
+    ]
+   },
+   {
+    "text": "The billing portal only offers the standard Starter, Creator, and Agency plans, so custom arrangements are handled through the chat, not the portal.",
+    "quotes": [
+     "S24"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:09:17.964Z"
+}

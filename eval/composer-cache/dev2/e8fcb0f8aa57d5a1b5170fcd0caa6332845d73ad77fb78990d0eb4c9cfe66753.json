@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4344,
+ "verdict": {
+  "queries": [
+   "Transfer credits to another Blotato account",
+   "Share credits between accounts or workspaces",
+   "Are Blotato credits transferable or refundable",
+   "Gift credits to another user",
+   "Invite team member to workspace and share subscription"
+  ]
+ }
+}

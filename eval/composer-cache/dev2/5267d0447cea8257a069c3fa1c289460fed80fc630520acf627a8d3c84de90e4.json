@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4024,
+ "verdict": {
+  "asked": [
+   {
+    "item": "exact month Threads gets First Comment",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages give no date or month for First Comment on Threads; they only say it supports Instagram and Facebook, so a person on the team should follow up.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:45:53.980Z"
+}

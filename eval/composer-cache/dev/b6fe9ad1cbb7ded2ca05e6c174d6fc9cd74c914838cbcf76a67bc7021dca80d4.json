@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4179,
+ "verdict": {
+  "queries": [
+   "Change account email address Profile settings verification code",
+   "Update Email verification code not received old email address",
+   "Blotato email change confirmation code sent to current email",
+   "Blotato account email update verification code troubleshooting spam folder"
+  ]
+ }
+}

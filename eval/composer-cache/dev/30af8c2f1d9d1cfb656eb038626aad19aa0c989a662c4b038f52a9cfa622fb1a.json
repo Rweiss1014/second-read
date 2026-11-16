@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4789,
+ "verdict": {
+  "queries": [
+   "TikTok photo slideshow add music audio",
+   "TikTok carousel post background music API",
+   "tiktok target autoAddMusic photo post",
+   "TikTok photo post music not added silent slideshow",
+   "Blotato REST API TikTok photo carousel mediaUrls music"
+  ]
+ }
+}

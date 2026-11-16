@@ -1,0 +1,54 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9956,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why the log says the follow gate was skipped",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Test account never gets the follow question",
+    "steps": [
+     1,
+     3
+    ]
+   },
+   {
+    "item": "Automation published November 12 (after the November 10 cutoff)",
+    "steps": [
+     1
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages state that a follower confirmed within the last 30 days skips the follow gate on automations published after November 10, 2026, and how to see the gate when testing.",
+  "steps": [
+   {
+    "text": "On automations published after November 10, 2026, a contact Blotato confirmed as a follower within the last 30 days skips the follow gate.",
+    "quotes": [
+     "S25"
+    ]
+   },
+   {
+    "text": "A contact that passed a follow gate on the same connected account in an earlier run gets your message without being asked again.",
+    "quotes": [
+     "S31"
+    ]
+   },
+   {
+    "text": "To see the gate message while testing, comment or message from an account that has not passed a follow gate in the last 30 days.",
+    "quotes": [
+     "S32"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:59:08.396Z"
+}

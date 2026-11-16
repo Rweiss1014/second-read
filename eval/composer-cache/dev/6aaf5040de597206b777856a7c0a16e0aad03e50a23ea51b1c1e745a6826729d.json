@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4591,
+ "verdict": {
+  "queries": [
+   "Pinterest post published link 404 error",
+   "Pinterest pin URL not found after publishing",
+   "Blotato Pinterest post published URL missing or broken",
+   "Pinterest destination link board pin link settings"
+  ]
+ }
+}

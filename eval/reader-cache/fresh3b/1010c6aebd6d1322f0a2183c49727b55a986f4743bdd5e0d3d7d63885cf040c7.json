@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5948,
+ "verdict": {
+  "points": [
+   {
+    "point": "Need to pay for CloudConvert?",
+    "sentence": ""
+   },
+   {
+    "point": "CloudConvert free plan enough for one carousel a day",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry mentions CloudConvert, its pricing or its free plan limits, so none answers this customer's question."
+ },
+ "at": "2026-11-16T08:12:30.498Z"
+}

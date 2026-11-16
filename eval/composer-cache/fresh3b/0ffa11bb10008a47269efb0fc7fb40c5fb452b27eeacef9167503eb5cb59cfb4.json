@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3316,
+ "verdict": {
+  "queries": [
+   "Blotato Inbox comments and direct messages retention period",
+   "Blotato Inbox how long messages are stored",
+   "Blotato Inbox Instagram DM history import before account connected",
+   "Blotato Inbox sync historical Instagram direct messages",
+   "Blotato connect Instagram account Inbox messages backfill"
+  ]
+ },
+ "at": "2026-11-16T08:11:16.638Z"
+}

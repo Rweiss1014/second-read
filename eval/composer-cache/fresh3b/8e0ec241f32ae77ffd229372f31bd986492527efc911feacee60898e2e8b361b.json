@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4344,
+ "verdict": {
+  "queries": [
+   "quick reply buttons maximum number per message",
+   "quick_replies array limit POST /messages",
+   "quick replies 13 limit Messenger Instagram",
+   "quick reply chips character limit title payload",
+   "size picker quick replies multiple messages split"
+  ]
+ },
+ "at": "2026-11-16T08:12:05.310Z"
+}

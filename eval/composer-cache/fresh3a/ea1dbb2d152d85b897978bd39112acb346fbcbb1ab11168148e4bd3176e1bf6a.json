@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3656,
+ "verdict": {
+  "queries": [
+   "AI image generator commercial use rights",
+   "AI generated images ownership and license terms",
+   "Blotato AI image generation terms of service",
+   "using generated images in paid advertising",
+   "AI generated images product packaging commercial license"
+  ]
+ },
+ "at": "2026-11-16T08:08:11.349Z"
+}

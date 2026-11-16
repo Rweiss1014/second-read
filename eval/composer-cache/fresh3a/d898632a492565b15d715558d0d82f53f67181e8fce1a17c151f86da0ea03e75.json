@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5792,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Bluesky daily post cap per account",
+    "steps": []
+   },
+   {
+    "item": "Confirm the 500 posts per day figure in the customer's config",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages list daily posting limits for TikTok, Instagram, LinkedIn, Pinterest, Facebook, YouTube and Slack, but no sentence states a daily post cap for Bluesky, so the question cannot be answered from them. The 500 figure in the customer's message is not supported by any cited sentence and was not used.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:26:47.718Z"
+}

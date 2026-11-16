@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3375,
+ "verdict": {
+  "points": [
+   {
+    "point": "field to attach .srt caption file on YouTube publish",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry says anything about attaching caption/.srt files for YouTube; the closest entries (first comment, cover image, Google Drive captions) cover different features."
+ },
+ "at": "2026-11-16T08:06:57.681Z"
+}

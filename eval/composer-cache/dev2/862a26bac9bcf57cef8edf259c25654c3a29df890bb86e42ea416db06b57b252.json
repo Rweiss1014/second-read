@@ -1,0 +1,17 @@
+{
+ "kind": "second",
+ "version": "second-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 10588,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "caveat",
+    "about": "Step 4 tells the customer to disconnect an account they no longer use and then reconnect, but the help page warns that reconnecting a removed account does not restore archived automations, and the reply leaves that out (step 5 only says to review effects generally)."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T08:02:12.280Z"
+}

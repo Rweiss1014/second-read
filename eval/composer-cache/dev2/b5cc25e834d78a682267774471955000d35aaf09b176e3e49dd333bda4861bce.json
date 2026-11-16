@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5066,
+ "verdict": {
+  "asked": [
+   {
+    "item": "how long the assistant stays signed in (days or weeks)",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer asks for a specific duration, but the only sentence on it (S11) says the sign-in lasts \"for awhile\" with no length given, so the question is not answered.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:00:01.334Z"
+}

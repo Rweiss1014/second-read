@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5286,
+ "verdict": {
+  "queries": [
+   "Inbox export comments and direct messages CSV",
+   "Blotato Inbox export button download conversations",
+   "export Inbox messages to CSV",
+   "Inbox comments DMs download data retention period",
+   "Blotato Inbox data retention 45 days comments messages"
+  ]
+ },
+ "at": "2026-11-16T08:12:27.554Z"
+}

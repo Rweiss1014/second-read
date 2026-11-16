@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3896,
+ "verdict": {
+  "queries": [
+   "import CapCut project file video editor",
+   "CapCut project import supported formats",
+   "Blotato video editor open external project",
+   "video editor import draft timeline cuts text layers",
+   "CapCut export to Blotato editor compatibility"
+  ]
+ },
+ "at": "2026-11-16T08:10:13.751Z"
+}

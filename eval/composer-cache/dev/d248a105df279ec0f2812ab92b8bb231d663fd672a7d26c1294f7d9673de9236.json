@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4088,
+ "verdict": {
+  "queries": [
+   "Failed to upload stream to Supabase error media URL",
+   "Google Drive video link view URL not supported media upload",
+   "Google Drive sharing set to Anyone with the link direct download video URL",
+   "video upload from URL file size limit media library"
+  ]
+ }
+}

@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6115,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Should I uncheck messaging permission to get past 'isn't eligible'",
+    "steps": []
+   },
+   {
+    "item": "Two DM automations live on the account",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help page says that when a customer has live DM automations, the messaging permission must not be removed and the eligibility error must be escalated, so the team needs to handle it.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:48:42.529Z"
+}

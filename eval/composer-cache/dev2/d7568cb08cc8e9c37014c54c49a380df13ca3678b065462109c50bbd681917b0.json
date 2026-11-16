@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8067,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Status check returns 503 Service Unavailable intermittently",
+    "steps": []
+   },
+   {
+    "item": "Whether to send the post again when that happens, or the right way to handle it",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences say to find a post's outcome before resubmitting and not to repeat create-post, but none covers a 503 from the status check itself, so the answer would be a guess.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:48:15.765Z"
+}

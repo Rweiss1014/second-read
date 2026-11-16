@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5229,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Maximum number of DM automations per Instagram account",
+    "steps": []
+   },
+   {
+    "item": "Creating about 150 automations with one keyword each",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages limit triggers per automation (2) and monthly active contacts, but none states a maximum number of automations per Instagram account.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:46:13.539Z"
+}

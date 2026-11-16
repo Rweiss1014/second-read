@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7249,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Will the post go out right away if Next free slot time is chosen with no weekly slots set up",
+    "steps": []
+   },
+   {
+    "item": "Will the post show as failed instead",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences say that scheduling fails instead of publishing immediately when no matching slot time is available (S18), but they do not say the post appears under Posts > Failed, so the \"show as failed\" question is not answered.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:26:48.690Z"
+}

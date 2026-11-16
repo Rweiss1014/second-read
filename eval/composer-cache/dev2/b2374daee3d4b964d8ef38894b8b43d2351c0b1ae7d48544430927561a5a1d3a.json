@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 5780,
+ "verdict": {
+  "queries": [
+   "503 Service Unavailable API retry",
+   "API retry with exponential backoff",
+   "get post status API postSubmissionId status published failed in-progress",
+   "avoid duplicate posts resend post API"
+  ]
+ }
+}

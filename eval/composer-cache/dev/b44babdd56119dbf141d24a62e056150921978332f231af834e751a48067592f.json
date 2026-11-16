@@ -1,0 +1,75 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 11326,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Which number is the real one (12.7K vs 11K)",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Is Blotato missing views",
+    "steps": [
+     2,
+     4
+    ]
+   },
+   {
+    "item": "Is something broken with the connection",
+    "steps": [
+     3
+    ]
+   },
+   {
+    "item": "Do I need to reconnect YouTube",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The YouTube view count FAQ explains the gap between the watch page and Blotato and says no action is needed.",
+  "steps": [
+   {
+    "text": "Blotato and the YouTube watch page count views differently, so the two numbers never match exactly.",
+    "quotes": [
+     "S18"
+    ]
+   },
+   {
+    "text": "The watch page count includes views YouTube has not validated yet, while Blotato's count comes from the YouTube Analytics API, which reports only finalized views.",
+    "quotes": [
+     "S20",
+     "S21"
+    ]
+   },
+   {
+    "text": "Neither is a bug and no action is needed.",
+    "quotes": [
+     "S35"
+    ]
+   },
+   {
+    "text": "The gap is widest on a new video and narrows as YouTube finalizes more data, and the Blotato number rises at later checkpoints.",
+    "quotes": [
+     "S28",
+     "S30"
+    ]
+   },
+   {
+    "text": "To confirm this yourself, open YouTube Studio, where the Analytics tab matches what Blotato reports.",
+    "quotes": [
+     "S23",
+     "S25"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:39:11.916Z"
+}

@@ -1,0 +1,21 @@
+{
+ "kind": "refute",
+ "version": "refute-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8229,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "wrong-for-customer",
+    "about": "The customer said the ID is made up for a poller test, but the reply treats it as a real post. It asks them to check the ID came from the create response, tells them not to re-post, and asks for the creation time and account."
+   },
+   {
+    "kind": "not-answered",
+    "about": "The reply never says directly whether returning 200 with \"in-progress\" for an unknown ID is expected or a bug, so it doesn't answer whether it should be a 404 or whether the endpoint is broken."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T08:11:39.504Z"
+}

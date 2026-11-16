@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3098,
+ "verdict": {
+  "points": [
+   {
+    "point": "HIPAA compliance",
+    "sentence": ""
+   },
+   {
+    "point": "SOC 2 certification",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry says anything about HIPAA or SOC 2 compliance, so none answers this customer."
+ },
+ "at": "2026-11-16T08:08:02.242Z"
+}

@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8754,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is TikTok analytics broken on my account?",
+    "steps": []
+   },
+   {
+    "item": "Why the MCP top posts list left out TikTok",
+    "steps": []
+   },
+   {
+    "item": "Can it rank my LinkedIn posts?",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "Whether TikTok analytics are broken on this specific account depends on the account's own records, and the help sentences list possible causes (older posts, first checkpoint not yet passed, or an account needing reconnection) without saying which applies here.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:59:28.553Z"
+}

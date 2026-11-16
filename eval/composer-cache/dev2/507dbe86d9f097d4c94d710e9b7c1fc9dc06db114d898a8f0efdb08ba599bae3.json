@@ -1,0 +1,52 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 10321,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does the 10/hr limit apply to GET /v2/credits",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Avoiding 429s when polling every 30s",
+    "steps": [
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The overview table lists 10 / hour only for POST /credits and shows no stated limit for GET /credits, and it says a dash does not mean unlimited.",
+  "steps": [
+   {
+    "text": "The 10 / hour limit is listed for Buy Credits (POST /credits).",
+    "quotes": [
+     "S76",
+     "S55"
+    ]
+   },
+   {
+    "text": "For Get Credit Balance (GET /credits), the table shows a dash, which means no limit is stated in that table, not unlimited access.",
+    "quotes": [
+     "S75",
+     "S64"
+    ]
+   },
+   {
+    "text": "If you do get a 429, stop requests to that route, wait for the retry interval if the response gives one, and reduce request frequency before resuming.",
+    "quotes": [
+     "S22",
+     "S23",
+     "S24"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:49:03.585Z"
+}

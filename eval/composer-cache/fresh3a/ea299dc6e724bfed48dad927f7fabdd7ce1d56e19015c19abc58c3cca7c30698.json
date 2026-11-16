@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3969,
+ "verdict": {
+  "queries": [
+   "Blotato Make integration modules list",
+   "Blotato Make module get post analytics",
+   "Blotato API analytics endpoint post metrics",
+   "Blotato HTTP request module Make custom API call",
+   "Blotato analytics export"
+  ]
+ },
+ "at": "2026-11-16T08:07:01.738Z"
+}

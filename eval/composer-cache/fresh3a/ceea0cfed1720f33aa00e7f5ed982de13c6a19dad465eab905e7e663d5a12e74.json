@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3179,
+ "verdict": {
+  "queries": [
+   "Microsoft Teams channel connection Blotato",
+   "Connect Microsoft Teams account social media account settings",
+   "Post to Microsoft Teams channel announcements",
+   "Slack channel posting Blotato supported platforms",
+   "Microsoft Teams integration not supported platforms list"
+  ]
+ },
+ "at": "2026-11-16T08:07:13.934Z"
+}

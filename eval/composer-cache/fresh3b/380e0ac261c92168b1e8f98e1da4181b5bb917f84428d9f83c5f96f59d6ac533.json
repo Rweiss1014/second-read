@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3497,
+ "verdict": {
+  "queries": [
+   "Blotato Slack integration channel posting",
+   "Slack Connect shared channels posting support",
+   "Slack Connect externally shared channel Blotato",
+   "connect Slack workspace channel selection Blotato"
+  ]
+ },
+ "at": "2026-11-16T08:12:43.761Z"
+}

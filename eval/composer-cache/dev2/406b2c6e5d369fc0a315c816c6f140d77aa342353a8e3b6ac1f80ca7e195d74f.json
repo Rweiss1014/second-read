@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3425,
+ "verdict": {
+  "queries": [
+   "X video upload duration limit Premium account 2 minutes",
+   "X Premium video length limit 'not allowed to post a video longer than 2 minutes' error",
+   "Blotato X (Twitter) video length and file format requirements",
+   "Blotato video conversion format support X media upload"
+  ]
+ }
+}

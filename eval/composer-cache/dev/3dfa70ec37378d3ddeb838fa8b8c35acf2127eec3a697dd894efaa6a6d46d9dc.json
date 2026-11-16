@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3507,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Where to download SOC 2 Type II report",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the sentences mention a SOC 2 Type II report or where to download it, so the team needs to answer.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:51:02.313Z"
+}

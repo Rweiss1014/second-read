@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6665,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Failed to publish TikTok post after 3 retries (Unknown error reason)",
+    "steps": []
+   },
+   {
+    "item": "Third failure this week",
+    "steps": []
+   },
+   {
+    "item": "Turn off retries and repost repeatedly",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help page says to send the error evidence to support so the team can check the raw TikTok failure reason and publishing logs, so the team needs to handle this.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:51:20.617Z"
+}

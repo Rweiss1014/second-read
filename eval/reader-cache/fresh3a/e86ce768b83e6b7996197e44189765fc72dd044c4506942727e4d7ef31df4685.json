@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7033,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why reconnecting Slack unchecked all other channels",
+    "sentence": ""
+   },
+   {
+    "point": "Why posts are not going to the other channels",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry, slack-permissions-not-granted, says to check each channel you want in the dialog. It never says that reconnecting unchecks existing channels, and it doesn't explain why posts stopped, so a person should answer."
+ },
+ "at": "2026-11-16T08:07:12.955Z"
+}

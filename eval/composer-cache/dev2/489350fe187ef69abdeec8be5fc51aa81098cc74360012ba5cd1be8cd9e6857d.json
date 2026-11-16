@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4988,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Ask for a phone number instead of email in DM automation",
+    "steps": []
+   },
+   {
+    "item": "Send the phone number to a webhook",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences describe only an email gate and a webhook that sends the captured email; none say whether a phone number can be requested or sent to a webhook.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:46:03.434Z"
+}

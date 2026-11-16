@@ -1,0 +1,17 @@
+{
+ "kind": "refute",
+ "version": "refute-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5768,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "wrong-for-customer",
+    "about": "The reply says carousels don't support collaborators. Its steps and 'Next step' then tell the customer to enter a collaborator in the Collaborators field when scheduling, and say the post will publish with the collaborator on it. That is the setup that already fails with their error, so it contradicts the reply's own explanation and misleads them."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T08:08:03.835Z"
+}

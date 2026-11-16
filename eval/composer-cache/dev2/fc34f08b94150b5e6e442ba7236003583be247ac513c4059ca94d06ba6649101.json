@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6980,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Make version of the Hacker News to AI Clone Videos template",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages don't say whether a Make version of this template exists or is planned. The Platforms list shows only unlabeled true/false values, and the Make AI Clone guide is a different resource, so the team should reply.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:47:50.098Z"
+}

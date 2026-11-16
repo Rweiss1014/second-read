@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4902,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Undo deleting a video in the Videos library",
+    "steps": []
+   },
+   {
+    "item": "Staff restoring the deleted video",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence says whether a deleted video can be undone or restored, and the customer is asking staff to bring it back, so a team member needs to handle it.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:37:56.659Z"
+}

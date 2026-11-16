@@ -1,0 +1,56 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8361,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Should a made-up ID return a 404?",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Is the endpoint broken?",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Which ID to use when testing the poller",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages state that the status endpoint returns in-progress when no record matches, and that this does not validate a guessed ID.",
+  "steps": [
+   {
+    "text": "The lookup checks failed, published, and scheduled records belonging to the authenticated Blotato user, and if none matches, it returns in-progress.",
+    "quotes": [
+     "S9",
+     "S10"
+    ]
+   },
+   {
+    "text": "This fallback does not confirm a live queue job or validate a guessed submission ID.",
+    "quotes": [
+     "S11"
+    ]
+   },
+   {
+    "text": "Test with the postSubmissionId from the original create response, and don't substitute a guessed UUID.",
+    "quotes": [
+     "S116",
+     "S117"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:11:52.498Z"
+}

@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4440,
+ "verdict": {
+  "queries": [
+   "Viral Coach video upload file size limit",
+   "Viral Coach supported file formats and maximum file size MB",
+   "Blotato video upload maximum file size publishing vs Viral Coach",
+   "Viral Coach upload error file too large"
+  ]
+ }
+}

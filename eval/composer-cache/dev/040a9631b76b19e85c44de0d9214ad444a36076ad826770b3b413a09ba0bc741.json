@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4860,
+ "verdict": {
+  "queries": [
+   "Contact Blotato support",
+   "Support response time and support hours",
+   "Escalate a support ticket",
+   "Book a live support call or screen share session",
+   "Blotato support chat ticket status"
+  ]
+ }
+}

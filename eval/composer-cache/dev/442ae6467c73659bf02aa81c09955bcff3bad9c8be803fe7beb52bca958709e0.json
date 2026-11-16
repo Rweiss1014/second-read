@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4021,
+ "verdict": {
+  "queries": [
+   "Blotato Inbox supported platforms comments and direct messages",
+   "Blotato Inbox LinkedIn comments",
+   "Blotato Inbox TikTok comments",
+   "Blotato Inbox direct messages DMs Instagram LinkedIn TikTok",
+   "connect LinkedIn account Blotato social accounts"
+  ]
+ }
+}

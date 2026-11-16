@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4280,
+ "verdict": {
+  "asked": [
+   {
+    "item": "status page to check when posts seem slow",
+    "steps": []
+   },
+   {
+    "item": "whether the slowness is on Blotato's end",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the provided sentences mention a status page or say how to tell whether slow posts are caused by Blotato; the closest sentences cover post-status API polling and MCP timing, which answer a neighboring question.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:14:16.898Z"
+}

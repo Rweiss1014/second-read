@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4117,
+ "verdict": {
+  "queries": [
+   "Sources library limit per plan",
+   "Sources library maximum number of sources",
+   "add podcast episode as source RSS feed import",
+   "Sources library bulk import storage limit",
+   "Sources library plan limits upgrade"
+  ]
+ },
+ "at": "2026-11-16T08:10:26.321Z"
+}

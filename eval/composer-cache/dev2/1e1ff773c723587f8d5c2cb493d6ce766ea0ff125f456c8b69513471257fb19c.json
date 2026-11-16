@@ -1,0 +1,70 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 11009,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Get all four photos out on Threads in one post",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Meaning of the error \"Threads only supports a single image or a video\"",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Using the copied API request with four images",
+    "steps": [
+     3
+    ]
+   },
+   {
+    "item": "Doing it without the API, in the Blotato app",
+    "steps": [
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages state that a Threads post takes one image and that multiple images are shared as a thread with one image per post, which answers the customer's question about getting all four photos out.",
+  "steps": [
+   {
+    "text": "Blotato's Threads publisher accepts only one image or video per post, so a single Threads post cannot hold all four photos.",
+    "quotes": [
+     "S5",
+     "S36"
+    ]
+   },
+   {
+    "text": "To share multiple images on Threads, publish a thread instead, with one image attached to each post in the thread.",
+    "quotes": [
+     "S8"
+    ]
+   },
+   {
+    "text": "In the API request, put each extra image in its own post inside the additionalPosts array in post.content, with a single item in that post's mediaUrls.",
+    "quotes": [
+     "S39",
+     "S59"
+    ]
+   },
+   {
+    "text": "In the Blotato app, click + Add Post and select Threads, attach a photo with \"Add Media,\" then click \"+ Add to Thread\" to add more posts, attaching one photo to each.",
+    "quotes": [
+     "S12",
+     "S13",
+     "S14",
+     "S15"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:58:57.923Z"
+}

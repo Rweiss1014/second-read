@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3275,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is there a status page to check when posts are slow",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the sentences mention a status page or a way to tell whether slowness is on Blotato's side; the post status sentences answer a different question.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:38:28.459Z"
+}

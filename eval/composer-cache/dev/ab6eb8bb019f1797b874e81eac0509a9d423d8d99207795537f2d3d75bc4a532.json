@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4161,
+ "verdict": {
+  "queries": [
+   "Add emoji to post caption",
+   "Emoji picker in post text editor",
+   "Insert emoji into post content",
+   "Unicode emoji support in post text"
+  ]
+ }
+}

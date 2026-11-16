@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7891,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Where to enter the emailed code in the billing portal when reactivating",
+    "steps": []
+   },
+   {
+    "item": "How to get the discount after cancelling and coming back",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say the portal has no code field on reactivation and that support (Sabrina) must apply the discount manually, so the team needs to handle this.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:08:05.184Z"
+}

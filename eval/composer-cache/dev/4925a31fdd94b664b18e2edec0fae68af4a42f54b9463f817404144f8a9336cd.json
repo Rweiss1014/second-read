@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5094,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does the webhook publish target sign requests (HMAC header or shared secret)?",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence says whether the webhook publish target signs requests or uses a shared secret; the only header and key text (S8, S109) belongs to the DM automation webhook, which the help pages say is a separate feature.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:14:38.094Z"
+}

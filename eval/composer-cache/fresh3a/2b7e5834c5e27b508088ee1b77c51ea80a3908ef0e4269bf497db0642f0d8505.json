@@ -1,0 +1,49 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7886,
+ "verdict": {
+  "asked": [
+   {
+    "item": "What did the app do when I reconnected",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Other channels unchecked, posts not going to them",
+    "steps": [
+     1,
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The Slack help page says reconnecting clears the channel selection and says to check every channel you want, including ones you already use.",
+  "steps": [
+   {
+    "text": "Reconnecting clears the workspace's channel selection, so your other channels were unchecked.",
+    "quotes": [
+     "S11"
+    ]
+   },
+   {
+    "text": "To fix it, open Accounts, open the Slack workspace's ... menu, and select Reconnect.",
+    "quotes": [
+     "S15"
+    ]
+   },
+   {
+    "text": "Check the new channel and every channel you already use, then select Finish.",
+    "quotes": [
+     "S16",
+     "S17"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:07:24.894Z"
+}

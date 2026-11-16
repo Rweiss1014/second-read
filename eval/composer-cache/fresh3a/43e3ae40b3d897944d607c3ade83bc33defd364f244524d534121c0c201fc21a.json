@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5829,
+ "verdict": {
+  "asked": [
+   {
+    "item": "how to go from 100 to 130 connected accounts on Agency plan",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say the Agency plan supports only up to 100 accounts and that anything above 100 must be requested through the in-app chat, where Sabrina sets up the arrangement, so no self-serve steps answer this.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:26:25.972Z"
+}

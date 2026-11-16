@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5396,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why a 4,600-character Greek reply fails as too long on Facebook",
+    "sentence": ""
+   },
+   {
+    "point": "Reply to a comment on a Facebook Page",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry explains why a 4,600-character Greek reply is rejected as too long. The 8,000-character Facebook limit appears only in the DM automation entry (20303), and that doesn't cover a direct comment reply."
+ },
+ "at": "2026-11-16T08:10:05.896Z"
+}

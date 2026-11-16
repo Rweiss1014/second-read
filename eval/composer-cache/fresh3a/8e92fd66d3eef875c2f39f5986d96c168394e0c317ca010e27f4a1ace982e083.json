@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4463,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Access to client's account",
+    "steps": []
+   },
+   {
+    "item": "Client's credit balance",
+    "steps": []
+   },
+   {
+    "item": "Pause client's scheduled posts",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer asks staff to give access to or report on another person's account and to pause their posts, and the pages give no answer for pausing scheduled posts.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:08:30.483Z"
+}

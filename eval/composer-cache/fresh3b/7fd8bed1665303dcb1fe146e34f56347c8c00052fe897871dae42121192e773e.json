@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7226,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Link sticker on a Facebook Page story via Blotato",
+    "steps": []
+   },
+   {
+    "item": "Instagram link stickers not possible (stated by customer)",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences cover link stickers only for Instagram Stories and never say whether a Facebook Story can have a link sticker, so the Facebook question has no answer in them.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:12:10.198Z"
+}

@@ -1,0 +1,54 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 11655,
+ "verdict": {
+  "asked": [
+   {
+    "item": "why a made-up ID returns in-progress instead of 404",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "is the endpoint broken",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "which ID to use for status checks",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The sentences state that the status endpoint returns in-progress when no record matches, and that this fallback does not validate a guessed ID, which covers the customer's question about the response.",
+  "steps": [
+   {
+    "text": "The Get Post Status page says that if no matching record is found, the endpoint returns in-progress.",
+    "quotes": [
+     "S10"
+    ]
+   },
+   {
+    "text": "That fallback does not confirm a live queue job or validate a guessed submission ID.",
+    "quotes": [
+     "S11"
+    ]
+   },
+   {
+    "text": "Use the postSubmissionId from the original create response rather than a guessed ID.",
+    "quotes": [
+     "S116",
+     "S117"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:28:00.104Z"
+}

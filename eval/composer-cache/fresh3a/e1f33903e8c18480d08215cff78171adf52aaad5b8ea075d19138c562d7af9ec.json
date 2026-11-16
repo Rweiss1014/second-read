@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3990,
+ "verdict": {
+  "queries": [
+   "Remove 'Published by Blotato' attribution from Facebook Page posts",
+   "Blotato branding setting hide powered by Blotato footer",
+   "Facebook Page post 'Published by' text disable setting",
+   "Blotato white label branding removal social media posts"
+  ]
+ },
+ "at": "2026-11-16T08:07:52.676Z"
+}

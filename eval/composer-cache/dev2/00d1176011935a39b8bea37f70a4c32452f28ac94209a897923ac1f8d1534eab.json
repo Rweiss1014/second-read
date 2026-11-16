@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4171,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Blotato contacts TikTok to restore the banned shop account",
+    "steps": []
+   },
+   {
+    "item": "Why TikTok banned the account (account-specific fact)",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer asks staff to contact TikTok and restore their banned account, which is a request for the team to act, and the reason for this specific ban can only be shown by the customer's own account; the help pages only give general ban causes and do not say Blotato can contact TikTok or restore accounts.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:57:53.616Z"
+}

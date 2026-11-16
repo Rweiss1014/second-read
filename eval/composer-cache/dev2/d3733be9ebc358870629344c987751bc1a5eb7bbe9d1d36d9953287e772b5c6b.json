@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4012,
+ "verdict": {
+  "queries": [
+   "Blotato invite team member",
+   "Blotato add user workspace seat",
+   "Blotato team members separate login password",
+   "Blotato workspace member role permissions",
+   "Blotato accept invitation join workspace"
+  ]
+ }
+}

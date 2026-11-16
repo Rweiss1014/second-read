@@ -1,0 +1,13 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3008,
+ "verdict": {
+  "points": [],
+  "pick": "none",
+  "reason": "No entry covers the 'Published by Blotato' label or where to turn it off, and the customer also asks staff to turn it off, which is a request for staff to change a setting."
+ },
+ "at": "2026-11-16T08:07:48.684Z"
+}

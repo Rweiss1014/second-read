@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4167,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can I tag people in the photo (Instagram tag people button) on posts through Blotato",
+    "steps": []
+   },
+   {
+    "item": "Not collaborators, just photo tags",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences cover only collaborator tagging (Collaborators field, carousel limits) and never mention photo tags or the Instagram tag people button, so the closest sentences answer a neighboring question.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:26:35.732Z"
+}

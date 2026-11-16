@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4562,
+ "verdict": {
+  "queries": [
+   "AI video creation stuck in exporting status",
+   "GET /v2/videos/creations status field values",
+   "video creation failed error field API response",
+   "AI video credits refunded when generation fails",
+   "video creation polling interval processing time"
+  ]
+ },
+ "at": "2026-11-16T07:48:24.273Z"
+}

@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4693,
+ "verdict": {
+  "asked": [
+   {
+    "item": "how long videos and data are kept after account deletion",
+    "steps": []
+   },
+   {
+    "item": "whether backups are wiped",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences say support removes account data from Blotato's database, but none state how long data is kept afterward or whether backups are wiped.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:13:50.312Z"
+}

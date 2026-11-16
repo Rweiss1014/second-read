@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4716,
+ "verdict": {
+  "queries": [
+   "Pinterest account verified status",
+   "Pinterest verification required to publish pins",
+   "Connect Pinterest business account Blotato",
+   "Pinterest account not verified error"
+  ]
+ }
+}

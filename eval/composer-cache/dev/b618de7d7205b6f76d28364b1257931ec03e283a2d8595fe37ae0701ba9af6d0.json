@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4005,
+ "verdict": {
+  "queries": [
+   "Account not found error POST /v2/posts accountId",
+   "LinkedIn company Page accountId subaccounts API",
+   "Blotato API accountId LinkedIn target targetType",
+   "Connect LinkedIn Page account Blotato workspace"
+  ]
+ }
+}

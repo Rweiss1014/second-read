@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5650,
+ "verdict": {
+  "points": [
+   {
+    "point": "Biggest single file upload on the Creator plan",
+    "sentence": "The largest file size you can upload to Blotato in a single request: 400 MB on Starter, 1 GB on Creator and Agency."
+   }
+  ],
+  "pick": "max-upload-size",
+  "reason": "The entry states the Creator single-upload limit is 1 GB, which answers the question and shows a 3GB video is over it."
+ },
+ "at": "2026-11-16T08:08:48.281Z"
+}

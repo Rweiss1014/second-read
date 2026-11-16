@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4472,
+ "verdict": {
+  "queries": [
+   "active contacts monthly reset time timezone",
+   "active contacts limit reset UTC midnight",
+   "workspace timezone setting billing cycle reset",
+   "DM automation giveaway keyword trigger Instagram",
+   "active contacts usage reset start of month"
+  ]
+ },
+ "at": "2026-11-16T07:47:36.413Z"
+}

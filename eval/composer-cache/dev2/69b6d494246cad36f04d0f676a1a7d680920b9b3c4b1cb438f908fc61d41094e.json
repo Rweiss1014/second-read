@@ -1,0 +1,61 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 13670,
+ "verdict": {
+  "asked": [
+   {
+    "item": "credits per nano-banana-pro image",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "whether the 300-credit balance covers the planned batch of images",
+    "steps": [
+     1,
+     2,
+     3
+    ]
+   },
+   {
+    "item": "how to check the credit cost before generating",
+    "steps": [
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The sentences give the nano-banana-pro credit cost and the rule for checking a balance against a whole job, which answers whether the planned batch fits the balance.",
+  "steps": [
+   {
+    "text": "The credit table lists nano-banana-pro at 50 credits per image, while the 1-credit cost is for flux schnell.",
+    "quotes": [
+     "S3",
+     "S16"
+    ]
+   },
+   {
+    "text": "Before generating, compare your balance with the cost of the entire job, not one scene.",
+    "quotes": [
+     "S36"
+    ]
+   },
+   {
+    "text": "A positive balance still fails the check when the total cost is higher than the balance.",
+    "quotes": [
+     "S37"
+    ]
+   },
+   {
+    "text": "To see the credit cost of a generation, click a GREEN clip (image) and check the cost shown right above the Regenerate button.",
+    "quotes": [
+     "S53"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:58:59.000Z"
+}

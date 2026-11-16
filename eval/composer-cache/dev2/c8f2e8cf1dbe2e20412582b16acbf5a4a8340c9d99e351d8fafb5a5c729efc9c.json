@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3824,
+ "verdict": {
+  "queries": [
+   "Blotato API get current credit price per 1000 credits",
+   "Blotato API credits pricing endpoint",
+   "Blotato API user subscription credits balance endpoint",
+   "Blotato API credit price field response"
+  ]
+ }
+}

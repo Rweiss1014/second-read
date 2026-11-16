@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9591,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why a second post appeared after Claude's edit",
+    "steps": []
+   },
+   {
+    "item": "How to deal with the duplicate LinkedIn post",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages don't say why an assistant edit would create a second scheduled post. They also don't say how to remove a duplicate, because the UI only offers Move to drafts and the closest API sentences are about a different question. A team member should check this.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:51:18.098Z"
+}

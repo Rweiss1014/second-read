@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4314,
+ "verdict": {
+  "queries": [
+   "Instagram comment automation trigger keyword specific post",
+   "comment trigger only fires on comments on selected post",
+   "replies to comments not triggering automation",
+   "Blotato comment-to-DM trigger keyword matching",
+   "Instagram comment trigger reply under another user's comment"
+  ]
+ }
+}

@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3704,
+ "verdict": {
+  "queries": [
+   "Blotato Viral Coach hook generator score threshold",
+   "Viral Coach 10 hooks minimum score required",
+   "Viral Coach hook score below threshold unlock hooks",
+   "Blotato Viral Coach score requirement generate hooks"
+  ]
+ },
+ "at": "2026-11-16T07:46:44.147Z"
+}

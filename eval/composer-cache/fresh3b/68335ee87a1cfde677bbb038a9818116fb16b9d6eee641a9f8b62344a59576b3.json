@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7594,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Minimum balance before Tolt pays out",
+    "steps": []
+   },
+   {
+    "item": "Fees taken out of payouts",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences cover commission amounts and payout timing (NET-15), but none state a minimum payout balance or whether any fee is deducted.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:11:08.055Z"
+}

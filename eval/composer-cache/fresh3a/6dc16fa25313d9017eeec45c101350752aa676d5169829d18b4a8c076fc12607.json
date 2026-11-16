@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4977,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Create a LinkedIn Event (RSVP) through Blotato for company Page",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences cover posting to LinkedIn company Pages but never say whether LinkedIn Events can be created in Blotato, so no sentence answers this.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:10:29.397Z"
+}

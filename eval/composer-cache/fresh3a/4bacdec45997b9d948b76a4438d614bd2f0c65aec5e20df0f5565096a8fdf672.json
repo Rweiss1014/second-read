@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4311,
+ "verdict": {
+  "queries": [
+   "Facebook Page comment reply character limit",
+   "Facebook comment reply errorMessage text too long",
+   "Facebook comment max length characters Blotato",
+   "Non-Latin characters Greek Unicode text length limit social posts",
+   "Facebook Page public reply to comment failed"
+  ]
+ },
+ "at": "2026-11-16T08:10:10.209Z"
+}

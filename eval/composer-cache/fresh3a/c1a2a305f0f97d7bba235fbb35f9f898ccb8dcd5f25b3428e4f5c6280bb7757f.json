@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7570,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does the Inspiration library include LinkedIn posts",
+    "steps": []
+   },
+   {
+    "item": "Is it only TikTok and Instagram",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say the Inspiration database provides posts to study and remix, but no sentence lists which platforms it covers, and the closest sentence (S57) only mentions Inspiration as one way to find viral posts for a LinkedIn workflow, which does not state whether LinkedIn posts are in the library.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:25:41.033Z"
+}

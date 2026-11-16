@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3301,
+ "verdict": {
+  "queries": [
+   "Facebook private reply DM automation Message Requests vs main inbox",
+   "Instagram comment to DM automation private reply delivered to Message Requests",
+   "private replies Facebook Page messages sent to Message Requests folder",
+   "DM automation settings Page inbox destination private reply"
+  ]
+ },
+ "at": "2026-11-16T08:08:37.023Z"
+}

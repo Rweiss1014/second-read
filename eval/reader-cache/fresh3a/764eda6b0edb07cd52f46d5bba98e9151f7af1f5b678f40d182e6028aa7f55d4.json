@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 2872,
+ "verdict": {
+  "points": [
+   {
+    "point": "nonprofit discount on Creator plan",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states anything about nonprofit discounts; the pricing entry lists Creator's price but doesn't say whether a discount exists."
+ },
+ "at": "2026-11-16T08:08:21.915Z"
+}

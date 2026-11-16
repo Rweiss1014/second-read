@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4261,
+ "verdict": {
+  "points": [
+   {
+    "point": "How to post as YouTube Short vs normal video",
+    "sentence": ""
+   },
+   {
+    "point": "Where is the Shorts button",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry says how to choose or trigger a YouTube Short; the Reel entry covers Instagram only, so none answers this."
+ },
+ "at": "2026-11-16T08:12:14.527Z"
+}

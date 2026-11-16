@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8601,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does the bakery Page's 20 posts block the catering Page (shared login)?",
+    "sentence": "Each Page has its own independent 25-post limit, so posts to one Page do not count against another."
+   },
+   {
+    "point": "The 20 posts a day number against the limit",
+    "sentence": "Facebook publishing is limited to 25 posts per 24 hours per Page."
+   },
+   {
+    "point": "Posting above 5 a day (the customer's Facebook 5 remark)",
+    "sentence": "Posting above 5 per day per Page also negatively impacts post reach."
+   }
+  ],
+  "pick": "facebook-25-posts-limit",
+  "reason": "This entry says the 25-post limit applies to each Page on its own and that posts to one Page don't count against another, so the bakery's 20 posts won't block the catering Page."
+ },
+ "at": "2026-11-16T08:09:44.655Z"
+}

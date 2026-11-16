@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4444,
+ "verdict": {
+  "queries": [
+   "What are we making today prompt dashboard",
+   "Getting started connect social media accounts Blotato",
+   "Create first post Blotato dashboard calendar view",
+   "Settings menu workspace navigation Blotato web app"
+  ]
+ }
+}

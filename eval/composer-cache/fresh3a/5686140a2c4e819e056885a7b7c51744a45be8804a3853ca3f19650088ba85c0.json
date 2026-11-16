@@ -1,0 +1,36 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6618,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can Blotato automatically repost an existing LinkedIn post (native Repost button) to a company Page",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages directly state that Blotato cannot repost an existing LinkedIn post because LinkedIn's API does not support it, with no exception for company Pages.",
+  "steps": [
+   {
+    "text": "No. LinkedIn's API does not support reposting an existing LinkedIn post.",
+    "quotes": [
+     "S42",
+     "S9"
+    ]
+   },
+   {
+    "text": "Blotato will add native reposting when LinkedIn makes it available via API.",
+    "quotes": [
+     "S11"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:26:12.378Z"
+}

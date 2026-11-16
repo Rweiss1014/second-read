@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 5301,
+ "verdict": {
+  "queries": [
+   "Instagram connection Meta Accounts Center future activity history off Meta technologies",
+   "Blotato connect Instagram account Accounts Center setting not found",
+   "Meta Accounts Center activity off Meta technologies setting location",
+   "Blotato Instagram connection troubleshooting Meta privacy settings",
+   "disconnect Instagram account from Blotato reconnect"
+  ]
+ }
+}

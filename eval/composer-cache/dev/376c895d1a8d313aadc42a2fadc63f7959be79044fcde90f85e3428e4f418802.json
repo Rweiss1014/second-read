@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6136,
+ "verdict": {
+  "asked": [
+   {
+    "item": "A$155 charged instead of $1 offer",
+    "steps": []
+   },
+   {
+    "item": "Claim that the charge is a scam, not currency conversion",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer is disputing a charge on their bank statement, which is a billing matter for the team to review on their account, not something to answer from the help pages.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:38:22.392Z"
+}

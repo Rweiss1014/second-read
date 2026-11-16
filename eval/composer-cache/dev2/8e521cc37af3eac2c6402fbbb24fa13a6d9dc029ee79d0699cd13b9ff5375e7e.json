@@ -1,0 +1,17 @@
+{
+ "kind": "second",
+ "version": "second-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8438,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "says-more",
+    "about": "Step 2 states that the form asks for a command because it opens on STDIO, but the help page only says the form opens on STDIO and does not give that as the reason it asks for a command."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T07:56:40.256Z"
+}

@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4294,
+ "verdict": {
+  "queries": [
+   "carousel post failed collaborator tag Instagram",
+   "Instagram carousel user tags not supported error",
+   "tag collaborators carousel Blotato",
+   "Instagram collab post carousel failed to publish",
+   "user tags single image vs carousel Instagram"
+  ]
+ }
+}

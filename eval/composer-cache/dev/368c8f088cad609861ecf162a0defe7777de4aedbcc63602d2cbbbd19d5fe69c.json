@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4146,
+ "verdict": {
+  "queries": [
+   "asterisks appearing in post text",
+   "markdown bold formatting not supported in social media posts",
+   "unicode bold italic text characters post content",
+   "removing asterisk characters from post text before publishing"
+  ]
+ }
+}

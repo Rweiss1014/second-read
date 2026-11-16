@@ -1,0 +1,49 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6966,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Add company name and address to invoices",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Set up yourself or email someone each month",
+    "steps": [
+     1,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages say you update company name and address yourself in the billing portal, and future invoices include the updated details.",
+  "steps": [
+   {
+    "text": "You can set this up yourself: go to Settings > Billing and click \"View Billing Portal\".",
+    "quotes": [
+     "S18",
+     "S19"
+    ]
+   },
+   {
+    "text": "Open your billing information and update your company name and address.",
+    "quotes": [
+     "S20"
+    ]
+   },
+   {
+    "text": "Future invoices will include your updated company information.",
+    "quotes": [
+     "S15"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:09:04.946Z"
+}

@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5744,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Check the client's remaining credit balance",
+    "steps": []
+   },
+   {
+    "item": "Give access to the client's Blotato account",
+    "steps": []
+   },
+   {
+    "item": "Pause the client's scheduled posts",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "This asks for another person's account data and access, and for staff to pause scheduled posts on that account; the help pages only cover the account owner's own balance and sharing login, and the pause question has no answer for a client's account.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:26:09.715Z"
+}

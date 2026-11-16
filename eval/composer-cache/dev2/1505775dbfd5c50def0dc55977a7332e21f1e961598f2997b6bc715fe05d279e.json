@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4275,
+ "verdict": {
+  "queries": [
+   "\"Instagram rejected your post\" error",
+   "Instagram post failed to publish troubleshooting",
+   "reconnect Instagram account Blotato",
+   "Instagram publishing rate limit retry failed posts",
+   "failed post status retry publishing"
+  ]
+ }
+}

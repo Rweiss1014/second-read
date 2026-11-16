@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4112,
+ "verdict": {
+  "queries": [
+   "Blotato API post status submission ID",
+   "Blotato posts missing from Failed and Scheduled",
+   "Blotato MCP batch scheduled posts not published",
+   "Blotato post status published failed pending",
+   "Blotato retry failed post without duplicate publishing"
+  ]
+ },
+ "at": "2026-11-16T08:09:01.956Z"
+}

@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5523,
+ "verdict": {
+  "asked": [
+   {
+    "item": "can I plug in my own OpenAI key",
+    "steps": []
+   },
+   {
+    "item": "image generation avoids Blotato credits",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages do not say whether a customer can connect their own OpenAI key; the closest sentences only say AI image generation uses credits and describe an Elevenlabs key option, which answers a neighboring question.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:14:05.464Z"
+}

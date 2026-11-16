@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3428,
+ "verdict": {
+  "queries": [
+   "Reschedule a scheduled post in Blotato",
+   "Edit scheduled time of a post Blotato calendar",
+   "Change publish date of queued post Blotato",
+   "Drag and drop post to new date in Blotato calendar"
+  ]
+ }
+}

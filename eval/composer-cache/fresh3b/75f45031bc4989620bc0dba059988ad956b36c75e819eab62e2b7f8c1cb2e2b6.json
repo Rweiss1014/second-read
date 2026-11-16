@@ -1,0 +1,51 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5253,
+ "verdict": {
+  "asked": [
+   {
+    "item": "why post went live immediately instead of scheduled",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "scheduledTime placed inside post{}",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages say scheduling fields nested inside post are ignored and the post publishes immediately, and that scheduledTime must be a sibling of post.",
+  "steps": [
+   {
+    "text": "If scheduledTime is nested inside post, it is ignored and the post publishes immediately.",
+    "quotes": [
+     "S67",
+     "S68"
+    ]
+   },
+   {
+    "text": "Move scheduledTime out of post so it is a sibling of post, at the root level of the request body.",
+    "quotes": [
+     "S9",
+     "S55"
+    ]
+   },
+   {
+    "text": "Use ISO 8601 format with a timezone offset for scheduledTime.",
+    "quotes": [
+     "S10",
+     "S58"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:11:49.821Z"
+}

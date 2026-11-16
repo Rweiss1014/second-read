@@ -1,0 +1,35 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 10732,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is the comment's age the problem for the failed send",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The messaging window sentences say a private reply to a comment must be sent within 7 days and that a message outside the window reaches status failed.",
+  "steps": [
+   {
+    "text": "A private reply to a comment, set with commentId on the target, can be sent once, within 7 days of the comment.",
+    "quotes": [
+     "S123"
+    ]
+   },
+   {
+    "text": "A message sent outside an allowed window reaches status failed.",
+    "quotes": [
+     "S126"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:11:51.146Z"
+}

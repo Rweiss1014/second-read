@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4212,
+ "verdict": {
+  "queries": [
+   "affiliate program signup email address requirements",
+   "affiliate application rejected Gmail personal email domain not allowed",
+   "affiliate sign up error invalid email address",
+   "Blotato affiliate program eligibility business email"
+  ]
+ }
+}

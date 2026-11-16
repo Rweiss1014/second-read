@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9843,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Saving 300+ podcast episodes as separate sources in the Sources library",
+    "steps": []
+   },
+   {
+    "item": "Whether a podcast episode can be added as a source",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer plans to save 300+ podcast episodes as sources, which depends on whether there is a limit on saved sources for their plan, and no sentence states any such limit; the plan-limit sentences only point to Billing & Credits.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:27:02.944Z"
+}

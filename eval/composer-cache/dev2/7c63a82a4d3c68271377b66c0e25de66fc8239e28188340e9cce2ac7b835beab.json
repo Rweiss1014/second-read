@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5104,
+ "verdict": {
+  "asked": [
+   {
+    "item": "exact month Threads gets First Comment",
+    "steps": []
+   },
+   {
+    "item": "Threads First Comment support (platform named by customer)",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence gives a month or release date for Threads First Comment, and the help pages name only Instagram and Facebook for the First Comment feature, so the customer's deadline-dependent question can't be answered from them and should go to the team.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:58:26.200Z"
+}

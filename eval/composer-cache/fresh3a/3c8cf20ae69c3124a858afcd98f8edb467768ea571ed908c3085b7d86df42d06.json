@@ -1,0 +1,48 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7792,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Which n8n field holds LinkedIn poll options",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Scheduling a LinkedIn poll for Monday",
+    "steps": [
+     1,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages say Blotato doesn't support LinkedIn polls, including in the n8n node, so no poll options field exists.",
+  "steps": [
+   {
+    "text": "There is no field for poll options, because Blotato does not support publishing LinkedIn polls yet.",
+    "quotes": [
+     "S2"
+    ]
+   },
+   {
+    "text": "Blotato has not added poll publishing to the web app, API, n8n node, Make.com module, or MCP tools.",
+    "quotes": [
+     "S3"
+    ]
+   },
+   {
+    "text": "To publish a LinkedIn poll today, create it directly in LinkedIn or use another tool that supports LinkedIn poll publishing.",
+    "quotes": [
+     "S4"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:08:30.089Z"
+}

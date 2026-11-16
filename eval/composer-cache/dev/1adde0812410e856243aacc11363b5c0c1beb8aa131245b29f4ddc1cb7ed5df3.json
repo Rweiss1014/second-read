@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4481,
+ "verdict": {
+  "queries": [
+   "scheduled post publish time accuracy",
+   "schedule post specific date and time timezone setting",
+   "scheduled post delayed or not published at scheduled time",
+   "publishing queue delay scheduled posts",
+   "post scheduling time zone account setting"
+  ]
+ }
+}

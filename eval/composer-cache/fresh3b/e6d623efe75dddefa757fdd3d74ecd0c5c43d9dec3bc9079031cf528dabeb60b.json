@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4555,
+ "verdict": {
+  "asked": [
+   {
+    "item": "support response time",
+    "steps": []
+   },
+   {
+    "item": "SLA on Agency plan for client contract",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence states support response times or an SLA for any plan, and the customer needs this for a contract by tomorrow, so the team should answer.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:11:33.915Z"
+}

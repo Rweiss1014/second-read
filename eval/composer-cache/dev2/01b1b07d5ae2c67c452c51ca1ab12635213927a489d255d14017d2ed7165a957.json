@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6972,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is the 9-month limit 9 calendar months or 270 days",
+    "steps": []
+   },
+   {
+    "item": "Does the scheduling cutoff happen at a certain time of day",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences say the scheduling horizon is \"9 months\" but do not say whether that means calendar months or days, and they give no time-of-day cutoff, so answering would require guessing.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:59:17.929Z"
+}

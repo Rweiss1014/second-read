@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4267,
+ "verdict": {
+  "queries": [
+   "Blotato API 504 Gateway Timeout create post",
+   "Blotato TikTok post status published failed",
+   "Blotato API retry duplicate posts idempotency",
+   "Blotato Make HTTP module create post request",
+   "Blotato post status get post by id postStatus"
+  ]
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5407,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does Blotato have two-factor authentication",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages describe email magic link login with a verification code and no password, but none says whether Blotato offers two-factor authentication.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:50:08.720Z"
+}

@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6410,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can the PDF file itself be given to Blotato to post as a LinkedIn document",
+    "steps": []
+   },
+   {
+    "item": "Would the document show the file name as its title",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages only describe building a LinkedIn Document carousel from 2-10 JPG or PNG image URLs, and don't say whether a PDF file can be submitted directly or what title the document shows.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:45:51.905Z"
+}

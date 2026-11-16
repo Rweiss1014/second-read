@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4896,
+ "verdict": {
+  "asked": [
+   {
+    "item": "422 from POST /v2/posts",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages give 422 causes only for other routes or conditions (media URL, list posts query, Slack channelId), and none states why POST /v2/posts returns 422 for this customer without an error message or platform.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:38:31.363Z"
+}

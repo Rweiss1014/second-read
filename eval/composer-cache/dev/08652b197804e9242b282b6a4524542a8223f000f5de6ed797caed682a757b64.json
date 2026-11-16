@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4796,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Connecting a second Instagram account logs into the first one automatically",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help sentences say nothing about connecting a second Instagram account or why it logs into the first one, so a team member needs to answer.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:39:09.476Z"
+}

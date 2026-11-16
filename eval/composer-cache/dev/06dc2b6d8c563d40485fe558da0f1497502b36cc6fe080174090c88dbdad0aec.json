@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4384,
+ "verdict": {
+  "queries": [
+   "Connect multiple Instagram accounts to Blotato",
+   "Instagram account switch login Blotato connect another account",
+   "Instagram account already connected logs into existing account",
+   "Add another Instagram account Blotato accounts settings",
+   "Log out of Instagram before connecting second account"
+  ]
+ }
+}

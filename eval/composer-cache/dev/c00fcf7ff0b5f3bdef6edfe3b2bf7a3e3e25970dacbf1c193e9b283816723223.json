@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4555,
+ "verdict": {
+  "asked": [
+   {
+    "item": "link to a Discord for developers building on the Blotato API",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence mentions a Discord or a developer community for the Blotato API; the closest sentences only list general support channels, which answer a neighboring question.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:14:16.376Z"
+}

@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4396,
+ "verdict": {
+  "asked": [
+   {
+    "item": "can I upload my brand's own .otf font into the video editor for captions",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence says whether custom font files such as .otf can be uploaded in the video editor; the only font list (S40) is for the Quote Card API template's fixed font values, and the caption style sentences (S34, S35, S65, S66) do not mention fonts.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:26:20.059Z"
+}

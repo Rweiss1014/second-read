@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3493,
+ "verdict": {
+  "queries": [
+   "Analytics not available free trial",
+   "Analytics page post analytics availability plan",
+   "Blotato pricing free trial features included API access",
+   "post analytics historical data backfill after upgrade",
+   "Analytics data collection start date existing posts"
+  ]
+ }
+}

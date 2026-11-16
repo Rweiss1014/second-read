@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5587,
+ "verdict": {
+  "queries": [
+   "LinkedIn mention company page in post",
+   "LinkedIn organization mention tag @ autocomplete",
+   "Blotato LinkedIn mentions tagging company page",
+   "@ symbol not creating LinkedIn mention in post text",
+   "LinkedIn mention notifies tagged organization blue link"
+  ]
+ },
+ "at": "2026-11-16T07:46:43.812Z"
+}

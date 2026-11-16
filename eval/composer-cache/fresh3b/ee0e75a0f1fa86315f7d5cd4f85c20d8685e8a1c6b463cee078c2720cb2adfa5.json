@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3674,
+ "verdict": {
+  "queries": [
+   "Affiliate payout methods PayPal bank transfer",
+   "Affiliate program payouts bank account supported countries Brazil",
+   "Blotato affiliate program payout method bank transfer local bank",
+   "Affiliate payout settings add bank account IBAN SWIFT",
+   "Affiliate payouts PayPal not available payout options"
+  ]
+ },
+ "at": "2026-11-16T08:11:00.479Z"
+}

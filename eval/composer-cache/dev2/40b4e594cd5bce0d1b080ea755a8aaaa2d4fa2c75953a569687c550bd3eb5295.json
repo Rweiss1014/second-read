@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3275,
+ "verdict": {
+  "queries": [
+   "Blotato DM automation post picker missing posts",
+   "Blotato Instagram DM automation select post not showing",
+   "Blotato posts created in Meta Business Suite not appearing in DM automation",
+   "Blotato DM automation post picker Meta Business Suite published posts"
+  ]
+ }
+}

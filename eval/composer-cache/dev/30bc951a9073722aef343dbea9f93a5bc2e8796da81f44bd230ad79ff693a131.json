@@ -1,0 +1,13 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3323,
+ "verdict": {
+  "queries": [
+   "Blotato iOS app download App Store",
+   "Blotato mobile app availability iPhone",
+   "Blotato Android app Google Play"
+  ]
+ }
+}

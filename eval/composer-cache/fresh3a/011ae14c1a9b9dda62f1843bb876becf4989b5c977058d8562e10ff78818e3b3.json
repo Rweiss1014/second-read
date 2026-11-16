@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4967,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can Blotato send messages to an Instagram broadcast channel",
+    "steps": []
+   },
+   {
+    "item": "Channel has 3,000 members",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages list Instagram posts, stories, reels, carousels, comments, and direct messaging, but no sentence says whether Blotato can send messages to an Instagram broadcast channel, so the closest sentences answer a neighboring question.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:26:15.619Z"
+}

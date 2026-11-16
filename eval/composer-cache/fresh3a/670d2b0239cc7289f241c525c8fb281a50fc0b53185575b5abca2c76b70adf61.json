@@ -1,0 +1,69 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 12899,
+ "verdict": {
+  "asked": [
+   {
+    "item": "did yearly billing get removed",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "why only monthly plans show on the pricing page",
+    "steps": [
+     3
+    ]
+   },
+   {
+    "item": "wanting yearly to save money",
+    "steps": [
+     2
+    ]
+   },
+   {
+    "item": "how to get yearly billing",
+    "steps": [
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages confirm yearly billing still exists, explain that the pricing page sells monthly only, and give the Billing Portal steps to switch to yearly.",
+  "steps": [
+   {
+    "text": "Yearly billing is still offered; it has not been removed.",
+    "quotes": [
+     "S20"
+    ]
+   },
+   {
+    "text": "Yearly billing saves about 17% compared to paying month to month, since you pay for 10 months and get 12.",
+    "quotes": [
+     "S21"
+    ]
+   },
+   {
+    "text": "The pricing page only sells monthly plans, so switch to yearly from the Billing Portal instead.",
+    "quotes": [
+     "S36",
+     "S37"
+    ]
+   },
+   {
+    "text": "Go to Settings > Billing, click View Billing Portal, click the purple Update subscription button next to your current plan, select the yearly option for the plan you want, and confirm the change.",
+    "quotes": [
+     "S23",
+     "S24",
+     "S25",
+     "S26",
+     "S27"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:27:05.494Z"
+}

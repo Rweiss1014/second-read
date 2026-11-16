@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4354,
+ "verdict": {
+  "queries": [
+   "Blotato LinkedIn poll options field API",
+   "Blotato n8n node LinkedIn poll parameters",
+   "Blotato LinkedIn poll duration and poll options",
+   "Blotato API scheduledTime LinkedIn poll post"
+  ]
+ },
+ "at": "2026-11-16T08:08:22.274Z"
+}

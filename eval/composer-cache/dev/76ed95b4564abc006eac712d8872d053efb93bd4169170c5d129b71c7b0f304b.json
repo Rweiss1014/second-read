@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4738,
+ "verdict": {
+  "queries": [
+   "Blotato MCP upload media local file",
+   "blotato_create_post mediaUrls publicly accessible URL",
+   "Blotato API media upload endpoint returns hosted media URL",
+   "Blotato MCP server tools upload media then create post",
+   "Blotato create post media attachment video mp4 requirements",
+   "MCP client Codex local file attachment not supported"
+  ]
+ }
+}

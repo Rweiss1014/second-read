@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4699,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is there a discount for nonprofits?",
+    "steps": []
+   },
+   {
+    "item": "Customer is a small volunteer-run animal rescue",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences do not mention nonprofit discounts; the closest one (S43) only says there is no active discount code right now, which answers a neighboring question about promo codes, not whether a nonprofit discount exists.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:14:21.793Z"
+}

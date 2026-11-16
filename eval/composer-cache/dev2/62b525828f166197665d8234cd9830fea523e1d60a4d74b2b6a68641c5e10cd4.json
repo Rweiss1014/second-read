@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6839,
+ "verdict": {
+  "asked": [
+   {
+    "item": "full 5,000 Creator credits right away after upgrading mid-cycle",
+    "steps": []
+   },
+   {
+    "item": "prorated credits for the rest of the month after upgrading mid-cycle",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences do not say how credits are granted when a monthly plan is upgraded mid-cycle; S39 covers proration of the charge when switching monthly to yearly, not credit allowance on a plan upgrade, and S59 only says the paid allowance starts when the paid subscription starts.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:00:26.077Z"
+}

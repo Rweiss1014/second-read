@@ -1,0 +1,17 @@
+{
+ "kind": "second",
+ "version": "second-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9829,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "caveat",
+    "about": "Step 4 tells the customer to disconnect an account they no longer use to free a slot, but the section warns that reconnecting a removed account does not restore archived automations and says to review the effects before any intentional removal; the reply leaves this out."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T07:57:04.746Z"
+}

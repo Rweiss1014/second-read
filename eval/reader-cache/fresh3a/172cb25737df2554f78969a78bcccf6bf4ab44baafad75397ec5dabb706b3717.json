@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4303,
+ "verdict": {
+  "points": [
+   {
+    "point": "maximum length for Audio sources",
+    "sentence": ""
+   },
+   {
+    "point": "maximum size for Audio sources (250MB file)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states a length or size limit for Audio sources. The upload-size entry covers media uploads by plan, not Audio context, and the Google Drive entry mentions Audio context without any limits."
+ },
+ "at": "2026-11-16T08:08:41.802Z"
+}

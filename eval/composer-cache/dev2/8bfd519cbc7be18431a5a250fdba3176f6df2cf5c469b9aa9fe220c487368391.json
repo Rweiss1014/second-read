@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3881,
+ "verdict": {
+  "queries": [
+   "TikTok video muted after posting Blotato",
+   "TikTok business account music removed audio muted",
+   "TikTok commercial music library business account restrictions",
+   "TikTok copyrighted sound removed video muted",
+   "Blotato TikTok audio not supported music"
+  ]
+ }
+}

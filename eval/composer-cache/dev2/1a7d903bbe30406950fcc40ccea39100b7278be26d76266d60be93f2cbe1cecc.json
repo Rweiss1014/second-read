@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5649,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Will viral-hooks write the hooks in Spanish, or only English?",
+    "steps": []
+   },
+   {
+    "item": "Clients are in Mexico (Spanish-speaking audience)",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages say the hooks are in the viral-hooks skill but do not state what language the skill writes in; the only language-output sentences cover the AI Agent's text posts and AI video scripts, which is a neighboring question.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:01:07.416Z"
+}

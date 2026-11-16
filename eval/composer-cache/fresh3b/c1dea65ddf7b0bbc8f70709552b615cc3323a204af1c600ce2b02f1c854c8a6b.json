@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3989,
+ "verdict": {
+  "queries": [
+   "Where are saved drafts stored in Blotato",
+   "Drafts not showing in the Drafts tab",
+   "Recover deleted or missing drafts",
+   "Remix drafts and saved post versions",
+   "Browser local storage cache and draft sync in the Blotato web app"
+  ]
+ },
+ "at": "2026-11-16T08:11:59.761Z"
+}

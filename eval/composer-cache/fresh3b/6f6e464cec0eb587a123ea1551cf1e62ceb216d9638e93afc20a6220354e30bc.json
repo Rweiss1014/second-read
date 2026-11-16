@@ -1,0 +1,36 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 10015,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Sending 14 quick reply chips in one message",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages give a limit of 13 quick-reply chips per message on both Facebook and Instagram, so 14 is over it.",
+  "steps": [
+   {
+    "text": "Quick-reply chips are limited to 13 per message on Facebook.",
+    "quotes": [
+     "S38"
+    ]
+   },
+   {
+    "text": "Quick-reply chips are also limited to 13 per message on Instagram, so a message with 14 chips is over the limit.",
+    "quotes": [
+     "S82",
+     "S11"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:12:15.346Z"
+}

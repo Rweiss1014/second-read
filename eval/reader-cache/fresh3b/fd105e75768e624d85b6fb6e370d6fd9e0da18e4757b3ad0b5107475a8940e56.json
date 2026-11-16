@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3313,
+ "verdict": {
+  "points": [
+   {
+    "point": "Affiliate payout method: PayPal or bank account",
+    "sentence": ""
+   },
+   {
+    "point": "Brazilian bank account without PayPal",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry covers affiliate payouts or payout methods, so none answers this customer."
+ },
+ "at": "2026-11-16T08:10:56.802Z"
+}

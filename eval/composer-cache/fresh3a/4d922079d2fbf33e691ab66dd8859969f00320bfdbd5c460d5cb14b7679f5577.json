@@ -1,0 +1,66 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 10120,
+ "verdict": {
+  "asked": [
+   {
+    "item": "command not found: claude error",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "is my Blotato account set up",
+    "steps": [
+     1,
+     4
+    ]
+   },
+   {
+    "item": "how to install Claude Code and start it on Mac",
+    "steps": [
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages state that the \"command not found: claude\" error means Claude Code is not installed yet, and they explain how to install it and then connect Blotato.",
+  "steps": [
+   {
+    "text": "If Terminal says command not found: claude, Claude Code is not installed on your computer yet.",
+    "quotes": [
+     "S13"
+    ]
+   },
+   {
+    "text": "Claude Code does not come pre-installed, so install it from the official Claude Code page.",
+    "quotes": [
+     "S7",
+     "S9"
+    ]
+   },
+   {
+    "text": "On a Mac, open Terminal by pressing Cmd + Space, typing Terminal, and pressing Enter, then type claude and press Enter to start a Claude Code session.",
+    "quotes": [
+     "S10",
+     "S12"
+    ]
+   },
+   {
+    "text": "Once Claude Code is installed, connect Blotato: in the Blotato app go to Settings > API, click Copy Setup Command under Claude Code (Terminal), and paste it into a Claude Code session in Terminal.",
+    "quotes": [
+     "S8",
+     "S18",
+     "S19",
+     "S20",
+     "S22"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:25:33.218Z"
+}

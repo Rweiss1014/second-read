@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3468,
+ "verdict": {
+  "queries": [
+   "Blotato invoice currency EUR",
+   "Blotato billing currency change USD to EUR",
+   "Blotato invoices in euros VAT billing details"
+  ]
+ },
+ "at": "2026-11-16T07:51:06.857Z"
+}

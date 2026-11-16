@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3906,
+ "verdict": {
+  "queries": [
+   "Facebook Stories link sticker Blotato",
+   "Add link sticker to Facebook Page story",
+   "Facebook Page story link sticker API",
+   "Instagram story link sticker not supported Blotato",
+   "Blotato Facebook story publishing options"
+  ]
+ },
+ "at": "2026-11-16T08:12:02.951Z"
+}
