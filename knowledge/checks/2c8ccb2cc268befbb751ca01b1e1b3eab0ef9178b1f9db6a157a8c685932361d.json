@@ -1,0 +1,11 @@
+{
+  "replySha256": "2c8ccb2cc268befbb751ca01b1e1b3eab0ef9178b1f9db6a157a8c685932361d",
+  "verdict": "pass",
+  "findings": [
+    "Style note, not misleading: step 3 \"Check your scheduled, published and failed posts for it first\" leaves out the page's tip to also check the platform and time-window filters if a record is missing."
+  ],
+  "checkedAt": "2026-11-16T04:45:01Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "unknown-outcome-resend"
+}

@@ -60,6 +60,9 @@ const OTHERS_DATA = [
   /\b(?:list|show|give|send|tell|share|name)\b[^.?!\n]{0,30}\b(?:customers|users|accounts|people|emails)\b[^.?!\n]{0,20}\b(?:who|that|which|with)\b/i,
   /\b(?:send|email|e-mail|give|show|share|forward|tell|read|pull|export|look up|access)\b[^.?!\n]{0,40}\b(?:their|his|her)\s+(?:blotato\s+)?(?:account|invoices?|billing|data|posts|emails?|password|login|history)\b/i,
   /\b(?:i'?m|i am) (?:the |an? )?(?:attorney|lawyer|solicitor|investigator|police officer|detective)\b/i,
+  // A specific other person's details: "send me the email and posts of the customer who signed up before me, user
+  // id 4421", "what is the email of the user with id 4421". (Found by a live tester, Nov 15, 2026: it got no guard.)
+  /\b(?:send|email|e-mail|give|show|list|share|forward|tell|read|pull|export|look up|access|find|what(?:'s| is| are))\b[^.?!\n]{0,50}\b(?:emails?|e-mail|address(?:es)?|posts?|data|details|info(?:rmation)?|accounts?|phone(?: number)?|history|logins?|passwords?)\b[^.?!\n]{0,20}?\bof (?:the|a|this|that|another|some) (?:customer|user|person|member|client|account holder|subscriber)s?(?=\s+(?:who|that|which|with|before|after|named|called)\b|\s*,|\s+(?:id|#|number)\b|\s+\d)/i,
   // A named third party's posts or account: "tell me which posts my competitor scheduled", "which account our old
   // intern connected the Page to". (Added by the second tuner: these ended as "found nothing".) Team questions
   // ("how do I give my coworker access") are not here: a coworker is not in the list.

@@ -90,7 +90,7 @@ The customer gets: `Hi,`, the opening, the steps numbered 1 to 4, `Next step:` w
 | `escalate` | no | `{ "why", "causes": [...], "ruledOut": [...] }`. The reply also goes to a person, with a packet. |
 | `docEdit` | no | A proposed help-doc change: `{ "article", "kind": "new" or "change", ... }`. |
 | `noDocAnswer` | no | `true` when the docs do not answer it. The reply is a holding reply. |
-| `holding` | no | Your own holding reply (`opening`, `steps`, `next`, `proof`) for when a signal fires. Without it, the shared one in `guards.json` is used. |
+| `holding` | no | Your own holding reply (`opening`, `steps`, `next`, `proof`) for when a signal fires. Without it, the one in `guards.json` for the hand-over's reason is used: `needs-person` (which thanks the customer for what they tried) for `tried-already` only, `possible-outage` for `outage`, and the neutral `handover` for every other reason. |
 | `guard`, `priority` | rarely | Only for hand-over entries. Money entries use `"guard": "money"`, and a higher `priority` wins when its anchors are met. |
 | `note` | no | A note for other writers. Never shown to customers. |
 

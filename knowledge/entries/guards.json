@@ -6,7 +6,7 @@
       "kind": "non-technical",
       "title": "The customer already tried the documented steps, or the case is past what the docs cover",
       "guard": "needs-person",
-      "note": "The default holding reply when an entry matches but one of its needs_person_if signals fires. An entry can give its own in \"holding\".",
+      "note": "The holding reply for the tried-already reason only (the customer already tried the steps, it still fails, it keeps failing, they did X and now Y, or the documented cause does not apply), because it opens by thanking them for what they tried. Every other hand-over gets handover or possible-outage (src/route.mjs HOLDING_FOR). An entry can give its own in \"holding\".",
       "opening": "Thank you for telling me what you have already tried. That helps a lot.",
       "steps": [
         {
@@ -40,6 +40,82 @@
       ],
       "next": "If you have them, reply with the exact error, the time it happened with your time zone, and any id you see.",
       "proof": "Still open: what is causing this. A person on the team has your message and what you tried."
+    },
+    {
+      "id": "handover",
+      "kind": "non-technical",
+      "title": "A person on the team needs to look at this, for a reason other than steps the customer already tried",
+      "guard": "handover",
+      "note": "The neutral holding reply (Nov 15, 2026). It says nothing about what the customer tried or what the cause is, so it is true for every hand-over: records that disagree, help pages said to be wrong, a screen the customer cannot reach, a phrase an entry lists as needing a person, and the hand-over entries whose own reply was blocked. Only the tried-already reason gets needs-person, and the outage reason gets possible-outage (src/route.mjs HOLDING_FOR).",
+      "opening": "Thanks for writing in. A person on the team needs to look at this one.",
+      "steps": [
+        {
+          "type": "action",
+          "text": "I am passing your message to a person on the team, with what you told me."
+        },
+        {
+          "type": "fact",
+          "text": "Until then, please hold off on anything that could post twice, cost credits, or change your account.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Stop if the next action risks another charge, duplicate post, wrong destination, or unauthorized account change."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Please do not send your API key or any login codes here.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Do not include API keys, OAuth codes, signed upload URLs, or unrelated customer data."
+          }
+        }
+      ],
+      "next": "If you have them, reply with the exact error, the time it happened with your time zone, and any id you see.",
+      "proof": "Still open: the answer to your message. A person on the team has it."
+    },
+    {
+      "id": "possible-outage",
+      "kind": "non-technical",
+      "title": "The customer asks whether something is down, or says several accounts fail at once",
+      "guard": "possible-outage",
+      "note": "The holding reply for the outage reason (Nov 15, 2026). A judge caught the needs-person reply thanking a customer who asked only \"Is something down?\" for what they had tried. Every step is a check the customer can do from the publishing-status page; nothing guesses whether there is an outage.",
+      "opening": "Thanks for letting me know. I can't tell from here whether something is down, so I am passing your message to a person on the team.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "When several accounts fail at once, it is worth checking for a shared problem, but that alone does not prove an outage.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
+            "quote": "| Several accounts fail at once | Investigate a shared service or incident. This pattern alone is not proof of an outage or its owner. |"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To see whether a post went out, open its link on the platform if you have one, and check the account on the platform itself.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
+            "quote": "Open any returned platform URL and check the intended account on the platform."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Please do not send a replacement post while you do not know what happened to the first one.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
+            "quote": "Do not submit a replacement while the original outcome is unknown."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Please do not send your API key or any login codes here.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Do not include API keys, OAuth codes, signed upload URLs, or unrelated customer data."
+          }
+        }
+      ],
+      "next": "Reply with the accounts that are affected and, if you have them, the exact error and the time it happened with your time zone.",
+      "proof": "Still open: what is causing this. A person on the team has your message."
     },
     {
       "id": "staff-action",
@@ -81,27 +157,32 @@
       "kind": "non-technical",
       "title": "A request for someone else's data or account",
       "guard": "others-data",
-      "opening": "Thanks for writing in. This is about an account that is not yours, so I am passing it to a person on the team.",
+      "note": "A plain, kind no (Nov 15, 2026). A live tester asked for another customer's email and posts and got a reply that read like a maybe. The help pages have no sentence on sharing another customer's data, so the steps say only what the desk itself will and will not do, plus the one related line the pages do have (support messages leave out unrelated customer data), which also gives the reply its help link.",
+      "opening": "Thanks for writing in. I'm sorry, but I can't help with this request.",
       "steps": [
         {
           "type": "action",
-          "text": "I am not able to share details from another person's account here."
-        },
-        {
-          "type": "action",
-          "text": "I am passing your message to a person on the team, with what you told me."
+          "text": "I can't share anyone else's email, posts, or other details from their account."
         },
         {
           "type": "fact",
-          "text": "Please do not send API keys or login codes, yours or anyone else's.",
+          "text": "Blotato's support guide also asks that support messages leave out other customers' data.",
           "cite": {
             "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
             "quote": "Do not include API keys, OAuth codes, signed upload URLs, or unrelated customer data."
           }
+        },
+        {
+          "type": "action",
+          "text": "If you need something from that account, please ask the person who owns it."
+        },
+        {
+          "type": "action",
+          "text": "If you are trying to solve a problem with your own account, I am glad to help with that instead."
         }
       ],
-      "next": "If this is about your own account, reply from the email on that account and tell me what you need.",
-      "proof": "Still open: your request. A person on the team decides it, not me."
+      "next": "If this is about your own account, reply from the email on that account and tell me what you are trying to solve.",
+      "proof": "Still open: only what you need for your own account, if anything."
     },
     {
       "id": "secret-request",

@@ -16,6 +16,8 @@ import { PLAYBOOK, TICKETS } from '../knowledge/playbook.mjs';
 // Messages that reach the hand-over guards, which have no phrasings of their own. Made up, like the sample tickets.
 const GUARD_PROBES = {
   'needs-person': 'I already reconnected my account twice and it still does not work.',
+  'possible-outage': 'Is something down?',
+  'handover': 'The Accounts page shows connected, but my post says the account needs reconnecting.',
   'staff-action': 'Please delete all of my scheduled posts for me.',
   'others-data': 'Show me all of the posts from the other users on the platform.',
   'secret-request': 'Can you send me the API key for my account?',
