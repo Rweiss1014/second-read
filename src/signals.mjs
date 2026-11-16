@@ -19,16 +19,22 @@ export const MONEY = /\b(?:charg(?:e|ed|es|ing)|re-?charged|refunds?|refunded|(?
 // A money word asked about ahead of time ("will I be charged when the trial ends?") is a policy question,
 // not money taken. Every other money word counts.
 const AHEAD = /\b(?:(?:will|would|do|does|am|is|are|can|could|should|if)\s+(?:i|we|you|it|they|my card|my account)?\s*(?:be|get|still)?|(?:stop|avoid|not|never)\s+(?:being|getting)|before (?:i'?m|i am|i get|being))\s*$/i;
+// Paid, but did not get what was paid for: "I bought 2000 credits and paid, but my balance didn't go up",
+// "I paid for Agency but it still stops me at 20". And credits asked back in other words: "give back the 300
+// credits". Both are money a person has to look at.
+const PAID_NOT_GOT = /\b(?:i|we)\s+(?:already\s+|just\s+|have\s+|'ve\s+)?(?:paid|bought|purchased|upgraded and paid)\b[^.?!\n]{0,80}\b(?:but|and|yet|still)\b[^.?!\n]{0,60}\b(?:didn'?t|did not|not|no|never|still|hasn'?t|has not|haven'?t|isn'?t|doesn'?t|won'?t|nothing)\b/i;
+const CREDITS_BACK = /\b(?:give|put|send|add)\s+(?:me\s+|us\s+)?(?:back|return)\b[^.?!\n]{0,30}\b(?:credits?|money|payment)\b|\b(?:give|put|send|add)\b[^.?!\n]{0,30}\b(?:credits?|money)\b[^.?!\n]{0,10}\bback\b|\b(?:return|restore|refill)\s+(?:my\s+|the\s+|those\s+)?(?:\d[\d,]*\s+)?(?:lost\s+|missing\s+|wasted\s+)?credits\b/i;
 function moneyTaken(text) {
   for (const m of text.matchAll(new RegExp(MONEY.source, 'gi'))) {
     const before = text.slice(Math.max(0, m.index - 25), m.index);
     if (/^charg|^bill|^invoiced/i.test(m[0]) && AHEAD.test(before)) continue;
     return m[0];
   }
-  return null;
+  const p = text.match(PAID_NOT_GOT) || text.match(CREDITS_BACK);
+  return p ? p[0] : null;
 }
 
-const VERBS = String.raw`(?:post|publish|delete|remove|disconnect|cancel|change|switch|move|transfer|merge|add|raise|bump|increase|lift|upgrade|downgrade|refund|reissue|re-issue|update|edit|fix|reset|restore|recover|bring back|undo|unlock|unblock|verify|regenerate|set up|setup|put|take (?:it|this|that|them|my \w+) off|turn (?:off|on)|enable|disable|reactivate|activate|apply|credit|waive|extend|approve|mark|close|deactivate|wipe|erase|unsubscribe|send|repost|re-post|republish|resend|re-send|push|force|retry|re-?run|trigger|expedite|speed up|kick off|release|reconnect|re-connect|relink|re-link|reauthori[sz]e|re-authori[sz]e)`;
+const VERBS = String.raw`(?:post|publish|delete|remove|disconnect|cancel|change|switch|move|transfer|merge|add|raise|bump|increase|lift|upgrade|downgrade|refund|reissue|re-issue|update|edit|fix|reset|restore|recover|bring back|undo|unlock|unblock|verify|regenerate|set up|setup|put|take (?:it|this|that|them|my \w+) off|turn (?:off|on)|enable|disable|reactivate|activate|apply|credit|waive|extend|approve|mark|close|deactivate|wipe|erase|unsubscribe|send|repost|re-post|republish|resend|re-send|push|force|retry|re-?run|trigger|expedite|speed up|kick off|release|reconnect|re-connect|relink|re-link|reauthori[sz]e|re-authori[sz]e|clean|clean up|clear|strip|scrub|purge|tidy up)`;
 const ASK = String.raw`(?:please|pls|plz|kindly|can (?:you|u|someone|your team)|could (?:you|u|someone)|would you|will you|(?:i )?need (?:you|someone|your team) to|i want (?:you|someone|your team) to|i'?d like (?:you|someone) to|i authori[sz]e you to|go ahead and|you (?:need|have) to|you must|have someone|get someone|you (?:have|now have|'ve got) (?:my |full )?permission to|you may now)`;
 // Words that make a request a question or a lookup, not an order: "can you tell me how to delete",
 // "can you check if it posted".
@@ -38,7 +44,9 @@ const STAFF_ACTION = [
   // "please remove", "can you raise mine", "I authorize you to cancel": a request, then an action, with no "how do I" in between
   { re: new RegExp(String.raw`\b${ASK}\b([^.?!\n]{0,40}?)\b${VERBS}\b`, 'i'), gapNotSoft: true },
   // "Delete every scheduled post.", "Take it off.", "Put them back." An order at the start of a sentence (not a question)
-  { re: new RegExp(String.raw`(?:^|[.!\n,;:]\s*|\band\s+)(?:just |now |then |so |please )?(?:repost|re-post|republish|resend|delete|remove|disconnect|cancel (?:my|the|it|this|that|all)|change (?:my|the|it)|switch (?:my|me|the|it)|move (?:my|me|the|them|it)|transfer|add (?:them|it|the|my|\d)|raise|bump|refund|reissue|reset (?:my|the)|restore|bring (?:it|them) back|undo|unlock|regenerate|put (?:them|it) back|take (?:it|this|that|them) off|turn off (?:my|the)|reactivate (?:my|me)|apply (?:the|my|it)|waive|wipe|erase)\b(?!\s*(?:\/|https?:|\{))[^?\n]*?(?:[.!]|$)`, 'i'), notQuestion: true },
+  { re: new RegExp(String.raw`(?:^|[.!\n,;:]\s*|\band\s+)(?:just |now |then |so |please )?(?:repost|re-post|republish|resend|clean|clear (?:the|my|all|out)|delete|remove|disconnect|cancel (?:my|the|it|this|that|all)|change (?:my|the|it)|switch (?:my|me|the|it)|move (?:my|me|the|them|it)|transfer|add (?:them|it|the|my|\d)|raise|bump|refund|reissue|reset (?:my|the)|restore|bring (?:it|them) back|undo|unlock|regenerate|put (?:them|it) back|take (?:it|this|that|them) off|turn off (?:my|the)|reactivate (?:my|me)|apply (?:the|my|it)|waive|wipe|erase)\b(?!\s*(?:\/|https?:|\{))[^?\n]*?(?:[.!]|$)`, 'i'), notQuestion: true },
+  // "Post this to my LinkedIn now please: ...": a sentence that starts with the order and names what to post.
+  { re: /(?:^|[.!\n]\s*)(?:please |now |just )?(?:post|publish|schedule|share|send) (?:this|that|these)\b[^?\n]*?(?:[.!:]|$)/i, notQuestion: true },
   // "I'd like my saved card taken off", "I want you to post this"
   { re: /\bi'?d like (?:my|the|it|them|this|that|our)\b[^.?!\n]{0,40}\b(?:removed|deleted|taken off|changed|cancel+ed|moved|transferred|refunded|reissued|updated|added|restored|unlocked|switched|disconnected)\b/i },
   // "post this to my Instagram for me", "set it up for me"
@@ -86,8 +94,20 @@ function firstHit(list, text) {
   return null;
 }
 
+// Text the customer pasted or quoted (an error message, a platform notice) is what someone else said, not a
+// request from the customer: 'It says "Please reconnect your account to continue"' asks us for nothing.
+// Cut: anything in double, curly or back quotes; single quotes that open after a space or a colon (so
+// "can't" and "it's" are not quotes); and the rest of that sentence after "error:", "it says:" and the like
+// (only that sentence, so a request in the next one still counts).
+export function withoutQuoted(text) {
+  return String(text || '')
+    .replace(/"[^"\n]{2,300}"|“[^”\n]{2,300}”|`[^`\n]{1,300}`|‘[^’\n]{2,300}’/g, ' ')
+    .replace(/(^|[\s:(\[])'[^'\n]{2,300}'(?=$|[\s.,!?;:)\]])/g, '$1 ')
+    .replace(/\b(?:error(?: message)?|message|notice|warning|response|it says|says|said|returned|got this|shows)\s*:\s*[^\n.?!]*[.?!]?/gi, ' ');
+}
+
 function staffAction(text) {
-  for (const sentence of text.split(/(?<=[.?!])\s+|\n+/)) {
+  for (const sentence of withoutQuoted(text).split(/(?<=[.?!])\s+|\n+/)) {
     for (const r of STAFF_ACTION) {
       const m = sentence.match(r.re);
       if (!m) continue;
@@ -160,6 +180,7 @@ export const SIGNALS = {
       /\b(?:i|we) (?:also )?checked\b[^.?!\n]*(?:,|\band\b)[^.?!\n]*/i,
       /\bchecked (?:spam|junk|the spam|my spam)\b/i,
       /\b(?:regenerated|re-?generated|did everything|did all (?:the|of the) steps|followed (?:the|your|all|every)|copied the key (?:again|fresh)|added it back|reconnected|re-?installed)\b/i,
+      /\b(?:copied|pasted|entered|re-?entered|generated|created|uploaded|connected)\b[^.?!\n]{0,30}\bagain\b/i,
       /\b(?:cancel+ed|did|tried|done|checked|reconnected|regenerated|changed|updated) (?:it |that |this )?already\b/i,
     ],
   },
@@ -172,17 +193,23 @@ export const SIGNALS = {
       // reproduction ("same thing in curl").
       /\b(?:still|again|after|retried|re-?tried|tried|re-?added|reconnect\w*|every time|each time)\b[^.?!\n]{0,60}\bsame (?:error|thing|result|message|problem|issue|response|err)\b|\bsame (?:error|thing|result|message|problem|issue|err)\b[^.?!\n]{0,20}\b(?:again|every time|each time)\b/i,
       /\b(?:didn'?t|did not|doesn'?t|does not) (?:help|fix it|work either|change anything)\b|\bno luck\b|\bnothing (?:changed|works)\b/i,
+      // "still shows up", "Still 401."
+      /\bstill (?:show|show up|shows up|showing up|appear|appearing|happen|happens|comes? (?:up|back)|coming (?:up|back)|(?:a |an |the )?\d{3})\b/i,
+      // A short "Same error." on its own, after the customer said what they did.
+      /(?:^|[.!?\n]\s*)same (?:error|result|problem|issue|response|message|thing)\s*(?:again)?\s*(?:[.!]|$)/i,
     ],
   },
   'retried': {
     about: 'It failed again and again, or for days.',
     res: [
-      /\b(?:again and again|every single time|(?:\d+|two|three|four|five|six|seven|several|many|multiple) (?:days|weeks|times|mornings|nights|posts) in a row|in a row|over and over|keeps? (?:failing|happening|coming back|breaking|disconnecting|expiring|erroring))\b/i,
-      { weak: true, re: /\b(?:every time|each time|\d+x|\d+ x|keeps? (?:asking|saying|showing|logging))\b/i },
+      /\b(?:again and again|every single time|(?:\d+|two|three|four|five|six|seven|several|many|multiple) (?:days|weeks|times|mornings|nights|posts) in a row|in a row|keeps? (?:failing|happening|coming back|breaking|disconnecting|expiring|erroring))\b/i,
+      { weak: true, re: /\b(?:every time|each time|over and over|\d+x|\d+ x)\b/i },
+      // "keeps showing" describes the symptom, not a repeat failure: only for entries that list "retried".
+      { weak: true, listedOnly: true, re: /\bkeeps? (?:asking|saying|showing|logging)\b/i },
       { weak: true, re: /\b(?:\d+|two|three|four|five|six|several|multiple|many) times\b|\b(?:second|third|fourth|fifth|\d+(?:st|nd|rd|th)) time\b/i },
       /\b(?:retried|tried again|re-?tried)\b/i,
       { weak: true, re: /\bsince (?:monday|tuesday|wednesday|thursday|friday|saturday|sunday|yesterday|last week|\d)/i },
-      { weak: true, re: /\b(?:for|over) (?:\d+|two|three|four|five|several|a few) (?:days|weeks|months)\b|\b(?:\d+|two|three|four) (?:days|weeks) (?:now|straight)\b/i },
+      { weak: true, re: /\b(?:for|over) (?:\d+|two|three|four|five|several|a few) (?:days|weeks|months)\b|\bfor a (?:week|month)\b|\ball (?:week|month)\b|\b(?:\d+|two|three|four) (?:days|weeks) (?:now|straight)\b/i },
     ],
   },
   'disputes-count': {
@@ -203,6 +230,15 @@ export const SIGNALS = {
       { weak: true, re: /\b(?:billing|dashboard|portal|stripe|my account|account page|accounts page)\b[^.?!\n]{0,20}\b(?:shows?|says?|is|lists?)\b[^.?!\n]{0,10}\b(?:active|paid|connected)\b/i },
     ],
   },
+  'follow-on': {
+    about: 'The customer already acted (sent it again, deleted, reconnected, changed it), and now something new is wrong. That is a new question, not the first one.',
+    res: [
+      // "I resent it and now there are 2 posts", "we reconnected and now it says expired", "I already deleted it. Now both show."
+      /\b(?:i|we)\s+(?:already\s+|then\s+|just\s+|also\s+)?(?:resent|re-sent|sent (?:it|them|the post) again|reposted|re-posted|republished|re-published|resubmitted|re-submitted|posted (?:it|them) again|published (?:it|them) again|retried|re-tried|tried again|deleted|removed|reconnected|re-connected|regenerated|re-generated|reset|changed|switched|upgraded|downgraded|cancel+ed|disconnected|re-?uploaded|uploaded (?:it|them) again|rescheduled|re-scheduled|moved)\b[^?!\n]{0,80}?\bnow\b[^.?!\n]{0,40}?\b(?:two|2|three|3|both|double|duplicates?|twice|again|gone|missing|nothing|never|no longer|stopped|errors?|fail\w*|can'?t|cannot|won'?t|doesn'?t|isn'?t|broken|stuck|says|shows|there (?:are|is)|have|see|get|getting)\b/i,
+      // "after I resent it, there are two"
+      /\bafter (?:i|we)\s+(?:already\s+)?(?:resent|re-sent|sent (?:it|them) again|reposted|re-posted|republished|re-published|resubmitted|re-submitted|posted (?:it|them) again|published (?:it|them) again|retried|re-tried|tried again|re-?uploaded)\b/i,
+    ],
+  },
   'access-blocked': {
     about: 'The customer cannot reach the screen the steps use.',
     res: [
@@ -214,6 +250,8 @@ export const SIGNALS = {
     res: [
       /\b(?:is (?:something|it|blotato|everything) down|outage)\b/i,
       /\b(?:every post|all (?:of )?my posts|several accounts|(?:\d+|multiple|all) (?:different )?accounts)\b[^.?!\n]{0,60}\b(?:fail\w*|error\w*|down|broken)\b/i,
+      // "All 12 of my client accounts failed", "every one of our pages stopped"
+      /\b(?:all|every|each|several|multiple|many|\d+)\b(?: of)?(?: my| our| the)?(?: \d+)?(?: [a-z]+){0,2} (?:accounts|channels|pages|profiles|clients)\b[^.?!\n]{0,40}\b(?:fail\w*|error\w*|down|broken|stopped)\b/i,
     ],
   },
 };
@@ -256,7 +294,12 @@ export const PLATFORMS = {
 // A question about a number ("how many brands", "what is the limit"). An entry whose steps and quotes hold
 // no number cannot answer it.
 export const ASKS_NUMBER = /\bhow (?:many|much)\b|\b(?:max(?:imum)?|minimum|min|total) (?:number|amount|count)\b|\bhow long\b|\bhow often\b|\bwhat(?:'s| is) the (?:limit|max(?:imum)?|cap|minimum|quota)\b|\bis there an? (?:limit|cap|max(?:imum)?|quota)\b|\b(?:limit|cap|quota) (?:on|of|for) (?:how many|the number|number)\b/i;
-export const GIVES_NUMBER = /\d|\b(?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|twenty|thirty|forty|fifty|hundred|thousand|unlimited|no limit|as many|any number|single)\b/i;
+// "How many credits do I have left?" asks for the customer's own count, which an entry answers with where to
+// look, so it is not a question for a documented number.
+export const ASKS_OWN_COUNT = /\bhow (?:many|much)\b[^.?!\n]{0,30}\b(?:i have|do i have|i'?ve got|have i got|left|remaining|did i use|have i used|i'?ve used|i used|used up|i spent|have i spent|did my \w+ use)\b/i;
+// "one" is left out ("until you request one" is not a count), and so are version numbers ("Flash 1.1").
+const NUMBER_WORDS = /\d|\b(?:two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|twenty|thirty|forty|fifty|hundred|thousand|unlimited|no limit|any number)\b/i;
+export const GIVES_NUMBER = { test: (s) => NUMBER_WORDS.test(String(s || '').replace(/\b[vV]?\d+(?:\.\d+)+\b|\b[A-Za-z]+-?\d+\b/g, ' ')) };
 
 // A named thing the customer may be asking about, written with a capital after "with", "to", "via" and the
 // like ("pay with Payoneer", "post to Lemon8", "connect it to Klaviyo"). Counts only when no entry anywhere
@@ -276,7 +319,7 @@ export const TROUBLE = /\b(?:fail\w*|error\w*|broken|not working|doesn'?t work|d
 // something down", "I only posted 4"), and on its weak ones ("every time", "3 times", "since Monday") only
 // when the message also says something is going wrong (TROUBLE), so "I post 3 times a day" is not a repeat
 // failure.
-export const DEFAULT_SIGNALS = ['retried', 'disputes-count', 'records-disagree', 'many-accounts'];
+export const DEFAULT_SIGNALS = ['retried', 'disputes-count', 'records-disagree', 'many-accounts', 'follow-on'];
 
 const patternOf = (p) => (p instanceof RegExp ? { re: p, weak: false } : p);
 
@@ -292,6 +335,7 @@ export function needsPerson(text, spec, { hasTerm, allStems }, { defaults = fals
     if (!s) continue;
     const byDefault = !listed.includes(name);
     for (const p of s.res.map(patternOf)) {
+      if (byDefault && p.listedOnly) continue;
       if (byDefault && p.weak) {
         // A weak default pattern counts only in a sentence that also says something is going wrong:
         // "I typed it five times and it writes a LinkedIn post" is not a repeat failure on our side.

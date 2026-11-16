@@ -196,6 +196,9 @@ export function validateRouting(entries) {
       const r = router.route(p);
       if (r.decision === 'guard') problems.push(`${where}: the phrasing "${p}" is taken by the ${r.guard} guard before matching (words: "${r.words}"). Reword it as a question, not a request.`);
       else if (r.entry && r.entry.id !== e.id && r.entry.guard !== 'needs-person') problems.push(`${where}: the phrasing "${p}" routes to "${r.entry.id}" instead. The two entries overlap: make the phrasings more distinct, or add a "not_this".`);
+      // The rules every entry shares can stop a phrasing too.
+      else if (r.decision === 'needs-person' && (r.signals || []).some(s => s.byDefault)) { const s = r.signals.find(x => x.byDefault); problems.push(`${where}: the phrasing "${p}" is handed to a person by the default "${s.signal}" signal (words: "${s.words}"). Reword it, or, if your entry truly answers that case, add "${s.signal}" to "needs_person_if.ignore".`); }
+      else if (r.decision === 'abstain' && r.silent) problems.push(`${where}: the phrasing "${p}" is stopped by the docs-silent check: ${r.reason} ${r.silent.kind === 'number' ? 'Give the number in a step, or reword the phrasing.' : 'Name it in a step, or reword the phrasing.'}`);
     }
   }
   return problems;

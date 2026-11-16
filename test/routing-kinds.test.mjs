@@ -160,3 +160,86 @@ test('two close entries: the one the help page gives the question to wins', () =
     ['linkedin-company-page', 'If I add my LinkedIn profile and two company Pages, how many of my 20 accounts does that use?'],
   ]) { const r = routeMessage(m); assert.ok(!(answered(r) && r.entry.id === id), show(m, r)); }
 });
+
+test('digits match exactly: an error code, a status or a count is never a one-letter typo of another', async () => {
+  const { nearWord, anchorsMet } = await import('../src/match.mjs');
+  assert.equal(nearWord('20003', '20005'), false);
+  assert.equal(nearWord('20005', '20005'), true);
+  assert.equal(nearWord('subscribtion', 'subscription'), true, 'letters still get one-letter typos');
+  for (const [msg, anchor] of [['I get error 20003 when posting', '20005'], ['GET /v2/posts returns 404', '401'], ['the call died with a 500', '504'], ['it says 10 posts per day', '20 posts']]) {
+    assert.equal(anchorsMet(msg, [[anchor]]).ok, false, `${anchor} must not match "${msg}"`);
+    assert.equal(hasTerm(allStems(msg), anchor), false, `phrase ${anchor} must not match "${msg}"`);
+  }
+  assert.equal(anchorsMet('I get error 20005 when posting', [['20005']]).ok, true);
+  const helpers = { hasTerm, allStems };
+  assert.equal(needsPerson('my queue says 20 posts', { signals: [], phrases: ['10 posts'] }, helpers).length, 0);
+  assert.equal(needsPerson('my queue says 10 posts', { signals: [], phrases: ['10 posts'] }, helpers).length, 1);
+  // Near misses: a message about 500 is not blocked by a near miss about 504.
+  const entry = PLAYBOOK.find(e => e.id === 'unknown-outcome-resend');
+  const withMiss = { ...entry, not_this: [...(entry.not_this || []), 'POST /v2/posts gave a 504999 code'] };
+  const r = createRouter([...PLAYBOOK.filter(e => e.id !== entry.id), withMiss]).route('My POST /v2/posts call timed out with a 504. Should I send it again?');
+  assert.equal(r.entry?.id, 'unknown-outcome-resend', show('504 vs 504999', r));
+});
+
+test('follow-on: "I already did X, and now Y" is a new question and goes to a person', () => {
+  expectAll([
+    'My POST /v2/posts got a 504, so I resent it and now there are 2 posts on LinkedIn.',
+    'The post was stuck in progress. I deleted it and now the calendar shows it twice.',
+    'Instagram said the account needed reconnecting. We reconnected and now every post says unauthorized.',
+    'After I reposted the reel, there are two copies on my profile. Which one do I delete?',
+    'I changed my email and now the magic link never arrives.',
+    'I upgraded to Creator and now my old drafts are gone.',
+  ], (r) => r.decision === 'needs-person' || r.decision === 'guard', 'should go to a person');
+  answersWith([
+    ['unknown-outcome-resend', 'My POST /v2/posts call for an Instagram post timed out with a 504. Should I send it again?'],
+    ['connected-account-limit', 'I upgraded to Creator last week. How many social accounts can I connect now?'],
+  ], 'asking before acting, or nothing new is wrong');
+});
+
+test('quoted or pasted error text is not a request, but a real request next to it still is', () => {
+  expectAll([
+    'Facebook shows "Please notice the user must reauthorize the app to continue posting". What does that mean?',
+    'I get this error: Please reconnect your account to continue. Why does it say that?',
+    "TikTok says 'Please delete some drafts before uploading more'. What is that about?",
+    'The API returned `please retry the request later` with a 429. What should my workflow do?',
+    'The message says “Kindly remove the watermark and try again” on my TikTok upload. What does it mean?',
+  ], (r) => r.decision !== 'guard', 'quoted text must not be read as a request');
+  expectAll([
+    'It says "token expired". Can you reset my key?',
+    'Error: invalid page. Please remove the old Facebook page from my account.',
+    'how do i stop markdown, and also please clean the asterisks out of the posts already scheduled',
+    'Post this to my Instagram right now please: "Summer sale starts today!"',
+  ], (r) => r.decision === 'guard' && r.guard === 'staff-action', 'a real request is still a request');
+});
+
+test('money: paid but did not get it, or credits asked back, goes to a person', () => {
+  expectAll([
+    "I bought 500 credits and paid, but my balance didn't go up. Where do I check it?",
+    'We paid for Creator but the app still stops us at 20 accounts.',
+    'please give back the 120 credits, the render failed halfway',
+    'Can you restore my lost credits from the failed video?',
+  ], (r) => r.decision === 'guard' && r.guard === 'money', 'should be the money guard');
+  answersWith([['how-to-buy-credits', 'how do I buy more credits?']], 'buying credits ahead of time is a how-to');
+});
+
+test('still broken: "still shows up", "Still 401", a bare "Same error." after a retry', () => {
+  expectAll([
+    'I turned on Disable Markdown and the asterisks still show up in my LinkedIn posts.',
+    'Still 401. I pasted the key again from Settings. Same error.',
+    'I generated a new key and connected it again. Same result.',
+  ], (r) => r.decision === 'needs-person' || r.decision === 'guard', 'should go to a person');
+});
+
+test('named items match exactly: "video" is not "vimeo"', () => {
+  const r = routeMessage('If I cancel my subscription, can I still open my old videos?');
+  assert.ok(!r.silent, show('videos', r));
+  assert.ok(!answered(routeMessage('Can I remix a Vimeo link instead of a YouTube video?')) || routeMessage('Can I remix a Vimeo link instead of a YouTube video?').entry.id !== 'remix-youtube-video');
+});
+
+test('number questions: the customer\'s own count is a where-to-look question; a documented table row answers a limit', () => {
+  answersWith([
+    ['what-uses-credits', 'how do I see how many credits I have left?'],
+    ['scheduled-queue-limit', 'how many scheduled posts can I have in my queue on Agency?'],
+  ], 'should answer');
+  expectAll(['How long does a post stay in progress before it fails?'], (r) => !answered(r), 'no documented duration');
+});
