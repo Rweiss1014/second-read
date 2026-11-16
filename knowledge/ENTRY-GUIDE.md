@@ -143,6 +143,22 @@ When a near miss shares all its words with your phrasings, reach for anchors ins
 - One wrong letter is allowed for words of five letters or more, so "subscribtion" matches "subscription". "post" does not match "posted". A word with a digit in it never gets that allowance: "20005" does not match "20003".
 - A term written as `"/.../"` is a regular expression, for the few cases where word order matters. In JSON, write a word boundary as `\\b`. A single `\b` is a backspace character, and check-entries fails on it.
 - An entry with anchors can answer at a lower score than one without. Anchors are the best guard against answering the wrong question, so most entries should have them.
+- A regex anchor reads the message with its apostrophes kept: write `can.?t`, not `can t`, to match "can't" and "cant".
+
+### An error entry needs its own error text in the anchors
+
+An entry about one error or one cause must not be reachable on words that many problems share.
+"I get a 403 when I post. Is my account flagged?" is not the adult-content entry's question, even though "flagged" is in its anchors.
+
+- At least one anchor group must hold only this error's own words: its error text (`"session error"`, `"/temporarily restricted/"`), its code (`"20003"`, `"/\\b33005\\b/"`), or a combination that says this case (`"/how many (images|photos)/"`).
+- Never let a group be met by a bare status code (`"403"`), a platform name alone, or a common symptom word ("failed", "error", "missing", "empty", "stuck", "limit", "flagged", "rejected", "timeout", "image", "video", "post", "account"). The full list is `GENERIC_WORDS` in `src/signals.mjs`.
+- A bare status code is fine only for the entry about that status itself, and only when the title gives its meaning ("503 Service Unavailable").
+- `check-entries` fails an error entry (one that cites an Errors or limitations page, or whose title says error, failed, rejected, invalid, exceeded, not found or unsupported) whose every group can be met by those words. It cannot judge every non-error entry, so check yours by hand: could a customer with a different problem meet every group?
+
+### An entry for a failure with no error text: `symptom_only`
+
+`post-failed-no-error-text` and `post-never-went-up` answer the most common ticket there is: "my post failed" with no error given. They give the first steps from the help pages and ask for the exact error.
+Mark such an entry `"symptom_only": true`. When the message does carry an error text or a code (quoted text, `error: ...`, a 3 to 5 digit code, a `snake_case` name), that error decides the fix, so this entry hands over instead of answering, and the error's own entry (or a person) takes it.
 
 ## needs_person_if: when your answer is not enough
 
@@ -168,8 +184,12 @@ The signals (in `src/signals.mjs`):
 
 ### Signals every entry has (you do not list them)
 
-`retried`, `disputes-count`, `records-disagree`, `many-accounts` and `follow-on` apply to **every** entry that answers, whether you list them or not.
+`retried`, `disputes-count`, `records-disagree`, `many-accounts`, `follow-on`, `cause-ruled-out` and `docs-wrong` apply to **every** entry that answers, whether you list them or not.
 A repeat failure, a disputed count, an outage or "I did X and now Y" is never settled by your steps.
+Two more since the second wave of entries:
+- `cause-ruled-out`: the customer says the documented cause does not apply to them ("the URL has public DNS", "the file is only 20 MB, well under the limit", "curl from outside works", "the key is correct, no spaces", "that's not the cause"). Your steps would only repeat what they ruled out. It reads the customer's own words only, so a pasted error that says "use a public URL" is not a claim.
+- `docs-wrong`: the customer says the help pages are wrong, outdated or contradict each other ("your example is invalid JSON", "two pages give different numbers, which is it?"). A person checks the docs.
+- `records-disagree` now also fires on a pair anywhere in the message: a good state of one thing next to a bad state of the same thing ("I still have 900 credits" + "insufficient credits", "I'm on Creator, paid last week" + a 403 or "subscription not active", "shows connected" + "needs reconnecting").
 Their strong forms ("three days in a row", "is something down", "I only posted 3") fire on their own.
 Their weak forms ("every time", "3 times", "since Monday") fire only when the same sentence says something is wrong, so "I post 3 times a day" is fine.
 List one in `signals` to make all its forms fire for your entry.
@@ -229,6 +249,34 @@ A real request next to them still is: 'It says "token expired". Can you reset my
 5. **The docs-silent check** runs: the thing asked about must be something your entry names. If not, a person gets the message.
 6. **Every question** in the message must belong to your entry. If one does not, the desk answers your part and hands over the rest, or hands over the whole message.
 
+Also before matching: a message not in English (Spanish, Portuguese, French, German or Italian function words, or mostly a non-Latin script) goes to a person. Quoted or pasted text is left out of that check, so an English message with a foreign error or account name stays English. A sentence that only thanks or agrees ("Thanks for the scheduling help!") is left out of matching, so the topic it names cannot pull the message to its entry.
+
+## Why a message was handed over: the reason codes
+
+Every route result has `why` (a stable code) and `whyDetail` (its details, or null) beside the human `reason` text. An answer has `why: null`. A page maps each code to a plain sentence; never rename one.
+
+| `why` | Meaning | `whyDetail` |
+|---|---|---|
+| `money` | A charge, refund or money taken: the money guard. | `{ words }` |
+| `others-data` | Asks for someone else's data or account. | `{ words }` |
+| `secret` | Asks for a key, a password or the desk's own settings. | `{ words }` |
+| `staff-action` | Asks us to post, delete, reconnect or change something. | `{ words }` |
+| `desk-instructions` | Gives the desk instructions and asks no real question. | `{ words }` |
+| `tried-already` | Already tried the steps, still broken, a repeat failure, "I did X and now Y", or the documented cause does not apply. | `{ signal, words }` (signal: tried-steps, still-broken, retried, follow-on, cause-ruled-out) |
+| `outage` | Many accounts failing at once, "is something down". | `{ signal: 'many-accounts', words }` |
+| `records-disagree` | Two of Blotato's records disagree, or the customer disputes a count. | `{ signal, words }` (records-disagree or disputes-count) |
+| `docs-wrong` | Says the help pages are wrong or contradict each other. | `{ signal, words }` |
+| `access-blocked` | Cannot reach the screen the steps need. | `{ signal, words }` |
+| `past-docs` | A phrase the entry itself lists as needing a person. | `{ signal: 'phrase', words }` |
+| `docs-silent` | Asks about a named thing or a number the closest entry never gives. | `{ kind, item, nearest }` |
+| `tie` | Two entries too close to choose between. | `{ candidates: [{ id, title, score }, ...] }` |
+| `partly-covered` | Asks more than one thing; an entry covers only part. A `partial` answer carries it for the part handed over. | `{ question, nearest? }` |
+| `not-english` | Not written in English. | `{ language }` |
+| `no-coverage` | No entry covers it: nothing close enough, the entry matched only the background, or a no-error-text entry met an error text. | null, or `{ question, nearest }` or `{ error, nearest }` |
+| `nonsense` | No words the desk knows, or no question. | null |
+
+When the desk hands over without a tie, `candidates` still lists up to three close entries (`id`, `title`, `score`), only ones scoring 0.1 or more, never a guard.
+
 ## Check your work
 
 ```bash
@@ -262,4 +310,5 @@ node bin/support-desk.mjs ticket "how do I cancel my plan" --mock   # see what a
 | `"proof" must start with...` | Start it with `You will know it` or `Still open:`. |
 | `is handed to a person by the default "retried" signal` | Your phrasing describes a repeat failure. Reword it, or add the signal to `needs_person_if.ignore` if your steps truly answer that case. |
 | `is stopped by the docs-silent check` | Your phrasing names something (or asks for a number) that your steps never give. Add the fact with its quote, or reword the phrasing. |
-| `"x" in "needs_person_if.ignore" is not a default signal` | Only `retried`, `disputes-count`, `records-disagree`, `many-accounts` and `follow-on` can be ignored. |
+| `"x" in "needs_person_if.ignore" is not a default signal` | Only `retried`, `disputes-count`, `records-disagree`, `many-accounts`, `follow-on`, `cause-ruled-out` and `docs-wrong` can be ignored. |
+| `the anchors can all be met by words many problems share` | Your error entry could answer "403" or "my Instagram post failed". Make one anchor group hold only this error's own text or code. See "An error entry needs its own error text". |
