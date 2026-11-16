@@ -4,7 +4,7 @@
 //    a post or an id, a read-only status lookup through the Blotato API.
 // 3. Compose: a numbered reply, an escalation packet when a person must decide, a help-doc edit when the docs
 //    have no answer or the wrong one.
-import { routeMessage, PAGES } from '../knowledge/playbook.mjs';
+import { routeMessage, PAGES, TICKETS } from '../knowledge/playbook.mjs';
 import { listPosts, getSubmission, errorText, listAccounts } from './api.mjs';
 import { explain } from './explain.mjs';
 import { READER_OFF } from './reader.mjs';
@@ -183,6 +183,10 @@ async function lookup(kind, ticket, { client, docs, entry, now = Date.now }) {
   return ev;
 }
 
+// One of the 12 sample messages, word for word (a pasted copy of one counts too: its saved reply was checked for it).
+const SAMPLE_TEXT = new Set(TICKETS.map(t => t.text.trim()));
+const isSample = (ticket) => SAMPLE_TEXT.has(String(ticket?.text || '').trim());
+
 export async function diagnose(ticket, { client, docs, agent = 'Support', route = routeMessage, now = Date.now, reader = null, composer = null }) {
   // The reader (src/reader.mjs), when on, reviews route()'s decision: it may pick an entry or hand over. It never
   // sees a message a guard or a hand-over signal took, and on any error the decision stays route()'s own.
@@ -190,7 +194,7 @@ export async function diagnose(ticket, { client, docs, agent = 'Support', route 
   // guard or signal: it may compose a reply from the help pages, every step quoted, then checked by a second read.
   const r0 = route(ticket.text);
   const r1 = reader ? await reader.decide(ticket.text, r0) : r0;
-  const r = composer ? await composer.compose(ticket.text, r1) : r1;
+  const r = composer ? await composer.compose(ticket.text, r1, { keepSaved: isSample(ticket) }) : r1;
   const entry = r.entry;
   const readerInfo = r.reader || READER_OFF;
   const composerInfo = r.composer || COMPOSER_OFF;

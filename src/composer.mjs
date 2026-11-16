@@ -354,8 +354,11 @@ export function createComposer({ router, env = process.env, call, cacheDir, page
     && Array.isArray(r.entry.steps) && r.entry.steps.length > 0 && r.entry.steps.every(s => s.type === 'fact') && !r.entry.lookup;
 
   // The decision with the composer's folded in. Never throws.
-  async function compose(text, r) {
-    if (!composable(r)) return composeOne(text, r);
+  // keepSaved: the message is one of the 12 sample messages, whose saved reply was written for that exact message and
+  // passed the fresh checker for it. Composing over a saved entry fixes a reply written for a topic, not the message
+  // in hand, so it never replaces those (and the page's first-visit example keeps its stamp and its speed).
+  async function compose(text, r, { keepSaved = false } = {}) {
+    if (keepSaved || !composable(r)) return composeOne(text, r);
     const res = await composeOne(text, { ...r, decision: 'abstain', why: null, whyDetail: null });
     if (res.decision === 'answer' && res.path === 'composed') {
       stats.overSaved = (stats.overSaved || 0) + 1;
