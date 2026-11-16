@@ -1,20 +1,22 @@
 // Entries as data: knowledge/entries/*.json, one file per help-center area.
 // loadEntries() reads and checks their shape at start (it throws, naming the entry and the reason).
-// checkEntries() adds the checks that need the cached help pages: every quote is on its page.
+// checkEntries() adds the checks that need the cached help pages (every quote is on its page) and the
+// routing check (every phrasing reaches its own entry).
 // The command `node bin/support-desk.mjs check-entries` runs both and prints every problem.
 import fs from 'node:fs';
 import path from 'node:path';
 import { ROOT } from './config.mjs';
 import { pageUrl, quoteOnPage, readCacheDir } from './docs.mjs';
 import { findPromises, findVoice } from './checkreply.mjs';
-import { SIGNAL_NAMES } from './signals.mjs';
-import { contentStems } from './match.mjs';
+import { SIGNAL_NAMES, DEFAULT_SIGNALS, GENERIC_WORDS, STATUS_MEANING } from './signals.mjs';
+import { contentStems, anchorsMet, anchorRegex, foldText } from './match.mjs';
+import { createRouter } from './route.mjs';
 
 export const ENTRIES_DIR = path.join(ROOT, 'knowledge', 'entries');
 export const KINDS = ['non-technical', 'billing', 'technical'];
 export const LOOKUPS = ['recent-published', 'recent-activity', 'submission', 'reproduce-schedule', 'docs-search'];
 export const GUARDS = ['money', 'others-data', 'staff-action', 'secret', 'desk-instructions', 'needs-person'];
-const ENTRY_KEYS = ['id', 'kind', 'title', 'phrasings', 'not_this', 'anchors', 'needs_person_if', 'lookup', 'searchQueries', 'opening', 'steps', 'next', 'proof', 'escalate', 'docEdit', 'noDocAnswer', 'guard', 'priority', 'holding', 'note'];
+const ENTRY_KEYS = ['id', 'kind', 'title', 'phrasings', 'not_this', 'anchors', 'needs_person_if', 'lookup', 'searchQueries', 'opening', 'steps', 'next', 'proof', 'escalate', 'docEdit', 'noDocAnswer', 'guard', 'priority', 'holding', 'note', 'symptom_only'];
 const REPLY_KEYS = ['opening', 'steps', 'next', 'proof'];
 const STEP_KEYS = ['type', 'text', 'cite', 'ref'];
 
@@ -34,6 +36,7 @@ export function readEntryFiles(dir = ENTRIES_DIR) {
   return { entries, files, problems };
 }
 
+const isWarning = (p) => p.startsWith('warning: ');
 const isText = (x) => typeof x === 'string' && x.trim().length > 0;
 const phraseKey = (s) => contentStems(s).join(' ');
 
@@ -51,6 +54,15 @@ function checkReplyBlock(where, b, e, problems) {
     if (s.type === 'fact') {
       if (!isText(s.cite?.url) || !isText(s.cite?.quote)) problems.push(`${at}: a fact step needs "cite": { "url", "quote" }.`);
       else if (!/^https:\/\/help\.blotato\.com\//.test(s.cite.url)) problems.push(`${at}: the cited url must be a page on https://help.blotato.com/.`);
+      else if (isText(s.text)) {
+        // A cheap look at a step written about something else than its quote. (Whether it says more than the
+        // quote is the fresh checker's job.)
+        const q = new Set(contentStems(s.cite.quote));
+        const shared = contentStems(s.text).filter(w => q.has(w)).length;
+        // A warning, not a failure: a plain rewrite can share no words and still be faithful ("send fewer posts
+        // at a time" for "reduce concurrency"). It is there so a writer looks twice.
+        if (!shared && q.size >= 3) problems.push(`warning: ${at}: the step shares no words with its quote ("${s.cite.quote}"). Check it says what the quote says.`);
+      }
     } else if (s.type === 'evidence') {
       if (!e.lookup) problems.push(`${at}: an evidence step needs the entry to name a "lookup".`);
     } else if (s.type !== 'action') problems.push(`${at}: "type" must be "fact", "evidence" or "action".`);
@@ -59,6 +71,7 @@ function checkReplyBlock(where, b, e, problems) {
   const lines = [['opening', b.opening, null], ['next', b.next, null], ['proof', b.proof, null], ...(b.steps || []).map((s, i) => [`step ${i + 1}`, s?.text, s?.type === 'fact' ? s.cite?.quote : null])];
   for (const [name, text, quote] of lines) {
     if (!isText(text)) continue;
+    if (/\[[^\]]*\]|\b(?:TODO|TBD|FIXME|lorem ipsum|xxx)\b/i.test(text)) problems.push(`${where}, ${name}: has placeholder text. A customer would read it.`);
     for (const p of findPromises(text, { quote: quote || undefined })) problems.push(`${where}, ${name}: makes ${p.why} ("${p.words}").`);
     for (const v of findVoice(text)) problems.push(`${where}, ${name}: uses ${v}.`);
   }
@@ -105,19 +118,24 @@ export function validateShape(entries) {
     else for (const term of (e.anchors || []).flat()) {
       // Found while building: "\b" in a JSON string is a backspace character, not a regex word boundary.
       if (/[\u0000-\u001f]/.test(term)) problems.push(`${where}: the anchor "${term.replace(/[\u0000-\u001f]/g, '?')}" has a control character. In JSON, write a regex word boundary as "\\\\b".`);
-      else if (/^\/.+\/$/.test(term)) { try { new RegExp(term.slice(1, -1), 'i'); } catch (err) { problems.push(`${where}: the anchor ${term} is not a valid regular expression (${err.message}).`); } }
+      else if (/^\/.+\/$/.test(term)) { try { const re = new RegExp(term.slice(1, -1), 'i'); if (['', 'a', 'hello there', 'thanks for the help'].some(x => re.test(x))) problems.push(`${where}: the anchor ${term} matches almost any message, so it guards nothing.`); } catch (err) { problems.push(`${where}: the anchor ${term} is not a valid regular expression (${err.message}).`); } }
     }
+    if (e.symptom_only !== undefined && typeof e.symptom_only !== 'boolean') problems.push(`${where}: "symptom_only" must be true or false.`);
     const np = e.needs_person_if;
     if (np !== undefined) {
       if (typeof np !== 'object' || Array.isArray(np)) problems.push(`${where}: "needs_person_if" must be { "signals": [...], "phrases": [...] }.`);
       else {
-        for (const k of Object.keys(np)) if (!['signals', 'phrases'].includes(k)) problems.push(`${where}: "needs_person_if" has an unknown field "${k}".`);
+        for (const k of Object.keys(np)) if (!['signals', 'phrases', 'ignore'].includes(k)) problems.push(`${where}: "needs_person_if" has an unknown field "${k}".`);
         for (const s of np.signals || []) if (!SIGNAL_NAMES.includes(s)) problems.push(`${where}: "${s}" is not a known signal. Known signals: ${SIGNAL_NAMES.join(', ')}.`);
+        if (np.ignore !== undefined && !(Array.isArray(np.ignore) && np.ignore.every(isText))) problems.push(`${where}: "needs_person_if.ignore" must be a list of signal names.`);
+        for (const s of Array.isArray(np.ignore) ? np.ignore : []) if (!DEFAULT_SIGNALS.includes(s)) problems.push(`${where}: "${s}" in "needs_person_if.ignore" is not a default signal. Default signals: ${DEFAULT_SIGNALS.join(', ')}.`);
+        for (const s of Array.isArray(np.ignore) ? np.ignore : []) if ((np.signals || []).includes(s)) problems.push(`${where}: "${s}" is in both "needs_person_if.signals" and "needs_person_if.ignore".`);
         if (np.phrases !== undefined && !(Array.isArray(np.phrases) && np.phrases.every(isText))) problems.push(`${where}: "needs_person_if.phrases" must be a list of text.`);
       }
     }
     const answers = !e.guard && !e.escalate && !e.noDocAnswer;
-    if (answers && !((np?.signals || []).length + (np?.phrases || []).length)) problems.push(`${where}: an entry that answers needs "needs_person_if", at least one signal (most entries want "tried-steps" and "still-broken").`);
+    // A named signal, not only phrases: a phrase that never fires would meet a looser rule.
+    if (answers && !(np?.signals || []).length) problems.push(`${where}: an entry that answers needs "needs_person_if", at least one signal (most entries want "tried-steps" and "still-broken").`);
 
     if (e.escalate !== undefined) {
       if (!isText(e.escalate?.why)) problems.push(`${where}: "escalate.why" is missing.`);
@@ -164,10 +182,63 @@ export function validateQuotes(entries, pages) {
   return problems;
 }
 
+// Every phrasing must be able to reach its own entry: it meets the entry's anchors, no guard takes it first,
+// and the router does not send it to a different entry. (Run by check-entries, not at start: it routes every
+// phrasing once.)
+export function validateRouting(entries) {
+  const problems = [];
+  const router = createRouter(entries);
+  for (const e of entries) {
+    if (e.guard) continue;
+    const where = `${e.file ? e.file + ': ' : ''}${e.id}`;
+    for (const p of e.phrasings || []) {
+      if (!isText(p)) continue;
+      if (!anchorsMet(p, e.anchors).ok) { problems.push(`${where}: the phrasing "${p}" does not meet this entry's own anchors, so a message worded like it can never match. Add a word to the anchors or reword the phrasing.`); continue; }
+      const r = router.route(p);
+      if (r.decision === 'guard') problems.push(`${where}: the phrasing "${p}" is taken by the ${r.guard} guard before matching (words: "${r.words}"). Reword it as a question, not a request.`);
+      else if (r.entry && r.entry.id !== e.id && r.entry.guard !== 'needs-person') problems.push(`${where}: the phrasing "${p}" routes to "${r.entry.id}" instead. The two entries overlap: make the phrasings more distinct, or add a "not_this".`);
+      // The rules every entry shares can stop a phrasing too.
+      else if (r.decision === 'needs-person' && (r.signals || []).some(s => s.byDefault)) { const s = r.signals.find(x => x.byDefault); problems.push(`${where}: the phrasing "${p}" is handed to a person by the default "${s.signal}" signal (words: "${s.words}"). Reword it, or, if your entry truly answers that case, add "${s.signal}" to "needs_person_if.ignore".`); }
+      else if (r.decision === 'abstain' && r.silent) problems.push(`${where}: the phrasing "${p}" is stopped by the docs-silent check: ${r.reason} ${r.silent.kind === 'number' ? 'Give the number in a step, or reword the phrasing.' : 'Name it in a step, or reword the phrasing.'}`);
+    }
+  }
+  return problems;
+}
+
+// An entry that explains one error or one cause must not be reachable on words many problems share. Each of its
+// anchor groups must not ALL be meetable by generic words: a status code, a platform name, or a common symptom
+// word (GENERIC_WORDS in signals.mjs). At least one group must name the error's own text or code.
+// Error entries: those citing an Errors or limitations page, or whose title says error, failed, rejected and
+// the like. Not checked: entries for a symptom with no error text ("symptom_only", generic on purpose), and
+// entries whose title is itself only generic words ("YouTube Unauthorized error when posting").
+// A bare status code counts as distinctive when the title gives that status's meaning ("503 Service Unavailable").
+const GENERIC_SAMPLES = [...GENERIC_WORDS, ...Array.from({ length: 500 }, (_, i) => String(100 + i))];
+const GENERIC_STEMS = new Set([...GENERIC_WORDS].flatMap(contentStems));
+const TITLE_FILLER = new Set(contentStems('when while from on in the to with posting error errors service unavailable gateway timeout unauthorized unauthorised too many requests internal server bad request forbidden not found'));
+export const isErrorEntry = (e) => (e.steps || []).some(s => /\/errors?\b|error-handling|limitations/.test(s?.cite?.url || '')) || /\b(?:error|errors|failed|fails|rejected|not found|invalid|exceeded|unsupported)\b/i.test(e.title || '');
+export function genericTerm(term, title = '') {
+  const re = anchorRegex(term);
+  if (re) return GENERIC_SAMPLES.some(x => re.test(x));
+  const t = foldText(term).trim();
+  if (/^\d{3}$/.test(t)) return !(STATUS_MEANING[t] && foldText(title).includes(STATUS_MEANING[t]));
+  return GENERIC_WORDS.has(t);
+}
+export function validateAnchors(entries) {
+  const problems = [];
+  for (const e of entries) {
+    if (e.guard || e.symptom_only || !(e.anchors || []).length || !isErrorEntry(e)) continue;
+    if (contentStems(e.title).every(w => GENERIC_STEMS.has(w) || TITLE_FILLER.has(w) || /^\d+$/.test(w))) continue;
+    if (!e.anchors.every(g => g.some(t => genericTerm(t, e.title)))) continue;
+    const loose = e.anchors.map(g => g.filter(t => genericTerm(t, e.title))[0]);
+    problems.push(`${e.file ? e.file + ': ' : ''}${e.id}: the anchors can all be met by words many problems share (for example "${loose.join('" + "')}"), so a message with only a status code, a platform name or a common symptom word could get this entry. Make one anchor group hold only this error's own text or code.`);
+  }
+  return problems;
+}
+
 // Load at start: read, check the shape, and throw if anything is wrong.
 export function loadEntries(dir = ENTRIES_DIR) {
   const { entries, files, problems } = readEntryFiles(dir);
-  problems.push(...validateShape(entries));
+  problems.push(...validateShape(entries).filter(p => !isWarning(p)));
   if (problems.length) {
     const err = new Error(`The entries in ${dir} have ${problems.length} problem(s). Run "node bin/support-desk.mjs check-entries" for the list.\n- ${problems.slice(0, 10).join('\n- ')}`);
     err.problems = problems;
@@ -178,10 +249,14 @@ export function loadEntries(dir = ENTRIES_DIR) {
 
 // The whole check, for the command and for npm test.
 export function checkEntries({ dir = ENTRIES_DIR, cacheDir } = {}) {
-  const { entries, files, problems } = readEntryFiles(dir);
-  problems.push(...validateShape(entries));
+  const { entries, files, problems: all } = readEntryFiles(dir);
+  all.push(...validateShape(entries));
+  const warnings = all.filter(isWarning).map(p => p.replace(/^warning: /, ''));
+  const problems = all.filter(p => !isWarning(p));
   const pages = readCacheDir(cacheDir);
   problems.push(...validateQuotes(entries, pages));
+  // Routing needs a sound set of entries, so it runs only when the shape is right.
+  if (!problems.length) problems.push(...validateAnchors(entries), ...validateRouting(entries));
   const cited = new Set(); for (const e of entries) for (const u of citedPages(e)) cited.add(u);
-  return { ok: !problems.length, problems, entries: entries.length, files: files.length, pagesCited: cited.size, pagesCached: Object.keys(pages).length };
+  return { ok: !problems.length, problems, warnings, entries: entries.length, files: files.length, pagesCited: cited.size, pagesCached: Object.keys(pages).length };
 }

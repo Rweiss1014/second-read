@@ -49,10 +49,14 @@ Or run `npm start`: it opens the same page with sample data and prints the link.
 node bin/support-desk.mjs ticket "<customer message>"      # one ticket
 node bin/support-desk.mjs ticket --id T01 --save-reply     # a sample ticket, plus the packet for the fresh checker
 node bin/support-desk.mjs cleared T01                      # may this saved reply be sent?
+node bin/support-desk.mjs packets --all --mock --out <dir> # a checker packet for every entry's reply, plus <dir>/index.json
+node bin/support-desk.mjs record-check --dir <dir>         # save the checkers' passes into knowledge/checks/
 node bin/support-desk.mjs shift                            # all 12 sample tickets, then desk/HANDOFF.md
 node bin/support-desk.mjs morning                          # what failed in the last 24 hours, to desk/MORNING.md
 node bin/support-desk.mjs logs                             # what the last run did, with request ids
 node bin/support-desk.mjs docs                             # read every cited help page again
+node bin/support-desk.mjs docs --all                       # read every page in Blotato's help center into the cache
+node bin/support-desk.mjs check-entries                    # check every entry: quotes, shape, routing
 node bin/support-desk.mjs serve                            # the local page
 ```
 
@@ -80,7 +84,7 @@ The key goes only into the request header. It is never printed, logged or saved,
 5. The fresh checker (`.claude/agents/reply-checker.md`) writes a pass or block, tied to the exact reply text.
 6. `cleared` lets the reply go only if the fresh checker passed that exact text. A block goes into `known-failures.md`.
    The page and the shift handoff say "ready to send" only then. Before that, they say the script check passed and the fresh check has not run yet.
-7. If the playbook has no entry, the desk does not write a reply. It escalates and proposes a doc edit instead.
+7. If no entry is a clear match, the desk does not write a reply. It hands the message to a person with its top three candidates, and proposes a doc edit.
 
 ## The 12 sample tickets
 
@@ -101,7 +105,7 @@ They are made up, and they cover the three kinds in the job post: non-technical,
 | T11 | Schedule lookup answers 500 "bigint" | Reproduces it, escalates, proposes a doc edit |
 | T12 | "Is there a test mode?" | Holding reply, escalates, proposes a new FAQ entry |
 
-A message that matches none of them gets no reply. It is escalated with the docs search it ran.
+A message that matches none of them clearly gets no reply. It is escalated with the docs search it ran and the matcher's top three candidates. A message asking us to post, delete or change something, asking for someone else's data or a key, or giving the desk instructions, goes to a person with a short holding reply. So does a message from someone who already tried the steps.
 
 A message about a charge, a refund or money taken always goes to a person, even when it also asks something easy, like how to cancel. It gets a short holding reply, every line from the help docs, and an escalation packet. The desk cannot see payments, so it never promises a refund or a credit.
 
@@ -198,16 +202,17 @@ I fixed each one from the page's own words. The second round passed 9 of 10. The
 
 ## What is not done
 
-- More playbook entries. Twelve kinds of tickets is a start, not the help center.
+- More entries. Thirteen kinds of tickets is a start, not the help center. The format for the rest is in `knowledge/ENTRY-GUIDE.md`.
 - A refused ticket can still have an answer in the docs. "Can Blotato post to my Mastodon server?" is refused, because no entry matches and the search's top results miss it. Blotato's FAQ does answer it: its platform list says Blotato does not publish outside that list. So the proposed FAQ entry for it is not needed. The desk is safe here, since it refuses instead of guessing, but a person still has to look.
-- A way to add a playbook entry from an approved doc edit without editing code.
 - The sample posts in `--mock` are fixed. They do not come from a recording of a real account.
 - The known-failures list counts every run, including test runs on your own machine.
 
 ## Where things live
 
-- `knowledge/playbook.mjs`: one entry per kind of ticket, each step tied to a help-page sentence.
+- `knowledge/entries/*.json`: one file per help-center area, one entry per kind of ticket, each step tied to a help-page sentence. How to write one: `knowledge/ENTRY-GUIDE.md`.
+- `knowledge/playbook.mjs`: loads and checks the entries, and routes each message (guards, matcher, signals).
 - `knowledge/tickets.json`: the 12 sample tickets.
+- `knowledge/checks/`: saved passes from the fresh checker, one small file per checked reply text (named by its sha256). A reply counts as checked when its exact text has a pass here or in `desk/reviews/`. See its README.
 - `knowledge/practice.mjs`: the practice shift.
 - `src/`: the desk, diagnosis, both checkers, the docs client, the read-only API client, logs and sample data.
 - `examples/`: a shift handoff, a morning note, the known-failures list, a checker packet (T02) with its pass, and a first-round block (T07).

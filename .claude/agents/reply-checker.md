@@ -28,7 +28,7 @@ For the whole reply:
 
 ## Write the verdict
 
-Write one JSON file to the path the packet names (desk/reviews/<id>.json), and nothing else:
+Write one JSON file to the path the packet names, and nothing else:
 
 ```json
 {
@@ -37,7 +37,8 @@ Write one JSON file to the path the packet names (desk/reviews/<id>.json), and n
   "verdict": "pass",
   "findings": [],
   "checkedAt": "<ISO time>",
-  "checker": "reply-checker"
+  "checker": "reply-checker",
+  "model": "<your model name, if you know it>"
 }
 ```
 

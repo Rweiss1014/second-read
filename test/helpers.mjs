@@ -13,7 +13,7 @@ export function tempDesk({ extraPages = {}, drop = [] } = {}) {
   const pages = {};
   const add = (url, quote) => { const u = pageUrl(url); pages[u] = (pages[u] || `# Test copy of ${u}\n`) + `\nSome words before. ${quote} Some words after.\n`; };
   for (const e of PLAYBOOK) {
-    for (const s of e.steps) if (s.cite) add(s.cite.url, s.cite.quote);
+    for (const s of [...e.steps, ...(e.holding?.steps || [])]) if (s.cite) add(s.cite.url, s.cite.quote);
     for (const c of [...(e.escalate?.causes || []), ...(e.escalate?.ruledOut || [])]) if (c?.cite) add(c.cite.url, c.cite.quote);
     if (e.docEdit) add(e.docEdit.article, e.docEdit.before || '');
   }
@@ -23,6 +23,6 @@ export function tempDesk({ extraPages = {}, drop = [] } = {}) {
     const slug = u.replace(/^https?:\/\/[^/]+\//, '').replace(/[^a-z0-9]+/gi, '_');
     fs.writeFileSync(path.join(cache, `${slug}.json`), JSON.stringify({ url: u, fetchedAt: '2026-11-15T15:00:00.000Z', via: 'test fixture', text }));
   }
-  const env = { BLOTATO_MOCK: '1', DOCS_OFFLINE: '1', SUPPORT_DESK_DIR: path.join(dir, 'desk'), DOCS_CACHE_DIR: cache };
+  const env = { BLOTATO_MOCK: '1', DOCS_OFFLINE: '1', SUPPORT_DESK_DIR: path.join(dir, 'desk'), DOCS_CACHE_DIR: cache, SUPPORT_CHECKS_DIR: path.join(dir, 'checks') };
   return { dir, cache, env, pages };
 }

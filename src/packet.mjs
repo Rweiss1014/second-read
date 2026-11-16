@@ -34,14 +34,14 @@ export function around(pageText, quote, radius = 400) {
   return `${start > 0 ? '...' : ''}${clean.slice(start, end)}${end < clean.length ? '...' : ''}`;
 }
 
-export function buildPacket(d, { mock = false } = {}) {
+export function buildPacket(d, { mock = false, verdictPath } = {}) {
   if (!d.reply) return null;
   const name = reviewName(d.ticket);
   const lines = [
     `# Reply to check: ${name}`,
     '',
     `Reply hash (sha256): ${replyHash(d.reply)}`,
-    `Write your verdict to: desk/reviews/${name}.json`,
+    `Write your verdict to: ${verdictPath || `desk/reviews/${name}.json`}`,
     '',
     '## 1. The reply',
     '',
@@ -69,7 +69,8 @@ export function buildPacket(d, { mock = false } = {}) {
   if (d.evidence) {
     lines.push(`What was looked up: ${(d.evidence.calls || []).join(' | ') || 'no calls'}`);
     lines.push(`Did the lookup succeed: ${d.evidence.ok ? 'yes' : 'no'}`);
-    lines.push(`What it found: ${d.evidence.summary || 'nothing'}`);
+    lines.push(`What it found: ${d.evidence.technical || d.evidence.summary || 'nothing'}`);
+    if (d.evidence.technical && d.evidence.technical !== d.evidence.summary) lines.push('(The reply writes dates the way a person would, in UTC, and leaves post ids out. Those are the same moments as the raw stamps above.)');
     if (mock && d.evidence.kind !== 'docs-search') lines.push('(Sample account data, no account connected.)');
   } else lines.push('No account lookup was made for this reply.');
   lines.push('');

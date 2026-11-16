@@ -1,0 +1,10 @@
+{
+  "replySha256": "46f15272b08f3cff618a49046b1e7f21cbab9a7485f2f6f758cef09751bb2bab",
+  "verdict": "pass",
+  "findings": [
+    "Note, not blocking: the Next step line, \"send one test post\", will publish a real post on the company Page (or on the personal profile if pageId is missing). The cited pages do not cover test posts. A short line saying the test post will be public and can be deleted afterward would be kinder, but the step is not wrong."
+  ],
+  "checkedAt": "2026-11-15T20:59:30Z",
+  "checker": "reply-checker",
+  "entry": "linkedin-company-page"
+}

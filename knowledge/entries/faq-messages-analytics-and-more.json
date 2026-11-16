@@ -1,0 +1,3237 @@
+{
+  "area": "Messages, analytics and more",
+  "entries": [
+    {
+      "id": "instagram-trial-reels",
+      "kind": "non-technical",
+      "title": "Post a trial reel to Instagram",
+      "phrasings": [
+        "can I post trial reels to instagram",
+        "how do I make a trial reel with blotato",
+        "does blotato support instagram trial reels",
+        "can I use a trial reel to test with non followers first",
+        "where is the trial reel option when I schedule",
+        "trial reel graduation strategy what is it",
+        "how to set graduationStrategy for a trial reel in the api",
+        "can a trial reel go to people who dont follow me before my followers",
+        "trail reel instagram how",
+        "is there a way to post a trial reel through n8n or make"
+      ],
+      "not_this": [
+        "can I post reels to instagram during my free trial",
+        "my free trial ended and my instagram posts stopped",
+        "how do I add a cover image to my instagram reel",
+        "how do I post a story to instagram"
+      ],
+      "anchors": [
+        [
+          "trial reel",
+          "trial reels",
+          "trial-reel",
+          "trail reel",
+          "graduation strategy",
+          "graduationstrategy",
+          "graduation"
+        ],
+        [
+          "instagram",
+          "insta",
+          "reel",
+          "reels",
+          "ig"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "not showing",
+          "option is missing",
+          "no trial reel option"
+        ]
+      },
+      "opening": "Yes, this is possible, and here is how it works.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "A trial reel is shown to people who do not follow you first, so you can test it before promoting it to your followers.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Trial reels are shared with non-followers first, letting you test content before promoting it to your followers."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "In the web app, open the scheduling screen and look for the Trial Reel option.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "On the scheduling screen, look for the \"Trial Reel\" option"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "With the manual option, you decide when to promote the reel to your followers.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Manual: You decide when to promote the reel to your followers"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Trial reels only work for Instagram Reels, which are video posts.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Trial reels only apply to Instagram Reels (video posts). They have no effect on image posts or stories."
+          }
+        }
+      ],
+      "next": "Create your post with a video, choose Instagram, and look for the Trial Reel option on the scheduling screen.",
+      "proof": "You will know it worked when the Trial Reel option shows on the scheduling screen for your Instagram video post."
+    },
+    {
+      "id": "seo-outline-to-blog",
+      "kind": "non-technical",
+      "title": "Turn an SEO outline into a full blog post",
+      "phrasings": [
+        "how do I turn the seo outline into the full blog post",
+        "I used the SEO optimized article outline prompt, now how do I write the article from it",
+        "what do I do with the outline after the seo prompt finishes",
+        "how to convert the outline into blog content in blotato",
+        "got the article outline, how do I make the actual blog post",
+        "seo outline done, next step to write the whole article",
+        "how can I use my outline as the source for a blog post",
+        "outline to full article blotato how",
+        "seo otline to blog post"
+      ],
+      "not_this": [
+        "how do I publish to wordpress",
+        "there is no prompt for long form content",
+        "how do I post to a blog through a webhook"
+      ],
+      "anchors": [
+        [
+          "outline",
+          "outlines",
+          "otline"
+        ],
+        [
+          "blog",
+          "article",
+          "post",
+          "content",
+          "seo"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "no text context option"
+        ]
+      },
+      "opening": "You can use the outline as a new source and write the article from it.",
+      "steps": [
+        {
+          "type": "action",
+          "text": "Copy the outline from the result of the SEO prompt."
+        },
+        {
+          "type": "fact",
+          "text": "Paste the outline in as new Text context in Blotato.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "copy/paste the SEO-optimized outline and add new Text context in Blotato."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Then use a different prompt to write the full blog post.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Then use a different prompt to write your full blog post."
+          }
+        }
+      ],
+      "next": "Copy the outline, add it as new Text context, and pick a prompt that writes a full blog post.",
+      "proof": "You will know it worked when Blotato writes the full blog post from your outline."
+    },
+    {
+      "id": "include-sources-toggle",
+      "kind": "non-technical",
+      "title": "What the Include Sources toggle does",
+      "phrasings": [
+        "what does the include sources toggle do",
+        "what is include sources in blotato",
+        "include sources button what happens to my post",
+        "will the include sources switch add links to my post",
+        "why does my post end with source links",
+        "include sources is on but no link was added",
+        "what does include sources mean",
+        "should I turn on include sources",
+        "include source toggel what for"
+      ],
+      "not_this": [
+        "how do I save a source to my library",
+        "how do I add a source or context",
+        "how do I use a youtube video as a source"
+      ],
+      "anchors": [
+        [
+          "include sources",
+          "include source",
+          "sources toggle",
+          "source toggle",
+          "sources button",
+          "source links",
+          "source link",
+          "sources switch"
+        ],
+        [
+          "sources",
+          "source",
+          "toggle",
+          "toggel",
+          "link",
+          "links",
+          "include",
+          "button",
+          "switch"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "opening": "Here is what that toggle does.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Turning on the Include Sources toggle adds all your source links to the bottom of your post.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Enabling the \"Include Sources?\" toggle will append all your source links to the bottom of your post."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A source with no link, such as Text or Perplexity, gets no link added.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "If your source doesn't have a link (e.g. Text or Perplexity), then no link will be appended."
+          }
+        },
+        {
+          "type": "action",
+          "text": "If a link did not appear, check whether the source you used has a link."
+        }
+      ],
+      "next": "Check whether your source has a link, and turn the toggle on if you want the links at the bottom of the post.",
+      "proof": "You will know it worked when the source links show at the bottom of your post."
+    },
+    {
+      "id": "tiktok-images-post-info-error",
+      "kind": "technical",
+      "title": "TikTok error: Error uploading images, post info is empty or incorrect",
+      "phrasings": [
+        "Error uploading images to TikTok: The request post info is empty or incorrect",
+        "what does the tiktok error request post info is empty or incorrect mean",
+        "my tiktok image post failed with post info is empty",
+        "tiktok photo post fails error uploading images",
+        "tiktok says the post info is incorrect when I upload pictures",
+        "how do I fix error uploading images to tiktok",
+        "tiktok image upload error in the failed posts",
+        "tiktok the request post info is empty or incorrect",
+        "tik tok upload images eror post info"
+      ],
+      "not_this": [
+        "tiktok video is missing the subtitle track",
+        "can I upload multiple photos to tiktok as a slideshow",
+        "how many accounts can I post to on tiktok",
+        "tiktok is not connected"
+      ],
+      "anchors": [
+        [
+          "tiktok",
+          "tik tok"
+        ],
+        [
+          "post info",
+          "info is empty",
+          "uploading images",
+          "upload images",
+          "image upload",
+          "incorrect",
+          "empty or incorrect",
+          "request post"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "request id",
+          "posted twice",
+          "published twice",
+          "already published"
+        ]
+      },
+      "opening": "That error has a short list of checks, and the help center gives the order to follow.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Open the failed post under Posts > Failed, or its request in Logs.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Open the failed destination in Posts > Failed or its request in Logs."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Keep the exact error and the request ID.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Retain the exact error and request ID."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Blotato converts non-JPEG images before submission, so a PNG is not a reason on its own to reject a source.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato converts non-JPEG images before submission, so do not reject a source solely because it is PNG."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The image limit is based on area, not on a maximum side length of 1080 pixels.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The image limit is based on area, not a maximum side length of 1080 pixels."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If the cause stays unclear, send support the error and the request ID instead of publishing more tests.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "If the cause remains unclear, send support the error and request ID rather than repeatedly publishing tests."
+          }
+        }
+      ],
+      "next": "Reply here with the exact error text and the request ID from Logs.",
+      "proof": "Still open: the cause of the error. A person on the team can look once they have the request ID."
+    },
+    {
+      "id": "comment-on-posts-support",
+      "kind": "non-technical",
+      "title": "Can Blotato read or post comments on my posts",
+      "phrasings": [
+        "can I comment on posts with blotato",
+        "does blotato support commenting",
+        "can blotato read the comments on my instagram posts",
+        "can I reply to comments on my facebook page posts from blotato",
+        "is there a way to read and answer my followers comments in blotato",
+        "can blotato comment on other peoples posts",
+        "does blotato do comments on tiktok or linkedin",
+        "can I post a comment on my own published post with blotato",
+        "comenting on posts blotato supported?"
+      ],
+      "not_this": [
+        "how do I add a first comment to a post",
+        "how do I put a link in the first comment",
+        "does blotato support tiktok DM automations",
+        "how do I set up a DM automation when someone comments a keyword",
+        "why does my DM automation not trigger when I comment on my own post"
+      ],
+      "anchors": [
+        [
+          "comment",
+          "comments",
+          "commenting",
+          "comenting",
+          "followers comments"
+        ],
+        [
+          "support",
+          "supports",
+          "supported",
+          "can i",
+          "can blotato",
+          "does blotato",
+          "reply",
+          "replies",
+          "respond",
+          "read",
+          "able",
+          "answer",
+          "way"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "bot",
+          "at scale",
+          "mass comment"
+        ]
+      },
+      "opening": "Blotato can do some of this, and the help center lists what it cannot do too.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "You can read the comments on your published Instagram and Facebook posts.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Read the comments on your published Instagram and Facebook posts, including audience replies and your own."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "You can post a top-level comment on your published Instagram and Facebook posts.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Post a top-level comment on your published Instagram and Facebook posts."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "You can reply to a top-level comment on those posts.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Reply to a top-level comment on your published Instagram and Facebook posts."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Commenting on other people's posts is not supported.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Commenting on other people's posts."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Replies to replies are not supported. You can reply to a top-level comment, but not to a reply.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Replies to replies. You can reply to a top-level comment, but not to a reply."
+          }
+        }
+      ],
+      "next": "Tell me which platform you want to comment on, and I will point you to the right place.",
+      "proof": "Still open: the platform you have in mind. Comments work on Instagram and Facebook Page posts."
+    },
+    {
+      "id": "read-send-dms-support",
+      "kind": "non-technical",
+      "title": "Can Blotato read or send direct messages",
+      "phrasings": [
+        "can I read or send direct messages with blotato",
+        "does blotato support dms",
+        "can I reply to instagram messages from blotato",
+        "is it possible to send direct messages to my facebook page followers",
+        "can blotato message people who never contacted me",
+        "does blotato do cold dms to new people",
+        "can I answer dms on twitter or linkedin in blotato",
+        "is there a 24 hour window for replying to a message",
+        "direct mesages in blotato possible?"
+      ],
+      "not_this": [
+        "does blotato support tiktok dm automations",
+        "how do I set up a dm automation",
+        "can I collect email addresses through my dm automation",
+        "why do the buttons not show in my dm automation message",
+        "how many contacts can I message per month"
+      ],
+      "anchors": [
+        [
+          "dm",
+          "dms",
+          "direct message",
+          "direct messages",
+          "direct mesages",
+          "instagram messages",
+          "facebook messages",
+          "/(reply|replying|respond|answer) (to )?(instagram |facebook |twitter |linkedin |customer |follower )?messages?/",
+          "/(read|send|sending) (instagram |facebook )?(direct )?messages? (with|from|in|through) blotato/",
+          "/window for replying/",
+          "/message people/"
+        ],
+        [
+          "support",
+          "supports",
+          "supported",
+          "can blotato",
+          "does blotato",
+          "read",
+          "send",
+          "reply",
+          "cold",
+          "possible",
+          "window",
+          "able",
+          "answer",
+          "respond"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "bulk",
+          "mass dm"
+        ]
+      },
+      "opening": "Yes, for some platforms, and the help center says where the limits are.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "You can read your conversations and messages.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Read your conversations and messages."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "You can reply to people who already have a conversation with you.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Reply to people who already have a conversation with you."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "You reply within a 24-hour window after someone messages you, or send a private reply to their comment.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "You reply within a 24-hour window after someone messages you, or send a private reply to their comment."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Messaging on platforms other than Instagram and Facebook is not supported.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Messaging on platforms other than Instagram and Facebook."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Cold outreach to people who have not engaged with you first is not supported.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Cold outreach to people who have not engaged with you first."
+          }
+        }
+      ],
+      "next": "Tell me the platform and whether the person has already messaged you.",
+      "proof": "Still open: your exact case. Direct messages work for Instagram accounts and Facebook Pages."
+    },
+    {
+      "id": "tiktok-dm-automation",
+      "kind": "non-technical",
+      "title": "DM automations on TikTok",
+      "phrasings": [
+        "does blotato support tiktok dm automations",
+        "can I set up a dm automation for tiktok comments",
+        "is there a comment to dm automation for tiktok",
+        "tiktok comment keyword auto message blotato",
+        "can blotato send a direct message when someone comments on my tiktok",
+        "I want the dm automation on tiktok not instagram",
+        "tik tok dm automatoin supported?",
+        "does the automations feature work with tiktok videos"
+      ],
+      "not_this": [
+        "how do I post to tiktok",
+        "tiktok video is missing the subtitle track",
+        "can blotato comment on tiktok videos",
+        "does blotato support dm automations for instagram",
+        "can I send a dm to a tiktok user"
+      ],
+      "anchors": [
+        [
+          "tiktok",
+          "tik tok"
+        ],
+        [
+          "automation",
+          "automations",
+          "automatoin",
+          "auto message",
+          "comment",
+          "comments",
+          "comments"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "opening": "This one has a clear answer in the help center.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "DM automations currently support Instagram and Facebook Pages, not TikTok.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "No. DM automations currently support Instagram and Facebook Pages."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "TikTok publishing, scheduling, and repurposing are separate features.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "TikTok publishing, scheduling, and repurposing workflows are separate features."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "They do not provide comment-triggered direct messages.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "They do not provide comment-triggered direct messages."
+          }
+        }
+      ],
+      "next": "If you also have an Instagram or Facebook Page, you can set up a DM automation there.",
+      "proof": "You will know it worked when your DM automation runs on an Instagram account or Facebook Page."
+    },
+    {
+      "id": "dm-automation-own-comment",
+      "kind": "non-technical",
+      "title": "DM automation does not trigger when I comment on my own post",
+      "phrasings": [
+        "why does my dm automation not trigger when I comment on my own post",
+        "I tested my automation by commenting the keyword myself and nothing was sent",
+        "my own comment with the right keyword does not start the dm automation",
+        "dm automation doesnt fire when I test it from my own account",
+        "how do I test a comment trigger on my dm automation",
+        "I commented the trigger word on my post and got no direct message",
+        "automation ignores my comment even with the correct keyword",
+        "comment trigger test from the same instagram account not working",
+        "dm automatoin dont trigger my coment"
+      ],
+      "not_this": [
+        "why do my posts not show up in the dm automation post picker",
+        "can I post a comment on my own post with blotato",
+        "the buttons do not show in my dm message"
+      ],
+      "anchors": [
+        [
+          "automation",
+          "automations",
+          "automatoin",
+          "dm automation",
+          "comment trigger",
+          "dm",
+          "trigger",
+          "comment",
+          "coment"
+        ],
+        [
+          "own",
+          "myself",
+          "same account",
+          "same page",
+          "test",
+          "testing",
+          "tested",
+          "trigger",
+          "ignores",
+          "ignore",
+          "correct keyword",
+          "not working",
+          "dont",
+          "did not",
+          "got no"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "other account",
+          "different account",
+          "another account"
+        ]
+      },
+      "opening": "This is expected behavior, and it is easy to test around.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Blotato skips comments posted by the same account or Page that is connected to the automation.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato skips comments posted by the same Instagram account or Facebook Page connected to the automation."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Your own comment does not start a run, even when it has the right keyword.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Your own comment does not start a run or send a direct message, even when it contains the correct keyword."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Sign in to a different Instagram or Facebook account.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Sign in to a different Instagram or Facebook account."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Comment on the target post using one of the trigger keywords.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Comment on the target post using one of the trigger keywords."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If no message arrives, open the automation and review its runs and logs.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Open the automation and review its runs and logs if no message arrives."
+          }
+        }
+      ],
+      "next": "Publish the automation, then comment the keyword from a different account.",
+      "proof": "You will know it worked when the other account receives the direct message."
+    },
+    {
+      "id": "dm-automation-post-picker",
+      "kind": "non-technical",
+      "title": "My posts are missing from the DM automation post picker",
+      "phrasings": [
+        "why dont my posts show up in the dm automation post picker",
+        "my instagram post is missing from the automation list",
+        "I cannot find my reel when choosing a post for the dm automation",
+        "dm automation only shows some of my posts",
+        "the post I published on instagram directly is not in the automation picker",
+        "can I pick a post I made in meta business suite for my automation",
+        "automation post list is empty for a scheduled post",
+        "how do I find an older post in the dm automation post picker",
+        "dm automatoin post pickr missing posts"
+      ],
+      "not_this": [
+        "my dm automation does not trigger on my own comment",
+        "why do my posts not show up on instagram after I published",
+        "can one dm automation answer both comments and dms"
+      ],
+      "anchors": [
+        [
+          "automation",
+          "automations",
+          "automatoin",
+          "dm automation"
+        ],
+        [
+          "picker",
+          "pickr",
+          "pick",
+          "choose",
+          "missing",
+          "list",
+          "show up",
+          "showing",
+          "find",
+          "appear",
+          "select",
+          "only shows",
+          "shows some",
+          "not in",
+          "published on",
+          "directly",
+          "posts"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "published through blotato",
+          "posted through blotato"
+        ]
+      },
+      "opening": "A missing post is usually not a bug. Here is what decides which posts show up.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The post picker lists posts published through Blotato only.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The post picker lists posts published through Blotato only."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A post you published directly in Instagram or Facebook, in Meta Business Suite, or through another tool never appears in the picker.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "A post you published directly in the Instagram or Facebook app, in Meta Business Suite, or through another tool never appears in the picker."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A post that is still scheduled appears once it publishes.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "It is still scheduled. It appears once it publishes."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A post older than the 20 newest is found by typing part of its caption in the search box.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "It is older than the 20 newest posts. Type part of its caption into Search your Posts and Reels to find it."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The automation answers the keyword on every post and reel on the account when you choose On any Post or Reel.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The automation answers the keyword on every post and reel on the account."
+          }
+        }
+      ],
+      "next": "Search for part of the post caption in the picker, and check that the post went out on the same connected account.",
+      "proof": "You will know it worked when your post shows in the picker."
+    },
+    {
+      "id": "dm-automation-comments-and-dms",
+      "kind": "non-technical",
+      "title": "One DM automation for both comments and direct messages",
+      "phrasings": [
+        "can one dm automation answer both comments and direct messages",
+        "can I use one automation for comments and when someone dms me",
+        "can an automation trigger on both a comment and a message",
+        "do I need two automations, one for comments and one for dms",
+        "how do I turn on both the comment trigger and the message trigger",
+        "can I pause just one trigger of my dm automation",
+        "do comments and dms share the same keywords in an automation",
+        "automatoin for comments and dms in one?",
+        "is it possible to let the automation answer a dm and a comment",
+        "can the automation react to dms and comments together"
+      ],
+      "not_this": [
+        "does blotato support tiktok dm automations",
+        "why does my dm automation not trigger on my own comment",
+        "can I read my direct messages with blotato",
+        "my dm automation sends the same message twice"
+      ],
+      "anchors": [
+        [
+          "automation",
+          "automations",
+          "automatoin",
+          "trigger",
+          "triggers",
+          "automation"
+        ],
+        [
+          "both",
+          "single",
+          "use one",
+          "one automation",
+          "two automations",
+          "comments and dms",
+          "comments and messages",
+          "pause",
+          "share",
+          "shared",
+          "a dm and a comment",
+          "dm and a comment",
+          "together",
+          "dms and comments"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "opening": "Yes, one automation can cover both.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "An automation holds up to two triggers: one for comments and one for direct messages.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "An automation holds up to two triggers: one for comments and one for direct messages."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Either trigger starts a run and sends the same message.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Either one starts a run and sends the same message."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Both triggers share the keyword list.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Both triggers share the keyword list."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To pause one trigger, turn off its switch on the live automation. At least one trigger has to stay on.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "To pause one trigger without stopping the other, turn off its switch on the live automation."
+          }
+        }
+      ],
+      "next": "Open the automation, check both Comments and Sends a DM, add your keywords, and publish it.",
+      "proof": "You will know it worked when a comment and a direct message with your keyword both bring the same reply."
+    },
+    {
+      "id": "dm-automation-buttons-missing",
+      "kind": "non-technical",
+      "title": "Buttons do not show in the DM automation message",
+      "phrasings": [
+        "why dont the buttons show up in my dm automation message",
+        "my dm automation link button is missing",
+        "the button is not visible when I read the message on my computer",
+        "I only see the text of my automated dm, no button",
+        "instagram dm button not showing on desktop",
+        "my follower says the link in the automated message does not work on pc",
+        "should I use a button or a plain url in my dm automation",
+        "nobody taps the button in my automation message",
+        "dm automatoin buton not showing"
+      ],
+      "not_this": [
+        "do I need a button label and web url when collecting emails",
+        "how do I require a follow before the link",
+        "how do I add a link button to a post"
+      ],
+      "anchors": [
+        [
+          "button",
+          "buttons",
+          "buton",
+          "butons",
+          "link",
+          "links"
+        ],
+        [
+          "dm",
+          "dms",
+          "automation",
+          "automations",
+          "automatoin",
+          "message",
+          "direct message",
+          "automated",
+          "message",
+          "pc",
+          "desktop"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "reconnected",
+          "reconnect"
+        ]
+      },
+      "opening": "There is a known reason for this, and it is how Instagram works.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Instagram shows DM buttons in the Instagram mobile app only.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Instagram shows DM buttons in the Instagram mobile app only."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Someone reading on instagram.com in a desktop browser sees the text with no buttons under it.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Someone reading your message on instagram.com in a desktop browser sees the text with no buttons under it."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Use a button or a plain-text URL, not both.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Use a button or a plain-text URL, not both."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A message with both leaves the URL unclickable on desktop.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "A message carrying both leaves the URL unclickable on desktop, so a desktop reader ends up with no working link at all."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If button taps register for nobody on any device, reconnect the account in Accounts.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "If button taps register for nobody on any device, reconnect the account in"
+          }
+        }
+      ],
+      "next": "Decide whether your audience reads mostly on mobile or on desktop, and keep the button or put the URL in the message text.",
+      "proof": "You will know it worked when a desktop reader sees the URL in the message text."
+    },
+    {
+      "id": "dm-automation-follow-gate",
+      "kind": "non-technical",
+      "title": "Require a follow before the DM automation sends the link",
+      "phrasings": [
+        "can I require someone to follow me before my dm automation sends the link",
+        "how do I make people follow me first before they get the link",
+        "is there a follow gate in blotato dm automations",
+        "what does ask for a follow do in the automation",
+        "does the follow check work on facebook pages",
+        "how long does the automation wait for the person to follow",
+        "my follow gate automation stalls and never sends the link",
+        "someone who did not follow got my link anyway",
+        "ask for a folow in dm automatoin",
+        "automation asks followers to confirm they follow me, how long does it wait"
+      ],
+      "not_this": [
+        "the buttons do not show in my dm automation message",
+        "how do I collect email addresses through the automation",
+        "how do I get more followers"
+      ],
+      "anchors": [
+        [
+          "follow",
+          "follows",
+          "following",
+          "follower",
+          "folow",
+          "followers"
+        ],
+        [
+          "automation",
+          "automations",
+          "automatoin",
+          "gate",
+          "dm",
+          "link",
+          "check",
+          "work",
+          "facebook",
+          "pages"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "stall",
+          "stalled",
+          "never arrives"
+        ]
+      },
+      "opening": "Yes, there is a follow gate for Instagram. Here is how it works.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Turn on Ask for a follow in the automation.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Turn on Ask for a follow in the automation."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Blotato sends your gate message with a confirm button, waits up to 30 days for a reply, then checks whether the person follows you.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato sends your gate message with a confirm button, waits up to 30 days for a reply, then checks whether the person follows you."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A follower gets your link. Someone who does not follow gets the gate message again.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "A follower gets your link. Someone who does not follow gets the gate message again."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Only Instagram supports follow gating.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Only Instagram supports follow gating."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Instagram withholds follower status for someone who never granted profile access, and Blotato sends your link rather than blocking them.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Instagram withholds follower status for someone who never granted profile access. Blotato sends your link rather than blocking them."
+          }
+        }
+      ],
+      "next": "Open your automation and turn on Ask for a follow, then write the gate message.",
+      "proof": "You will know it worked when a person who follows you gets your link after they reply."
+    },
+    {
+      "id": "dm-automation-collect-email",
+      "kind": "non-technical",
+      "title": "Collect email addresses through a DM automation",
+      "phrasings": [
+        "can I collect email addresses through my dm automation",
+        "how do I get emails from people who comment my keyword",
+        "what does ask for an email address do in the automation",
+        "where can I see the emails my automation collected",
+        "does the blotato inbox show the captured email addresses",
+        "how do I send the collected email to my webhook",
+        "how long does the automation wait for the email reply",
+        "the email I captured has a period stuck on the end",
+        "colect emails with dm automatoin"
+      ],
+      "not_this": [
+        "why did my dm automation not ask for an email address",
+        "do I need a button label and web url when collecting emails",
+        "how do I change the email on my account",
+        "does blotato have a crm"
+      ],
+      "anchors": [
+        [
+          "email",
+          "emails",
+          "e-mail",
+          "email address"
+        ],
+        [
+          "automation",
+          "automations",
+          "automatoin",
+          "dm",
+          "dms",
+          "comment",
+          "comments",
+          "webhook",
+          "gate",
+          "captured",
+          "collect",
+          "colect"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "webhook not firing",
+          "webhook is not"
+        ]
+      },
+      "opening": "Yes, you can collect email addresses on Instagram and Facebook Pages.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Turn on Ask for an email address in the automation.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Turn on Ask for an email address in the automation."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Blotato sends your gate message, waits up to 72 hours for a reply, and reads the first email address out of it.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato sends your gate message, waits up to 72 hours for a reply, and reads the first email address out of it."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To receive the address, turn on Call a webhook on the same automation.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "To receive the address, turn on Call a webhook on the same automation."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The Blotato inbox does not show captured addresses, so the webhook is the only way to read one.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The Blotato inbox does not show captured addresses, so the webhook is the only way to read one."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Punctuation touching the address stays attached, so clean the address on your endpoint.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Punctuation touching the address stays attached, so clean the address on your endpoint."
+          }
+        }
+      ],
+      "next": "Open your automation, turn on Ask for an email address and Call a webhook, and enter your endpoint.",
+      "proof": "You will know it worked when your endpoint receives the email after the message sends."
+    },
+    {
+      "id": "dm-automation-email-gate-skipped",
+      "kind": "non-technical",
+      "title": "DM automation did not ask for an email address",
+      "phrasings": [
+        "why didnt my dm automation ask for an email address",
+        "the automation skipped the email question",
+        "my email gate does not ask when I test it",
+        "automation never asks me for my email when I comment",
+        "email gate not asking a contact who replied before",
+        "how do I make an older automation ask for email again",
+        "why does the automation skip the email step for some people",
+        "my automation stopped asking for emails",
+        "dm automatoin did not asked for email"
+      ],
+      "not_this": [
+        "how do I collect email addresses through my dm automation",
+        "do I need a button label and web url when collecting emails",
+        "my dm automation does not trigger on my own comment"
+      ],
+      "anchors": [
+        [
+          "email",
+          "emails",
+          "e-mail"
+        ],
+        [
+          "automation",
+          "automations",
+          "automatoin",
+          "dm",
+          "gate",
+          "email gate",
+          "older",
+          "ask",
+          "asking",
+          "contact"
+        ],
+        [
+          "didnt",
+          "didn't",
+          "did not",
+          "does not",
+          "doesnt",
+          "doesn't",
+          "never",
+          "skip",
+          "skipped",
+          "skips",
+          "stopped",
+          "not ask",
+          "without asking",
+          "asked",
+          "not asking",
+          "ask for email again",
+          "again",
+          "replied before"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "opening": "This usually comes down to a rule about who has already given an email.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "A contact who already replied with an email to any email gate on the same connected account skips the email gate.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "On automations published after September 14, 2026, a contact who already replied with an email address to any email gate on the same connected account skips the email gate."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Automations published earlier ask every time until you save them again.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Automations published earlier ask every time until you save them again."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To see the email question while testing, comment or message from an account with no email on file.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Comment or message from an account with no email on file."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To upgrade an older automation, open it, click Edit, then click Save and Publish.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "To upgrade an older automation, open it, click Edit, then click Save and Publish."
+          }
+        }
+      ],
+      "next": "Test the automation from an account that has never replied with an email address.",
+      "proof": "You will know it worked when that account gets the email question."
+    },
+    {
+      "id": "dm-automation-email-no-button",
+      "kind": "non-technical",
+      "title": "Button label and Web URL are optional when collecting emails",
+      "phrasings": [
+        "do I need a button label and web url when collecting email addresses",
+        "is the web url required if I only want the email",
+        "how do I remove the link button from my email automation",
+        "I want the email sent to zapier, do I still need a button",
+        "what is the difference between the web url and the webhook url",
+        "my automation asks for a button label but I only want emails",
+        "can I collect emails and send them to make.com without a button",
+        "buton label required for email automation?"
+      ],
+      "not_this": [
+        "why dont the buttons show up on desktop",
+        "how do I collect email addresses through my dm automation",
+        "why did my dm automation not ask for an email"
+      ],
+      "anchors": [
+        [
+          "button label",
+          "web url",
+          "weburl",
+          "link button",
+          "button",
+          "buton"
+        ],
+        [
+          "email",
+          "emails",
+          "webhook",
+          "zapier",
+          "n8n",
+          "make.com",
+          "crm"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "opening": "No, you can leave the button out.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Button label and Web URL make an optional link button in the direct message.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "No. Button label and Web URL create an optional link button in the direct message."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Keep the button only when you want the recipient to open a page.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Keep the button only when you want the recipient to open a page."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To send the captured email onward, click Remove beside each link button.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Click Remove beside each link button."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The webhook URL receives the captured email after the direct message goes out.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The webhook URL receives the captured email after the direct message goes out."
+          }
+        }
+      ],
+      "next": "Click Remove beside each link button, then turn on Ask for an email address and Call a webhook.",
+      "proof": "You will know it worked when your endpoint receives the email and the message has no button."
+    },
+    {
+      "id": "crm-integration",
+      "kind": "non-technical",
+      "title": "Does Blotato have a CRM or lead capture",
+      "phrasings": [
+        "does blotato have a built in crm",
+        "can I connect my crm to blotato",
+        "is there a follow up boss integration",
+        "how do I send my leads from instagram dms to my crm",
+        "can blotato capture leads",
+        "does blotato integrate with hubspot or salesforce",
+        "how can I notify my crm when a post goes out",
+        "crm intergration blotato?",
+        "where do my leads go from blotato"
+      ],
+      "not_this": [
+        "how do I collect email addresses through my dm automation",
+        "how do I connect n8n to blotato",
+        "does blotato have a webhook for the api",
+        "how do I connect hubspot via make.com to read my leads",
+        "how do I connect make.com to blotato"
+      ],
+      "anchors": [
+        [
+          "crm",
+          "follow up boss",
+          "hubspot",
+          "salesforce",
+          "pipedrive",
+          "zoho",
+          "highlevel",
+          "lead capture",
+          "leads",
+          "lead"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "opening": "Blotato does not have a CRM, but there are three ways to feed one.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Blotato is a publishing and scheduling tool, not a CRM.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato is a publishing and scheduling tool, not a CRM."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Use Zapier or Make.com to connect your DMs, comments, or lead forms to your CRM.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Use Zapier or Make.com to connect your social media DMs, comments, or lead forms directly to your CRM (for example, Follow Up Boss)."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Use DM automations to notify your CRM when a user shares their email.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Use DM automations to notify your CRM when a user shares their email."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To notify your CRM when a post publishes, use the webhook publish target.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "To notify your CRM or any custom system when a post publishes, use Blotato's webhook publish target."
+          }
+        }
+      ],
+      "next": "Pick one of the three options that matches how your leads reach you.",
+      "proof": "You will know it worked when your CRM receives the lead or the publish notice."
+    },
+    {
+      "id": "analytics-dashboard-where",
+      "kind": "non-technical",
+      "title": "Where to see analytics and how to track engagement",
+      "phrasings": [
+        "does blotato have analytics",
+        "where is the analytics dashboard",
+        "how do I track views and engagement on my posts",
+        "is there an analytics dashboard so I can measure my metrics",
+        "where do I see how my posts performed",
+        "how do I find my top performing posts",
+        "I cant find the top performing page anymore",
+        "analytic dashbord blotato where",
+        "is there a way to see likes and views in blotato"
+      ],
+      "not_this": [
+        "why do my analytics say not available",
+        "why is my youtube view count lower in blotato",
+        "does blotato have linkedin analytics",
+        "which metrics does my plan include",
+        "how often do analytics update",
+        "how do I add analytics tracking to my website",
+        "which plan has analytics"
+      ],
+      "anchors": [
+        [
+          "analytics",
+          "analytic",
+          "metrics",
+          "dashboard",
+          "dashbord",
+          "performance",
+          "performing",
+          "engagement",
+          "insights",
+          "performed",
+          "likes"
+        ],
+        [
+          "dashboard",
+          "dashbord",
+          "blotato",
+          "post",
+          "posts",
+          "performing",
+          "performance",
+          "performed",
+          "engagement",
+          "views",
+          "likes",
+          "top",
+          "measure",
+          "track",
+          "see"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "opening": "Yes, Blotato has analytics. Here is where to find them.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Select 7 days, 30 days, or All time, then review Top posts, Performance by platform, Latest posts, and the publishing-health totals.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Select 7 days, 30 days, or All time, then review Top posts, Performance by platform, Latest posts, and publishing-health totals."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The older Published > Top Performing instructions do not describe the current dashboard.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The older Published > Top Performing instructions do not describe the current dashboard."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Metrics are collected at checkpoints, not fetched live each time you open a page.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Metrics are collected at checkpoints, not fetched live each time you open a page."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Analytics is included on paid plans for X, Instagram, Facebook, Threads, Bluesky, TikTok, YouTube, and Pinterest.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Analytics is included on paid plans for X, Instagram, Facebook, Threads, Bluesky, TikTok, YouTube, and Pinterest."
+          }
+        }
+      ],
+      "next": "Open Analytics in the web app and pick a time range.",
+      "proof": "You will know it worked when Top posts and Performance by platform show your numbers."
+    },
+    {
+      "id": "analytics-youtube-tiktok-missing",
+      "kind": "non-technical",
+      "title": "YouTube or TikTok analytics do not show while others do",
+      "phrasings": [
+        "why dont my youtube or tiktok analytics show",
+        "instagram stats show but youtube stats are missing",
+        "are youtube analytics coming to blotato",
+        "my tiktok analytics are empty but facebook works",
+        "do older posts get analytics on tiktok",
+        "tiktok metrics not showing in blotato analytics",
+        "youtube analytic not showing for my video",
+        "do I have to reconnect my account to get youtube analytics",
+        "youtub analytics blank in blotato"
+      ],
+      "not_this": [
+        "why is my youtube view count lower in blotato than on youtube",
+        "does blotato have linkedin analytics",
+        "analytics not available on my free trial",
+        "how do I post to youtube"
+      ],
+      "anchors": [
+        [
+          "youtube",
+          "youtub",
+          "tiktok",
+          "tik tok"
+        ],
+        [
+          "analytics",
+          "analytic",
+          "stats",
+          "metrics",
+          "insights"
+        ],
+        [
+          "show",
+          "shows",
+          "showing",
+          "missing",
+          "empty",
+          "zero",
+          "coming",
+          "supported",
+          "support",
+          "appear",
+          "blank",
+          "nothing",
+          "no data",
+          "dont",
+          "don't",
+          "doesnt",
+          "doesn't",
+          "not",
+          "reconnect",
+          "older",
+          "get",
+          "need"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "reconnected",
+          "reconnect again"
+        ]
+      },
+      "opening": "YouTube and TikTok analytics are supported, so this is usually one of three causes.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "YouTube and TikTok analytics are supported.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "YouTube and TikTok analytics are supported."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "One cause is a post that published before analytics support existed for that platform. Older posts do not backfill.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "the post published before analytics support existed for that platform (older posts do not backfill)"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Another is that the first collection checkpoint has not passed yet.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "the first collection checkpoint has not passed yet"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A third is that the account was connected before analytics launched and needs to be reconnected.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "the account was connected before analytics launched and needs to be reconnected"
+          }
+        }
+      ],
+      "next": "Check when the post was published, and reconnect the account in Accounts if it was connected a long time ago.",
+      "proof": "You will know it worked when metrics show for a post after its first checkpoint."
+    },
+    {
+      "id": "analytics-not-available-trial",
+      "kind": "non-technical",
+      "title": "Free trial posts show Analytics not available",
+      "phrasings": [
+        "my posts say analytics not available and I am on the free trial",
+        "do free trial accounts get analytics",
+        "analytics not available during trial",
+        "are analytics included in the free trial",
+        "why can I not see analytics on my trial account",
+        "does the trial have all features including analytics",
+        "trial user cant see metrics on posts",
+        "free trial analitycs not available why"
+      ],
+      "not_this": [
+        "why do my analytics show no data yet on a paid plan",
+        "does blotato have linkedin analytics",
+        "what is included in the free trial api",
+        "how do I cancel my trial"
+      ],
+      "anchors": [
+        [
+          "trial",
+          "free trial"
+        ],
+        [
+          "analytics",
+          "analytic",
+          "analitycs",
+          "metrics",
+          "stats",
+          "insights"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "opening": "I want to give you a right answer. Two help pages say different things about the trial and analytics, so I am asking a person to confirm.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "One help page says analytics need a paid plan and that trial posts show \"Analytics not available.\"",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "On the free trial, or if your plan does not include analytics, posts show \"Analytics not available.\""
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Another help page says that during your free trial you can access all features except the API.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "During your free trial, you can access ALL blotato features except the API"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The analytics page says analytics are available on every paid plan.",
+          "cite": {
+            "url": "https://help.blotato.com/web-app-features/analytics",
+            "quote": "Analytics are available on every paid plan."
+          }
+        },
+        {
+          "type": "action",
+          "text": "I am passing this to a person on the team so they can confirm whether analytics work on your trial."
+        }
+      ],
+      "next": "Reply here with the platform of the post and when you published it, so the team can check.",
+      "proof": "Still open: whether analytics work on the free trial. A person on the team will confirm.",
+      "escalate": {
+        "why": "Two help pages disagree about analytics on the free trial, so the desk does not pick a side.",
+        "causes": [
+          {
+            "text": "The FAQ says analytics need a paid plan, and trial posts show \"Analytics not available.\"",
+            "cite": {
+              "url": "https://help.blotato.com/support/faqs",
+              "quote": "Analytics need a paid plan."
+            }
+          },
+          {
+            "text": "The billing page says the trial includes all features except the API.",
+            "cite": {
+              "url": "https://help.blotato.com/settings/billing-and-credits",
+              "quote": "During your free trial, you can access ALL blotato features except the API"
+            }
+          }
+        ],
+        "ruledOut": [
+          "Nothing ruled out yet: the desk cannot see the account or its trial status."
+        ]
+      },
+      "docEdit": {
+        "article": "https://help.blotato.com/settings/billing-and-credits",
+        "kind": "change",
+        "before": "During your free trial, you can access ALL blotato features except the API",
+        "after": "[Confirm with the founder whether trial posts get analytics. If not, change this to: all features except the API and analytics.]",
+        "note": "The FAQ says analytics need a paid plan and trial posts show \"Analytics not available.\" The billing page says the trial has all features except the API. Make the two pages agree."
+      }
+    },
+    {
+      "id": "analytics-no-data-yet",
+      "kind": "non-technical",
+      "title": "Analytics show not available or no data yet",
+      "phrasings": [
+        "why do my analytics show not available or no data yet",
+        "I published a post a few minutes ago and there are no metrics",
+        "analytics pending for my post, is it broken",
+        "my instagram analytics are empty",
+        "why is there no analytics data for my older posts",
+        "analytics stopped updating after my account got disconnected",
+        "do instagram analytics need a business account",
+        "post metrics blank after publishing",
+        "analitics not showing data yet"
+      ],
+      "not_this": [
+        "my posts say analytics not available on the free trial",
+        "does blotato have linkedin analytics",
+        "why are my youtube analytics missing",
+        "why is my youtube view count lower in blotato"
+      ],
+      "anchors": [
+        [
+          "analytics",
+          "analytic",
+          "analitics",
+          "metrics",
+          "stats",
+          "insights"
+        ],
+        [
+          "not available",
+          "no data",
+          "pending",
+          "empty",
+          "missing",
+          "zero",
+          "nothing",
+          "blank",
+          "not showing",
+          "no metrics",
+          "stopped",
+          "no analytics",
+          "business account",
+          "need a business",
+          "need"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "hours ago",
+          "days ago",
+          "reconnected"
+        ]
+      },
+      "opening": "Analytics arrive on a delay, and a few conditions can hold them back.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Blotato collects the first metrics on a schedule after a post publishes, then again at later checkpoints.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Data is not instant. Blotato collects the first metrics on a schedule after a post publishes (around 2 hours on Creator and Agency, up to 1 day on Starter), then again at later checkpoints."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A post published minutes ago shows no metrics until the first checkpoint passes.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "A post published minutes ago shows no metrics until the first checkpoint passes."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Older posts do not backfill.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Analytics exist only for posts published while analytics was active on your account. Older posts do not backfill."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If the social account is disconnected or its token expired, Blotato stops collecting.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "If the social account is disconnected or its token expired, Blotato stops collecting."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Instagram analytics need a Business or Creator account connected through Facebook.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Instagram analytics require a Business or Creator account connected through Facebook, the same requirement as Instagram publishing."
+          }
+        }
+      ],
+      "next": "Compare the time you published with the first checkpoint for your plan, and check Accounts for a disconnected account.",
+      "proof": "You will know it worked when the post shows metrics after its first checkpoint."
+    },
+    {
+      "id": "linkedin-analytics",
+      "kind": "non-technical",
+      "title": "Does Blotato have LinkedIn analytics",
+      "phrasings": [
+        "does blotato have linkedin analytics",
+        "can I see linkedin post metrics in blotato",
+        "why are my linkedin analytics empty",
+        "are linkedin analytics coming",
+        "linkedin posts show no metrics in the analytics page",
+        "does the starter plan include linkedin comments in analytics",
+        "linkdin analytics available?",
+        "I can not see linkedin stats in blotato"
+      ],
+      "not_this": [
+        "how do I post to a linkedin company page",
+        "how do I connect linkedin",
+        "why do my youtube analytics not show",
+        "analytics not available on my free trial"
+      ],
+      "anchors": [
+        [
+          "linkedin",
+          "linkdin",
+          "linked in"
+        ],
+        [
+          "analytics",
+          "analytic",
+          "metrics",
+          "stats",
+          "insights",
+          "impressions"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "opening": "I want to give you a right answer. The help pages are not consistent about LinkedIn analytics, so I am asking a person to confirm.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "One help page says LinkedIn and Slack analytics are not available.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "LinkedIn and Slack analytics are not available."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The same FAQ also lists \"LinkedIn: first-level comments\" among the metrics a Starter plan returns.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "LinkedIn: first-level comments."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The FAQ also says to use LinkedIn's own analytics for now.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "For LinkedIn, use LinkedIn's native analytics for now."
+          }
+        },
+        {
+          "type": "action",
+          "text": "I am passing this to a person on the team so they can confirm what Blotato shows for LinkedIn."
+        }
+      ],
+      "next": "Reply here with what you see on a LinkedIn post in Analytics, so the team can check.",
+      "proof": "Still open: whether Blotato shows any LinkedIn metrics. A person on the team will confirm.",
+      "escalate": {
+        "why": "The help center disagrees about LinkedIn analytics, so the desk does not pick a side.",
+        "causes": [
+          {
+            "text": "The FAQ says LinkedIn and Slack analytics are not available.",
+            "cite": {
+              "url": "https://help.blotato.com/support/faqs",
+              "quote": "LinkedIn and Slack analytics are not available."
+            }
+          },
+          {
+            "text": "The FAQ metrics list for Starter includes LinkedIn first-level comments.",
+            "cite": {
+              "url": "https://help.blotato.com/support/faqs",
+              "quote": "LinkedIn: first-level comments."
+            }
+          }
+        ],
+        "ruledOut": [
+          "Nothing ruled out yet: the desk cannot test a LinkedIn post."
+        ]
+      },
+      "docEdit": {
+        "article": "https://help.blotato.com/support/faqs",
+        "kind": "change",
+        "before": "LinkedIn: first-level comments.",
+        "after": "[Confirm with the founder whether LinkedIn comment metrics exist. If not, remove this line. If so, say that LinkedIn analytics are partly available.]",
+        "note": "The same FAQ says LinkedIn analytics are not available and lists LinkedIn first-level comments in the Starter metrics. Make the page agree."
+      }
+    },
+    {
+      "id": "analytics-plan-metrics",
+      "kind": "non-technical",
+      "title": "Which analytics metrics my plan includes",
+      "phrasings": [
+        "which analytics metrics does my plan include",
+        "what is the difference in analytics metrics between starter and creator",
+        "do I get video watch time metrics on the starter plan",
+        "how many metrics does starter return",
+        "does agency get more analytics metrics",
+        "what metrics are in the 17 common metrics",
+        "is it worth upgrading for more analytics metrics",
+        "analytic metrics per plan starter creator agency",
+        "which metrics come with the starter plan",
+        "what metrics does the starter plan give me",
+        "which metrics does the starter plan return",
+        "what metrics do I get on creator or agency"
+      ],
+      "not_this": [
+        "how often do analytics update",
+        "does blotato have linkedin analytics",
+        "what does the starter plan cost",
+        "how many ai credits does starter include"
+      ],
+      "anchors": [
+        [
+          "metrics",
+          "metric"
+        ],
+        [
+          "plan",
+          "plans",
+          "starter",
+          "creator",
+          "agency",
+          "include",
+          "included",
+          "tier",
+          "upgrade",
+          "depth",
+          "common",
+          "17",
+          "upgrading",
+          "worth"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "opening": "Your plan sets how deep the metrics go. Here is the split.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Your plan sets the depth of metrics Blotato returns.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Your plan sets the depth of metrics Blotato returns."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Creator and Agency return every metric Blotato collects, including video-depth metrics, breakdowns by reaction type, and rate metrics.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Creator and Agency return every metric Blotato collects, including video-depth metrics, breakdowns by reaction type, and rate metrics."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Starter returns 25 metrics.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Starter returns 25 metrics:"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Starter includes all 17 common metrics, from views and impressions to average watch time.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "All 17 common metrics: views, impressions, reach, likes, comments, replies, shares, saves, clicks, follows, plays, profile visits, profile activity, navigations, total interactions, total watch time, and average watch time."
+          }
+        }
+      ],
+      "next": "Open Settings > Billing and select View Billing Portal to check which plan you are on.",
+      "proof": "You will know it worked when you can match your plan name to the list of metrics."
+    },
+    {
+      "id": "analytics-refresh-schedule",
+      "kind": "non-technical",
+      "title": "How often analytics refresh",
+      "phrasings": [
+        "how often do analytics refresh",
+        "how often do my post metrics update",
+        "are blotato analytics live",
+        "how many times will my post stats update after publishing",
+        "when is the last analytics update for a post",
+        "what are the analytics checkpoints",
+        "how long does blotato keep collecting metrics for a post",
+        "analytics update schedule starter vs creator",
+        "how ofen do analitics update"
+      ],
+      "not_this": [
+        "why do my analytics show no data yet",
+        "why is my youtube view count lower than on youtube",
+        "which metrics does my plan include"
+      ],
+      "anchors": [
+        [
+          "analytics",
+          "analytic",
+          "analitics",
+          "metrics",
+          "stats",
+          "snapshot",
+          "snapshots",
+          "numbers"
+        ],
+        [
+          "refresh",
+          "refreshed",
+          "update",
+          "updates",
+          "updated",
+          "often",
+          "frequently",
+          "live",
+          "real time",
+          "realtime",
+          "checkpoint",
+          "checkpoints",
+          "schedule",
+          "collecting",
+          "keep collecting",
+          "how long"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "opening": "Analytics are not live. They are collected at fixed points after a post publishes.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Blotato does not refresh analytics continuously. It collects a snapshot of each post's metrics at fixed checkpoints, counted from when the post publishes.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato does not refresh analytics continuously. It collects a snapshot of each post's metrics at fixed checkpoints, measured from when the post publishes."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Starter has 4 checkpoints over 30 days.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Starter -- 4 checkpoints over 30 days"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Creator has 18 checkpoints over 30 days.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Creator -- 18 checkpoints over 30 days"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Agency has 20 checkpoints over 90 days.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Agency -- 20 checkpoints over 90 days"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The Published page and the API show the latest snapshot, not live data from the social platform.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The Published page and the API return the latest snapshot Blotato collected. They do not pull live data from the social platform."
+          }
+        }
+      ],
+      "next": "Check how long ago your post published against the checkpoints for your plan.",
+      "proof": "You will know it worked when the post shows a new snapshot after its next checkpoint."
+    },
+    {
+      "id": "youtube-views-lower",
+      "kind": "non-technical",
+      "title": "YouTube view count in Blotato is lower than on YouTube",
+      "phrasings": [
+        "why is my youtube view count in blotato lower than on youtube",
+        "blotato shows fewer youtube views than the watch page",
+        "the youtube numbers in blotato do not match youtube",
+        "my video has 12k views on youtube but blotato says less",
+        "youtube views in analytics are different from studio",
+        "is blotato youtube view count wrong",
+        "why dont the youtube views match",
+        "youtub views mismatch blotato"
+      ],
+      "not_this": [
+        "why dont my youtube analytics show at all",
+        "how often do analytics update",
+        "how do I post to youtube shorts"
+      ],
+      "anchors": [
+        [
+          "youtube",
+          "youtub"
+        ],
+        [
+          "views",
+          "view",
+          "count",
+          "numbers",
+          "number"
+        ],
+        [
+          "lower",
+          "less",
+          "different",
+          "mismatch",
+          "match",
+          "higher",
+          "wrong",
+          "fewer",
+          "than",
+          "discrepancy",
+          "off"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "opening": "The two numbers are counted differently, so they will not match exactly.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Blotato and the YouTube watch page count views differently, so the two numbers never match exactly.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato and the YouTube watch page count views differently, so the two numbers never match exactly."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The watch page count updates in near real time and includes views YouTube has not validated yet.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The watch page count updates in near real time and includes views YouTube has not validated yet."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Blotato's count comes from the YouTube Analytics API, which reports only finalized views.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato's count comes from the YouTube Analytics API, which reports only finalized views."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The gap is widest on a new video and narrows at each later checkpoint.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The gap is widest on a new video and narrows at each later checkpoint as YouTube finalizes more data."
+          }
+        }
+      ],
+      "next": "Open YouTube Studio and compare the Analytics tab with what Blotato shows.",
+      "proof": "You will know it worked when the Studio Analytics tab matches the Blotato number more closely."
+    },
+    {
+      "id": "client-connect-link",
+      "kind": "non-technical",
+      "title": "Send clients a link to connect their own social accounts",
+      "phrasings": [
+        "can I send my clients a link to connect their social accounts",
+        "is there an invite link so a client can authorize their instagram without a blotato login",
+        "client authentication link to connect accounts, agency feature",
+        "how do I let my customer connect their facebook page through a link",
+        "can clients get a link to connect their accounts without a blotato account",
+        "do you have a client onboarding link to connect social accounts",
+        "agency client invite link social account connection",
+        "clent connect link blotato?"
+      ],
+      "not_this": [
+        "how do I manage multiple clients as an agency",
+        "do you offer whitelabeling",
+        "how many accounts can I connect on the agency plan",
+        "how do I connect my own social account"
+      ],
+      "anchors": [
+        [
+          "client",
+          "clients",
+          "customer",
+          "customers",
+          "clent",
+          "their",
+          "authorize"
+        ],
+        [
+          "link",
+          "links",
+          "invite",
+          "invitation",
+          "authorize",
+          "authorization",
+          "authentication",
+          "onboarding",
+          "authorize",
+          "authentication",
+          "link"
+        ],
+        [
+          "connect",
+          "connection",
+          "account",
+          "accounts",
+          "social",
+          "without",
+          "accounts",
+          "connect"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "opening": "There is no client link flow today, and the help center describes two ways to work around it.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Blotato does not provide a client authentication-link flow for connecting social accounts without a Blotato login.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato does not provide a client authentication-link flow for connecting social accounts without a Blotato login."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The account-listing tools do not create client invitation links.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "They do not create client invitation links."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Agencies connect client accounts under one Blotato login, up to the plan's account limit.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "agencies either connect client social accounts under one Blotato login (up to the plan's account limit)"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Or each client signs up for a separate Blotato account with a shared email address.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "have each client sign up for a separate Blotato account with a shared email address"
+          }
+        }
+      ],
+      "next": "Choose whether to connect your clients under one login or have each client sign up on their own.",
+      "proof": "You will know it worked when your client accounts show in Accounts."
+    },
+    {
+      "id": "whitelabel",
+      "kind": "non-technical",
+      "title": "Does Blotato offer whitelabeling",
+      "phrasings": [
+        "do you offer whitelabeling",
+        "can I rebrand blotato as my own product",
+        "is there a white label option for agencies",
+        "can I put my own logo and domain on blotato",
+        "is white labeling planned for the future",
+        "can my customers use blotato without seeing the blotato name",
+        "whitelable blotato possible?",
+        "do you have a white-label plan"
+      ],
+      "not_this": [
+        "can I send clients a link to connect their social accounts",
+        "how do I manage multiple clients as an agency",
+        "how do I change my brand kit"
+      ],
+      "anchors": [
+        [
+          "whitelabel",
+          "whitelabeling",
+          "white label",
+          "white-label",
+          "white labeling",
+          "white-labeling",
+          "whitelable",
+          "whitelabelling",
+          "rebrand",
+          "rebranding",
+          "own logo",
+          "own domain",
+          "without seeing",
+          "blotato name",
+          "own branding"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "opening": "This one has a clear answer.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Blotato does not offer whitelabeling, and there are no plans to add it.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "No. Blotato does not offer whitelabeling, and there are no plans to add whitelabeling."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Whitelabeling means rebranding Blotato as your own product with your own branding, logo, and domain.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Whitelabeling means rebranding Blotato as your own product with your own branding, logo, and domain."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Your customers would never see the Blotato name, and this is not supported.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Your customers would never see the Blotato name. This is NOT supported."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Managing client social accounts in Blotato is separate from rebranding the product.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Managing client social accounts in Blotato is separate from rebranding the product."
+          }
+        }
+      ],
+      "next": "If you want to manage client accounts without rebranding, ask me how agencies set that up.",
+      "proof": "Still open: nothing. Whitelabeling is not offered."
+    },
+    {
+      "id": "post-ip-address",
+      "kind": "non-technical",
+      "title": "What IP address posts come from",
+      "phrasings": [
+        "what ip address do posts come from",
+        "my posts come from a different country than me, is that a problem",
+        "will posting from blotato servers hurt my reach in my country",
+        "do blotato users share an ip address",
+        "can an unfamiliar ip get my account shadowbanned",
+        "does the ip location of the post matter to instagram",
+        "is a vpn needed so my posts look local",
+        "ip adress of blotato posts"
+      ],
+      "not_this": [
+        "how do I allow list an ip for the api",
+        "can I use blotato for adult content and avoid shadowbans",
+        "instagram says we restrict certain activity"
+      ],
+      "anchors": [
+        [
+          "ip",
+          "ip address",
+          "ip adress",
+          "vpn",
+          "location",
+          "country",
+          "geo",
+          "/(from|through|via) blotato servers?/",
+          "/servers? location/"
+        ],
+        [
+          "post",
+          "posts",
+          "posting",
+          "publish",
+          "publishing",
+          "reach",
+          "distribution",
+          "shadowban",
+          "shadowbanned",
+          "share",
+          "users"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "opening": "Posts do not come from your own network, and this does not hurt your account.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Posts originate from Blotato's cloud servers, not from your device or home network.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Posts originate from Blotato's cloud servers, not from your device or home network."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Social platforms identify your account through secure tokens, not IP addresses.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Social platforms identify your account through secure tokens, not IP addresses."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Platforms expect server-side posting, and a location mismatch carries no penalty.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Platforms expect server-side posting. Location mismatch carries no penalty."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Risk comes from content behavior and policy violations, not IP origin.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Risk comes from content behavior and policy violations, not IP origin."
+          }
+        }
+      ],
+      "next": "If a platform flagged your account, tell me the platform and the exact message you saw.",
+      "proof": "You will know it worked when the answer matches what you see on your posts."
+    },
+    {
+      "id": "reels-on-main-feed",
+      "kind": "non-technical",
+      "title": "Instagram Reels show on the main feed",
+      "phrasings": [
+        "why do my instagram reels show on the main feed",
+        "how do I stop my reel from appearing on my feed grid",
+        "my reels also go to my profile feed, is that a blotato setting",
+        "can I post a reel without sharing to feed",
+        "what is the sharetofeed option for reels",
+        "every video I post to instagram shows as a reel on the feed",
+        "reels apear on main feed blotato"
+      ],
+      "not_this": [
+        "my instagram story posted as a feed post",
+        "how do I set a cover image for my reel",
+        "can I post a trial reel",
+        "how do I hide a reel from the feed on tiktok"
+      ],
+      "anchors": [
+        [
+          "reel",
+          "reels"
+        ],
+        [
+          "feed",
+          "main feed",
+          "grid",
+          "sharetofeed",
+          "share to feed",
+          "option"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "opening": "This is how Instagram handles Reels, not a Blotato setting.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Instagram defaults all Reels to appear on your main feed.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Instagram defaults all Reels to appear on your main feed. This is Instagram's behavior, not a Blotato setting."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "In the Blotato web app, all video posts to Instagram are published as Reels.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "In the Blotato web app, all video posts to Instagram are published as Reels."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If you use the Blotato API, you can control this with the shareToFeed parameter.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "If you are using the Blotato API, you can control this with the shareToFeed parameter in the Publish endpoint."
+          }
+        }
+      ],
+      "next": "If you use the API, set the shareToFeed parameter in your publish request.",
+      "proof": "You will know it worked when the Reel shows as you set it on your profile."
+    },
+    {
+      "id": "adult-content-shadowban",
+      "kind": "non-technical",
+      "title": "Adult-adjacent content and avoiding restrictions",
+      "phrasings": [
+        "can I use blotato for adult content",
+        "does blotato have a setting to avoid shadowbans",
+        "is adult adjacent content allowed when posting through blotato",
+        "how do I avoid getting my account restricted for nsfw content",
+        "will automation get my account flagged as a bot",
+        "what can I do so my posts dont get shadowbanned",
+        "does blotato hide explicit content from platform filters",
+        "adult content shadowban setting blotatto"
+      ],
+      "not_this": [
+        "instagram says we restrict certain activity to protect our community",
+        "why is my pinterest account not verified",
+        "what ip address do posts come from"
+      ],
+      "anchors": [
+        [
+          "adult",
+          "nsfw",
+          "explicit",
+          "/avoid (getting )?(a |any )?shadow ?bann?(s|ed|ing)?/",
+          "/(setting|feature|option) .{0,15}shadow ?bann?(s|ed|ing)?/",
+          "/shadow ?bann?(s|ed|ing)? setting/",
+          "/flagged as (a )?bot/",
+          "/(not|dont|don.?t|never|wont|won.?t) get (shadow ?banned|flagged)/",
+          "/automation get .{0,20}flagged/"
+        ],
+        [
+          "content",
+          "post",
+          "posts",
+          "account",
+          "blotato",
+          "setting",
+          "settings",
+          "avoid",
+          "feature",
+          "allowed",
+          "filters"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "opening": "Blotato has no switch for this, and the help center lists what is in your control.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Blotato has no settings or feature to avoid getting flagged for adult-adjacent content.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato does not have settings or a feature to avoid getting flagged for adult-adjacent content."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Whether a post gets restricted is decided by the platform's own content policy.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Whether a post gets restricted is decided by the platform's own content policy, not by anything Blotato toggles on its side."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Warm up any new account before you automate it.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Warm up any new account before you automate it."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Automating a brand new account is the fastest way to get flagged as a bot.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Automating a brand new account is the fastest way to get flagged as a bot."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Keep your posting frequency within safe daily limits per platform.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Keep your posting frequency within safe daily limits per platform."
+          }
+        }
+      ],
+      "next": "Log in daily and post by hand for a few weeks on any new account before you automate it.",
+      "proof": "You will know it worked when your account posts without a platform warning."
+    },
+    {
+      "id": "no-training-on-content",
+      "kind": "non-technical",
+      "title": "Does Blotato train AI on my uploaded content",
+      "phrasings": [
+        "does blotato train on my uploaded content",
+        "is my content used to train ai models",
+        "do you use my videos and images to improve your ai",
+        "is my uploaded media shared with openai or other ai providers",
+        "what happens to my brand kit data when I generate content",
+        "privacy of my uploads in blotato",
+        "does blotato train ai with my text",
+        "blotato trainning on my files?"
+      ],
+      "not_this": [
+        "how do I teach the ai my writing voice",
+        "does blotato offer a data processing agreement",
+        "how do I delete my account data"
+      ],
+      "anchors": [
+        [
+          "train",
+          "trains",
+          "training",
+          "trained",
+          "trainning",
+          "fine-tune",
+          "improve",
+          "shared",
+          "share",
+          "privacy",
+          "providers",
+          "brand kit",
+          "private"
+        ],
+        [
+          "content",
+          "uploads",
+          "uploaded",
+          "media",
+          "videos",
+          "images",
+          "photos",
+          "data",
+          "files",
+          "text",
+          "my"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "delete my data"
+        ]
+      },
+      "opening": "No, and here is how your content is handled.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Blotato does not train AI models on your uploaded images, videos, or text content.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "No. Blotato does not train AI models on your uploaded images, videos, or text content."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Your content is stored in your account and is not used to train, fine-tune, or improve any AI models.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Your content is stored in your account and is not used to train, fine-tune, or improve any AI models."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Blotato sends your prompts and Brand Kit settings to its AI providers for generation, but does not share your uploaded media files with them.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato sends your prompts and Brand Kit settings to these providers for generation, but does not share your uploaded media files with them."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "These providers have their own data handling policies.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "These providers have their own data handling policies."
+          }
+        }
+      ],
+      "next": "If you need more detail on a provider, check that provider's own data policy.",
+      "proof": "You will know it worked when this answers your privacy question."
+    },
+    {
+      "id": "ai-twin",
+      "kind": "non-technical",
+      "title": "What AI Twin is",
+      "phrasings": [
+        "what is ai twin",
+        "does ai twin make a video of me",
+        "is ai twin a talking avatar of me",
+        "what does the ai twin feature do in blotato",
+        "ai twin vs brand voice",
+        "can ai twin create a talking head video",
+        "whats the ai twinn",
+        "how do I get a video with my own digital twin"
+      ],
+      "not_this": [
+        "how do I make avatar or ugc videos",
+        "how do I make the ai write in my voice",
+        "how do I use heygen with blotato"
+      ],
+      "anchors": [
+        [
+          "twin",
+          "twinn",
+          "ai twin",
+          "digital twin"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "opening": "AI Twin is about your writing, not your face.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "AI Twin generates text content, such as captions and posts, in your writing style based on your Brand Kit and Brand Voice settings.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "AI Twin generates text content (captions, posts) in your writing style based on your Brand Kit and Brand Voice settings."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "It does not generate a talking-head video avatar of you.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "It does not generate a talking-head video avatar of you."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The AI Video with AI Voice template makes videos with an AI voiceover, not a visual avatar.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "This creates videos with AI voiceover (powered by ElevenLabs), not a visual avatar."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "For talking-head avatar videos, use a dedicated avatar tool like HeyGen or Synthesia, then upload the video to Blotato for publishing.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "For talking-head avatar videos, use a dedicated avatar tool like HeyGen or Synthesia, then upload the video to Blotato for publishing."
+          }
+        }
+      ],
+      "next": "Decide whether you want text in your style or a talking-head video, and pick the matching tool.",
+      "proof": "You will know it worked when your captions read in your own style."
+    },
+    {
+      "id": "sabrina-scam-message",
+      "kind": "non-technical",
+      "title": "Someone claiming to be Sabrina messaged me on social media",
+      "phrasings": [
+        "someone claiming to be sabrina messaged me on instagram, is it a scam",
+        "a person says they are the blotato founder and offers me an app on facebook",
+        "is this message from sabrina real",
+        "I got a dm from blotato offering an investment",
+        "how do I know a message is really from blotato and not a fake",
+        "fake blotato account messaging me",
+        "is sabrina contacting people privately on social media",
+        "sabrina dm scam blotatto?"
+      ],
+      "not_this": [
+        "can I read or send direct messages with blotato",
+        "how do I contact support",
+        "how do I schedule a call with sabrina",
+        "someone from blotato emailed me, is it real"
+      ],
+      "anchors": [
+        [
+          "founder",
+          "scam",
+          "scammer",
+          "scams",
+          "fake",
+          "impersonation",
+          "impersonating",
+          "impersonator",
+          "phishing",
+          "suspicious",
+          "claiming",
+          "investment",
+          "sabrina"
+        ],
+        [
+          "message",
+          "messaged",
+          "dm",
+          "dms",
+          "contacting",
+          "offers",
+          "facebook",
+          "instagram",
+          "social media",
+          "privately",
+          "blotato"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "clicked",
+          "sent money",
+          "gave my password"
+        ]
+      },
+      "opening": "Please be careful. This kind of message is a known scam.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Messages from \"Sabrina\" offering an app, an investment, or a private deal are impersonation scams.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Messages from \"Sabrina\" on Facebook, Instagram, or other social platforms offering an app, an investment, or a private deal are impersonation scams."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Do not click links or send money or personal details.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Do not click links or send money or personal details"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Report the profile on the platform where it contacted you.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Report the profile on the platform where it contacted you"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Real Blotato messages come from the in-app chat or from emails on the blotato.com domain.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "or from emails on the blotato.com domain"
+          }
+        }
+      ],
+      "next": "Report the profile on the platform where it contacted you, and do not reply.",
+      "proof": "You will know it worked when the profile is reported and you have not clicked or sent anything."
+    },
+    {
+      "id": "pinterest-not-verified",
+      "kind": "non-technical",
+      "title": "My Pinterest account is not verified",
+      "phrasings": [
+        "why does blotato say my pinterest account is not verified yet",
+        "how do I get my pinterest account verified by blotato",
+        "pinterest account new, can blotato verify it manually",
+        "how long do I warm up pinterest before connecting",
+        "how many views does pinterest need to be verified",
+        "how can I manually verify my pinterest account",
+        "pinterest warm up pins per day before blotato",
+        "pintrest not verified blotato"
+      ],
+      "not_this": [
+        "how do I find my pinterest board id",
+        "my pinterest board list is empty",
+        "pinterest api access is temporarily restricted",
+        "how do I connect pinterest",
+        "pinterest api access is temporarily restricted to verified accounts only"
+      ],
+      "anchors": [
+        [
+          "pinterest",
+          "pintrest"
+        ],
+        [
+          "verified",
+          "verify",
+          "verification",
+          "verifying",
+          "unverified",
+          "warm",
+          "warmup",
+          "warm up",
+          "new account"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "opening": "Pinterest verification happens by itself once your account is warmed up.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "A new Pinterest account must be warmed up for 2 weeks before you connect it to a third-party posting tool like Blotato.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "You MUST warm it up for 2 weeks before connecting to 3rd party posting tools like Blotato."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Start posting 1 pin per day by hand, then ramp up to 2, then 3, and so on.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Start posting 1 pin per day manually, then gradually ramp up to 2, then 3, etc. pins per day."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Once you get 100+ views per month, reconnect your Pinterest account with Blotato.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Once you get 100+ views per month, then reconnect your Pinterest account with Blotato and it will be automatically verified."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Blotato no longer verifies Pinterest accounts manually, so there is no request to send.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato no longer verifies Pinterest accounts manually. There is no request to send."
+          }
+        }
+      ],
+      "next": "Post a pin by hand each day, and reconnect Pinterest in Accounts once you reach 100 views a month.",
+      "proof": "You will know it worked when your Pinterest account shows as verified after you reconnect it."
+    },
+    {
+      "id": "pinterest-board-id",
+      "kind": "technical",
+      "title": "Find my Pinterest Board ID",
+      "phrasings": [
+        "how do I find my pinterest board id",
+        "where do I get the board id for publishing a pin",
+        "pinterest board id for n8n or make",
+        "how do I choose a pinterest board id when publishing",
+        "what is the list pinterest boards endpoint",
+        "I need the board id to post a pin through the api",
+        "where is the old settings board picker for pinterest",
+        "pintrest board id where"
+      ],
+      "not_this": [
+        "my pinterest board list returns empty",
+        "why is my pinterest account not verified",
+        "how do I find my linkedin company page id"
+      ],
+      "anchors": [
+        [
+          "pinterest",
+          "pintrest",
+          "pin",
+          "pins"
+        ],
+        [
+          "board id",
+          "board ids",
+          "boardid",
+          "board picker",
+          "picker",
+          "publishing a pin",
+          "post a pin",
+          "list pinterest boards"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "empty"
+        ]
+      },
+      "opening": "You need the Board ID when you publish a pin to a specific board. Here is how to get it.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "You need a Board ID when publishing a pin to a specific board.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "You need a Board ID when publishing a pin to a specific board."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "For automation, retrieve the Pinterest account with List Accounts.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Retrieve the Pinterest account with"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Use its account ID with List Pinterest Boards.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Use its account ID with"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Use the intended board's returned ID when publishing.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Use the intended board's returned ID when publishing."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "In the web app, when publishing a website draft, select Pinterest in the Schedule panel and choose the board under Options.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "When publishing a website draft, select Pinterest in the Schedule panel and choose the board under Options."
+          }
+        }
+      ],
+      "next": "Call List Accounts, then List Pinterest Boards with that account ID, and copy the board ID you want.",
+      "proof": "You will know it worked when the board you want shows in the returned list with its ID."
+    },
+    {
+      "id": "pinterest-boards-empty",
+      "kind": "technical",
+      "title": "Pinterest board list returns empty",
+      "phrasings": [
+        "why does my pinterest board list return empty",
+        "list pinterest boards gives {\"items\":[]}",
+        "the boards endpoint returns no boards for my pinterest",
+        "blotato shows no pinterest boards when I publish",
+        "my pinterest boards are not showing in the api",
+        "pinterest boards empty array",
+        "do secret boards show in the pinterest board list",
+        "pintrest boards list blank"
+      ],
+      "not_this": [
+        "how do I find my pinterest board id",
+        "why is my pinterest account not verified",
+        "how do I create a pinterest board",
+        "how do I follow a pinterest board",
+        "how do I change the pinterest board for a scheduled pin"
+      ],
+      "anchors": [
+        [
+          "pinterest",
+          "pintrest"
+        ],
+        [
+          "board list",
+          "no boards",
+          "missing boards",
+          "boards missing",
+          "returns no boards",
+          "no pinterest boards",
+          "boards",
+          "board",
+          "boards empty",
+          "board list empty"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "correct account",
+          "public board"
+        ]
+      },
+      "opening": "An empty board list usually comes down to one of a few checks.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Confirm you connected the correct Pinterest account.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Confirm you connected the correct Pinterest account."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Confirm the board is a standard, public board visible in Pinterest itself.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Confirm the board is a standard, public board visible in Pinterest itself."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "New Pinterest accounts need a 2-3 week manual warm-up and validation before boards appear through automation.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "New Pinterest accounts need a 2-3 week manual warm-up and validation before boards appear through automation."
+          }
+        }
+      ],
+      "next": "Check that the board is public in Pinterest and that the connected account is the right one.",
+      "proof": "You will know it worked when the board list returns your board."
+    }
+  ]
+}

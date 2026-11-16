@@ -1,0 +1,4624 @@
+{
+  "area": "Platform errors and limits",
+  "entries": [
+    {
+      "id": "comments-not-available-20200",
+      "kind": "technical",
+      "title": "Comments not available for this post's platform (20200)",
+      "phrasings": [
+        "Comments not available for this post's platform error code 20200",
+        "I get error 20200 when I try to reply to a comment",
+        "why can I not reply to comments on my tiktok posts through blotato",
+        "the comments api says comments are not available for this platform",
+        "can I answer comments on my linkedin posts with blotato, it gives 20200",
+        "comments not avaliable for this posts platform",
+        "which platforms support replying to comments",
+        "comment reply fails on youtube post, error says platform not supported for comments",
+        "blotato comments api returns 20200, what does it mean",
+        "I try to comment on a pinterest or threads post and it says not available"
+      ],
+      "not_this": [
+        "how do I add a first comment to my post",
+        "my instagram comment failed to post error 20201",
+        "blotato does not have permission to post comments on my instagram",
+        "which platforms does blotato publish to",
+        "can I read instagram direct messages in blotato"
+      ],
+      "anchors": [
+        [
+          "/\\b20200\\b/",
+          "not available for this post",
+          "/comments? (is |are )?not (available|supported)/",
+          "/(reply|replying|respond|responding|answer|answering) (to )?(the )?comments?/",
+          "/which platforms? (support|allow|have|work with) (replying to |reply to )?comments?/",
+          "/comments? not av\\w+/",
+          "/comment.{0,70}(not available|not supported)/",
+          "/not supported for comments/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "instagram post",
+          "facebook page post"
+        ]
+      },
+      "opening": "That error means Blotato cannot do comments on that kind of post, and it is not a problem with your account.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The error means the post is on a platform where Blotato does not support comments.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The post you tried to comment on is on a platform Blotato does not support comments for."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Comments work on Instagram and Facebook Page posts only.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Comments work on Instagram and Facebook Page posts only."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Posts on the other platforms are not supported for comments, including Twitter/X, TikTok, LinkedIn, Pinterest, Threads, Bluesky, YouTube and Slack.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Twitter/X, TikTok, LinkedIn, Pinterest, Threads, Bluesky, YouTube, and Slack are not supported."
+          }
+        }
+      ],
+      "next": "Check which platform the post is on. If it is an Instagram or Facebook Page post and you still see this error, tell me the post and the error text.",
+      "proof": "You will know it worked when a comment on an Instagram or Facebook Page post goes through without error 20200."
+    },
+    {
+      "id": "comment-failed-20201",
+      "kind": "technical",
+      "title": "Comment failed to post (20201)",
+      "phrasings": [
+        "Comment failed to post error code 20201",
+        "my reply to an instagram comment failed with 20201",
+        "the social platform rejected the comment, what does that mean",
+        "blotato says comment failed to post, why",
+        "I keep getting 20201 when I answer comments through the api",
+        "comment failed to post on my facebook page post",
+        "cant reply to comments, it says the comment was rejected by the platform",
+        "where do I find the errorMessage for a failed comment",
+        "comment fail to post 20201 how to fix",
+        "will instagram reject my comment if I reply to many comments quickly"
+      ],
+      "not_this": [
+        "comments not available for this post's platform 20200",
+        "blotato does not have permission to post comments on this instagram account 20203",
+        "how do I add a first comment",
+        "my message failed to send 20102",
+        "my dm automation failed"
+      ],
+      "anchors": [
+        [
+          "/\\b20201\\b/",
+          "/comment (failed|fails|fail|was rejected|rejected)/",
+          "/comments? failed to post/",
+          "/rejected (the|my) comments?/",
+          "/(reply|replies|replying|answer|answering).{0,25}comments?.{0,30}(fail|failed|fails|rejected|error)/",
+          "/failed comment/",
+          "/reject(ed)? (my|the) comments?/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "spam",
+          "removed the post",
+          "lost permission"
+        ]
+      },
+      "opening": "That error means the social platform turned the comment down, and the reason is on the comment itself.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The social platform itself rejected the comment.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The social platform rejected the comment."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The comment's errorMessage holds the reason, and common causes are a removed parent post, the platform's spam rules, or lost comment permissions.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Check the comment's errorMessage for the reason. Common causes: the parent post was removed, the comment triggered the platform's spam rules, or the account lost comment permissions."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Comment less often, then try again.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Reduce how often you comment and retry."
+          }
+        }
+      ],
+      "next": "Open the failed comment, read its errorMessage, and tell me what it says if it does not match one of those causes.",
+      "proof": "You will know it worked when the comment posts without the 20201 error."
+    },
+    {
+      "id": "instagram-comment-permission-20203",
+      "kind": "technical",
+      "title": "No permission to post comments on this Instagram account (20203)",
+      "phrasings": [
+        "Blotato does not have permission to post comments on this Instagram account",
+        "error 20203 when I reply to comments on instagram",
+        "instagram comment permission missing in blotato",
+        "why does blotato say it has no permission to comment on my instagram",
+        "I cant post comments from blotato, the instagram account is missing a permission",
+        "how do I give blotato the comment permission for instagram",
+        "what do I click on the instagram consent screen so comments work",
+        "error code 20203 instagram",
+        "blotato no permision to coment on instagram",
+        "comments feature needs reconnect instagram login with instagram"
+      ],
+      "not_this": [
+        "comments not available for this post's platform",
+        "my instagram comments do not show up in blotato older comments",
+        "how do I reconnect an expired instagram account",
+        "the facebook page permission error 200",
+        "comment failed to post 20201"
+      ],
+      "anchors": [
+        [
+          "instagram",
+          "insta",
+          "ig"
+        ],
+        [
+          "/\\b20203\\b/",
+          "/(permission|permissions|permision).{0,40}(comment|comments|coment)/",
+          "/(comment|comments|coment).{0,40}(permission|permissions|permision)/",
+          "/missing (a |the )?permission/",
+          "consent screen",
+          "login with instagram"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "access-blocked"
+        ],
+        "phrases": [
+          "accepted every permission",
+          "accepted all permissions",
+          "consent screen"
+        ]
+      },
+      "opening": "This one is a missing permission on the connected Instagram account, and reconnecting is how it is granted.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The connected Instagram account is missing the permission Blotato needs to post comments.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The connected Instagram account is missing the permission Blotato needs to post comments."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Disconnect the account, then connect it again with Login with Instagram and accept every permission on the consent screen.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Disconnect the account, connect it again with Login with Instagram, and accept every permission on the consent screen."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The Instagram FAQ says the same thing: reconnecting your Instagram account is how you grant the comment permission.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/instagram/faqs",
+            "quote": "To grant the comment permission, reconnect your Instagram account in Accounts."
+          }
+        }
+      ],
+      "next": "Disconnect the Instagram account in Accounts, connect it again with Login with Instagram, and accept every permission.",
+      "proof": "You will know it worked when a comment reply posts without error 20203."
+    },
+    {
+      "id": "active-contacts-limit-20101",
+      "kind": "technical",
+      "title": "Active contacts limit reached (20101)",
+      "phrasings": [
+        "Active contacts limit reached error code 20101",
+        "you have reached the maximum active contacts for your plan this month",
+        "my dm automation failed because of the active contacts limit",
+        "what is an active contact in blotato",
+        "error 20101 when I reply to comments",
+        "active contact limit reached, when does it reset",
+        "blotato says active-contacts limit and my messages are not sending",
+        "monthly active contacts maxed out, what can I do",
+        "aktive contacts limit reached 20101",
+        "I cannot message new people because of the active contacts limit"
+      ],
+      "not_this": [
+        "how many social accounts can I connect",
+        "how many posts can I publish per day",
+        "my message failed to send 20102",
+        "my subscription is not active and dm automations are paused",
+        "I was charged for more contacts",
+        "what plan has the most contacts"
+      ],
+      "anchors": [
+        [
+          "/\\b20101\\b/",
+          "active contacts",
+          "active contact",
+          "active-contacts",
+          "aktive contacts",
+          "/active[- ]contacts?/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "upgraded",
+          "already upgraded",
+          "new month",
+          "still the first"
+        ]
+      },
+      "opening": "That limit counts the people you reply to or message each month, and it is separate from your posting limits.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "You can reach the monthly active-contacts limit by replying to audience comments.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "You reached your monthly active-contacts limit by replying to audience comments."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "You can also reach it by messaging new people.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "You reached your monthly active-contacts limit by messaging new people."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A DM automation run fails when the message it tried to send hit the limit.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The DM the automation tried to send hit your monthly active-contacts limit, so the run failed."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Your count resets at the start of next month.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Your count resets at the start of next month."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "You can upgrade your plan or check your current account limit.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Upgrade your plan or check your current account limit."
+          }
+        }
+      ],
+      "next": "Check your current limit, then decide whether to wait for the monthly reset or upgrade.",
+      "proof": "You will know it worked when comment replies and messages send again without error 20101."
+    },
+    {
+      "id": "message-failed-20102",
+      "kind": "technical",
+      "title": "Message failed to send (20102)",
+      "phrasings": [
+        "Message failed to send error code 20102",
+        "my instagram dm failed to send through blotato",
+        "the social platform rejected the message, why",
+        "error 20102 when I reply to a comment with a private message",
+        "blotato messages api says message failed to send",
+        "what is the 24 hour messaging window",
+        "why did my direct message not go through, the platform rejected it",
+        "private reply to a comment fails with 20102",
+        "mesage faild to send 20102",
+        "what is the 24 hour messaging limit for instagram dms"
+      ],
+      "not_this": [
+        "active contacts limit reached 20101",
+        "your instagram account has expired 5002",
+        "my dm automation run failed after the message was queued",
+        "how do I read instagram dms in blotato",
+        "comment failed to post 20201"
+      ],
+      "anchors": [
+        [
+          "/\\b20102\\b/",
+          "/message (failed|fails|fail|faild) to send/",
+          "/(rejected|rejects) the message/",
+          "/24[- ]hours? messaging window/",
+          "/messaging window/",
+          "/(dm|dms|direct message|private reply|message).{0,30}(failed|fails|rejected|did not go through|didn't go through|not sent)/",
+          "/24[- ]hours? messaging/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "within 24 hours",
+          "just messaged me"
+        ]
+      },
+      "opening": "That error comes back from the social platform, and the reason is stored on the message.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The social platform itself rejected the message.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The social platform rejected the message."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The message's errorMessage holds the reason, and common causes are a closed 24-hour messaging window, a comment that is invalid or already has a private reply, or lost messaging permissions.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Check the message's errorMessage for the reason. Common causes: the 24-hour messaging window closed, the comment you replied to is invalid or already received a private reply, or the account lost messaging permissions."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Instagram limits who you can message and when: if someone sent you a direct message, you have 24 hours to respond to them.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/instagram/faqs",
+            "quote": "If they sent a direct message to you, you have 24 hours to respond to them."
+          }
+        }
+      ],
+      "next": "Open the failed message, read its errorMessage, and check whether the person wrote to you in the last 24 hours.",
+      "proof": "You will know it worked when the message sends without the 20102 error."
+    },
+    {
+      "id": "dm-account-expired-5002-5000",
+      "kind": "technical",
+      "title": "Your Instagram or Facebook account has expired, or no connected account (5002, 5000)",
+      "phrasings": [
+        "Your Instagram account has expired error code 5002",
+        "Your Facebook account has expired when I send a message",
+        "No connected Instagram account on my dm automation",
+        "no connected facebook account 5000 automation will not publish",
+        "my dm automation says the account is disconnected or expired",
+        "message never reached the platform because my account expired",
+        "how do I fix error 5002 on messages",
+        "dm automation cant go live, no connected instagram account",
+        "instgram account expired messages not sending 5002",
+        "automation runs on a disconnected account, what do I do"
+      ],
+      "not_this": [
+        "the red disconnected banner at the top right",
+        "how do I reconnect my expired twitter account",
+        "my slack workspace is no longer connected 5000",
+        "account not found error 5000 accountId",
+        "your subscription is not active dm automations paused"
+      ],
+      "anchors": [
+        [
+          "/(instagram|facebook|insta|instgram) account has expired/",
+          "/\\b5002\\b/",
+          "/no connected (instagram|facebook) account/",
+          "/(dm|automation|automations|message|messages).{0,60}(expired|disconnected)/",
+          "/(expired|disconnected).{0,60}(dm|automation|automations|message|messages)/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "records-disagree"
+        ],
+        "phrases": [
+          "reconnected",
+          "already reconnected"
+        ]
+      },
+      "opening": "Both of these mean the Instagram or Facebook account behind your messages or automation needs to be reconnected.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "For messages, the connected account's authorization expired, so the message never reached the platform.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The connected account's authorization expired, so the message never reached the platform."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Reconnect the account.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Reconnect the account."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "For a DM automation, the error means the account it runs on is disconnected or expired.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The account the automation runs on is disconnected or expired."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "After you reconnect it in Accounts, publish the automation again.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Reconnect it in Accounts, then publish the automation again."
+          }
+        }
+      ],
+      "next": "Open Accounts, reconnect the Instagram or Facebook account, then publish the automation again.",
+      "proof": "You will know it worked when the account shows as connected and the automation publishes."
+    },
+    {
+      "id": "dm-automation-invalid-20303",
+      "kind": "technical",
+      "title": "Automation is invalid or the trigger rules fail (20303)",
+      "phrasings": [
+        "Automation is invalid error code 20303",
+        "Flow must have at least one active trigger",
+        "Flow may have at most one trigger per trigger type",
+        "my dm automation will not go live, it says invalid",
+        "error 20303 when I publish an automation",
+        "I turned off my only trigger and the automation broke",
+        "can I have two comment triggers on one automation",
+        "what does an automation need to go live",
+        "dm automatoin is invalid 20303",
+        "publish automation fails every trigger is off"
+      ],
+      "not_this": [
+        "public reply needs some text besides mention 20303",
+        "follow gate requires an instagram automation",
+        "my webhook url error 20304",
+        "how do I create a dm automation",
+        "my dm automation run failed after sending"
+      ],
+      "anchors": [
+        [
+          "/\\b20303\\b/",
+          "/automation is invalid/",
+          "/flow must have at least one active trigger/",
+          "/flow may have at most one trigger/",
+          "/(one|two|duplicate|more than one) (comment |message )?triggers?/",
+          "/(only|every|all).{0,20}triggers?.{0,20}(off|turned off|disabled)/",
+          "/(need|needs|requirements?).{0,40}(go live|publish).{0,30}automation/",
+          "/go live/",
+          "/only trigger/",
+          "/says invalid/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "cannot find the field",
+          "which field"
+        ]
+      },
+      "opening": "These errors all mean the automation is missing something it needs before it can go live.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "For \"Automation is invalid\", the automation is missing something it needs to go live.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The automation is missing something it needs to go live"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Fix the flagged field and publish again.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Fix the flagged field and publish again."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If you turned off the only active trigger on a live automation, or tried to publish with every trigger off, that triggers the \"at least one active trigger\" error.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "You turned off the only active trigger on a live automation, or tried to publish with every trigger off."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Turn another trigger on first, or move the automation to draft.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Turn another trigger on first, or move the automation to draft."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "An automation holds one comment trigger and one message trigger at most, so remove a duplicate trigger and publish again.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "An automation holds one comment trigger and one message trigger at most. Remove the duplicate trigger and publish again."
+          }
+        }
+      ],
+      "next": "Open the automation, fix the flagged field or trigger, and publish it again.",
+      "proof": "You will know it worked when the automation publishes and shows as live."
+    },
+    {
+      "id": "dm-public-reply-errors-20303",
+      "kind": "technical",
+      "title": "Public reply problems on a DM automation (20303)",
+      "phrasings": [
+        "Public reply needs some text besides {{mention}}",
+        "Public reply exceeds the maximum length",
+        "Unknown variable in the public reply",
+        "my automation public reply is too long",
+        "how long can the public reply to a comment be",
+        "public reply only has mention in it and will not publish",
+        "can I use other variables in the public reply",
+        "error 20303 public reply text",
+        "my automation public reply exceeds the maximum length on facebook",
+        "what is the comment length limit for an automation reply"
+      ],
+      "not_this": [
+        "automation is invalid 20303",
+        "follow gate requires an instagram automation",
+        "my instagram caption is too long",
+        "a failed public reply to the comment says 20201",
+        "text length exceeds the character limit 20005"
+      ],
+      "anchors": [
+        [
+          "/public reply/",
+          "/comment reply/",
+          "/comment length/"
+        ],
+        [
+          "/needs some text/",
+          "/exceeds the maximum length/",
+          "/unknown variable/",
+          "mention",
+          "/too long/",
+          "/how long/",
+          "/length limit/",
+          "/characters/",
+          "/variables?/",
+          "/\\b20303\\b/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": []
+      },
+      "opening": "These three errors are about the text of the public reply on the automation.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The error means a public reply text on the automation has a problem: it holds only {{mention}}, is too long, or uses a variable other than {{mention}}.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "A public reply text on the automation holds only {{mention}}, is longer than the platform's comment length (2,200 characters on Instagram and 8,000 on Facebook, counting each {{mention}} as 31 characters), or holds a variable other than {{mention}}."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The comment length is 2,200 characters on Instagram and 8,000 on Facebook.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "the platform's comment length (2,200 characters on Instagram and 8,000 on Facebook"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Fix the text or remove it, then publish again.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Fix the text or remove it, then publish again."
+          }
+        }
+      ],
+      "next": "Open the automation's public reply, fix or remove the text, and publish again.",
+      "proof": "You will know it worked when the automation publishes without a public reply error."
+    },
+    {
+      "id": "follow-gate-instagram-only",
+      "kind": "technical",
+      "title": "Follow gate requires an Instagram automation",
+      "phrasings": [
+        "Follow gate requires an Instagram automation",
+        "my facebook dm automation rejects the follow gate",
+        "can I use a follow gate on facebook",
+        "follow gate error 20303 on a facebook page automation",
+        "does the follow gate work on facebook pages",
+        "automation says follow gate needs instagram",
+        "how do I remove the follow gate from my facebook automation",
+        "folow gate not working on facebook",
+        "follow gate to make people follow my facebook page before the dm is sent",
+        "the follow gate runs on which platform"
+      ],
+      "not_this": [
+        "my follow gate run is stuck and never advances",
+        "automation is invalid 20303",
+        "the follow gate message arrives but the next message does not send",
+        "how do I make an instagram follow gate",
+        "run shows expired"
+      ],
+      "anchors": [
+        [
+          "/follow gate/",
+          "/folow gate/",
+          "/follow-gate/"
+        ],
+        [
+          "facebook",
+          "face book",
+          "page",
+          "instagram automation",
+          "/\\b20303\\b/",
+          "/needs instagram/",
+          "/which platform/",
+          "/before the dm is sent/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "rebuilt",
+          "instagram account"
+        ]
+      },
+      "opening": "The follow gate is an Instagram feature, so a Facebook automation cannot use it.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "A follow gate runs on Instagram only.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "A follow gate runs on Instagram only."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Remove the gate from the Facebook automation, or rebuild the automation on an Instagram account.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Remove it from the Facebook automation, or rebuild the automation on an Instagram account."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The Facebook limitations page says the same: a Facebook automation rejects the follow gate.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/facebook/limitations",
+            "quote": "A follow gate runs on Instagram only."
+          }
+        }
+      ],
+      "next": "Remove the follow gate from the Facebook automation, or rebuild it on an Instagram account.",
+      "proof": "You will know it worked when the automation publishes without the follow gate error."
+    },
+    {
+      "id": "follow-gate-run-stuck",
+      "kind": "technical",
+      "title": "A run is stuck on the follow gate, or the next message does not send",
+      "phrasings": [
+        "my dm automation is stuck on the follow gate",
+        "the first message arrives but the next one does not send after they tap I'm following",
+        "follow gate never advances after the person taps the button",
+        "people tap I am following and nothing happens",
+        "instagram follow gate run waits until it expires",
+        "why does my follow gate not move on to the next message",
+        "follow gate stuck, another app controls the conversation",
+        "the confirm button does not show on desktop for the follow gate",
+        "folow gate stuck run",
+        "what is take control of conversations in meta for the follow gate"
+      ],
+      "not_this": [
+        "follow gate requires an instagram automation",
+        "what does a run showing expired mean",
+        "automation is invalid 20303",
+        "how do I make a follow gate",
+        "the dm automation did not send any message at all"
+      ],
+      "anchors": [
+        [
+          "/follow gate/",
+          "/folow gate/",
+          "/follow-gate/",
+          "/i'?m following/",
+          "/i am following/"
+        ],
+        [
+          "stuck",
+          "advance",
+          "advances",
+          "not send",
+          "does not send",
+          "nothing happens",
+          "never",
+          "expires",
+          "expire",
+          "next message",
+          "tap",
+          "taps",
+          "button",
+          "conversation",
+          "conversations"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "removed the routing app",
+          "reconnected"
+        ]
+      },
+      "opening": "A follow gate that does not move on usually has one of two causes, and each has its own fix.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "A run stuck on a follow gate until it expires has 2 common causes.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "A run stuck on a follow gate until it expires has 2 common causes."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The first cause is an account connected before DM automations and follow gating landed, which might lack the button-tap subscription, so reconnect the account in Accounts.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "An account connected before DM automations and follow gating landed might lack the button-tap subscription, so reconnect the account in Accounts."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The second cause is another app controlling the conversation in Meta, when the first message arrives but the next one does not send after the person taps I'm following.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "If the first message arrives but the next message does not send after the person taps I'm following, another app might control the conversation in Meta."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "For that one, remove the default routing app or select Blotato, then turn off Take control of conversations for every other app.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Remove the default routing app or select Blotato, then turn off Take control of conversations for every other app."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Instagram shows the confirm button in the mobile app only, so ask for a typed reply in the gate message for desktop readers.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Instagram also renders the confirm button in the mobile app only, so ask for a typed reply in the gate message for desktop readers."
+          }
+        }
+      ],
+      "next": "Reconnect the Instagram account in Accounts first, then check the conversation routing in Meta if the next message still does not send.",
+      "proof": "You will know it worked when the next message sends after a person taps I'm following."
+    },
+    {
+      "id": "dm-webhook-url-20304",
+      "kind": "technical",
+      "title": "Webhook request URL errors on a DM automation (20304)",
+      "phrasings": [
+        "Request URL must be http(s)",
+        "Request URL resolves to a private address",
+        "Could not resolve request URL",
+        "my automation webhook failed with error 20304",
+        "can the dm automation webhook call localhost",
+        "webhook points to my local server and fails",
+        "does blotato follow redirects on the webhook url",
+        "automation webhook url rejected private address",
+        "webhok request url resolves to a private adress",
+        "what kind of url can I use for the automation webhook"
+      ],
+      "not_this": [
+        "request timed out after 15s 20305",
+        "my webhook returns an error status and the run still completes",
+        "automation is invalid 20303 webhook url missing",
+        "how do I set up a webhook for my n8n workflow",
+        "the api returns a 500"
+      ],
+      "anchors": [
+        [
+          "webhook",
+          "webhok",
+          "webhooks",
+          "/\\b20304\\b/",
+          "/request url/",
+          "/local server/"
+        ],
+        [
+          "/request url/",
+          "/private (address|adress)/",
+          "/resolve/",
+          "localhost",
+          "loopback",
+          "redirect",
+          "redirects",
+          "http",
+          "https",
+          "/\\b20304\\b/",
+          "/what (kind of )?url/",
+          "/local server/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "public url",
+          "domain resolves"
+        ]
+      },
+      "opening": "This error means Blotato could not call the webhook address you gave it.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The automation webhook failed.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The automation webhook failed."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Blotato calls public http(s) endpoints only and rejects private, loopback, link-local, and cloud metadata addresses.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "rejects private, loopback, link-local, and cloud metadata addresses."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Point the webhook at a public URL and confirm the domain resolves.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Point the webhook at a public URL and confirm the domain resolves."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Blotato does not follow redirects, so use the final URL.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Blotato does not follow redirects, so use the final URL."
+          }
+        }
+      ],
+      "next": "Change the webhook to a public http(s) address, using the final URL, then publish the automation again.",
+      "proof": "You will know it worked when the automation publishes and the webhook is called."
+    },
+    {
+      "id": "dm-webhook-timeout-20305",
+      "kind": "technical",
+      "title": "Webhook timed out after 15 seconds, or answers with an error status (20305)",
+      "phrasings": [
+        "Request timed out after 15s",
+        "error code 20305 on my automation webhook",
+        "my webhook is slow and the dm automation shows a timeout",
+        "webhook answers with a non-2xx status, does the run fail",
+        "webhook answered with a non 2xx status, is the run broken",
+        "how long does blotato wait for the automation webhook",
+        "webhook took longer than 15 seconds",
+        "webhok timed out 15s automation",
+        "automation webhook response needed in later steps but it timed out",
+        "will my dm automation still finish if the webhook does not answer"
+      ],
+      "not_this": [
+        "request url resolves to a private address",
+        "the api returned a 504 gateway timeout when creating a post",
+        "my post timed out after I created it",
+        "my dm automation run failed with a platform error",
+        "rate limit 429"
+      ],
+      "anchors": [
+        [
+          "webhook",
+          "webhok",
+          "webhooks",
+          "/\\b20305\\b/",
+          "/timed out after 15s/"
+        ],
+        [
+          "15s",
+          "15 seconds",
+          "15 second",
+          "timed out",
+          "timeout",
+          "time out",
+          "/\\b20305\\b/",
+          "non-2xx",
+          "non 2xx",
+          "2xx",
+          "status",
+          "answer",
+          "answers",
+          "respond",
+          "response",
+          "slow",
+          "/returns (a )?(4|5)\\d\\d/",
+          "/how long.{0,30}wait/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": []
+      },
+      "opening": "A slow or failing webhook does not stop the automation run, but it can affect later steps.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The automation webhook did not answer within 15 seconds.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The automation webhook did not answer within 15 seconds."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Blotato logs the timeout and the automation run still completes.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Blotato logs the timeout and the automation run still completes."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Make your endpoint answer faster if you need the response in later automation steps.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Make your endpoint answer faster if you need the response in later automation steps."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A webhook endpoint that answers with a non-2xx status does not fail the run either.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "A webhook endpoint answering with a non-2xx status does not fail the run."
+          }
+        }
+      ],
+      "next": "Check how long your endpoint takes to answer, and speed it up if later steps need its response.",
+      "proof": "You will know it worked when the webhook answers within 15 seconds and the run logs show no timeout."
+    },
+    {
+      "id": "dm-automations-paused-20300",
+      "kind": "technical",
+      "title": "DM automations are paused because the subscription is not active (20300)",
+      "phrasings": [
+        "Your subscription is not active. DM automations are paused until you reactivate.",
+        "error code 20300 on my automation run",
+        "my dm automation stopped, it says my subscription is not active",
+        "dm automations paused until I reactivate",
+        "how do I reactivate so my automations run again",
+        "automation run stopped because the blotato subscription is not active",
+        "why are my automations paused",
+        "dm automatons paused subscription not active",
+        "my comment automations stopped working after my plan ended",
+        "where do I reactivate my plan for dm automations"
+      ],
+      "not_this": [
+        "I was charged after I canceled",
+        "how do I cancel my subscription",
+        "my subscription setup is incomplete",
+        "the payment is past due during my trial",
+        "active contacts limit reached"
+      ],
+      "anchors": [
+        [
+          "/dm automations?/",
+          "/automations?/",
+          "/\\b20300\\b/",
+          "automatons"
+        ],
+        [
+          "paused",
+          "pause",
+          "not active",
+          "inactive",
+          "reactivate",
+          "reactivation",
+          "/\\b20300\\b/",
+          "stopped"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "records-disagree"
+        ],
+        "phrases": [
+          "billing shows active",
+          "plan is active",
+          "still active"
+        ]
+      },
+      "opening": "That message means the run stopped because the subscription on the account is not active.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The run stopped because your Blotato subscription is not active.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The run stopped because your Blotato subscription is not active."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "DM automations are paused until you reactivate.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "DM automations are paused until you reactivate."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "You can reactivate your plan in Settings > Billing.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Reactivate your plan in Settings > Billing."
+          }
+        }
+      ],
+      "next": "Open Settings > Billing and reactivate your plan.",
+      "proof": "You will know it worked when your plan shows as active and the automation runs again."
+    },
+    {
+      "id": "dm-run-status-expired-superseded",
+      "kind": "non-technical",
+      "title": "A DM automation run shows expired or superseded",
+      "phrasings": [
+        "what does expired mean on a dm automation run",
+        "my automation run says expired, is it an error",
+        "a run shows superseded, what happened",
+        "what does superseded mean in automations",
+        "dm run status expired nothing was sent",
+        "automation runs showing expired for people who never answered",
+        "how long does a follow gate or email gate wait before the run expires",
+        "is expired a failure for automation runs",
+        "automation run superceded meaning",
+        "why did the run stop with expired"
+      ],
+      "not_this": [
+        "my instagram account has expired",
+        "my social account connection expired and I need to reconnect",
+        "my dm automation run failed with an error",
+        "my subscription expired",
+        "the follow gate is stuck"
+      ],
+      "anchors": [
+        [
+          "/runs?/",
+          "automation",
+          "automations",
+          "dm"
+        ],
+        [
+          "expired",
+          "superseded",
+          "superceded",
+          "supersede"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": []
+      },
+      "opening": "Good news first: neither of those statuses is an error.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "A run showing expired is not an error.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "A run showing expired is not an error."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "It means the person never answered a follow gate inside 30 days or an email gate inside 72 hours, so nothing further sent.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "It means the person never answered a follow gate inside 30 days or an email gate inside 72 hours, so nothing further sent."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A run showing superseded means a newer run started waiting on the same person.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "A run showing superseded means a newer run started waiting on the same person."
+          }
+        }
+      ],
+      "next": "If you want people to answer sooner, review the gate message the person received.",
+      "proof": "You will know it worked when you can tell which of the two statuses your run shows and why."
+    },
+    {
+      "id": "dm-run-failed-after-queue",
+      "kind": "technical",
+      "title": "Where to read the error when a DM automation fails after the message is queued",
+      "phrasings": [
+        "my dm automation failed but the api request said success",
+        "where do I see why an automation run failed",
+        "how do I read the error of a failed dm automation run",
+        "dm automation fails after the message is queued, where is the error",
+        "what does list runs show for a failed automation",
+        "the automation run has an error object with code and message",
+        "where can I find the platform error for an automation run",
+        "dm automatoin run failed where to see the error",
+        "failed public reply to the comment stopped the automation run",
+        "is the error in the run or in the request for dm automations"
+      ],
+      "not_this": [
+        "my dm automation is invalid and will not publish",
+        "a run shows expired",
+        "my message failed to send 20102",
+        "my post failed to publish",
+        "my dm automation was paused because my plan ended"
+      ],
+      "anchors": [
+        [
+          "/automations?/",
+          "/automatoin/",
+          "/dm runs?/",
+          "list runs"
+        ],
+        [
+          "/(failed|fails|fail|error|errors)/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": []
+      },
+      "opening": "The error for a failed automation is stored on the run itself, and it is not on the request that created it.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "A DM automation that fails after the message is queued reports the platform error on the run, not on the request.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "A DM automation that fails after the message is queued reports the platform error on the run, not on the request."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The run's error includes a code and a message, and when available also an action and details.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The object includes code, message, and, when available, action and details with account, permission, platform, and retry context."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The codes match the messaging errors, and a failed public reply to the comment reports a comments error, for example 20201, and stops the run.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The codes match the messaging errors above. A failed public reply to the comment reports a comments error, for example error code 20201, and stops the run."
+          }
+        }
+      ],
+      "next": "Open the automation in Automations, or call List Runs, and read the run's error.",
+      "proof": "You will know it worked when you can see the run's error code and message."
+    },
+    {
+      "id": "could-not-upload-media",
+      "kind": "technical",
+      "title": "Could not upload media or video to a platform",
+      "phrasings": [
+        "Could not upload media to Twitter",
+        "Post failed to publish. Could not upload video",
+        "could not upload media to instagram, same message on every platform",
+        "the platform rejected the media blotato tried to upload",
+        "why does it say could not upload media on all my platforms at once",
+        "could not upload media to tiktok, is it a credits problem",
+        "retrying the same video keeps giving could not upload media",
+        "could not uplod media to linkedin",
+        "where do I read the exact error for a failed upload",
+        "my video fails with could not upload video and I do not know why"
+      ],
+      "not_this": [
+        "could not upload video to facebook there was a problem uploading your video file",
+        "my scheduled post fails with a media fetch error after a local upload",
+        "this video is 200 seconds long but we can only automatically fix videos up to 120 seconds",
+        "I cannot upload a file to blotato, it is too big",
+        "could not upload a file to my brand kit"
+      ],
+      "anchors": [
+        [
+          "/could not upload (media|video)/",
+          "/could not uplod (media|video)/",
+          "/(upload|uploading).{0,20}(media|video).{0,40}(rejected|failed|could not)/",
+          "/platform rejected the media/",
+          "/failed upload/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "same video worked before",
+          "all platforms"
+        ]
+      },
+      "opening": "This error means the platform turned the media down, so the failed post itself has the exact reason.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The platform rejected the media Blotato tried to upload.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The platform rejected the media Blotato tried to upload."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "It is not a rate-limit or credits problem, and retrying the same media without changes will not help.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "This is not a rate-limit or credits problem, and retrying the same media without changes will not help."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Common causes are media that does not meet the platform's format or size specs, or a stale connection that a reconnect in Accounts can clear.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Common causes: the media does not meet the platform's format or size specs (Social Platform Requirements), or a stale connection -- reconnect the account in Accounts and retry."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "When the same message appears on every platform at once, check each post's error separately, because the cause can differ per platform.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "When the same message appears on every platform at once, check each post's error separately, because the cause can differ per platform."
+          }
+        }
+      ],
+      "next": "Open the failed post in Posts > Failed to read its exact error, then compare your media with the platform's requirements.",
+      "proof": "You will know it worked when the post publishes after you fix the media or reconnect the account."
+    },
+    {
+      "id": "video-over-120-seconds",
+      "kind": "technical",
+      "title": "This video is N seconds long, but we can only automatically fix videos up to 120 seconds",
+      "phrasings": [
+        "This video is 200 seconds long, but we can only automatically fix videos up to 120 seconds",
+        "why can blotato only fix videos up to 120 seconds",
+        "my reel is longer than 120 seconds and fails with a conversion error",
+        "video needs cropping or downscaling but it is longer than 120 seconds",
+        "what is the 120-second conversion limit",
+        "long video rejected, it lists a requirement blotato cannot fix automatically",
+        "do I have to shorten my video to 120 seconds to post it",
+        "video to long for automatic fix 120 secs",
+        "blotato says it cannot automatically fix my 3 minute video",
+        "my reel is over 120 seconds, does blotato still convert it automatically"
+      ],
+      "not_this": [
+        "this user is not allowed to post a video longer than 2 minutes on twitter",
+        "how long can a youtube video be",
+        "could not upload video to facebook",
+        "my video has no sound",
+        "how big can an upload be",
+        "my instagram reel is under 300 mb and 15 minutes, why was it rejected"
+      ],
+      "anchors": [
+        [
+          "/120[- ]?(second|seconds|sec|secs|s)/",
+          "/cannot fix/",
+          "/automatically fix/",
+          "/automatic conversion/",
+          "/convert it automatically/",
+          "/\\b120\\b.{0,12}(limit|max|maximum|long)/",
+          "/(over|longer than|more than|up to) 120\\b/"
+        ],
+        [
+          "fix",
+          "fixed",
+          "convert",
+          "conversion",
+          "automatic",
+          "automatically",
+          "long",
+          "longer",
+          "shorten",
+          "rejected",
+          "cropping",
+          "downscaling"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "already shortened",
+          "under 120"
+        ]
+      },
+      "opening": "This error is about how long the video is, and the fix is on the video file.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Your video needs cropping, resizing, downscaling, re-encoding, or bitrate adjustment, but its duration is over Blotato's 120-second conversion limit.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Your video needs cropping, resizing, downscaling, re-encoding, or bitrate adjustment, but its duration exceeds Blotato's 120-second conversion limit."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The error lists the exact target-platform requirement that Blotato cannot fix automatically.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The error lists the exact target-platform requirement that Blotato cannot fix automatically"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Either shorten the video to 120 seconds or less, or export the source to match every target-platform requirement before publishing.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Either shorten the video to 120 seconds or less, or export the source to match every target-platform requirement before publishing."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The Instagram FAQ confirms that automatic conversion requires a video of 120 seconds or less.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/instagram/faqs",
+            "quote": "Automatic conversion requires a video of 120 seconds or less."
+          }
+        }
+      ],
+      "next": "Shorten the video to 120 seconds or export it to match the platform requirements, then publish again.",
+      "proof": "You will know it worked when the post publishes without the 120-second message."
+    },
+    {
+      "id": "youtube-upload-limit-exceeded",
+      "kind": "technical",
+      "title": "YouTube: the user has exceeded the number of videos they may upload",
+      "phrasings": [
+        "The user has exceeded the number of videos they may upload",
+        "youtube says I exceeded the number of videos I may upload",
+        "youtube upload limit reached error when posting through blotato",
+        "my youtube video fails with the upload limit error",
+        "how long do I wait after the youtube upload limit error",
+        "youtube api quota error in google cloud console",
+        "youtube exceeded number of videos they may upload, is it blotato",
+        "yutube upload limit reached",
+        "do I need to verify my youtube account to upload more videos",
+        "youtube says too many videos uploaded"
+      ],
+      "not_this": [
+        "you have reached the maximum number of 10 posts for the last 24 hours youtube",
+        "youtube unauthorized error",
+        "how do I connect my youtube channel",
+        "my youtube video was not posted as a short",
+        "youtube video upload is stuck"
+      ],
+      "anchors": [
+        [
+          "youtube",
+          "yutube",
+          "you tube",
+          "yt",
+          "/exceeded the number of videos/"
+        ],
+        [
+          "/exceeded the number of videos/",
+          "/upload limit/",
+          "/number of videos/",
+          "/quota/",
+          "/too many videos/",
+          "/upload more videos/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "verified account",
+          "already waited"
+        ]
+      },
+      "opening": "That error comes from YouTube, and it is about YouTube's own upload limits.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The error means YouTube's upload limit was reached.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "YouTube upload limit reached."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Wait 24 hours.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Wait 24 hours."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Check your API quota in the Google Cloud Console.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Check API quota in Google Cloud Console."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Also verify your account.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Verify account."
+          }
+        }
+      ],
+      "next": "Wait 24 hours, then check your API quota in the Google Cloud Console before posting again.",
+      "proof": "You will know it worked when the video uploads to YouTube without the limit error."
+    },
+    {
+      "id": "youtube-blotato-10-posts-limit",
+      "kind": "technical",
+      "title": "YouTube: reached the maximum number of 10 posts for the last 24 hours",
+      "phrasings": [
+        "You have reached the maximum number of 10 posts for the last 24 hours for this account youtube",
+        "youtube says maximum number of 10 posts for the last 24 hours",
+        "why can I only post 10 videos a day to my youtube channel through blotato",
+        "my youtube limit is 10 posts, can I get 25",
+        "youtube posting limit on the creator plan",
+        "is the youtube 10 posts limit from youtube or from blotato",
+        "youtube channel hit the 24 hour post limit in blotato",
+        "yotube maximum number of 10 posts error",
+        "do I have to switch channels to get past the youtube 10 post limit",
+        "how long until I can post to youtube again after the 10 posts limit"
+      ],
+      "not_this": [
+        "the user has exceeded the number of videos they may upload",
+        "what are the posting limits for each platform",
+        "facebook says 25 posts limit",
+        "tiktok maximum number of 3 unique accounts",
+        "I hit my daily instagram post limit"
+      ],
+      "anchors": [
+        [
+          "youtube",
+          "yotube",
+          "yutube",
+          "you tube"
+        ],
+        [
+          "/maximum number of 10 posts/",
+          "/10 posts/",
+          "/10 videos/",
+          "/post limit/",
+          "/posting limit/",
+          "/24 hours?/",
+          "/daily limit/",
+          "/(post|posting|publish|publishing|upload) (limit|cap)/",
+          "/limit (of|on) (posts|videos|uploads)/",
+          "/posts? (a|per) day/",
+          "/maximum number/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "creator plan",
+          "agency plan",
+          "upgraded"
+        ]
+      },
+      "opening": "This limit is a counter Blotato keeps for each YouTube channel.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Blotato enforces 10 posts per channel per rolling 24 hours on Starter, or 25 on Creator and Agency.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Blotato enforces 10 posts per channel per rolling 24 hours on Starter, or 25 on Creator and Agency."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Wait for prior successful posts to leave the window.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Wait for prior successful posts to leave the window."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "YouTube's own restrictions are separate.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "YouTube's own restrictions are separate."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Check the original outcome before retrying or uploading manually.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Check the original outcome before retrying or uploading manually."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Do not switch channels or create a duplicate upload merely to work around the error.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/youtube/faqs",
+            "quote": "Do not switch channels or create a duplicate upload merely to work around the error."
+          }
+        }
+      ],
+      "next": "Check the outcome of your earlier posts, and wait for them to leave the 24-hour window before you post again.",
+      "proof": "You will know it worked when a new YouTube post publishes without the maximum-posts error."
+    },
+    {
+      "id": "facebook-25-posts-limit",
+      "kind": "technical",
+      "title": "Facebook: reached the maximum number of 25 posts for the last 24 hours",
+      "phrasings": [
+        "You have reached the maximum number of 25 posts for the last 24 hours for this account facebook",
+        "facebook says maximum 25 posts for the last 24 hours",
+        "why can I only post 25 times a day to my facebook page",
+        "is the limit per page or for my whole facebook login",
+        "can I publish to a different facebook page when I hit 25 posts",
+        "facebook page post limit error in blotato",
+        "faceboook 25 posts limit reached",
+        "how many posts a day to a facebook page is best",
+        "does posting 25 times a day hurt facebook reach",
+        "how long do I wait after facebook 25 posts limit"
+      ],
+      "not_this": [
+        "facebook error 200 requires pages_read_engagement",
+        "I cannot post to a facebook group",
+        "what are the posting limits for each platform",
+        "youtube maximum number of 10 posts",
+        "linkedin maximum number of 50 posts"
+      ],
+      "anchors": [
+        [
+          "facebook",
+          "faceboook",
+          "fb",
+          "face book"
+        ],
+        [
+          "/maximum number of 25 posts/",
+          "/25 posts/",
+          "/post limit/",
+          "/posting limit/",
+          "/25 times/",
+          "/posts a day/",
+          "/daily limit/",
+          "/(post|posting|publish|publishing|upload) (limit|cap)/",
+          "/limit (of|on) (posts|videos|uploads)/",
+          "/posts? (a|per) day/",
+          "/maximum number/",
+          "/limit per (page|profile|account|login)/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": []
+      },
+      "opening": "Facebook has a per-Page limit in Blotato, and each Page counts on its own.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Facebook publishing is limited to 25 posts per 24 hours per Page.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Facebook publishing is limited to 25 posts per 24 hours per Page."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Each Page has its own independent limit, so posts to one Page do not count against another.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Each Page has its own independent 25-post limit, so posts to one Page do not count against another."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Wait 24 hours and try again, or publish to a different Page.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Wait 24 hours and try again, or publish to a different Page."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Posting above 5 per day per Page also negatively impacts post reach.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Posting above 5 per day per Page also negatively impacts post reach."
+          }
+        }
+      ],
+      "next": "Wait 24 hours and try again, or choose a different Page for the post.",
+      "proof": "You will know it worked when the post publishes to your Page without the 25-post limit error."
+    },
+    {
+      "id": "linkedin-50-posts-limit",
+      "kind": "technical",
+      "title": "LinkedIn: reached the maximum number of 50 posts for the last 24 hours",
+      "phrasings": [
+        "You have reached the maximum number of 50 posts for the last 24 hours for this account linkedin",
+        "linkedin says maximum 50 posts for the last 24 hours",
+        "why can I only post 50 times a day to linkedin",
+        "is the linkedin limit per profile or per company page",
+        "can I post to my linkedin company page when my profile hit 50 posts",
+        "linkedin post limit error in blotato",
+        "linkdin 50 posts limit reached",
+        "how long do I wait after the linkedin 50 posts limit",
+        "does my personal linkedin profile share the 50 limit with the company page",
+        "linkedin daily posting limit blotato"
+      ],
+      "not_this": [
+        "how do I post to a linkedin company page",
+        "instagram limited to 50 posts per day",
+        "linkedin analytics",
+        "facebook maximum number of 25 posts",
+        "what are the posting limits for each platform"
+      ],
+      "anchors": [
+        [
+          "linkedin",
+          "linkdin",
+          "linked in"
+        ],
+        [
+          "/maximum number of 50 posts/",
+          "/50 posts/",
+          "/post limit/",
+          "/posting limit/",
+          "/50 times/",
+          "/daily limit/",
+          "/(post|posting|publish|publishing|upload) (limit|cap)/",
+          "/limit (of|on) (posts|videos|uploads)/",
+          "/posts? (a|per) day/",
+          "/maximum number/",
+          "/limit per (page|profile|account|company)/",
+          "/(the )?50 limit/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": []
+      },
+      "opening": "LinkedIn has its own limit in Blotato, and it counts separately for your profile and for each company Page.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "LinkedIn publishing is limited to 50 posts per 24 hours per profile and per company Page.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "LinkedIn publishing is limited to 50 posts per 24 hours per profile and per company Page."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Your profile and each connected company Page each have their own independent 50-post limit.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Your profile and each connected company Page each have their own independent 50-post limit."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Wait 24 hours and try again, or publish to a different profile or company Page.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Wait 24 hours and try again, or publish to a different profile or company Page."
+          }
+        }
+      ],
+      "next": "Wait 24 hours and try again, or publish to a different profile or company Page.",
+      "proof": "You will know it worked when the post publishes to LinkedIn without the 50-post limit error."
+    },
+    {
+      "id": "slack-100-posts-limit",
+      "kind": "technical",
+      "title": "Slack: reached the maximum number of 100 posts for the last 24 hours",
+      "phrasings": [
+        "You have reached the maximum number of 100 posts for the last 24 hours for this account slack",
+        "slack says maximum 100 posts for the last 24 hours",
+        "why is my slack channel limited to 100 posts a day",
+        "does upgrading raise the slack posting limit",
+        "is the slack limit per workspace or per channel",
+        "slack channel post limit error in blotato",
+        "slak 100 posts limit reached",
+        "can I post to another slack channel after hitting 100",
+        "how long do I wait after the slack 100 post limit",
+        "slack daily post limit blotato plan"
+      ],
+      "not_this": [
+        "blotato could not find this slack channel",
+        "how do I connect slack",
+        "slack posts support images only video is not supported",
+        "what are the posting limits for each platform",
+        "slack is limiting how fast blotato can post"
+      ],
+      "anchors": [
+        [
+          "slack",
+          "slak",
+          "slck"
+        ],
+        [
+          "/maximum number of 100 posts/",
+          "/100 posts/",
+          "/post limit/",
+          "/posting limit/",
+          "/100 a day/",
+          "/daily limit/",
+          "/(post|posting|publish|publishing|upload) (limit|cap)/",
+          "/limit (of|on) (posts|videos|uploads)/",
+          "/posts? (a|per) day/",
+          "/maximum number/",
+          "/limit per (workspace|channel)/",
+          "/hit(ting)? (the )?100\\b/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "upgraded",
+          "enterprise"
+        ]
+      },
+      "opening": "Slack has a per-channel limit in Blotato, and it is the same on every plan.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Blotato limits each Slack channel to 100 posts per rolling 24 hours.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
+            "quote": "Blotato limits each Slack channel to 100 posts per rolling 24 hours."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Each channel has its own limit, and the limit is the same on every plan, so upgrading does not raise it.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
+            "quote": "Each channel has its own limit, and the limit is the same on every plan, so upgrading does not raise it."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Wait for earlier posts to leave the 24-hour window, or publish to another channel.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
+            "quote": "Wait for earlier posts to leave the 24-hour window, or publish to another channel."
+          }
+        }
+      ],
+      "next": "Wait for earlier posts to leave the 24-hour window, or publish to another Slack channel.",
+      "proof": "You will know it worked when the post goes to Slack without the 100-post limit error."
+    },
+    {
+      "id": "pinterest-daily-limit",
+      "kind": "non-technical",
+      "title": "How many pins can I post to Pinterest in 24 hours",
+      "phrasings": [
+        "what is the pinterest posting limit per day in blotato",
+        "why is my pinterest limit 10 pins when someone else has 50",
+        "how is the pinterest daily post cap decided",
+        "pinterest stored account cap 10 20 or 50",
+        "my pinterest posts stop after 10 in a day",
+        "is the pinterest daily limit the same as the 100 views check",
+        "how many pins per 24 hours blotato pinterest",
+        "pintrest daily limit how many",
+        "what sets my pinterest posting cap when I connect",
+        "pinterest rolling 24 hour posting limit"
+      ],
+      "not_this": [
+        "pinterest api access is temporarily restricted to verified accounts only",
+        "pinterest says this site does not allow you to save pins",
+        "could not create pinterest pin",
+        "what are the posting limits for instagram and linkedin",
+        "how do I find my pinterest board id"
+      ],
+      "anchors": [
+        [
+          "pinterest",
+          "pintrest",
+          "pinterst"
+        ],
+        [
+          "per day",
+          "a day",
+          "24 hours",
+          "24h",
+          "how many",
+          "daily limit",
+          "pin limit",
+          "pinning limit",
+          "posting limit",
+          "post limit",
+          "pins a day",
+          "pins per day",
+          "limit per day",
+          "limit a day",
+          "/\\b\\d+ pins\\b/",
+          "post cap",
+          "posting cap",
+          "account cap",
+          "daily post"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "legacy",
+          "my cap is"
+        ]
+      },
+      "opening": "Pinterest works a little differently from the other platforms, because the cap depends on your account.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The limit is a stored account cap, normally 10, 20, or 50 posts per rolling 24 hours.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Stored account cap, normally 10, 20, or 50 posts per rolling 24h"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "It is set when you connect, based on the monthly views Pinterest reports for the account.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Set at connection from Pinterest-reported monthly views."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "This cap is separate from the 100-view API-access check.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Separate from the 100-view API-access check."
+          }
+        }
+      ],
+      "next": "Keep your daily pins under your account's cap, and tell me if you reach a limit error.",
+      "proof": "You will know it worked when your pins publish without a limit error."
+    },
+    {
+      "id": "slack-channel-not-found-33000-33001",
+      "kind": "technical",
+      "title": "Slack: could not find the channel, or the app is not in the private channel",
+      "phrasings": [
+        "Blotato could not find this Slack channel error 33000",
+        "The Blotato app is not in this private Slack channel 33001",
+        "my slack post fails because it is a private channel",
+        "how do I add blotato to a private slack channel",
+        "do I run invite @Blotato in slack",
+        "slack channel not found in blotato",
+        "private slack channel post fails error code 33001",
+        "blotato cant find my slack channel",
+        "slak private channel blotato app missing",
+        "can blotato post to a private slack channel"
+      ],
+      "not_this": [
+        "this slack channel is archived",
+        "this slack workspace does not let blotato post in this channel",
+        "how do I connect slack to blotato",
+        "slack channel page / subaccount not found",
+        "slack workspace is no longer connected 5000"
+      ],
+      "anchors": [
+        [
+          "slack",
+          "slak",
+          "slck"
+        ],
+        [
+          "/\\b33000\\b/",
+          "/\\b33001\\b/",
+          "private",
+          "invite",
+          "/could not find (this|the|my) (slack )?channel/",
+          "/cant find (my|the) (slack )?channel/",
+          "/channel not found/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "already invited",
+          "ran the invite"
+        ]
+      },
+      "opening": "Both of these usually mean the Blotato app is not yet inside the Slack channel.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The channel either does not exist, or it is a private channel without the Blotato app.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
+            "quote": "The channel does not exist, or it is a private channel without the Blotato app."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Blotato posts to a private channel only after you invite the app.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
+            "quote": "Blotato posts to a private channel only after you invite the app."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "For a private channel, run /invite @Blotato in the channel, then publish again.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
+            "quote": "For a private channel, run /invite @Blotato in the channel, then publish again."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Otherwise, review the workspace's channels in Accounts and publish to another channel.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
+            "quote": "Otherwise, review the workspace's channels in Accounts and publish to another channel."
+          }
+        }
+      ],
+      "next": "In Slack, run /invite @Blotato in the private channel, then publish again.",
+      "proof": "You will know it worked when the post appears in the Slack channel."
+    },
+    {
+      "id": "slack-archived-or-blocked-33002-33003",
+      "kind": "technical",
+      "title": "Slack: the channel is archived, or the workspace blocks Blotato",
+      "phrasings": [
+        "This Slack channel is archived error 33002",
+        "This Slack workspace does not let Blotato post in this channel",
+        "my slack post fails because the channel is archived",
+        "error 33003 slack workspace settings block blotato",
+        "do I need a slack admin to let blotato post",
+        "can blotato post to an archived slack channel",
+        "slack workspace blocks the blotato app from posting",
+        "slak channel archived cant post",
+        "how do I unarchive a slack channel so blotato can post",
+        "does a slack admin have to allow blotato to post"
+      ],
+      "not_this": [
+        "blotato could not find this slack channel",
+        "the blotato app is not in this private slack channel",
+        "slack is limiting how fast blotato can post",
+        "slack rejected the post",
+        "how do I connect slack"
+      ],
+      "anchors": [
+        [
+          "slack",
+          "slak",
+          "slck"
+        ],
+        [
+          "archived",
+          "archive",
+          "unarchive",
+          "/\\b33002\\b/",
+          "/\\b33003\\b/",
+          "workspace admin",
+          "admin",
+          "workspace settings",
+          "/workspace.{0,30}(block|blocks|does not let|doesn't let)/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "admin said",
+          "already unarchived"
+        ]
+      },
+      "opening": "Both of these are settings on the Slack side, and each has its own fix.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "An archived channel accepts no new posts.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
+            "quote": "An archived channel accepts no new posts."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Unarchive the channel in Slack, or publish to another channel.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
+            "quote": "Unarchive the channel in Slack, or publish to another channel."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If the workspace blocks it, the workspace settings block the Blotato app from posting in the channel.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
+            "quote": "The workspace settings block the Blotato app from posting in this channel."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Ask a workspace admin to allow it, or publish to another channel.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
+            "quote": "Ask a workspace admin to allow it, or publish to another channel."
+          }
+        }
+      ],
+      "next": "Unarchive the channel in Slack, or ask a workspace admin to allow Blotato, then publish again.",
+      "proof": "You will know it worked when the post appears in the Slack channel."
+    },
+    {
+      "id": "slack-text-image-video-33004-7000",
+      "kind": "technical",
+      "title": "Slack: post needs text or an image, too many images, or video not supported",
+      "phrasings": [
+        "A Slack post needs text or at least one image",
+        "Slack posts support at most 10 images",
+        "Slack posts support images only. Video is not supported yet.",
+        "can I post a video to slack with blotato",
+        "my slack post with a video fails error 7000",
+        "slack post error 33004",
+        "how many images can I put in one slack post",
+        "slak post cant include video",
+        "my slack post is empty and fails",
+        "how do I remove the video from my slack post but keep it on other platforms"
+      ],
+      "not_this": [
+        "slack rejected the post",
+        "slack could not display this post",
+        "the post is too long for slack",
+        "slack channel archived",
+        "can I post a video to instagram"
+      ],
+      "anchors": [
+        [
+          "slack",
+          "slak",
+          "slck"
+        ],
+        [
+          "/\\b33004\\b/",
+          "/\\b7000\\b/",
+          "needs text",
+          "at most 10 images",
+          "/10 images/",
+          "at least one image",
+          "/(post|send|share|upload|attach|publish)\\w* (a |my |the )?videos?/",
+          "/videos? (to|on|in|into) slack/",
+          "/videos? (is |are )?not supported/",
+          "/(too many|more than 10|11|12|15|20) (images|pictures|photos)/",
+          "/(no|without) (text|caption|image)/",
+          "/empty (post|message)/",
+          "/only (an? )?(image|images|text)/",
+          "/how many (images|pictures|photos)/",
+          "/(cant|can.?t|cannot|can not) (include|post|send|attach|add) (a |any )?videos?/",
+          "/(post|message) is empty/",
+          "/remove the videos?/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": []
+      },
+      "opening": "Slack posts have a few simple content rules, and these errors point at one of them.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "A Slack post needs text, an image, or both, with 10 images at most.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
+            "quote": "A Slack post needs text, an image, or both, with 10 images at most."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Add text or an image, or remove images until 10 or fewer remain, then publish again.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
+            "quote": "Add text or an image, or remove images until 10 or fewer remain, then publish again."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Slack posts accept text and images, not video.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
+            "quote": "Slack posts accept text and images, not video."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Remove every video from the post, or remove the Slack channels from its destinations.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
+            "quote": "Remove every video from the post, or remove the Slack channels from its destinations."
+          }
+        }
+      ],
+      "next": "Add text or an image, or remove the video or extra images, then publish again.",
+      "proof": "You will know it worked when the post appears in the Slack channel."
+    },
+    {
+      "id": "slack-rejected-or-cannot-display-33005",
+      "kind": "technical",
+      "title": "Slack rejected the post, or could not display it (33005)",
+      "phrasings": [
+        "Slack rejected the post error 33005",
+        "Slack could not display this post",
+        "my slack post fails with slack could not display this post",
+        "why does slack refuse my message from blotato",
+        "slack image url needs to open without signing in",
+        "which image types can I send to slack",
+        "slack rejected the post what do I send support",
+        "slak could not display this post",
+        "slack post with an image link fails to display",
+        "do slack image urls have to be png jpeg or gif"
+      ],
+      "not_this": [
+        "slack posts support images only video is not supported",
+        "a slack post needs text or at least one image",
+        "the post is too long for slack",
+        "slack is limiting how fast blotato can post",
+        "slack did not confirm the post"
+      ],
+      "anchors": [
+        [
+          "slack",
+          "slak",
+          "slck"
+        ],
+        [
+          "/\\b33005\\b/",
+          "could not display",
+          "cannot display",
+          "display",
+          "png",
+          "jpeg",
+          "gif",
+          "/image url/",
+          "/image types/",
+          "slack rejected",
+          "rejected by slack",
+          "slack refuses",
+          "slack refused"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "rejected the post"
+        ]
+      },
+      "opening": "Slack refused the message, and the next step depends on which of the two messages you saw.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Slack refused the message.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
+            "quote": "Slack refused the message."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "For \"Slack could not display this post\", confirm every image URL opens without signing in and points to a PNG, JPEG, or GIF file, then publish again.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
+            "quote": "confirm every image URL opens without signing in and points to a PNG, JPEG, or GIF file, then publish again."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "For \"Slack rejected the post\", send support the full error and the channel.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
+            "quote": "send support the full error and the channel."
+          }
+        }
+      ],
+      "next": "Check that each image URL opens without signing in and is a PNG, JPEG, or GIF file, then publish again.",
+      "proof": "You will know it worked when the post appears in the Slack channel."
+    },
+    {
+      "id": "tiktok-unsupported-picture-size",
+      "kind": "technical",
+      "title": "TikTok: Unsupported picture size",
+      "phrasings": [
+        "Unsupported picture size tiktok",
+        "tiktok says unsupported picture size for my image post",
+        "what image size does tiktok accept through blotato",
+        "my tiktok photo post fails, image too large",
+        "tiktok image requirements 1080 x 1920 jpeg 20 mb",
+        "tiktok carousel image rejected for picture size",
+        "does blotato convert my images for tiktok",
+        "unsuported picture size tik tok",
+        "does tiktok accept png images through blotato",
+        "what format do tiktok images need"
+      ],
+      "not_this": [
+        "error uploading images to tiktok please update tiktok to the latest version",
+        "tiktok video is missing the subtitle track",
+        "can I upload multiple photos as a tiktok slideshow",
+        "tiktok video was muted",
+        "instagram image size"
+      ],
+      "anchors": [
+        [
+          "tiktok",
+          "tik tok",
+          "tictok"
+        ],
+        [
+          "/picture size/",
+          "/image size/",
+          "/unsupported picture/",
+          "/image requirements/",
+          "/image format/",
+          "/what format/",
+          "/photo.{0,20}(size|format|requirements)/",
+          "/too large/",
+          "/convert my images/",
+          "png",
+          "jpg"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "already 1080",
+          "already jpeg"
+        ]
+      },
+      "opening": "This error is about the image file itself, so the fix is to check its format, size and weight.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Inspect the image's format, dimensions, and file size.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Inspect the image's format, dimensions, and file size."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Use a JPEG export, such as 1080 × 1920 for portrait images, at no more than 20 MB.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Use a JPEG export, such as 1080 × 1920 for portrait images, at no more than 20 MB."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Blotato attempts image normalization before publishing, but a successful upload does not prove TikTok accepted the image.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Blotato attempts image normalization before publishing, but a successful upload does not prove TikTok accepted the image."
+          }
+        }
+      ],
+      "next": "Export the image as a JPEG at no more than 20 MB, then publish again.",
+      "proof": "You will know it worked when the TikTok photo post publishes without the picture size error."
+    },
+    {
+      "id": "tiktok-is-your-brand-required",
+      "kind": "technical",
+      "title": "API error: target must have isYourBrand or isBrandedContent",
+      "phrasings": [
+        "body.post.target must have required property 'isYourBrand' or 'isBrandedContent'",
+        "my tiktok api post fails with isYourBrand required",
+        "what is isBrandedContent in the blotato api",
+        "where do I put isYourBrand in the tiktok request",
+        "n8n tiktok node asks for isYourBrand",
+        "make.com tiktok publish says isBrandedContent required",
+        "is there a default for isYourBrand",
+        "isyourbrand missing validation error tiktok",
+        "when do I set isBrandedContent to true",
+        "tiktok target fields isYourBrand isBrandedContent both false"
+      ],
+      "not_this": [
+        "how do I post to tiktok from the web app",
+        "my tiktok post fails with unknown error reason",
+        "api 401 unauthorized",
+        "how do I label a post as ai generated",
+        "tiktok photo post fails"
+      ],
+      "anchors": [
+        [
+          "isyourbrand",
+          "isbrandedcontent",
+          "is your brand",
+          "is branded content",
+          "branded content",
+          "/is ?your ?brand/",
+          "/is ?branded ?content/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "already set both",
+          "both are set"
+        ]
+      },
+      "opening": "This is a validation error on the request, and it is fixed by adding two fields.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Both fields are required on every TikTok post sent through the REST API, including the n8n and Make.com nodes.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Both fields are required on every TikTok post sent through the REST API, including the n8n and Make.com nodes."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Put them inside the target object, not content.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Put them inside the target object, not content."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "There is no default, so send both explicitly, even when both are false.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "There is no default -- send both explicitly, even when both are false."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Set isYourBrand to true when the post promotes your own brand, and isBrandedContent to true for a paid partnership.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Set isYourBrand: true when the post promotes your own brand, and isBrandedContent: true for a paid partnership."
+          }
+        }
+      ],
+      "next": "Add isYourBrand and isBrandedContent to the target object of your TikTok request, then send it again.",
+      "proof": "You will know it worked when the request is accepted without the required property error."
+    },
+    {
+      "id": "n8n-multiline-text-escape",
+      "kind": "technical",
+      "title": "Long text with line breaks fails in n8n (use toJsonString)",
+      "phrasings": [
+        "my multi-paragraph post breaks in n8n",
+        "how do I keep line breaks in a blotato post from n8n",
+        "escape multi-line paragraphs error",
+        "n8n text with newlines gives an invalid json error in the publish node",
+        "what is toJsonString in n8n for blotato",
+        "paragraph breaks disappear when I publish from n8n",
+        "how do I preserve newlines in multi paragraph posts",
+        "n8n linebreaks in text field makes request fail",
+        "n8n new lines in my caption break the json body",
+        "toJsonString n8n blotato text"
+      ],
+      "not_this": [
+        "markdown asterisks appear in my post",
+        "how do I add a long link to a post",
+        "how do I connect n8n to blotato",
+        "my n8n workflow gets 401",
+        "make.com line breaks"
+      ],
+      "anchors": [
+        [
+          "n8n",
+          "n 8 n",
+          "/multi-line paragraphs/",
+          "/multi paragraph/",
+          "/preserve newlines/"
+        ],
+        [
+          "newline",
+          "newlines",
+          "new lines",
+          "linebreak",
+          "linebreaks",
+          "line breaks",
+          "line break",
+          "tojsonstring",
+          "paragraph",
+          "paragraphs",
+          "multi-line",
+          "multiline",
+          "escape"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "already used tojsonstring"
+        ]
+      },
+      "opening": "Line breaks inside JSON text need to be escaped, and n8n has a function for that.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Long text with line breaks needs escaping.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Long text with linebreaks needs escaping."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "In n8n, use the toJsonString() function.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "In n8n use toJsonString() function."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The n8n FAQ says to use toJsonString() to preserve newlines in posts with multiple paragraphs.",
+          "cite": {
+            "url": "https://help.blotato.com/integrations-and-automation-templates/n8n/faqs",
+            "quote": "To preserve newlines in posts with multiple paragraphs, use the function toJsonString() in n8n like this:"
+          }
+        }
+      ],
+      "next": "Wrap the text value in your publish node with toJsonString(), then run the workflow again.",
+      "proof": "You will know it worked when the post publishes with its paragraph breaks."
+    },
+    {
+      "id": "new-account-not-warmed-up",
+      "kind": "non-technical",
+      "title": "Brand new account error: the account needs warming up first",
+      "phrasings": [
+        "brand new account error when I connect a social account",
+        "my account is new and posting fails through blotato",
+        "do I need to warm up a new account before connecting blotato",
+        "account not warmed up what does that mean",
+        "can I connect a brand new tiktok account right away",
+        "how long should I post manually before connecting a new account",
+        "new account got flagged after I connected a third party app",
+        "brand new acount error account not warmed up",
+        "should I post organically before using blotato on a fresh account",
+        "what is account warm up and why do I need it"
+      ],
+      "not_this": [
+        "pinterest api access is temporarily restricted to verified accounts only",
+        "how do I connect a new social account",
+        "my tiktok account got banned",
+        "how do I create a new blotato account",
+        "my new blotato account has no credits"
+      ],
+      "anchors": [
+        [
+          "/warm(ed|ing)?[- ]?up/",
+          "/brand new (account|acount)/",
+          "/new (tiktok|instagram|pinterest|social)? ?(account|acount)/",
+          "/account is new/",
+          "organically",
+          "fresh account"
+        ],
+        [
+          "account",
+          "acount",
+          "accounts",
+          "warm",
+          "warmed",
+          "warming"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "already warmed up",
+          "weeks"
+        ]
+      },
+      "opening": "This is about the age and activity of the social account, and it is not a Blotato setting.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The error means the account is not warmed up.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Account not warmed up."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Do not connect third-party apps until the account is established with manual posts.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Don't connect 3rd party apps until account is established with manual posts."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Warm up new accounts manually for several days.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Warm up new accounts manually for several days"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Post organically before connecting to Blotato.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Post organically before connecting to Blotato"
+          }
+        }
+      ],
+      "next": "Post manually on the account for several days, then connect it to Blotato.",
+      "proof": "You will know it worked when the established account connects and publishes without the error."
+    },
+    {
+      "id": "pinterest-site-does-not-allow-pins",
+      "kind": "technical",
+      "title": "Pinterest: Sorry! This site doesn't allow you to save Pins",
+      "phrasings": [
+        "Sorry! This site doesn't allow you to save Pins",
+        "pinterest says this site does not allow you to save pins",
+        "my pin fails because pinterest blocked my link",
+        "pinterest blocklist flagged my url, is it a false positive",
+        "how do I get around the pinterest save pins error",
+        "can I add a parameter to my link so pinterest accepts it",
+        "pin fails with this site doesnt allow you to save pins",
+        "pintrest blocked my website link when posting a pin",
+        "is the save pins error from blotato or pinterest",
+        "the website opted out of being pinned"
+      ],
+      "not_this": [
+        "pinterest api access is temporarily restricted to verified accounts only",
+        "could not create pinterest pin",
+        "how do I find my pinterest board id",
+        "how many pins can I post per day",
+        "pinterest account not verified"
+      ],
+      "anchors": [
+        [
+          "pinterest",
+          "pintrest",
+          "pinterst",
+          "pin",
+          "pins",
+          "pinned"
+        ],
+        [
+          "/allow you to save pins/",
+          "/doesn'?t allow (you )?to save/",
+          "/save pins/",
+          "/blocklist/",
+          "/blocked (my|the) (link|url|website)/",
+          "/opted out of being pinned/",
+          "/false positive/",
+          "parameter",
+          "parameters"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "already added a parameter",
+          "tried a parameter"
+        ]
+      },
+      "opening": "This message comes from Pinterest, and it is about the link in your pin.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "This error is from Pinterest.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "This error is from Pinterest."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Two common causes are that the website indicated it does not want to be pinned, or that Pinterest's blocklist flagged your URL, often as a false positive.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Two common causes: 1) The website indicated they do not want to be pinned. 2) Pinterest's blocklist flagged your URL (often a false positive)."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A workaround is to append parameters to your link, such as ?ref=pin&v=111.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Workaround: append parameters to your link (e.g., ?ref=pin&v=111) so Pinterest sees it as a new URL that bypasses the filter."
+          }
+        }
+      ],
+      "next": "Add a parameter such as ?ref=pin to the end of your link, then publish the pin again.",
+      "proof": "You will know it worked when the pin publishes with the modified link."
+    },
+    {
+      "id": "pinterest-restricted-to-verified",
+      "kind": "technical",
+      "title": "Pinterest API access is temporarily restricted to verified accounts only",
+      "phrasings": [
+        "Pinterest API access is temporarily restricted to verified accounts only",
+        "pinterest says restricted to verified accounts",
+        "pinterest api access is restricted, what does blotato want me to do",
+        "pinterest restricted my api access because the account is new, how long do I warm it up",
+        "pinterest api restricted, do I reconnect after 100 views per month",
+        "api access restricted but my pinterest already has 100 views a month, what now",
+        "pintrest api restricted verified only",
+        "pinterest api access restricted, how many pins a day while warming up",
+        "pinterest says api access is restricted so can support unrestrict me"
+      ],
+      "not_this": [
+        "sorry this site doesn't allow you to save pins",
+        "could not create pinterest pin",
+        "how many pins can I post per day",
+        "how do I find my pinterest board id",
+        "my tiktok account is brand new"
+      ],
+      "anchors": [
+        [
+          "pinterest",
+          "pintrest",
+          "pinterst"
+        ],
+        [
+          "/temporarily restricted/",
+          "/api access/",
+          "/restricted to verified/",
+          "/access is restricted/",
+          "/access restricted/",
+          "/verified accounts?/",
+          "/restricted to/",
+          "/api restricted/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "already reconnected",
+          "over 100 views",
+          "has 100"
+        ]
+      },
+      "opening": "This message means Pinterest still sees the account as new, and the account needs some manual activity first.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Your Pinterest account still looks pretty new, and Pinterest may restrict the API for it.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Your Pinterest still looks pretty new."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "You must warm it up for 2 weeks before connecting to third-party posting tools like Blotato.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "You MUST warm it up for 2 weeks before connecting to 3rd party posting tools like Blotato."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Start posting 1 pin per day manually, then ramp up to 2, then 3, and so on.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Start posting 1 pin per day manually, then gradually ramp up to 2, then 3, etc. pins per day."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If your account already has 100+ monthly views, do not keep warming it up.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "If your Pinterest account already has 100+ monthly views, do not keep warming it up."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Instead, click Reconnect on the Pinterest account in Accounts, then retry the publish.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Go to Accounts, click Reconnect on the Pinterest account, then retry the publish."
+          }
+        }
+      ],
+      "next": "If the account has 100+ monthly views, click Reconnect on it in Accounts and retry the publish.",
+      "proof": "You will know it worked when the Pinterest pin publishes after the reconnect."
+    },
+    {
+      "id": "pinterest-could-not-create-pin",
+      "kind": "technical",
+      "title": "Could not create Pinterest pin (no specific reason shown)",
+      "phrasings": [
+        "Could not create Pinterest pin",
+        "pinterest pin fails with no reason shown",
+        "could not create pin on pinterest, where is the real error",
+        "all my pinterest accounts fail at once but pinning manually works",
+        "pinterest pin creation fails after blotato wrapper message",
+        "how do I read the exact pinterest error for a failed pin",
+        "is pinterest down when blotato cant create pins",
+        "pinterest pin creation failed and I only see a generic message",
+        "pin creation error generic message pinterest logs",
+        "pinterest rejected my pin without a readable reason"
+      ],
+      "not_this": [
+        "pinterest api access is temporarily restricted to verified accounts only",
+        "sorry this site doesn't allow you to save pins",
+        "could not upload media to pinterest",
+        "how many pins can I post per day",
+        "pinterest board id"
+      ],
+      "anchors": [
+        [
+          "pinterest",
+          "pintrest",
+          "pinterst"
+        ],
+        [
+          "/could not creat(e)? (a )?(pinterest )?pin/",
+          "/create (a )?pin/",
+          "/creation/",
+          "/no (specific )?reason/",
+          "/without a readable reason/",
+          "/wrapper/",
+          "/fail at once/",
+          "/pinning manually/",
+          "/exact pinterest error/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "many-accounts"
+        ],
+        "phrases": [
+          "all my pinterest accounts"
+        ]
+      },
+      "opening": "This is a general message, and the real reason is in your logs.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "This is the generic wrapper Blotato shows when Pinterest rejects the pin without a readable reason.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "This is the generic wrapper Blotato shows when Pinterest rejects the pin without a readable reason."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Open your Logs and click the failed request to read the exact Pinterest error response, then match it to the specific Pinterest rows for permission, blocked URL, or verification.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "and click the failed request to read the exact Pinterest error response for that pin, then match it to the specific Pinterest rows above (permission, blocked URL, or verification)."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If the failure starts across all your Pinterest accounts at once while manual pinning still works, it points to a temporary Pinterest API issue on Pinterest's side, rather than your account or link.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "If the failure starts across all your Pinterest accounts at once while manual pinning still works in the Pinterest app, it points to a temporary Pinterest API issue on Pinterest's side rather than your account or link"
+          }
+        }
+      ],
+      "next": "Open your Logs, click the failed request, and read the exact Pinterest response.",
+      "proof": "You will know it worked when you can see the exact Pinterest reason in the log."
+    },
+    {
+      "id": "facebook-200-page-permission",
+      "kind": "technical",
+      "title": "Facebook error (#200): requires pages_read_engagement and pages_manage_posts",
+      "phrasings": [
+        "Error posting to Facebook: (#200) requires pages_read_engagement and pages_manage_posts permission",
+        "facebook says I need pages_manage_posts to post",
+        "facebook error 200 permission when posting to a group",
+        "blotato cant post to my facebook page, permission error 200",
+        "requires both pages_read_engagement and pages_manage_posts as an admin",
+        "facebook page permission missing after connecting",
+        "facbook error #200 pages manage posts",
+        "do I need to remove the facebook integration to fix error 200",
+        "which facebook identity should I reconnect for page permissions"
+      ],
+      "not_this": [
+        "facebook says maximum 25 posts",
+        "please reduce the amount of data you are asking for facebook",
+        "a page is missing from my facebook connection",
+        "how do I post to a facebook personal profile",
+        "facebook page id is wrong"
+      ],
+      "anchors": [
+        [
+          "facebook",
+          "facbook",
+          "fb",
+          "face book",
+          "pages_read_engagement",
+          "pages_manage_posts"
+        ],
+        [
+          "#200",
+          "(#200)",
+          "pages_read_engagement",
+          "pages_manage_posts",
+          "pages read engagement",
+          "pages manage posts",
+          "/error 200/",
+          "/200 permission/",
+          "/page permissions?/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "already reconnected",
+          "admin of the page"
+        ]
+      },
+      "opening": "This error names the permissions Blotato needs on the Facebook Page.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Confirm the intended Facebook identity has publishing access to the Page.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Confirm the intended Facebook identity has publishing access to the Page."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Reconnect that identity and select the required Page and permissions.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Reconnect that identity and select the required Page and permissions."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Blotato publishes to Pages, not Groups or personal profiles.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Blotato publishes to Pages, not Groups or personal profiles."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Do not remove the integration as a routine next step.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Do not remove the integration as a routine next step."
+          }
+        }
+      ],
+      "next": "Reconnect the Facebook identity that has publishing access to the Page, and select the Page and permissions.",
+      "proof": "You will know it worked when a post publishes to the Page without the #200 error."
+    },
+    {
+      "id": "facebook-reduce-amount-of-data",
+      "kind": "technical",
+      "title": "Facebook: Please reduce the amount of data you're asking for",
+      "phrasings": [
+        "Please reduce the amount of data you're asking for, then retry your request",
+        "facebook says reduce the amount of data when I upload a video",
+        "could not upload video to facebook please reduce the amount of data",
+        "does the reduce the amount of data error mean facebook is down",
+        "is the facebook reduce data error about my follower count",
+        "what do I do about the facebook reduce the amount of data message",
+        "did my post go out after the facebook reduce amount of data error",
+        "facbook reduce the ammount of data error",
+        "facebook video upload reduce data retry request",
+        "does facebook reduce data error mean no post was published"
+      ],
+      "not_this": [
+        "could not upload video to facebook there was a problem uploading your video file",
+        "facebook error 200 permission",
+        "facebook says maximum 25 posts",
+        "facebook global id is not allowed for this call",
+        "facebook asks me to verify my identity"
+      ],
+      "anchors": [
+        [
+          "facebook",
+          "facbook",
+          "fb",
+          "face book",
+          "/reduce the amount of data/"
+        ],
+        [
+          "/reduce the (amount|ammount) of data/",
+          "/reduce (the )?data/",
+          "/amount of data/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "again and again",
+          "every time"
+        ]
+      },
+      "opening": "That message does not tell us the cause, so the first step is to check whether the post went out.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The message does not establish an outage, memory exhaustion, or a follower-count threshold.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The message does not establish an outage, memory exhaustion, or a follower-count threshold."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Check the Page and original submission before retrying, since an error does not prove no publication occurred.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Check the Page and original submission before retrying, since an error does not prove no publication occurred."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Keep the exact response and request ID.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Retain the exact response and request ID."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Escalate repeated failures instead of changing the destination or media without evidence.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/facebook/errors",
+            "quote": "Escalate repeated failures instead of changing the destination or media without evidence."
+          }
+        }
+      ],
+      "next": "Check your Facebook Page for the post before you try again, and keep the exact response and request ID.",
+      "proof": "You will know it worked when you can tell whether the post is on the Page."
+    },
+    {
+      "id": "instagram-temporary-error-20003",
+      "kind": "technical",
+      "title": "Instagram encountered a temporary error while publishing (20003)",
+      "phrasings": [
+        "Instagram encountered a temporary error while publishing your post. Please try again in a few minutes.",
+        "instagram temporary error 20003 when I publish",
+        "what is the reference id at the end of the instagram error",
+        "instagram says try again in a few minutes, does blotato retry on its own",
+        "my instagram post failed with a temporary error, how do I retry",
+        "where do I retry a failed instagram post",
+        "instagram temporay error 20003",
+        "do I contact support about the instagram temporary error",
+        "error code 20003 instagram temporary",
+        "instagram post keeps failing with a temporary error and a reference id"
+      ],
+      "not_this": [
+        "instagram server media processing timed out",
+        "we restrict certain activity to protect our community",
+        "slack is limiting how fast blotato can post 20003",
+        "instagram unsupported post type carousel",
+        "my instagram reel was rejected"
+      ],
+      "anchors": [
+        [
+          "instagram",
+          "insta",
+          "instagran",
+          "ig"
+        ],
+        [
+          "/temporary error/",
+          "/temporay error/",
+          "/temporarily/",
+          "/\\b20003\\b/",
+          "/reference id/",
+          "/try again in a few minutes/",
+          "/retry a failed/",
+          "/retry on its own/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "reference id",
+          "keeps failing"
+        ]
+      },
+      "opening": "That error means Instagram had a temporary problem, and Blotato has already tried more than once.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Instagram returned a temporary error while Blotato published the post.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Instagram returned a temporary error while Blotato published the post."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Blotato retries on its own before reporting this.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Blotato retries on its own before reporting this."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Wait a few minutes and retry from Posts > Failed.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Wait a few minutes and retry from Posts > Failed."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The message ends with a reference ID, so include it when you contact support if the post keeps failing.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The message ends with a reference ID. Include it when you contact support if the post keeps failing."
+          }
+        }
+      ],
+      "next": "Wait a few minutes, then retry the post from Posts > Failed.",
+      "proof": "You will know it worked when the post moves from Failed to Published."
+    },
+    {
+      "id": "instagram-media-processing-timeout-20003",
+      "kind": "technical",
+      "title": "Instagram server media processing timed out (20003)",
+      "phrasings": [
+        "Instagram server media processing timed out, can I try submitting the post again in a few minutes?",
+        "instagram media processing timed out in blotato",
+        "my instagram reel says media not ready and timed out",
+        "did the instagram post go out after the media processing timeout",
+        "should I resubmit after instagram media processing timed out",
+        "instagram timed out processing my video, what now",
+        "instgram media procesing timeout 20003",
+        "what is the reference id for the instagram media timeout",
+        "does an instagram media timeout prove the post did not publish",
+        "blotato waited for instagram media but it never became ready"
+      ],
+      "not_this": [
+        "instagram encountered a temporary error while publishing",
+        "my api request timed out and I am not sure the post was created",
+        "instagram reel rejected because under 300 mb and 15 minutes",
+        "instagram restrict activity",
+        "scheduled posts disappear at publish time"
+      ],
+      "anchors": [
+        [
+          "instagram",
+          "insta",
+          "instgram",
+          "ig"
+        ],
+        [
+          "/media processing/",
+          "/procesing/",
+          "/media not ready/",
+          "/never became ready/",
+          "/not ready/",
+          "/\\b20003\\b/",
+          "/processing (timed out|timeout)/",
+          "/media (timed out|timeout)/",
+          "/server media/",
+          "/timed out processing/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "reference id"
+        ]
+      },
+      "opening": "This timeout does not tell us the post failed, so check the destination first.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Blotato exhausted its publishing wait and retry path while Instagram still reported the media as not ready.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Blotato exhausted its publishing wait/retry path while Instagram still reported media not ready."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Keep the reference ID.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Preserve the reference ID."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Check the destination and original post status before a delayed retry.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Check the destination and original post status before a delayed retry."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Do not treat a timeout alone as proof of no platform-side result.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Do not treat a timeout alone as proof of no platform-side result."
+          }
+        }
+      ],
+      "next": "Check your Instagram account and the post status in Blotato before you retry.",
+      "proof": "You will know it worked when you can tell whether the post is already on Instagram."
+    },
+    {
+      "id": "instagram-carousel-too-many-attachments",
+      "kind": "technical",
+      "title": "Instagram: Unsupported post type, too little or too many attachments for a carousel",
+      "phrasings": [
+        "Could not publish on Instagram: Unsupported post type. The post has too little or too many attachments to qualify as a carousel",
+        "instagram carousel fails unsupported post type",
+        "how many images can an instagram carousel have through the api",
+        "my instagram carousel has 12 images and fails",
+        "instagram says too many attachments for a carousel",
+        "maximum images or videos per instagram carousel",
+        "instgram carousel unsuported post type",
+        "my instagram carousel with one image will not publish as a carousel",
+        "carousel attachments limit instagram blotato api",
+        "is 10 the limit for an instagram carousel"
+      ],
+      "not_this": [
+        "how do I make a carousel in blotato",
+        "my instagram story posted as a feed post",
+        "linkedin carousel pdf",
+        "instagram reel rejected",
+        "instagram media processing timed out"
+      ],
+      "anchors": [
+        [
+          "instagram",
+          "insta",
+          "instgram",
+          "ig"
+        ],
+        [
+          "carousel",
+          "carousels",
+          "carosel",
+          "attachments",
+          "unsupported post type",
+          "unsuported post type"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "exactly 10",
+          "under 10"
+        ]
+      },
+      "opening": "This error is about how many pieces of media are in the carousel.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Via the API, Instagram supports a maximum of 10 images or videos per carousel.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Via API, Instagram supports a maximum of 10 images or videos per carousel."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The social platform requirements page says the same: Instagram carousels support up to 10 images or videos.",
+          "cite": {
+            "url": "https://help.blotato.com/tips-and-tricks/social-platform-requirements",
+            "quote": "Instagram carousels support up to 10 images or videos."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The error says the post has too little or too many attachments to qualify as a carousel.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The post has too little or too many attachments to qualify as a carousel"
+          }
+        }
+      ],
+      "next": "Count the media in the carousel and keep it at 10 images or videos or fewer.",
+      "proof": "You will know it worked when the carousel publishes to Instagram."
+    },
+    {
+      "id": "x-video-longer-than-2-minutes",
+      "kind": "technical",
+      "title": "X/Twitter 403: not allowed to post a video longer than 2 minutes",
+      "phrasings": [
+        "This user is not allowed to post a video longer than 2 minutes",
+        "twitter 403 forbidden video longer than 2 minutes",
+        "x rejects my video duration through blotato",
+        "does x premium let me post longer videos from blotato",
+        "my twitter video over 2 minutes fails with 403",
+        "is the 120 second conversion limit the cause of the twitter video error",
+        "x video too long forbidden connected account",
+        "twiter video longer than 2 minutes 403",
+        "why cant I post a 3 minute video on x with blotato",
+        "twitter api publishing restrictions video length"
+      ],
+      "not_this": [
+        "this video is 200 seconds long but we can only automatically fix videos up to 120 seconds",
+        "you are not permitted to perform this action twitter 403",
+        "you are not allowed to create a tweet with duplicate content",
+        "tweet is longer than 280 characters",
+        "instagram reel too long"
+      ],
+      "anchors": [
+        [
+          "x",
+          "twitter",
+          "twiter",
+          "tweet",
+          "x/twitter",
+          "/this user is not allowed to post a video/"
+        ],
+        [
+          "/longer than 2 minutes/",
+          "/video.{0,30}(2 minutes|two minutes|too long|duration|length)/",
+          "/(2 minutes|two minutes).{0,30}video/",
+          "/longer videos/",
+          "premium",
+          "/conversion limit/",
+          "/\\d+ minute video/",
+          "/3 minute/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "x premium",
+          "subscribed"
+        ]
+      },
+      "opening": "This is a rejection from X for the connected account, and it is about the video's duration.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "X rejected the video's duration for the connected account.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "X rejected the video's duration for the connected account."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Blotato passes Twitter videos through without automatic conversion, so its 120-second conversion gate is not the cause on this path.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Blotato passes Twitter videos through without automatic conversion, so its 120-second conversion gate is not the cause on this path."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Check the account's API publishing restrictions and file requirements.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Check the account's API publishing restrictions and file requirements."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "An X Premium subscription is not a sure way to get a longer video accepted.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "An X Premium subscription does not guarantee acceptance."
+          }
+        }
+      ],
+      "next": "Check the connected X account's API publishing restrictions and the file requirements for your video.",
+      "proof": "You will know it worked when the video publishes to X without the 403 error."
+    },
+    {
+      "id": "x-not-permitted-403",
+      "kind": "technical",
+      "title": "X/Twitter 403: You are not permitted to perform this action",
+      "phrasings": [
+        "You are not permitted to perform this action twitter 403 forbidden",
+        "my x post fails with you are not permitted to perform this action",
+        "twitter says I am not permitted to perform this action in blotato, what do I do",
+        "twitter authorization expired in blotato",
+        "do I reconnect my x account when it says not permitted",
+        "twitter permissions changed and my posts fail",
+        "x not permitted reconnect twitter account",
+        "twiter not permited to perform this action",
+        "blotato twitter post forbidden how to reauthorize",
+        "after I changed my x app permissions posting stopped"
+      ],
+      "not_this": [
+        "you are not allowed to create a tweet with duplicate content",
+        "this user is not allowed to post a video longer than 2 minutes",
+        "how do I reconnect an expired instagram account",
+        "api 403 forbidden for my api key",
+        "twitter 429 rate limit"
+      ],
+      "anchors": [
+        [
+          "x",
+          "twitter",
+          "twiter",
+          "tweet",
+          "x/twitter"
+        ],
+        [
+          "/not permitted/",
+          "/not permited/",
+          "/reauthorize/",
+          "/re-authorize/",
+          "authorization",
+          "permissions"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "already reconnected",
+          "reauthorized"
+        ]
+      },
+      "opening": "This 403 usually means the X connection needs to be refreshed.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The error means the Twitter/X authorization expired or permissions changed.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Twitter/X authorization expired or permissions changed."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Go to Accounts, find your Twitter account, and click Reconnect.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Go to Accounts, find your Twitter account, and click Reconnect."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Re-authorize the app when prompted.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Re-authorize the app when prompted."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Retry your post after reconnecting.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Retry your post after reconnecting."
+          }
+        }
+      ],
+      "next": "Open Accounts, click Reconnect on your Twitter account, and authorize the app again.",
+      "proof": "You will know it worked when the retried post publishes to X."
+    },
+    {
+      "id": "x-duplicate-content-403",
+      "kind": "technical",
+      "title": "X/Twitter 403: not allowed to create a Tweet with duplicate content",
+      "phrasings": [
+        "You are not allowed to create a Tweet with duplicate content",
+        "twitter says duplicate content when I repost the same text",
+        "my x post fails with a 403 duplicate content error",
+        "can I post the same tweet text twice through blotato",
+        "twitter rejects my post identical to a previous tweet",
+        "I scheduled the same tweet twice and one fails",
+        "twiter duplicate content forbidden",
+        "how do I fix duplicate content on x",
+        "can I repost the same caption on x",
+        "tweet identical text rejected by x"
+      ],
+      "not_this": [
+        "my post was published twice on the platform",
+        "you are not permitted to perform this action twitter",
+        "all selected platforms are already queued for publishing",
+        "facebook duplicate post",
+        "twitter video longer than 2 minutes"
+      ],
+      "anchors": [
+        [
+          "x",
+          "twitter",
+          "twiter",
+          "tweet",
+          "tweets",
+          "x/twitter"
+        ],
+        [
+          "duplicate",
+          "duplicates",
+          "identical",
+          "same text",
+          "same tweet",
+          "same caption",
+          "same post twice",
+          "same as"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "changed the caption",
+          "different text"
+        ]
+      },
+      "opening": "X turns down tweets that repeat the text of an earlier tweet on the same account.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "X/Twitter rejects posts with identical text to a previous tweet on your account.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "X/Twitter rejects posts with identical text to a previous tweet on your account."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Change the caption text, even slightly, before reposting.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Change the caption text (even slightly) before reposting."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If you scheduled the same post twice by accident, delete the duplicate from Posts > Scheduled.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "If you scheduled the same post twice by accident, delete the duplicate from Posts > Scheduled."
+          }
+        }
+      ],
+      "next": "Change the caption text slightly and publish again.",
+      "proof": "You will know it worked when the post publishes to X."
+    },
+    {
+      "id": "post-published-twice",
+      "kind": "technical",
+      "title": "A post was published twice (duplicate post)",
+      "phrasings": [
+        "my post was published twice on instagram",
+        "I see the same post twice on my page after publishing with blotato",
+        "duplicate post on the platform, which copy should I keep",
+        "why did blotato post my content two times",
+        "does a duplicate post mean there was a timeout",
+        "what should I send support about a double published post",
+        "post published two times how do I tell which client sent it",
+        "my post got posted twice, what evidence does support need",
+        "post publihsed twice duplicate",
+        "two copies of the same post went live"
+      ],
+      "not_this": [
+        "you are not allowed to create a tweet with duplicate content",
+        "I scheduled the same post twice and want to delete one",
+        "all selected platforms are already queued",
+        "I was charged twice",
+        "my post failed to publish and I want to send it again"
+      ],
+      "anchors": [
+        [
+          "twice",
+          "two times",
+          "2 times",
+          "duplicate",
+          "duplicated",
+          "double",
+          "two copies",
+          "same post two"
+        ],
+        [
+          "published",
+          "posted",
+          "publish",
+          "post",
+          "went live",
+          "live"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "delete one",
+          "remove one"
+        ]
+      },
+      "opening": "A double post is worth a careful look, because the cause is not obvious from the copy alone.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Duplicate content does not by itself prove a timeout or identify which client sent the requests.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Duplicate content does not by itself prove a timeout or identify which client sent the requests."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Record both platform URLs, destinations, submission IDs when available, and timestamps.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Record both platform URLs, destinations, submission IDs when available, and timestamps."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Ask which copy to keep before removal through the social platform.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Ask which copy to keep before removal through the social platform."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Send support the evidence.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Send support the evidence."
+          }
+        }
+      ],
+      "next": "Write down both post URLs, the destinations, the submission IDs and the times, and send them to support.",
+      "proof": "Still open: why the post appeared twice. A person on the team can look at the evidence you collect."
+    },
+    {
+      "id": "bluesky-media-rejected",
+      "kind": "technical",
+      "title": "Bluesky media attachment rejected",
+      "phrasings": [
+        "Bluesky media attachment rejected",
+        "my bluesky post with images fails in blotato",
+        "how many images can I attach to a bluesky post",
+        "can I post a video and images together on bluesky",
+        "bluesky video url rejected by blotato",
+        "is the media url public enough for bluesky",
+        "bluesy media attachement rejected",
+        "bluesky supports up to 4 images or 1 video?",
+        "which image formats does bluesky accept through blotato",
+        "bluesky post with five pictures will not publish"
+      ],
+      "not_this": [
+        "how do I connect bluesky",
+        "bluesky character limit",
+        "could not upload media to twitter",
+        "bluesky thread",
+        "can I schedule on bluesky"
+      ],
+      "anchors": [
+        [
+          "bluesky",
+          "bluesy",
+          "blue sky",
+          "bsky"
+        ],
+        [
+          "attachment",
+          "attachement",
+          "/(media|image|images|video|videos|photo|photos|picture|pictures|attachment)s? (was |were |got |is |are |keeps getting |kept getting )?(rejected|refused|declined|not accepted)/",
+          "/(rejected|refused|rejects|refuses) (my |the |an? )?(media|image|images|video|videos|photo|photos|picture|pictures|attachment)/",
+          "media rejected",
+          "/how many (images|pictures|photos|videos)/",
+          "/(images|pictures|photos)\\b.{0,30}\\bvideos?\\b/",
+          "/\\bvideos?\\b.{0,30}\\b(images|pictures|photos)\\b/",
+          "/\\b(\\d+|two|three|four|five|six|seven|eight) (images|pictures|photos)\\b/",
+          "/(image|media|video) (url|urls|format|formats|type|types)/",
+          "/(image|images|picture|pictures|photo|photos|video|videos|media) (fails?|failed|will not publish|won.?t publish|wont publish)/",
+          "/video url rejected/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "url is public",
+          "already public"
+        ]
+      },
+      "opening": "Bluesky media errors usually come down to how many items you attach and whether Blotato can reach them.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Attach up to 4 images or 1 video per Bluesky post.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Attach up to 4 images or 1 video per Bluesky post."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Confirm every media URL is public and uses a supported format.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Confirm every media URL is public and uses a supported format."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The social platform requirements page says the same: each Bluesky post supports up to 4 images or 1 video.",
+          "cite": {
+            "url": "https://help.blotato.com/tips-and-tricks/social-platform-requirements",
+            "quote": "Each Bluesky post supports up to 4 images or 1 video."
+          }
+        }
+      ],
+      "next": "Check that the post has no more than 4 images or 1 video, and that every media URL opens publicly.",
+      "proof": "You will know it worked when the Bluesky post publishes with its media."
+    },
+    {
+      "id": "tiktok-failed-after-3-retries",
+      "kind": "technical",
+      "title": "TikTok: Failed to publish after 3 retries (Unknown error reason)",
+      "phrasings": [
+        "Failed to publish TikTok post after 3 retries (Unknown error reason)",
+        "tiktok unknown error reason in blotato",
+        "my tiktok post failed after 3 retries",
+        "does unknown error reason mean tiktok itself is having problems",
+        "should I reconnect tiktok when it says unknown error reason",
+        "tiktok publish retry loop exhausted",
+        "tik tok unknown error reason what do I send support",
+        "tiktok failed 3 retries is it a credits problem",
+        "tictok failed to publish unknown reason",
+        "tiktok failed after retries, what should I check"
+      ],
+      "not_this": [
+        "tiktok post disappears and never appears stuck buffering",
+        "error uploading images to tiktok update tiktok",
+        "tiktok maximum number of 3 unique accounts",
+        "tiktok unsupported picture size",
+        "tiktok video is missing the subtitle track"
+      ],
+      "anchors": [
+        [
+          "tiktok",
+          "tik tok",
+          "tictok"
+        ],
+        [
+          "/3 retries/",
+          "/three retries/",
+          "/unknown error/",
+          "/retries/",
+          "/retry loop/",
+          "/unknown reason/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "several accounts",
+          "all my tiktok"
+        ]
+      },
+      "opening": "That message does not point to one cause, so the first step is to check the account.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Blotato exhausted its retry loop.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Blotato exhausted its retry loop."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Unknown error reason is a fallback for an unmapped failure reason, not proof of an outage or credit problem.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Unknown error reason is a fallback for an unmapped failure reason, not proof of an outage or credit problem."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Check the destination before another submission, then send support the full error and reference IDs.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Check the destination before another submission, then send support the full error and reference IDs."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Do not reconnect solely because the reason is unknown.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/tiktok/faqs",
+            "quote": "Do not reconnect solely because the reason is unknown."
+          }
+        }
+      ],
+      "next": "Check your TikTok account for the post, then send support the full error and the reference IDs.",
+      "proof": "Still open: the real reason for the failure. A person on the team will check the TikTok failure details."
+    },
+    {
+      "id": "tiktok-post-disappears-buffering",
+      "kind": "technical",
+      "title": "TikTok post disappears and never appears (stuck buffering, not in Failed Posts)",
+      "phrasings": [
+        "my tiktok post disappears and never shows up",
+        "tiktok post stuck on buffering and not in failed posts",
+        "tiktok scheduled post left upcoming posts but is not on tiktok",
+        "tiktok post vanished at its scheduled time",
+        "should I repost my tiktok when it disappeared from the schedule",
+        "tiktok stuck publishing state, other platforms went fine",
+        "tik tok post missing no failed post record",
+        "tictok post never apears",
+        "where did my scheduled tiktok go",
+        "tiktok post not in published or failed"
+      ],
+      "not_this": [
+        "tiktok failed to publish after 3 retries",
+        "scheduled youtube post disappears at publish time",
+        "my instagram post shows published but is not visible",
+        "tiktok video muted",
+        "tiktok post has low views"
+      ],
+      "anchors": [
+        [
+          "tiktok",
+          "tik tok",
+          "tictok"
+        ],
+        [
+          "disappear",
+          "disappears",
+          "disappeared",
+          "vanished",
+          "never shows",
+          "never appears",
+          "never apears",
+          "buffering",
+          "where did",
+          "/left upcoming/",
+          "/not in (published|failed)/",
+          "stuck buffering",
+          "went missing",
+          "gone missing",
+          "is gone",
+          "just gone",
+          "/stuck (in )?publishing state/",
+          "/no failed post/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "not in logs",
+          "no request in logs"
+        ]
+      },
+      "opening": "A missing TikTok post is an unresolved outcome, so the first step is to look for it before sending anything again.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The publishing outcome is unresolved.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The publishing outcome is unresolved."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Check the original submission, destination, and existing post records.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Check the original submission, destination, and existing post records."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Do not repost because the schedule disappeared, and do not blame a service without evidence.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Do not repost because the schedule disappeared or blame a service without evidence."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Send support the destination, scheduled time with timezone, submission or reference ID, and the checks already done.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/tiktok/faqs",
+            "quote": "Send support the destination, scheduled time with timezone, submission/reference ID, and checks already completed."
+          }
+        }
+      ],
+      "next": "Check Posts > Scheduled, Published and Failed for the same content, and look for the post on your TikTok account.",
+      "proof": "Still open: where the post went. A person on the team can look at the details you collect."
+    },
+    {
+      "id": "scheduled-posts-disappear-no-error",
+      "kind": "technical",
+      "title": "Scheduled posts disappear at publish time with no error (YouTube, Facebook, Instagram)",
+      "phrasings": [
+        "my scheduled post disappeared at publish time with no error",
+        "scheduled youtube post left upcoming posts and is not in failed posts",
+        "scheduled instagram post vanished and is not in published or failed",
+        "facebook scheduled post gone from upcoming and not on the page",
+        "how do I find out what happened to a scheduled post that disappeared",
+        "should I re-upload the file when my scheduled post disappears",
+        "scheduled post dissapeared at the scheduled time",
+        "is a corrupt file why my scheduled post vanished",
+        "post left the upcoming list but never published",
+        "no error and not in failed posts after the scheduled time"
+      ],
+      "not_this": [
+        "my tiktok post disappears and never shows up",
+        "my post shows published but is not on the platform",
+        "my posts show canceled",
+        "how do I view scheduled posts",
+        "my scheduled post failed with a media fetch error"
+      ],
+      "anchors": [
+        [
+          "/(youtube|facebook|instagram|insta)/",
+          "platforms",
+          "scheduled post",
+          "scheduled posts",
+          "/left (the )?upcoming/",
+          "failed posts",
+          "upcoming"
+        ],
+        [
+          "disappear",
+          "disappears",
+          "disappeared",
+          "dissapeared",
+          "vanished",
+          "left upcoming",
+          "not in failed",
+          "not in published",
+          "no error",
+          "/never published/",
+          "just gone",
+          "gone without",
+          "gone with no",
+          "/gone from (the )?(upcoming|calendar|schedule|queue)/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "multiple posts",
+          "every scheduled"
+        ]
+      },
+      "opening": "A post that leaves the upcoming list is not the same as a post that failed, so we need to look for the outcome.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "A schedule leaving Upcoming Posts does not establish publication or failure.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "A schedule leaving Upcoming Posts does not establish publication or failure."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Check Published Posts, Failed Posts, the intended platform account, and the original submission ID when available.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Check Published Posts, Failed Posts, the intended platform account, and the original submission ID when available."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Do not infer a corrupt stored file or re-upload without evidence.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Do not infer a corrupt stored file or re-upload without evidence."
+          }
+        }
+      ],
+      "next": "Check Published Posts and Failed Posts, then look at the platform account itself.",
+      "proof": "You will know it worked when you find the post in Published Posts, in Failed Posts, or on the platform."
+    },
+    {
+      "id": "tiktok-update-app-error",
+      "kind": "technical",
+      "title": "TikTok: Please notice the user to update their TikTok to the latest version",
+      "phrasings": [
+        "Error uploading images to TikTok: notice the user to update their TikTok to the latest version",
+        "tiktok says update the app but mine is already up to date",
+        "tiktok photo post fails and tells me to update tiktok",
+        "my tiktok carousel fails with update to the latest version to enable this functionality",
+        "what do I do when tiktok asks me to update the app through blotato",
+        "one tiktok account works and another keeps failing with the update message",
+        "should I clear the tiktok cache for the update error",
+        "tik tok update lastest version error images",
+        "do I disconnect my tiktok account for the update error",
+        "tictok image post update to latest version"
+      ],
+      "not_this": [
+        "tiktok unsupported picture size",
+        "tiktok failed to publish after 3 retries",
+        "can I upload multiple photos as a tiktok slideshow",
+        "tiktok video is muted",
+        "how do I connect tiktok"
+      ],
+      "anchors": [
+        [
+          "tiktok",
+          "tik tok",
+          "tictok"
+        ],
+        [
+          "/update (their |my |the )?tiktok/",
+          "/update the app/",
+          "/update tiktok/",
+          "/latest version/",
+          "/lastest version/",
+          "/notice the user/",
+          "/update message/",
+          "/update error/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "cleared the cache",
+          "remove the account"
+        ]
+      },
+      "opening": "This message comes from TikTok, and it shows up even when the app is already current.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "This error comes from TikTok on image and carousel (photo) posts, and it appears even when the TikTok app is already up to date.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "This error comes from TikTok on image and carousel (photo) posts, and it appears even when the TikTok app is already up to date."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "On the phone connected to that TikTok account: update the TikTok app, open it once and log in, force close, reopen, then go to Profile > Settings and privacy > Free up space and clear the cache.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "On the phone connected to that TikTok account: update the TikTok app, open it once and log in, force close, reopen, then go to Profile > Settings and privacy > Free up space and clear the cache."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Do not disconnect the account, because Reconnect refreshes the token without failing your scheduled posts.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/tiktok/faqs",
+            "quote": "Do not disconnect the account. Reconnect refreshes the token without failing your scheduled posts."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If one TikTok account works while another keeps failing, the block sits on that specific TikTok account.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "If one TikTok account works while another keeps failing, the block sits on that specific TikTok account."
+          }
+        }
+      ],
+      "next": "On the phone connected to that TikTok account, update the app, force close it, clear the cache, and retry from Posts > Failed.",
+      "proof": "You will know it worked when the retried photo post publishes to TikTok."
+    },
+    {
+      "id": "no-available-slot-9-months",
+      "kind": "technical",
+      "title": "Could not schedule post: No available slot time found in the next 9 months",
+      "phrasings": [
+        "Could not schedule post: No available slot time found in the next 9 months",
+        "no available slot time found in the next year",
+        "next free slot fails in blotato",
+        "useNextFreeSlot true returns no available slot",
+        "how do I add a slot to the weekly schedule",
+        "do I need slots to schedule at an exact time",
+        "next free slot time does not find any time for my account",
+        "no avilable slot time found 9 months",
+        "where is the weekly schedule in blotato"
+      ],
+      "not_this": [
+        "scheduled time is too far in the future",
+        "how do I reschedule a post",
+        "the schedule button is grey",
+        "how many scheduled posts can I have",
+        "my scheduled post did not go out"
+      ],
+      "anchors": [
+        [
+          "slot",
+          "slots",
+          "useNextFreeSlot",
+          "next free slot",
+          "usenextfreeslot",
+          "/weekly schedule/"
+        ],
+        [
+          "/no avail(a|i)ble/",
+          "/next 9 months/",
+          "/next year/",
+          "/not find/",
+          "/add (a )?slot/",
+          "/weekly schedule/",
+          "/exact[- ]time/",
+          "/useNextFreeSlot/i",
+          "/next free slot/",
+          "/no avilable/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "already added a slot"
+        ]
+      },
+      "opening": "This error means Blotato could not find a matching free time, and slots are what it looks at.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "No available matching time was found in the search window.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "No available matching time was found in the search window."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If a slot is needed, choose Add Slot, select Time, Days, and Accounts, then Create.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "If a slot is needed, choose Add Slot, select Time, Days, and Accounts, then Create."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Exact-time scheduling does not require slots.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Exact-time scheduling does not require slots."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Do not remove scheduling fields as a workaround, because an unscheduled request publishes immediately.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Do not remove scheduling fields as a workaround because an unscheduled request publishes immediately."
+          }
+        }
+      ],
+      "next": "Open the Weekly schedule, check the slots for the platform and account, and add one if you need it.",
+      "proof": "You will know it worked when the post is scheduled into a slot without the error."
+    },
+    {
+      "id": "account-not-found-5000",
+      "kind": "technical",
+      "title": "API error: Account N not found (5000)",
+      "phrasings": [
+        "Account 12345 not found error code 5000",
+        "blotato api says account not found for my accountId",
+        "why does my accountId not work, account not found",
+        "I used an id from another platform and get account not found",
+        "how do I find the right account id for the api",
+        "accountId does not belong to the api key I used",
+        "error 5000 account not found after disconnecting an account",
+        "acount not found 5000 blotato",
+        "the account was disconnected, how do I get a valid id",
+        "list accounts to get the ids for publish post"
+      ],
+      "not_this": [
+        "this slack workspace is no longer connected 5000",
+        "no connected instagram account 5000 on my automation",
+        "page / subaccount not found",
+        "how do I connect a second account",
+        "api 401 unauthorized"
+      ],
+      "anchors": [
+        [
+          "/account \\d* ?not found/",
+          "/acount not found/",
+          "/accountid/",
+          "/account id/",
+          "/account ids/",
+          "/\\b5000\\b/",
+          "/valid id/",
+          "/list accounts/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "returned by list accounts",
+          "copied from list accounts"
+        ]
+      },
+      "opening": "This error means the account ID you sent is not one Blotato can match to your API key.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The accountId does not belong to the API key you used, the account was disconnected, or you used an ID from another platform.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The accountId does not belong to the API key you used, the account was disconnected, or you used an ID from another platform."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Call List Accounts, or use blotato_list_accounts, and then retry with one of the returned IDs.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Call List Accounts or blotato_list_accounts, then retry with one of the returned IDs."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "After disconnecting and reconnecting an account, get the current ID before retrying.",
+          "cite": {
+            "url": "https://help.blotato.com/api-and-mcp-concepts/accounts-and-identifiers",
+            "quote": "After disconnecting and reconnecting an account, retrieve the current ID before retrying."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A saved workflow or brand mapping might contain a stale ID.",
+          "cite": {
+            "url": "https://help.blotato.com/api-and-mcp-concepts/accounts-and-identifiers",
+            "quote": "A saved workflow or brand mapping might contain a stale ID."
+          }
+        }
+      ],
+      "next": "Call List Accounts with the same API key and retry with one of the IDs it returns.",
+      "proof": "You will know it worked when the request is accepted with an ID from your own list."
+    },
+    {
+      "id": "text-length-exceeds-20005",
+      "kind": "technical",
+      "title": "Text length exceeds the character limit for a platform (20005)",
+      "phrasings": [
+        "Text length exceeds the character limit of N characters for platform X",
+        "Tweet is longer than 280 characters",
+        "error code 20005 when I publish a post",
+        "my post text is too long for the platform, what do I do",
+        "do emoji count as 2 characters in blotato",
+        "is my text too long for the platform, and does that include additionalPosts",
+        "tweet too long 20005 error x account",
+        "the post is too long for slack",
+        "txt lenght exceeds the character limit",
+        "which platform is my text too long for"
+      ],
+      "not_this": [
+        "what is the character limit for instagram captions",
+        "what is the bluesky character limit",
+        "how many characters can a linkedin post have",
+        "my public reply exceeds the maximum length 20303",
+        "how do I add a long link to my post",
+        "the scheduled post limit for my plan",
+        "markdown asterisks appear in my post"
+      ],
+      "anchors": [
+        [
+          "/\\b20005\\b/",
+          "/text length exceeds/",
+          "/tweet is longer/",
+          "/post is too long/",
+          "/text (is )?too long/",
+          "/too long for/",
+          "/lenght exceeds/",
+          "/emoji count/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "under the limit",
+          "below the limit"
+        ]
+      },
+      "opening": "This error means the text is longer than the platform allows.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The post text is too long for the target platform.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The post text is too long for the target platform."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Shorten the text and any additionalPosts listed in the error details, then retry.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Shorten the text and any additionalPosts listed in the error details, then retry."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Emoji and full-width characters count as 2.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Emoji and full-width characters count as 2."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "For Slack, posts hold up to 3,000 characters.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/slack/errors",
+            "quote": "Slack posts hold up to 3,000 characters."
+          }
+        }
+      ],
+      "next": "Shorten the text, and any additional posts the error lists, then publish again.",
+      "proof": "You will know it worked when the post publishes without the character limit error."
+    },
+    {
+      "id": "app-client-side-exception",
+      "kind": "non-technical",
+      "title": "Application error: a client-side exception has occurred while loading my.blotato.com",
+      "phrasings": [
+        "Application error: a client-side exception has occurred while loading my.blotato.com",
+        "the blotato app will not load, it shows a client-side exception",
+        "I cannot log in to blotato, the page shows application error",
+        "blotato shows a blank page with application error after loading screens",
+        "is the client-side exception my account or my browser",
+        "how do I fix application error on my.blotato.com",
+        "my.blotato.com says client side exception",
+        "aplication error client-side exception blotato",
+        "should I clear site data for blotato when the app wont load",
+        "blotato website broken error loading after a few loading screens"
+      ],
+      "not_this": [
+        "I cannot log in because the verification code does not arrive",
+        "blotato is down for everyone",
+        "the blotato navigation menu is missing",
+        "my post failed to publish",
+        "a blank post editor with no calendar"
+      ],
+      "anchors": [
+        [
+          "/client[- ]side exception/",
+          "/application error/",
+          "/aplication error/",
+          "/app (wont|won't|will not|does not) load/",
+          "/loading screens/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "incognito",
+          "different browser",
+          "another device",
+          "ad blocker off"
+        ]
+      },
+      "opening": "This error comes from your browser and not from your Blotato account, and a few steps usually clear it.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "This is almost always a browser issue, not your account.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "This is almost always a browser issue, not your account."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Start with a hard refresh.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Start with a hard refresh."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Turn off ad blockers and privacy extensions, then reload.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Turn off ad blockers and privacy extensions (uBlock, Ghostery, and similar), then reload."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Clear site data for blotato.com only: click the padlock by the URL, open Site settings, click Clear data, then log in fresh.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Clear site data for blotato.com only: click the padlock by the URL, open Site settings, click Clear data, then log in fresh."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If none of that helps, screenshot the browser console when the error shows and send it to support through the in-app messenger.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "If none of that helps, open the browser console when the error shows (right-click the page, Inspect, Console tab), screenshot it, and send it to support through the in-app messenger."
+          }
+        }
+      ],
+      "next": "Refresh the page first, then try an incognito window or another browser.",
+      "proof": "You will know it worked when my.blotato.com loads and you can log in."
+    },
+    {
+      "id": "tiktok-posting-limit-numbers-disagree",
+      "kind": "technical",
+      "title": "TikTok per-account posting limit: the help pages give two different numbers",
+      "phrasings": [
+        "how many posts per day can I make to one tiktok account in blotato",
+        "tiktok says maximum 10 posts per account but I thought it was 25",
+        "what is the tiktok daily posting limit per account",
+        "the starter tiktok error says up to 10 posts per account",
+        "is the tiktok limit 10 or 25 posts per 24 hours",
+        "tiktok per account post limit validator",
+        "blotato tiktok limit conflicting numbers",
+        "tictok posts per acount limit 25 or 10",
+        "which is right for tiktok, 25 posts a day or 10",
+        "tiktok maximum posts per account on creator plan"
+      ],
+      "not_this": [
+        "why did I hit my starter limit after using only 3 tiktok accounts",
+        "what does the pricing page 900 tiktok posts a month mean",
+        "what are the posting limits for instagram",
+        "youtube maximum number of 10 posts",
+        "how many social accounts can I connect"
+      ],
+      "anchors": [
+        [
+          "tiktok",
+          "tik tok",
+          "tictok"
+        ],
+        [
+          "/10 posts/",
+          "/25 posts/",
+          "/posts per account/",
+          "/per account/",
+          "/per day/",
+          "/daily/",
+          "/posting limit/",
+          "/post limit/",
+          "/conflicting/",
+          "/per acount/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": []
+      },
+      "opening": "I want to give you a right answer here, and the help pages give two different numbers for this limit, so I am asking a person to confirm.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The Platform Posting Limits table lists TikTok as 25 posts per account per rolling 24 hours in the current validator.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "25 posts per account per rolling 24h in the current validator"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "That same table says the Starter error still mentions 10 posts per account.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "The Starter error still mentions 10 posts per account."
+          }
+        },
+        {
+          "type": "action",
+          "text": "I am passing this to a person on the team, because the help pages do not agree on one number."
+        }
+      ],
+      "next": "Tell me which plan you are on and the exact error text, so the team can confirm the right limit for you.",
+      "proof": "Still open: which number is the right per-account TikTok limit. A person on the team will confirm.",
+      "escalate": {
+        "why": "The help center gives two numbers for the TikTok per-account posting limit, so the desk does not pick a side.",
+        "causes": [
+          {
+            "text": "The Platform Posting Limits table says TikTok allows 25 posts per account per rolling 24 hours in the current validator.",
+            "cite": {
+              "url": "https://help.blotato.com/support/errors",
+              "quote": "25 posts per account per rolling 24h in the current validator"
+            }
+          },
+          {
+            "text": "The same table says the Starter error still mentions 10 posts per account.",
+            "cite": {
+              "url": "https://help.blotato.com/support/errors",
+              "quote": "The Starter error still mentions 10 posts per account."
+            }
+          }
+        ],
+        "ruledOut": [
+          "Nothing ruled out yet: the desk cannot see which limit the validator applies to this account."
+        ]
+      },
+      "docEdit": {
+        "article": "https://help.blotato.com/support/errors",
+        "kind": "change",
+        "before": "The Starter error still mentions 10 posts per account.",
+        "after": "[Confirm the intended TikTok per-account limit, update the error text or the table so they agree, and say so in one place.]",
+        "note": "The Platform Posting Limits row says 25 posts per account per rolling 24h in the current validator, while the Starter destination-limit error still says 10 posts per account. The TikTok FAQ also says the intended limit is under review. Confirm the number with the founder and make the pages agree."
+      }
+    }
+  ]
+}

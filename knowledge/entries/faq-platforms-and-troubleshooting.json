@@ -1,0 +1,3273 @@
+{
+  "area": "Platforms and troubleshooting",
+  "entries": [
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "selected the checkbox",
+          "checkbox is selected",
+          "entered the prompt",
+          "asked for a draft"
+        ]
+      },
+      "id": "text-context-no-post",
+      "title": "I added text context but no post was made",
+      "phrasings": [
+        "I added text as context but no post was created",
+        "I pasted my text into Context and nothing happened, where is the post",
+        "how do I turn the context I added into a post",
+        "context is added but the AI agent has not written any post, why",
+        "does adding context make a post automatically",
+        "i put my text in context why there is no draft",
+        "I added a source and nothing got generated, what now",
+        "how to make a post from my selected context"
+      ],
+      "not_this": [
+        "how do I save a source to my Sources library",
+        "my YouTube link will not extract",
+        "where do I add context for a video template",
+        "how do I make a carousel from my text"
+      ],
+      "anchors": [
+        [
+          "context",
+          "source",
+          "sources"
+        ],
+        [
+          "post",
+          "posts",
+          "draft",
+          "drafts",
+          "generate",
+          "generated",
+          "created",
+          "made",
+          "nothing"
+        ]
+      ],
+      "opening": "Adding context is only the first part. Here is what comes next.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Adding text context does not make a post on its own.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Adding Text context does not generate a post automatically."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "First check that the source finished loading and that its checkbox is selected in Context.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Confirm the source finished loading and its checkbox is selected in Context."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Then type your request in the AI Agent prompt box, using your own destination in place of LinkedIn.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "in the AI Agent prompt box, replacing LinkedIn with your destination."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Look over the draft card before you publish.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Review the draft card before publishing."
+          }
+        }
+      ],
+      "next": "Type a request for a draft in the AI Agent prompt box.",
+      "proof": "You will know it worked when a draft card shows up in the AI Agent."
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "draft disappeared",
+          "draft is gone",
+          "lost my draft",
+          "drafts are gone"
+        ]
+      },
+      "id": "no-save-button-drafts",
+      "title": "No Save button for a draft, only Publish",
+      "phrasings": [
+        "where is the save button, I only see publish",
+        "I do not want to publish yet, how do I save my work",
+        "how can I save a draft without publishing it",
+        "there is no save button for my draft in the AI agent",
+        "are my drafts saved automatically",
+        "how do i keep working on a post later without posting",
+        "wheres the save buton i only see publish",
+        "will I lose my draft if I leave the page",
+        "I want to save my draft and finish tomorrow"
+      ],
+      "not_this": [
+        "how do I save a source to my Sources library",
+        "how do I save my video project",
+        "I cannot find my drafts on my phone"
+      ],
+      "anchors": [
+        [
+          "save",
+          "saved",
+          "saving",
+          "keep",
+          "lose"
+        ],
+        [
+          "draft",
+          "drafts",
+          "work",
+          "publish",
+          "publishing",
+          "post"
+        ]
+      ],
+      "opening": "Good question to ask before you press Publish.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "There is no separate Save button for AI Agent drafts.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "There is no separate Save button for AI Agent drafts."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Drafts are saved automatically in their browser session.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Drafts are saved automatically in their browser session."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To keep working without publishing, leave the post as a draft and do not click Publish or Schedule.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "To keep working without publishing, leave the post as a draft. Do not click Publish or Schedule."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Scheduling commits the post to future publication, not draft-only storage.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Scheduling commits the post to future publication, not draft-only storage."
+          }
+        }
+      ],
+      "next": "Leave the post as a draft and do not click Publish or Schedule.",
+      "proof": "You will know it worked when the draft is still in the AI Agent, on the same browser, the next time you open it."
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "draft disappeared",
+          "draft is gone",
+          "lost my draft",
+          "drafts are gone",
+          "discarded"
+        ]
+      },
+      "id": "new-post-keep-drafts",
+      "title": "Start a new post while keeping my drafts",
+      "phrasings": [
+        "how do I create a new post when I still have drafts open",
+        "I have a draft open but I want to post something else quickly",
+        "how do I start another post without losing my drafts",
+        "can I make a second post while my first one is still a draft",
+        "what does discard drafts do, I want a new post",
+        "new post without deleting the current drafts",
+        "how to start a fresh post but keep my open drafts",
+        "i want to post something else fast, my old draft is in the way"
+      ],
+      "not_this": [
+        "how do I save a draft",
+        "I cannot find my draft",
+        "how do I delete my drafts"
+      ],
+      "anchors": [
+        [
+          "new",
+          "another",
+          "different",
+          "else",
+          "second",
+          "fresh"
+        ],
+        [
+          "post",
+          "posts"
+        ],
+        [
+          "draft",
+          "drafts",
+          "open"
+        ]
+      ],
+      "opening": "You can keep your drafts and still start something new.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Your existing draft cards stay in the session.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Your existing draft cards remain in the session."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Replace the placeholder text with your caption, or select the draft and ask Chat to write it from your context.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Replace the placeholder text with your caption, or select the draft and ask Chat to write it from your context."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Look over the draft before you choose publishing accounts.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Review the draft before selecting publishing accounts."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Please do not use Discard drafts to start another post.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Do not use Discard drafts to start another post."
+          }
+        }
+      ],
+      "next": "Click New post in the AI Agent and write your caption.",
+      "proof": "You will know it worked when the new draft appears and your older draft cards are still there."
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "same browser",
+          "same device",
+          "same computer"
+        ]
+      },
+      "id": "drafts-not-synced-devices",
+      "title": "Content does not sync between my laptop and my phone",
+      "phrasings": [
+        "how do you sync content across devices",
+        "does blotato sync context and posts between mobile and desktop",
+        "I switched computers and my context is gone",
+        "do scheduled posts sync to all my devices",
+        "my sources disappeared when I opened blotato on a different browser",
+        "what syncs between my laptop and my other device",
+        "does context sync when I log in on another device",
+        "is my content synced betwen laptop and phone"
+      ],
+      "not_this": [
+        "is there a Blotato mobile app",
+        "how do I save a source to my Sources library",
+        "I cannot find my published post on Instagram",
+        "why don't my drafts show up on my phone"
+      ],
+      "anchors": [
+        [
+          "sync",
+          "synced",
+          "syncing",
+          "across devices",
+          "between devices",
+          "other device",
+          "new device",
+          "different device",
+          "another device",
+          "switched",
+          "different browser",
+          "betwen"
+        ],
+        [
+          "context",
+          "content",
+          "sources",
+          "scheduled",
+          "published",
+          "posts",
+          "everything",
+          "mobile",
+          "desktop",
+          "laptop",
+          "phone"
+        ]
+      ],
+      "opening": "That is how the AI Agent works right now. Here is what stays on one device and what follows you.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Context is stored locally in your browser, so on a new device you add it again.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "If you switch from laptop to phone, re-add your context on the new device."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "AI Agent drafts are tied to the browser where you created them.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "AI Agent drafts are tied to the browser where you created them."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Scheduled and published posts do sync.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Scheduled and published posts DO sync."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Once you schedule or publish a post, you can see it from any device.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Once you schedule or publish a post, it is visible from any device in"
+          }
+        }
+      ],
+      "next": "Open the browser where you made the draft, or re-add your context on the new device.",
+      "proof": "You will know it worked when your draft or context is in front of you on the device you are using."
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "on my phone it shows",
+          "keeps crashing",
+          "does not load on mobile"
+        ]
+      },
+      "id": "mobile-app",
+      "title": "Is there a Blotato mobile app",
+      "phrasings": [
+        "is there a blotato app for iphone",
+        "how do I use blotato on mobile",
+        "do you have an android app",
+        "can I create posts from my phone",
+        "is there a mobile version of the video editor",
+        "blotato app store",
+        "does blotato work on a tablet or phone browser",
+        "is there a mobile aplication for blotato",
+        "how I use blotato in my telephone"
+      ],
+      "not_this": [
+        "my drafts are not on my phone",
+        "how do I sync content across devices",
+        "how do I connect my instagram app"
+      ],
+      "anchors": [
+        [
+          "app",
+          "apps",
+          "aplication",
+          "mobile",
+          "phone",
+          "iphone",
+          "android",
+          "ios",
+          "tablet",
+          "telephone"
+        ],
+        [
+          "blotato",
+          "use",
+          "create",
+          "editor",
+          "version",
+          "browser",
+          "available",
+          "have"
+        ]
+      ],
+      "opening": "Here is where Blotato works best.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The main screen where you create and publish posts is meant for desktop and laptop, not mobile.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The new Blotato agent (the main screen where you create and publish posts) is meant for desktop and laptop, not mobile."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The video editor is also not mobile-friendly.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The video editor is also not mobile-friendly."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Create and edit your posts and videos on a desktop or laptop for the full workflow.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Create and edit your posts and videos on a desktop or laptop for the full workflow."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "There are no plans for a separate mobile app.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "I don't have plans to release a separate mobile app."
+          }
+        }
+      ],
+      "next": "Open Blotato on a desktop or laptop to create and edit your posts.",
+      "proof": "You will know it worked when you can create and edit your post in the browser on a computer."
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "mediaurls",
+          "media url",
+          "preview page"
+        ]
+      },
+      "id": "cloud-storage-media",
+      "title": "Connect Dropbox, Google Drive or other cloud storage to publish files",
+      "phrasings": [
+        "can I connect dropbox to blotato",
+        "is there a google drive integration to pick my videos",
+        "how do I post a video I keep in Google Drive",
+        "can blotato read files from my cloud storage",
+        "I store my images on dropbox how do I use them in a post",
+        "does blotato work with onedrive or icloud",
+        "can I link my cloud drive as an account",
+        "how do I use a file from dropbox as media in the api",
+        "conect google drive to blotato to post my videos"
+      ],
+      "not_this": [
+        "how do I use Google Drive files as context",
+        "can I use a Google Drive PDF as a source in the AI Agent",
+        "how do I add my video as context",
+        "how do I connect Instagram"
+      ],
+      "anchors": [
+        [
+          "dropbox",
+          "drive",
+          "onedrive",
+          "icloud",
+          "cloud storage",
+          "cloud drive",
+          "gdrive"
+        ],
+        [
+          "connect",
+          "integration",
+          "integrate",
+          "work",
+          "works",
+          "link",
+          "post",
+          "publish",
+          "media",
+          "file",
+          "files",
+          "video",
+          "videos",
+          "image",
+          "images",
+          "attach",
+          "pick",
+          "read"
+        ]
+      ],
+      "opening": "There is no direct link, but you can still publish files you keep there.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Blotato has no direct integration with Dropbox, Google Drive, or other cloud storage.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato has no direct integration with Dropbox, Google Drive, or other cloud storage."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "You cannot connect them as an account or browse their files inside Blotato.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "You cannot connect them as an account or browse their files inside Blotato."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Get a public direct file URL for the image or video, which is a link to the file itself and not a shared preview page.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Get a public direct file URL for the image or video (a link to the file itself, not a shared preview page)."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Then publish with that URL as your media.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Publish with that URL as your media."
+          }
+        }
+      ],
+      "next": "Get a public direct link to the file and use it as your media.",
+      "proof": "You will know it worked when the post shows your image or video."
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "where-add-context",
+      "title": "Where do I add sources or context",
+      "phrasings": [
+        "where do I add my sources when creating a post",
+        "where do I put context for a video or post",
+        "how do I add context in the AI agent",
+        "I cannot find where to add a source",
+        "what kinds of context can I add",
+        "where is the plus button for context",
+        "wher do i add my sorces",
+        "which source types does context accept",
+        "does context support x or twitter links"
+      ],
+      "not_this": [
+        "how do I save a source to my Sources library",
+        "I added context but no post was made",
+        "how do I add a website that is not working",
+        "how do I add my own video as context"
+      ],
+      "anchors": [
+        [
+          "context",
+          "source",
+          "sources",
+          "sorces"
+        ],
+        [
+          "where",
+          "add",
+          "adding",
+          "find",
+          "put",
+          "types",
+          "kinds",
+          "accept",
+          "support",
+          "plus",
+          "button",
+          "sidebar"
+        ]
+      ],
+      "opening": "Context lives in the AI Agent sidebar.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "In the AI Agent, click the + button beside Context in the sidebar.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "In the AI Agent, click the + button beside Context in the sidebar."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The selector offers Text, Article, YouTube, TikTok, Perplexity, Audio, PDF, and Rule.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The website selector offers Text, Article, YouTube, TikTok, Perplexity, Audio, PDF, and Rule."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "It does not offer an X/Twitter option.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "It does not offer an X/Twitter option."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Context supplies text for draft generation.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Context supplies text for draft generation."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "It does not attach a source video to a post or generate a video automatically.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "It does not attach a source video to a post or generate a video automatically."
+          }
+        }
+      ],
+      "next": "Click the + button beside Context in the AI Agent sidebar and pick your source type.",
+      "proof": "You will know it worked when your new source shows up under Context in the sidebar."
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "english captions",
+          "no captions",
+          "extraction failed"
+        ]
+      },
+      "id": "remix-youtube-video",
+      "title": "Use a YouTube video as a source (remix)",
+      "phrasings": [
+        "how do I remix a youtube video",
+        "I saw a remix button for a youtube url, how does it work",
+        "can I use a youtube link to make a post",
+        "how do I paste a youtube url as context",
+        "turn a youtube video into post drafts",
+        "my youtube link is added but no draft was made",
+        "how to repurpose a youtube video in blotato",
+        "yotube remix how"
+      ],
+      "not_this": [
+        "how do I add my own video from CapCut",
+        "my TikTok video is missing the subtitle track",
+        "how do I publish to YouTube",
+        "can I upload a video file as context"
+      ],
+      "anchors": [
+        [
+          "youtube",
+          "yotube",
+          "youtub"
+        ],
+        [
+          "remix",
+          "context",
+          "source",
+          "url",
+          "link",
+          "paste",
+          "repurpose",
+          "draft",
+          "drafts"
+        ]
+      ],
+      "opening": "A YouTube link works as context in the AI Agent.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Paste the YouTube URL as Context in the AI Agent to create post drafts.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Paste the YouTube URL as Context in the AI Agent to create post drafts."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Wait for extraction to finish and review Source Contents. English captions must be available.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Wait for extraction to finish, then review Source Contents. English captions must be available."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Ask the AI Agent to create a draft from the selected context.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Ask the AI Agent to create a draft from the selected context."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Adding a URL does not create a draft until you request one.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Adding a URL does not create a draft until you request one."
+          }
+        }
+      ],
+      "next": "Click the + button beside Context, choose YouTube, and paste the video URL.",
+      "proof": "You will know it worked when the Source Contents show the video's text and you can ask for a draft from it."
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "own-video-as-source",
+      "title": "Add my own video (for example from CapCut) as a source",
+      "phrasings": [
+        "how do I add my own video from capcut as a source",
+        "can I upload a video file as context",
+        "I made a video myself, how do I use it as context for posts",
+        "does context accept an mp4",
+        "how can I use my own video as a source for drafts",
+        "how do I publish my own finished video",
+        "upload my capcut video to blotato to post it",
+        "can i uplaod my video file to the source"
+      ],
+      "not_this": [
+        "how do I remix a YouTube video",
+        "how do I add a TikTok link as context",
+        "my video upload failed on Instagram",
+        "how do I make a video with AI"
+      ],
+      "anchors": [
+        [
+          "video",
+          "videos",
+          "capcut",
+          "mp4"
+        ],
+        [
+          "own",
+          "myself",
+          "file",
+          "upload",
+          "uploaded",
+          "capcut",
+          "mp4",
+          "finished",
+          "recorded"
+        ],
+        [
+          "context",
+          "source",
+          "sources",
+          "publish",
+          "post",
+          "transcript"
+        ]
+      ],
+      "opening": "There are two ways, depending on what you want to do with the video.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Context does not accept a direct video-file upload.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Context does not accept a direct video-file upload."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To make drafts from your video, paste its transcript as Text context.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "To generate drafts from your video, paste its transcript as Text context."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To publish your own finished video, you do not need YouTube.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "To publish your own finished video instead of using it as a source, you do not need YouTube."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Open or create a post, click Photo / Video, and upload your video file.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Open or create a post, click Photo / Video, and upload your video file."
+          }
+        }
+      ],
+      "next": "Paste the transcript as Text context, or upload the file with Photo / Video on a post.",
+      "proof": "You will know it worked when your text shows as context or your video shows on the post."
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "only one image",
+          "single image",
+          "one video",
+          "only one video"
+        ]
+      },
+      "id": "instagram-story-as-feed-post",
+      "title": "Instagram Story posted as a feed post",
+      "phrasings": [
+        "why does my instagram story post as a feed post",
+        "my story went out as a regular instagram post",
+        "I scheduled an instagram story but it appeared in my feed",
+        "instagram story not showing as a story, it went to my feed",
+        "can I put several images in one instagram story",
+        "how do I post many stories on instagram with blotato",
+        "my ig story become normal post",
+        "my instagram story posted in the feed instead of stories"
+      ],
+      "not_this": [
+        "do you support Facebook Stories",
+        "my instagram post failed",
+        "instagram carousel with several photos"
+      ],
+      "anchors": [
+        [
+          "story",
+          "stories"
+        ],
+        [
+          "instagram",
+          "ig",
+          "insta",
+          "instagramm"
+        ],
+        [
+          "feed",
+          "regular",
+          "normal",
+          "several",
+          "multiple",
+          "many",
+          "images",
+          "pictures",
+          "instead",
+          "posted",
+          "published"
+        ]
+      ],
+      "opening": "This is a known behavior with a clear cause.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "An Instagram Story accepts only one image or one video per post.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "An Instagram Story accepts only one image or one video per post."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If you attach several images to a Story, Blotato publishes them as a regular feed post.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "If you attach multiple images to a Story, Blotato publishes them as a regular feed post instead."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To post several Stories, make a separate post for each image or video and schedule them one at a time.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "To post several Stories, create a separate post for each image or video and schedule them one at a time."
+          }
+        }
+      ],
+      "next": "Create one post per image or video and schedule each Story on its own.",
+      "proof": "You will know it worked when each Story shows up as a Story on Instagram."
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "page is missing",
+          "wrong page",
+          "do not see my page",
+          "don't see my page"
+        ]
+      },
+      "id": "facebook-profiles-groups",
+      "title": "Post to a Facebook personal profile or group",
+      "phrasings": [
+        "can I post to my personal facebook profile",
+        "do you support facebook groups",
+        "how do I publish to a facebook group with blotato",
+        "blotato wont connect my facebook, it is my profile not a page",
+        "can I post to my facebook profile in pro mode",
+        "does blotato support facebook personal accounts",
+        "I want to post on my own facebook timeline",
+        "facebok group posting suported?"
+      ],
+      "not_this": [
+        "do you support Facebook Stories",
+        "unable to post on Facebook page",
+        "how do I remove Published by from a Facebook post",
+        "how do I connect Instagram"
+      ],
+      "anchors": [
+        [
+          "facebook",
+          "facebok",
+          "fb"
+        ],
+        [
+          "profile",
+          "profiles",
+          "personal",
+          "group",
+          "groups",
+          "timeline",
+          "pro mode"
+        ]
+      ],
+      "opening": "Facebook only allows publishing to Pages, so here is what that means for you.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Facebook does not allow publishing to personal profiles or groups.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Unfortunately, Facebook does NOT allow publishing to personal profiles or groups."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Connect a Facebook Page instead.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Connect a Facebook Page instead."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Blotato publishes only to a Page.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/social-accounts/facebook",
+            "quote": "Blotato publishes only to a Page."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A profile in pro mode is still a profile, so Blotato cannot publish to it.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/social-accounts/facebook",
+            "quote": "It is still a profile, so Blotato cannot publish to it."
+          }
+        }
+      ],
+      "next": "Connect a Facebook Page you manage as an admin, or create one if you have none.",
+      "proof": "You will know it worked when your Facebook Page shows in your connected accounts."
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "only the first",
+          "used only the first"
+        ]
+      },
+      "id": "facebook-stories",
+      "title": "Facebook Stories support",
+      "phrasings": [
+        "do you support facebook stories",
+        "how do I post a story to facebook with blotato",
+        "can I schedule a facebook story",
+        "where do I choose story for a facebook post",
+        "can I add several images to a facebook story",
+        "facebook story media type api",
+        "how to publish a facebok story",
+        "which mediaType do I send for a facebook story"
+      ],
+      "not_this": [
+        "why does my Instagram Story post as a feed post",
+        "do you support Facebook groups",
+        "unable to post on Facebook"
+      ],
+      "anchors": [
+        [
+          "facebook",
+          "facebok",
+          "fb"
+        ],
+        [
+          "story",
+          "stories"
+        ]
+      ],
+      "opening": "Yes, Facebook Stories work. Here is how.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "When scheduling a Facebook post, select Story from the media type dropdown.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Yes. When scheduling a Facebook post, select \"Story\" from the media type dropdown."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Facebook Stories require one video or image attachment.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Facebook stories require one video or image attachment."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If more than one is provided, only the first is used and published.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "If more than one is provided, only the first is used and published."
+          }
+        }
+      ],
+      "next": "Pick Story in the media type dropdown when you schedule your Facebook post, with one image or video attached.",
+      "proof": "You will know it worked when your Facebook post is set to the Story type with a single attachment."
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "facebook-published-by-label",
+      "title": "Remove the Published by label from Facebook posts",
+      "phrasings": [
+        "how do I remove posted by blotato from my facebook post",
+        "facebook shows published by blotato under my post",
+        "can I hide the app name on facebook posts",
+        "why does my facebook post say via blotato",
+        "is the published by label on facebook removable",
+        "how to get rid of published by app name on facebook",
+        "posted by blotato on my page, can that be removed",
+        "facebok shows posted by blotato"
+      ],
+      "not_this": [
+        "how do I post to Facebook",
+        "do you support Facebook Stories",
+        "remove Blotato branding from my videos",
+        "I see a watermark on my video"
+      ],
+      "anchors": [
+        [
+          "posted by",
+          "published by",
+          "via blotato",
+          "label",
+          "app name"
+        ],
+        [
+          "facebook",
+          "facebok",
+          "fb",
+          "blotato",
+          "page"
+        ]
+      ],
+      "opening": "Here is why the label shows up.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The label appears on Facebook posts published through a third-party app, rather than directly through Facebook.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "when they are published via any third-party app, rather than directly through Facebook."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Facebook does not allow you to remove this label.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/facebook/limitations",
+            "quote": "Facebook does not allow you to remove this label because it is part of their transparency policy."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "It is part of Facebook's transparency policy.",
+          "cite": {
+            "url": "https://help.blotato.com/social-accounts-and-platform-faqs/facebook/limitations",
+            "quote": "it is part of their transparency policy."
+          }
+        }
+      ],
+      "next": "Nothing to change in Blotato. Facebook controls this label.",
+      "proof": "Still open: nothing on your side, because only Facebook controls the label."
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "google-business-profile",
+      "title": "Google Business Profile support",
+      "phrasings": [
+        "do you support google business profile",
+        "can I post to my google my business listing",
+        "does blotato publish to google business",
+        "how do I send posts to google business profile",
+        "google maps listing posting with blotato",
+        "can I use n8n to post to google business profile",
+        "is gbp supported",
+        "gogle bussiness profile suport?"
+      ],
+      "not_this": [
+        "can I connect Google Drive",
+        "how do I connect YouTube",
+        "do you support Facebook groups"
+      ],
+      "anchors": [
+        [
+          "google",
+          "gbp"
+        ],
+        [
+          "business",
+          "gbp",
+          "my business",
+          "maps",
+          "listing",
+          "listings",
+          "bussiness"
+        ]
+      ],
+      "opening": "Blotato does not post there directly, but there is a workaround.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Blotato does not support Google Business Profile.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato does not support Google Business Profile."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Blotato publishes to Instagram, Facebook, TikTok, YouTube, LinkedIn, X (Twitter), Threads, Pinterest, Bluesky, and Slack.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato publishes to Instagram, Facebook, TikTok, YouTube, LinkedIn, X (Twitter), Threads, Pinterest, Bluesky, and Slack."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "With the webhook publish target, Blotato sends the post data to your webhook and your automation posts it to the destination.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato sends the post data to your webhook, and your automation posts it to the destination."
+          }
+        }
+      ],
+      "next": "Use the webhook publish target with an automation tool such as n8n, Make.com, or Zapier.",
+      "proof": "You will know it worked when your automation receives the post data from Blotato."
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "invalid_grant",
+          "invalid grant",
+          "oauth error",
+          "connected but",
+          "not showing tools"
+        ]
+      },
+      "id": "claude-clients-support",
+      "title": "Use Blotato in Claude.ai, Claude Desktop or Claude Cowork",
+      "phrasings": [
+        "do you support claude.ai, claude desktop and claude cowork",
+        "can I use blotato in claude desktop",
+        "does blotato work with claude cowork",
+        "how do I connect blotato to claude.ai",
+        "where do I add the custom connector for blotato in claude",
+        "is claude desktop supported",
+        "blotato conector in claude cowork how",
+        "can claude use blotato to post, is that supported"
+      ],
+      "not_this": [
+        "invalid_grant error in Claude",
+        "the connector says Connected but tools fail",
+        "how do I connect ChatGPT",
+        "Claude Code setup command"
+      ],
+      "anchors": [
+        [
+          "claude",
+          "cowork"
+        ],
+        [
+          "desktop",
+          "claude.ai",
+          "support",
+          "supported",
+          "connector",
+          "connectors",
+          "connect",
+          "work",
+          "works",
+          "use"
+        ]
+      ],
+      "opening": "Yes, all three work through a custom connector.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Open Customize > Connectors, click the + button, choose Add custom connector, enter the Blotato MCP URL, and approve access via OAuth.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Open Customize > Connectors, click the + button, then Add custom connector, enter the Blotato MCP URL, and approve access via OAuth."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The setup guide says to confirm your paid Blotato subscription first.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/mcp/setup",
+            "quote": "Confirm your paid Blotato subscription."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "API and MCP access is not included in the free trial.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/mcp/setup",
+            "quote": "API and MCP access is not included in the free trial."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "After setup, ask your client to list connected Blotato accounts.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/mcp/setup",
+            "quote": "After setup, ask your client to list connected Blotato accounts."
+          }
+        }
+      ],
+      "next": "Open Customize > Connectors in Claude and add the custom connector.",
+      "proof": "You will know it worked when Claude lists your connected Blotato accounts."
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "free-claude-skills",
+      "title": "Where are the free Claude skills and the 100 viral hooks",
+      "phrasings": [
+        "where are the free claude skills",
+        "where are the marketing skills",
+        "where are the 100 viral hooks I was promised",
+        "I subscribed and was promised 100 skills, where are they",
+        "the skills do not show in my blotato dashboard",
+        "how do I install the viral-hooks skill",
+        "where do I find the content-coach skill",
+        "where is the hooks bundle from the app promotion",
+        "wher are the free skils"
+      ],
+      "not_this": [
+        "how do I connect Claude to Blotato",
+        "how do I set up Claude Code with the MCP",
+        "I was charged for the skills bundle"
+      ],
+      "anchors": [
+        [
+          "skill",
+          "skills",
+          "skils",
+          "hooks",
+          "viral-hooks",
+          "content-coach",
+          "bundle"
+        ],
+        [
+          "free",
+          "where",
+          "find",
+          "promised",
+          "install",
+          "100",
+          "marketing",
+          "dashboard"
+        ]
+      ],
+      "opening": "The skills are not inside the Blotato dashboard. They install in Claude.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The in-app promotion refers to the free Claude skills bundle, which includes the viral-hooks skill.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The promotion in the app refers to the free Claude skills bundle, which includes the viral-hooks skill"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The skills do not appear inside your Blotato subscription dashboard.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The skills do not appear inside your Blotato subscription dashboard."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "You install each skill once, then use it in Claude Code, Claude Desktop, and Claude Cowork.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "You install each skill once, then use it forever in Claude Code, Claude Desktop, and Claude Cowork."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "On day one you only need content-coach.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "On day one you only need content-coach."
+          }
+        }
+      ],
+      "next": "Open the Free Claude Skills page in the help center and install content-coach first.",
+      "proof": "You will know it worked when the skill shows up in Claude."
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "instagram-posts-as-context",
+      "title": "Import Instagram Reels or social posts as a content source",
+      "phrasings": [
+        "can I import my existing instagram reels as a source",
+        "how do I use my old instagram posts as context",
+        "is there an instagram option in the context selector",
+        "can I add a tweet or x post as a source",
+        "how do I bring my past social posts in as content",
+        "paste an instagram link as context does not work",
+        "import my reels into blotato sources",
+        "can I use my twiter posts as context"
+      ],
+      "not_this": [
+        "how do I post to Instagram",
+        "how do I set a cover image for Instagram Reels",
+        "how do I remix a YouTube video"
+      ],
+      "anchors": [
+        [
+          "instagram",
+          "reels",
+          "reel",
+          "twitter",
+          "twiter",
+          "tweet",
+          "tweets",
+          "social posts"
+        ],
+        [
+          "import",
+          "context",
+          "source",
+          "sources",
+          "existing",
+          "past",
+          "old",
+          "add"
+        ]
+      ],
+      "opening": "There is a way in, but not by link.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The Context selector has no Instagram or X/Twitter option.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The website Context selector has no Instagram or X/Twitter option."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Paste the caption or transcript as Text context.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Paste the caption or transcript as Text context."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "YouTube and TikTok URLs use their own source types and require English captions for extraction.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "YouTube and TikTok URLs use their own source types and require English captions for extraction."
+          }
+        }
+      ],
+      "next": "Copy the caption or transcript and add it as Text context in the AI Agent.",
+      "proof": "You will know it worked when your text shows under Context in the sidebar."
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "google-drive-context",
+      "title": "Use Google Drive files as context",
+      "phrasings": [
+        "how do I use google drive files as context",
+        "can I add a google doc as a source in the AI agent",
+        "I pasted a google drive link as context and it fails",
+        "how do I add a pdf from drive as a source",
+        "google drive audio file as context",
+        "is there a drive integration in the context selector",
+        "drive preview link does not work as source",
+        "how to use gdrive docs as sources"
+      ],
+      "not_this": [
+        "can I connect Dropbox or Google Drive to publish my videos",
+        "how do I post a video from my drive",
+        "how do I connect YouTube"
+      ],
+      "anchors": [
+        [
+          "drive",
+          "gdrive",
+          "google doc",
+          "google docs"
+        ],
+        [
+          "context",
+          "source",
+          "sources",
+          "ai agent",
+          "pdf",
+          "audio",
+          "transcript"
+        ]
+      ],
+      "opening": "Context cannot read Drive links, but each file type has a workaround.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The Context selector has no Google Drive integration.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The website Context selector has no Google Drive integration."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "For documents or articles, open the file in Google Drive, copy the text, and add it as Text context.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Open the file in Google Drive, copy the text, and add it as \"Text\" context"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "For PDFs, download the PDF and upload it as PDF context.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Download the PDF from Google Drive, then upload it as \"PDF\" context"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "For audio files, download the audio and upload it as Audio context.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Download the audio from Google Drive, then upload it as \"Audio\" context"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "For videos, paste the transcript as Text, or use a YouTube URL with English captions.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Paste the transcript as Text, or use a YouTube URL with English captions available for extraction."
+          }
+        }
+      ],
+      "next": "Download or copy your file's content and add it with the matching context type.",
+      "proof": "You will know it worked when your file's text shows under Context in the sidebar."
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "waited",
+          "finished processing",
+          "processing finished"
+        ]
+      },
+      "id": "save-source-to-library",
+      "title": "Save a source to the Sources library",
+      "phrasings": [
+        "how do I save a source to my sources library",
+        "how do i save something to the sources page",
+        "my source is not showing in the library",
+        "I checked save source but nothing saved",
+        "where do I save my sources",
+        "can I save context so I can reuse it later",
+        "how to save a source for later in blotato",
+        "save sorce to library not working"
+      ],
+      "not_this": [
+        "where do I add context",
+        "I want to save my draft",
+        "how do I save my video project"
+      ],
+      "anchors": [
+        [
+          "source",
+          "sources",
+          "sorce",
+          "context"
+        ],
+        [
+          "save",
+          "saved",
+          "saving",
+          "library",
+          "reuse"
+        ]
+      ],
+      "opening": "The save happens from the AI Agent, not from the Sources page.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Save a source from the AI Agent, not from the Sources page directly.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Save a source from the AI Agent, not from the Sources page directly"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Click Done for an existing source or Add for a new source.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Click Done for an existing source or Add for a new source."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Checking the box alone does not save.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Checking the box alone does not save."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Wait for processing to finish.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Wait for processing to finish."
+          }
+        }
+      ],
+      "next": "In the AI Agent, check Save Source?, enter a Name, and click Done or Add.",
+      "proof": "You will know it worked when the source appears in your Sources library."
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "pasted the text",
+          "text context also fails"
+        ]
+      },
+      "id": "website-context-javascript-cookies",
+      "title": "Adding a website as context fails with a JavaScript and cookies message",
+      "phrasings": [
+        "trying to add a website as context but it is not working",
+        "I get a message about enabling javascript and cookies when adding an article",
+        "blog url as context fails",
+        "why can't blotato read my article link as a source",
+        "the scraper cannot access my website",
+        "add a news article as a source does not work",
+        "enable javascript and cookies error when adding a website to context",
+        "website sorce not working"
+      ],
+      "not_this": [
+        "my YouTube link will not extract",
+        "how do I add a PDF",
+        "how do I connect my website"
+      ],
+      "anchors": [
+        [
+          "website",
+          "article",
+          "blog",
+          "url",
+          "link",
+          "site",
+          "webpage"
+        ],
+        [
+          "javascript",
+          "cookies",
+          "scraper",
+          "context",
+          "source",
+          "sources"
+        ]
+      ],
+      "opening": "This is a known limit with some websites.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Adding a blog, article, or website as new context can show a message about enabling Javascript and cookies.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Sometimes when you try to add a blog, article, or website as new context, you'll see a message related to \"enabling Javascript and cookies\"."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "It means Blotato's website scraper cannot access the website because of its anti-scraping policies.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "This means Blotato's website scraper is unable to access the website due to its anti-scraping policies."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The workaround is to copy and paste the article, website, or blog, then add it as Text context.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Copy and paste the article, website, or blog, then add it as Text context."
+          }
+        }
+      ],
+      "next": "Copy the article text and add it as Text context.",
+      "proof": "You will know it worked when the pasted text shows under Context."
+    },
+    {
+      "kind": "billing",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "subscription-setup-incomplete",
+      "title": "Message says the subscription setup is incomplete or expired",
+      "phrasings": [
+        "my account shows incomplete payment but I already paid",
+        "it says your subscription setup is incomplete, please complete the payment process",
+        "the message says your subscription setup has expired but my invoice is paid",
+        "blotato wants me to finish the payment process, my setup is incomplete",
+        "subscription status INCOMPLETE_EXPIRED what does it mean",
+        "stripe says incomplete and I cannot use my plan",
+        "billing portal shows an incomplete invoice but I paid already",
+        "why does my plan say incomplete after I put in my card"
+      ],
+      "not_this": [
+        "how do I cancel my subscription",
+        "why was I charged during my trial",
+        "I want my money back"
+      ],
+      "anchors": [
+        [
+          "incomplete",
+          "expired",
+          "incomplete_expired"
+        ],
+        [
+          "payment",
+          "subscription",
+          "setup",
+          "plan",
+          "paid",
+          "invoice",
+          "stripe",
+          "activate"
+        ]
+      ],
+      "opening": "I'm sorry for the trouble. Here is what that message means, and who will look at your payment.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "That message means Stripe started your subscription but the payment itself never went through.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "This message means Stripe started your subscription but the payment itself never went through, so the subscription is stuck in an incomplete state."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Having a payment method saved is not enough, because the charge must succeed.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Having a payment method saved is not enough -- the charge must succeed."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If your charge already succeeded and the message still appears, do not pay again and do not retry checkout.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "If your charge succeeded (your bank shows the money left, or the invoice shows Paid) and this message still appears, do not pay again and do not retry checkout"
+          }
+        },
+        {
+          "type": "action",
+          "text": "I am passing this to a person on the team, with what you told me, because only they can look at your payment record."
+        }
+      ],
+      "next": "Reply here with your account email so the team can find the subscription.",
+      "proof": "Still open: the state of your payment. That is a decision for a person on the team, not for me.",
+      "escalate": {
+        "why": "The desk cannot see payments. A person must open the billing record to see whether the subscription is stale or the charge failed.",
+        "causes": [
+          {
+            "text": "Stripe is billing a stale Incomplete or Expired subscription on the account (documented).",
+            "cite": {
+              "url": "https://help.blotato.com/support/faqs",
+              "quote": "Stripe is trying to bill a stale Incomplete or Expired subscription on your account."
+            }
+          },
+          {
+            "text": "The card payment itself was declined, and only the bank sees the reason (documented).",
+            "cite": {
+              "url": "https://help.blotato.com/support/faqs",
+              "quote": "banks decline subscription charges, and only your bank sees the decline reason"
+            }
+          }
+        ],
+        "ruledOut": [
+          "Nothing ruled out yet: the desk cannot see payments."
+        ]
+      }
+    },
+    {
+      "kind": "billing",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "did not make an api key",
+          "never made an api key",
+          "no api key"
+        ]
+      },
+      "id": "past-due-with-trial",
+      "title": "Message says the subscription payment is past due during a trial",
+      "phrasings": [
+        "why does it say my subscription payment is past due if I have a trial",
+        "payment past due message but I am still in the free trial",
+        "blotato says past due on my trial account",
+        "I never paid anything, why is my subscription past due",
+        "what does subscription payment is past due mean",
+        "past due banner on my free trial",
+        "my trial says past due, what happened",
+        "why past due when i am on trial"
+      ],
+      "not_this": [
+        "I was charged during my free trial",
+        "how do I cancel my subscription",
+        "I want a refund"
+      ],
+      "anchors": [
+        [
+          "past due",
+          "pastdue",
+          "overdue"
+        ],
+        [
+          "subscription",
+          "payment",
+          "trial",
+          "account",
+          "plan"
+        ]
+      ],
+      "opening": "I'm sorry for the worry. The help center lists two common reasons.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "One common reason is that you generated an API key, which activates your paid subscription immediately.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "You generated an API key, which activates your paid subscription immediately."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The other common reason is that your 7-day free trial has ended.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Your 7-day free trial has ended."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The API is limited to paying users to help reduce spammy content.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The API is limited to paying users to help reduce spammy content."
+          }
+        },
+        {
+          "type": "action",
+          "text": "If you also have a question about a charge, I am passing that to a person on the team."
+        }
+      ],
+      "next": "Open Settings > Billing and click View Billing Portal to see your subscription.",
+      "proof": "Still open: any charge on your account. That is a decision for a person on the team, not for me.",
+      "escalate": {
+        "why": "A trial account showing past due can come from two documented causes. The desk cannot see the account, so a person confirms which one applies.",
+        "causes": [
+          {
+            "text": "An API key was generated, which activates the paid subscription at once (documented).",
+            "cite": {
+              "url": "https://help.blotato.com/support/faqs",
+              "quote": "You generated an API key, which activates your paid subscription immediately."
+            }
+          },
+          {
+            "text": "The 7-day free trial has ended (documented).",
+            "cite": {
+              "url": "https://help.blotato.com/support/faqs",
+              "quote": "Your 7-day free trial has ended."
+            }
+          }
+        ],
+        "ruledOut": [
+          "Nothing ruled out yet: the desk cannot see payments or the trial dates."
+        ]
+      }
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "no-prompt-for-use-case",
+      "title": "I do not see a prompt for my use case, or for long-form content",
+      "phrasings": [
+        "I don't see a prompt for my use case",
+        "how do I use blotato to write long-form content",
+        "can I add my own prompts",
+        "how do I request a custom prompt",
+        "there is no prompt for blog posts, can I make one",
+        "where do I import my own prompt",
+        "can blotato write articles or newsletters, I only see short post prompts",
+        "i dont find prompt for my usecase"
+      ],
+      "not_this": [
+        "how do I teach the AI to write in my voice",
+        "how do I make a carousel",
+        "how do I set up my Brand Kit"
+      ],
+      "anchors": [
+        [
+          "prompt",
+          "prompts",
+          "promt",
+          "long-form",
+          "long form"
+        ],
+        [
+          "use case",
+          "usecase",
+          "long-form",
+          "long form",
+          "custom",
+          "import",
+          "own",
+          "find",
+          "see",
+          "blog",
+          "newsletter",
+          "article",
+          "articles"
+        ]
+      ],
+      "opening": "You have two good options when a prompt is missing.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "You can import your own prompts in Blotato, or request a custom prompt.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "You can import your own prompts in Blotato or request a custom prompt here"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To import one, open the navigation menu, expand Tools, then select Prompts.",
+          "cite": {
+            "url": "https://help.blotato.com/tips-and-tricks/make-output-sound-like-you",
+            "quote": "Open the navigation menu, expand Tools, then select Prompts."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Select New Prompt to add your prompt.",
+          "cite": {
+            "url": "https://help.blotato.com/tips-and-tricks/make-output-sound-like-you",
+            "quote": "Select New Prompt to add your prompt"
+          }
+        }
+      ],
+      "next": "Open the navigation menu, expand Tools, and select Prompts, then choose New Prompt.",
+      "proof": "You will know it worked when your new prompt appears in your Prompts library."
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "teach-ai-my-voice",
+      "title": "Make the AI write in my voice",
+      "phrasings": [
+        "how do I teach the AI to use my voice",
+        "the output does not sound like me, how do I fix it",
+        "how can I make blotato posts sound more like I write",
+        "how do I personalize the default prompts to my style",
+        "my posts sound like AI, what can I change",
+        "where do I put sample posts so the writing matches my style",
+        "can i train blotato on my writing style",
+        "how to make output sond like me"
+      ],
+      "not_this": [
+        "how do I make my visuals match my brand",
+        "how do I set up my Brand Kit",
+        "I don't see a prompt for my use case"
+      ],
+      "anchors": [
+        [
+          "voice",
+          "style",
+          "sound",
+          "sounds",
+          "sond",
+          "tone",
+          "writing"
+        ],
+        [
+          "my",
+          "me",
+          "like",
+          "personalize",
+          "teach",
+          "train",
+          "own"
+        ]
+      ],
+      "opening": "Two things change how the writing sounds.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Edit existing prompts or import your own prompts to make the output sound more like you.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Edit existing prompts or import your own prompts to make the output sound more like you"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Every default prompt has context, instructions, and examples to make it NOT sound like AI.",
+          "cite": {
+            "url": "https://help.blotato.com/tips-and-tricks/make-output-sound-like-you",
+            "quote": "Every default prompt has context, instructions, and examples to make it NOT sound like AI!"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Sample posts you like help the AI learn your preferred writing style and voice.",
+          "cite": {
+            "url": "https://help.blotato.com/tips-and-tricks/make-output-sound-like-you",
+            "quote": "This will help AI learn your preferred writing style and voice."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To import your own prompt, open the navigation menu, expand Tools, then select Prompts.",
+          "cite": {
+            "url": "https://help.blotato.com/tips-and-tricks/make-output-sound-like-you",
+            "quote": "Open the navigation menu, expand Tools, then select Prompts."
+          }
+        }
+      ],
+      "next": "Open Tools > Prompts and edit a default prompt, replacing its examples with posts you like.",
+      "proof": "You will know it worked when a new draft from your edited prompt reads closer to your own writing."
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "use brand kit is on",
+          "enabled use brand kit",
+          "already turned on"
+        ]
+      },
+      "id": "brand-kit-visuals",
+      "title": "Make AI visuals match my brand and control people or style",
+      "phrasings": [
+        "how do I make my visuals match my brand voice",
+        "how do I control what people or style appear in my AI videos",
+        "the generated video does not use my brand colors",
+        "where do I turn on use brand kit",
+        "can I choose the type of people shown in my carousel",
+        "my ai images ignore my brand, what do I change",
+        "use brand kit toggle does nothing on my old video",
+        "how do i make ai pictures look like my brand"
+      ],
+      "not_this": [
+        "how do I set up my Brand Kit",
+        "how do I teach the AI to write in my voice",
+        "how do I make a carousel"
+      ],
+      "anchors": [
+        [
+          "brand",
+          "brand kit",
+          "visuals",
+          "style",
+          "people"
+        ],
+        [
+          "visuals",
+          "video",
+          "videos",
+          "carousel",
+          "slideshow",
+          "images",
+          "pictures",
+          "generated",
+          "control",
+          "match",
+          "look",
+          "kit"
+        ]
+      ],
+      "opening": "The steps depend on what you are generating.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "For text and images in the AI Agent, select the intended brand before generation.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "For text and images in the in-app AI Agent, select the intended brand before generation."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "For videos, carousels, and slideshows, enter a prompt and turn on Use brand kit.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "For template-based videos, carousels, and slideshows, enter a prompt and enable \"Use brand kit\"."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The toggle starts off.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/brand-kit",
+            "quote": "The toggle starts off."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To steer the people and style, include descriptions of the people, settings, and visual style you want in your Brand Kit content.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/brand-kit",
+            "quote": "Include descriptions of the people, settings, and visual style you want in your content"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Brand instructions do not guarantee an exact logo placement or identical results across models.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/brand-kit",
+            "quote": "Brand instructions do not guarantee an exact logo placement or identical results across models."
+          }
+        }
+      ],
+      "next": "Turn on Use brand kit before you generate, and add a prompt.",
+      "proof": "You will know it worked when the new visual reflects the people and style you described."
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "brand-kit-setup",
+      "title": "Set up my Brand Kit",
+      "phrasings": [
+        "how do I set up my brand kit",
+        "where do I fill in my brand details",
+        "where is settings my brand",
+        "how do I add a second brand for a client",
+        "what goes into the brand kit",
+        "how do i create a new brand voice",
+        "brand kit setup steps",
+        "how to setup brnad kit"
+      ],
+      "not_this": [
+        "how do I make my visuals match my brand",
+        "how do I teach the AI to use my voice",
+        "how do I make a carousel",
+        "can each brand kit be tied to its own social accounts so posts only go to that brand's accounts"
+      ],
+      "anchors": [
+        [
+          "brand",
+          "brnad"
+        ],
+        [
+          "kit",
+          "setup",
+          "set",
+          "fill",
+          "create",
+          "new",
+          "second",
+          "settings",
+          "my brand"
+        ]
+      ],
+      "opening": "Your Brand Kit lives in Settings > My Brand.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Brand Kit stores business, audience, and style context.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/brand-kit",
+            "quote": "Brand Kit stores business, audience, and style context."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Select the brand to edit.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Select the brand to edit."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Fill in the business, audience, and content fields.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Fill in the business, audience, and content fields."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Save your changes.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Save your changes."
+          }
+        }
+      ],
+      "next": "Open Settings > My Brand, select a brand, fill in the fields, and save.",
+      "proof": "You will know it worked when your saved details show on the brand the next time you open Settings > My Brand."
+    },
+    {
+      "kind": "technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "posted manually",
+          "manual posts",
+          "warmed up"
+        ]
+      },
+      "id": "instagram-restrict-activity",
+      "title": "Instagram says \"We restrict certain activity to protect our community\"",
+      "phrasings": [
+        "Error posting to Instagram: We restrict certain activity to protect our community",
+        "instagram says we restrict certain activity",
+        "my instagram post failed with restrict activity message",
+        "what does we restrict certain activity to protect our community mean",
+        "instagram flagged my account and says restrict certain activity when blotato posts",
+        "restricted activity error on instagram scheduled post",
+        "instagram restricion error protect our community",
+        "my new instagram account gets this restrict message"
+      ],
+      "not_this": [
+        "my instagram story posted as a feed post",
+        "instagram says published but I cannot see it",
+        "how do I connect Instagram"
+      ],
+      "anchors": [
+        [
+          "restrict",
+          "restricted",
+          "restriction",
+          "restricion",
+          "restrict certain activity"
+        ],
+        [
+          "instagram",
+          "ig",
+          "activity",
+          "community",
+          "protect"
+        ]
+      ],
+      "opening": "This message comes from Instagram, so here is what the help center says to try.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "This error comes from Instagram, not Blotato.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "This error comes from Instagram, not Blotato. Instagram flagged your account or content based on risk/spam scores."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Reduce the number of hashtags in your caption.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Reduce the number of hashtags in your caption"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Shorten your caption.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Shorten your caption length"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Leave at least 30 minutes between posts.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Increase the time between posts (at least 30 minutes apart)"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If none of that works, post manually on Instagram for a few days to warm up your account.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "If none of the above works, post manually on Instagram for a few days to warm up your account"
+          }
+        }
+      ],
+      "next": "Shorten the caption, use fewer hashtags, and space your posts at least 30 minutes apart.",
+      "proof": "You will know it worked when the next Instagram post publishes without the restrict message."
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "release-notes-changelog",
+      "title": "Where to find new features or release notes",
+      "phrasings": [
+        "where do I find release notes",
+        "is there a changelog for blotato",
+        "how do I see new features",
+        "where can I read about product updates",
+        "what's new in blotato page",
+        "how will I know about new features blotato adds",
+        "blotato chnagelog",
+        "where is the product updates page"
+      ],
+      "not_this": [
+        "is there a mobile app",
+        "does blotato have dark mode",
+        "how do I update my plan"
+      ],
+      "anchors": [
+        [
+          "changelog",
+          "chnagelog",
+          "release notes",
+          "new features",
+          "whats new",
+          "what's new",
+          "what is new",
+          "new in blotato",
+          "product updates"
+        ],
+        [
+          "blotato",
+          "find",
+          "where",
+          "page",
+          "features",
+          "notes",
+          "read",
+          "know",
+          "new"
+        ]
+      ],
+      "opening": "Here is how to keep up with changes.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Blotato does not have a changelog page.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato does not have a changelog page."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Check in-app notifications when they appear.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Check in-app notifications when they appear"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Browse the Help Center for updated documentation.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Browse the Help Center for updated documentation"
+          }
+        }
+      ],
+      "next": "Watch for in-app notifications and browse the Help Center.",
+      "proof": "You will know it worked when you find the new feature in the Help Center or in an in-app notice."
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "avatar-ugc-videos",
+      "title": "Make avatar videos or UGC-style videos",
+      "phrasings": [
+        "can I generate avatar videos in blotato",
+        "does blotato do ugc style videos",
+        "how do I make an ai talking head video",
+        "can I create a talking video of myself with consistent character",
+        "which template makes an avatar video",
+        "can blotato clone my face or voice for videos",
+        "how to add b-roll to my avatar video",
+        "avater video how"
+      ],
+      "not_this": [
+        "how do I use HeyGen with Blotato",
+        "how do I make a carousel",
+        "how do I add my own video as context"
+      ],
+      "anchors": [
+        [
+          "avatar",
+          "avater",
+          "avatars",
+          "ugc",
+          "talking head",
+          "talking video",
+          "selfie",
+          "clone"
+        ],
+        [
+          "video",
+          "videos",
+          "generate",
+          "create",
+          "make",
+          "template",
+          "blotato",
+          "consistent",
+          "character"
+        ]
+      ],
+      "opening": "It depends on which kind of avatar video you mean.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "A generated character, an existing talking-head recording, and a trained clone of a real person are different tasks.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "A generated character, an existing talking-head recording, and a trained clone of a real person are different tasks."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "For a generated character video, select AI Selfie Talking Video with Consistent Character.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "For generated character video, select \"AI Selfie Talking Video with Consistent Character\"."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To add B-roll to an existing avatar or camera video, select AI Avatar with AI Generated B-roll.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "For adding B-roll to an existing avatar or camera video, select \"AI Avatar with AI Generated B-roll\"."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The template names do not establish face training, voice cloning, or exact identity reproduction.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The template names do not establish face training, voice cloning, or exact identity reproduction."
+          }
+        }
+      ],
+      "next": "Open Videos > Create New Video and pick the template that matches your goal.",
+      "proof": "You will know it worked when your chosen template opens with its prompt box."
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "heygen-with-blotato",
+      "title": "Use HeyGen with Blotato",
+      "phrasings": [
+        "how do you use heygen with blotato",
+        "can I post my heygen avatar videos through blotato",
+        "heygen integration with blotato",
+        "how do I send a heygen video to my social accounts",
+        "is there a heygen connection or do I upload manually",
+        "automate heygen avatar videos with make.com and blotato",
+        "hey gen and blotato together",
+        "heygen vidoes to tiktok with blotato"
+      ],
+      "not_this": [
+        "can I generate avatar videos in Blotato",
+        "how do I add my own video as context",
+        "can I connect Google Drive"
+      ],
+      "anchors": [
+        [
+          "heygen",
+          "hey gen",
+          "heygen's"
+        ],
+        [
+          "blotato",
+          "post",
+          "publish",
+          "use",
+          "integration",
+          "connect",
+          "upload",
+          "automate",
+          "send"
+        ]
+      ],
+      "opening": "There are two ways to use HeyGen with Blotato.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "You have 2 options for using HeyGen with Blotato.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "To use HeyGen with Blotato, you have 2 options"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "One option is to make your avatar video in the HeyGen web app, download it, and attach it to your post in Blotato.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Make your avatar video in the Heygen web app, download the completed video, and attach it to your post in blotato"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The other is to use make.com to generate HeyGen avatar videos automatically and post them through Blotato's API.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Use make.com to setup an automated flow to generate Heygen avatar videos, then post them to social media platforms automatically via blotato's API."
+          }
+        }
+      ],
+      "next": "Pick the manual upload or the make.com flow.",
+      "proof": "You will know it worked when your HeyGen video shows on the Blotato post."
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "long-link-in-post",
+      "title": "Add a long link to a post",
+      "phrasings": [
+        "how do I add a long link to a post",
+        "my url is too long for twitter",
+        "does blotato shorten links automatically",
+        "where do I put my link on instagram or facebook",
+        "link too long for threads or bluesky",
+        "can I shorten urls inside blotato",
+        "is there a link shortener built in",
+        "how to put a link in an instagram post"
+      ],
+      "not_this": [
+        "how do I add a first comment to a post",
+        "how do I attach a file by URL",
+        "how do I post a link preview"
+      ],
+      "anchors": [
+        [
+          "link",
+          "links",
+          "url",
+          "urls"
+        ],
+        [
+          "long",
+          "shorten",
+          "shortener",
+          "short",
+          "twitter",
+          "threads",
+          "bluesky",
+          "instagram",
+          "facebook",
+          "caption",
+          "put",
+          "add"
+        ]
+      ],
+      "opening": "The answer depends on the platform.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "On Twitter, Threads, and Bluesky, a free link shortener such as Bitly or Shorturl is recommended.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "short-text platforms like Twitter, Threads, or Bluesky, I recommend using a free link shortener, such as Bitly or Shorturl."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Blotato does not have automatic link shortening yet.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "I don't have automatic link shortening as a feature in Blotato yet."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "On Instagram and Facebook, put your link in the First Comment field instead of the caption.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "On Instagram and Facebook, put your link in the First Comment field instead of the caption."
+          }
+        }
+      ],
+      "next": "Shorten the link with a free tool, or use the First Comment field on Instagram and Facebook.",
+      "proof": "You will know it worked when your post or first comment shows the link."
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ],
+        "phrases": [
+          "refreshed",
+          "hard refresh",
+          "ctrl shift r"
+        ]
+      },
+      "id": "disconnected-banner",
+      "title": "Red Disconnected banner in the top-right corner",
+      "phrasings": [
+        "what does the red disconnected banner mean",
+        "a red disconnected message keeps appearing in the top right of blotato",
+        "does the disconnected message mean my social accounts lost connection",
+        "red banner says disconnected in blotato app",
+        "why does blotato keep saying disconnected",
+        "the disconnected notification pops up every few minutes",
+        "are my scheduled posts safe when it says disconnected",
+        "red disconected banner top corner"
+      ],
+      "not_this": [
+        "my instagram account is disconnected, how do I reconnect",
+        "reconnect my facebook page",
+        "my tiktok account needs to be reconnected"
+      ],
+      "anchors": [
+        [
+          "disconnected",
+          "disconected"
+        ],
+        [
+          "banner",
+          "red",
+          "notification",
+          "message",
+          "corner",
+          "top",
+          "pops",
+          "appears",
+          "keeps",
+          "keep",
+          "saying",
+          "says"
+        ]
+      ],
+      "opening": "Good news: this banner is not about your social accounts.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "The red Disconnected banner in the top-right corner is a real-time connection notification.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The red \"Disconnected\" banner in the top-right corner of Blotato is a real-time connection notification."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "It means your browser's live connection to Blotato's servers was temporarily interrupted.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "It means your browser's live connection to Blotato's servers was temporarily interrupted."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Wait a few minutes, because Blotato reconnects automatically and the message disappears.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Wait a few minutes -- Blotato automatically reconnects and the message disappears."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If it stays, refresh the page with Ctrl/Cmd + Shift + R.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "If it persists, refresh the page (Ctrl/Cmd + Shift + R)."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The notification does not mean your social accounts are disconnected.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "This notification does not mean your social accounts are disconnected."
+          }
+        }
+      ],
+      "next": "Wait a few minutes, and refresh the page if the banner stays.",
+      "proof": "You will know it worked when the red banner is gone."
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "tiktok-reels-caption-optional",
+      "title": "Is the text box required for TikTok videos and Instagram Reels",
+      "phrasings": [
+        "do I have to fill out the text box for tiktok videos",
+        "is the caption required for instagram reels",
+        "can I leave the description empty on a tiktok post",
+        "what should I put in the text input for reels",
+        "is it ok to post a tiktok without a caption",
+        "does blotato need text for reels",
+        "the text box for tiktok is optional?",
+        "do i need a caption in tik tok post"
+      ],
+      "not_this": [
+        "how many hashtags should I use",
+        "what is the TikTok subtitle track error",
+        "how do I set a custom cover image for Reels"
+      ],
+      "anchors": [
+        [
+          "tiktok",
+          "tik tok",
+          "reels",
+          "reel"
+        ],
+        [
+          "caption",
+          "text",
+          "description",
+          "box",
+          "required",
+          "optional",
+          "empty",
+          "blank"
+        ]
+      ],
+      "opening": "Short answer: the box is optional.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "You do not need to put text in the box.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "You don't need to put text in the box"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "An SEO optimized caption is highly recommended.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "but I highly recommend putting an SEO optimized caption there."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "A detailed description helps bring in new viewers over time.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "so putting additional details in your video's description helps bring in new viewers over time."
+          }
+        }
+      ],
+      "next": "Add a caption with details about your video before you publish.",
+      "proof": "You will know it worked when your post shows the caption on TikTok or Instagram."
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "hashtag error",
+          "hashtags rejected"
+        ]
+      },
+      "id": "hashtag-count",
+      "title": "How many hashtags to use",
+      "phrasings": [
+        "how many hashtags should I use",
+        "what is the best number of hashtags",
+        "do I need hashtags on linkedin",
+        "is 30 hashtags on instagram too many",
+        "are hashtags useful on twitter or threads",
+        "too many hastags hurts reach?",
+        "hashtag limit for tiktok and facebook",
+        "should i use hashtags on youtube"
+      ],
+      "not_this": [
+        "instagram says we restrict certain activity",
+        "what should I put in the caption box"
+      ],
+      "anchors": [
+        [
+          "hashtag",
+          "hashtags",
+          "hastags",
+          "hastag"
+        ],
+        [
+          "many",
+          "number",
+          "limit",
+          "maximum",
+          "max",
+          "best",
+          "should",
+          "useful",
+          "reach",
+          "much",
+          "recommended",
+          "need",
+          "benefit"
+        ]
+      ],
+      "opening": "Here is the guidance from the help center.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Use a maximum of 5 hashtags on Instagram, TikTok, and Facebook.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Use a maximum of 5 hashtags on Instagram, TikTok, and Facebook."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "More than 5 reduces your reach on those platforms.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "More than 5 reduces your reach on these platforms."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Instagram itself allows more, but Blotato caps posts at 5 on purpose.",
+          "cite": {
+            "url": "https://help.blotato.com/support/errors",
+            "quote": "Instagram itself allows more hashtags, but Blotato caps posts at 5 on purpose because more than 5 hashtags reduces your reach on Instagram, TikTok, and Facebook."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "You do not need hashtags on other platforms.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "You don't need hashtags on other platforms."
+          }
+        }
+      ],
+      "next": "Keep to 5 hashtags or fewer on Instagram, TikTok, and Facebook.",
+      "proof": "You will know it worked when your caption has 5 hashtags or fewer."
+    },
+    {
+      "kind": "technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "different video",
+          "other video",
+          "another video"
+        ]
+      },
+      "id": "tiktok-missing-subtitle-track",
+      "title": "\"TikTok video is missing the subtitle track\" error",
+      "phrasings": [
+        "TikTok video is missing the subtitle track",
+        "what does missing the subtitle track mean",
+        "error when I add a tiktok link as context, subtitle track",
+        "blotato cannot analyze my tiktok video, subtitle track",
+        "my tiktok link shows missing subtitle track",
+        "tiktok video missing subtitle track fix",
+        "subtitel track error with tiktok source",
+        "why can't blotato read this tiktok, no subtitle track"
+      ],
+      "not_this": [
+        "how do I upload a TikTok video",
+        "my TikTok post failed to publish",
+        "how do I set a TikTok thumbnail"
+      ],
+      "anchors": [
+        [
+          "subtitle",
+          "subtitles",
+          "subtitel",
+          "subtitle track"
+        ],
+        [
+          "tiktok",
+          "tik tok",
+          "track",
+          "missing",
+          "video"
+        ]
+      ],
+      "opening": "This message is about the TikTok you added as a source.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Blotato can only analyze TikToks that have a subtitle track.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Right now, Blotato can only analyze TikToks that have a subtitle track."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Most TikTok videos have subtitle tracks, so try a different video.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Most TikTok videos do have subtitle tracks, so I recommend trying with a different video."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Blotato plans to improve this so it transcribes videos without a subtitle track automatically.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "I will improve this in the future, so that Blotato automatically transcribes videos that don't have a subtitle track."
+          }
+        }
+      ],
+      "next": "Try a different TikTok video as your source.",
+      "proof": "You will know it worked when the new TikTok's contents show under Source Contents."
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": [
+          "cover image field",
+          "under 8mb",
+          "public url"
+        ]
+      },
+      "id": "reels-cover-image",
+      "title": "Set a custom cover image for Instagram Reels",
+      "phrasings": [
+        "how do I set a custom cover image for instagram reels",
+        "can I choose the thumbnail for my reel",
+        "where do I add a cover image url for a reel",
+        "my reel cover is random, how do I pick it",
+        "is there a size limit for the reels cover",
+        "how to add cover image in the n8n blotato node for reels",
+        "reel covr image how",
+        "cover photo for instagram reel in blotato"
+      ],
+      "not_this": [
+        "cover image not applied on facebook reels",
+        "how do I set a custom thumbnail for TikTok",
+        "how do I set a thumbnail for YouTube",
+        "how do I make a carousel"
+      ],
+      "anchors": [
+        [
+          "cover",
+          "thumbnail",
+          "covr"
+        ],
+        [
+          "reel",
+          "reels",
+          "instagram"
+        ]
+      ],
+      "opening": "Here is how to pick the cover for a Reel.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Create your post with a video attached.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Create your post with a video attached"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "On the publish screen, expand the advanced options.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "On the publish screen, expand the advanced options"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Add your cover image URL in the Cover Image field.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Add your cover image URL in the \"Cover Image\" field"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The cover image must be a publicly accessible URL and under 8MB.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The cover image must be a publicly accessible URL and under 8MB."
+          }
+        }
+      ],
+      "next": "Add your public cover image URL in the Cover Image field and publish as usual.",
+      "proof": "You will know it worked when the published Reel shows your chosen cover."
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "tiktok-reels-photo-slideshow",
+      "title": "Upload multiple photos as a slideshow for TikTok or Reels",
+      "phrasings": [
+        "can I upload multiple photos to tiktok",
+        "can I post a photo slideshow on tiktok with blotato",
+        "does blotato support photo carousels on tiktok",
+        "can I upload several photos for reels",
+        "multiple photos tiktok slideshow supported?",
+        "can I upload many photos to tiktok in one post",
+        "I want to post 5 photos to tiktok as a slideshow",
+        "upload multipel photos tiktok"
+      ],
+      "not_this": [
+        "how do I make carousels or slideshows in Blotato",
+        "how do I set a TikTok thumbnail",
+        "why does my Instagram Story post as a feed post"
+      ],
+      "anchors": [
+        [
+          "photo",
+          "photos",
+          "pictures",
+          "images",
+          "slideshow",
+          "photo slideshow"
+        ],
+        [
+          "tiktok",
+          "tik tok",
+          "reels",
+          "reel"
+        ]
+      ],
+      "opening": "I want to give you a right answer here, and the help pages are not fully clear on TikTok slideshows, so I am asking a person to confirm.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Blotato lets you upload multiple photos to a social media post for several platforms.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "You can upload multiple photos to a social media post for several platforms (Facebook, LinkedIn, etc.)"
+          }
+        },
+        {
+          "type": "action",
+          "text": "I am passing the TikTok and Reels photo slideshow question to a person on the team, because the help pages do not agree."
+        },
+        {
+          "type": "fact",
+          "text": "Blotato accepts image source URLs for TikTok and converts non-JPEG images to JPEG for submission.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato accepts image source URLs for TikTok and converts non-JPEG images to JPEG for submission."
+          }
+        }
+      ],
+      "next": "Reply here with the platform and how you plan to publish, such as the web app or the API.",
+      "proof": "Still open: whether TikTok photo slideshows can be posted through Blotato. A person on the team will confirm.",
+      "escalate": {
+        "why": "The help center disagrees about TikTok photo slideshows, so the desk does not pick a side.",
+        "causes": [
+          {
+            "text": "The FAQ says photo slideshows are not supported for TikTok or Reels.",
+            "cite": {
+              "url": "https://help.blotato.com/support/faqs",
+              "quote": "BUT not a photo slideshow for TikTok or Reels (see below)."
+            }
+          },
+          {
+            "text": "The FAQ also describes adding music to TikTok slideshow posts through the API.",
+            "cite": {
+              "url": "https://help.blotato.com/support/faqs",
+              "quote": "to add TikTok's recommended music (photo/slideshow posts only)"
+            }
+          }
+        ],
+        "ruledOut": [
+          "Nothing ruled out yet: the desk cannot test a publish."
+        ]
+      },
+      "docEdit": {
+        "article": "https://help.blotato.com/support/faqs",
+        "kind": "change",
+        "before": "BUT not a photo slideshow for TikTok or Reels (see below).",
+        "after": "[Confirm with the founder whether TikTok photo slideshows are supported, and say so in one place.]",
+        "note": "The same FAQ page says photo slideshows are not supported for TikTok, and also describes TikTok slideshow posts with autoAddMusic through the API. Confirm and make the page agree."
+      }
+    },
+    {
+      "kind": "non-technical",
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ]
+      },
+      "id": "make-carousel-slideshow",
+      "title": "Make carousels or slideshows in Blotato",
+      "phrasings": [
+        "how do I make carousels or slideshows in blotato",
+        "how can I create an instagram carousel",
+        "how do I make an image slideshow with my own pictures",
+        "where are the slideshow templates",
+        "can I use my own images in a carousel",
+        "how to make a slideshow video from my photos",
+        "carousell maker in blotato",
+        "which template do I pick for a slideshow",
+        "how do I make a carousel",
+        "make an image carousel"
+      ],
+      "not_this": [
+        "can I upload multiple photos to TikTok",
+        "how do I make a video with AI voice",
+        "how do I set up my Brand Kit"
+      ],
+      "anchors": [
+        [
+          "carousel",
+          "carousels",
+          "carousell",
+          "slideshow",
+          "slideshows",
+          "slide show"
+        ],
+        [
+          "make",
+          "create",
+          "build",
+          "how",
+          "template",
+          "templates",
+          "images",
+          "pictures",
+          "photos",
+          "own",
+          "maker"
+        ]
+      ],
+      "opening": "Carousels and slideshows come from the video templates.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Select a carousel or slideshow template, for example Image Slideshow with Text Overlays.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Select a carousel or slideshow template (e.g., \"Image Slideshow with Text Overlays\")"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Enter your content idea in the Prompt field.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Enter your content idea in the Prompt field"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Every visual template has advanced settings, and the controls differ by template.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Every visual template includes advanced settings, and the available controls differ by template."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To use your own images, choose Upload Image from the Image Source dropdown for each slide.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "For each slide, choose \"Upload Image\" from the Image Source dropdown"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Your uploaded image can be up to 20MB.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Upload your image (max 20MB)"
+          }
+        }
+      ],
+      "next": "Open Videos > Create New Video, pick a slideshow template, and enter your prompt.",
+      "proof": "You will know it worked when your slides appear in the generated video."
+    }
+  ]
+}

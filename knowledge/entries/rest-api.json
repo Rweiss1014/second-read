@@ -12,13 +12,16 @@
         "a 401 error when calling the Blotato API",
         "getting unauthorized from GET /v2/users/me/accounts",
         "my key doesnt work, it says unautorized",
-        "which header do I put the API key in"
+        "which header do I put the API key in",
+        "every endpoint answers 401 even with a new key"
       ],
       "not_this": [
         "403 with a subscription message",
         "invalid_grant in the Claude connector",
         "the AI connector says invalid API key or auth session",
-        "my API key leaked, how do I make a new one"
+        "my API key leaked, how do I make a new one",
+        "unauthorized when I log in to the Blotato website",
+        "403 forbidden from the API"
       ],
       "anchors": [
         [
@@ -103,7 +106,8 @@
       ],
       "not_this": [
         "the daily post limit for one social account",
-        "TikTok says reached_active_user_cap"
+        "TikTok says reached_active_user_cap",
+        "how many posts per day for one account"
       ],
       "anchors": [
         [
@@ -180,7 +184,9 @@
         "where do I find my Facebook page id",
         "LinkedIn analytics for my posts",
         "does each LinkedIn page count as a separate account",
-        "how many social accounts can I connect on my plan"
+        "how many social accounts can I connect on my plan",
+        "if I connect a linkedin company page does it count toward my starter account limit",
+        "post to a LinkedIn company page from the web app"
       ],
       "anchors": [
         [
@@ -197,9 +203,15 @@
           "brand page",
           "page id",
           "pageid",
-          "page",
-          "pages",
-          "personal profile"
+          "personal profile",
+          "linkedin page",
+          "linkedin pages",
+          "page on linkedin",
+          "company",
+          "organization",
+          "organisation",
+          "my business",
+          "our business"
         ]
       ],
       "needs_person_if": {
@@ -263,7 +275,7 @@
         "GET /v2/schedules/{id} gives a 500 invalid input syntax for type bigint",
         "the schedule lookup fails with a bigint error",
         "invalid input syntax for type bigint",
-        "a 500 error when I update a schedule with the id from the docs",
+        "a 500 bigint error when I update a schedule with the id from the docs",
         "a schedule id like sch_ answers a server error"
       ],
       "anchors": [
@@ -358,7 +370,11 @@
           "staging",
           "without posting",
           "without publishing",
-          "test"
+          "test environment",
+          "test post",
+          "test posts",
+          "test my integration",
+          "test the api"
         ]
       ],
       "lookup": "docs-search",

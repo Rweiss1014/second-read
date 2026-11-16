@@ -1,5 +1,6 @@
 // Mock mode: an in-memory stand-in for the Blotato API, shaped exactly like the documented responses.
-// Every name and id here is made up. Times are set relative to "now" so the sample never goes stale.
+// Every name and id here is made up. Every date, time and id is fixed: the sample account is the same on every run,
+// forever. The sample world has its own clock (MOCK_NOW), so nothing moves when the real clock does.
 // Shapes from (read Nov 15, 2026):
 //   GET /users/me/accounts      https://help.blotato.com/rest-api-reference/accounts.md
 //   GET /posts                  https://help.blotato.com/rest-api-reference/publish-post/list-posts.md
@@ -22,13 +23,13 @@ const acct = (id) => {
   return a ? { id: a.id, name: a.fullname, subaccount: null } : null;
 };
 
-// Sample post times are anchored to the start of the current six-hour block, not to this exact second.
-// A real post's time never moves, so a sample post's time should not move between two runs either.
-// Otherwise the reply text changes on every run, and no checker verdict could ever match it.
-const SIX_HOURS = 6 * H;
-const steadyNow = () => Math.floor(Date.now() / SIX_HOURS) * SIX_HOURS;
+// The sample world's "now": Sunday, Nov 15, 2026, 12:00 UTC. The desk uses it as its clock in sample mode
+// (see openDesk), so a lookup like "the last 7 days" always sees the same sample posts.
+// A real post's time never moves, so a sample post's time must not move either: otherwise the reply text
+// changes between runs and no checker verdict could ever match it.
+export const MOCK_NOW = Date.parse('2026-11-15T12:00:00Z');
 
-export function createMockApi({ now = steadyNow } = {}) {
+export function createMockApi({ now = () => MOCK_NOW } = {}) {
   const t0 = now();
   // Scheduled posts live here (the schedules list). The docs show ids like "sch_abc123", but the real API
   // treats schedule ids as numbers (checked Nov 15, 2026), so the mock uses number strings.
@@ -44,9 +45,9 @@ export function createMockApi({ now = steadyNow } = {}) {
   // Published and failed posts (from the list-posts docs: ids are distinct per state).
   const history = [
     { id: '71002', postTime: iso(t0 - 5 * H), platform: 'instagram', text: 'Behind the scenes of our spring launch.', mediaUrls: ['https://example.com/sample-image.jpg'], account: { id: '98436', name: 'Sample Creator', subaccount: null },
-      state: { type: 'published', postUrl: 'https://example.com/sample-instagram-post', analytics: null } },
+      state: { type: 'published', postUrl: 'https://www.instagram.com/p/SAMPLE-POST/', analytics: null } },
     { id: '71001', postTime: iso(t0 - 50 * H), platform: 'linkedin', text: 'What I learned turning a checklist into a two-minute practice game.', mediaUrls: [], account: acct('98432'),
-      state: { type: 'published', postUrl: 'https://example.com/sample-published-post', analytics: null } },
+      state: { type: 'published', postUrl: 'https://www.linkedin.com/feed/update/urn:li:activity:SAMPLE-POST/', analytics: null } },
     { id: '81001', postTime: iso(t0 - 26 * H), platform: 'twitter', text: 'Five posts in one minute, what could go wrong?', mediaUrls: [], account: acct('98433'),
       state: { type: 'failed', errorMessage: 'The service is receiving too many requests from you' } },
     { id: '81002', postTime: iso(t0 - 6 * H), platform: 'linkedin', text: 'A post sent with an old account id.', mediaUrls: [], account: null,
@@ -57,7 +58,7 @@ export function createMockApi({ now = steadyNow } = {}) {
 
   // Submission ids, for GET /posts/:id.
   const submissions = new Map([
-    ['b7d1c0de-0000-4000-8000-000000000001', { status: 'published', publicUrl: 'https://example.com/sample-published-post' }],
+    ['b7d1c0de-0000-4000-8000-000000000001', { status: 'published', publicUrl: 'https://www.linkedin.com/feed/update/urn:li:activity:SAMPLE-POST/' }],
     ['b7d1c0de-0000-4000-8000-000000000002', { status: 'failed', errorMessage: 'Account 98499 not found' }],
   ]);
 

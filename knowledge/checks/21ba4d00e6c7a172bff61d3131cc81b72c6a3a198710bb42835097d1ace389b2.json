@@ -1,0 +1,11 @@
+{
+  "replySha256": "21ba4d00e6c7a172bff61d3131cc81b72c6a3a198710bb42835097d1ace389b2",
+  "verdict": "pass",
+  "findings": [
+    "Style note, whole reply: the page says keeping the subscription retains 'credits, scheduled posts, and access' and warns 'Do not promise future scheduled publication after access ends'; the reply promises nothing wrong, but one line that scheduled posts will not go out after access ends would help the customer decide.",
+    "Style note, success line: 'the Billing Portal shows the cancellation and its end date' is not in the cited page text; it is a reasonable proof line and does not mislead."
+  ],
+  "checkedAt": "2026-11-15T20:54:48Z",
+  "checker": "reply-checker",
+  "entry": "cancel-subscription"
+}

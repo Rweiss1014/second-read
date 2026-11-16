@@ -1,0 +1,10 @@
+{
+  "replySha256": "7a7efedeec0a4280bac0519b291a97cff93655e0415a92ea54f5d3dd73f60a8b",
+  "verdict": "pass",
+  "findings": [
+    "Style note, not misleading: step 3 \"check which posts already went out\" does not say where to look, so a new customer may not know where to check."
+  ],
+  "checkedAt": "2026-11-15T20:59:26Z",
+  "checker": "reply-checker",
+  "entry": "rate-limit"
+}
