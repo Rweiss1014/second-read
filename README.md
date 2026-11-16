@@ -233,6 +233,21 @@ codex mcp add blotato-docs --url https://help.blotato.com/~gitbook/mcp
 
 Keep API keys out of `.mcp.json`. Blotato's page says the same.
 
+## Use it from n8n
+
+`examples/n8n/second-read.workflow.json` is an n8n flow you can import (Workflows > Import from File).
+Send it a support message as JSON, `{"text": "..."}`, and it asks Second Read for a checked draft:
+
+1. **Support message in** is a webhook that takes the message.
+2. **Ask Second Read** posts it to `/api/ticket`. Change the URL to wherever Second Read runs. `localhost:5610` works when n8n runs on the same computer.
+3. **Needs a person?** looks at the desk's answer. A charge, a refund or anything the help pages cannot settle goes to a person.
+4. The flow answers with the draft reply, and for a hand-over, the note for the person who decides.
+
+The flow never sends anything. A person reads the draft and sends it.
+
+`test/n8n-flow.test.mjs` checks the wiring and runs the flow's own expressions against a sample desk, for a how-to and a billing ticket.
+That proves the flow's logic and the fields it reads. It has not been run inside n8n yet.
+
 ## The daily "what broke overnight" check
 
 `scheduled/what-broke-overnight.ps1` runs `morning`, which lists posts that failed in the last 24 hours and explains each one.

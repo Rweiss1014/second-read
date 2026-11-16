@@ -1,0 +1,104 @@
+{
+  "name": "Second Read: draft a support reply",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "second-read",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "5b1f0c1e-0001-4d6a-9a11-000000000001",
+      "name": "Support message in",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 300],
+      "webhookId": "5b1f0c1e-0001-4d6a-9a11-0000000000aa"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://localhost:5610/api/ticket",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ text: $json.body.text }) }}",
+        "options": { "timeout": 60000 }
+      },
+      "id": "5b1f0c1e-0001-4d6a-9a11-000000000002",
+      "name": "Ask Second Read",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true, "leftValue": "", "typeValidation": "strict" },
+          "conditions": [
+            {
+              "id": "5b1f0c1e-0001-4d6a-9a11-0000000000c1",
+              "leftValue": "={{ $json.outcome }}",
+              "rightValue": "escalate",
+              "operator": { "type": "string", "operation": "equals" }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "5b1f0c1e-0001-4d6a-9a11-000000000003",
+      "name": "Needs a person?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [480, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ outcome: 'escalate', draftReply: $json.reply, handover: $json.escalationText, note: 'A person on the team decides this one. Send the draft as a holding reply and pass the hand-over note on.' }) }}",
+        "options": {}
+      },
+      "id": "5b1f0c1e-0001-4d6a-9a11-000000000004",
+      "name": "Hand over to a person",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [720, 200]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ outcome: $json.outcome, draftReply: $json.reply, howChecked: $json.status, note: 'A draft. Read it, then send it yourself.' }) }}",
+        "options": {}
+      },
+      "id": "5b1f0c1e-0001-4d6a-9a11-000000000005",
+      "name": "Draft reply",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [720, 400]
+    },
+    {
+      "parameters": {
+        "content": "## Second Read in n8n\nPOST a support message to this webhook as JSON: {\"text\": \"...\"}.\nIt asks Second Read for a checked draft and returns it.\n\nSecond Read only reads. Nothing here sends a reply or changes an account: a person sends the draft.\n\nChange the URL in **Ask Second Read** to wherever Second Read runs. localhost:5610 works when n8n runs on the same computer.",
+        "height": 260,
+        "width": 420
+      },
+      "id": "5b1f0c1e-0001-4d6a-9a11-000000000006",
+      "name": "About this flow",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [0, 0]
+    }
+  ],
+  "connections": {
+    "Support message in": { "main": [[{ "node": "Ask Second Read", "type": "main", "index": 0 }]] },
+    "Ask Second Read": { "main": [[{ "node": "Needs a person?", "type": "main", "index": 0 }]] },
+    "Needs a person?": {
+      "main": [
+        [{ "node": "Hand over to a person", "type": "main", "index": 0 }],
+        [{ "node": "Draft reply", "type": "main", "index": 0 }]
+      ]
+    }
+  },
+  "settings": { "executionOrder": "v1" },
+  "pinData": {}
+}
