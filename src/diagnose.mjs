@@ -101,7 +101,7 @@ async function lookup(kind, ticket, { client, docs, entry, now = Date.now }) {
 export async function diagnose(ticket, { client, docs, agent = 'Support', route = routeMessage, now = Date.now }) {
   const r = route(ticket.text);
   const entry = r.entry;
-  const match = { decision: r.decision, guard: r.guard, reason: r.reason, words: r.words, score: r.score, margin: r.margin, candidates: r.candidates, signals: r.signals, questions: r.questions, stripped: r.stripped };
+  const match = { decision: r.decision, why: r.why ?? null, whyDetail: r.whyDetail ?? null, guard: r.guard, reason: r.reason, words: r.words, score: r.score, margin: r.margin, candidates: r.candidates, signals: r.signals, questions: r.questions, stripped: r.stripped };
   const out = { ticket, entry: entry ? { id: entry.id, kind: entry.kind, title: entry.title } : null, match, pages: {}, evidence: null };
 
   if (!entry) {
