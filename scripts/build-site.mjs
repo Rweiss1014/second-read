@@ -16,6 +16,19 @@ const docsSrc = [docsArg, process.env.DOCS_CACHE_DIR, path.join(root, '.cache', 
 if (!docsSrc) { console.error('No help-page cache found. Run `node bin/support-desk.mjs docs --all` first, or pass --docs <folder>.'); process.exit(1); }
 
 fs.rmSync(path.join(root, 'netlify', 'site-data'), { recursive: true, force: true });
+// The published folder, dist/ (git-ignored): public/ copied, with the header mark and favicon written into index.html
+// the way src/server.mjs indexHtml() does for the local page. public/ itself is never changed.
+const dist = path.join(root, 'dist');
+fs.rmSync(dist, { recursive: true, force: true });
+fs.cpSync(path.join(root, 'public'), dist, { recursive: true });
+{
+  const mark = fs.existsSync(path.join(root, 'public', 'art', 'app-mark.webp'));
+  const f = path.join(dist, 'index.html');
+  let html = fs.readFileSync(f, 'utf8');
+  html = html.replace('<!--app-mark-->', mark ? '<img class="brand-mark" src="/art/app-mark.webp" alt="" width="34" height="34" decoding="async">' : '');
+  html = html.replace('<!--app-icon-->', mark ? '<link rel="icon" href="/art/app-mark.webp" type="image/webp">' : '');
+  fs.writeFileSync(f, html);
+}
 // Saved verdicts: the committed eval caches (hash-named files, no message text), plus desk/ if a local one exists.
 const merge = (kind) => {
   const dest = path.join(out, `${kind}-cache`); fs.mkdirSync(dest, { recursive: true });

@@ -20,5 +20,6 @@ eval/tickets.test4.jsonl
 eval/composer-cache/test*/
 
 # The built function folder (holds copies of Blotato help pages; never committed).
+dist/
 netlify/site-data/
 .netlify/

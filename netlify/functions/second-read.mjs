@@ -28,6 +28,7 @@ export const SITE_ENV = {
   SUPPORT_DESK_COMPOSER: 'claude-cli',
   SUPPORT_DESK_COMPOSER_CACHE: path.join(data, 'composer-cache'),
   SUPPORT_DESK_COMPOSER_CACHE_ONLY: '1',
+  SUPPORT_DESK_COMPOSE_OVER_SAVED: '1', // as on the local page: saved help answers are composed too (from saved verdicts); the 12 samples keep theirs
   SUPPORT_DESK_CLAUDE_BIN: '/nonexistent/no-model-here',
 };
 

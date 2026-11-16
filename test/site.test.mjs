@@ -62,6 +62,13 @@ test('the Netlify function: sample data only, cached composed question works, a 
     assert.equal(state.mock, true); assert.ok(state.docs.pages > 100);
     const cached = await ask({ text: 'What size should my YouTube thumbnail be?' });
     assert.equal(cached.path, 'composed'); assert.equal(cached.outcome, 'reply');
+    assert.equal(SITE_ENV.SUPPORT_DESK_COMPOSE_OVER_SAVED, '1');
+    for (const q of ['Can I add a first comment to my Instagram posts?', 'How do I connect my TikTok account?', 'Can I post to a Facebook group?']) {
+      const r = await ask({ text: q }); assert.equal(r.path, 'composed', q); assert.match(r.status, /second reader passed/, q);
+    }
+    assert.equal((await ask({ id: 'T01' })).path, 'saved', 'a sample message keeps its saved reply');
+    const threads = await ask({ text: 'Can Blotato post to Threads at a set time every day?' });
+    assert.ok(!(threads.trace || []).some(e => e.t === 'model' && !e.cached), 'no live model call');
     const fresh = await ask({ text: 'How do I bake a sourdough loaf on Mars?' });
     assert.equal(fresh.outcome, 'no-answer');
     const sample = await ask({ id: 'T01' });
@@ -71,6 +78,15 @@ test('the Netlify function: sample data only, cached composed question works, a 
     for (const p of ['/api/practice', '/api/example/stopped', '/api/art']) assert.equal((await handler(new Request('https://site.test' + p))).status, 200, p);
     assert.deepEqual(outside, []);
   } finally { process.env.PATH = oldPath; if (oldKey) process.env.ANTHROPIC_API_KEY = oldKey; globalThis.fetch = realFetch; }
+});
+
+test('the built page carries the header mark and favicon that the local server writes in', (t) => {
+  const f = path.join(ROOT, 'dist', 'index.html');
+  if (!fs.existsSync(f)) return t.skip('dist/ not built');
+  const html = fs.readFileSync(f, 'utf8');
+  assert.ok(!html.includes('<!--app-mark-->') && !html.includes('<!--app-icon-->'));
+  assert.match(html, /<img class="brand-mark"[^>]*width="34" height="34"/);
+  assert.match(html, /<link rel="icon" href="\/art\/app-mark\.webp"/);
 });
 
 test('Blotato help pages are never in the published folder or in git', () => {
