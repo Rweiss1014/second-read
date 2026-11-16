@@ -1,0 +1,9 @@
+{
+  "replySha256": "adab8dcde614f64178a8edee69974d4d91f878940238f20a319f244297237ec4",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T03:44:37Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "slack-permissions-not-granted"
+}

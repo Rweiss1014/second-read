@@ -1,0 +1,11 @@
+{
+  "replySha256": "c702f0a20f4bd00140b12a98472783c9ca4b30bc53a0ee45ebd10c3865c617e2",
+  "verdict": "pass",
+  "findings": [
+    "Style note: error code 20003 is also used for \"Instagram server media processing timed out\", where the page says to check the destination before a retry; this reply fits only the \"temporary error\" message, so it should go only to a customer who quoted that message."
+  ],
+  "checkedAt": "2026-11-16T02:34:04Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "instagram-temporary-error-20003"
+}

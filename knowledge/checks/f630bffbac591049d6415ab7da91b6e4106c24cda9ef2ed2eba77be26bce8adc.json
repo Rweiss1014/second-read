@@ -1,0 +1,11 @@
+{
+  "replySha256": "f630bffbac591049d6415ab7da91b6e4106c24cda9ef2ed2eba77be26bce8adc",
+  "verdict": "pass",
+  "findings": [
+    "Style note: step 2 says \"Instagram supports other shapes\" but drops the example list the page gives (1:1, 4:5, 1.91:1, 9:16), which would help the customer pick an export shape."
+  ],
+  "checkedAt": "2026-11-16T02:34:20Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "aspect-ratio-not-supported"
+}

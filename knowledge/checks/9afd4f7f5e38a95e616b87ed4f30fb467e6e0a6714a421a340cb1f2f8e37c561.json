@@ -1,0 +1,12 @@
+{
+  "replySha256": "9afd4f7f5e38a95e616b87ed4f30fb467e6e0a6714a421a340cb1f2f8e37c561",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the Next step line \"Reconnect the Instagram account in Accounts first\" drops the page's condition that this applies to \"an account connected before DM automations and follow gating landed\"; reconnecting an account that does not need it costs the customer a little time but should not do harm.",
+    "Style note: step 3 \"The second cause is another app controlling the conversation in Meta\" is a little surer than the page's \"another app might control the conversation in Meta\"."
+  ],
+  "checkedAt": "2026-11-16T02:22:24Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "follow-gate-run-stuck"
+}

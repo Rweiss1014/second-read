@@ -1,0 +1,11 @@
+{
+  "replySha256": "383b62c7fc8d7056201bf514352d17f8c56eefc1df8082c8c855f60543f7efe5",
+  "verdict": "pass",
+  "findings": [
+    "Style note, step 5: \"without evidence for that specific action\" is vague for a customer, but it matches the page and does not mislead."
+  ],
+  "checkedAt": "2026-11-16T03:18:25Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "already-queued-error"
+}

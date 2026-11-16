@@ -1,0 +1,11 @@
+{
+  "replySha256": "f0216c2e66c249df274576a981e160d9bbf245952d1d71c04bc14f230bafd47c",
+  "verdict": "pass",
+  "findings": [
+    "Style note only: the success line \"the balance in Settings > Billing is above zero\" is a weak proof, since a job can need more credits than a small balance holds; \"when the job runs without the out-of-credits message\" would be a truer test."
+  ],
+  "checkedAt": "2026-11-16T03:20:11Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "out-of-ai-credits-error"
+}

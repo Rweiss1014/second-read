@@ -1,0 +1,11 @@
+{
+  "replySha256": "58d9cb98c3dc76174cdde3f89edcdb015360b02636b580eb4f34418450cc885a",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the reply leaves out the page's self-service path for a charge that has not gone through (Settings > Billing > View Billing Portal, complete the pending payment or retry once); routing to a person instead is safe because an escalation packet was written, but it may slow a customer who has not paid yet."
+  ],
+  "checkedAt": "2026-11-16T03:19:58Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "subscription-setup-incomplete"
+}

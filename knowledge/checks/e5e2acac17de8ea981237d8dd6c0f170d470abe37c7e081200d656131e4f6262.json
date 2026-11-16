@@ -1,0 +1,11 @@
+{
+  "replySha256": "e5e2acac17de8ea981237d8dd6c0f170d470abe37c7e081200d656131e4f6262",
+  "verdict": "pass",
+  "findings": [
+    "Style note: step 4 could add the page's note that the webhook publish target \"is separate from the DM automation webhook\", so the customer does not mix up the two."
+  ],
+  "checkedAt": "2026-11-16T02:34:09Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "crm-integration"
+}

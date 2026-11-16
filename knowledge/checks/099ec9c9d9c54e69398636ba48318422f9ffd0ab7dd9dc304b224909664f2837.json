@@ -1,0 +1,9 @@
+{
+  "replySha256": "099ec9c9d9c54e69398636ba48318422f9ffd0ab7dd9dc304b224909664f2837",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T02:11:32Z",
+  "checker": "reply-checker",
+  "model": "GPT-6",
+  "entry": "edit-video-with-prompts"
+}

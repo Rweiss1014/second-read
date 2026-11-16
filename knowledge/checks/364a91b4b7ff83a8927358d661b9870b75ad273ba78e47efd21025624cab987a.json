@@ -1,0 +1,11 @@
+{
+  "replySha256": "364a91b4b7ff83a8927358d661b9870b75ad273ba78e47efd21025624cab987a",
+  "verdict": "pass",
+  "findings": [
+    "Small note: step 1 names the viral-hooks skill but does not say it holds the 100 hook frameworks the customer was promised, which the page states."
+  ],
+  "checkedAt": "2026-11-16T02:14:51Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "free-claude-skills"
+}

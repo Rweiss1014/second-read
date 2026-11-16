@@ -1,0 +1,9 @@
+{
+  "replySha256": "77e9254f53940f2c00f84cd0704c31cb0eb6df3c77ec11773cbae6224f69d054",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T02:20:36Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "past-due-with-trial"
+}

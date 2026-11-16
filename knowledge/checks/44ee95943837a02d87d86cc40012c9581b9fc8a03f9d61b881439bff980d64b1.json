@@ -1,0 +1,11 @@
+{
+  "replySha256": "44ee95943837a02d87d86cc40012c9581b9fc8a03f9d61b881439bff980d64b1",
+  "verdict": "pass",
+  "findings": [
+    "Citation note: the text shown for step 2 \"Reconnect the account.\" comes from the reached_active_user_cap entry, which says \"Do not repeatedly reconnect the account.\"; the step itself is supported by the error 5002 entry quoted for step 1, so the customer is not misled, but the citation should point at the 5002 entry."
+  ],
+  "checkedAt": "2026-11-16T02:16:25Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "dm-account-expired-5002-5000"
+}

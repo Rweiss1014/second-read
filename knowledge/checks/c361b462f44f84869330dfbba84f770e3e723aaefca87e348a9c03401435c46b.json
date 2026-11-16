@@ -1,0 +1,11 @@
+{
+  "replySha256": "c361b462f44f84869330dfbba84f770e3e723aaefca87e348a9c03401435c46b",
+  "verdict": "pass",
+  "findings": [
+    "Style note: step 1 names only the \"publish to TikTok step\"; the page also gives \"REST post.target.autoAddMusic or the MCP blotato_create_post tool's autoAddMusic argument\", which would help a customer using the API or MCP."
+  ],
+  "checkedAt": "2026-11-16T02:34:04Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "tiktok-slideshow-no-music"
+}

@@ -10,7 +10,7 @@
         "invalid_grant error from the MCP connector in Claude",
         "Claude connector stopped working, the oauth expired",
         "my Blotato MCP sign in for Claude expired",
-        "the Blotato connector in Claude Cowork says invalid grant",
+        "my Blotato connector in the Claude desktop app says invalid grant",
         "how do I reconnect the Blotato connector in Claude",
         "claude cant connect to blotato anymore, oauth error"
       ],
@@ -171,6 +171,17 @@
           "follow-on"
         ]
       },
+      "scope": {
+        "covers": [
+          "chatgpt",
+          "claude",
+          "codex",
+          "cursor",
+          "gemini",
+          "copilot"
+        ],
+        "why": "The quotes speak of 'your AI tool' and name the MCP tools it calls, so they hold for any AI client that uses the Blotato MCP server."
+      },
       "opening": "This one has a known cause, and a short instruction for your AI tool.",
       "steps": [
         {
@@ -178,7 +189,7 @@
           "text": "To edit a scheduled post, the AI tool should call only blotato_update_schedule. It changes the existing schedule and never makes a new post.",
           "cite": {
             "url": "https://help.blotato.com/start-with-an-ai-agent/mcp/faqs",
-            "quote": "It updates an existing schedule in place — it never creates a new post."
+            "quote": "Call only blotato_update_schedule. It updates an existing schedule in place — it never creates a new post."
           }
         },
         {
@@ -203,6 +214,14 @@
           "cite": {
             "url": "https://help.blotato.com/start-with-an-ai-agent/mcp/faqs",
             "quote": "To change the caption or media: pass the **whole `post` object**, not just the field you're editing."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If it sends only part of the post, such as only the text, the change is dropped and only the time is applied. Any field it leaves out is not kept, and leaving out mediaUrls removes the post's media.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/mcp/faqs",
+            "quote": "If you pass a partial post (e.g., only text), the draft change is silently dropped and only scheduledTime is applied. Fields you leave out of a complete post are not kept, and leaving out mediaUrls removes the post's media."
           }
         }
       ],

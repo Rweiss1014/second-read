@@ -1,0 +1,11 @@
+{
+  "replySha256": "5acb327bd33779db63844a5fc44b3d86a4356f74b085a72ccfe985200d06ea68",
+  "verdict": "pass",
+  "findings": [
+    "Style note: Step 3 names only the manual option and leaves out the page's \"Auto (performance-based): Instagram promotes the reel based on performance\" and the final \"Schedule or publish the post\"; the customer will see both on screen, so it does not mislead."
+  ],
+  "checkedAt": "2026-11-16T02:18:12Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "instagram-trial-reels"
+}

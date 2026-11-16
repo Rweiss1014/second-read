@@ -340,7 +340,7 @@
         "can I reply to comments on my facebook page posts from blotato",
         "is there a way to read and answer my followers comments in blotato",
         "can blotato comment on other peoples posts",
-        "does blotato do comments on tiktok or linkedin",
+        "does blotato do comments on instagram or facebook",
         "can I post a comment on my own published post with blotato",
         "comenting on posts blotato supported?"
       ],
@@ -674,38 +674,38 @@
           "another account"
         ]
       },
-      "opening": "This is expected behavior, and it is easy to test around.",
+      "opening": "This is expected, and you can test it from another account.",
       "steps": [
         {
           "type": "fact",
-          "text": "Blotato skips comments posted by the same account or Page that is connected to the automation.",
+          "text": "Blotato skips comments posted by the same Instagram account or Facebook Page that is connected to the automation. Your own comment does not start a run or send a direct message, even when it has the right keyword.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Blotato skips comments posted by the same Instagram account or Facebook Page connected to the automation."
+            "quote": "Blotato skips comments posted by the same Instagram account or Facebook Page connected to the automation. Your own comment does not start a run or send a direct message, even when it contains the correct keyword."
           }
         },
         {
           "type": "fact",
-          "text": "Your own comment does not start a run, even when it has the right keyword.",
+          "text": "To test it, first publish the automation.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Your own comment does not start a run or send a direct message, even when it contains the correct keyword."
+            "quote": "Publish the automation."
           }
         },
         {
           "type": "fact",
-          "text": "Sign in to a different Instagram or Facebook account.",
+          "text": "Then sign in to a different Instagram or Facebook account, and comment on the target post using one of the trigger keywords.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Sign in to a different Instagram or Facebook account."
+            "quote": "Sign in to a different Instagram or Facebook account. 3. Comment on the target post using one of the trigger keywords."
           }
         },
         {
           "type": "fact",
-          "text": "Comment on the target post using one of the trigger keywords.",
+          "text": "Check that the other account receives the direct message.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Comment on the target post using one of the trigger keywords."
+            "quote": "Confirm the other account receives the direct message."
           }
         },
         {
@@ -717,7 +717,7 @@
           }
         }
       ],
-      "next": "Publish the automation, then comment the keyword from a different account.",
+      "next": "Publish the automation, then comment one of your trigger keywords on the target post from a different account.",
       "proof": "You will know it worked when the other account receives the direct message."
     },
     {
@@ -777,7 +777,7 @@
           "posted through blotato"
         ]
       },
-      "opening": "A missing post is usually not a bug. Here is what decides which posts show up.",
+      "opening": "A missing post is not a bug. Here is what decides which posts show up.",
       "steps": [
         {
           "type": "fact",
@@ -797,10 +797,10 @@
         },
         {
           "type": "fact",
-          "text": "A post that is still scheduled appears once it publishes.",
+          "text": "A post published through Blotato also stays out of the list if it went out on a different connected account than the automation, or if it is still scheduled. A scheduled post appears once it publishes.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "It is still scheduled. It appears once it publishes."
+            "quote": "A post published through Blotato also stays out of the list in three cases: It went out on a different connected account than the automation. It is still scheduled. It appears once it publishes."
           }
         },
         {
@@ -881,39 +881,47 @@
       "steps": [
         {
           "type": "fact",
-          "text": "An automation holds up to two triggers: one for comments and one for direct messages.",
+          "text": "An automation holds up to two triggers: one for comments and one for direct messages. Either one starts a run and sends the same message.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "An automation holds up to two triggers: one for comments and one for direct messages."
+            "quote": "An automation holds up to two triggers: one for comments and one for direct messages. Either one starts a run and sends the same message."
           }
         },
         {
           "type": "fact",
-          "text": "Either trigger starts a run and sends the same message.",
+          "text": "Open the automation in Automations, and in the When someone… card, check both Comments and Sends a DM.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Either one starts a run and sends the same message."
+            "quote": "Open the automation in Automations. 2. In the When someone… card, check both Comments and Sends a DM."
           }
         },
         {
           "type": "fact",
-          "text": "Both triggers share the keyword list.",
+          "text": "For Comments, pick a specific post or any post. The post picker lists posts published through Blotato only.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Both triggers share the keyword list."
+            "quote": "For Comments, pick a specific post or any post. The post picker lists posts published through Blotato only."
           }
         },
         {
           "type": "fact",
-          "text": "To pause one trigger, turn off its switch on the live automation. At least one trigger has to stay on.",
+          "text": "Add the keywords, which both triggers share, and then publish the automation.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "To pause one trigger without stopping the other, turn off its switch on the live automation."
+            "quote": "Add the keywords. Both triggers share the keyword list. 5. Publish the automation."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Test it from a different account. Your own comment does not start a run or send a direct message, even when it has the right keyword.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Your own comment does not start a run or send a direct message, even when it contains the correct keyword."
           }
         }
       ],
-      "next": "Open the automation, check both Comments and Sends a DM, add your keywords, and publish it.",
-      "proof": "You will know it worked when a comment and a direct message with your keyword both bring the same reply."
+      "next": "Open the automation in Automations and follow steps 2 to 4, then test it from a different account.",
+      "proof": "You will know it worked when a comment on the post you picked and a direct message, each sent from another account with your keyword, both bring the same reply."
     },
     {
       "id": "dm-automation-buttons-missing",
@@ -972,34 +980,34 @@
       "steps": [
         {
           "type": "fact",
-          "text": "Instagram shows DM buttons in the Instagram mobile app only.",
+          "text": "Instagram shows DM buttons in the Instagram mobile app only. Someone reading on instagram.com in a desktop browser sees the text with no buttons under it.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Instagram shows DM buttons in the Instagram mobile app only."
+            "quote": "Instagram shows DM buttons in the Instagram mobile app only. Someone reading your message on instagram.com in a desktop browser sees the text with no buttons under it."
           }
         },
         {
           "type": "fact",
-          "text": "Someone reading on instagram.com in a desktop browser sees the text with no buttons under it.",
+          "text": "Use a button or a plain-text URL, not both. A message with both leaves the URL unclickable on desktop, so a desktop reader has no working link at all.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Someone reading your message on instagram.com in a desktop browser sees the text with no buttons under it."
+            "quote": "Use a button or a plain-text URL, not both. A message carrying both leaves the URL unclickable on desktop, so a desktop reader ends up with no working link at all."
           }
         },
         {
           "type": "fact",
-          "text": "Use a button or a plain-text URL, not both.",
+          "text": "If your audience reads mostly on mobile, keep the link button. If they read mostly on desktop, remove the button and put the URL in the message text instead.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Use a button or a plain-text URL, not both."
+            "quote": "If your audience reads mostly on mobile, keep the link button. If your audience reads mostly on desktop, remove the button and put the URL in the message text instead."
           }
         },
         {
           "type": "fact",
-          "text": "A message with both leaves the URL unclickable on desktop.",
+          "text": "On a follow gate the button is a confirm button, not a link, so removing it is not an option. Ask for a typed reply in the gate message instead, for example \"Reply FOLLOWING once you have.\" Blotato runs the follower check on any text reply.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "A message carrying both leaves the URL unclickable on desktop, so a desktop reader ends up with no working link at all."
+            "quote": "On a follow gate the button is a confirm button, not a link, so removing it is not an option. Ask for a typed reply in the gate message instead, for example \"Reply FOLLOWING once you have.\" Blotato runs the follower check on any text reply."
           }
         },
         {
@@ -1011,8 +1019,8 @@
           }
         }
       ],
-      "next": "Decide whether your audience reads mostly on mobile or on desktop, and keep the button or put the URL in the message text.",
-      "proof": "You will know it worked when a desktop reader sees the URL in the message text."
+      "next": "Decide whether your audience reads mostly on mobile or on desktop, and set up the message as step 3 says, or as step 4 says if it is a follow gate.",
+      "proof": "You will know it worked when the readers you chose can open your link: mobile readers through the button, or desktop readers through the URL in the message text."
     },
     {
       "id": "dm-automation-follow-gate",
@@ -1023,7 +1031,7 @@
         "how do I make people follow me first before they get the link",
         "is there a follow gate in blotato dm automations",
         "what does ask for a follow do in the automation",
-        "does the follow check work on facebook pages",
+        "does the follow check work on instagram",
         "how long does the automation wait for the person to follow",
         "my follow gate automation stalls and never sends the link",
         "someone who did not follow got my link anyway",
@@ -1072,10 +1080,10 @@
       "steps": [
         {
           "type": "fact",
-          "text": "Turn on Ask for a follow in the automation.",
+          "text": "Follow gating works on Instagram. Turn on Ask for a follow in the automation.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Turn on Ask for a follow in the automation."
+            "quote": "Yes, on Instagram. Turn on Ask for a follow in the automation."
           }
         },
         {
@@ -1096,23 +1104,23 @@
         },
         {
           "type": "fact",
-          "text": "Only Instagram supports follow gating.",
+          "text": "If you connected the account before follow gating landed, reconnect it in Accounts. An older connection does not reliably receive the tap, and runs stall until they expire.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Only Instagram supports follow gating."
+            "quote": "Reconnect the account if you connected it before follow gating landed. Blotato subscribes your account to button-tap events at connect time, so an older connection does not reliably receive the tap and runs stall until they expire. Reconnect in Accounts."
           }
         },
         {
           "type": "fact",
-          "text": "Instagram withholds follower status for someone who never granted profile access, and Blotato sends your link rather than blocking them.",
+          "text": "Ask for a typed reply in the gate message, such as \"Reply FOLLOWING once you have.\" Instagram shows DM buttons in the mobile app only, so a desktop reader sees no button, and Blotato runs the follower check on any text reply.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Instagram withholds follower status for someone who never granted profile access. Blotato sends your link rather than blocking them."
+            "quote": "Ask for a typed reply in the gate message. Instagram shows DM buttons in the mobile app only, so a desktop reader sees no button. Blotato runs the follower check on any text reply, so wording like \"Reply FOLLOWING once you have\" moves a desktop reader forward the same way the button moves a mobile reader."
           }
         }
       ],
-      "next": "Open your automation and turn on Ask for a follow, then write the gate message.",
-      "proof": "You will know it worked when a person who follows you gets your link after they reply."
+      "next": "If your account was connected before follow gating landed, reconnect it in Accounts, then turn on Ask for a follow and write a gate message that asks for a typed reply.",
+      "proof": "You will know it worked when a person who follows you replies to the gate message and gets your link."
     },
     {
       "id": "dm-automation-collect-email",
@@ -1278,11 +1286,11 @@
           "still-broken"
         ]
       },
-      "opening": "This usually comes down to a rule about who has already given an email.",
+      "opening": "There is a rule about contacts who have already given an email address.",
       "steps": [
         {
           "type": "fact",
-          "text": "A contact who already replied with an email to any email gate on the same connected account skips the email gate.",
+          "text": "On automations published after September 14, 2026, a contact who already replied with an email address to any email gate on the same connected account skips the email gate.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
             "quote": "On automations published after September 14, 2026, a contact who already replied with an email address to any email gate on the same connected account skips the email gate."
@@ -1290,7 +1298,7 @@
         },
         {
           "type": "fact",
-          "text": "Automations published earlier ask every time until you save them again.",
+          "text": "Automations published before that ask every time until you save them again.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
             "quote": "Automations published earlier ask every time until you save them again."
@@ -1313,7 +1321,7 @@
           }
         }
       ],
-      "next": "Test the automation from an account that has never replied with an email address.",
+      "next": "Test the automation from an account with no email on file.",
       "proof": "You will know it worked when that account gets the email question."
     },
     {
@@ -1380,10 +1388,18 @@
         },
         {
           "type": "fact",
-          "text": "To send the captured email onward, click Remove beside each link button.",
+          "text": "For an automation that collects an email address and sends it to n8n, Zapier, Make.com, or a CRM, click Remove beside each link button, then turn on Ask for an email address.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Click Remove beside each link button."
+            "quote": "For an automation that collects an email address and sends it to n8n, Zapier, Make.com, or a CRM: 1. Click Remove beside each link button. 2. Turn on Ask for an email address."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Then turn on Call a webhook, and enter your n8n, Zapier, Make.com, or CRM endpoint in the URL field under Call a webhook.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Turn on Call a webhook. 4. Enter your n8n, Zapier, Make.com, or CRM endpoint in the URL field under Call a webhook."
           }
         },
         {
@@ -1395,8 +1411,8 @@
           }
         }
       ],
-      "next": "Click Remove beside each link button, then turn on Ask for an email address and Call a webhook.",
-      "proof": "You will know it worked when your endpoint receives the email and the message has no button."
+      "next": "Open your automation and follow steps 3 and 4.",
+      "proof": "You will know it worked when your endpoint receives the captured email after the direct message goes out."
     },
     {
       "id": "crm-integration",
@@ -1439,6 +1455,16 @@
           "tried-steps",
           "still-broken"
         ]
+      },
+      "scope": {
+        "covers": [
+          "hubspot",
+          "salesforce",
+          "pipedrive",
+          "zoho",
+          "gohighlevel"
+        ],
+        "why": "These are CRMs. The quotes say Blotato is not a CRM and that Zapier or Make.com connects DMs, comments or lead forms to your CRM."
       },
       "opening": "Blotato does not have a CRM, but there are three ways to feed one.",
       "steps": [
@@ -1676,14 +1702,14 @@
         },
         {
           "type": "fact",
-          "text": "A third is that the account was connected before analytics launched and needs to be reconnected.",
+          "text": "A third is that the account was connected before analytics launched and needs to be reconnected in Accounts to grant analytics permissions.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "the account was connected before analytics launched and needs to be reconnected"
+            "quote": "the account was connected before analytics launched and needs to be reconnected in Accounts to grant analytics permissions"
           }
         }
       ],
-      "next": "Check when the post was published, and reconnect the account in Accounts if it was connected a long time ago.",
+      "next": "Check when the post was published, and if the account was connected before analytics launched, reconnect it in Accounts.",
       "proof": "You will know it worked when metrics show for a post after its first checkpoint."
     },
     {
@@ -1726,68 +1752,44 @@
           "still-broken"
         ]
       },
-      "opening": "I want to give you a right answer. Two help pages say different things about the trial and analytics, so I am asking a person to confirm.",
+      "opening": "Thanks for writing in. A person on the team needs to look at this one.",
       "steps": [
         {
-          "type": "fact",
-          "text": "One help page says analytics need a paid plan and that trial posts show \"Analytics not available.\"",
-          "cite": {
-            "url": "https://help.blotato.com/support/faqs",
-            "quote": "On the free trial, or if your plan does not include analytics, posts show \"Analytics not available.\""
-          }
-        },
-        {
-          "type": "fact",
-          "text": "Another help page says that during your free trial you can access all features except the API.",
-          "cite": {
-            "url": "https://help.blotato.com/settings/billing-and-credits",
-            "quote": "During your free trial, you can access ALL blotato features except the API"
-          }
-        },
-        {
-          "type": "fact",
-          "text": "The analytics page says analytics are available on every paid plan.",
-          "cite": {
-            "url": "https://help.blotato.com/web-app-features/analytics",
-            "quote": "Analytics are available on every paid plan."
-          }
-        },
-        {
           "type": "action",
-          "text": "I am passing this to a person on the team so they can confirm whether analytics work on your trial."
+          "text": "I am passing your message to a person on the team, with what you told me."
+        },
+        {
+          "type": "fact",
+          "text": "Until then, please hold off on anything that could post twice, cost credits, or change your account.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Stop if the next action risks another charge, duplicate post, wrong destination, or unauthorized account change."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Please do not send your API key or any login codes here.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Do not include API keys, OAuth codes, signed upload URLs, or unrelated customer data."
+          }
         }
       ],
-      "next": "Reply here with the platform of the post and when you published it, so the team can check.",
-      "proof": "Still open: whether analytics work on the free trial. A person on the team will confirm.",
+      "next": "If you have them, reply with the exact error, the time it happened with your time zone, and any id you see.",
+      "proof": "Still open: the answer to your message. A person on the team has it.",
       "escalate": {
-        "why": "Two help pages disagree about analytics on the free trial, so the desk does not pick a side.",
-        "causes": [
-          {
-            "text": "The FAQ says analytics need a paid plan, and trial posts show \"Analytics not available.\"",
-            "cite": {
-              "url": "https://help.blotato.com/support/faqs",
-              "quote": "Analytics need a paid plan."
-            }
-          },
-          {
-            "text": "The billing page says the trial includes all features except the API.",
-            "cite": {
-              "url": "https://help.blotato.com/settings/billing-and-credits",
-              "quote": "During your free trial, you can access ALL blotato features except the API"
-            }
-          }
-        ],
-        "ruledOut": [
-          "Nothing ruled out yet: the desk cannot see the account or its trial status."
-        ]
+        "why": "The customer asks why posts show \"Analytics not available\" on the free trial. Help pages: FAQ (https://help.blotato.com/support/faqs), the analytics answer; Analytics (https://help.blotato.com/web-app-features/analytics), which also says LinkedIn and Slack analytics are not available; Billing and credits (https://help.blotato.com/settings/billing-and-credits), which says the trial has every feature except the API. Check the customer's platforms before saying a paid plan brings metrics.",
+        "causes": [],
+        "ruledOut": []
       },
       "docEdit": {
         "article": "https://help.blotato.com/settings/billing-and-credits",
         "kind": "change",
         "before": "During your free trial, you can access ALL blotato features except the API",
-        "after": "[Confirm with the founder whether trial posts get analytics. If not, change this to: all features except the API and analytics.]",
-        "note": "The FAQ says analytics need a paid plan and trial posts show \"Analytics not available.\" The billing page says the trial has all features except the API. Make the two pages agree."
-      }
+        "after": "During your free trial, you can access ALL blotato features except the API and post analytics",
+        "note": "The FAQ (\"Analytics need a paid plan. On the free trial ... posts show Analytics not available\") and the Analytics page (\"Analytics are available on every paid plan.\") both say trial posts get no analytics. The billing page says the trial has all features except the API. The desk follows the two analytics pages; please make the billing page say the same, or tell us if trial posts do get analytics."
+      },
+      "note": "A hand-over since Nov 15, 2026: its own reply failed the fresh checker three times (checks-run3/BLOCKS-R3.md), so it sends the neutral handover holding reply word for word (since Nov 15, 2026: the needs-person reply thanks the customer for what they tried, which is not true here), and a person takes it with the escalation note."
     },
     {
       "id": "analytics-no-data-yet",
@@ -1848,27 +1850,27 @@
           "reconnected"
         ]
       },
-      "opening": "Analytics arrive on a delay, and a few conditions can hold them back.",
+      "opening": "Analytics arrive on a delay, and a few conditions can hold them back. Here is what to check.",
       "steps": [
         {
           "type": "fact",
-          "text": "Blotato collects the first metrics on a schedule after a post publishes, then again at later checkpoints.",
+          "text": "Analytics need a paid plan. On the free trial, or if your plan does not include analytics, posts show \"Analytics not available.\"",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Data is not instant. Blotato collects the first metrics on a schedule after a post publishes (around 2 hours on Creator and Agency, up to 1 day on Starter), then again at later checkpoints."
+            "quote": "Analytics need a paid plan. On the free trial, or if your plan does not include analytics, posts show \"Analytics not available.\""
           }
         },
         {
           "type": "fact",
-          "text": "A post published minutes ago shows no metrics until the first checkpoint passes.",
+          "text": "Data is not instant. Blotato collects the first metrics around 2 hours after a post publishes on Creator and Agency, and up to 1 day after on Starter. A post published minutes ago shows no metrics until that first checkpoint passes.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "A post published minutes ago shows no metrics until the first checkpoint passes."
+            "quote": "Data is not instant. Blotato collects the first metrics on a schedule after a post publishes (around 2 hours on Creator and Agency, up to 1 day on Starter), then again at later checkpoints. A post published minutes ago shows no metrics until the first checkpoint passes."
           }
         },
         {
           "type": "fact",
-          "text": "Older posts do not backfill.",
+          "text": "Analytics exist only for posts published while analytics was active on your account. Older posts do not backfill.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
             "quote": "Analytics exist only for posts published while analytics was active on your account. Older posts do not backfill."
@@ -1876,23 +1878,23 @@
         },
         {
           "type": "fact",
-          "text": "If the social account is disconnected or its token expired, Blotato stops collecting.",
+          "text": "Blotato stops collecting if the social account is disconnected or its token expired. Reconnect it in Accounts through its account actions menu > Reconnect. If the account was connected before the analytics permissions were granted, check the connection and any error it shows, and reconnect when authorization is missing or expired. Reconnecting does not bring back metrics for older posts, and it does not guarantee metrics within 24-48 hours.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "If the social account is disconnected or its token expired, Blotato stops collecting."
+            "quote": "If the social account is disconnected or its token expired, Blotato stops collecting. Reconnect the account in Accounts through its account actions menu > Reconnect. 5. If the account was connected before the required analytics permissions were granted, inspect the connection and any returned error. Reconnect when authorization is missing or expired. Reconnection does not guarantee historical backfill or metrics within 24-48 hours."
           }
         },
         {
           "type": "fact",
-          "text": "Instagram analytics need a Business or Creator account connected through Facebook.",
+          "text": "Instagram analytics need a Business or Creator account connected through Facebook. LinkedIn and Slack analytics are not available yet, so posts there do not show metrics.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Instagram analytics require a Business or Creator account connected through Facebook, the same requirement as Instagram publishing."
+            "quote": "Instagram analytics require a Business or Creator account connected through Facebook, the same requirement as Instagram publishing. 7. Analytics for LinkedIn are not available yet, so LinkedIn posts will not show metrics. 8. Analytics for Slack are not available yet, so Slack posts do not show metrics."
           }
         }
       ],
-      "next": "Compare the time you published with the first checkpoint for your plan, and check Accounts for a disconnected account.",
-      "proof": "You will know it worked when the post shows metrics after its first checkpoint."
+      "next": "Find the post and compare when it published with your plan's first checkpoint (around 2 hours on Creator and Agency, up to 1 day on Starter). If it is still empty after that, reply with the post's ID, platform, publication time, your plan and what you see.",
+      "proof": "Still open: whether your post has passed its first checkpoint. If it has and it still shows no metrics, a person on the team will look at it with the details you send."
     },
     {
       "id": "linkedin-analytics",
@@ -2083,9 +2085,17 @@
             "url": "https://help.blotato.com/support/faqs",
             "quote": "All 17 common metrics: views, impressions, reach, likes, comments, replies, shares, saves, clicks, follows, plays, profile visits, profile activity, navigations, total interactions, total watch time, and average watch time."
           }
+        },
+        {
+          "type": "fact",
+          "text": "To see which plan you are on, open Settings > Billing, then select View Billing Portal and read your plan name.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Open Settings > Billing. 2. Select View Billing Portal and read your plan name."
+          }
         }
       ],
-      "next": "Open Settings > Billing and select View Billing Portal to check which plan you are on.",
+      "next": "Open Settings > Billing, select View Billing Portal, and read your plan name.",
       "proof": "You will know it worked when you can match your plan name to the list of metrics."
     },
     {
@@ -2156,39 +2166,39 @@
         },
         {
           "type": "fact",
-          "text": "Starter has 4 checkpoints over 30 days.",
+          "text": "Starter has 4 checkpoints over 30 days: 1, 7, 14 and 30 days after publish.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Starter -- 4 checkpoints over 30 days"
+            "quote": "Starter -- 4 checkpoints over 30 days 1 day after publish 7 days after publish 14 days after publish 30 days after publish"
           }
         },
         {
           "type": "fact",
-          "text": "Creator has 18 checkpoints over 30 days.",
+          "text": "Creator has 18 checkpoints over 30 days: 2 hours after publish, every day from day 1 through day 8, then days 10, 12, 14, 17, 20, 22, 24, 27, and 30.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Creator -- 18 checkpoints over 30 days"
+            "quote": "Creator -- 18 checkpoints over 30 days 2 hours after publish Every day from day 1 through day 8 Days 10, 12, 14, 17, 20, 22, 24, 27, and 30"
           }
         },
         {
           "type": "fact",
-          "text": "Agency has 20 checkpoints over 90 days.",
+          "text": "Agency has 20 checkpoints over 90 days: 2 hours and 6 hours after publish, every day from day 1 through day 8, days 10, 12, 14, 17, 20, 22, 24, 27, and 30, and day 90.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Agency -- 20 checkpoints over 90 days"
+            "quote": "Agency -- 20 checkpoints over 90 days 2 hours and 6 hours after publish Every day from day 1 through day 8 Days 10, 12, 14, 17, 20, 22, 24, 27, and 30 Day 90"
           }
         },
         {
           "type": "fact",
-          "text": "The Published page and the API show the latest snapshot, not live data from the social platform.",
+          "text": "Exact timing varies by a few minutes on the early checkpoints and up to a day on the 30-day and 90-day ones. The Published page and the API show the latest snapshot, not live data, and after the final checkpoint the last snapshot stays as the post's metrics.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "The Published page and the API return the latest snapshot Blotato collected. They do not pull live data from the social platform."
+            "quote": "Each checkpoint adds a small random offset to spread out collection, so exact timing varies by a few minutes on the early checkpoints and up to a day on the 30-day and 90-day ones. The Published page and the API return the latest snapshot Blotato collected. They do not pull live data from the social platform. After the final checkpoint, the last snapshot stays as the post's metrics."
           }
         }
       ],
       "next": "Check how long ago your post published against the checkpoints for your plan.",
-      "proof": "You will know it worked when the post shows a new snapshot after its next checkpoint."
+      "proof": "You will know it worked when you can match the post's age to the last checkpoint it has passed."
     },
     {
       "id": "youtube-views-lower",
@@ -2253,31 +2263,39 @@
         },
         {
           "type": "fact",
-          "text": "The watch page count updates in near real time and includes views YouTube has not validated yet.",
+          "text": "The watch page count updates in near real time and includes views YouTube has not validated yet. Blotato's count comes from the YouTube Analytics API, which reports only finalized views.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "The watch page count updates in near real time and includes views YouTube has not validated yet."
+            "quote": "The watch page count updates in near real time and includes views YouTube has not validated yet. Blotato's count comes from the YouTube Analytics API, which reports only finalized views."
           }
         },
         {
           "type": "fact",
-          "text": "Blotato's count comes from the YouTube Analytics API, which reports only finalized views.",
-          "cite": {
-            "url": "https://help.blotato.com/support/faqs",
-            "quote": "Blotato's count comes from the YouTube Analytics API, which reports only finalized views."
-          }
-        },
-        {
-          "type": "fact",
-          "text": "The gap is widest on a new video and narrows at each later checkpoint.",
+          "text": "The gap is widest on a new video and narrows at each later checkpoint as YouTube finalizes more data.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
             "quote": "The gap is widest on a new video and narrows at each later checkpoint as YouTube finalizes more data."
           }
+        },
+        {
+          "type": "fact",
+          "text": "There is a second delay too: Blotato collects on a schedule and shows the latest snapshot it collected, not a live figure.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Blotato's collection schedule -- Blotato returns the latest snapshot it collected, not a live figure"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To confirm this yourself, open YouTube Studio. The realtime card matches the watch page, and the Analytics tab matches what Blotato reports.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "To confirm this yourself, open YouTube Studio: 1. The realtime card matches the watch page 2. The Analytics tab matches what Blotato reports"
+          }
         }
       ],
-      "next": "Open YouTube Studio and compare the Analytics tab with what Blotato shows.",
-      "proof": "You will know it worked when the Studio Analytics tab matches the Blotato number more closely."
+      "next": "Open YouTube Studio and compare its Analytics tab, not the realtime card, with what Blotato shows.",
+      "proof": "You will know it is only the counting difference when Blotato's number tracks the Analytics tab in YouTube Studio. It can trail that tab until Blotato's next snapshot."
     },
     {
       "id": "client-connect-link",
@@ -2688,31 +2706,31 @@
         },
         {
           "type": "fact",
-          "text": "Warm up any new account before you automate it.",
+          "text": "Warm up any new account before you automate it, because automating a brand new account is the fastest way to get flagged as a bot. Log in daily, engage by hand, and post by hand for a few weeks first.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Warm up any new account before you automate it."
+            "quote": "Warm up any new account before you automate it. Automating a brand new account is the fastest way to get flagged as a bot. Log in daily, engage manually, and post by hand for a few weeks first."
           }
         },
         {
           "type": "fact",
-          "text": "Automating a brand new account is the fastest way to get flagged as a bot.",
+          "text": "Keep your posting frequency within safe daily limits per platform. The recommended maximums are in the growth best practices guide.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Automating a brand new account is the fastest way to get flagged as a bot."
+            "quote": "Keep your posting frequency within safe daily limits per platform. Recommended maximums are in the growth best practices guide."
           }
         },
         {
           "type": "fact",
-          "text": "Keep your posting frequency within safe daily limits per platform.",
+          "text": "Frame captions, hashtags, and on-screen text in educational or wellness terms rather than explicit ones, and watch for shadowban signals, such as views collapsing across several posts, so you catch a restriction early.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Keep your posting frequency within safe daily limits per platform."
+            "quote": "Frame captions, hashtags, and on-screen text in educational or wellness terms rather than explicit ones. The algorithms read the text as much as the visuals. 4. Watch for shadowban signals, such as views collapsing across several posts, so you catch a restriction early."
           }
         }
       ],
       "next": "Log in daily and post by hand for a few weeks on any new account before you automate it.",
-      "proof": "You will know it worked when your account posts without a platform warning."
+      "proof": "Still open: the platform decides whether a post gets restricted, so keep watching for signals such as views collapsing across several posts."
     },
     {
       "id": "no-training-on-content",
@@ -3024,7 +3042,7 @@
           "still-broken"
         ]
       },
-      "opening": "Pinterest verification happens by itself once your account is warmed up.",
+      "opening": "Pinterest verification happens automatically once you reconnect your account with 100+ monthly views.",
       "steps": [
         {
           "type": "fact",
@@ -3044,7 +3062,7 @@
         },
         {
           "type": "fact",
-          "text": "Once you get 100+ views per month, reconnect your Pinterest account with Blotato.",
+          "text": "Once you get 100+ views per month, reconnect your Pinterest account with Blotato, and it will be verified automatically.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
             "quote": "Once you get 100+ views per month, then reconnect your Pinterest account with Blotato and it will be automatically verified."
@@ -3052,15 +3070,15 @@
         },
         {
           "type": "fact",
-          "text": "Blotato no longer verifies Pinterest accounts manually, so there is no request to send.",
+          "text": "Blotato no longer verifies Pinterest accounts manually, so there is no request to send. There is no manual override: 100 monthly views is the only thing that unlocks it.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Blotato no longer verifies Pinterest accounts manually. There is no request to send."
+            "quote": "Blotato no longer verifies Pinterest accounts manually. There is no request to send. Verification happens automatically once you reconnect with 100+ monthly views. There is no manual override -- the 100 monthly views threshold is the only unlock criterion."
           }
         }
       ],
-      "next": "Post a pin by hand each day, and reconnect Pinterest in Accounts once you reach 100 views a month.",
-      "proof": "You will know it worked when your Pinterest account shows as verified after you reconnect it."
+      "next": "Post pins by hand for at least 2 weeks, starting at 1 a day and ramping up, then reconnect your Pinterest account with Blotato once it gets 100+ views a month.",
+      "proof": "You will know it worked when your Pinterest account is verified after you reconnect it with 100+ monthly views."
     },
     {
       "id": "pinterest-board-id",
@@ -3203,7 +3221,7 @@
           "public board"
         ]
       },
-      "opening": "An empty board list usually comes down to one of a few checks.",
+      "opening": "The help center gives a few checks for an empty board list.",
       "steps": [
         {
           "type": "fact",
@@ -3215,7 +3233,7 @@
         },
         {
           "type": "fact",
-          "text": "Confirm the board is a standard, public board visible in Pinterest itself.",
+          "text": "Confirm the board is a standard, public board that you can see in Pinterest itself.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
             "quote": "Confirm the board is a standard, public board visible in Pinterest itself."
@@ -3223,15 +3241,31 @@
         },
         {
           "type": "fact",
-          "text": "New Pinterest accounts need a 2-3 week manual warm-up and validation before boards appear through automation.",
+          "text": "Find the ID of the Pinterest account you meant with List Accounts.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "New Pinterest accounts need a 2-3 week manual warm-up and validation before boards appear through automation."
+            "quote": "Retrieve the Pinterest account with List Accounts."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Then get the Board ID with List Pinterest Boards, using that account ID.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Retrieve the Board ID with List Pinterest Boards using the intended account ID."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "New Pinterest accounts need a 2-3 week manual warm-up and validation before boards appear through automation. If your account is new, read \"Why is my Pinterest account not verified?\" on the same FAQ page.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "New Pinterest accounts need a 2-3 week manual warm-up and validation before boards appear through automation. See Why is my Pinterest account not verified?"
           }
         }
       ],
-      "next": "Check that the board is public in Pinterest and that the connected account is the right one.",
-      "proof": "You will know it worked when the board list returns your board."
+      "next": "Check that the right Pinterest account is connected and the board is public, then run List Pinterest Boards with that account's ID from List Accounts.",
+      "proof": "You will know it worked when List Pinterest Boards returns your board."
     }
   ]
 }

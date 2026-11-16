@@ -1,0 +1,11 @@
+{
+  "replySha256": "6d3218b48d050f54750aa9c08ae4f2f4f89a1856c7ab4188ad2a696a15d2ccba",
+  "verdict": "pass",
+  "findings": [
+    "Style note only: the opening \"Both of these usually mean the Blotato app is not yet inside the Slack channel\" adds \"usually\", which the page does not say; step 1 and step 4 still cover the channel-does-not-exist case, so it does not mislead."
+  ],
+  "checkedAt": "2026-11-16T02:19:30Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "slack-channel-not-found-33000-33001"
+}

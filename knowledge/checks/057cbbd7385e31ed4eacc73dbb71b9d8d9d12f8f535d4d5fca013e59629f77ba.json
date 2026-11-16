@@ -1,0 +1,9 @@
+{
+  "replySha256": "057cbbd7385e31ed4eacc73dbb71b9d8d9d12f8f535d4d5fca013e59629f77ba",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T02:10:28Z",
+  "checker": "reply-checker",
+  "model": "GPT-6",
+  "entry": "tiktok-images-post-info-error"
+}

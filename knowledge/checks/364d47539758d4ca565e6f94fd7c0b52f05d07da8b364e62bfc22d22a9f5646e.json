@@ -1,0 +1,12 @@
+{
+  "replySha256": "364d47539758d4ca565e6f94fd7c0b52f05d07da8b364e62bfc22d22a9f5646e",
+  "verdict": "pass",
+  "findings": [
+    "Style: the Next step's \"check the platform itself for the earlier post before you send it again\" would be safer as \"send it again only if it is not there\".",
+    "Style: \"Still open if it keeps returning 503: the request ID for a person to check\" does not tell the customer to send the request ID to support, and no escalation was made."
+  ],
+  "checkedAt": "2026-11-16T03:44:02Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "gateway-503"
+}

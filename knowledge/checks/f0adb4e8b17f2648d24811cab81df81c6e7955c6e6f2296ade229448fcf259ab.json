@@ -1,0 +1,11 @@
+{
+  "replySha256": "f0adb4e8b17f2648d24811cab81df81c6e7955c6e6f2296ade229448fcf259ab",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the reply leaves out the page's warning to use \"Connect account > [Platform]\" only for a new social account; the steps point to Reconnect, so this is a helpful addition, not a fault."
+  ],
+  "checkedAt": "2026-11-16T02:34:20Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "reconnect-account"
+}

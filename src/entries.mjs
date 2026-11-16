@@ -7,17 +7,21 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { ROOT } from './config.mjs';
 import { pageUrl, quoteOnPage, readCacheDir } from './docs.mjs';
-import { findPromises, findVoice } from './checkreply.mjs';
-import { SIGNAL_NAMES, DEFAULT_SIGNALS, GENERIC_WORDS, STATUS_MEANING } from './signals.mjs';
+import { findPromises, findVoice, findUncheckedRetries, RETRY_WHY } from './checkreply.mjs';
+import { SIGNAL_NAMES, DEFAULT_SIGNALS, GENERIC_WORDS, STATUS_MEANING, NAMED_ITEMS } from './signals.mjs';
 import { contentStems, anchorsMet, anchorRegex, foldText } from './match.mjs';
 import { createRouter } from './route.mjs';
 
 export const ENTRIES_DIR = path.join(ROOT, 'knowledge', 'entries');
 export const KINDS = ['non-technical', 'billing', 'technical'];
 export const LOOKUPS = ['recent-published', 'recent-activity', 'submission', 'reproduce-schedule', 'docs-search'];
-export const GUARDS = ['money', 'others-data', 'staff-action', 'secret', 'desk-instructions', 'needs-person'];
-const ENTRY_KEYS = ['id', 'kind', 'title', 'phrasings', 'not_this', 'anchors', 'needs_person_if', 'lookup', 'searchQueries', 'opening', 'steps', 'next', 'proof', 'escalate', 'docEdit', 'noDocAnswer', 'guard', 'priority', 'holding', 'note', 'symptom_only'];
+export const GUARDS = ['money', 'others-data', 'staff-action', 'secret', 'desk-instructions', 'needs-person', 'handover', 'possible-outage'];
+// The guards whose entry is a holding reply for a hand-over signal (src/route.mjs HOLDING_FOR).
+const HOLDING_GUARDS = ['needs-person', 'handover', 'possible-outage'];
+const ENTRY_KEYS = ['id', 'kind', 'title', 'phrasings', 'not_this', 'anchors', 'needs_person_if', 'lookup', 'searchQueries', 'opening', 'steps', 'next', 'proof', 'escalate', 'docEdit', 'noDocAnswer', 'guard', 'priority', 'holding', 'note', 'symptom_only', 'scope'];
 const REPLY_KEYS = ['opening', 'steps', 'next', 'proof'];
+const SCOPE_KEYS = ['covers', 'coversKinds', 'not', 'why'];
+const SCOPE_KINDS = [...Object.keys(NAMED_ITEMS), 'platform'];
 const STEP_KEYS = ['type', 'text', 'cite', 'ref'];
 
 // Read every *.json file in the folder. Returns { entries, files, problems }. Each entry knows its file.
@@ -75,6 +79,9 @@ function checkReplyBlock(where, b, e, problems) {
     for (const p of findPromises(text, { quote: quote || undefined })) problems.push(`${where}, ${name}: makes ${p.why} ("${p.words}").`);
     for (const v of findVoice(text)) problems.push(`${where}, ${name}: uses ${v}.`);
   }
+  // A retry only after an earlier step has the customer check the platform itself (see checkreply.mjs).
+  const ordered = [{ name: 'opening', text: b.opening }, ...(b.steps || []).map((s, i) => ({ name: `step ${i + 1}`, text: s?.text, step: true })), { name: 'next', text: b.next }, { name: 'proof', text: b.proof }];
+  for (const h of findUncheckedRetries(ordered)) problems.push(`${where}, ${h.name}: ${RETRY_WHY} ("${h.words}").`);
 }
 
 // Shape checks that need no network and no cache. Returns a list of problems, each naming the entry.
@@ -121,6 +128,21 @@ export function validateShape(entries) {
       else if (/^\/.+\/$/.test(term)) { try { const re = new RegExp(term.slice(1, -1), 'i'); if (['', 'a', 'hello there', 'thanks for the help'].some(x => re.test(x))) problems.push(`${where}: the anchor ${term} matches almost any message, so it guards nothing.`); } catch (err) { problems.push(`${where}: the anchor ${term} is not a valid regular expression (${err.message}).`); } }
     }
     if (e.symptom_only !== undefined && typeof e.symptom_only !== 'boolean') problems.push(`${where}: "symptom_only" must be true or false.`);
+    // Declared scope (third tuner): what the quotes cover beyond their own words, and what they do not cover.
+    if (e.scope !== undefined) {
+      const sc = e.scope;
+      if (!sc || typeof sc !== 'object' || Array.isArray(sc)) problems.push(`${where}: "scope" must be { "covers": [...], "coversKinds": [...], "not": [...], "why": "..." }.`);
+      else {
+        for (const k of Object.keys(sc)) if (!SCOPE_KEYS.includes(k)) problems.push(`${where}: "scope" has an unknown field "${k}". Known fields: ${SCOPE_KEYS.join(', ')}.`);
+        for (const k of ['covers', 'coversKinds', 'not']) if (sc[k] !== undefined && !(Array.isArray(sc[k]) && sc[k].length && sc[k].every(isText))) problems.push(`${where}: "scope.${k}" must be a list of text.`);
+        for (const k of sc.coversKinds || []) if (!SCOPE_KINDS.includes(k)) problems.push(`${where}: "${k}" in "scope.coversKinds" is not a kind. Kinds: ${SCOPE_KINDS.join(', ')}.`);
+        if ((sc.covers || sc.coversKinds) && !isText(sc.why)) problems.push(`${where}: "scope.covers" and "scope.coversKinds" need "scope.why": which quote covers them, in a sentence.`);
+        // A cover that the quotes already say is not needed, and one that is also in "not" contradicts itself.
+        const quoted = foldText([e.title, e.opening, e.next, e.proof, ...(e.steps || []).flatMap(s => [s?.text, s?.cite?.quote])].filter(isText).join(' | '));
+        for (const t of sc.covers || []) if (isText(t) && quoted.includes(foldText(t))) problems.push(`${where}: "${t}" in "scope.covers" is already in the entry's quotes or steps. Take it out.`);
+        for (const t of sc.not || []) if ((sc.covers || []).includes(t)) problems.push(`${where}: "${t}" is in both "scope.covers" and "scope.not".`);
+      }
+    }
     const np = e.needs_person_if;
     if (np !== undefined) {
       if (typeof np !== 'object' || Array.isArray(np)) problems.push(`${where}: "needs_person_if" must be { "signals": [...], "phrases": [...] }.`);
@@ -196,7 +218,7 @@ export function validateRouting(entries) {
       if (!anchorsMet(p, e.anchors).ok) { problems.push(`${where}: the phrasing "${p}" does not meet this entry's own anchors, so a message worded like it can never match. Add a word to the anchors or reword the phrasing.`); continue; }
       const r = router.route(p);
       if (r.decision === 'guard') problems.push(`${where}: the phrasing "${p}" is taken by the ${r.guard} guard before matching (words: "${r.words}"). Reword it as a question, not a request.`);
-      else if (r.entry && r.entry.id !== e.id && r.entry.guard !== 'needs-person') problems.push(`${where}: the phrasing "${p}" routes to "${r.entry.id}" instead. The two entries overlap: make the phrasings more distinct, or add a "not_this".`);
+      else if (r.entry && r.entry.id !== e.id && !HOLDING_GUARDS.includes(r.entry.guard)) problems.push(`${where}: the phrasing "${p}" routes to "${r.entry.id}" instead. The two entries overlap: make the phrasings more distinct, or add a "not_this".`);
       // The rules every entry shares can stop a phrasing too.
       else if (r.decision === 'needs-person' && (r.signals || []).some(s => s.byDefault)) { const s = r.signals.find(x => x.byDefault); problems.push(`${where}: the phrasing "${p}" is handed to a person by the default "${s.signal}" signal (words: "${s.words}"). Reword it, or, if your entry truly answers that case, add "${s.signal}" to "needs_person_if.ignore".`); }
       else if (r.decision === 'abstain' && r.silent) problems.push(`${where}: the phrasing "${p}" is stopped by the docs-silent check: ${r.reason} ${r.silent.kind === 'number' ? 'Give the number in a step, or reword the phrasing.' : 'Name it in a step, or reword the phrasing.'}`);

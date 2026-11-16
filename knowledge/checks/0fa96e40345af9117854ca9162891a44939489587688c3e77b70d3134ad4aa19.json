@@ -1,0 +1,11 @@
+{
+  "replySha256": "0fa96e40345af9117854ca9162891a44939489587688c3e77b70d3134ad4aa19",
+  "verdict": "pass",
+  "findings": [
+    "Style: step 3 drops the page's \"and retry\" after reconnecting, so the success line \"the post publishes after you fix the media or reconnect the account\" could read as if it happens on its own; the fix in either case naturally means publishing again, so this is unlikely to mislead."
+  ],
+  "checkedAt": "2026-11-16T03:42:30Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "could-not-upload-media"
+}

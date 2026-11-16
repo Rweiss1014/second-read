@@ -1,0 +1,11 @@
+{
+  "replySha256": "c8172b6ed47e61581fa45cd886a11abad7afc8ca6b86cc288b7e14f95396add7",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the opening \"it is not a problem with your account\" is not in the page text; it follows from the page's platform explanation and does not mislead, but it says a little more than the page."
+  ],
+  "checkedAt": "2026-11-16T02:34:04Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "comments-not-available-20200"
+}

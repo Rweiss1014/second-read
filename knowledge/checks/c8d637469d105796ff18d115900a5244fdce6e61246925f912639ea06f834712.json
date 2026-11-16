@@ -1,0 +1,11 @@
+{
+  "replySha256": "c8d637469d105796ff18d115900a5244fdce6e61246925f912639ea06f834712",
+  "verdict": "pass",
+  "findings": [
+    "Style note only: step 3 (\"each Bluesky post supports up to 4 images or 1 video\") repeats step 1, and step 2's \"uses a supported format\" would be easier to follow with the Bluesky Media Requirements link the page points to."
+  ],
+  "checkedAt": "2026-11-16T03:18:32Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "bluesky-media-rejected"
+}

@@ -140,12 +140,17 @@ test('docs-silent: an entry about one platform does not answer for a platform it
   ], 'same platform, so it answers');
 });
 
-test('docs-silent: the check is generic, and naming the item in a phrasing is how an entry claims it', () => {
+test('docs-silent: the check is generic, and a declared scope (not a phrasing) is how an entry claims an outside thing', () => {
   const base = PLAYBOOK.find(e => e.id === 'start-paid-subscription');
   const msg = 'Can I pay for Blotato with Venmo?';
   assert.ok(!answered(createRouter(PLAYBOOK).route(msg)));
-  const claimed = { ...base, phrasings: [...base.phrasings, 'can I pay with venmo'] };
-  const r = createRouter([...PLAYBOOK.filter(e => e.id !== base.id), claimed]).route(msg);
+  // Third tuner: a phrasing is the writer's guess at customer words, so it no longer claims a payment method,
+  // a service, a tool or a device. Only the quotes, or scope.covers with its "why", can.
+  const phrased = { ...base, phrasings: [...base.phrasings, 'can I pay with venmo'] };
+  const p = createRouter([...PLAYBOOK.filter(e => e.id !== base.id), phrased]).route(msg);
+  assert.equal(p.silent?.term, 'venmo', show(msg, p));
+  const scoped = { ...base, scope: { covers: ['venmo'], why: 'test only' } };
+  const r = createRouter([...PLAYBOOK.filter(e => e.id !== base.id), scoped]).route(msg);
   assert.equal(r.silent, undefined, show(msg, r));
 });
 

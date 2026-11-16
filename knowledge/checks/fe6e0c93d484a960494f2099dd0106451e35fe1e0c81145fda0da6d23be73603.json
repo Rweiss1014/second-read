@@ -1,0 +1,12 @@
+{
+  "replySha256": "fe6e0c93d484a960494f2099dd0106451e35fe1e0c81145fda0da6d23be73603",
+  "verdict": "pass",
+  "findings": [
+    "Style note: step 3 \"Ask which copy to keep before removal through the social platform\" is copied from support-facing text and does not say who asks whom; \"Before you delete a copy on the platform, decide which one to keep\" would read clearly.",
+    "Style note: the Next step says \"send them to support\" in a message from Support without saying how (for example, by replying to this message)."
+  ],
+  "checkedAt": "2026-11-16T02:36:07Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "post-published-twice"
+}

@@ -1,0 +1,11 @@
+{
+  "replySha256": "f63225f5c1ccb1dac6d5aa60661106e9cf075698079f43e6518eadb36ea693ac",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the success line \"You will know it worked when you have entered the code\" is a weak proof, since entering a code does not by itself confirm the change; the page gives no stronger signal, so this is not misleading."
+  ],
+  "checkedAt": "2026-11-16T03:19:15Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "update-email"
+}

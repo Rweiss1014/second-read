@@ -1,0 +1,11 @@
+{
+  "replySha256": "26c8eddb5027c60a0c922d157b4eafdf94cc12299de3f16c068c60f25a398b82",
+  "verdict": "pass",
+  "findings": [
+    "Style note: step 4, \"A stale connection token keeps triggering the platform's rate limiter\", stands alone as a general fact, while the page gives it as the reason behind step 3's reconnect when posts keep failing after waiting; it follows step 3 directly, so it is unlikely to mislead."
+  ],
+  "checkedAt": "2026-11-16T03:19:30Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "exceeded-rate-limits-youtube-linkedin"
+}

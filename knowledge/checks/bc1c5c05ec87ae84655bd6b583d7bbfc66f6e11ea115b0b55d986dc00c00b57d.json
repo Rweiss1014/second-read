@@ -1,0 +1,11 @@
+{
+  "replySha256": "bc1c5c05ec87ae84655bd6b583d7bbfc66f6e11ea115b0b55d986dc00c00b57d",
+  "verdict": "pass",
+  "findings": [
+    "Style note: Step 3 names \"The AI Video with AI Voice template\" but leaves out where it is (the page says Videos > Create New Video), which would save the customer a search."
+  ],
+  "checkedAt": "2026-11-16T02:35:35Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "ai-twin"
+}

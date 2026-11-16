@@ -90,9 +90,10 @@ The customer gets: `Hi,`, the opening, the steps numbered 1 to 4, `Next step:` w
 | `escalate` | no | `{ "why", "causes": [...], "ruledOut": [...] }`. The reply also goes to a person, with a packet. |
 | `docEdit` | no | A proposed help-doc change: `{ "article", "kind": "new" or "change", ... }`. |
 | `noDocAnswer` | no | `true` when the docs do not answer it. The reply is a holding reply. |
-| `holding` | no | Your own holding reply (`opening`, `steps`, `next`, `proof`) for when a signal fires. Without it, the shared one in `guards.json` is used. |
+| `holding` | no | Your own holding reply (`opening`, `steps`, `next`, `proof`) for when a signal fires. Without it, the one in `guards.json` for the hand-over's reason is used: `needs-person` (which thanks the customer for what they tried) for `tried-already` only, `possible-outage` for `outage`, and the neutral `handover` for every other reason. |
 | `guard`, `priority` | rarely | Only for hand-over entries. Money entries use `"guard": "money"`, and a higher `priority` wins when its anchors are met. |
 | `note` | no | A note for other writers. Never shown to customers. |
+| `scope` | rarely | What your quotes cover beyond their own words, or do not cover: `{ "covers", "coversKinds", "not", "why" }`. See "Specifics must be covered". |
 
 ## The rules for the reply
 
@@ -105,6 +106,7 @@ The customer gets: `Hi,`, the opening, the steps numbered 1 to 4, `Next step:` w
 7. **Kind, plain words.** Short full sentences. American spelling. No em dashes, no words that make a step sound easy, and no hype words. The script checker's list is `VOICE` in `src/checkreply.mjs`, and check-entries runs it on every line.
 8. **Evidence steps** need a `lookup`, and use `{evidence}` where the lookup's finding goes: `"I checked your account: {evidence}"`.
 9. **Action steps** say what we will do ("I am passing this to a person on the team"). They have no quote, so they may not state facts about Blotato.
+10. **No retry before the platform is checked.** A line that tells the customer to retry, resend, repost, republish or try again fails unless an earlier step (or an earlier sentence of the same line) has them check the platform itself for the first post: "check your TikTok account itself", "open any returned platform URL and check the intended account on the platform". Blotato's Scheduled, Published and Failed lists alone do not show whether a post went out, and the publishing-status page says "Do not submit a replacement while the original outcome is unknown." When the first attempt was turned down for a known reason (a wrong field, a limit, an expired token), name the fix and leave out the "send it again". Retrying something that is not a post (an authorization, a checkout, a DM automation, a read) is not caught.
 
 ## Phrasings: how customers really say it
 
@@ -184,12 +186,18 @@ The signals (in `src/signals.mjs`):
 
 ### Signals every entry has (you do not list them)
 
-`retried`, `disputes-count`, `records-disagree`, `many-accounts`, `follow-on`, `cause-ruled-out` and `docs-wrong` apply to **every** entry that answers, whether you list them or not.
+`retried`, `disputes-count`, `records-disagree`, `many-accounts`, `follow-on`, `cause-ruled-out`, `docs-wrong` and `pressure` apply to **every** entry that answers, whether you list them or not.
 A repeat failure, a disputed count, an outage or "I did X and now Y" is never settled by your steps.
 Two more since the second wave of entries:
 - `cause-ruled-out`: the customer says the documented cause does not apply to them ("the URL has public DNS", "the file is only 20 MB, well under the limit", "curl from outside works", "the key is correct, no spaces", "that's not the cause"). Your steps would only repeat what they ruled out. It reads the customer's own words only, so a pasted error that says "use a public URL" is not a claim.
 - `docs-wrong`: the customer says the help pages are wrong, outdated or contradict each other ("your example is invalid JSON", "two pages give different numbers, which is it?"). A person checks the docs.
 - `records-disagree` now also fires on a pair anywhere in the message: a good state of one thing next to a bad state of the same thing ("I still have 900 credits" + "insufficient credits", "I'm on Creator, paid last week" + a 403 or "subscription not active", "shows connected" + "needs reconnecting").
+Third tuner:
+- `pressure`: a deadline with a threat ("fix this by Friday or we move to another tool"), a threat to leave ("we will cancel unless..."), or legal pressure ("legal action", "report you to consumer protection"). A deadline alone ("my boss wants it live by Monday") is not one.
+- `tried-steps` also reads the steps told with "-ing" ("after clearing the cache", "logging out and back in") and "I told Claude exactly what you said".
+- `still-broken` also reads the past and other end states: "still got two posts", "still locked", "still pending".
+- `disputes-count` also fires on the customer's own count beside a limit that says it was reached: "the channel only has 12 posts" with "reached the maximum".
+- The guards also take: "set my plan to...", "export all my posts", "make our limit higher", "sign our DPA", "fill out our vendor questionnaire", "please help me fix the email on my account"; someone else's key ("paste her API key"); an affiliate payout or commission that is missing; and money in passing ("I paid already" in a message that says something is wrong).
 Their strong forms ("three days in a row", "is something down", "I only posted 3") fire on their own.
 Their weak forms ("every time", "3 times", "since Monday") fire only when the same sentence says something is wrong, so "I post 3 times a day" is fine.
 List one in `signals` to make all its forms fire for your entry.
@@ -221,9 +229,51 @@ The desk hands the message to a person instead (the docs may be silent on it).
 - **A number**: "how many", "how long", "what is the limit" need a number in your steps. "How many do I have left?" is a where-to-look question and does not.
 - **A capitalized name** after "with", "to", "via" ("pay with Payoneer") that no entry uses anywhere.
 
-If your entry truly answers questions about one of these, name it in a phrasing or an anchor.
-For example, `supported-platforms` names Mastodon and Tumblr, because the FAQ says its list is complete.
+If your entry truly answers questions about a Blotato feature or an id in that list, name it in a phrasing or an anchor.
+**Things outside Blotato are different** (a payment method, another platform or service, a tool, a device, a language, a file type): a phrasing no longer claims them. Only your quotes and steps, or a declared `scope` (below), can. A writer's phrasing that names OneDrive does not make a Google Drive quote answer a OneDrive question.
 If you give a number, quote the sentence or the table row that holds it. A table row works: `"| Queued scheduled posts | 200 | 1,000 | 3,000 |"`.
+
+## Specifics must be covered (third tuner)
+
+The desk answers only when the customer's own specifics are covered by what it would say: your quotes, the steps that restate them, your title and reply lines, and your declared scope. Phrasings and anchors bridge ordinary wording ("hook up" for "connect"), but they do not cover a specific. The check is in `src/coverage.mjs`; it reads the customer's questions (with the sentence before a question that points back, like "for that one"), or the whole message when it asks nothing in question form. Pasted code, links, quoted text and pasted error lines are left out.
+
+A specific is:
+
+| Specific | Not covered when | Example that is handed over |
+|---|---|---|
+| A rare word the question turns on | No quote or step of yours uses it, and few entries use it at all. Plain conversation ("confused", "tomorrow", "summer"), short words, numbers and the action right after "I", "we" or "it" do not count. With no question in the message, it takes two such words. | "Can I make the source links show as numbered **footnotes**?" |
+| A platform | Your title names a platform, or your quotes go platform by platform, and never name this one. A quote about "other platforms" or "platforms other than..." speaks for all. | "Does the first comment work on **Threads**?" against a list of other platforms |
+| A plan or billing period | Your quotes name tiers (Starter, Creator, Agency, trial) and not this one; or periods (monthly, yearly) and not this one. | "If I pay **yearly**, do I get all the credits at once?" against monthly figures |
+| An HTTP status | Your quotes give status codes and not this one. | "I get a **429**" against a 401 entry |
+| An API route | The customer asks about a `/v2/...` route your quotes never name (a route most entries quote, like `/v2/posts`, does not count). | "What is the rate limit on **/v2/schedules**?" |
+| A named screen, button or product | A capitalized word inside the question (not an acronym, not a plan or platform) that your quotes never use. | "When I click **Duplicate**..." |
+| A price | "How much does it cost", "what is the price" and your quotes give no amount. | |
+| A ship date | "When will you add", "release date", "roadmap" and your quotes give no date and do not say it is not announced. | |
+| Your scope says no | The question names a term in `scope.not`. | |
+
+With two or more questions, each is checked on its own. A question with a gap is handed over (`partly-covered`) and the entry may still answer the others. When every question has a gap, the desk says the docs may be silent (`docs-silent`, with `whyDetail.kind` naming which specific).
+
+### Declaring scope: `scope`
+
+Most entries need nothing: the quotes are the scope. Add `scope` only when your quotes cover more than their own words, or less than a reader would think.
+
+```json
+"scope": {
+  "covers": ["hubspot", "salesforce"],
+  "coversKinds": ["platform or service"],
+  "not": ["refund policy"],
+  "why": "These are CRMs; the quote says Zapier or Make.com connects your CRM."
+}
+```
+
+| Field | What it does |
+|---|---|
+| `covers` | Terms your quotes cover without using the words. A term already in your quotes or steps fails check-entries (it is not needed). |
+| `coversKinds` | Whole kinds your quotes speak for: `payment method`, `platform or service`, `tool`, `platform feature`, `language`, `identifier`, `device`, `file type`, or `platform`. `supported-platforms` uses `platform or service`, because its FAQ says the list is exhaustive. |
+| `not` | Terms your quotes do not cover even though they look close. A question naming one is handed over. |
+| `why` | Needed with `covers` or `coversKinds`: which quote covers them, in one sentence. A reviewer checks it against the page. |
+
+Never add a cover to make a test or an exam message pass. If the page does not say it, reword the phrasing instead.
 
 The check reads the customer's questions. When those are too short to stand alone ("Is that wrong?"), it reads the whole message, leaving out pasted JSON, code and links.
 When two entries are too close to call and this check stops exactly one of them on a named thing, the other one answers. A missing number never decides a tie.
@@ -251,7 +301,8 @@ A real request next to them still is: 'It says "token expired". Can you reset my
 3. **The matcher** scores every entry. Your entry answers only above the threshold and clearly ahead of the runner-up. Otherwise a person gets the message with the top three candidates.
 4. **Your signals** run, and the default ones every entry has. If one fires, the customer gets the holding reply.
 5. **The docs-silent check** runs: the thing asked about must be something your entry names. If not, a person gets the message.
-6. **Every question** in the message must belong to your entry. If one does not, the desk answers your part and hands over the rest, or hands over the whole message.
+6. **The specifics check** runs: what the customer asks about must be in your quotes, steps or declared scope (see "Specifics must be covered"). A question with a gap is handed over.
+7. **Every question** in the message must belong to your entry. If one does not, the desk answers your part and hands over the rest, or hands over the whole message.
 
 Also before matching: a message not in English (Spanish, Portuguese, French, German or Italian function words, or mostly a non-Latin script) goes to a person. Quoted or pasted text is left out of that check, so an English message with a foreign error or account name stays English. A sentence that only thanks or agrees ("Thanks for the scheduling help!") is left out of matching, so the topic it names cannot pull the message to its entry.
 
@@ -272,10 +323,11 @@ Every route result has `why` (a stable code) and `whyDetail` (its details, or nu
 | `docs-wrong` | Says the help pages are wrong or contradict each other. | `{ signal, words }` |
 | `access-blocked` | Cannot reach the screen the steps need. | `{ signal, words }` |
 | `past-docs` | A phrase the entry itself lists as needing a person. | `{ signal: 'phrase', words }` |
-| `docs-silent` | Asks about a named thing or a number the closest entry never gives. | `{ kind, item, nearest }` |
+| `docs-silent` | Asks about a named thing or a number the closest entry never gives, or a specific its quotes do not cover. | `{ kind, item, nearest }` (kind: a named-item kind, `number`, `name`, or from the specifics check `specific`, `platform`, `plan`, `error code`, `endpoint`, `price`, `date`, `outside scope`) |
 | `tie` | Two entries too close to choose between. | `{ candidates: [{ id, title, score }, ...] }` |
 | `partly-covered` | Asks more than one thing; an entry covers only part. A `partial` answer carries it for the part handed over. | `{ question, nearest? }` |
 | `not-english` | Not written in English. | `{ language }` |
+| `pressure` | A deadline with a threat, a threat to leave, or legal pressure. | `{ signal: 'pressure', words }` |
 | `no-coverage` | No entry covers it: nothing close enough, the entry matched only the background, or a no-error-text entry met an error text. | null, or `{ question, nearest }` or `{ error, nearest }` |
 | `nonsense` | No words the desk knows, or no question. | null |
 
@@ -314,5 +366,7 @@ node bin/support-desk.mjs ticket "how do I cancel my plan" --mock   # see what a
 | `"proof" must start with...` | Start it with `You will know it` or `Still open:`. |
 | `is handed to a person by the default "retried" signal` | Your phrasing describes a repeat failure. Reword it, or add the signal to `needs_person_if.ignore` if your steps truly answer that case. |
 | `is stopped by the docs-silent check` | Your phrasing names something (or asks for a number) that your steps never give. Add the fact with its quote, or reword the phrasing. |
-| `"x" in "needs_person_if.ignore" is not a default signal` | Only `retried`, `disputes-count`, `records-disagree`, `many-accounts`, `follow-on`, `cause-ruled-out` and `docs-wrong` can be ignored. |
+| `"x" in "needs_person_if.ignore" is not a default signal` | Only `retried`, `disputes-count`, `records-disagree`, `many-accounts`, `follow-on`, `cause-ruled-out`, `docs-wrong` and `pressure` can be ignored. |
+| `tells the customer to retry before any earlier step has them check the platform itself` | Add a step before it that checks the platform (cite the publishing-status page), or, when the first try was turned down for a known reason, drop the "try again" and keep the fix. See rule 10. |
 | `the anchors can all be met by words many problems share` | Your error entry could answer "403" or "my Instagram post failed". Make one anchor group hold only this error's own text or code. See "An error entry needs its own error text". |
+| `"scope.covers" and "scope.coversKinds" need "scope.why"` | Say which quote covers them, in one sentence. If no quote does, take the cover out and reword the phrasing instead. |

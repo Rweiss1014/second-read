@@ -1,0 +1,9 @@
+{
+  "replySha256": "adb605946e200cd829b09002acd541b3ef0d93d89f74c7dedafb8f54d133841c",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T03:18:30Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "analytics-youtube-tiktok-missing"
+}

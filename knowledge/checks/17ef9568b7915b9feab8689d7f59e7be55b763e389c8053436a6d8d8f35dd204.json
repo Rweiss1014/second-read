@@ -1,0 +1,9 @@
+{
+  "replySha256": "17ef9568b7915b9feab8689d7f59e7be55b763e389c8053436a6d8d8f35dd204",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T03:42:30Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "follow-gate-run-stuck"
+}

@@ -1,0 +1,12 @@
+{
+  "replySha256": "c91a74d3d2c4a31d16d06f1fe5688e6a1c38e8d54efbfd36781eeab80cb75dec",
+  "verdict": "pass",
+  "findings": [
+    "Style note only: the opening says \"This one has a known cause\" while the page says the AI tool \"likely\" also called blotato_create_post; step 2 keeps the hedge (\"most likely\"), so the customer is not misled.",
+    "Style note only: the reply does not mention the page's recommended flow (blotato_list_schedules, then blotato_get_schedule to fetch the full post before blotato_update_schedule), which would help with step 4."
+  ],
+  "checkedAt": "2026-11-16T03:18:32Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "mcp-edit-made-duplicate"
+}

@@ -1,0 +1,11 @@
+{
+  "replySha256": "4fc1ee8d57967e24ca4e9a1d505f6e616c0dc1905ca1652658d89acfd4f7b9fb",
+  "verdict": "pass",
+  "findings": [
+    "Style note: Step 3 says the limitations page shows \"a Facebook automation rejects the follow gate\" while that page only says \"A follow gate runs on Instagram only\"; the errors page (error 20303) supports the meaning, so it does not mislead."
+  ],
+  "checkedAt": "2026-11-16T02:16:42Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "follow-gate-instagram-only"
+}

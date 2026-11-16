@@ -1,0 +1,11 @@
+{
+  "replySha256": "fa250cb3832f047b0c3194c4a493c92e99ae9b196d5844531b9e8738d6758bc4",
+  "verdict": "pass",
+  "findings": [
+    "Style note: step 4 \"Enter the verification code sent to your new email\" comes before the reply ever says to type the new email and click \"Update Email\" (the page's step 3), which only appears loosely in the Next step; putting the page's steps in order would read more easily."
+  ],
+  "checkedAt": "2026-11-16T02:36:07Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "different-email-keep-data"
+}

@@ -1,0 +1,11 @@
+{
+  "replySha256": "4abaae5a69fc9dd1bf4e9ed3800cc302bf86ad9a209aed3d3c8e2f5e2052aa21",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the success line \"your file's text shows under Context in the sidebar\" is not in the page text, and for a PDF or audio upload it may show as a source rather than text; it is a soft sign, not a promise, so no one is badly misled."
+  ],
+  "checkedAt": "2026-11-16T02:18:39Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "google-drive-context"
+}

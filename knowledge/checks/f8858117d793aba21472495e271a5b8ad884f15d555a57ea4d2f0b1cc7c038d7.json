@@ -1,0 +1,11 @@
+{
+  "replySha256": "f8858117d793aba21472495e271a5b8ad884f15d555a57ea4d2f0b1cc7c038d7",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the Next step checks only one of the three possibilities step 3 lists (an error page), and the success line \"the post goes through\" assumes the file itself is valid; adding \"if the URL gives the raw file, inspect the file itself\" would match step 2's \"inspect the source file\" more closely."
+  ],
+  "checkedAt": "2026-11-16T02:36:07Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "ffprobe-invalid-data"
+}

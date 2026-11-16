@@ -1,0 +1,11 @@
+{
+  "replySha256": "e08caf67170525131e46c8c00d9db35036dabd5fca7b82bb813fd556efecae07",
+  "verdict": "pass",
+  "findings": [
+    "Style note only: step 2 \"more hashtags reduce your reach\" is a little looser than the page's \"more than 5 hashtags reduces your reach,\" but the meaning holds in context."
+  ],
+  "checkedAt": "2026-11-16T02:35:53Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "instagram-five-hashtag-limit"
+}

@@ -1,0 +1,9 @@
+{
+  "replySha256": "078eb6ef44d5b48328672f5c7bbed1fbe30cb77cd20dabb52ba8953a33ba3678",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T03:18:23Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "getting-started-first-steps"
+}

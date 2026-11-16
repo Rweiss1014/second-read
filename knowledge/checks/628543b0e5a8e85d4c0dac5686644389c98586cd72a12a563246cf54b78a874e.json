@@ -1,0 +1,11 @@
+{
+  "replySha256": "628543b0e5a8e85d4c0dac5686644389c98586cd72a12a563246cf54b78a874e",
+  "verdict": "pass",
+  "findings": [
+    "Style note: step 2 says \"Follow the ChatGPT.com setup guide\" but gives no link to that guide; the FAQ link at the bottom covers it, so this would not mislead anyone."
+  ],
+  "checkedAt": "2026-11-16T03:18:28Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "connect-chatgpt-codex"
+}

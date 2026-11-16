@@ -3,6 +3,8 @@
 //   node eval/run.mjs                 both sets (dev and test)
 //   node eval/run.mjs --set dev       only the messages the playbook was tuned on
 //   node eval/run.mjs --set test      only the held-out messages nobody tuned on
+//   node eval/run.mjs --set dev2      the second, harder exam: the part that may be tuned on
+//   node eval/run.mjs --set test2     the second exam's held-out part (run rarely; never open the file)
 //   node eval/run.mjs --show wrong    also print every message it got wrong
 //
 // It uses sample account data and the local copy of the help pages, so it makes no network calls
@@ -108,7 +110,7 @@ const pct = (a, b) => b ? `${Math.round((a / b) * 100)}%` : 'n/a';
 function report(name, rows) {
   const t = tally(rows);
   const L = [];
-  L.push(`### ${name === 'test' ? 'Held-out set (never tuned on)' : 'Tuning set'}: ${t.n} messages`);
+  L.push(`### ${name.startsWith('test') ? 'Held-out set (never tuned on)' : 'Tuning set'} [${name}]: ${t.n} messages`);
   L.push('');
   L.push(`| | Count | Share |`);
   L.push(`|---|---|---|`);

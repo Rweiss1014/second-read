@@ -1,0 +1,11 @@
+{
+  "replySha256": "b1a554688b2e39b0711c593d2495f39d13159ac0ce28256543a2942ba96c6e81",
+  "verdict": "pass",
+  "findings": [
+    "Style note: Steps 2 and 4 (\"The error lists the exact target-platform requirement\" and \"The Instagram FAQ confirms\") are facts, not actions; Step 2 could tell the customer to read the error for the requirement to match."
+  ],
+  "checkedAt": "2026-11-16T03:42:36Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "video-over-120-seconds"
+}

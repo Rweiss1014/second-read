@@ -1,0 +1,9 @@
+{
+  "replySha256": "81de04ba291eb5c27a6a6e2417bf2bf97cf54f9b40c8df0a6ea9517003bc1323",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T03:19:29Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "google-business-profile"
+}

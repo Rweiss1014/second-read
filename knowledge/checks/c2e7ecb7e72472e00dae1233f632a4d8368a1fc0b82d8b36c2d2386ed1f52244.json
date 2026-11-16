@@ -1,0 +1,11 @@
+{
+  "replySha256": "c2e7ecb7e72472e00dae1233f632a4d8368a1fc0b82d8b36c2d2386ed1f52244",
+  "verdict": "pass",
+  "findings": [
+    "Style note: step 3 \"The Instagram FAQ says the same thing\" adds no action and repeats step 2; the Next step then repeats step 2 a third time."
+  ],
+  "checkedAt": "2026-11-16T02:34:04Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "instagram-comment-permission-20203"
+}

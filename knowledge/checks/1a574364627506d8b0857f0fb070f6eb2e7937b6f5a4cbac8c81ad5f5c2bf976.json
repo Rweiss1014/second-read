@@ -1,0 +1,12 @@
+{
+  "replySha256": "1a574364627506d8b0857f0fb070f6eb2e7937b6f5a4cbac8c81ad5f5c2bf976",
+  "verdict": "pass",
+  "findings": [
+    "Style: the opening says \"These errors all mean the automation is missing something\", but the duplicate-trigger error in step 5 is about having one too many, not something missing.",
+    "Style: step 1 leaves out the page's list of what can be missing (an active trigger, message text of 1 to 640 characters, valid button and webhook URLs, a message on every gate), which would help a customer find the flagged field."
+  ],
+  "checkedAt": "2026-11-16T03:42:30Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "dm-automation-invalid-20303"
+}

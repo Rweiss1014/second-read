@@ -1,0 +1,12 @@
+{
+  "replySha256": "96c13e15e7ef5c8b407b2cad8257a8a8cca841614c8fefb66e84239656ab63b7",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the Next step line \"Create your Instagram post, click SCHEDULE, and enter the collaborator handle\" does not repeat that this is for single image posts and reels only, though steps 2 and 3 already say carousels are different.",
+    "Style note: step 2 says \"carousels\" without the page's explanation \"(multi-image/video posts)\", which would help a customer know if their post counts."
+  ],
+  "checkedAt": "2026-11-16T02:22:24Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "instagram-collaborators"
+}

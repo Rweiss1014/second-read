@@ -1,0 +1,11 @@
+{
+  "replySha256": "c65e352cd4f5fcf82bc7f153f9175d5448d4c3db7f90f98b4373db114ca6b9d7",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the opening \"Short answer: do not assume it does\" and step 1 say the same thing twice."
+  ],
+  "checkedAt": "2026-11-16T02:34:04Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "instagram-also-facebook"
+}

@@ -1,0 +1,11 @@
+{
+  "replySha256": "2327fcb2ada316d18a172439a539ed5a511eac7720c116cd3f85af40dd7f47a0",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the success line names a \"Source Contents\" area that the cited page text does not mention."
+  ],
+  "checkedAt": "2026-11-16T02:14:33Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "tiktok-missing-subtitle-track"
+}

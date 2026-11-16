@@ -1,0 +1,11 @@
+{
+  "replySha256": "996b3445d430ebb341552ba42102316625ce32862fed8be528c1fa90d5866ad2",
+  "verdict": "pass",
+  "findings": [
+    "Style note: step 2 \"saved automatically in their browser session\" is a little unclear; the page's plainer words \"stay in the AI Agent on the browser where you created them\" would tell the customer drafts do not follow them to another browser, though the success line does say \"on the same browser\"."
+  ],
+  "checkedAt": "2026-11-16T02:22:24Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "no-save-button-drafts"
+}

@@ -1,0 +1,12 @@
+{
+  "replySha256": "fda2c407113f7d039b1ae60c0ff5ce42639ee44ceaf3896c5788ac1313fc79c3",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the Next step says \"Keep your daily pins under your account's cap\" while step 1 correctly says \"rolling 24 hours\"; \"in any 24 hours\" would avoid suggesting a midnight reset, and the reply does not say how the customer can learn their own cap.",
+    "Style note: step 3 \"the 100-view API-access check\" is unexplained jargon for a customer."
+  ],
+  "checkedAt": "2026-11-16T02:36:07Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "pinterest-daily-limit"
+}

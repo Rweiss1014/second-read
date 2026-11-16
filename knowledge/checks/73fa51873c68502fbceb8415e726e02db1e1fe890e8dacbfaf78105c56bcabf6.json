@@ -1,0 +1,11 @@
+{
+  "replySha256": "73fa51873c68502fbceb8415e726e02db1e1fe890e8dacbfaf78105c56bcabf6",
+  "verdict": "pass",
+  "findings": [
+    "Style note only: step 1 says the automation \"is missing something it needs to go live\" without the page's list of what that can be (an active trigger, message text of 1 to 640 characters, valid button and webhook URLs, a message on every gate); adding it would help the customer find the flagged field."
+  ],
+  "checkedAt": "2026-11-16T02:19:30Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "dm-automation-invalid-20303"
+}

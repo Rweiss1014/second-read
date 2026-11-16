@@ -1,0 +1,11 @@
+{
+  "replySha256": "c2d52b75a288e0dc43c764e034f4fc6b10d9b3549ebceb706128683b21436064",
+  "verdict": "pass",
+  "findings": [
+    "Style note: step 3 \"YouTube's own restrictions are separate\" does not say what that means for the customer; the page adds that uploading directly on YouTube \"avoids Blotato's counter, not YouTube's restrictions\", which would make it clearer."
+  ],
+  "checkedAt": "2026-11-16T02:34:04Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "youtube-blotato-10-posts-limit"
+}

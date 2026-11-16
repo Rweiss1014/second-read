@@ -1,0 +1,11 @@
+{
+  "replySha256": "6d4be8d60128f71b96d040d757a61367bceb325d3664851455d31154c4d81642",
+  "verdict": "pass",
+  "findings": [
+    "Style note: step 3 (\"Someone who does not follow gets the gate message again\") matches the page but leaves out the page's caveat that when Instagram withholds follower status, Blotato sends the link rather than blocking; worth adding so the customer is not surprised, but it does not tell them anything untrue."
+  ],
+  "checkedAt": "2026-11-16T03:18:28Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "dm-automation-follow-gate"
+}

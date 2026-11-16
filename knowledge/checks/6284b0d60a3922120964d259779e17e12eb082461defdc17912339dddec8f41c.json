@@ -1,0 +1,11 @@
+{
+  "replySha256": "6284b0d60a3922120964d259779e17e12eb082461defdc17912339dddec8f41c",
+  "verdict": "pass",
+  "findings": [
+    "Style note: Step 4 \"The template names do not establish face training, voice cloning, or exact identity reproduction\" is copied in stiff help-desk wording; a plainer line such as \"These templates do not promise to train your face or clone your voice\" would read better, and the meaning is right."
+  ],
+  "checkedAt": "2026-11-16T02:18:12Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "avatar-ugc-videos"
+}

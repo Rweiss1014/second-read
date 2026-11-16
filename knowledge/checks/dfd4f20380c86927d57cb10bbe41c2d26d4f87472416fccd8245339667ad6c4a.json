@@ -1,0 +1,12 @@
+{
+  "replySha256": "dfd4f20380c86927d57cb10bbe41c2d26d4f87472416fccd8245339667ad6c4a",
+  "verdict": "pass",
+  "findings": [
+    "Style note only: step 4's \"do not blame a service without evidence\" is copied from the page but, said to a customer, can read as a scolding; it does not mislead.",
+    "Style note only: step 1 (\"The publishing outcome is unresolved.\") is a statement rather than an action, and the reply could add the page's tip that MCP or REST users should look up the original postSubmissionId instead of creating another post."
+  ],
+  "checkedAt": "2026-11-16T03:20:11Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "tiktok-post-disappears-buffering"
+}

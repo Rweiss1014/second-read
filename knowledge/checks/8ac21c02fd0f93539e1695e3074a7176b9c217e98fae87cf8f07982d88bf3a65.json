@@ -1,0 +1,11 @@
+{
+  "replySha256": "8ac21c02fd0f93539e1695e3074a7176b9c217e98fae87cf8f07982d88bf3a65",
+  "verdict": "pass",
+  "findings": [
+    "Small note: the opening line \"This error is about how long the video is\" is a little narrower than the page, which says the video needs a fix Blotato can only do automatically up to 120 seconds; Step 1 states it correctly."
+  ],
+  "checkedAt": "2026-11-16T02:21:35Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "video-over-120-seconds"
+}

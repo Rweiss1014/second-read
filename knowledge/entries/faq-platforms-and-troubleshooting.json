@@ -71,10 +71,18 @@
         },
         {
           "type": "fact",
-          "text": "Then type your request in the AI Agent prompt box, using your own destination in place of LinkedIn.",
+          "text": "Then type this in the AI Agent prompt box: \"Create 1 LinkedIn post from my selected context. Keep it as a draft.\" Put your own destination in place of LinkedIn.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "in the AI Agent prompt box, replacing LinkedIn with your destination."
+            "quote": "Enter \"Create 1 LinkedIn post from my selected context. Keep it as a draft.\" in the AI Agent prompt box, replacing LinkedIn with your destination."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Press Enter.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Press Enter."
           }
         },
         {
@@ -86,8 +94,8 @@
           }
         }
       ],
-      "next": "Type a request for a draft in the AI Agent prompt box.",
-      "proof": "You will know it worked when a draft card shows up in the AI Agent."
+      "next": "Type the request from step 3 in the AI Agent prompt box and press Enter.",
+      "proof": "You will know it worked when a draft card shows up for you to review."
     },
     {
       "kind": "non-technical",
@@ -239,6 +247,14 @@
         },
         {
           "type": "fact",
+          "text": "Click New post in the AI Agent.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Click New post in the AI Agent."
+          }
+        },
+        {
+          "type": "fact",
           "text": "Replace the placeholder text with your caption, or select the draft and ask Chat to write it from your context.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
@@ -332,7 +348,7 @@
           "text": "Context is stored locally in your browser, so on a new device you add it again.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "If you switch from laptop to phone, re-add your context on the new device."
+            "quote": "Context (videos, articles, PDFs, text) is stored locally in your browser. If you switch from laptop to phone, re-add your context on the new device."
           }
         },
         {
@@ -379,13 +395,13 @@
       "id": "mobile-app",
       "title": "Is there a Blotato mobile app",
       "phrasings": [
-        "is there a blotato app for iphone",
+        "is there a blotato app in the app store",
         "how do I use blotato on mobile",
-        "do you have an android app",
+        "do you have an app for my phone",
         "can I create posts from my phone",
         "is there a mobile version of the video editor",
         "blotato app store",
-        "does blotato work on a tablet or phone browser",
+        "does blotato work in a phone browser",
         "is there a mobile aplication for blotato",
         "how I use blotato in my telephone"
       ],
@@ -477,7 +493,7 @@
         "how do I post a video I keep in Google Drive",
         "can blotato read files from my cloud storage",
         "I store my images on dropbox how do I use them in a post",
-        "does blotato work with onedrive or icloud",
+        "does blotato connect to my cloud storage folder",
         "can I link my cloud drive as an account",
         "how do I use a file from dropbox as media in the api",
         "conect google drive to blotato to post my videos"
@@ -519,7 +535,7 @@
           "read"
         ]
       ],
-      "opening": "There is no direct link, but you can still publish files you keep there.",
+      "opening": "There is no direct integration, but you can still publish files you keep there.",
       "steps": [
         {
           "type": "fact",
@@ -547,14 +563,14 @@
         },
         {
           "type": "fact",
-          "text": "Then publish with that URL as your media.",
+          "text": "Then publish with that URL as your media. If you use the API, pass the URL in the mediaUrls parameter. In the web app, upload the file itself when you create a post.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Publish with that URL as your media."
+            "quote": "Publish with that URL as your media. Pass it in the mediaUrls parameter when you use the API, or upload the file in the web app when you create a post."
           }
         }
       ],
-      "next": "Get a public direct link to the file and use it as your media.",
+      "next": "In the web app, upload the file when you create a post. If you use the API, pass its public direct file URL in mediaUrls.",
       "proof": "You will know it worked when the post shows your image or video."
     },
     {
@@ -650,7 +666,7 @@
         }
       ],
       "next": "Click the + button beside Context in the AI Agent sidebar and pick your source type.",
-      "proof": "You will know it worked when your new source shows up under Context in the sidebar."
+      "proof": "You will know it worked when the selector opens and shows the source types listed above."
     },
     {
       "kind": "non-technical",
@@ -705,15 +721,31 @@
       "steps": [
         {
           "type": "fact",
-          "text": "Paste the YouTube URL as Context in the AI Agent to create post drafts.",
+          "text": "A YouTube URL added as Context in the AI Agent is used to create post drafts. Generating a video is a separate template workflow.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Paste the YouTube URL as Context in the AI Agent to create post drafts."
+            "quote": "Paste the YouTube URL as Context in the AI Agent to create post drafts. Generating a video is a separate template workflow"
           }
         },
         {
           "type": "fact",
-          "text": "Wait for extraction to finish and review Source Contents. English captions must be available.",
+          "text": "Open the AI Agent, click the + button beside Context in the sidebar, choose YouTube, and paste the video URL.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Open the AI Agent. 2. Click the + button beside Context in the sidebar. 3. Choose YouTube. 4. Paste the video URL."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Click Add.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Click Add."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Wait for extraction to finish, then review Source Contents. English captions must be available.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
             "quote": "Wait for extraction to finish, then review Source Contents. English captions must be available."
@@ -721,23 +753,15 @@
         },
         {
           "type": "fact",
-          "text": "Ask the AI Agent to create a draft from the selected context.",
+          "text": "Ask the AI Agent to create a draft from the selected context, and review the draft before publishing.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Ask the AI Agent to create a draft from the selected context."
-          }
-        },
-        {
-          "type": "fact",
-          "text": "Adding a URL does not create a draft until you request one.",
-          "cite": {
-            "url": "https://help.blotato.com/support/faqs",
-            "quote": "Adding a URL does not create a draft until you request one."
+            "quote": "Ask the AI Agent to create a draft from the selected context. 8. Review the draft before publishing."
           }
         }
       ],
-      "next": "Click the + button beside Context, choose YouTube, and paste the video URL.",
-      "proof": "You will know it worked when the Source Contents show the video's text and you can ask for a draft from it."
+      "next": "Open the AI Agent, click the + button beside Context, choose YouTube, paste the video URL, and click Add.",
+      "proof": "You will know it worked when extraction finishes and you can review the Source Contents."
     },
     {
       "kind": "non-technical",
@@ -1204,10 +1228,10 @@
         },
         {
           "type": "fact",
-          "text": "With the webhook publish target, Blotato sends the post data to your webhook and your automation posts it to the destination.",
+          "text": "To send post content to another destination like Google Business Profile, use the webhook publish target with an automation tool such as n8n, Make.com, or Zapier. Blotato sends the post data to your webhook, and your automation posts it to the destination.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Blotato sends the post data to your webhook, and your automation posts it to the destination."
+            "quote": "To send post content to another destination like Google Business Profile, use the webhook publish target with an automation tool (n8n, Make.com, or Zapier): Blotato sends the post data to your webhook, and your automation posts it to the destination."
           }
         }
       ],
@@ -1269,7 +1293,15 @@
       "steps": [
         {
           "type": "fact",
-          "text": "Open Customize > Connectors, click the + button, choose Add custom connector, enter the Blotato MCP URL, and approve access via OAuth.",
+          "text": "Before you start, confirm your paid Blotato subscription. API and MCP access is not included in the free trial.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/mcp/setup",
+            "quote": "Confirm your paid Blotato subscription. API and MCP access is not included in the free trial."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "In Claude, open Customize > Connectors, click the + button, choose Add custom connector, enter the Blotato MCP URL, and approve access via OAuth.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
             "quote": "Open Customize > Connectors, click the + button, then Add custom connector, enter the Blotato MCP URL, and approve access via OAuth."
@@ -1277,31 +1309,31 @@
         },
         {
           "type": "fact",
-          "text": "The setup guide says to confirm your paid Blotato subscription first.",
+          "text": "The URL to enter is https://mcp.blotato.com/mcp.",
           "cite": {
             "url": "https://help.blotato.com/start-with-an-ai-agent/mcp/setup",
-            "quote": "Confirm your paid Blotato subscription."
+            "quote": "Enter https://mcp.blotato.com/mcp as the URL."
           }
         },
         {
           "type": "fact",
-          "text": "API and MCP access is not included in the free trial.",
-          "cite": {
-            "url": "https://help.blotato.com/start-with-an-ai-agent/mcp/setup",
-            "quote": "API and MCP access is not included in the free trial."
-          }
-        },
-        {
-          "type": "fact",
-          "text": "After setup, ask your client to list connected Blotato accounts.",
+          "text": "After setup, ask Claude to list your connected Blotato accounts.",
           "cite": {
             "url": "https://help.blotato.com/start-with-an-ai-agent/mcp/setup",
             "quote": "After setup, ask your client to list connected Blotato accounts."
           }
+        },
+        {
+          "type": "fact",
+          "text": "A successful empty list means the connection works but no social accounts are connected.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/mcp/setup",
+            "quote": "A successful empty list means the connection works but no social accounts are connected."
+          }
         }
       ],
-      "next": "Open Customize > Connectors in Claude and add the custom connector.",
-      "proof": "You will know it worked when Claude lists your connected Blotato accounts."
+      "next": "Once your paid subscription is confirmed, open Customize > Connectors in Claude and add the custom connector with https://mcp.blotato.com/mcp.",
+      "proof": "You will know it worked when Claude answers with your list of connected Blotato accounts, even if that list is empty."
     },
     {
       "kind": "non-technical",
@@ -1383,6 +1415,14 @@
             "url": "https://help.blotato.com/support/faqs",
             "quote": "On day one you only need content-coach."
           }
+        },
+        {
+          "type": "fact",
+          "text": "The seven free Claude content skills are on the Free Claude Skills page.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The 7 free Claude content skills are here: Free Claude Skills"
+          }
         }
       ],
       "next": "Open the Free Claude Skills page in the help center and install content-coach first.",
@@ -1447,10 +1487,18 @@
         },
         {
           "type": "fact",
-          "text": "Paste the caption or transcript as Text context.",
+          "text": "Instead, paste the caption or transcript as Text context.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
             "quote": "Paste the caption or transcript as Text context."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To add context, click the + button beside Context in the AI Agent sidebar.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "In the AI Agent, click the + button beside Context in the sidebar."
           }
         },
         {
@@ -1462,8 +1510,8 @@
           }
         }
       ],
-      "next": "Copy the caption or transcript and add it as Text context in the AI Agent.",
-      "proof": "You will know it worked when your text shows under Context in the sidebar."
+      "next": "In the AI Agent, click the + button beside Context, choose Text, and paste the caption or transcript.",
+      "proof": "You will know it worked when the caption or transcript is added as Text context."
     },
     {
       "kind": "non-technical",
@@ -1610,6 +1658,14 @@
         },
         {
           "type": "fact",
+          "text": "Open the source from the AI Agent sidebar, check Save Source?, and enter a Name.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Open the source from the AI Agent sidebar. 2. Check Save Source?. 3. Enter a Name."
+          }
+        },
+        {
+          "type": "fact",
           "text": "Click Done for an existing source or Add for a new source.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
@@ -1626,10 +1682,10 @@
         },
         {
           "type": "fact",
-          "text": "Wait for processing to finish.",
+          "text": "Wait for processing to finish, then confirm the source appears in your Sources library.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Wait for processing to finish."
+            "quote": "Wait for processing to finish. 6. Confirm the source appears in your Sources library."
           }
         }
       ],
@@ -1760,7 +1816,7 @@
       "steps": [
         {
           "type": "fact",
-          "text": "That message means Stripe started your subscription but the payment itself never went through.",
+          "text": "The help page says this message means Stripe started your subscription, but the payment never went through, so the subscription is stuck in an incomplete state.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
             "quote": "This message means Stripe started your subscription but the payment itself never went through, so the subscription is stuck in an incomplete state."
@@ -1776,10 +1832,10 @@
         },
         {
           "type": "fact",
-          "text": "If your charge already succeeded and the message still appears, do not pay again and do not retry checkout.",
+          "text": "Already paid? If your charge succeeded (your bank shows the money left, or the invoice shows Paid) and this message still appears, do not pay again and do not retry checkout. Another attempt bills you again for the same period.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "If your charge succeeded (your bank shows the money left, or the invoice shows Paid) and this message still appears, do not pay again and do not retry checkout"
+            "quote": "If your charge succeeded (your bank shows the money left, or the invoice shows Paid) and this message still appears, do not pay again and do not retry checkout -- another attempt bills you again for the same period."
           }
         },
         {
@@ -1880,6 +1936,14 @@
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
             "quote": "The API is limited to paying users to help reduce spammy content."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To manage your subscription, go to Settings > Billing and click View Billing Portal.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Go to Settings > Billing and click \"View Billing Portal\" to manage your subscription."
           }
         },
         {
@@ -2228,10 +2292,10 @@
         },
         {
           "type": "fact",
-          "text": "Select the brand to edit.",
+          "text": "Open Settings > My Brand and select the brand to edit.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Select the brand to edit."
+            "quote": "Open Settings > My Brand. 2. Select the brand to edit."
           }
         },
         {
@@ -2486,10 +2550,10 @@
         },
         {
           "type": "fact",
-          "text": "For a generated character video, select AI Selfie Talking Video with Consistent Character.",
+          "text": "In the web app, open Videos > Create New Video. For a generated character video, select AI Selfie Talking Video with Consistent Character.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "For generated character video, select \"AI Selfie Talking Video with Consistent Character\"."
+            "quote": "Open Videos > Create New Video. 2. For generated character video, select \"AI Selfie Talking Video with Consistent Character\"."
           }
         },
         {
@@ -3039,11 +3103,11 @@
           "instagram"
         ]
       ],
-      "opening": "Here is how to pick the cover for a Reel.",
+      "opening": "Here is how to set a custom cover image for an Instagram Reel.",
       "steps": [
         {
           "type": "fact",
-          "text": "Create your post with a video attached.",
+          "text": "For an Instagram Reel, create your post with a video attached.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
             "quote": "Create your post with a video attached"
@@ -3067,10 +3131,18 @@
         },
         {
           "type": "fact",
-          "text": "The cover image must be a publicly accessible URL and under 8MB.",
+          "text": "Then publish as usual. The cover image must be a publicly accessible URL and under 8MB.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "The cover image must be a publicly accessible URL and under 8MB."
+            "quote": "Publish as usual The cover image must be a publicly accessible URL and under 8MB."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If you use n8n or Make.com, this field is in the advanced options of the Blotato Publish node.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "For n8n / Make.com users, this field is in the advanced options of the Blotato Publish node."
           }
         }
       ],
@@ -3122,23 +3194,31 @@
       "steps": [
         {
           "type": "fact",
-          "text": "Blotato lets you upload multiple photos to a social media post for several platforms.",
+          "text": "The FAQ says you can upload multiple photos to a post for several platforms, such as Facebook and LinkedIn, but not as a photo slideshow for TikTok or Reels.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "You can upload multiple photos to a social media post for several platforms (Facebook, LinkedIn, etc.)"
+            "quote": "You can upload multiple photos to a social media post for several platforms (Facebook, LinkedIn, etc.) ... BUT not a photo slideshow for TikTok or Reels (see below)."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The same FAQ also says that for TikTok slideshows via the API, you can set autoAddMusic: true in the Publish node to add TikTok's recommended music, for photo or slideshow posts only.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "For TikTok slideshows via API, set autoAddMusic: true in the Publish node to add TikTok's recommended music (photo/slideshow posts only)."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To make a slideshow in Blotato's web app, the FAQ says to go to Videos > Create New Video and select a carousel or slideshow template.",
+          "cite": {
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "Go to Videos > Create New Video 2. Select a carousel or slideshow template"
           }
         },
         {
           "type": "action",
-          "text": "I am passing the TikTok and Reels photo slideshow question to a person on the team, because the help pages do not agree."
-        },
-        {
-          "type": "fact",
-          "text": "Blotato accepts image source URLs for TikTok and converts non-JPEG images to JPEG for submission.",
-          "cite": {
-            "url": "https://help.blotato.com/support/faqs",
-            "quote": "Blotato accepts image source URLs for TikTok and converts non-JPEG images to JPEG for submission."
-          }
+          "text": "Because steps 1 and 2 do not agree about TikTok photo posts, I am passing this question to a person on the team."
         }
       ],
       "next": "Reply here with the platform and how you plan to publish, such as the web app or the API.",
@@ -3227,46 +3307,46 @@
       "steps": [
         {
           "type": "fact",
-          "text": "Select a carousel or slideshow template, for example Image Slideshow with Text Overlays.",
+          "text": "Go to Videos > Create New Video and select a carousel or slideshow template, for example Image Slideshow with Text Overlays.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Select a carousel or slideshow template (e.g., \"Image Slideshow with Text Overlays\")"
+            "quote": "Go to Videos > Create New Video 2. Select a carousel or slideshow template (e.g., \"Image Slideshow with Text Overlays\")"
           }
         },
         {
           "type": "fact",
-          "text": "Enter your content idea in the Prompt field.",
+          "text": "Enter your content idea in the Prompt field, and add style directions to it, such as colors, mood, typography, lighting or image style.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Enter your content idea in the Prompt field"
+            "quote": "Enter your content idea in the Prompt field 4. Add style directions to the prompt, such as colors, mood, typography, lighting, or image style"
           }
         },
         {
           "type": "fact",
-          "text": "Every visual template has advanced settings, and the controls differ by template.",
+          "text": "Click \"Need more customization? Click to see advanced options\" and adjust the settings shown for your template.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Every visual template includes advanced settings, and the available controls differ by template."
+            "quote": "Click \"Need more customization? Click to see advanced options\" 6. Adjust the settings shown for the selected template"
           }
         },
         {
           "type": "fact",
-          "text": "To use your own images, choose Upload Image from the Image Source dropdown for each slide.",
+          "text": "To use your own images, in those advanced options choose \"Upload Image\" from the Image Source dropdown for each slide, and upload your image (up to 20MB). You can add a text overlay to each slide, and click \"+ Add Slide\" for more slides.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "For each slide, choose \"Upload Image\" from the Image Source dropdown"
+            "quote": "For each slide, choose \"Upload Image\" from the Image Source dropdown 3. Upload your image (max 20MB) 4. Optionally add text overlay for each slide 5. Click \"+ Add Slide\" to add more slides"
           }
         },
         {
           "type": "fact",
-          "text": "Your uploaded image can be up to 20MB.",
+          "text": "Click \"Generate Video\" when you are done.",
           "cite": {
             "url": "https://help.blotato.com/support/faqs",
-            "quote": "Upload your image (max 20MB)"
+            "quote": "Click \"Generate Video\" when done"
           }
         }
       ],
-      "next": "Open Videos > Create New Video, pick a slideshow template, and enter your prompt.",
+      "next": "Open Videos > Create New Video, pick a slideshow template, enter your prompt, and click Generate Video.",
       "proof": "You will know it worked when your slides appear in the generated video."
     }
   ]

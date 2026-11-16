@@ -1,0 +1,11 @@
+{
+  "replySha256": "9df10c3bf651a1882ded6634a4bb658a01cff001fa76dab503353260bd4ed0f7",
+  "verdict": "pass",
+  "findings": [
+    "Style only: step 5 checks Instagram before the few-hours wait (\"If it is not there, wait a few hours, then retry\"); a quick second look just before retrying would be a little safer, but the post is already marked failed, so this does not mislead."
+  ],
+  "checkedAt": "2026-11-16T03:44:37Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "instagram-internal-server-error"
+}

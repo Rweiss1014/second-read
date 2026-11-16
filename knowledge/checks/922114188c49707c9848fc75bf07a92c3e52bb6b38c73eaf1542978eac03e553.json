@@ -1,0 +1,13 @@
+{
+  "replySha256": "922114188c49707c9848fc75bf07a92c3e52bb6b38c73eaf1542978eac03e553",
+  "verdict": "pass",
+  "findings": [
+    "Small note: the opening \"An empty URL usually means the step ran before it had a finished visual\" names a likely cause the page does not rank; Step 1 still sends the customer to check the preceding step and the mapped field, so nothing is lost.",
+    "Small note: Step 2 \"the media address that the finished visual returns\" drops the page's field names (\"mediaUrl or imageUrls\"), which would help someone mapping an n8n or Make field.",
+    "Small note: Step 3 \"Waiting longer is not the fix\" reads more absolute than the page's \"Do not substitute a longer fixed wait for checking status and errors\"; if the visual is still rendering, checking its status until it is done is still needed."
+  ],
+  "checkedAt": "2026-11-16T02:21:35Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "empty-url-or-mediaurl"
+}

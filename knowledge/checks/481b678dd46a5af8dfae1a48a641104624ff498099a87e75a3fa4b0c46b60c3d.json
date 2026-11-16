@@ -1,0 +1,12 @@
+{
+  "replySha256": "481b678dd46a5af8dfae1a48a641104624ff498099a87e75a3fa4b0c46b60c3d",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the opening \"it is easy to test around\" makes the test sound easy, which the plain-voice rule avoids; \"here is how to test it\" would say the same without it.",
+    "Style note: the page's first step \"Publish the automation.\" appears only in the Next step, not in the numbered steps; the customer still gets it, so no one is misled."
+  ],
+  "checkedAt": "2026-11-16T02:16:25Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "dm-automation-own-comment"
+}

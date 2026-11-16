@@ -1,0 +1,11 @@
+{
+  "replySha256": "316d9ec65e71ab73f5144fe40162727d904772ae0e6a3cf4a779d8cc1f010168",
+  "verdict": "pass",
+  "findings": [
+    "Small note: the Still open line \"A person on the team will check the TikTok failure details\" reads as already underway while no escalation packet was written; the page supports it only after the customer sends the evidence, which the Next step does ask for."
+  ],
+  "checkedAt": "2026-11-16T02:13:06Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "tiktok-failed-after-3-retries"
+}

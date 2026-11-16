@@ -1,0 +1,12 @@
+{
+  "replySha256": "c23264661453968c5e82ae0583b1aca217c2a1339974501f6a7a57e1a17839a5",
+  "verdict": "pass",
+  "findings": [
+    "Style note: step 5 \"when you choose On any Post or Reel\" does not say this is the way to automate a post published outside Blotato, so the link to step 2 is left for the customer to make.",
+    "Style note: the success line \"your post shows in the picker\" can never happen for a post published outside Blotato; step 5 covers that path, but the reply could say so."
+  ],
+  "checkedAt": "2026-11-16T02:34:04Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "dm-automation-post-picker"
+}

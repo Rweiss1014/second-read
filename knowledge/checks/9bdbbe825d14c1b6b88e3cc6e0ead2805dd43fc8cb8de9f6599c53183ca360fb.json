@@ -1,0 +1,12 @@
+{
+  "replySha256": "9bdbbe825d14c1b6b88e3cc6e0ead2805dd43fc8cb8de9f6599c53183ca360fb",
+  "verdict": "pass",
+  "findings": [
+    "Style note: step 2 \"turn on Use brand kit\" leaves out the page's condition that the toggle adds \"the primary brand's context\" set in Settings > My Brand, which a customer with more than one brand would want to know.",
+    "Style note: step 4 \"in your Brand Kit content\" could name the field the page means, \"What do you post about?\" in the Content section, so the customer knows where to type."
+  ],
+  "checkedAt": "2026-11-16T02:22:24Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "brand-kit-visuals"
+}

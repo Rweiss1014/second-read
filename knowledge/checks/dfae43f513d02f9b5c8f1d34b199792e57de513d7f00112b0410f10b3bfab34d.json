@@ -1,0 +1,11 @@
+{
+  "replySha256": "dfae43f513d02f9b5c8f1d34b199792e57de513d7f00112b0410f10b3bfab34d",
+  "verdict": "pass",
+  "findings": [
+    "Style note only: the success line \"when the answer matches what you see on your posts\" is vague; something the customer can check, such as reach staying normal, would be clearer."
+  ],
+  "checkedAt": "2026-11-16T02:35:53Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "post-ip-address"
+}

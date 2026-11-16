@@ -1,0 +1,11 @@
+{
+  "replySha256": "f1a678028b573dd91c5ad9da6590aa7843de8b5c9854ec0ee1b74bc901ebf81f",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the success line \"without the 400 characters message\" could be read as an HTTP 400; naming the message \"slides.image: must be at most 400 characters\" would be clearer."
+  ],
+  "checkedAt": "2026-11-16T02:34:20Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "slides-image-too-long"
+}

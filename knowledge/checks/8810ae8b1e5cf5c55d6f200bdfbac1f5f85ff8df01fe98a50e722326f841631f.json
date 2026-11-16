@@ -1,0 +1,9 @@
+{
+  "replySha256": "8810ae8b1e5cf5c55d6f200bdfbac1f5f85ff8df01fe98a50e722326f841631f",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T02:19:46Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "where-are-generated-visuals"
+}

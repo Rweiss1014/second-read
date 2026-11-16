@@ -1,0 +1,11 @@
+{
+  "replySha256": "91e6a01355cf0913a9c375e50e38a7e6ddf258a1d4c10863c9cb37a750791a07",
+  "verdict": "pass",
+  "findings": [
+    "Small note: Step 1 would be easier to follow with the page's example prompt (\"Using my context, create one LinkedIn post and one Facebook post.\")."
+  ],
+  "checkedAt": "2026-11-16T02:21:35Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "no-platform-selection-when-generating"
+}

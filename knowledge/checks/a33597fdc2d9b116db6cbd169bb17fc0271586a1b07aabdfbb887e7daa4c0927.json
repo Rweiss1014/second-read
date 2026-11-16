@@ -1,0 +1,11 @@
+{
+  "replySha256": "a33597fdc2d9b116db6cbd169bb17fc0271586a1b07aabdfbb887e7daa4c0927",
+  "verdict": "pass",
+  "findings": [
+    "Style only: the reply's sizes are all for Instagram Reels (\"Instagram Reels have a known set of sizes that work\", \"If your Reel is portrait\") while the error itself only says \"the target platform\"; it matches the page, but a customer posting somewhere else would need a line saying these sizes are for Instagram."
+  ],
+  "checkedAt": "2026-11-16T03:44:37Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "invalid-video-dimensions"
+}

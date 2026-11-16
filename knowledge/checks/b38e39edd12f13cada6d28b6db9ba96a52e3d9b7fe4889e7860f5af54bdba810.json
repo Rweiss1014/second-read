@@ -1,0 +1,11 @@
+{
+  "replySha256": "b38e39edd12f13cada6d28b6db9ba96a52e3d9b7fe4889e7860f5af54bdba810",
+  "verdict": "pass",
+  "findings": [
+    "Style note: the linked help page is written for AI agents doing triage, so it will read oddly to a customer, but nothing in the reply overstates it."
+  ],
+  "checkedAt": "2026-11-16T02:34:03Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "staff-action"
+}

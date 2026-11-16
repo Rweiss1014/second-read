@@ -1,0 +1,12 @@
+{
+  "replySha256": "6b3a157b460348526d937f7c4b257f082e1e177bcf05c84c2dc701238d672b0b",
+  "verdict": "pass",
+  "findings": [
+    "Style only: the Next step (\"Export the image as a JPEG at no more than 20 MB\") leaves out the dimensions example that step 2 gives (\"such as 1080 × 1920 for portrait images\"); for a picture size error it would read better to repeat it there.",
+    "Style only: the opening line's \"format, size and weight\" uses \"weight\" for file size, which is unusual wording."
+  ],
+  "checkedAt": "2026-11-16T03:42:32Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "tiktok-unsupported-picture-size"
+}

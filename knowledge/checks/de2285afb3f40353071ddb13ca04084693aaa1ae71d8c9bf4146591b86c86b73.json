@@ -1,0 +1,12 @@
+{
+  "replySha256": "de2285afb3f40353071ddb13ca04084693aaa1ae71d8c9bf4146591b86c86b73",
+  "verdict": "pass",
+  "findings": [
+    "Style note only: step 4 says \"Read the template's inputs specification\" but does not say how to get it (the page names blotato_list_design_templates or GET /v2/videos/templates with fields=id,name,description,inputs), and the only link is the errors page rather than the create-video reference.",
+    "Style note only: step 3 could give the page's reason, that a Create Visual request \"consumes credits\", so the customer understands why not to run a blank one."
+  ],
+  "checkedAt": "2026-11-16T03:18:32Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "visual-template-inputs-wrong"
+}

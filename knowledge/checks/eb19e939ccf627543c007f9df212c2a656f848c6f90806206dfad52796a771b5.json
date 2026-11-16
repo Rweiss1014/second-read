@@ -1,0 +1,9 @@
+{
+  "replySha256": "eb19e939ccf627543c007f9df212c2a656f848c6f90806206dfad52796a771b5",
+  "verdict": "pass",
+  "findings": [],
+  "checkedAt": "2026-11-16T02:34:09Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "no-available-slot-9-months"
+}

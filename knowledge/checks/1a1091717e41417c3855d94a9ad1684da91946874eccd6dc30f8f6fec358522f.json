@@ -1,0 +1,12 @@
+{
+  "replySha256": "1a1091717e41417c3855d94a9ad1684da91946874eccd6dc30f8f6fec358522f",
+  "verdict": "pass",
+  "findings": [
+    "Style note: step 1 (\"Select 7 days, 30 days, or All time\") comes before anything says to open Analytics; only the Next step says \"Open Analytics\".",
+    "Style note: the page says \"LinkedIn and Slack analytics are not available\"; the reply's platform list in step 4 implies this but does not say it."
+  ],
+  "checkedAt": "2026-11-16T02:13:05Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "analytics-dashboard-where"
+}

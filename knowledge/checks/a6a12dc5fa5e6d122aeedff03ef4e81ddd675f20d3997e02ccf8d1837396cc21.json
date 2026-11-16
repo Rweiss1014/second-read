@@ -1,0 +1,11 @@
+{
+  "replySha256": "a6a12dc5fa5e6d122aeedff03ef4e81ddd675f20d3997e02ccf8d1837396cc21",
+  "verdict": "pass",
+  "findings": [
+    "Style note only: Step 1 \"The automation webhook did not answer within 15 seconds\" reads as a fact about this customer's run although no lookup was made; it matches what error 20305 means, so it would not mislead."
+  ],
+  "checkedAt": "2026-11-16T02:23:28Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "dm-webhook-timeout-20305"
+}
