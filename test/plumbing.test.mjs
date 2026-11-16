@@ -162,3 +162,24 @@ test('packets --all: one packet per distinct text, skips stored texts; record-ch
   assert.equal(idx2.counts.alreadyChecked, 1); assert.equal(idx2.counts.packets, 2);
   assert.equal(idx2.items.find(i => i.sha256 === first.sha256).alreadyChecked, true);
 });
+
+// Piece 4
+test('the practice shift: every quote is on its real cached help page, and the words are plain', async () => {
+  const { PRACTICE } = await import('../knowledge/practice.mjs');
+  const { createDocs, quoteOnPage } = await import('../src/docs.mjs');
+  const { deskPaths } = await import('../src/config.mjs');
+  const docs = createDocs({ cacheDir: deskPaths().docsCache, env: { DOCS_OFFLINE: '1' } });
+  assert.equal(PRACTICE.decisions.length, 5);
+  for (const d of PRACTICE.decisions) {
+    assert.equal(d.choices.length, 3);
+    assert.equal(d.choices.filter(c => c.right).length, 1, d.entry);
+    for (const k of ['entry', 'ticket', 'firstCheck']) assert.ok(d[k], k);
+    const page = docs.readCache(d.source.url);
+    if (!page) continue; // the cache is not on this machine; check-entries covers real quotes when it is
+    assert.ok(quoteOnPage(d.source.quote, page), `${d.entry}: quote is not on ${d.source.url}`);
+  }
+  await docs.close?.();
+  const all = JSON.stringify(PRACTICE);
+  assert.doesNotMatch(all, /—/);
+  for (const hard of ['documented cause', 'downstream', 'submission id', 'fallback does not', 'Make sure you are logged']) assert.doesNotMatch(all, new RegExp(hard, 'i'), hard);
+});
