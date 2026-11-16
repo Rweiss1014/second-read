@@ -47,7 +47,9 @@ Every ticket goes into `desk/known-failures.md`: solved, blocked, or unanswered.
 When a fix repeats, turn it into a playbook entry or a test, not a note.
 
 ## Where things are
-- `knowledge/playbook.mjs`: one entry per kind of ticket. Every fact step quotes a sentence from a Blotato help page.
+- `knowledge/entries/*.json`: one entry per kind of ticket, one file per help-center area. Every fact step quotes a sentence from a Blotato help page. To add one, follow `knowledge/ENTRY-GUIDE.md` and run `check-entries`.
+- `knowledge/playbook.mjs`: loads the entries and routes a message: guards first (`src/signals.mjs`), then the matcher (`src/match.mjs`, `src/route.mjs`).
+- `eval/`: the exam. Tune on `tickets.dev.jsonl` only. Never open `tickets.test.jsonl`; run it only with `node eval/run.mjs --set test`.
 - `knowledge/tickets.json`: the 12 made-up sample tickets.
 - `knowledge/practice.mjs`: "Your first support shift", the five-decision practice.
 - `src/`: the desk (`desk.mjs`), diagnosis (`diagnose.mjs`), the script checker (`checkreply.mjs`), the checker packet (`packet.mjs`), docs through the docs MCP (`docs.mjs`), the read-only API client (`api.mjs`), logs (`log.mjs`), sample data (`mock.mjs`), the page server (`server.mjs`).
