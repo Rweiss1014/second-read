@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3591,
+ "verdict": {
+  "queries": [
+   "Unsupported media format error video upload",
+   "supported video formats MP4 MOV requirements Blotato",
+   "video codec H.264 AAC container not supported error",
+   "Unsupported media format mov mp4 m4a 3gp 3g2 mj2"
+  ]
+ }
+}

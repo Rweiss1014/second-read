@@ -1,0 +1,69 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 10818,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Account 77120 not found in n8n",
+    "steps": [
+     1,
+     3,
+     4
+    ]
+   },
+   {
+    "item": "Same saved dropdown choice as before",
+    "steps": [
+     2
+    ]
+   },
+   {
+    "item": "Happens after reconnecting TikTok",
+    "steps": [
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages say a saved workflow ID from before a reconnect can cause Account not found, and they give the lookup and update steps.",
+  "steps": [
+   {
+    "text": "This error means the submitted ID did not match an account for the authenticated Blotato user and requested platform.",
+    "quotes": [
+     "S39"
+    ]
+   },
+   {
+    "text": "A saved workflow can still hold an ID from before the account was reconnected, and a dropdown does not guarantee a saved selection is current.",
+    "quotes": [
+     "S20",
+     "S48"
+    ]
+   },
+   {
+    "text": "Retrieve the current account list using the same credential the failing publish step uses, match the platform and destination, and use the returned account id as accountId.",
+    "quotes": [
+     "S14",
+     "S15"
+    ]
+   },
+   {
+    "text": "Update the saved workflow mapping if it contains an old ID.",
+    "quotes": [
+     "S46"
+    ]
+   },
+   {
+    "text": "Before you send another publish request, check the earlier submission's outcome in Publishing status.",
+    "quotes": [
+     "S54"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:38:03.733Z"
+}

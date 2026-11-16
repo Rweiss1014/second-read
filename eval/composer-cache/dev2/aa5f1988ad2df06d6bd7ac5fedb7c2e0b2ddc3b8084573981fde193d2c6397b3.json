@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5507,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Threads daily posting cap",
+    "steps": []
+   },
+   {
+    "item": "Facebook 25 a day per Page or per login",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences give the Facebook limit (25 per 24 hours per Page), but none states a daily posting cap for Threads. They only mention Threads in the warm-up guidance.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:47:25.354Z"
+}

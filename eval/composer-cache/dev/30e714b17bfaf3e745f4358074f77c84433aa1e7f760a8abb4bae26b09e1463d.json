@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5035,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Uptime guarantee",
+    "steps": []
+   },
+   {
+    "item": "Service credits if scheduled posts miss their time",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the sentences state an uptime guarantee or any service-credit policy for missed scheduled posts, so the team needs to answer this.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:50:41.478Z"
+}

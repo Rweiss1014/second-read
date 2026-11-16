@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4270,
+ "verdict": {
+  "queries": [
+   "Instagram account isn't eligible reconnect error",
+   "Instagram messaging permission checkbox connect account",
+   "Instagram DM automation permissions required",
+   "Instagram Business account connection troubleshooting Blotato",
+   "Instagram auto-reply DM automation disconnect reconnect account"
+  ]
+ },
+ "at": "2026-11-16T07:48:36.399Z"
+}

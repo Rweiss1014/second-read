@@ -20,6 +20,8 @@ const KIND = {
   'docs-silent': 'none', tie: 'none', 'partly-covered': 'none', 'not-english': 'none', 'no-coverage': 'none', nonsense: 'none',
   // Only with a reader on; their own tests (test/reader.test.mjs) use a fake backend.
   'reader-abstained': 'none', 'reader-refuted': 'none',
+  // Only with a composer on; their own tests (test/composer.test.mjs) use a fake backend.
+  'compose-unverified': 'none', 'second-read-objected': 'none',
 };
 
 // A made-up message for each reason code the desk can reach with a short message.

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7412,
+ "verdict": {
+  "points": [
+   {
+    "point": "Send messages to an Instagram broadcast channel",
+    "sentence": ""
+   },
+   {
+    "point": "Channel with 3,000 members",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry, read-send-dms-support, covers replying to individual DMs and comments. None of its sentences name or plainly include broadcast channels or sending to a 3,000-member channel."
+ },
+ "at": "2026-11-16T08:08:41.331Z"
+}

@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3878,
+ "verdict": {
+  "queries": [
+   "Add background music to Instagram carousel post",
+   "Instagram carousel audio track music not supported",
+   "Add music to Instagram photo post in Blotato",
+   "Instagram carousel images media type settings"
+  ]
+ }
+}

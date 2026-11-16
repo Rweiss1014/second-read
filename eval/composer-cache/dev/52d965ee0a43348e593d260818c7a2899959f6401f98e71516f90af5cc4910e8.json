@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3741,
+ "verdict": {
+  "queries": [
+   "Instagram hashtag limit per post",
+   "Instagram maximum number of hashtags 30",
+   "\"Instagram allows a maximum of 5 hashtags per post\" error",
+   "hashtags validation error Instagram post Blotato"
+  ]
+ }
+}

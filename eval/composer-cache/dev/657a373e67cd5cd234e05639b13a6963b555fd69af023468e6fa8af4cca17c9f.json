@@ -1,0 +1,57 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6811,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Do I lose credits and videos if I change email?",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Should I make a new account instead?",
+    "steps": [
+     1,
+     3
+    ]
+   },
+   {
+    "item": "How to change the email",
+    "steps": [
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S60-S69 directly answer whether changing email keeps credits and videos, and whether a new account is advisable.",
+  "steps": [
+   {
+    "text": "If you change the email on your existing account instead of creating a new one, you keep your credits, videos, posts, and settings.",
+    "quotes": [
+     "S61",
+     "S62"
+    ]
+   },
+   {
+    "text": "To change it, log into Blotato with your current email, go to Profile, change your email to the new one and click \"Update Email\", then enter the verification code sent to your new email.",
+    "quotes": [
+     "S63",
+     "S64",
+     "S65",
+     "S66"
+    ]
+   },
+   {
+    "text": "A new account is not better: credits and content are tied to your account and do not transfer between separate accounts.",
+    "quotes": [
+     "S67"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:51:23.804Z"
+}

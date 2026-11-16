@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5524,
+ "verdict": {
+  "asked": [
+   {
+    "item": "is there a cap on rollover credits",
+    "steps": []
+   },
+   {
+    "item": "do credits stack up forever",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences say credits roll over each month, but none states whether there is a cap on rolled-over credits or whether they expire, so the customer's questions are not answered.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:57:55.307Z"
+}

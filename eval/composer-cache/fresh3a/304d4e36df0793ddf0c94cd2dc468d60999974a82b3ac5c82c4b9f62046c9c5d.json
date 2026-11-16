@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7371,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Post to a Slack Connect channel shared with a partner company's workspace",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages never mention Slack Connect or shared channels, so they don't say whether Blotato can post to one; they only cover public and private channels in a single connected workspace.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:07:53.353Z"
+}

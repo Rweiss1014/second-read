@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4798,
+ "verdict": {
+  "queries": [
+   "Hermes Agent mcp_servers config.yaml url headers",
+   "Blotato MCP server URL and blotato-api-key header",
+   "Hermes MCP server not loading tools restart",
+   "YAML duplicate key mcp_servers single block multiple servers"
+  ]
+ }
+}

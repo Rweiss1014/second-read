@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6772,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Upload own .otf brand font for video editor captions",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences cover caption style, opacity and uploading images or audio, but none say whether a custom font such as an .otf file can be uploaded for captions.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:09:01.621Z"
+}

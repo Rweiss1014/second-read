@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5447,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Claim the reward again for a Capterra review after already claiming for G2",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences say the reward goes to customers who review on G2 or Capterra, but none says whether one customer can claim it a second time for a second review.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:54:53.723Z"
+}

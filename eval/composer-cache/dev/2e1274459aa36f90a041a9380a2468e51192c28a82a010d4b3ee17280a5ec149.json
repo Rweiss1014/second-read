@@ -1,0 +1,21 @@
+{
+ "kind": "second",
+ "version": "second-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5559,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "not-answered",
+    "about": "The customer asked whether to turn off retries and resubmit repeatedly. The reply never answers that. It only says to check for an existing post before retrying, and the section says nothing about disabling retries."
+   },
+   {
+    "kind": "caveat",
+    "about": "The customer said this is the third failure this week. The section says several failures at once warrant an incident check, and it points to the publishing-status diagnosis. The reply leaves out both."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T07:39:06.912Z"
+}

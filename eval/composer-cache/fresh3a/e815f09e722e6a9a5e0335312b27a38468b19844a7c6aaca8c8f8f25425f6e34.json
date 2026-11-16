@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6815,
+ "verdict": {
+  "asked": [
+   {
+    "item": "why the list returns id 98431 but the get for that id returns 404",
+    "steps": []
+   },
+   {
+    "item": "post is live and shows in Posts > Published",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer's GET still returns 404 after they used the same API key for both calls, and the help pages only give the 404 causes (ID does not exist, or does not belong to the authenticated user) without explaining why the list and get disagree for this account, so the team needs to look at it.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:25:30.104Z"
+}

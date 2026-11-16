@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6363,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Have Blotato log in to Instagram and connect the account for them",
+    "steps": []
+   },
+   {
+    "item": "Shared Instagram password",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer asks staff to log in and connect their account for them, which is a request for staff to act, and they shared a password, so a team member needs to read this.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:24:52.481Z"
+}

@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3886,
+ "verdict": {
+  "queries": [
+   "post status values API scheduled publishing published failed",
+   "REST API get post status field publishing",
+   "publishing status transient state not returned polling",
+   "Fix Silent Failures post status polling"
+  ]
+ }
+}

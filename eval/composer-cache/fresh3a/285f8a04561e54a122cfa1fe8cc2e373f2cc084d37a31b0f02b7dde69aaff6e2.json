@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4888,
+ "verdict": {
+  "queries": [
+   "First Comment not published Instagram post",
+   "First Comment feature Instagram feed posts and reels",
+   "First Comment failed error Instagram API comment",
+   "Instagram first comment missing after publishing Blotato",
+   "First Comment character limit 500 Instagram"
+  ]
+ },
+ "at": "2026-11-16T08:09:01.257Z"
+}

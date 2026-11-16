@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4066,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Bluesky posts show Published but links say 'post not found' and nothing on profile",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No help sentence explains Bluesky posts marked Published that don't appear on the profile, so a team member needs to check this account's posts.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:31:51.973Z"
+}

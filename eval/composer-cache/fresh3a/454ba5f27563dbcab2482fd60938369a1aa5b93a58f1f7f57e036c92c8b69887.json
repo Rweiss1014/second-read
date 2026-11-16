@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4547,
+ "verdict": {
+  "asked": [
+   {
+    "item": "boost a Facebook post (paid promotion) from Blotato after it publishes",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence says whether Blotato can boost or run paid promotion on a Facebook post; the closest sentences cover First Comments and Page posting limits, which are a different question.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:27:07.523Z"
+}

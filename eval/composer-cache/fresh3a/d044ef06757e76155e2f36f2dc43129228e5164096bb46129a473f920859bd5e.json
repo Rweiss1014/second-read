@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7852,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Setup instructions for MCP server in Windsurf editor",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages list setup for Claude, Codex, ChatGPT, Cursor, VS Code, Hermes and others, but none mention Windsurf, and they say not to apply one client's instructions to another.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:10:44.578Z"
+}

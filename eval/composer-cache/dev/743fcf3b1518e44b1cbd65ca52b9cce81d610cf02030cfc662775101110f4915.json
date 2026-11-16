@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 5439,
+ "verdict": {
+  "queries": [
+   "Blotato failed post automatic retry Instagram",
+   "Instagram post failed publishing error retry",
+   "automatic repost of failed posts setting",
+   "retry failed scheduled posts limit attempts",
+   "Instagram publishing failed troubleshooting Blotato"
+  ]
+ }
+}

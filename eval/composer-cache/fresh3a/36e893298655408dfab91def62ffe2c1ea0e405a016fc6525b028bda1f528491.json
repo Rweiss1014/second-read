@@ -1,0 +1,56 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7499,
+ "verdict": {
+  "asked": [
+   {
+    "item": "switch existing automation to main account",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "set up automation on main account",
+    "steps": [
+     3,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The sentences state that the connected account is locked after a flow is created and that a different account requires a new flow, which answers whether the existing flow can be switched.",
+  "steps": [
+   {
+    "text": "No, you can't switch this flow to another account, because the connected account is locked once the flow is created.",
+    "quotes": [
+     "S19"
+    ]
+   },
+   {
+    "text": "To use a different account, create a new flow.",
+    "quotes": [
+     "S20"
+    ]
+   },
+   {
+    "text": "When you create the new flow, pick the connected Instagram account or Facebook Page it should run on.",
+    "quotes": [
+     "S16"
+    ]
+   },
+   {
+    "text": "Click New automation, name the flow, then click Create flow.",
+    "quotes": [
+     "S15",
+     "S17",
+     "S18"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:26:36.817Z"
+}

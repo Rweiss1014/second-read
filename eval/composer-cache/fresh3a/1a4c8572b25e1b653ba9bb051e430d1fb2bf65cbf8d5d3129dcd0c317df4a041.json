@@ -1,0 +1,34 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5221,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Maximum number of scenes in AI Video with AI Voice template",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Wanting about 40 scenes in one video",
+    "steps": [
+     1
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S9 states the scenes array has a maximum of 20, which answers the limit and shows 40 exceeds it.",
+  "steps": [
+   {
+    "text": "Yes, the scenes parameter takes Min: 1, Max: 20 scene objects, so 40 scenes in one video is over the maximum.",
+    "quotes": [
+     "S9"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:10:19.093Z"
+}

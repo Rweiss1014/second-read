@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3163,
+ "verdict": {
+  "points": [
+   {
+    "point": "Make private reply go to main inbox instead of Message Requests",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether private replies can be routed to the main inbox rather than Message Requests; the closest entries cover private reply rules and limits, not delivery placement."
+ },
+ "at": "2026-11-16T08:08:33.719Z"
+}

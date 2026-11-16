@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 11167,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why 12 of 50 posts never published",
+    "steps": []
+   },
+   {
+    "item": "12 posts missing from Failed, Scheduled and everywhere",
+    "steps": []
+   },
+   {
+    "item": "How to publish the 12 without double posting the 38",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences don't say why posts would be missing from every list or how to republish them. They send missing records to a 'Find a post's outcome' page that isn't provided. The closest sentences are TikTok-specific, and the customer already checked Failed and Scheduled, so a person on the team should take this.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:09:13.168Z"
+}

@@ -1,0 +1,54 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4744,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Did I misunderstand what All LinkedIn does?",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Why only my profile got the post",
+    "steps": [
+     2
+    ]
+   },
+   {
+    "item": "How to post same content to profile and company Page",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S26 and S28-S29 directly state what All LinkedIn does and how to publish to both destinations.",
+  "steps": [
+   {
+    "text": "Yes, All LinkedIn does not publish one post to every LinkedIn destination.",
+    "quotes": [
+     "S28"
+    ]
+   },
+   {
+    "text": "All LinkedIn means posts targeting any connected LinkedIn personal profile or company Page are allowed to use the slot, and the destination selected on the post still controls where it publishes.",
+    "quotes": [
+     "S26",
+     "S28"
+    ]
+   },
+   {
+    "text": "To publish the same content to a personal profile and a company Page, create one post for each destination.",
+    "quotes": [
+     "S29"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:31:59.805Z"
+}

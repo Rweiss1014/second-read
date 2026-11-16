@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4039,
+ "verdict": {
+  "queries": [
+   "DM automation reply language detection",
+   "auto-reply based on user language setting Spanish English",
+   "Instagram DM automation multiple languages conditional reply",
+   "keyword trigger auto-reply separate message per language",
+   "Facebook Messenger automation language branching"
+  ]
+ },
+ "at": "2026-11-16T07:48:43.112Z"
+}

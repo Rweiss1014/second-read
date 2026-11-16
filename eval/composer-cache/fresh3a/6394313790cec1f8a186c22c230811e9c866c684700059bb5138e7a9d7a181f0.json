@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6488,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Carousels still show stock corporate people instead of the outdoor climbing look",
+    "steps": []
+   },
+   {
+    "item": "Already tried: specific field, 6 brand visuals, Use brand kit with prompt, scene regeneration",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer says they already did what the pages suggest (specific field, Brand Visuals, Use brand kit with a prompt, scene regeneration) and it still fails, so the team needs to look at it.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:09:53.807Z"
+}

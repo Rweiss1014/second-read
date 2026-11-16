@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4020,
+ "verdict": {
+  "points": [
+   {
+    "point": "set YouTube category (e.g. Education) when posting",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry mentions a YouTube category field; the AI-generated label entry only mentions YouTube AI disclosure, which is a different question."
+ },
+ "at": "2026-11-16T08:08:27.176Z"
+}

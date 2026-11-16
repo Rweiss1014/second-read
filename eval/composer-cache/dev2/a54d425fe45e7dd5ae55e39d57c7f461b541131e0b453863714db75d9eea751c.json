@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6019,
+ "verdict": {
+  "asked": [
+   {
+    "item": "bug bounty program for reporting a security issue",
+    "steps": []
+   },
+   {
+    "item": "security contact for reporting a vulnerability in the MCP server",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the help sentences mention a bug bounty program or a security contact or how to report a vulnerability; the \"Security\" section only covers how to authorize accounts and keep credentials safe, so the closest sentences answer a neighboring question.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:58:33.805Z"
+}

@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3845,
+ "verdict": {
+  "queries": [
+   "Blotato credits per post",
+   "Blotato credit usage scheduled posts with uploaded images",
+   "Blotato plans post limit per month",
+   "Blotato pricing plans included credits"
+  ]
+ }
+}

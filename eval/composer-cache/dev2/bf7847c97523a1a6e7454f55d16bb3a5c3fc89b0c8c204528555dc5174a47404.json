@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3484,
+ "verdict": {
+  "queries": [
+   "Bluesky video posts not supported Blotato",
+   "Bluesky video upload requirements format size length",
+   "Blotato Bluesky video post failed error",
+   "Bluesky app password Blotato connection video permissions"
+  ]
+ }
+}

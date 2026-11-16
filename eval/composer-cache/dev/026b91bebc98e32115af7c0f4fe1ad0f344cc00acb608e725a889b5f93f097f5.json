@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4816,
+ "verdict": {
+  "queries": [
+   "422 Unprocessable Entity POST /v2/posts",
+   "POST /v2/posts request body required fields accountId text platform",
+   "API validation error 422 response body error message",
+   "mediaUrls target platform fields create post API"
+  ]
+ },
+ "at": "2026-11-16T07:50:43.913Z"
+}

@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3331,
+ "verdict": {
+  "queries": [
+   "Analytics time saved calculation Blotato",
+   "Time saved metric minutes per post Analytics",
+   "Analytics overview time saved estimate methodology"
+  ]
+ },
+ "at": "2026-11-16T07:48:58.786Z"
+}

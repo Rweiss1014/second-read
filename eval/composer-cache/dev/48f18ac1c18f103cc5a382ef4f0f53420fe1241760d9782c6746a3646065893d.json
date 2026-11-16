@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4696,
+ "verdict": {
+  "queries": [
+   "how far in advance can I schedule posts",
+   "schedule post maximum future date limit",
+   "scheduling window for posts more than 12 months ahead",
+   "select date and time schedule post calendar"
+  ]
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3426,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does Blotato have two-factor authentication",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the sentences say whether Blotato offers two-factor authentication; the authentication sentences cover MCP OAuth and API keys, which is a different question.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:38:05.190Z"
+}

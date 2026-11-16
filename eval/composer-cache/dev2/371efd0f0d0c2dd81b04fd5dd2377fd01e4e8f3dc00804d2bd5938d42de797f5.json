@@ -1,0 +1,34 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5694,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Facebook Page missing from Duplicate account list",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Am I missing a step",
+    "steps": [
+     1
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S24 says duplicating only works to accounts on the same platform, which explains why the Facebook Page is not listed when copying an Instagram automation.",
+  "steps": [
+   {
+    "text": "You may only duplicate to accounts on the same platform, so an Instagram automation can't be duplicated to a Facebook Page.",
+    "quotes": [
+     "S24"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:47:21.014Z"
+}

@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7059,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Same client Instagram connected in both an agency Blotato account and the client's own Blotato account: is it allowed?",
+    "steps": []
+   },
+   {
+    "item": "Whether one connection knocks out the other's token",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages cover connecting client accounts under one login or giving each client their own account. They don't say whether one Instagram account can be connected in two Blotato accounts, or whether one connection invalidates the other's token.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:32:16.133Z"
+}

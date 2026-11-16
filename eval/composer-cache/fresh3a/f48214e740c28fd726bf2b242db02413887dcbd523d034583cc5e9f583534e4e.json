@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6210,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Number of brands in My Brand on Starter",
+    "steps": []
+   },
+   {
+    "item": "Whether Creator allows more brands",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the sentences mention brands or My Brand limits. They cover connected social accounts, credits and posting limits, which are different questions.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:09:38.738Z"
+}

@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4580,
+ "verdict": {
+  "asked": [
+   {
+    "item": "DM robot (DM automation) replies in Spanish to Spanish speakers and English to English speakers",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences explain creating posts and AI videos in both languages, but none says how a DM automation chooses or sets the language of its replies, so the closest sentences answer a neighboring question.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:00:47.043Z"
+}

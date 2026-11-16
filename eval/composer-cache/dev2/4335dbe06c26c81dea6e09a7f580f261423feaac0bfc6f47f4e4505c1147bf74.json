@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7532,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Match only the exact word \"free\"",
+    "steps": []
+   },
+   {
+    "item": "Why \"freezing\" and \"carefree\" trigger it",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say a keyword matches anywhere in the text, so \"free\" matches \"freezing\". None of them says whether an exact-word or whole-word option exists, so a person should confirm.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:31:21.505Z"
+}

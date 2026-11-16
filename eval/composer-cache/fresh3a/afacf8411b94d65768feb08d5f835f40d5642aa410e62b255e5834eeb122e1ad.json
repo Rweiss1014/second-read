@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8068,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Set a topic tag on a Threads post through Blotato",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The Threads page lists fields such as replyControl and additionalPosts but never says whether a topic tag is or isn't supported, so no sentence answers this.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:07:40.772Z"
+}

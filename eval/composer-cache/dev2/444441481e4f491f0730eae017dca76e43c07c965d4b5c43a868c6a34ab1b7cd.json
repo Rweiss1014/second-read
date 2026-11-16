@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6842,
+ "verdict": {
+  "queries": [
+   "Pinterest boards endpoint pagination cursor nextCursor",
+   "GET /v2/social/pinterest/boards accountId limit cursor",
+   "list boards API response nextCursor hasMore pagination",
+   "Pinterest boards not showing all boards API 250 limit",
+   "REST API cursor-based pagination query parameter next page"
+  ]
+ },
+ "at": "2026-11-16T07:46:40.595Z"
+}

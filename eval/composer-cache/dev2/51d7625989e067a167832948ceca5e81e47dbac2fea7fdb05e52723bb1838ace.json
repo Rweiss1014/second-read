@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5203,
+ "verdict": {
+  "asked": [
+   {
+    "item": "export Analytics dashboard as CSV",
+    "steps": []
+   },
+   {
+    "item": "export Analytics dashboard as PDF",
+    "steps": []
+   },
+   {
+    "item": "only view analytics on screen",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages describe viewing the Analytics dashboard on screen and reading analytics through the API, but no sentence says whether the dashboard can be exported as CSV or PDF, so the customer's actual question is not answered.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:58:08.519Z"
+}

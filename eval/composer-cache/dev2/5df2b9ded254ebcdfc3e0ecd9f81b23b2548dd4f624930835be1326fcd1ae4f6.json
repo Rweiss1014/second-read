@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3668,
+ "verdict": {
+  "queries": [
+   "Blotato free generate skill Seedance image animation credits",
+   "Blotato Creator plan 5000 credits usage",
+   "Blotato AI video generation credits consumed Seedance image-to-video",
+   "Blotato free tools not deducted from credits"
+  ]
+ }
+}

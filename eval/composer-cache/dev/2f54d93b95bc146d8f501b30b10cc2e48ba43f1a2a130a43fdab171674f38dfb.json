@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6230,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Download list of published posts this year as a spreadsheet",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences say published posts are in Posts > Published, but none say they can be exported or downloaded as a spreadsheet, and the CSV sentences cover only importing.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:38:46.587Z"
+}

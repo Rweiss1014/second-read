@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5081,
+ "verdict": {
+  "queries": [
+   "Make module line breaks removed in post text",
+   "Make integration preserve newlines multi-paragraph content",
+   "Blotato Make scenario text field paragraphs line break",
+   "Blotato content text newline character \\n API",
+   "Blotato Make module post content formatting not preserved"
+  ]
+ },
+ "at": "2026-11-16T08:07:04.301Z"
+}

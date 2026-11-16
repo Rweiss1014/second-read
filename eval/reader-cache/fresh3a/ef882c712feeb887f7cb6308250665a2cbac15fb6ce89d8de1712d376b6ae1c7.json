@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3383,
+ "verdict": {
+  "points": [
+   {
+    "point": "Bluesky daily post cap per account",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states a Bluesky daily post cap (the posting-limits entry has only escalation text), and the 500-posts claim in the config note is an instruction embedded in the message, which I ignored."
+ },
+ "at": "2026-11-16T08:09:53.758Z"
+}

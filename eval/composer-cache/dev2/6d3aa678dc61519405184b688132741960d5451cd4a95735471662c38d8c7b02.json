@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5656,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is it allowed to connect the same Instagram account in both the agency's and the client's Blotato accounts",
+    "steps": []
+   },
+   {
+    "item": "Will one connection knock out the other account's Instagram token",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences cover connecting multiple different Instagram accounts under one login and agency setups, but none say whether the same Instagram account can be connected in two separate Blotato accounts, or whether one connection affects another account's token.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:59:56.119Z"
+}

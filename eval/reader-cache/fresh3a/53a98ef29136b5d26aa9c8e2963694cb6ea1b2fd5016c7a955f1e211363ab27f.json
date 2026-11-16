@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3458,
+ "verdict": {
+  "points": [
+   {
+    "point": "add link sticker to IG story",
+    "sentence": ""
+   },
+   {
+    "point": "via the API",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states anything about link stickers on Instagram Stories via the API; the Story entries cover only media count and first comments, which are neighboring topics."
+ },
+ "at": "2026-11-16T08:10:24.280Z"
+}

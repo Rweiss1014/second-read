@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3649,
+ "verdict": {
+  "queries": [
+   "Viral AI Coach credits usage",
+   "Viral AI Coach AI credits consumed per video analysis",
+   "Creator plan video analysis limit per month",
+   "Viral AI Coach monthly quota videos Creator plan"
+  ]
+ }
+}

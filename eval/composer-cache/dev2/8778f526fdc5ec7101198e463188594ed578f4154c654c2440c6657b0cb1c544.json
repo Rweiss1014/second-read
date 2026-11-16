@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4721,
+ "verdict": {
+  "asked": [
+   {
+    "item": "keyboard shortcuts for the calendar",
+    "steps": []
+   },
+   {
+    "item": "keyboard shortcuts for the post editor",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages contain no keyboard shortcut list for the calendar or the post editor; the only shortcut mentioned (the \"a\" key) is for the video editor's Align to Captions button, which is a different screen.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:58:10.746Z"
+}

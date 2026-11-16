@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6160,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Post 'Fall menu drops Friday!' to Instagram right now",
+    "steps": []
+   },
+   {
+    "item": "Why Reels show on main grid",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer asks staff to post to their Instagram now, which is a request for the team to act, so a person should read the whole message.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:54:50.110Z"
+}

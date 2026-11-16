@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3919,
+ "verdict": {
+  "queries": [
+   "Tolt affiliate program commission on credit purchases",
+   "POST /v2/credits referral field",
+   "Blotato API credits quantity referral parameter",
+   "Blotato affiliate program commission eligibility referral code",
+   "Tolt referral code applied at checkout credits"
+  ]
+ },
+ "at": "2026-11-16T07:48:54.224Z"
+}

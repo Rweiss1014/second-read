@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4564,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can Blotato post an Instagram Note (the bubble one)",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence mentions Instagram Notes; the Substack Notes workaround and Instagram posts/Stories sentences answer neighboring questions.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:09:53.225Z"
+}

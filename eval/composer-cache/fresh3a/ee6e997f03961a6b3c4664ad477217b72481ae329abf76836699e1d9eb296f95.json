@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3350,
+ "verdict": {
+  "queries": [
+   "Instagram carousel collaborators not allowed for carousel child",
+   "Instagram collaborators parameter carousel post Blotato API",
+   "Blotato Instagram carousel child collaborators errorMessage",
+   "Instagram collaborators single image post vs carousel differences",
+   "Blotato Instagram collaborators field API reference"
+  ]
+ },
+ "at": "2026-11-16T08:08:07.190Z"
+}

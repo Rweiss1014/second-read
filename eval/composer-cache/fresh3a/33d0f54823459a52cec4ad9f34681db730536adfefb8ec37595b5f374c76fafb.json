@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3458,
+ "verdict": {
+  "asked": [
+   {
+    "item": "split-test two messages A/B across contacts",
+    "steps": []
+   },
+   {
+    "item": "show which version got more clicks",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence says whether a DM automation can split-test two messages or report clicks per version; the sentences say an automation sends one message by default.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:08:59.133Z"
+}

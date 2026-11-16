@@ -1,0 +1,28 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5603,
+ "verdict": {
+  "asked": [
+   {
+    "item": "can I add my TikTok Shop link to videos posted with Blotato",
+    "steps": [
+     1
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S3 directly states that TikTok Shop product links cannot be added to posts published through Blotato.",
+  "steps": [
+   {
+    "text": "No, you cannot add TikTok Shop product links to posts published through Blotato.",
+    "quotes": [
+     "S3"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:26:54.347Z"
+}

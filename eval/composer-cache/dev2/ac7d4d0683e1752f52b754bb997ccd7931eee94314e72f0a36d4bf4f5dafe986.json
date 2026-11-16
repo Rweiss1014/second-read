@@ -1,0 +1,42 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9231,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Facebook Page missing from the Duplicate account list",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Whether a step is missing, and how to get the same automation on the Facebook Page",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The duplicate rule limits copies to the same platform, and the create steps cover starting a new flow for a Facebook Page.",
+  "steps": [
+   {
+    "text": "You aren't missing a step. You may only duplicate to accounts on the same platform.",
+    "quotes": [
+     "S37"
+    ]
+   },
+   {
+    "text": "To run one on your Facebook Page, click New automation and pick the connected Facebook Page.",
+    "quotes": [
+     "S3",
+     "S4"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:32:01.353Z"
+}

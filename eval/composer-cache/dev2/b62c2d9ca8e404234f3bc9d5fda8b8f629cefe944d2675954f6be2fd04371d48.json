@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7771,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is the video dead after 3 hours on exporting",
+    "steps": []
+   },
+   {
+    "item": "No error field in the response",
+    "steps": []
+   },
+   {
+    "item": "Whether to create another video and use more credits",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say AI video renders take up to 10-15 minutes and give no answer for a render still on exporting after 3 hours with no error, so the team needs to check this video.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:48:32.073Z"
+}

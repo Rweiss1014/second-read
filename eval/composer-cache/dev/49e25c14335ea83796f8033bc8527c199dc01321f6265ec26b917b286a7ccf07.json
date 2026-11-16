@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4667,
+ "verdict": {
+  "queries": [
+   "AI caption generator from uploaded image",
+   "generate post text with AI for image",
+   "AI-generated caption for media attachment",
+   "image description AI post content generation"
+  ]
+ }
+}

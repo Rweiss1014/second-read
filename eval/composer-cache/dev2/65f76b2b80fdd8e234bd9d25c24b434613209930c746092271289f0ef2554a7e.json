@@ -1,0 +1,43 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 11693,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why every TikTok video gets very few views",
+    "steps": [
+     1,
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The TikTok FAQ explains what consistently very low views mean and what it recommends.",
+  "steps": [
+   {
+    "text": "If your views are consistently under 50, the page says something is wrong with your account.",
+    "quotes": [
+     "S5",
+     "S6"
+    ]
+   },
+   {
+    "text": "If you have 10 videos in a row that all have under 50 views, your account is likely shadowbanned.",
+    "quotes": [
+     "S7"
+    ]
+   },
+   {
+    "text": "The page recommends starting fresh with a new account.",
+    "quotes": [
+     "S8"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:48:22.470Z"
+}

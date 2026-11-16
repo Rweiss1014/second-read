@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5320,
+ "verdict": {
+  "asked": [
+   {
+    "item": "walkthrough for connecting \"it\" (platform not named)",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer does not name the platform, and the sentences give only a one-line LinkedIn pointer (S2) and a reference to authorization steps on another page (S3) without stating those steps, so no walkthrough can be written from them.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:14:05.589Z"
+}

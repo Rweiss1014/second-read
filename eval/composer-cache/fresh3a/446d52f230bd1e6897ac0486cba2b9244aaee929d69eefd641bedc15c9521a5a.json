@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3829,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Team pulls 4-month-old Instagram DM history from servers",
+    "steps": []
+   },
+   {
+    "item": "Legal/dispute use of the records",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer asks staff to pull and provide DM history for a legal dispute, which is a staff action on account data, and the help pages don't say the team can do this, so the team should handle it.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:10:11.322Z"
+}

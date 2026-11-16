@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 5030,
+ "verdict": {
+  "queries": [
+   "api.blotato.com DNS resolution error",
+   "Blotato API outage status page incident",
+   "ENOTFOUND api.blotato.com getaddrinfo error troubleshooting",
+   "Blotato API connection timeout unreachable host"
+  ]
+ }
+}

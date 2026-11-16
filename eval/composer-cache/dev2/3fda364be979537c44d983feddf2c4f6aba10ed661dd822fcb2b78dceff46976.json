@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 5414,
+ "verdict": {
+  "queries": [
+   "Blotato MCP server Claude scheduled automatic posting",
+   "Recurring posts schedule daily time slots Blotato",
+   "Blotato queue auto-publish posts at set time",
+   "Claude Desktop Blotato connector always-on scheduled tasks",
+   "Blotato MCP tools create post scheduledTime"
+  ]
+ }
+}

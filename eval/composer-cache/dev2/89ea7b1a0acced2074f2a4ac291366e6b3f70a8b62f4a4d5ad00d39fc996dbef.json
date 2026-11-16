@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3282,
+ "verdict": {
+  "queries": [
+   "Blotato MCP server open source GitHub repository",
+   "Blotato MCP server source code link",
+   "Blotato MCP server setup install configuration",
+   "Blotato REST API MCP server documentation"
+  ]
+ },
+ "at": "2026-11-16T07:48:51.419Z"
+}

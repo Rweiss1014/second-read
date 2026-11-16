@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9819,
+ "verdict": {
+  "asked": [
+   {
+    "item": "why TikTok videos get about 30 views every time",
+    "steps": []
+   },
+   {
+    "item": "every video is low, so it may be the whole account",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The closest help text says a shadowban is likely only after 10 videos in a row all under 50 views, and the customer does not say how many videos they have posted, so I cannot tell whether that condition applies to them.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:00:25.256Z"
+}

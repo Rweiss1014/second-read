@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3386,
+ "verdict": {
+  "queries": [
+   "TikTok slideshow photo post image dimensions requirements",
+   "TikTok photo mode image size aspect ratio pixels",
+   "error The request post info is empty or incorrect TikTok",
+   "Blotato TikTok slideshow images upload failed",
+   "TikTok carousel image resolution maximum file size PNG"
+  ]
+ },
+ "at": "2026-11-16T07:45:43.989Z"
+}

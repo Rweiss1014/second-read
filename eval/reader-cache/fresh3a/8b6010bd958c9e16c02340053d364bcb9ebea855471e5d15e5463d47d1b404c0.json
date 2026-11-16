@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3558,
+ "verdict": {
+  "points": [
+   {
+    "point": "Starter plan limit of 200 queued posts",
+    "sentence": "The limit is 200 queued scheduled posts on Starter, 1,000 on Creator, and 3,000 on Agency."
+   },
+   {
+    "point": "Does Publish now count against the limit",
+    "sentence": "Posts you publish immediately do not count against this limit."
+   }
+  ],
+  "pick": "scheduled-queue-limit",
+  "reason": "The entry states the Starter limit is 200 and that immediately published posts do not count against it."
+ },
+ "at": "2026-11-16T08:10:14.937Z"
+}

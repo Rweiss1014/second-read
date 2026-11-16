@@ -1,0 +1,41 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7762,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Credits used by scheduling posts",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Credits used by posting your own photos",
+    "steps": [
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages say scheduling and publishing use no credits, and uploading your own image uses none.",
+  "steps": [
+   {
+    "text": "Credits are not used for scheduling posts or publishing posts.",
+    "quotes": [
+     "Credits are NOT used for scheduling posts, publishing posts, or AI voiceovers."
+    ]
+   },
+   {
+    "text": "Uploading your own image does not use credits, and AI credits are used only when you generate AI images and AI videos.",
+    "quotes": [
+     "Uploading your own image and drafting text do not.",
+     "In Blotato, AI credits are consumed when you generate AI images and AI videos."
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:38:41.585Z"
+}

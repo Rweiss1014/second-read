@@ -1,0 +1,17 @@
+{
+ "kind": "second",
+ "version": "second-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8771,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "caveat",
+    "about": "Step 2 gives the REST-only instruction to set content.text to \"\", but the customer is using the n8n node and the reply never says whether that applies to n8n or what to do with their caption text there."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T07:56:37.114Z"
+}

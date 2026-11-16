@@ -1,0 +1,17 @@
+{
+ "kind": "second",
+ "version": "second-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7597,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "not-answered",
+    "about": "The customer said their First Comment is about 3,000 characters, but the reply never says whether that fits: the section's Instagram limit of 2,200 characters means it would be too long there, and it fits the Facebook limit of 8,000."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T08:25:54.829Z"
+}

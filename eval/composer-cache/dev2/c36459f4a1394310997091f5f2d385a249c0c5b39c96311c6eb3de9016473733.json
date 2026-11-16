@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7260,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Spanish AI voice with English on-screen captions in the same video",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say the voiceover language follows the script language and explain how to hide captions, but they don't say whether captions can be in English while the voice is Spanish in one video.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:31:24.351Z"
+}

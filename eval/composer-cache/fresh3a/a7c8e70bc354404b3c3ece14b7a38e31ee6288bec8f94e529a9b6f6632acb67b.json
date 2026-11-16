@@ -1,0 +1,45 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8181,
+ "verdict": {
+  "asked": [
+   {
+    "item": "command not found: claude on Mac Terminal",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Is Blotato account not set up?",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S13 says command not found: claude means Claude Code is not installed yet, which answers the error and shows it is not about the Blotato account.",
+  "steps": [
+   {
+    "text": "If you see command not found: claude, Claude Code is not installed yet, so repeat the install step.",
+    "quotes": [
+     "S13"
+    ]
+   },
+   {
+    "text": "Claude Code is a terminal app from Anthropic and does not come pre-installed, so install it from the official Claude Code page before connecting Blotato.",
+    "quotes": [
+     "S6",
+     "S7",
+     "S8",
+     "S9"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:07:10.613Z"
+}

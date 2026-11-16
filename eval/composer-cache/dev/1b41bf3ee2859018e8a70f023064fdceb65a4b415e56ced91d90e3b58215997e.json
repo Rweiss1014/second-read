@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3526,
+ "verdict": {
+  "queries": [
+   "TikTok target isYourBrand isBrandedContent required property",
+   "POST /v2/posts 422 body.post.target TikTok",
+   "TikTok target privacyLevel SELF_ONLY API field",
+   "TikTok commercial content disclosure isYourBrand isBrandedContent API"
+  ]
+ }
+}

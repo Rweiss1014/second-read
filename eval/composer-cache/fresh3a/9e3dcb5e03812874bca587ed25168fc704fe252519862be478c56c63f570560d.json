@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4037,
+ "verdict": {
+  "queries": [
+   "Slack reconnect channels unselected",
+   "Slack account connection select channels to post to",
+   "Slack channel not selected posts not published",
+   "Reconnecting Slack account Blotato channel selection reset",
+   "Enable Slack channels for scheduled posts"
+  ]
+ },
+ "at": "2026-11-16T08:07:16.995Z"
+}

@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 10177,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Could family and skin-tone emojis be why the 960-character DM is too long",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages give two different limits (1000 characters for Instagram messages, and 640 for DM automation messages and messages with buttons), and the customer does not say whether this is a DM automation, has buttons, or what the exact error text is, so I cannot tell which limit applies.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:26:58.703Z"
+}

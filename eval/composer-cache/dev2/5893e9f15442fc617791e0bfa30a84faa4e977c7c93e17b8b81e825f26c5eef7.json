@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6271,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Create a new YouTube playlist from inside Blotato",
+    "steps": []
+   },
+   {
+    "item": "Whether the playlist must be made on YouTube first",
+    "steps": []
+   },
+   {
+    "item": "Only old playlists show in the dropdown",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages only describe adding a video to an existing playlist. They don't say whether Blotato can create a new playlist, so a person should answer.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:32:07.683Z"
+}

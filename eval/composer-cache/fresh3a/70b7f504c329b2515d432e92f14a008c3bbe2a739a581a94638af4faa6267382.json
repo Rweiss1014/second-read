@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4690,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can AI images generated in Blotato be used on paid ads",
+    "steps": []
+   },
+   {
+    "item": "Can AI images generated in Blotato be used on product packaging",
+    "steps": []
+   },
+   {
+    "item": "Who owns the rights to the generated AI images",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the sentences state whether generated images can be used in paid ads or on packaging, or who owns the rights; the closest sentences (S39-S44) cover model training and data handling, which is a neighboring question.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:26:04.562Z"
+}

@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4058,
+ "verdict": {
+  "queries": [
+   "API rate limits requests per minute",
+   "media upload rate limit 30 requests per minute",
+   "429 Too Many Requests rate limit exceeded Blotato API",
+   "rate limit changes and plan limits"
+  ]
+ },
+ "at": "2026-11-16T07:48:14.505Z"
+}

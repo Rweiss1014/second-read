@@ -1,0 +1,63 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 14996,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why a Greek reply under 8000 characters fails",
+    "steps": [
+     1,
+     2,
+     3
+    ]
+   },
+   {
+    "item": "Facebook public reply limit",
+    "steps": [
+     1,
+     3
+    ]
+   },
+   {
+    "item": "\"text too long\" error",
+    "steps": [
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages state that Facebook counts comment and public reply length in bytes, and that Greek text fails above about 4000 characters, which explains why a Greek reply under 8000 characters can still fail.",
+  "steps": [
+   {
+    "text": "Facebook limits a comment or public reply to 8000 bytes, not characters.",
+    "quotes": [
+     "S15"
+    ]
+   },
+   {
+    "text": "Greek text fails above about 4000 characters.",
+    "quotes": [
+     "S16"
+    ]
+   },
+   {
+    "text": "Because the limit counts bytes, Greek text can fail well before reaching 8000 characters.",
+    "quotes": [
+     "S15",
+     "S16",
+     "S29"
+    ]
+   },
+   {
+    "text": "Blotato's documentation says Facebook rejects a reply over 8000 bytes with a generic error.",
+    "quotes": [
+     "S85"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:27:01.874Z"
+}

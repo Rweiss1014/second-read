@@ -1,0 +1,44 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5781,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Where did Overview go (menu only shows Post editor)",
+    "steps": [
+     1,
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages say Overview is in Developer Platform mode and Post editor is in Content Studio, and how to switch modes.",
+  "steps": [
+   {
+    "text": "Blotato has 2 navigation modes in the same account.",
+    "quotes": [
+     "S57"
+    ]
+   },
+   {
+    "text": "Developer Platform includes Overview for monitoring, while Content Studio includes Post editor.",
+    "quotes": [
+     "S3",
+     "S4"
+    ]
+   },
+   {
+    "text": "To see Overview, use the mode switch beneath the Blotato name and switch to Developer Platform.",
+    "quotes": [
+     "S7",
+     "S14"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:31:47.992Z"
+}

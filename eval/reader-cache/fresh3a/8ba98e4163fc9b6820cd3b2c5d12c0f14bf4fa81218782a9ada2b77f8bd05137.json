@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5794,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can Blotato be white-labeled under our agency's brand?",
+    "sentence": "No. Blotato does not offer whitelabeling, and there are no plans to add whitelabeling."
+   },
+   {
+    "point": "Can we resell it to clients as our own product?",
+    "sentence": "Your customers would never see the Blotato name. This is NOT supported."
+   }
+  ],
+  "pick": "whitelabel",
+  "reason": "The whitelabel entry says rebranding Blotato as your own product, so clients never see the Blotato name, is not supported. That answers both the white-label and the resell-under-our-brand questions."
+ },
+ "at": "2026-11-16T08:09:59.661Z"
+}

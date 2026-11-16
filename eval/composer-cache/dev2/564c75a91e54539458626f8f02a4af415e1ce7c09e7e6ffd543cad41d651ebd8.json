@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6887,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Whether Blotato adds tags (platform not stated)",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer doesn't say which platform or kind of tags they mean. The help pages say YouTube tags aren't supported, but they also cover Instagram collaborator tagging, so any answer would be a guess.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:32:29.886Z"
+}

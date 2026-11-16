@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6407,
+ "verdict": {
+  "points": [
+   {
+    "point": "How to get from 100 to 130 connected accounts on Agency",
+    "sentence": ""
+   },
+   {
+    "point": "Agency plan limit versus 130 accounts",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The connected-account-limit entry says Agency allows 100 accounts and suggests disconnecting or upgrading, but no entry states how to exceed 100 on Agency, so none answers how to reach 130."
+ },
+ "at": "2026-11-16T08:09:05.574Z"
+}

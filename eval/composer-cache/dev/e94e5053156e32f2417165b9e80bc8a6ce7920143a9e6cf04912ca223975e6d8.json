@@ -1,0 +1,25 @@
+{
+ "kind": "second",
+ "version": "second-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8499,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "not-answered",
+    "about": "The customer asked whether losing 48 of 60 credits is a glitch. The reply never says whether that amount is expected. The section gives no per-generation cost, only a pointer to a separate AI Video Credits page, so the reply can't show that a few clicks account for the drop."
+   },
+   {
+    "kind": "caveat",
+    "about": "The section says some Generate actions don't use credits, such as AI captions and voiceover. The customer didn't say what they generated. The reply doesn't separate those actions from image and video generation, so it can't tell whether the charge matches what they did."
+   },
+   {
+    "kind": "not-our-call",
+    "about": "The customer suspects an unexpected credit deduction, which could be a bug or a balance error. A team member should check the account's usage rather than have a generic FAQ reply imply it's working as intended."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T07:50:34.832Z"
+}

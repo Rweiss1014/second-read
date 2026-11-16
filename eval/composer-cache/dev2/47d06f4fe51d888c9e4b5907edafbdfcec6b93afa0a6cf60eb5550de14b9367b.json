@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 5008,
+ "verdict": {
+  "queries": [
+   "Blotato carousel Videos templates brand kit",
+   "Blotato brand settings apply to carousel template",
+   "Blotato Brand Kit logo colors fonts template",
+   "Blotato carousel generation use brand details",
+   "Blotato Videos template carousel branding"
+  ]
+ }
+}

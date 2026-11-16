@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4655,
+ "verdict": {
+  "queries": [
+   "\"Your subscription has been canceled\" message",
+   "subscription status active but access blocked Blotato",
+   "Billing page plan status ACTIVE subscription canceled error",
+   "reactivate canceled subscription workspace access"
+  ]
+ }
+}

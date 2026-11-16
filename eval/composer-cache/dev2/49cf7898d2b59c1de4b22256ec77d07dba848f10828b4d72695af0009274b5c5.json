@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8127,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Do referred sign-ups get a first-month discount?",
+    "steps": []
+   },
+   {
+    "item": "Do referred sign-ups get extra credits?",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages describe the referrer's 50% commission and how discount codes work at checkout. They never say whether someone who signs up through a referral link gets a discount or credits.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:28:58.437Z"
+}

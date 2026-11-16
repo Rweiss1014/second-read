@@ -1,0 +1,43 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6427,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can I schedule a campaign about 11 months away",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Scheduling limit on how far ahead",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages state a 9-month scheduling horizon on every plan, so a post 11 months out is past it, and they give a workaround.",
+  "steps": [
+   {
+    "text": "You can't schedule that far ahead, because the furthest date in the future you can schedule a post for is 9 months on every plan.",
+    "quotes": [
+     "S47"
+    ]
+   },
+   {
+    "text": "If you try to schedule a post past 9 months, Blotato returns an error, so pick a time within the 9-month window or break longer campaigns into shorter batches.",
+    "quotes": [
+     "S48",
+     "S49"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:50:52.660Z"
+}

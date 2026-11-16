@@ -1,0 +1,54 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7972,
+ "verdict": {
+  "asked": [
+   {
+    "item": "How to post as a YouTube Short instead of a normal video",
+    "steps": [
+     1,
+     2,
+     3
+    ]
+   },
+   {
+    "item": "No Shorts button found",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Video is 45 seconds and vertical",
+    "steps": [
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages say YouTube automatically identifies Shorts by length (under 3 minutes) and 9:16 aspect ratio, so no Shorts button is needed.",
+  "steps": [
+   {
+    "text": "There is no Shorts button to select, because Youtube automatically identifies Shorts.",
+    "quotes": [
+     "S2"
+    ]
+   },
+   {
+    "text": "If your video is less than 3 minutes long and vertical (9:16 aspect ratio), it will automatically be posted as a Youtube Short.",
+    "quotes": [
+     "S2"
+    ]
+   },
+   {
+    "text": "To post it, open Content Studio > Post editor and select New draft, then select your YouTube account when scheduling.",
+    "quotes": [
+     "S6"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:12:26.428Z"
+}

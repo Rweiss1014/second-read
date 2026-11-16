@@ -1,0 +1,17 @@
+{
+ "kind": "second",
+ "version": "second-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6899,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "says-more",
+    "about": "Step 2 says to click the three dots and choose \"Switch account\" as if every customer sees it. The help page says only \"some versions\" show Switch account in a three-dots menu. This is minor, because step 3 gives the private-window fallback."
+   }
+  ],
+  "verdict": "send"
+ },
+ "at": "2026-11-16T07:51:38.874Z"
+}

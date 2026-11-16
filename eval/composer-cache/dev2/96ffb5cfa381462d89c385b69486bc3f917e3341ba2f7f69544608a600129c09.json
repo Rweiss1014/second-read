@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5021,
+ "verdict": {
+  "asked": [
+   {
+    "item": "how to add alt text to each Bluesky image",
+    "steps": []
+   },
+   {
+    "item": "altText field for Bluesky (customer's comparison to Instagram and Pinterest)",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences list altText only for Instagram (S26) and Pinterest (S38, S45), and the Bluesky target fields (S18) and Bluesky fields (S79-S84) name no alt text field, so no sentence says how to add alt text to Bluesky images.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:00:32.896Z"
+}

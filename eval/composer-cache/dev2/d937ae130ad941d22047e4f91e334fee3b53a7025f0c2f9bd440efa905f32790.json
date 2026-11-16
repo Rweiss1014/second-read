@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3838,
+ "verdict": {
+  "queries": [
+   "Trial reel graduationStrategy SS_PERFORMANCE Instagram",
+   "graduationStrategy SS_PERFORMANCE trial reels hours",
+   "Instagram trial reels share to followers after hours performance",
+   "Blotato trial reels graduation strategy performance hours"
+  ]
+ },
+ "at": "2026-11-16T07:46:31.790Z"
+}

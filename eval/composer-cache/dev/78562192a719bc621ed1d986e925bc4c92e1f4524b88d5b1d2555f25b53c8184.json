@@ -1,0 +1,54 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8039,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is the credit drop from pressing Generate a glitch",
+    "steps": [
+     1,
+     2,
+     3
+    ]
+   },
+   {
+    "item": "Where to check the credit balance",
+    "steps": [
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The FAQ says each Generate click on the free trial spends credits, even when testing, which explains the drop.",
+  "steps": [
+   {
+    "text": "Credits are only used for AI-generated images and videos.",
+    "quotes": [
+     "S104"
+    ]
+   },
+   {
+    "text": "Each time you click \"Generate\" on an image or video, credits are spent, even if you're testing.",
+    "quotes": [
+     "S116"
+    ]
+   },
+   {
+    "text": "On the free trial you receive a limited number of AI credits.",
+    "quotes": [
+     "S115"
+    ]
+   },
+   {
+    "text": "To check your balance, go to Settings > Billing.",
+    "quotes": [
+     "S117"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:50:26.267Z"
+}

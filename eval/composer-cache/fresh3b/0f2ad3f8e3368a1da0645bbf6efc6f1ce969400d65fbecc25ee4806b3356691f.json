@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4323,
+ "verdict": {
+  "asked": [
+   {
+    "item": "maximum length of background video (customer's video is 3 min)",
+    "steps": []
+   },
+   {
+    "item": "maximum file size (customer's file is 200mb)",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences say only that backgroundMedia is an image or video URL and give no maximum video length or file size for the Tweet Card with Photo/Video Background template, so neither question can be answered from them.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:28:09.289Z"
+}

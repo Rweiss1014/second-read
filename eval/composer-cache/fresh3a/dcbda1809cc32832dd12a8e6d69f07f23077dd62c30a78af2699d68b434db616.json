@@ -1,0 +1,28 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4703,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Auto-reply to WhatsApp messages",
+    "steps": [
+     1
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S42 states WhatsApp is not supported for DM Automations, which is the Instagram auto-reply feature.",
+  "steps": [
+   {
+    "text": "No, Blotato does not support SMS, WhatsApp, or other messaging channels for DM Automations.",
+    "quotes": [
+     "S42"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:07:32.197Z"
+}

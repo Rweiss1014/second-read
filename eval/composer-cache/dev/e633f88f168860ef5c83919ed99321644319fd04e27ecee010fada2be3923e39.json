@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5160,
+ "verdict": {
+  "queries": [
+   "YouTube description character limit API",
+   "YouTube target description maximum length 5000 characters",
+   "YouTube title 100 characters limit API",
+   "Blotato API YouTube target fields title description"
+  ]
+ },
+ "at": "2026-11-16T07:49:43.458Z"
+}

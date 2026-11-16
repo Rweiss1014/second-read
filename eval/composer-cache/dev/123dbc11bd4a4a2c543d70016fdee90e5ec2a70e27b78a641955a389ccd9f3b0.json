@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8481,
+ "verdict": {
+  "asked": [
+   {
+    "item": "YOUR_API_KEY example doesn't work",
+    "steps": []
+   },
+   {
+    "item": "Request for a working demo key",
+    "steps": []
+   },
+   {
+    "item": "Try the API before paying",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say the free trial excludes API access and that generating an API key starts a paid subscription. None of them says whether a demo key exists or what YOUR_API_KEY means, and the customer is asking staff to supply a key.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:39:00.516Z"
+}

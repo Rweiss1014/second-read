@@ -1,0 +1,21 @@
+{
+ "kind": "second",
+ "version": "second-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8233,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "not-answered",
+    "about": "The customer asked a yes/no question about their 5,000 Blotato Creator credits. The reply only says provider and Blotato credits are separate and never says whether Seedance animation uses Blotato credits."
+   },
+   {
+    "kind": "caveat",
+    "about": "The customer calls the skill 'free'. The section describes animation as paid: it quotes estimated credits before spending and runs through kie.ai, with a balance check on kie.ai credits. The reply never says the animation is charged in kie.ai provider credits, so the 'free' premise goes uncorrected."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T07:59:45.860Z"
+}

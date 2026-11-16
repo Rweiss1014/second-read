@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6279,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Add own .srt subtitle file when posting video to YouTube",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences cover YouTube uploads and caption extraction for Sources, but none say whether a custom .srt subtitle file can be added when publishing to YouTube.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:11:57.521Z"
+}

@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3204,
+ "verdict": {
+  "points": [
+   {
+    "point": "How many brand voices allowed on Creator plan",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states a limit on the number of brand voices or Brand Kits; the brand-kit entry covers setup only and the limit entries cover connected accounts, posts and credits."
+ },
+ "at": "2026-11-16T08:11:11.109Z"
+}

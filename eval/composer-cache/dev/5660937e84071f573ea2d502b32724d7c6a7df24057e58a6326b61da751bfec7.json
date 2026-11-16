@@ -1,0 +1,21 @@
+{
+ "kind": "second",
+ "version": "second-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8862,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "not-our-call",
+    "about": "The customer asks staff to hand out a working demo key. The help pages don't say whether any such key exists, and the reply never says outright that none is available, so a team member should answer that request."
+   },
+   {
+    "kind": "not-answered",
+    "about": "The reply never directly answers 'can you give me a demo key to try the API before paying'. It only implies a no, because the pages describe no demo or sandbox key and the reply doesn't say so."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T07:51:29.629Z"
+}

@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4693,
+ "verdict": {
+  "asked": [
+   {
+    "item": "max number of trigger keywords per automation",
+    "steps": []
+   },
+   {
+    "item": "adding about 150 product names",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages describe how keywords are added and matched but never state a maximum number of keywords per automation, so the limit can't be answered.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:08:23.112Z"
+}

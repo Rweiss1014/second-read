@@ -1,0 +1,56 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 10467,
+ "verdict": {
+  "asked": [
+   {
+    "item": "No post after pasting Text context",
+    "steps": [
+     1,
+     3,
+     4
+    ]
+   },
+   {
+    "item": "Is it still loading?",
+    "steps": [
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The FAQ says Text context does not generate a post on its own, and it says how to check the source and create a draft.",
+  "steps": [
+   {
+    "text": "Adding Text context does not generate a post automatically.",
+    "quotes": [
+     "S25"
+    ]
+   },
+   {
+    "text": "Confirm the source finished loading and its checkbox is selected in Context.",
+    "quotes": [
+     "S26"
+    ]
+   },
+   {
+    "text": "Enter \"Create 1 LinkedIn post from my selected context. Keep it as a draft.\" in the AI Agent prompt box, replacing LinkedIn with your destination.",
+    "quotes": [
+     "S27",
+     "S28"
+    ]
+   },
+   {
+    "text": "Press Enter, then review the draft card before publishing.",
+    "quotes": [
+     "S29",
+     "S30"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:50:37.975Z"
+}

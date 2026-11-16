@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5201,
+ "verdict": {
+  "asked": [
+   {
+    "item": "field to attach an .srt caption file when publishing to YouTube",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence says whether Blotato supports attaching an .srt or any caption/subtitle file when publishing to YouTube; the listed YouTube fields (title, privacyStatus, shouldNotifySubscribers, isMadeForKids, containsSyntheticMedia, playlistIds, thumbnailUrl) and the description and tags notes do not cover captions, so this needs the team to confirm.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:25:28.450Z"
+}

@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4693,
+ "verdict": {
+  "asked": [
+   {
+    "item": "ask the person for a phone number instead of an email",
+    "steps": []
+   },
+   {
+    "item": "send the phone number to my webhook",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages describe only email gates and say the webhook sends an email address and isFollower, with no sentence saying a phone number can be collected or sent to a webhook, and the closest sentences cover the email question instead.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:58:30.467Z"
+}

@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4376,
+ "verdict": {
+  "queries": [
+   "Blotato Instagram story mediaType content text caption not displayed",
+   "Instagram story caption not supported text field ignored Blotato",
+   "Blotato Instagram target targetType story mediaType story",
+   "Instagram stories no caption text overlay publishing"
+  ]
+ }
+}

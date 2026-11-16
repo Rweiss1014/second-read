@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8120,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why an AI edit left two posts in the calendar",
+    "steps": []
+   },
+   {
+    "item": "What to do about the extra LinkedIn post",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages explain the likely cause of a duplicate after an AI edit, but they have no sentences on removing the extra scheduled post. The one sentence on duplicates also describes published posts, not scheduled ones.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:38:55.295Z"
+}

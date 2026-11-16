@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4273,
+ "verdict": {
+  "queries": [
+   "Log out of Blotato",
+   "Sign out of your Blotato account",
+   "Log out from all devices or sessions",
+   "Account settings logout button",
+   "Remove Blotato login from shared computer"
+  ]
+ }
+}

@@ -1,0 +1,21 @@
+{
+ "kind": "second",
+ "version": "second-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9363,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "wrong-fit",
+    "about": "The cited section is about the YouTube API and MCP publish operation. The customer asked in general whether they can do this with Blotato, and the reply doesn't say its \"No\" applies only to API/MCP publishing."
+   },
+   {
+    "kind": "says-more",
+    "about": "The reply opens with a flat \"No\" that reads as a general answer about Blotato. The section only says this publish operation doesn't create community image posts. It says nothing about other ways to post in the app."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T08:09:21.322Z"
+}

@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5094,
+ "verdict": {
+  "asked": [
+   {
+    "item": "field name to tag shop products on Instagram posts through Blotato",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The closest sentences (S1-S3) say Blotato cannot attach shop product links to TikTok posts, and none state a field or way to tag shop products on Instagram posts, so the question has no answer in the pages.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:26:33.318Z"
+}

@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6281,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is there a OneDrive direct link Blotato can use, like the Google Drive one",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages describe a direct-link format only for Google Drive and say generally to use a public direct file URL for cloud storage, but no sentence says how to get or format a OneDrive direct link.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:01:10.635Z"
+}

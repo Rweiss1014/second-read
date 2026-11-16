@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4400,
+ "verdict": {
+  "asked": [
+   {
+    "item": "List of the 10 biggest Blotato customers using DM automations in the fitness niche",
+    "steps": []
+   },
+   {
+    "item": "Their Instagram handles",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The request asks for other customers' identities and account handles, which is another person's data that the help pages do not contain and that no sentence answers.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:26:03.756Z"
+}

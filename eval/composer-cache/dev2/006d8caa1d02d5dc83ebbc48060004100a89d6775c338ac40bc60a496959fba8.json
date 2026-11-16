@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7398,
+ "verdict": {
+  "asked": [
+   {
+    "item": "When Slack will allow videos in posts",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say Slack posts do not support video, and one error message says 'not supported yet', but none of them says if or when video support will arrive.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:30:45.720Z"
+}

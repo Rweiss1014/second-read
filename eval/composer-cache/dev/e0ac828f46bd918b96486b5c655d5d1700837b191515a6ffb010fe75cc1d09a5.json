@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4049,
+ "verdict": {
+  "queries": [
+   "Facebook Page ID not found Blotato Wrong Page ID error",
+   "how to find Facebook Page ID for Blotato Facebook page account selection",
+   "Blotato Facebook account ID vs Page ID select page",
+   "Facebook Page ID location Facebook page About section Page transparency"
+  ]
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5584,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does a person who signs up through the referral link get a discount on their first month or extra credits?",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences describe only the referrer's commission and general promo codes or bonus credits, and none states whether a referred customer receives a discount or extra credits through the referral link.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:58:27.750Z"
+}

@@ -1,0 +1,47 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4200,
+ "verdict": {
+  "asked": [
+   {
+    "item": "What \"Incomplete\" means",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Why portal won't let them switch from Creator to Starter",
+    "steps": [
+     2
+    ]
+   },
+   {
+    "item": "What to do to switch",
+    "steps": [
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S2, S30 and S31 explain Incomplete and that support must cancel the incomplete subscription before switching from Creator to Starter.",
+  "steps": [
+   {
+    "text": "Incomplete means Stripe started your subscription but the payment itself never went through, so the subscription is stuck in an incomplete state.",
+    "quotes": [
+     "S2"
+    ]
+   },
+   {
+    "text": "A stale Incomplete subscription blocks plan changes, so if the billing portal won't let you switch from Creator to Starter, contact support to cancel the incomplete subscription first.",
+    "quotes": [
+     "S30",
+     "S31"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:38:00.903Z"
+}

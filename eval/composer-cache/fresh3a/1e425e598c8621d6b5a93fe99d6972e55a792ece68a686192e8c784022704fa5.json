@@ -1,0 +1,42 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5922,
+ "verdict": {
+  "asked": [
+   {
+    "item": "how to add a link sticker to an IG story through the API",
+    "steps": [
+     1,
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages directly state that the API cannot add link stickers and give the manual workaround of publishing through Blotato and then adding the sticker in the Instagram app.",
+  "steps": [
+   {
+    "text": "Instagram's API does not support adding link stickers to Stories published through third-party tools, so you cannot add one through the API.",
+    "quotes": [
+     "S15"
+    ]
+   },
+   {
+    "text": "Publish the Story through Blotato as normal.",
+    "quotes": [
+     "S18"
+    ]
+   },
+   {
+    "text": "Then open the Instagram app and add the link sticker manually to the published Story.",
+    "quotes": [
+     "S19"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:27:00.426Z"
+}

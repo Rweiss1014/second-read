@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5358,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Field to get 2160p (4K) template video output",
+    "steps": []
+   },
+   {
+    "item": "Upscale option after render",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences list the request body fields but never say whether a template video can be rendered at 2160p or upscaled after rendering, so a person should confirm.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:45:40.577Z"
+}

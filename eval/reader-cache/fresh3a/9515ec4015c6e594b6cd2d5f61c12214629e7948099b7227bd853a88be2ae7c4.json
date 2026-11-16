@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3074,
+ "verdict": {
+  "points": [
+   {
+    "point": "Post to a Slack Connect shared channel with partner workspace",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether Blotato can post into a Slack Connect channel shared with another workspace, and the closest entries cover neighboring topics such as single-workspace installs, archived channels, and permissions."
+ },
+ "at": "2026-11-16T08:07:42.445Z"
+}

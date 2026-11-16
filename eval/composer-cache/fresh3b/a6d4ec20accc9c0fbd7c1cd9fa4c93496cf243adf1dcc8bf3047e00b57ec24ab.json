@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7736,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does Next free slot time skip public holidays like Thanksgiving",
+    "steps": []
+   },
+   {
+    "item": "Will it still post into the Thursday slot on a holiday",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences describe weekly slots and skipping occupied slots, but none say whether public holidays are skipped or whether a slot on a holiday still posts.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:12:44.213Z"
+}

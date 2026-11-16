@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4316,
+ "verdict": {
+  "queries": [
+   "\"All selected platforms are already queued for publishing\" error message",
+   "duplicate post already queued for publishing Blotato",
+   "post stuck in queue publishing status Blotato",
+   "account suspended or blocked publishing restricted Blotato"
+  ]
+ }
+}

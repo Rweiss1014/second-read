@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4122,
+ "verdict": {
+  "queries": [
+   "Connect Facebook account Blotato social account selection",
+   "Facebook page selection required before scheduling Blotato",
+   "Blotato Facebook Page not selected cannot finish connecting account",
+   "Blotato add account Facebook group or page setup step"
+  ]
+ }
+}

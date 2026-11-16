@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4030,
+ "verdict": {
+  "points": [
+   {
+    "point": "maximum number of scenes in AI Video with AI Voice template",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states a scene limit for the AI Video with AI Voice template; the closest (visual-template-inputs-wrong) only says to check the template's specification for limits, and ai-twin only mentions the template without limits."
+ },
+ "at": "2026-11-16T08:10:10.086Z"
+}

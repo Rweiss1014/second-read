@@ -1,0 +1,21 @@
+{
+ "kind": "second",
+ "version": "second-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 11044,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "says-more",
+    "about": "The reply calls Seedance 'one of its included models,' which the help page never ties to any price, so a customer could read 'included' as free, while the section says the animation is paid and goes through kie.ai."
+   },
+   {
+    "kind": "caveat",
+    "about": "The customer calls the generate skill free, but the section says animation is a paid step that spends provider (kie.ai) credits the user must configure separately, and the reply never corrects that premise or says the kie.ai credits are what this run uses."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T08:02:07.999Z"
+}

@@ -1,0 +1,46 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 10352,
+ "verdict": {
+  "asked": [
+   {
+    "item": "credits for Gemini Omni Flash 1.1 image-to-video at 1080p",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "10-second clip length (applied per second)",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "check cost before generating to budget",
+    "steps": [
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The page gives the per-second credit rate for Gemini Omni Flash 1.1 image-to-video at 1080p, and the customer's 10-second length applies to that rate; the page also says to check the displayed estimate for the complete job before generating.",
+  "steps": [
+   {
+    "text": "Gemini Omni Flash 1.1 image-to-video costs 50 credits per second at 1080p.",
+    "quotes": [
+     "S31"
+    ]
+   },
+   {
+    "text": "Check the estimate for the complete job before generating, since it covers the whole video rather than a single scene.",
+    "quotes": [
+     "S125"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:58:04.048Z"
+}

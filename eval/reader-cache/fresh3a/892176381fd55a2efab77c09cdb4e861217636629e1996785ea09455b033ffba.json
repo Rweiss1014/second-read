@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6258,
+ "verdict": {
+  "points": [
+   {
+    "point": "First Comment on LinkedIn",
+    "sentence": ""
+   },
+   {
+    "point": "A date for LinkedIn support",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The first-comment entry only says the First Comment field is for Instagram and Facebook, and no entry gives a date for LinkedIn first comments. The only date statement is about Inbox platforms, which is a different feature."
+ },
+ "at": "2026-11-16T08:08:57.659Z"
+}

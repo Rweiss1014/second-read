@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4988,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Will I keep paying $29 if Blotato's price rises later",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence says whether existing subscribers keep their current price when prices change; the closest sentences only tell users to check current pricing.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:59:59.835Z"
+}

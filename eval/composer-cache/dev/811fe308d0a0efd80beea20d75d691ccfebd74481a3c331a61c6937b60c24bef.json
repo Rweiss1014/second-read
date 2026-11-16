@@ -1,0 +1,44 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4168,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Second Instagram keeps logging into first account",
+    "steps": [
+     1,
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages explain why the first account is reused and give the Switch account and private window fixes.",
+  "steps": [
+   {
+    "text": "Your browser remembers the active social login, so the authorization screen might reuse your first Instagram account.",
+    "quotes": [
+     "S31",
+     "S32"
+    ]
+   },
+   {
+    "text": "Go to Accounts, select Connect account > Instagram, then on the Instagram consent screen click the three dots (···) in the top right and choose \"Switch account\".",
+    "quotes": [
+     "S52",
+     "S55"
+    ]
+   },
+   {
+    "text": "If Instagram keeps selecting the first account, use a private window with the intended Instagram login and the intended Blotato login.",
+    "quotes": [
+     "S56"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:51:31.956Z"
+}

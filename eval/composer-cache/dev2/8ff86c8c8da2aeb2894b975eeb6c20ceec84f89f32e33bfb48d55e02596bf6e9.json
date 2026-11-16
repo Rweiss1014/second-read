@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5472,
+ "verdict": {
+  "asked": [
+   {
+    "item": "How long the assistant stays signed in (days or weeks)",
+    "steps": []
+   },
+   {
+    "item": "When the assistant will be logged out",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The only relevant sentence (S11) says the login keeps them signed in 'for awhile' and gives no duration or logout time, so the pages don't answer the question.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:47:59.635Z"
+}

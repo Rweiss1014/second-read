@@ -1,0 +1,62 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8927,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Reconnect button does nothing, no error",
+    "steps": [
+     1,
+     2,
+     4
+    ]
+   },
+   {
+    "item": "On Starter with 20 connected",
+    "steps": [
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help page says Reconnect stops responding with no error when the plan's connected-account limit is reached, and Starter's limit is 20.",
+  "steps": [
+   {
+    "text": "Reconnecting counts against the same connected-account limit as adding a new account.",
+    "quotes": [
+     "S47"
+    ]
+   },
+   {
+    "text": "If you are at your plan's limit, the Reconnect and Connect buttons stop responding and no error appears.",
+    "quotes": [
+     "S48"
+    ]
+   },
+   {
+    "text": "The Starter plan's limit is 20 connected social accounts.",
+    "quotes": [
+     "S28"
+    ]
+   },
+   {
+    "text": "Disconnect an account you no longer use in Accounts, then reconnect.",
+    "quotes": [
+     "S49"
+    ]
+   },
+   {
+    "text": "To increase your limit, go to Settings > Billing and click View Billing Portal.",
+    "quotes": [
+     "S32",
+     "S33"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:55:00.717Z"
+}

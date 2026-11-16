@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6917,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Reset timezone: midnight UTC or calendar timezone (Sydney)",
+    "steps": []
+   },
+   {
+    "item": "Exact reset timing for launching giveaway",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages only say the count resets at the start of each month and never say whether that is midnight UTC or the account's calendar timezone, so the customer's main question has no answer.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:29:17.566Z"
+}

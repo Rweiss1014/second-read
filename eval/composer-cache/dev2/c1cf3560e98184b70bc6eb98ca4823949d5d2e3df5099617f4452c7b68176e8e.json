@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6253,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Whose data is the run from account 77812",
+    "steps": []
+   },
+   {
+    "item": "Why runs arrive from an account they don't own",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer asks whose data came from an Instagram account they don't own, and they say they never used Duplicate. That is a question about another person's account and about this account's own records, and the help pages don't cover it, so the team needs to look.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:49:19.407Z"
+}

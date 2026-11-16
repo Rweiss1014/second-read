@@ -1,0 +1,55 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9222,
+ "verdict": {
+  "asked": [
+   {
+    "item": "400 error on voiceName",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Brian is in the voice list",
+    "steps": [
+     2,
+     3,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The Voice IDs page says the shortened name \"Brian\" is invalid for this template and gives the exact value to pass.",
+  "steps": [
+   {
+    "text": "The AI Video with AI Voice template uses inputs.voiceName.",
+    "quotes": [
+     "S3"
+    ]
+   },
+   {
+    "text": "The shortened name \"Brian\" is not a valid value for this template.",
+    "quotes": [
+     "S5"
+    ]
+   },
+   {
+    "text": "Pass the exact enum value, such as \"Brian (American, deep)\".",
+    "quotes": [
+     "S4"
+    ]
+   },
+   {
+    "text": "Retrieve the current template inputs before choosing a value.",
+    "quotes": [
+     "S8"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:11:35.391Z"
+}

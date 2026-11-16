@@ -332,6 +332,8 @@ Every route result has `why` (a stable code) and `whyDetail` (its details, or nu
 | `nonsense` | No words the desk knows, or no question. | null |
 | `reader-abstained` | Only with a reader on (`SUPPORT_DESK_READER`): the matcher would have answered, but the reader picked no entry, or its pick failed the script's check. | `{ pick, problem, refuter: null, matcher }` |
 | `reader-refuted` | Only with a reader on: the reader's pick passed every check, and the refuter named a real objection. | `{ pick, problem: null, refuter: [{ kind, about }], matcher }` |
+| `compose-unverified` | Only with a composer on (`SUPPORT_DESK_COMPOSER`): no saved entry answered, the writer drafted steps from the help pages, and the script's verification rejected the draft. | `{ problem, before: { why, whyDetail } }` |
+| `second-read-objected` | Only with a composer on: the draft passed every script check, and the second reader named a real objection. | `{ objections: [{ kind, about }], before: { why, whyDetail } }` |
 
 With a reader on, a message route() would have handed over anyway keeps route()'s own code; the reader's view is in the result's `reader` field.
 

@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3860,
+ "verdict": {
+  "queries": [
+   "Blotato security vulnerability disclosure policy",
+   "Blotato bug bounty program",
+   "Blotato report a security issue security contact",
+   "Blotato MCP server security vulnerability report",
+   "Blotato responsible disclosure"
+  ]
+ },
+ "at": "2026-11-16T07:46:01.090Z"
+}

@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4018,
+ "verdict": {
+  "queries": [
+   "YouTube analytics views differ from YouTube Studio",
+   "YouTube post analytics views not updated",
+   "reconnect YouTube account disconnected channel",
+   "YouTube analytics data refresh delay",
+   "YouTube Data API views statistics sync"
+  ]
+ }
+}

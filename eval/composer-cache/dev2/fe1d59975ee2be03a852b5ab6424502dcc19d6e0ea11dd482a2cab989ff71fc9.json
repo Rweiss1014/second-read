@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7468,
+ "verdict": {
+  "asked": [
+   {
+    "item": "DM automation doesn't fire when a friend's account comments the keyword",
+    "steps": []
+   },
+   {
+    "item": "No run or logs appear in automation runs and logs",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer already tested from a different account, which is the page's fix, and it still fails with no runs, so the team needs to look at their automation.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:47:38.499Z"
+}

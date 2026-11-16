@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3966,
+ "verdict": {
+  "queries": [
+   "Instagram DM automation change connected account",
+   "switch Instagram account for automation",
+   "disconnect Instagram account and reconnect different account",
+   "move automation to another connected account Blotato",
+   "Instagram automation account not transferable"
+  ]
+ },
+ "at": "2026-11-16T08:09:26.088Z"
+}

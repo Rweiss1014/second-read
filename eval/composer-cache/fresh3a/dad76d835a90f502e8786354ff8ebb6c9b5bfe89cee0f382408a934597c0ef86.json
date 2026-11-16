@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9921,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does Inspiration include LinkedIn posts",
+    "steps": []
+   },
+   {
+    "item": "Is Inspiration only TikTok and Instagram",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences describe how to use Inspiration but never say which platforms its posts come from, so LinkedIn coverage is not stated.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:07:34.805Z"
+}

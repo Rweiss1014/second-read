@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3767,
+ "verdict": {
+  "queries": [
+   "Downgrade subscription plan Starter Creator",
+   "Subscription status Incomplete plan change",
+   "Why can't I select a lower plan Blotato",
+   "Change billing plan Starter Creator Pro upgrade downgrade",
+   "Subscription payment incomplete pending invoice"
+  ]
+ },
+ "at": "2026-11-16T07:49:53.914Z"
+}

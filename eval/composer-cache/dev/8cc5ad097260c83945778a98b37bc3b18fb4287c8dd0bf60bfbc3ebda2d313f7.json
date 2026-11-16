@@ -1,0 +1,48 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5944,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can we get on a Zoom call (10 minutes)?",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Is there a faster way than back-and-forth chat?",
+    "steps": [
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages directly state that Blotato does not offer Zoom calls and describe how support works in the in-app chat.",
+  "steps": [
+   {
+    "text": "Blotato does not offer Zoom calls, phone calls, or live meetings with customers.",
+    "quotes": [
+     "S3"
+    ]
+   },
+   {
+    "text": "All support happens in the in-app chat, where the support team guides you step by step.",
+    "quotes": [
+     "S4",
+     "S5"
+    ]
+   },
+   {
+    "text": "To speed things up, describe what you are trying to do and share screenshots or screen recordings of where you are stuck.",
+    "quotes": [
+     "S6"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:13:45.504Z"
+}

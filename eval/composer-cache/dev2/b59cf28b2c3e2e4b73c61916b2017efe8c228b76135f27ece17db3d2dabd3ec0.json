@@ -1,0 +1,63 @@
+{
+ "kind": "write",
+ "version": "compose-w1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 10803,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is there a 100 MB limit on Drive files",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Google virus scan warning page on 350 MB video",
+    "steps": [
+     3,
+     4
+    ]
+   },
+   {
+    "item": "Creator plan",
+    "steps": [
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages say there is no 100 MB Drive cutoff, and they give the direct URL format and the alternatives for the virus-scan warning page.",
+  "steps": [
+   {
+    "text": "That isn't true: Blotato does not impose a 100 MB Google Drive cutoff.",
+    "quotes": [
+     "S18"
+    ]
+   },
+   {
+    "text": "The file still has to fit your Blotato plan's upload limit and the destination platform's media limit.",
+    "quotes": [
+     "S19"
+    ]
+   },
+   {
+    "text": "For large Drive videos, replace the share link with https://drive.usercontent.google.com/download?id={FILE_ID}&export=download&confirm=t, using the ID from your share link.",
+    "quotes": [
+     "S9",
+     "S10",
+     "S11"
+    ]
+   },
+   {
+    "text": "If that direct download URL still returns the warning page, use the Presigned Upload flow, frame.io, AWS S3, or Google Cloud Storage, which avoid the Google Drive warning page.",
+    "quotes": [
+     "S23",
+     "S24"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:24:40.206Z"
+}

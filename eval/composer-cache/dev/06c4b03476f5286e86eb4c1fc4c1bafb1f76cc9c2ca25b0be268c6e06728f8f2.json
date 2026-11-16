@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3396,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Second API key limited to reading posts, not publishing",
+    "steps": []
+   },
+   {
+    "item": "Use for a contractor building reports",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages never say whether a second API key can be created or whether a key can be limited to read-only access, so no sentence answers this.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:38:39.095Z"
+}

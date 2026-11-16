@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5482,
+ "verdict": {
+  "asked": [
+   {
+    "item": "export button in Inbox to download comments and DMs",
+    "steps": []
+   },
+   {
+    "item": "download all comments and DMs as CSV",
+    "steps": []
+   },
+   {
+    "item": "records before the 45 days run out (deadline)",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence says whether the Inbox has an export or CSV download; the CSV passage covers importing spreadsheets, not exporting, and the customer's 45-day deadline is a time-sensitive records request that needs the team.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:28:19.488Z"
+}

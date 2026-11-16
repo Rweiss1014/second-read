@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5006,
+ "verdict": {
+  "asked": [
+   {
+    "item": "how many brand voices are allowed",
+    "steps": []
+   },
+   {
+    "item": "limit on the Creator plan",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages say multiple brand voices can be created, but no sentence gives a number limit or says what the Creator plan allows, so the customer's question about the cap is not answered.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:27:45.860Z"
+}

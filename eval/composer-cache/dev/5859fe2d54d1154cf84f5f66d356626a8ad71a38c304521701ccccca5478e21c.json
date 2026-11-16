@@ -1,0 +1,28 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3327,
+ "verdict": {
+  "asked": [
+   {
+    "item": "how to log out of Blotato on this computer",
+    "steps": [
+     1
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S128 states how to log out of Blotato.",
+  "steps": [
+   {
+    "text": "To log out of Blotato, open Settings > Profile, then click Log out.",
+    "quotes": [
+     "S128"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:50:08.846Z"
+}

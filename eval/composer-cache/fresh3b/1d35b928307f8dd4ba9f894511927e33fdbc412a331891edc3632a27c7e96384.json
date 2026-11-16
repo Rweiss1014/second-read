@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4715,
+ "verdict": {
+  "queries": [
+   "Viral Coach scorecard not saved after page refresh",
+   "Viral Coach scorecard results missing or lost",
+   "Blotato refund policy monthly creator plan",
+   "Request refund for subscription charge billing",
+   "Cancel subscription and prorated refund Blotato"
+  ]
+ },
+ "at": "2026-11-16T08:11:38.796Z"
+}

@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4136,
+ "verdict": {
+  "queries": [
+   "Could not upload media error",
+   "Post failed Could not upload media to Twitter LinkedIn Facebook",
+   "Blotato insufficient credits post failed",
+   "Retry failed post publishing",
+   "media upload failed social account connection troubleshooting"
+  ]
+ }
+}

@@ -1,0 +1,17 @@
+{
+ "kind": "second",
+ "version": "second-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6261,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "says-more",
+    "about": "Step 1 says flatly that Blotato does not create YouTube community image posts, but the cited section only says this publish operation (the API/MCP route) does not create them, so the reply widens a scoped limit to the whole product."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T08:26:32.304Z"
+}

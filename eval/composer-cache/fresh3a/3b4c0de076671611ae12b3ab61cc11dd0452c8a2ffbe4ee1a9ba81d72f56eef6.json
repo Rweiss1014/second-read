@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5599,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why the post scheduled for Harbor Dental published on Coastal Vet",
+    "steps": []
+   },
+   {
+    "item": "Whether the wrong-Page publish can be fixed or undone",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages do not say how a post scheduled for one Page can publish to another Page on the same Facebook login, and explaining this for this account requires its own records, so the team needs to review it.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:26:06.511Z"
+}

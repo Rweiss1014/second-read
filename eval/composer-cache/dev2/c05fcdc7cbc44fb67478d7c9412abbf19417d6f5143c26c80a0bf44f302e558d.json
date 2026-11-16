@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4350,
+ "verdict": {
+  "queries": [
+   "Install skills in Claude Cowork",
+   "Cowork skills upload folder SKILL.md",
+   "Claude Code skills directory ~/.claude/skills",
+   "skills not detected Cowork restart",
+   "content-coach skill Blotato"
+  ]
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 2937,
+ "verdict": {
+  "points": [
+   {
+    "point": "DM automation A/B split test of two messages",
+    "sentence": ""
+   },
+   {
+    "point": "Show which version got more clicks",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry says anything about split-testing DM messages or comparing click results; the DM automation entries cover other topics."
+ },
+ "at": "2026-11-16T08:08:51.244Z"
+}

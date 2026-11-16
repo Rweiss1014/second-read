@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3908,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Use own OpenAI key for image generation",
+    "steps": []
+   },
+   {
+    "item": "Avoid Blotato credits for image generation",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence says whether you can connect your own OpenAI key; the pages only say AI image generation uses credits and mention an ElevenLabs key and a removed Replicate key field.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:50:19.764Z"
+}

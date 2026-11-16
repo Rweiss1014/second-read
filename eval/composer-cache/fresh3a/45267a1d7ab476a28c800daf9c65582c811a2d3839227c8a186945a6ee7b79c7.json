@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6527,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why carousels show stock corporate people instead of outdoor climbing look",
+    "steps": []
+   },
+   {
+    "item": "Fix after already setting What do you post about, uploading brand visuals, enabling Use brand kit, and regenerating scenes",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer says they already tried the Brand Kit field, brand visuals, \"Use brand kit\" with a detailed prompt, and scene regeneration, and the output still fails, so this needs team review.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:26:42.454Z"
+}

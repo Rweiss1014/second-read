@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4454,
+ "verdict": {
+  "queries": [
+   "Blotato hashtags automatically added to post",
+   "Blotato post content hashtags field",
+   "Blotato AI caption generator hashtags",
+   "Blotato Pinterest tags board field",
+   "Blotato Instagram tags user tagging"
+  ]
+ },
+ "at": "2026-11-16T07:48:06.231Z"
+}

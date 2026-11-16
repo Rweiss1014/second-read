@@ -1,0 +1,40 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5541,
+ "verdict": {
+  "asked": [
+   {
+    "item": "max length of YouTube description through the API",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "where the description goes in the API",
+    "steps": [
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The Media Requirements page gives the YouTube description maximum length, and the FAQ says which API field holds the description.",
+  "steps": [
+   {
+    "text": "The maximum length for a YouTube video description is 5,000 characters.",
+    "quotes": [
+     "S15"
+    ]
+   },
+   {
+    "text": "When using the API, the description goes in content.text.",
+    "quotes": [
+     "S26"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:13:44.739Z"
+}

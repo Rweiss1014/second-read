@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5252,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does the Tolt referral code passed in POST /v2/credits earn commission on credit purchases?",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences explain that the referral code is an optional field on Buy Credits and that commission applies to a referred customer's first subscription payment, but none says whether credit purchases earn commission, so the answer would be a guess.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:00:59.886Z"
+}

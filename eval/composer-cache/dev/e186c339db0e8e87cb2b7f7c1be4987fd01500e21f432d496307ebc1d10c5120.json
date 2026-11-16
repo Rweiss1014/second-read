@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3874,
+ "verdict": {
+  "queries": [
+   "Viral hooks bonus not showing in dashboard",
+   "Where to find bonus credits in Blotato account balance",
+   "Redeem promotional bonus viral hooks",
+   "Viral hooks generator usage limit and credits"
+  ]
+ }
+}

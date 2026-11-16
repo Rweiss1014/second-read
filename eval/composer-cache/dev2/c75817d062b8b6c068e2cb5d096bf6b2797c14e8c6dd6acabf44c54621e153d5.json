@@ -1,0 +1,17 @@
+{
+ "kind": "second",
+ "version": "second-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3421,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "not-answered",
+    "about": "The customer's signed URL has no file extension and they asked why it fails; the reply states the rule but never says their URL fails because it doesn't end in .mp4/.webm/.mov, nor what to do about it (e.g., use a URL ending in an extension), and doesn't address their note that the file is H.264 MP4."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T07:58:51.155Z"
+}

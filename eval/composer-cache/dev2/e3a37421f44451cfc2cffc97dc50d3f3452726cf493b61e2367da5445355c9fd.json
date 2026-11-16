@@ -1,0 +1,41 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9015,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is my connection broken?",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Empty array [] result from the account list check",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages state directly that an empty account list means the connection works and that no social accounts are connected, which answers whether the connection is broken.",
+  "steps": [
+   {
+    "text": "An empty list means the connection works, but no social accounts are connected.",
+    "quotes": [
+     "S43"
+    ]
+   },
+   {
+    "text": "Connect a social account in Accounts before publishing.",
+    "quotes": [
+     "S68"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:00:48.419Z"
+}

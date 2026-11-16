@@ -1,0 +1,40 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5698,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Same customer messaged two Facebook Pages and we replied on each: counts once or twice?",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "People who only comment and never get a reply: do they count?",
+    "steps": [
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "Both questions are answered directly by the active-contacts sentences on the Billing & Credits page.",
+  "steps": [
+   {
+    "text": "If the same person interacts with two connected Facebook Pages, they count as two active contacts.",
+    "quotes": [
+     "S12"
+    ]
+   },
+   {
+    "text": "Someone who messages or comments on your posts does not count until you reply.",
+    "quotes": [
+     "S10"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:57:59.248Z"
+}

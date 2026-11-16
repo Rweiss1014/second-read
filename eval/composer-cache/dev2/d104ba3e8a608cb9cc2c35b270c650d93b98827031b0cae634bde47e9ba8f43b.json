@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3895,
+ "verdict": {
+  "queries": [
+   "Instagram comment automation follow gate credits per message",
+   "Instagram comment automation email gate pricing",
+   "Blotato Creator plan usage limits comment automation",
+   "Blotato comment automation billing extra charges per message"
+  ]
+ }
+}

@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5463,
+ "verdict": {
+  "asked": [
+   {
+    "item": "How Time saved is calculated",
+    "steps": []
+   },
+   {
+    "item": "Whether it is a set number of minutes per post",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences list Time saved as a metric on the Analytics page (S71) but never say how it is calculated or whether it uses a set number of minutes per post.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:49:04.262Z"
+}

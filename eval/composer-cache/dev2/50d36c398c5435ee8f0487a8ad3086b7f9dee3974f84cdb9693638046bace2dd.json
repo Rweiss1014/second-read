@@ -1,0 +1,49 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 11660,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does the active-contact count reset on the 19th (billing renewal)?",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Agency plan active-contact limit of 15,000",
+    "steps": [
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages state the active-contact count resets at the start of each month, which answers the reset-date question, and they give the Agency limit, with a caveat that some accounts have custom limits.",
+  "steps": [
+   {
+    "text": "The active-contact count resets at the start of each month.",
+    "quotes": [
+     "S32"
+    ]
+   },
+   {
+    "text": "The Agency plan includes 15,000 active contacts per month.",
+    "quotes": [
+     "S4",
+     "S11"
+    ]
+   },
+   {
+    "text": "Some accounts have a custom monthly active-contact limit, and Get Usage shows your current usage and limit.",
+    "quotes": [
+     "S40",
+     "S41"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:00:11.485Z"
+}

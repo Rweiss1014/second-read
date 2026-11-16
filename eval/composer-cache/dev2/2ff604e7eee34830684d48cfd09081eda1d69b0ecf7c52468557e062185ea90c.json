@@ -1,0 +1,29 @@
+{
+ "kind": "second",
+ "version": "second-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5980,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "wrong-fit",
+    "about": "The customer reports views around 30, but the reply tells them their account is shadowbanned or broken without checking the 10-in-a-row condition. It also leaves out the other help-page cases that could apply (a single stuck video, topic not recognized)."
+   },
+   {
+    "kind": "caveat",
+    "about": "Step 2 says the account is 'likely shadowbanned' for 10 videos in a row under 50 views. The reply doesn't confirm the customer meets that condition. Step 1 states 'something is wrong with your account' as fact, with no hedge for the customer's situation."
+   },
+   {
+    "kind": "says-more",
+    "about": "Step 3 drops the page's first-person framing ('I honestly recommend') and presents the advice as the help page's recommendation. It also tells the customer to abandon their account with no qualification, which is a strong outcome the section only gives as one person's opinion."
+   },
+   {
+    "kind": "not-answered",
+    "about": "The customer asked why their views are low. The reply gives no actionable diagnosis, and it omits the page's checks, such as the 'Find Related Content' search bar test and the advice to add niche keywords."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T07:32:40.554Z"
+}

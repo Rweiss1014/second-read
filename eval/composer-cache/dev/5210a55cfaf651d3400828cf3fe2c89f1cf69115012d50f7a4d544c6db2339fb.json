@@ -1,0 +1,48 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7808,
+ "verdict": {
+  "asked": [
+   {
+    "item": "LinkedIn comments and DMs in Inbox",
+    "steps": [
+     2
+    ]
+   },
+   {
+    "item": "TikTok comments and DMs in Inbox",
+    "steps": [
+     1,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The Inbox page says it covers only Instagram and Facebook, that LinkedIn is unsupported, and that other connected platforms do not appear.",
+  "steps": [
+   {
+    "text": "Blotato's Inbox is one inbox for comments and direct messages from your Instagram accounts and Facebook Pages.",
+    "quotes": [
+     "S2"
+    ]
+   },
+   {
+    "text": "LinkedIn comments and direct messages are not supported in Inbox.",
+    "quotes": [
+     "S8"
+    ]
+   },
+   {
+    "text": "Other connected social platforms do not appear in Inbox, so use each platform's own inbox for those conversations.",
+    "quotes": [
+     "S5",
+     "S6"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:39:04.655Z"
+}

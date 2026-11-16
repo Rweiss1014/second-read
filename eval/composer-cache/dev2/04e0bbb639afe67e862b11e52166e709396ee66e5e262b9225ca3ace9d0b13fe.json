@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8479,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does the 15,000 active-contact count reset on the 19th (renewal date) or the 1st?",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say the count resets at the start of each month or the next monthly window. They never say whether that is the calendar 1st or the billing renewal date, so a team member should confirm the exact reset date.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:48:10.386Z"
+}

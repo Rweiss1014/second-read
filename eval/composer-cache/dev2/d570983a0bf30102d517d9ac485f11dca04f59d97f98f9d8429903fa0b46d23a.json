@@ -1,0 +1,17 @@
+{
+ "kind": "second",
+ "version": "second-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7344,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "says-more",
+    "about": "Step 3 states as fact that sending cleanTranscript to this endpoint will not change the response, while the help section only says not to send it expecting a change."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T08:02:14.997Z"
+}

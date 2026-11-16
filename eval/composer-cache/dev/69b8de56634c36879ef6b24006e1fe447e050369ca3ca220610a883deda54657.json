@@ -1,0 +1,55 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8894,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Will an Instagram post through Blotato show on Facebook automatically?",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Will people see it twice if I also pick Facebook?",
+    "steps": [
+     3,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The FAQ sentences say Blotato's Instagram publisher submits only to Instagram, and they explain how to post to both and avoid duplicates.",
+  "steps": [
+   {
+    "text": "Don't assume an Instagram-only post also published to Facebook, because Blotato's Instagram publisher submits to Instagram.",
+    "quotes": [
+     "S8",
+     "S9"
+    ]
+   },
+   {
+    "text": "Instagram's native sharing behavior is separate from Blotato's destination results.",
+    "quotes": [
+     "S10"
+    ]
+   },
+   {
+    "text": "If you want both destinations, connect Instagram and the intended Facebook Page, then select both in Blotato and verify each result.",
+    "quotes": [
+     "S11"
+    ]
+   },
+   {
+    "text": "If Instagram's native crossposting is enabled, check Facebook before sending an additional Facebook post to avoid duplicates.",
+    "quotes": [
+     "S12"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:39:11.217Z"
+}

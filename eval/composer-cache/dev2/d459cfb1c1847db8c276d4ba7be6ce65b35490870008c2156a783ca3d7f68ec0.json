@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4517,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Where Blotato servers and data are stored",
+    "steps": []
+   },
+   {
+    "item": "Whether EU storage is available for GDPR",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the sentences state where Blotato servers or customer data are stored, so the storage-location question and the EU storage requirement are not answered; the only GDPR-related sentence (S33) says Blotato does not currently provide a signed DPA, which is a neighboring question.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:59:00.337Z"
+}

@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4406,
+ "verdict": {
+  "queries": [
+   "ElevenLabs API key invalid Settings API",
+   "connect ElevenLabs integration API key Blotato",
+   "ElevenLabs API key not valid error free plan",
+   "ElevenLabs API key permissions text to speech required",
+   "Settings API key saved verification failed"
+  ]
+ }
+}

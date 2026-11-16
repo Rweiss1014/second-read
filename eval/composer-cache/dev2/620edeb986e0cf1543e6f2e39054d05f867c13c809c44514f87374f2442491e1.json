@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3540,
+ "verdict": {
+  "queries": [
+   "Create a poll post on X (Twitter) Blotato",
+   "X poll options duration Blotato post settings",
+   "Blotato X poll API field poll options"
+  ]
+ },
+ "at": "2026-11-16T07:46:04.995Z"
+}

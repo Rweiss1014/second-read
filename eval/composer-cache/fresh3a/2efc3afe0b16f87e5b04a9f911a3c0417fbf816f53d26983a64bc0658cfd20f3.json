@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3754,
+ "verdict": {
+  "queries": [
+   "Agency plan connected accounts limit",
+   "increase number of connected social accounts add-on",
+   "Facebook Pages connected account limit per plan",
+   "upgrade plan to connect more accounts Blotato",
+   "adding additional accounts beyond plan limit billing"
+  ]
+ },
+ "at": "2026-11-16T08:09:09.330Z"
+}

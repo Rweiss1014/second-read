@@ -1,0 +1,34 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 12201,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Same video fails on Bluesky",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "URL has no file extension",
+    "steps": [
+     1
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The Bluesky section states the URL requirement that the customer's URL lacks, so the page answers the likely cause, though the customer did not give an error text.",
+  "steps": [
+   {
+    "text": "For Bluesky, the public media URL must end in .mp4, .webm, or .mov so Blotato recognizes it as a video.",
+    "quotes": [
+     "S106"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:58:47.727Z"
+}

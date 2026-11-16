@@ -1,0 +1,62 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 12503,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why the follow gate was skipped",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Test account never gets the follow question",
+    "steps": [
+     2,
+     3
+    ]
+   },
+   {
+    "item": "Published November 12, passed gate last week on same account",
+    "steps": [
+     1,
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages say that on automations published after November 10, 2026, a contact confirmed as a follower within 30 days skips the follow gate, which matches the log.",
+  "steps": [
+   {
+    "text": "On automations published after November 10, 2026, a contact Blotato confirmed as a follower within the last 30 days skips the follow gate.",
+    "quotes": [
+     "S30"
+    ]
+   },
+   {
+    "text": "When the gate is skipped, there is no gate message and no check, and your message sends right away.",
+    "quotes": [
+     "S25"
+    ]
+   },
+   {
+    "text": "Your test contact passed a follow gate on the same connected account in an earlier run, so Blotato sends your message without asking again.",
+    "quotes": [
+     "S31"
+    ]
+   },
+   {
+    "text": "To see the gate message while testing, comment or message from an account that has not passed a follow gate in the last 30 days.",
+    "quotes": [
+     "S32"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:46:45.286Z"
+}

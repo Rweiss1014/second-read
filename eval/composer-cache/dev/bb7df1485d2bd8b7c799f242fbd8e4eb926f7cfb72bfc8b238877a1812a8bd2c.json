@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3781,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is there a status page to check when posts are slow",
+    "steps": []
+   },
+   {
+    "item": "Telling whether slowness is on Blotato's end",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the sentences mention a status page, and the closest ones cover polling a post's status, which is a different question.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:50:46.188Z"
+}

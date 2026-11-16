@@ -1,0 +1,35 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 10881,
+ "verdict": {
+  "asked": [
+   {
+    "item": "How do I turn off the watermark on template 3ed4bb92",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The page states the exact parameter name and empty-string value that hide the watermark, which answers the customer's question about turning it off.",
+  "steps": [
+   {
+    "text": "To turn off the watermark, set the parameter named watemark to an empty string \"\" in the inputs.",
+    "quotes": [
+     "S13"
+    ]
+   },
+   {
+    "text": "The parameter name is watemark, not watermark.",
+    "quotes": [
+     "S13"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:27:47.484Z"
+}

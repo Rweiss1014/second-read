@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3370,
+ "verdict": {
+  "points": [
+   {
+    "point": "Where to connect Google Business Profile",
+    "sentence": "Blotato does not support Google Business Profile."
+   },
+   {
+    "point": "Post weekly specials there too (alternative)",
+    "sentence": "To send post content to another destination like Google Business Profile, use the webhook publish target with an automation tool (n8n, Make.com, or Zapier): Blotato sends the post data to your webhook, and your automation posts it to the destination."
+   }
+  ],
+  "pick": "google-business-profile",
+  "reason": "The entry states Google Business Profile isn't supported, so there's nowhere to connect it, and it gives the webhook workaround for sending posts there."
+ },
+ "at": "2026-11-16T08:08:30.281Z"
+}

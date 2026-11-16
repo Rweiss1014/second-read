@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5344,
+ "verdict": {
+  "asked": [
+   {
+    "item": "is the Blotato MCP server open source",
+    "steps": []
+   },
+   {
+    "item": "link to the repo",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help sentences say the MCP server runs remotely at https://mcp.blotato.com/mcp but say nothing about whether it is open source or give any repository link, so the question is not answered.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:00:56.596Z"
+}

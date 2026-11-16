@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3979,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does Blotato verify the mailbox is real before sending the link",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether Blotato checks that an email mailbox exists before sending the link; the email gate entries cover expiry and skipping only."
+ },
+ "at": "2026-11-16T08:08:41.523Z"
+}

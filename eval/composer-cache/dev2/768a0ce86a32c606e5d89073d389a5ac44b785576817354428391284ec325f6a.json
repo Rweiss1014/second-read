@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6236,
+ "verdict": {
+  "asked": [
+   {
+    "item": "why LinkedIn post for 2026-12-06 gets 'too far in the future' error",
+    "steps": []
+   },
+   {
+    "item": "error happens in the app and via API every time",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages say the 'too far in the future' error means the time is more than 9 months ahead, but the customer's date is about three weeks away, and no sentence explains why the error persists in the app and API after the customer's attempts, so this needs team review.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:58:37.870Z"
+}

@@ -1,0 +1,46 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4225,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Export gave slides.zip instead of MP4",
+    "steps": [
+     1,
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The FAQ explains that the Slideshow toggle controls ZIP vs MP4 and gives the steps to re-export as MP4.",
+  "steps": [
+   {
+    "text": "The \"Slideshow\" toggle controls the export format: Slideshow ON exports a ZIP file of individual slide images, and Slideshow OFF exports an MP4 video file.",
+    "quotes": [
+     "S26",
+     "S27"
+    ]
+   },
+   {
+    "text": "Open the visual in the editor and turn OFF the \"Slideshow\" toggle.",
+    "quotes": [
+     "S29",
+     "S30"
+    ]
+   },
+   {
+    "text": "Click \"Export\" in the top right corner, wait for rendering to finish, then click \"Download\" to save the MP4 file.",
+    "quotes": [
+     "S31",
+     "S32",
+     "S33"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:46:27.967Z"
+}

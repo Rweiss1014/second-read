@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 5055,
+ "verdict": {
+  "queries": [
+   "Instagram comment automation keyword trigger all posts",
+   "auto DM not sent after keyword comment troubleshooting",
+   "automation run history no runs recorded comment trigger",
+   "Instagram business account connected comment-to-DM automation permissions"
+  ]
+ }
+}

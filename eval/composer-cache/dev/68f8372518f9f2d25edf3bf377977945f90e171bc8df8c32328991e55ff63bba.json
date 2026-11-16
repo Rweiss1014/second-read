@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6182,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Old July invoice still showing after card update",
+    "steps": []
+   },
+   {
+    "item": "Dashboard won't open",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer already updated their card and the old invoice still blocks the dashboard. The pages say support has to void the stale invoice or cancel the stale subscription in that case, so the team needs to handle it.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:51:21.061Z"
+}

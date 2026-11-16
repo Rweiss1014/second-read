@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3490,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Guarantee post goes out at exactly 9:00 tomorrow",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer asks for a guarantee of exact publish timing, and no help sentence states one, so a person on the team should handle it.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:38:50.163Z"
+}

@@ -1,0 +1,71 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9564,
+ "verdict": {
+  "asked": [
+   {
+    "item": "All LinkedIn slot expected to post to profile and company page",
+    "steps": [
+     2,
+     3
+    ]
+   },
+   {
+    "item": "Why the post went only to the company page",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Did I break something",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "How to get it on the personal profile too",
+    "steps": [
+     3,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages explain that All LinkedIn only makes a slot available and the destination selected on the post controls where it publishes.",
+  "steps": [
+   {
+    "text": "The destination selected on the post controls where it publishes.",
+    "quotes": [
+     "S12"
+    ]
+   },
+   {
+    "text": "All LinkedIn means posts targeting any connected LinkedIn personal profile or company Page are allowed to use the slot, but it does not publish one post to every LinkedIn destination.",
+    "quotes": [
+     "S39",
+     "S41"
+    ]
+   },
+   {
+    "text": "To publish the same content to a personal profile and a company Page, create one post for each destination.",
+    "quotes": [
+     "S42"
+    ]
+   },
+   {
+    "text": "To move a post to your personal profile in the web app, open the post draft, select your LinkedIn personal profile as the destination, and schedule the post again.",
+    "quotes": [
+     "S17",
+     "S18",
+     "S19"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:32:39.511Z"
+}

@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4725,
+ "verdict": {
+  "asked": [
+   {
+    "item": "How to log out / sign out of Blotato on this computer",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the sentences explain how to log out or sign out of Blotato on a computer; the closest ones cover login problems and drafts on other devices.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:38:09.850Z"
+}

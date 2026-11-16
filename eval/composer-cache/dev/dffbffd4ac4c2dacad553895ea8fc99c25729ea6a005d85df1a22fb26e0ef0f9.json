@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4853,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can Blotato automatically retweet old tweets",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages only list retweet counts as a metric (S4, S18) and never say whether Blotato can schedule or automate retweets of existing posts, so the question has no answer in the sentences.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:14:16.734Z"
+}

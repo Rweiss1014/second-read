@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6213,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Bluesky-side setup needed before videos work",
+    "steps": []
+   },
+   {
+    "item": "Why the first Bluesky video post failed",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages list Bluesky video specs (formats, one video per post, URL ending) but don't say whether any Bluesky-side setup is needed, and they don't show why this customer's video failed.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:24:23.150Z"
+}

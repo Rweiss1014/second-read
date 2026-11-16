@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6478,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Poll options in Threads fields",
+    "steps": []
+   },
+   {
+    "item": "Running a Threads poll through Blotato",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The Threads pages list fields (replyControl, additionalPosts) but never say whether Threads polls are supported; the poll sentences cover only LinkedIn, which is a neighboring question.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:07:59.100Z"
+}

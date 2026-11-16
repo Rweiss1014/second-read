@@ -1,0 +1,52 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 10260,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why replies land in Message Requests",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Can replies be sent to the main inbox instead",
+    "steps": [
+     2
+    ]
+   },
+   {
+    "item": "What to do about it (implied)",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The FAQ says Facebook decides where the message lands, Blotato cannot change it, and suggests using the public reply.",
+  "steps": [
+   {
+    "text": "When a person has not messaged your Page before, Facebook can put the Page's message in their Message Requests folder instead of their inbox.",
+    "quotes": [
+     "S53"
+    ]
+   },
+   {
+    "text": "Facebook decides where the message lands, and Blotato cannot change it, so you can't make these go to the main inbox.",
+    "quotes": [
+     "S55"
+    ]
+   },
+   {
+    "text": "To help people find the message, use the automation's public reply to tell them to check Message Requests.",
+    "quotes": [
+     "S56"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:08:47.304Z"
+}

@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4701,
+ "verdict": {
+  "queries": [
+   "Connect Mastodon account",
+   "Add social account Mastodon instance",
+   "Mastodon supported platforms",
+   "Mastodon access token authorization"
+  ]
+ }
+}

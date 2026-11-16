@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4856,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can Blotato post to a Microsoft Teams channel like Slack channels",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages only describe posting to Slack channels; no sentence says whether Microsoft Teams is supported, so the closest Slack sentences answer a neighboring question.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:25:33.373Z"
+}

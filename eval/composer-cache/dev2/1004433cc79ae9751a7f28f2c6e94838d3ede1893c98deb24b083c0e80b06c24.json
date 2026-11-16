@@ -1,0 +1,42 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9678,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why Hermes loads github tools but no Blotato tools",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "What to change in config.yaml (two mcp_servers keys)",
+    "steps": [
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The Hermes section says a second mcp_servers key makes the file invalid, so Hermes keeps the previous configuration without Blotato, and it says to add only the blotato entry under the existing key.",
+  "steps": [
+   {
+    "text": "A second mcp_servers key makes the file invalid, and Hermes keeps loading the previous configuration without Blotato.",
+    "quotes": [
+     "S55",
+     "S53"
+    ]
+   },
+   {
+    "text": "If mcp_servers is already in the file, add only the blotato entry under it.",
+    "quotes": [
+     "S54",
+     "S53"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:32:26.411Z"
+}

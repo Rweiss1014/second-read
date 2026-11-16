@@ -1,0 +1,55 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4467,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why post went only to company page despite All LinkedIn slot",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Did I break something",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "How to post to both profile and company page",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages explain that an All LinkedIn slot does not publish to every destination and that the post's selected destination controls where it publishes.",
+  "steps": [
+   {
+    "text": "The destination selected on the post controls where it publishes.",
+    "quotes": [
+     "S40"
+    ]
+   },
+   {
+    "text": "A slot labeled All LinkedIn only makes the slot available to posts for any connected LinkedIn destination, and it does not publish one post to every profile and Page.",
+    "quotes": [
+     "S41",
+     "S42"
+    ]
+   },
+   {
+    "text": "To publish the same content to a personal profile and a company Page, create one post for each destination.",
+    "quotes": [
+     "S21"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:48:24.832Z"
+}

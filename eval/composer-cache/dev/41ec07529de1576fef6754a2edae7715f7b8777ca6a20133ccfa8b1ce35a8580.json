@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3631,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does the webhook publish target sign requests (HMAC header or shared secret) for verification",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences say the publish webhook target sends post content to the URL, but none say whether the request is signed or carries an HMAC header or shared secret. The header sentences cover only the separate DM automation webhook.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:39:10.572Z"
+}

@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3773,
+ "verdict": {
+  "queries": [
+   "Brand Visuals upload limit maximum number of images",
+   "Brand Visuals image upload file limit per workspace",
+   "Brand Visuals supported file formats and file size",
+   "Upload images to Brand Visuals library"
+  ]
+ },
+ "at": "2026-11-16T08:10:34.421Z"
+}

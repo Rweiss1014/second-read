@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6084,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Rate limit on schedules routes (DELETE /v2/schedules/:id)",
+    "steps": []
+   },
+   {
+    "item": "How to avoid 429s when deleting about 800 scheduled posts",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The rate limit tables list no limit for the schedules routes or DELETE /v2/schedules/:id, and the page says to consult each endpoint's reference for other limits, so the schedules limit isn't stated.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:49:18.281Z"
+}

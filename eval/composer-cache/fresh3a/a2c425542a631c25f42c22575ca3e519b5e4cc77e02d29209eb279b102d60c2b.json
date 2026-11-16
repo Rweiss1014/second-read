@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4839,
+ "verdict": {
+  "asked": [
+   {
+    "item": "max number of trigger keywords per DM automation",
+    "steps": []
+   },
+   {
+    "item": "adding about 150 product names as keywords",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The provided sentences describe how keywords match and how many triggers an automation holds, but none states a maximum number of keywords, so the customer's question about the limit cannot be answered from them.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:26:05.926Z"
+}

@@ -1,0 +1,49 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 10842,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why it posted at 4:00 am instead of 9:00",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Timezone is New York",
+    "steps": [
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages state that a timestamp without an offset is treated as UTC, which explains the time shift, and they say how to send an explicit offset or Z.",
+  "steps": [
+   {
+    "text": "A scheduledTime with no timezone offset is treated as UTC.",
+    "quotes": [
+     "S101"
+    ]
+   },
+   {
+    "text": "Your scheduledTime of 2026-12-01T09:00:00 had no offset, so it was read as 09:00 UTC, not 9:00 in your timezone.",
+    "quotes": [
+     "S101"
+    ]
+   },
+   {
+    "text": "For API schedules, send scheduledTime as ISO-8601 with an explicit offset or Z, resolved for the date and your timezone.",
+    "quotes": [
+     "S99",
+     "S31"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:59:43.458Z"
+}

@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5913,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can source links be moved to the top of the post",
+    "steps": []
+   },
+   {
+    "item": "Can source links be shown as numbered footnotes",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences say the Include Sources? toggle appends source links to the bottom of the post, but none say whether the placement or a numbered footnote format can be changed, so the customer's question is not answered.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:00:07.370Z"
+}

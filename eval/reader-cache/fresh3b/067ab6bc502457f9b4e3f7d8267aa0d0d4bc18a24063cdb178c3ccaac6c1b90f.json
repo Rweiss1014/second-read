@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3565,
+ "verdict": {
+  "points": [
+   {
+    "point": "simplest call to verify API key",
+    "sentence": "Test it with one read-only call: GET https://backend.blotato.com/v2/users/me/accounts."
+   }
+  ],
+  "pick": "api-401",
+  "reason": "The api-401 entry states the single read-only GET call to verify the key, which answers the customer's only question."
+ },
+ "at": "2026-11-16T08:11:24.278Z"
+}

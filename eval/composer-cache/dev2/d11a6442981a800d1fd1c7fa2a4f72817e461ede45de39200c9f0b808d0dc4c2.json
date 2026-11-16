@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5632,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Send a product photo in a DM reply via POST /v2/messages",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences describe text, buttons and quick replies for Send Message but never say whether a photo or image attachment can be sent, so a person should answer.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:32:51.913Z"
+}

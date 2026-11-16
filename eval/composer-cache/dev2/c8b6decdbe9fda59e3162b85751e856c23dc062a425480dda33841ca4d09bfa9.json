@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4969,
+ "verdict": {
+  "queries": [
+   "n8n Blotato credential Blotato Server base URL",
+   "Blotato REST API base URL https://backend.blotato.com",
+   "n8n Blotato node credential test 404 Request failed with status code 404",
+   "Blotato API v2 users/me endpoint",
+   "Blotato API key header n8n credential setup"
+  ]
+ }
+}

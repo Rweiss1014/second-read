@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3704,
+ "verdict": {
+  "queries": [
+   "HeyGen integration connect account Blotato",
+   "HeyGen avatar videos not showing in media library",
+   "import videos from HeyGen to Blotato",
+   "HeyGen API key Blotato settings integrations",
+   "Blotato media library video sources supported"
+  ]
+ }
+}

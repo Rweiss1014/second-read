@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4480,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does the Blotato editor work with VoiceOver (screen reader)",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence says whether the Blotato editor works with VoiceOver or any screen reader; the closest sentences only cover desktop/tablet versus mobile support for the video editor.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:14:35.231Z"
+}

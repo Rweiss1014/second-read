@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4398,
+ "verdict": {
+  "queries": [
+   "API 401 Unauthorized invalid API key",
+   "where to find API key in Settings Blotato",
+   "Authorization Bearer header API key v2 users me accounts",
+   "API key regenerate replace old key .env"
+  ]
+ }
+}

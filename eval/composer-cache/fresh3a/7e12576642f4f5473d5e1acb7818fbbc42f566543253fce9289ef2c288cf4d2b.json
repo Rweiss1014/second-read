@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4104,
+ "verdict": {
+  "queries": [
+   "Claude Code command not found on macOS Terminal",
+   "Install Claude Code native installer npm global install",
+   "Blotato MCP server setup Claude Code claude mcp add",
+   "PATH environment variable fix command not found macOS zsh"
+  ]
+ },
+ "at": "2026-11-16T08:07:02.414Z"
+}

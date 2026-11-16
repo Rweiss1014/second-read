@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6030,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does Blotato add tags (platform not named)",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer does not name a platform, and the only sentences that say tags are not supported are about YouTube (S46, S123); the help pages do not say whether tags are added on other platforms, and the closest hashtag sentences (S15-S18, S59-S62) are a neighboring topic.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:00:15.331Z"
+}

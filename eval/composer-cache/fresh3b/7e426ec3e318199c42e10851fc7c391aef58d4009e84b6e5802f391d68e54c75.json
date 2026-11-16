@@ -1,0 +1,35 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6791,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why the Pinterest carousel fails",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The Pinterest page says a carousel takes 2–5 images and that the publisher rejects more than 5 media items.",
+  "steps": [
+   {
+    "text": "For Pinterest, use an image, a video, or 2–5 images for a carousel.",
+    "quotes": [
+     "S11"
+    ]
+   },
+   {
+    "text": "The publisher rejects more than 5 media items.",
+    "quotes": [
+     "S13"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:12:24.560Z"
+}

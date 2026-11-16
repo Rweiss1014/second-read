@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4390,
+ "verdict": {
+  "asked": [
+   {
+    "item": "exact number of minutes a presignedUrl from POST /v2/media/uploads is valid",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages say the presigned URL \"expires after a short period\" but give no number of minutes, so the exact validity the customer needs for sizing a queue is not stated.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:59:02.447Z"
+}

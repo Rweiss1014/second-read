@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4665,
+ "verdict": {
+  "queries": [
+   "AI voiceover language vs subtitle caption language setting",
+   "video captions in a different language than the AI voice",
+   "AI voice text-to-speech language selection Spanish video",
+   "subtitles original language without translation video settings",
+   "burned-in captions on-screen text language video"
+  ]
+ },
+ "at": "2026-11-16T07:46:22.521Z"
+}

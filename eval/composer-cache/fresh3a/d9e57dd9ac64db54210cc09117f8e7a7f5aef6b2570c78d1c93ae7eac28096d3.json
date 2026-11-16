@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 2950,
+ "verdict": {
+  "queries": [
+   "YouTube community post image Blotato",
+   "Blotato YouTube community post image upload",
+   "Blotato YouTube channel post type image",
+   "YouTube community tab post support Blotato",
+   "Blotato YouTube integration supported post types"
+  ]
+ },
+ "at": "2026-11-16T08:09:07.624Z"
+}

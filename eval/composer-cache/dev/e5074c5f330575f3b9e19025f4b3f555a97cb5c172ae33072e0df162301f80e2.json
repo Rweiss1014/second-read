@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4333,
+ "verdict": {
+  "queries": [
+   "Text in Context blog article to social media post generation",
+   "AI post generation from pasted text stuck loading or processing time",
+   "Generate post from text in context not appearing",
+   "Blotato create post from blog URL or text generation status"
+  ]
+ }
+}

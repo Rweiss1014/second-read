@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3145,
+ "verdict": {
+  "points": [
+   {
+    "point": "Must switch Primary brand per client post?",
+    "sentence": ""
+   },
+   {
+    "point": "Does picking a brand choose which client's Instagram?",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states how the Primary brand or brand selection relates to writing posts or choosing the Instagram account; the agency entry covers connecting client accounts and the Brand Kit entry covers only editing brands."
+ },
+ "at": "2026-11-16T08:12:34.138Z"
+}

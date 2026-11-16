@@ -1,0 +1,73 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 13875,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Setting missing from Accounts Center",
+    "steps": [
+     1,
+     2,
+     3
+    ]
+   },
+   {
+    "item": "Reset Meta privacy settings?",
+    "steps": [
+     4
+    ]
+   },
+   {
+    "item": "Disconnect Instagram and start over?",
+    "steps": [
+     4
+    ]
+   },
+   {
+    "item": "What to do if it still fails",
+    "steps": [
+     5
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help page covers a missing Meta privacy menu label and says not to reset all settings or remove a working connection to find it.",
+  "steps": [
+   {
+    "text": "Meta's privacy labels differ between account versions, so the setting may not appear under the name you were given.",
+    "quotes": [
+     "S2"
+    ]
+   },
+   {
+    "text": "Read the exact message on the platform's authorization screen.",
+    "quotes": [
+     "S4"
+    ]
+   },
+   {
+    "text": "If the message requires a privacy-setting change, follow its current Accounts Center link.",
+    "quotes": [
+     "S5"
+    ]
+   },
+   {
+    "text": "Do not reset all settings or remove a working connection to find an old menu label.",
+    "quotes": [
+     "S11"
+    ]
+   },
+   {
+    "text": "If the setting or authorization still fails, send support the message, affected platform, timestamp, and failing page's hostname and path, and leave out callback codes, state values, tokens, and passwords.",
+    "quotes": [
+     "S9",
+     "S10"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:46:45.653Z"
+}

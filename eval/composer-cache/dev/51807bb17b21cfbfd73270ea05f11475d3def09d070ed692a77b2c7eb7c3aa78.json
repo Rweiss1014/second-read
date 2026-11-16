@@ -1,0 +1,54 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4452,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Get a separate version for LinkedIn and Facebook",
+    "steps": [
+     1,
+     2,
+     3
+    ]
+   },
+   {
+    "item": "Does the old remix screen use my Brand Kit",
+    "steps": [
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S10-S15 answer how to get a version per platform, and S7 states that the remix screen does not apply the Brand Kit.",
+  "steps": [
+   {
+    "text": "When you publish one draft to several platforms, Blotato sends that draft's text to each one.",
+    "quotes": [
+     "S10"
+    ]
+   },
+   {
+    "text": "In the AI Agent, name the platforms in your prompt so Blotato generates one draft per platform.",
+    "quotes": [
+     "S12"
+    ]
+   },
+   {
+    "text": "You can also open a draft and use the Chat panel on the right to adapt or shorten the text for a specific platform.",
+    "quotes": [
+     "S15"
+    ]
+   },
+   {
+    "text": "No, the remix screen does not apply your Brand Kit, so use the AI Agent for on-brand content.",
+    "quotes": [
+     "S7"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:38:09.711Z"
+}

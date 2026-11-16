@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4877,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Whether the Blotato editor works with VoiceOver (screen reader accessibility)",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the help sentences mention VoiceOver or screen reader support in the editor, so a team member needs to answer this.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:39:09.246Z"
+}

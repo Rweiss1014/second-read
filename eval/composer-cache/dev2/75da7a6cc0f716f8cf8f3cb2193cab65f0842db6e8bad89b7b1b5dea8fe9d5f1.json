@@ -1,0 +1,17 @@
+{
+ "kind": "second",
+ "version": "second-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3953,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "caveat",
+    "about": "The customer assumes the count resets on their plan renewal date (the 19th); the reply says it resets at the start of each month but never says plainly that it does not follow the 19th renewal date, so their assumption is left uncorrected."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T08:00:15.449Z"
+}

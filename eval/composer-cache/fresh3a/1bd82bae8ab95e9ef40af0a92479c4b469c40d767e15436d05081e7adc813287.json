@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4223,
+ "verdict": {
+  "queries": [
+   "Apply discount code at checkout Blotato plan",
+   "Blotato billing portal promo code field",
+   "Redeem coupon code resubscribe after cancellation Blotato",
+   "Blotato promotion code not accepted in Stripe customer portal",
+   "Reactivate canceled Blotato subscription with discount code"
+  ]
+ },
+ "at": "2026-11-16T08:07:57.259Z"
+}

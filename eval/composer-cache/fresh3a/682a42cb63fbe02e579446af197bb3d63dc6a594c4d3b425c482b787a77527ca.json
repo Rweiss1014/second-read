@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3716,
+ "verdict": {
+  "queries": [
+   "Blotato pricing yearly billing annual plan",
+   "Blotato annual subscription discount monthly vs yearly toggle",
+   "Blotato pricing page billing period switch annual"
+  ]
+ },
+ "at": "2026-11-16T08:10:28.212Z"
+}

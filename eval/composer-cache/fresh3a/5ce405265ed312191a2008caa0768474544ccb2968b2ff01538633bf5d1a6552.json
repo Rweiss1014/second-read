@@ -1,0 +1,35 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5331,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does Blotato check whether the mailbox exists before sending the link, e.g. for abc@abc.abc",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages directly state that the email gate checks only the address format, not whether the mailbox exists, and that a nonexistent address still passes.",
+  "steps": [
+   {
+    "text": "No, Blotato checks the shape of the email address, not whether the mailbox exists.",
+    "quotes": [
+     "S18"
+    ]
+   },
+   {
+    "text": "A nonexistent address still passes the email gate.",
+    "quotes": [
+     "S97"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:26:19.311Z"
+}

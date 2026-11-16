@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3107,
+ "verdict": {
+  "points": [
+   {
+    "point": "field name for tagging shop products on Instagram posts",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry covers tagging shop products on Instagram; the collaborators entry covers tagging people, which is a different feature."
+ },
+ "at": "2026-11-16T08:09:17.135Z"
+}

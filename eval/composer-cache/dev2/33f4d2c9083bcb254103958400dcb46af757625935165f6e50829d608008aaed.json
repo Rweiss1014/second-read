@@ -1,0 +1,21 @@
+{
+ "kind": "second",
+ "version": "second-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 13159,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "caveat",
+    "about": "The customer says there is no mediaUrl. The help page says image outputs are read from item.imageUrls and only video uses item.mediaUrl. A quote card is an image, so the reply should have told them to look for imageUrls once the status is done. It should also have said to poll the status until then."
+   },
+   {
+    "kind": "not-answered",
+    "about": "The customer's request includes isDraft: true, and the reply never mentions it. The help pages shown say nothing about isDraft, so the reply can't say whether it affects rendering. It also doesn't tell the customer that the field is undocumented."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T07:31:12.631Z"
+}

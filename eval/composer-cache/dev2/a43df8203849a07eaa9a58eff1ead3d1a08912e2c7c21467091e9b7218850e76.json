@@ -1,0 +1,75 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 13113,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Are 1080x1920 images too tall for TikTok?",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Should I shrink them to 1080 max on the long side?",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "PNG files",
+    "steps": [
+     2
+    ]
+   },
+   {
+    "item": "Error: The request post info is empty or incorrect",
+    "steps": [
+     3,
+     4,
+     5
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The TikTok error FAQ says the image limit is area-based and that a 1080 × 1920 image is within it, and it lists the troubleshooting steps for this error.",
+  "steps": [
+   {
+    "text": "No, 1080 × 1920 is not too tall: the image limit is based on area, not a maximum side length of 1080 pixels, and a 1080 × 1920 portrait image is within the documented 1080p area limit.",
+    "quotes": [
+     "S55",
+     "S56"
+    ]
+   },
+   {
+    "text": "Blotato converts non-JPEG images before submission, so don't reject a source solely because it is PNG.",
+    "quotes": [
+     "S52"
+    ]
+   },
+   {
+    "text": "Open the failed destination in Posts > Failed or its request in Logs, and keep the exact error and request ID.",
+    "quotes": [
+     "S49",
+     "S50"
+    ]
+   },
+   {
+    "text": "Check the source media against TikTok media requirements, and check the caption and TikTok options against the error.",
+    "quotes": [
+     "S51",
+     "S53"
+    ]
+   },
+   {
+    "text": "If the cause is still unclear, send support the error and request ID instead of repeatedly publishing tests.",
+    "quotes": [
+     "S57"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:31:03.639Z"
+}

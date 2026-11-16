@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8185,
+ "verdict": {
+  "asked": [
+   {
+    "item": "rate limit on GET /v2/analytics/summary",
+    "steps": []
+   },
+   {
+    "item": "rate limit on GET /v2/analytics/platforms",
+    "steps": []
+   },
+   {
+    "item": "about 20 requests/min on each route from 20 clients polling every minute",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages do not state a request-per-minute limit for either analytics route; the endpoint tables show a dash, which S51 says means no limit is stated, not unlimited access, so the customer's question has no sentence giving its answer and needs team confirmation.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:26:38.127Z"
+}

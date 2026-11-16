@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6357,
+ "verdict": {
+  "asked": [
+   {
+    "item": "How to set YouTube category (e.g. Education) when posting",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences list the YouTube fields (title, privacy status, playlists, thumbnail and others) but never mention a category field or how to set one, so they don't answer this.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:08:37.423Z"
+}

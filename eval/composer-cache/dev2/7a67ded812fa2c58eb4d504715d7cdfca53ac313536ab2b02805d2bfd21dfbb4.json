@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6840,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can I claim the $100 review reward again for a Capterra review",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences explain how to claim the reward for a G2 or Capterra review, but they do not say whether a second review can earn another reward after one has already been claimed.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:59:50.358Z"
+}

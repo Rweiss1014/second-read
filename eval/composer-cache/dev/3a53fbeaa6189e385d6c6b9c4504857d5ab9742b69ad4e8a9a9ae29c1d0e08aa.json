@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3727,
+ "verdict": {
+  "queries": [
+   "Blotato media library upload images reuse across posts",
+   "Blotato media library where to find uploaded media files",
+   "Blotato upload media to library bulk upload images",
+   "Blotato attach media from library to post",
+   "Blotato API media upload media_url reuse"
+  ]
+ }
+}

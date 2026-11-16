@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3588,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Match only the exact word free (not freezing/carefree)",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say keywords match anywhere in the text, but none describe an exact-word or whole-word matching option, so the question isn't answered.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:46:17.818Z"
+}

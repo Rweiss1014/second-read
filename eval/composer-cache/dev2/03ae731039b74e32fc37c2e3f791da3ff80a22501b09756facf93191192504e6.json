@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5090,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Guarantee 30 requests/minute limit never goes lower for 12 months",
+    "steps": []
+   },
+   {
+    "item": "Colleague's chat confirmation",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages state the current 30 requests per minute limit but make no guarantee about future limits, and the customer asks staff to give a commitment, which a person must handle.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:32:29.322Z"
+}

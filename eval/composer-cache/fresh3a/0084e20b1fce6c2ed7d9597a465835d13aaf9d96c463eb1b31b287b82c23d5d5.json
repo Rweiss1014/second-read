@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3028,
+ "verdict": {
+  "queries": [
+   "Boost Facebook post paid promotion after publishing",
+   "Facebook post boost Blotato",
+   "Promote published post Facebook ad budget audience",
+   "Facebook Page post boosting permissions connected account"
+  ]
+ },
+ "at": "2026-11-16T08:10:39.710Z"
+}

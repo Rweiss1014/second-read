@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3040,
+ "verdict": {
+  "queries": [
+   "Pinterest Idea Pins multiple pages support",
+   "Pinterest pin types Idea Pin standard pin Blotato",
+   "Blotato Pinterest post settings board selection",
+   "Pinterest Idea Pin not supported scheduling"
+  ]
+ },
+ "at": "2026-11-16T08:07:42.147Z"
+}

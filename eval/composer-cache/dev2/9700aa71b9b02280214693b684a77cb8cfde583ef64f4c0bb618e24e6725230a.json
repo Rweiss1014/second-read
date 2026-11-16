@@ -1,0 +1,56 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 11347,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Bluesky video fails with an extension-less signed URL",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "How to get the video published on Bluesky",
+    "steps": [
+     2,
+     3,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S106 states Bluesky needs the public media URL to end in .mp4, .webm, or .mov, and S2, S4 and S5 give the upload route to get a URL.",
+  "steps": [
+   {
+    "text": "For Bluesky, the public media URL must end in .mp4, .webm, or .mov so Blotato recognizes it as a video.",
+    "quotes": [
+     "S106"
+    ]
+   },
+   {
+    "text": "A URL with no file extension at the end doesn't meet that Bluesky requirement, so use a URL that ends in one of those extensions.",
+    "quotes": [
+     "S106"
+    ]
+   },
+   {
+    "text": "Or upload the file to Blotato: call blotatocreatepresigneduploadurl with a filename that includes its extension, and send an HTTP PUT of the raw file bytes to the returned presignedUrl.",
+    "quotes": [
+     "S2",
+     "S4"
+    ]
+   },
+   {
+    "text": "After the upload succeeds, pass the returned publicUrl in the publish request's mediaUrls array.",
+    "quotes": [
+     "S5"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:46:17.405Z"
+}

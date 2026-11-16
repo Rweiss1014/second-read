@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5259,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why poller never sees status 'publishing'",
+    "steps": []
+   },
+   {
+    "item": "Is it a bug (blog post shows 'publishing')",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer is asking whether the help page is wrong: the blog post lists 'publishing' as a status, but the Get Post Status reference lists only in-progress, scheduled, published and failed, so answering would require choosing between conflicting pages and judging a possible bug, which the sentences do not settle.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:14:03.552Z"
+}

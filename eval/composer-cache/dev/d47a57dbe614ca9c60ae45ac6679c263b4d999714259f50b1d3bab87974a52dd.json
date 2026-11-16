@@ -1,0 +1,62 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 12408,
+ "verdict": {
+  "asked": [
+   {
+    "item": "freeze plan June to August",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "keep credits while off",
+    "steps": [
+     2
+    ]
+   },
+   {
+    "item": "cancel for the break",
+    "steps": [
+     3,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages state that Blotato has no pause or freeze feature and describe keeping the subscription active or cancelling, which covers the customer's question without promising credits through a gap.",
+  "steps": [
+   {
+    "text": "Blotato does not have a pause or freeze feature.",
+    "quotes": [
+     "S10"
+    ]
+   },
+   {
+    "text": "You have two choices: keep your subscription active to retain your credits, scheduled posts, and access, or cancel.",
+    "quotes": [
+     "S11",
+     "S12",
+     "S13"
+    ]
+   },
+   {
+    "text": "To cancel, go to Settings > Billing > View Billing Portal, and check the cancellation's effective date before confirming when access ends.",
+    "quotes": [
+     "S13",
+     "S14"
+    ]
+   },
+   {
+    "text": "With period-end cancellation, access and remaining credits continue until the paid period ends.",
+    "quotes": [
+     "S15"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:13:51.554Z"
+}

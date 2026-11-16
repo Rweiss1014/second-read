@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 10021,
+ "verdict": {
+  "asked": [
+   {
+    "item": "404 from GET /v2/analytics for a single published Instagram post",
+    "steps": []
+   },
+   {
+    "item": "Creator plan, post id from List Posts, same key",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say GET /v2/analytics lists top posts and a single post uses GET /v2/posts/{id}/analytics. None of them say why GET /v2/analytics returns 404 for a post id, so a person on the team should check this.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:38:07.433Z"
+}

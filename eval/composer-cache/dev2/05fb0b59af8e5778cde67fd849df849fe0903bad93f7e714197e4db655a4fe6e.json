@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3988,
+ "verdict": {
+  "queries": [
+   "Blotato connected accounts limit per plan",
+   "LinkedIn company pages count toward connected accounts limit",
+   "LinkedIn personal profile and company page connected account slots",
+   "how many social accounts can I connect Blotato 20 accounts"
+  ]
+ }
+}

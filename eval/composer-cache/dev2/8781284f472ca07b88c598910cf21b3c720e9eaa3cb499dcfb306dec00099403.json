@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3751,
+ "verdict": {
+  "asked": [
+   {
+    "item": "How long uploaded files / publicUrl links are kept",
+    "steps": []
+   },
+   {
+    "item": "Whether old uploads get cleaned out",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages say nothing about how long uploaded files or publicUrl links are retained or whether old uploads are deleted; only the presigned upload URL's short expiry is stated, which is a different question.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:30:24.623Z"
+}

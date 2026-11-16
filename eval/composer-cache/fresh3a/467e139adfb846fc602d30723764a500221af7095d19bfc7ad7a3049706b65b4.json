@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5276,
+ "verdict": {
+  "asked": [
+   {
+    "item": "set a topic tag when posting to Threads through Blotato",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The Threads pages list only replyControl and additionalPosts as fields and never mention topic tags; the only tag sentences concern YouTube, a neighboring topic, so no sentence states whether Threads topic tags can be set.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:25:46.408Z"
+}

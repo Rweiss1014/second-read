@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4945,
+ "verdict": {
+  "asked": [
+   {
+    "item": "does next free slot skip public holidays like Thanksgiving",
+    "steps": []
+   },
+   {
+    "item": "will it still post into the Thursday slot",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence says anything about public holidays, so the help pages do not state whether next free slot skips Thanksgiving; the closest sentences only cover skipping occupied slots, a neighboring question.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:28:24.541Z"
+}

@@ -1,0 +1,49 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7593,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can Claude search the Inspiration database via the Blotato MCP server",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "How to search Inspiration for meal prep posts in the web app",
+    "steps": [
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages directly state that the MCP tool catalog has no Inspiration Database search tool, and they describe the web-app search steps.",
+  "steps": [
+   {
+    "text": "The Blotato MCP tool catalog does not expose an Inspiration Database search tool, so Claude can't search Inspiration through the MCP server.",
+    "quotes": [
+     "S8"
+    ]
+   },
+   {
+    "text": "To search in the web app, open the navigation menu, expand Tools, and select Inspiration.",
+    "quotes": [
+     "S81",
+     "S82",
+     "S83"
+    ]
+   },
+   {
+    "text": "Use Search posts... to enter your topic.",
+    "quotes": [
+     "S84"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:59:31.149Z"
+}

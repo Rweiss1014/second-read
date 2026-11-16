@@ -1,0 +1,43 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8055,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why TikTok videos always get about 30 views",
+    "steps": [
+     1,
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The TikTok FAQ says what consistently under 50 views means and what it recommends.",
+  "steps": [
+   {
+    "text": "If your views are consistently under 50, something is wrong with your account.",
+    "quotes": [
+     "S2",
+     "S3"
+    ]
+   },
+   {
+    "text": "If you have 10 videos in a row that all get under 50 views, your account is likely shadowbanned.",
+    "quotes": [
+     "S4"
+    ]
+   },
+   {
+    "text": "The help page recommends starting fresh with a new account.",
+    "quotes": [
+     "S5"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:32:34.566Z"
+}

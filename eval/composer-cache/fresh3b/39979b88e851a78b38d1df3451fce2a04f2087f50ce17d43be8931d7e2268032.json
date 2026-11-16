@@ -1,0 +1,49 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7800,
+ "verdict": {
+  "asked": [
+   {
+    "item": "regenerate to preview other versions for free",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "check credit cost before or after generating",
+    "steps": [
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages directly state that regenerating is not a free preview and that credit costs can be seen before generating.",
+  "steps": [
+   {
+    "text": "Regenerating media is another generation action, not a free preview.",
+    "quotes": [
+     "S155"
+    ]
+   },
+   {
+    "text": "Check the credit cost before you generate, and use the estimate for the complete job.",
+    "quotes": [
+     "S147",
+     "S102"
+    ]
+   },
+   {
+    "text": "In the video editor, click a GREEN image track to see the credit cost above the Regenerate button.",
+    "quotes": [
+     "S103",
+     "S104"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:28:17.148Z"
+}

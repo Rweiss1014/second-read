@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 5145,
+ "verdict": {
+  "queries": [
+   "Creator plan price per month",
+   "Creator plan monthly credits included",
+   "Blotato pricing plans credits per month",
+   "Plans and pricing credits allowance"
+  ]
+ }
+}

@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8929,
+ "verdict": {
+  "asked": [
+   {
+    "item": "12 drafts from yesterday are missing",
+    "steps": []
+   },
+   {
+    "item": "Same laptop and Chrome, nothing cleared, not in Remix",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer says the drafts are missing in the same browser and from Remix, and the help pages say to send this case to support, so the team needs to review it.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:12:08.721Z"
+}

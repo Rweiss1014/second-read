@@ -1,0 +1,55 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8206,
+ "verdict": {
+  "answerable": true,
+  "reason": "The help pages say scheduledTime must sit beside post, and when it is nested inside post it is ignored and the post publishes immediately, which matches what happened.",
+  "asked": [
+   {
+    "item": "why the post went live immediately",
+    "steps": [
+     2
+    ]
+   },
+   {
+    "item": "scheduledTime placed inside post{}",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "format of the scheduledTime value",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "steps": [
+   {
+    "text": "scheduledTime must be a root-level field, a sibling of post, not inside it.",
+    "quotes": [
+     "S9",
+     "S67"
+    ]
+   },
+   {
+    "text": "If scheduledTime is nested inside post, it is ignored and the post publishes immediately.",
+    "quotes": [
+     "S68"
+    ]
+   },
+   {
+    "text": "Use an ISO 8601 timestamp with a timezone offset for scheduledTime.",
+    "quotes": [
+     "S10",
+     "S58"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:28:00.635Z"
+}

@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4622,
+ "verdict": {
+  "queries": [
+   "YouTube playlist selection when scheduling a video in Blotato",
+   "create new YouTube playlist from Blotato upload",
+   "YouTube playlist dropdown only shows existing playlists",
+   "YouTube settings playlist field Blotato"
+  ]
+ },
+ "at": "2026-11-16T07:47:30.007Z"
+}

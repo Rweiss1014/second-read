@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4357,
+ "verdict": {
+  "queries": [
+   "n8n template status check 429 Too Many Requests",
+   "Blotato API rate limit 429 status polling",
+   "Blotato API rate limits requests per minute",
+   "Retry-After header 429 Blotato API",
+   "n8n Blotato node retry on fail wait between requests",
+   "Blotato post status check GET /v2/posts/{postId} polling interval",
+   "Blotato n8n workflow stops error handling continue on fail"
+  ]
+ }
+}

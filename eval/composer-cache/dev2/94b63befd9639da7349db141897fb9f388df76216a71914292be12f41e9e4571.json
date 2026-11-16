@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7741,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is the video stuck or dead after 3 hours on exporting with no error",
+    "steps": []
+   },
+   {
+    "item": "Avoid making another video and spending more credits",
+    "steps": []
+   },
+   {
+    "item": "Polling every 20 seconds",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say AI video renders take up to 10-15 minutes and to keep polling until done or error. They don't say what it means when a render has been exporting for 3 hours with no error, so a team member should check this video.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:32:37.579Z"
+}

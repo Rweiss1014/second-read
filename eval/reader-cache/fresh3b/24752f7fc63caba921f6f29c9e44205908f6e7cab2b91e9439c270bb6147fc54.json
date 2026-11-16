@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4239,
+ "verdict": {
+  "points": [
+   {
+    "point": "add own .srt subtitle file when posting to YouTube",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry says whether a custom .srt subtitle file can be added to a YouTube post; the candidates cover TikTok subtitle tracks, uploading media, and other topics."
+ },
+ "at": "2026-11-16T08:11:47.454Z"
+}

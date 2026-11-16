@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6064,
+ "verdict": {
+  "asked": [
+   {
+    "item": "official Python SDK for the REST API",
+    "steps": []
+   },
+   {
+    "item": "official npm package for the REST API",
+    "steps": []
+   },
+   {
+    "item": "write raw HTTP calls instead",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence says whether an official Python SDK or npm package exists; the pages only show raw REST API call examples and the n8n node package, which answer a neighboring question.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:14:27.749Z"
+}

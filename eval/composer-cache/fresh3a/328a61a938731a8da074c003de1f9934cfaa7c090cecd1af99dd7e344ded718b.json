@@ -1,0 +1,49 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8216,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why public comment replies differ each time",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "How to control the varying replies",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The DM Automations Guide says the public reply card holds several replies and Blotato picks one at random for each comment.",
+  "steps": [
+   {
+    "text": "The Reply to the comment card turns on with 3 default replies.",
+    "quotes": [
+     "S27"
+    ]
+   },
+   {
+    "text": "Blotato picks one of the replies at random for each comment, so the wording changes from comment to comment.",
+    "quotes": [
+     "S35",
+     "S36"
+    ]
+   },
+   {
+    "text": "You can edit the texts in the Reply fields. With more than 3 replies, you can click Remove beside one you do not want.",
+    "quotes": [
+     "S33",
+     "S37"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:09:34.098Z"
+}

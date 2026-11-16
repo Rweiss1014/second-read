@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8634,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why completed + failed (212) is less than triggered (230)",
+    "steps": []
+   },
+   {
+    "item": "Whether the other 18 people got their DM",
+    "steps": []
+   },
+   {
+    "item": "Whether leads are being lost",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages explain the gap: in-progress, expired and superseded runs count as triggered only, and issues is a subset of failed. They don't say whether these 18 people got a DM or whether leads were lost, which only this account's runs can show.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:46:26.133Z"
+}

@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4859,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is there an undo for deleting a video in the Videos library?",
+    "steps": []
+   },
+   {
+    "item": "Can a deleted video be brought back?",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages explain how to delete a video (S50-S51) but say nothing about undoing a deletion or restoring a deleted video, so the customer's question has no answer in the sentences.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:13:49.183Z"
+}

@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3402,
+ "verdict": {
+  "queries": [
+   "Pinterest \"This site doesn't allow you to save Pins\" error",
+   "Pinterest pin save blocked website Rich Pins claim website",
+   "Pinterest claim domain website verification Pinterest business account",
+   "Blotato Pinterest pin publishing error save blocked",
+   "Blotato Pinterest board link destination URL settings"
+  ]
+ }
+}

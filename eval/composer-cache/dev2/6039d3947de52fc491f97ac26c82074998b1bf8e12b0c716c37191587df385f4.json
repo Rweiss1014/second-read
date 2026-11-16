@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4240,
+ "verdict": {
+  "queries": [
+   "AI avatar video template selfie style talking to camera",
+   "UGC video template AI generated person",
+   "Blotato video templates list talking head avatar",
+   "AI influencer avatar fictional person video template",
+   "choose video template for product videos"
+  ]
+ }
+}

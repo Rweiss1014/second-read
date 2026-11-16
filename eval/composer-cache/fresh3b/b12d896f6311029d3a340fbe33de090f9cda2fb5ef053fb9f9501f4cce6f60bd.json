@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5955,
+ "verdict": {
+  "asked": [
+   {
+    "item": "single sign-on with Google Workspace",
+    "steps": []
+   },
+   {
+    "item": "two-factor authentication support",
+    "steps": []
+   },
+   {
+    "item": "team of four using Blotato",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No help page sentence says whether Blotato supports Google Workspace single sign-on or two-factor authentication; the sentences only describe magic link login without a password, which is a neighboring topic.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:27:48.328Z"
+}

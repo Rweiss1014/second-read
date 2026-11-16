@@ -1,0 +1,42 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5883,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Carousel made via n8n not visible in the app",
+    "steps": [
+     1,
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The FAQ says all generated visuals, including carousels made in n8n, are saved at Videos, and it says how to find and open them.",
+  "steps": [
+   {
+    "text": "Visuals you generate, including carousels made in n8n, are saved at Videos.",
+    "quotes": [
+     "S35"
+    ]
+   },
+   {
+    "text": "If you can't find it, go directly to my.blotato.com/videos and look for your recent creations there.",
+    "quotes": [
+     "S36"
+    ]
+   },
+   {
+    "text": "To download or publish it, click on it in the Videos library to open the editor.",
+    "quotes": [
+     "S37"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:38:12.829Z"
+}

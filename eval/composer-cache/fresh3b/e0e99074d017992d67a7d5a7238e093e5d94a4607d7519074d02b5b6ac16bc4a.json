@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7018,
+ "verdict": {
+  "asked": [
+   {
+    "item": "New Facebook Page 'Harbor Coffee Co' not showing in Blotato after Reconnect",
+    "steps": []
+   },
+   {
+    "item": "Needs it working today",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer already did the reconnect and Page selection, and the Page is still missing. The pages say to send details to support in that case, so the team needs to review it.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:11:23.486Z"
+}

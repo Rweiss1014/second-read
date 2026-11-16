@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9355,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Poller never sees 'publishing' status",
+    "steps": []
+   },
+   {
+    "item": "Is this a bug",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The blog post lists a `publishing` status, but the Get Post Status page lists in-progress, scheduled, published and failed. The sentences don't say which is current or whether this is a bug, so the team should review it.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:50:18.187Z"
+}

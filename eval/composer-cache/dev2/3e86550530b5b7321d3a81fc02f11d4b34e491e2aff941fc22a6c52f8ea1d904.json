@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5223,
+ "verdict": {
+  "asked": [
+   {
+    "item": "create a poll on X with Blotato",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences only say Blotato does not support LinkedIn poll publishing, and say nothing about polls on X, so the closest answer is about a neighboring platform.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:58:36.319Z"
+}

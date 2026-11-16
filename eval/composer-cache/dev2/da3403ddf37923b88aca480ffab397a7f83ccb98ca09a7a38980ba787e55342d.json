@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6453,
+ "verdict": {
+  "asked": [
+   {
+    "item": "what did the Claude caption edit do to the scheduled Instagram post",
+    "steps": []
+   },
+   {
+    "item": "photo is now missing from the scheduled post",
+    "steps": []
+   },
+   {
+    "item": "time stayed the same after the edit",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "Whether the photo was removed depends on the exact update call Claude sent for this post, which only this customer's account and tool history can show, so the help pages cannot confirm the cause.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:58:15.654Z"
+}

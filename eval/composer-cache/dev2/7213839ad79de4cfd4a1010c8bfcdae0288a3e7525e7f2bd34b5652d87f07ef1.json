@@ -1,0 +1,54 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5652,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Video in slide 3 of a carousel has no sound on Instagram",
+    "steps": [
+     1,
+     2,
+     3
+    ]
+   },
+   {
+    "item": "Voiceover is baked into the video file",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "How to keep the sound of the video",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The limitations page directly explains that Instagram strips audio from video slides inside a carousel even when the audio is baked into the file, and gives the Reel workaround.",
+  "steps": [
+   {
+    "text": "Instagram strips the audio from video slides when they are posted inside a carousel, even when the audio is baked into the video file.",
+    "quotes": [
+     "S21"
+    ]
+   },
+   {
+    "text": "This is an Instagram-side limitation, not a Blotato issue.",
+    "quotes": [
+     "S22"
+    ]
+   },
+   {
+    "text": "To keep the sound, post the video on its own as a Reel instead of inside a carousel.",
+    "quotes": [
+     "S23"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:59:56.512Z"
+}

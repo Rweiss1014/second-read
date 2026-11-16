@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5587,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Rate limit on GET /v2/analytics/summary",
+    "steps": []
+   },
+   {
+    "item": "Rate limit on GET /v2/analytics/platforms",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages state no limit for these two routes (the overview table shows a dash, which does not mean unlimited), and the 60 per minute figure is for Get post analytics, a different route.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:09:35.953Z"
+}

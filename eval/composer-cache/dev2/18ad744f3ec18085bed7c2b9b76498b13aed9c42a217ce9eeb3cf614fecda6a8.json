@@ -1,0 +1,69 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 11742,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Reset Meta privacy settings to find the setting",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Disconnect Instagram from Blotato and start over",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Setting missing from Accounts Center",
+    "steps": [
+     2,
+     3,
+     4,
+     5
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help page says not to reset settings or remove a connection to find a missing menu label. It also gives steps for when the Meta setting is missing.",
+  "steps": [
+   {
+    "text": "Don't reset all settings or remove a working connection just to find an old menu label.",
+    "quotes": [
+     "S11"
+    ]
+   },
+   {
+    "text": "Meta's privacy labels differ between account versions.",
+    "quotes": [
+     "S2"
+    ]
+   },
+   {
+    "text": "Read the exact message on the platform's authorization screen.",
+    "quotes": [
+     "S4"
+    ]
+   },
+   {
+    "text": "If the message requires a privacy-setting change, follow its current Accounts Center link, and review the change before approving it.",
+    "quotes": [
+     "S5",
+     "S6"
+    ]
+   },
+   {
+    "text": "Then return to Accounts, retry the affected account's authorization, and confirm the intended username and Pages appear.",
+    "quotes": [
+     "S7",
+     "S8"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:31:41.743Z"
+}

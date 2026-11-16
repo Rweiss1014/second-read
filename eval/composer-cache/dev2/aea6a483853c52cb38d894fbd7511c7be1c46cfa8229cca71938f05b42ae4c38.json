@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5603,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Use Blotato in the Claude app on an iPhone",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages cover Blotato with Claude Desktop, Claude.ai and Claude Code, but none say whether it works in the Claude iPhone app.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:32:53.456Z"
+}

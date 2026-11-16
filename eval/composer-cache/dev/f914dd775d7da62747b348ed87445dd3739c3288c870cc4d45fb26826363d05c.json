@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3349,
+ "verdict": {
+  "queries": [
+   "Blotato AI Agent write post",
+   "Blotato Developer Platform Overview Logs Posts sidebar",
+   "Blotato AI Agent create post built-in",
+   "Blotato Developer Platform menu items"
+  ]
+ }
+}

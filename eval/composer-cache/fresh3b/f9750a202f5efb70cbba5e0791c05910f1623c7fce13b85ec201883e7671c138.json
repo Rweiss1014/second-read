@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6149,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does the Viral AI Coach accept .mov files, or only MP4?",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages give the Viral AI Coach upload size limit (100MB) but not its accepted file formats; the MOV and MP4 lists are for publishing to specific platforms, not the coach.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:11:39.039Z"
+}

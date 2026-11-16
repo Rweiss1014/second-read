@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6412,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Score threshold for getting the 10 hooks",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "S29 says the 10 hooks are generated if you score below a certain threshold, but no sentence states what that threshold is.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:31:40.997Z"
+}

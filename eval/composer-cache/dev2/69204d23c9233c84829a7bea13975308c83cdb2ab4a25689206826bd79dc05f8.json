@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6182,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does mcp.blotato.com expose an /sse endpoint",
+    "steps": []
+   },
+   {
+    "item": "Any fallback for SSE-only clients",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say the server runs at https://mcp.blotato.com/mcp using Streamable HTTP, but none says whether an SSE endpoint or an SSE fallback exists.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:46:05.998Z"
+}

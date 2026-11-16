@@ -1,0 +1,55 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 11443,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Did the post go to both the profile and the company Page?",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Did I break something?",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "How to get the same content on both the profile and the company Page",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages explain how the All LinkedIn slot works and that the destination selected on each post controls where it publishes, which answers the customer's question about why the post went only to the company Page.",
+  "steps": [
+   {
+    "text": "A calendar slot labeled All LinkedIn makes the slot available to posts for any connected LinkedIn destination, but it does not publish one post to every profile and Page.",
+    "quotes": [
+     "S41",
+     "S42"
+    ]
+   },
+   {
+    "text": "The destination selected on the post controls where it publishes.",
+    "quotes": [
+     "S40"
+    ]
+   },
+   {
+    "text": "To publish the same content to both a personal profile and a company Page, create one post for each destination.",
+    "quotes": [
+     "S21"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:00:37.618Z"
+}

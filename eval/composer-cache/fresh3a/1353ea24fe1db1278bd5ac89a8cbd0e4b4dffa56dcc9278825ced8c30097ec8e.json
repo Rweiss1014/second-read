@@ -1,0 +1,53 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8191,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can private replies be sent to the main inbox instead of Message Requests",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Why replies land in Message Requests (person has not messaged the Page before)",
+    "steps": [
+     2
+    ]
+   },
+   {
+    "item": "What can be done so people find the message",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages directly state that Facebook decides where a private reply lands and Blotato cannot change it, and they give the page's own workaround.",
+  "steps": [
+   {
+    "text": "Blotato cannot change where a private reply lands, because Facebook decides that.",
+    "quotes": [
+     "S55"
+    ]
+   },
+   {
+    "text": "Facebook can put a private reply in Message Requests when the person has not messaged your Page before.",
+    "quotes": [
+     "S53",
+     "S54"
+    ]
+   },
+   {
+    "text": "To help people find the message, use the automation's public reply to tell them to check Message Requests.",
+    "quotes": [
+     "S56"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:26:14.832Z"
+}

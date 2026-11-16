@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7677,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why a made-up ID returns in-progress instead of 404",
+    "sentence": "If none matches, it returns in-progress. This fallback does not confirm a live queue job or validate a guessed submission ID."
+   },
+   {
+    "point": "Is the endpoint broken",
+    "sentence": "In-progress can also mean Blotato found no record for that id, so it does not prove the post exists or failed."
+   }
+  ],
+  "pick": "in-progress",
+  "reason": "The in-progress entry says an unmatched or guessed ID returns in-progress as a fallback, so this is the endpoint's normal behavior and not a break."
+ },
+ "at": "2026-11-16T08:11:31.272Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3880,
+ "verdict": {
+  "points": [
+   {
+    "point": "Rate limit on GET /v2/analytics/summary",
+    "sentence": ""
+   },
+   {
+    "point": "Rate limit on GET /v2/analytics/platforms",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states a rate limit for the analytics routes; the rate-limit entry only gives 30/min for Upload Media and Publish Post, which is a different question."
+ },
+ "at": "2026-11-16T08:09:26.226Z"
+}

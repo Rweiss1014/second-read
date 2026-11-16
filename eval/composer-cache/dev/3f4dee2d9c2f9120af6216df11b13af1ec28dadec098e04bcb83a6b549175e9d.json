@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6533,
+ "verdict": {
+  "asked": [
+   {
+    "item": "why DELETE /v2/schedules/{id} returns 404 for an id that GET /v2/schedules lists",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The only 404 text (S60) gives three possible causes (not found, not on your account, or no longer a future scheduled post), and I cannot tell from the sentences which one applies to this schedule, which needs a check of this account's record by the team.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:14:13.345Z"
+}

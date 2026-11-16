@@ -1,0 +1,51 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6981,
+ "verdict": {
+  "asked": [
+   {
+    "item": "DNS error for api.blotato.com",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "is Blotato down",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages say api.blotato.com is not a valid base URL, give the two valid URLs, and say not to trust an agent's claim of an outage.",
+  "steps": [
+   {
+    "text": "api.blotato.com is not a valid base URL, so your agent guessed wrong when it used it.",
+    "quotes": [
+     "S48",
+     "S49"
+    ]
+   },
+   {
+    "text": "For the REST API (direct HTTP, n8n, Make), use https://backend.blotato.com/v2. For the MCP Server, use https://mcp.blotato.com/mcp.",
+    "quotes": [
+     "S46",
+     "S47",
+     "S50"
+    ]
+   },
+   {
+    "text": "If an AI agent tells you Blotato is returning a persistent API error, do not trust that summary. Open the Logs and read the raw response.",
+    "quotes": [
+     "S14",
+     "S15"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:49:14.955Z"
+}

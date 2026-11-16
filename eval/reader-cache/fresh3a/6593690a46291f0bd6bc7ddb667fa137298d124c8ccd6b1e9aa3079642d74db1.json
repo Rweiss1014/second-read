@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3438,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can Blotato auto-repost via native LinkedIn Repost button",
+    "sentence": ""
+   },
+   {
+    "point": "CEO's posts reposted to company Page",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether Blotato can automatically use LinkedIn's native Repost for another person's posts to a company Page; the LinkedIn entries cover posting to Pages, connecting Pages, analytics and limits only."
+ },
+ "at": "2026-11-16T08:08:24.935Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4245,
+ "verdict": {
+  "points": [
+   {
+    "point": "Terminal says 'command not found: claude'",
+    "sentence": ""
+   },
+   {
+    "point": "Whether the Blotato account is set up",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry covers installing the claude command-line tool or fixing 'command not found: claude' in Terminal, and none says what that error means for the customer's Blotato account setup."
+ },
+ "at": "2026-11-16T08:06:58.308Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3857,
+ "verdict": {
+  "points": [
+   {
+    "point": "Export button in Inbox for CSV download of comments + DMs",
+    "sentence": ""
+   },
+   {
+    "point": "45-day retention limit",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether the Inbox has an export or CSV download option, or anything about a 45-day limit; the closest entries cover Inbox platforms and reading DMs, which are neighboring topics."
+ },
+ "at": "2026-11-16T08:12:22.265Z"
+}

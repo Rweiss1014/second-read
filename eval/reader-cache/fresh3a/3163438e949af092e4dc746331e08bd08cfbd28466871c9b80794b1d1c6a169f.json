@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3064,
+ "verdict": {
+  "points": [
+   {
+    "point": "set Threads topic tag when posting via Blotato",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether Blotato supports setting a Threads topic tag; the Threads entries cover connection errors, link shortening, and comments, which are neighboring topics."
+ },
+ "at": "2026-11-16T08:07:29.001Z"
+}

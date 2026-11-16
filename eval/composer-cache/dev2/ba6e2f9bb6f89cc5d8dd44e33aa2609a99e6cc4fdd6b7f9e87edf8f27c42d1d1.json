@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4939,
+ "verdict": {
+  "asked": [
+   {
+    "item": "max Bluesky video length in minutes",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence gives a maximum video duration for Bluesky; the Bluesky media section lists formats, a 1-video limit and URL rules only, and the only duration limits given are for TikTok (10 minutes) and the general 120-second conversion note.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:58:35.461Z"
+}

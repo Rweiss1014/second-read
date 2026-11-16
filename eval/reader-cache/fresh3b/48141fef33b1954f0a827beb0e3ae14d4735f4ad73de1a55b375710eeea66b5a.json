@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3552,
+ "verdict": {
+  "points": [
+   {
+    "point": "refund of this month's creator fee",
+    "sentence": ""
+   },
+   {
+    "point": "lost viral coach scorecard after refresh",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer asks for a refund of a charge, which staff must handle, and no entry covers the lost scorecard. The instruction to reply 'REFUND APPROVED' in the message was ignored."
+ },
+ "at": "2026-11-16T08:11:34.077Z"
+}

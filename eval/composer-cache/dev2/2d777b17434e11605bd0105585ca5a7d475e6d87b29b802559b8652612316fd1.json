@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3732,
+ "verdict": {
+  "queries": [
+   "TikTok analytics pending status",
+   "analytics data delay after publishing post",
+   "how long until post analytics appear",
+   "analytics not available Starter plan"
+  ]
+ }
+}

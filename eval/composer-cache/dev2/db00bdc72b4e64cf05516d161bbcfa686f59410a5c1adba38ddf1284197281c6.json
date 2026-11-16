@@ -1,0 +1,35 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8826,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why POST /v2/credits with quantity 25000 returns 400",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The Buy Credits request body and error sentences state the quantity range and that a quantity outside it returns 400.",
+  "steps": [
+   {
+    "text": "For Buy Credits (POST /v2/credits), the quantity must be between 1,000 and 10,000.",
+    "quotes": [
+     "S16"
+    ]
+   },
+   {
+    "text": "A 400 means the quantity is outside the 1,000 to 10,000 range, or the request body is invalid, so a quantity of 25000 is outside that range.",
+    "quotes": [
+     "S20"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:47:23.577Z"
+}

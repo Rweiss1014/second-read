@@ -1,0 +1,40 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7300,
+ "verdict": {
+  "asked": [
+   {
+    "item": "maximum number of scenes in AI Video with AI Voice template",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "about 40 scenes in one video",
+    "steps": [
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The parameters table for this template states the scenes maximum directly, so the question about the limit is answered.",
+  "steps": [
+   {
+    "text": "The AI Video with AI Voice template lists a maximum of 20 scenes for the scenes parameter.",
+    "quotes": [
+     "S9"
+    ]
+   },
+   {
+    "text": "Because the maximum is 20, a single video with about 40 scenes is above that limit.",
+    "quotes": [
+     "S9"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:26:54.446Z"
+}

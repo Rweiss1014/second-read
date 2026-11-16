@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5161,
+ "verdict": {
+  "queries": [
+   "uploaded media file retention period publicUrl",
+   "presigned upload media storage how long files are kept",
+   "database.blotato.io public URL expiration",
+   "automatic deletion of uploaded media files",
+   "media upload API publicUrl persistent link"
+  ]
+ },
+ "at": "2026-11-16T07:45:05.031Z"
+}

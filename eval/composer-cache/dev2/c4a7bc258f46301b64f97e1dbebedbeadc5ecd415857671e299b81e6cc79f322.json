@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4770,
+ "verdict": {
+  "queries": [
+   "scheduledTime API field ISO 8601 timezone offset",
+   "scheduledTime without timezone defaults to UTC",
+   "REST API scheduled post time zone conversion",
+   "schedule post time zone setting web app",
+   "post published at wrong time timezone mismatch"
+  ]
+ }
+}

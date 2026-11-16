@@ -1,0 +1,61 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 17990,
+ "verdict": {
+  "asked": [
+   {
+    "item": "is my account broken (pending state)",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "when should numbers show on Starter",
+    "steps": [
+     3
+    ]
+   },
+   {
+    "item": "TikTok post on Starter plan",
+    "steps": [
+     3,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The sentences state what \"Analytics pending\" means, that it does not establish an account-connection failure, and the Starter first-collection timing, so the customer's timing and account questions can be answered without guessing.",
+  "steps": [
+   {
+    "text": "\"Analytics pending\" means no metric history is available yet.",
+    "quotes": [
+     "S47"
+    ]
+   },
+   {
+    "text": "Pending does not mean your account is broken, because it does not establish an account-connection failure.",
+    "quotes": [
+     "S48"
+    ]
+   },
+   {
+    "text": "On the Starter plan, the first metrics are collected at 1 day after the post publishes, and a post shows no metrics until that first checkpoint passes.",
+    "quotes": [
+     "S56",
+     "S20"
+    ]
+   },
+   {
+    "text": "TikTok analytics are supported by Blotato.",
+    "quotes": [
+     "S9"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:00:55.230Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4635,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is the title the cause of the rejection?",
+    "sentence": ""
+   },
+   {
+    "point": "YouTube API upload rejected (no error given)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry says whether a title or its \"<NEW>\" characters can cause a YouTube rejection, and the customer gave no error, so any entry would be a guess."
+ },
+ "at": "2026-11-16T08:09:45.879Z"
+}

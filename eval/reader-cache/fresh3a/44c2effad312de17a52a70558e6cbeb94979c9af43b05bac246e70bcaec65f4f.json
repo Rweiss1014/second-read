@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4035,
+ "verdict": {
+  "points": [
+   {
+    "point": "max trigger keywords per DM automation",
+    "sentence": ""
+   },
+   {
+    "point": "150 product names fit in the limit",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states a maximum number of trigger keywords per DM automation; the DM automation entries only mention a shared keyword list and trigger counts, not a keyword limit."
+ },
+ "at": "2026-11-16T08:08:14.397Z"
+}

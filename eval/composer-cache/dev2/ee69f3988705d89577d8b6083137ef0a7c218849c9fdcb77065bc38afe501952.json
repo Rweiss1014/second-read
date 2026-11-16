@@ -1,0 +1,44 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4801,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why no DM arrived after commenting GUIDE on own reel from the business account",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages state that comments from the connected account itself are skipped and describe how to test from a different account.",
+  "steps": [
+   {
+    "text": "Blotato skips comments posted by the same Instagram account or Facebook Page connected to the automation, so your own comment does not start a run or send a direct message.",
+    "quotes": [
+     "S49",
+     "S50"
+    ]
+   },
+   {
+    "text": "To test, publish the automation, sign in to a different Instagram or Facebook account, and leave a new top-level comment on the target post using one of the keywords.",
+    "quotes": [
+     "S15",
+     "S16",
+     "S17"
+    ]
+   },
+   {
+    "text": "Then confirm the other account receives the direct message.",
+    "quotes": [
+     "S19"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:48:59.793Z"
+}

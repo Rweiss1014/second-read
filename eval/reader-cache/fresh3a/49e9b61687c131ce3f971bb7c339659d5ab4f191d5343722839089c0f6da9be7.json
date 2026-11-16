@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 2871,
+ "verdict": {
+  "points": [
+   {
+    "point": "commercial use of AI images on ads and packaging",
+    "sentence": ""
+   },
+   {
+    "point": "who owns rights to generated images",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states anything about commercial-use permission or ownership of generated images; the no-training entry only covers AI training on uploaded content, which is a neighboring topic."
+ },
+ "at": "2026-11-16T08:08:07.690Z"
+}

@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3740,
+ "verdict": {
+  "queries": [
+   "Blotato nonprofit discount Creator plan",
+   "Blotato pricing non-profit organization registered charity discount",
+   "Blotato Creator plan price plan features"
+  ]
+ },
+ "at": "2026-11-16T08:08:25.658Z"
+}

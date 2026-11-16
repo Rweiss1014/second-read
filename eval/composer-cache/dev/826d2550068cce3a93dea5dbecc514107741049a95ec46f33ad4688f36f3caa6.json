@@ -1,0 +1,72 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9331,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Codex can't attach local mp4 to blotato_create_post",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Right sequence for a file on the laptop",
+    "steps": [
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages give the upload sequence for a local file: get a presigned URL, PUT the bytes, then pass publicUrl to blotatocreatepost.",
+  "steps": [
+   {
+    "text": "blotatocreatepost does not accept local file paths, so media must be a publicly accessible URL.",
+    "quotes": [
+     "S143",
+     "S144"
+    ]
+   },
+   {
+    "text": "Make sure the assistant has access to the file and an HTTP upload tool.",
+    "quotes": [
+     "S9"
+    ]
+   },
+   {
+    "text": "Call blotatocreatepresigneduploadurl with the filename, including the extension, and it returns a presignedUrl and a publicUrl.",
+    "quotes": [
+     "S148",
+     "S149"
+    ]
+   },
+   {
+    "text": "Upload the raw file bytes to presignedUrl with an HTTP PUT, not JSON and not multipart form data.",
+    "quotes": [
+     "S150",
+     "S152"
+    ]
+   },
+   {
+    "text": "Check that the upload succeeded before using publicUrl.",
+    "quotes": [
+     "S178"
+    ]
+   },
+   {
+    "text": "Pass the returned publicUrl in the mediaUrls field of blotatocreatepost.",
+    "quotes": [
+     "S153"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:50:25.955Z"
+}

@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3697,
+ "verdict": {
+  "queries": [
+   "viral-hooks skill output language",
+   "viral hooks generation in Spanish",
+   "skill generate hooks in other languages translation",
+   "viral hooks 100 hooks English only",
+   "content language setting Spanish Mexico posts"
+  ]
+ },
+ "at": "2026-11-16T07:49:04.662Z"
+}

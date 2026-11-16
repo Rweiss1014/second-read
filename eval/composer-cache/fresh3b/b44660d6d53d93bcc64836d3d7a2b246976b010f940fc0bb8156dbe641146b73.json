@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5004,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does Blotato post to Slack Connect shared channels",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages say Blotato posts to Slack channels and covers public and private channels, but no sentence mentions Slack Connect or shared channels, so the question cannot be answered from them.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:28:26.485Z"
+}

@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5291,
+ "verdict": {
+  "queries": [
+   "Connect social media account to Blotato",
+   "Adding accounts in Blotato web app OAuth authorization",
+   "Blotato API connect account accountId retrieve connected accounts",
+   "Blotato MCP server setup connect account",
+   "Reconnect disconnected social account Blotato troubleshooting"
+  ]
+ },
+ "at": "2026-11-16T07:50:18.511Z"
+}

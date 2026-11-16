@@ -1,0 +1,55 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6203,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Screen shows only 'What are we making today' box",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "No calendar or settings visible",
+    "steps": [
+     2,
+     3
+    ]
+   },
+   {
+    "item": "Did my account break?",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The FAQ section describes this exact empty Post editor screen and how to reach the rest of Blotato from the navigation menu.",
+  "steps": [
+   {
+    "text": "That screen is the empty Post editor, which shows \"What are we making today?\" and a Write posts about... box.",
+    "quotes": [
+     "S2"
+    ]
+   },
+   {
+    "text": "You do not need to generate a draft to access the rest of Blotato.",
+    "quotes": [
+     "S3"
+    ]
+   },
+   {
+    "text": "Open the navigation menu, then select Calendar, Posts, Videos, Accounts, or Settings.",
+    "quotes": [
+     "S4",
+     "S5"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:38:36.002Z"
+}

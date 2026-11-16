@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7435,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does animating a still with Seedance via the free generate skill use Creator plan credits",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences say generate needs provider credentials and that Blotato credits cover AI video generation, but they never say whether the generate skill's Seedance output is charged to Blotato credits.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:24:53.119Z"
+}

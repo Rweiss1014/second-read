@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5692,
+ "verdict": {
+  "asked": [
+   {
+    "item": "LinkedIn post line breaks lost",
+    "steps": []
+   },
+   {
+    "item": "\"Escape Multi-Line Paragraphs\" error in n8n",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages explain how to preserve newlines with toJsonString() in n8n, but none mention the \"Escape Multi-Line Paragraphs\" error or say what causes it, so that part has no stated answer.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:50:47.238Z"
+}

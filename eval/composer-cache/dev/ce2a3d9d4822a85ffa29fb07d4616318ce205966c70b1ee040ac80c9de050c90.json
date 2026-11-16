@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4655,
+ "verdict": {
+  "queries": [
+   "Tolt affiliate program recurring commission percentage",
+   "affiliate commission paid customers monthly subscription duration",
+   "Creator plan monthly referral commission payout",
+   "referral program commission lifetime or limited months"
+  ]
+ }
+}

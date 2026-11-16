@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3440,
+ "verdict": {
+  "queries": [
+   "Blotato upgrade from free trial to paid plan",
+   "Blotato billing subscription plans monthly annual",
+   "Blotato trial ends how to subscribe",
+   "Blotato Settings Billing manage subscription payment method"
+  ]
+ }
+}

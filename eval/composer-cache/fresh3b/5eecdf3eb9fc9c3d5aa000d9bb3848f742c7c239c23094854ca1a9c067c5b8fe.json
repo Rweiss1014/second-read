@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4552,
+ "verdict": {
+  "asked": [
+   {
+    "item": "posting to Slack Connect shared channels",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences never mention Slack Connect or shared channels, so no sentence answers whether Blotato posts to them.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:12:48.324Z"
+}

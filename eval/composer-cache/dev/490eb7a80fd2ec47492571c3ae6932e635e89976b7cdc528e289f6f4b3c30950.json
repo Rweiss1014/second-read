@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7823,
+ "verdict": {
+  "asked": [
+   {
+    "item": "A$155 charge after using the $1 offer",
+    "steps": []
+   },
+   {
+    "item": "Whether it is a currency issue or a scam",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer is disputing a charge on their own account, and the help page says to ask support to verify eligibility and billing, so a team member needs to review it.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:50:37.144Z"
+}

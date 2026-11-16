@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3949,
+ "verdict": {
+  "queries": [
+   "Make.com Blotato app modules list",
+   "Blotato Make.com delete visual module",
+   "Blotato delete visual carousel",
+   "Blotato visuals delete endpoint API",
+   "Blotato automation remove old carousel visuals"
+  ]
+ },
+ "at": "2026-11-16T07:45:20.833Z"
+}

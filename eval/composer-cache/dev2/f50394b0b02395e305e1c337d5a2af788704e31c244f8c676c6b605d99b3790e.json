@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8001,
+ "verdict": {
+  "asked": [
+   {
+    "item": "why POST /v2/credits with quantity 25000 returns 400",
+    "steps": []
+   },
+   {
+    "item": "how to get 25k credits for a client campaign",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The 400 cause is covered, but no sentence says how to get 25,000 credits in total, such as by making several purchases, so this needs the team.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:59:32.556Z"
+}

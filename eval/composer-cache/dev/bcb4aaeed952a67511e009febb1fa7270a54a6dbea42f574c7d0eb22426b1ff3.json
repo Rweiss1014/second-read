@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5167,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Nonprofit discount offered",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences cover promo codes and say no discount code is active, but none states whether a nonprofit discount exists, so a team member should answer.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:51:02.585Z"
+}

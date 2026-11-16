@@ -1,0 +1,48 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 12000,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why cleanTranscript=true on GET /v2/source-resolutions-v3/:id does not remove timestamps",
+    "steps": [
+     1,
+     3
+    ]
+   },
+   {
+    "item": "Is there a REST parameter named diff to remove timestamps",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages state that cleanTranscript is not a REST query parameter and that REST users must remove timestamps in their own workflow, which answers the customer's question about the REST endpoint.",
+  "steps": [
+   {
+    "text": "cleanTranscript is not a REST query parameter or an MCP tool argument.",
+    "quotes": [
+     "S10"
+    ]
+   },
+   {
+    "text": "For REST, retrieve the completed content first, then remove transcript timestamps in your agent or workflow if requested.",
+    "quotes": [
+     "S13"
+    ]
+   },
+   {
+    "text": "Sending cleanTranscript to this endpoint will not change the response.",
+    "quotes": [
+     "S14"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:00:29.604Z"
+}

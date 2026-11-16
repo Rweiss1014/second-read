@@ -142,11 +142,16 @@ export function checkReply(d, { reviewsDir, requireReview = false, checksDir = d
     const n = i + 1;
     if (s.type === 'fact') {
       if (!s.cite?.url || !s.cite?.quote) { problems.push(`Step ${n} states a fact with no source.`); return; }
-      const page = d.pages?.[s.cite.url];
-      const found = quoteOnPage(s.cite.quote, page);
-      citations.push({ step: n, url: s.cite.url, quote: s.cite.quote, found, fetchedAt: page?.fetchedAt || null, via: page?.via || null });
-      if (!page) problems.push(`Step ${n} cites ${s.cite.url}, but that page could not be read, so the claim cannot be checked.`);
-      else if (!found) problems.push(`Step ${n} cites "${s.cite.quote}", but that sentence is not on ${s.cite.url} (fetched ${page.fetchedAt.slice(0, 10)}).`);
+      // A composed step (src/composer.mjs) may rest on more than one sentence: `cites` lists them all, and each
+      // one is checked the same way. A saved entry's step has only `cite`.
+      for (const c of (Array.isArray(s.cites) && s.cites.length ? s.cites : [s.cite])) {
+        if (!c?.url || !c?.quote) { problems.push(`Step ${n} states a fact with no source.`); continue; }
+        const page = d.pages?.[c.url];
+        const found = quoteOnPage(c.quote, page);
+        citations.push({ step: n, url: c.url, quote: c.quote, found, fetchedAt: page?.fetchedAt || null, via: page?.via || null });
+        if (!page) problems.push(`Step ${n} cites ${c.url}, but that page could not be read, so the claim cannot be checked.`);
+        else if (!found) problems.push(`Step ${n} cites "${c.quote}", but that sentence is not on ${c.url} (fetched ${page.fetchedAt.slice(0, 10)}).`);
+      }
     } else if (s.type === 'evidence') {
       if (!d.evidence) problems.push(`Step ${n} rests on a lookup, but no lookup was made.`);
       else if (!d.evidence.ok) problems.push(`Step ${n} rests on a lookup that did not succeed: ${d.evidence.summary}`);
@@ -160,7 +165,8 @@ export function checkReply(d, { reviewsDir, requireReview = false, checksDir = d
     if (seen.has(line)) continue;
     seen.add(line);
     const at = stepAt.get(line);
-    const hits = findPromises(line, { quote: at?.s.type === 'fact' ? at.s.cite?.quote : undefined });
+    const quote = at?.s.type === 'fact' ? (Array.isArray(at.s.cites) && at.s.cites.length ? at.s.cites.map(c => c.quote).join(' ') : at.s.cite?.quote) : undefined;
+    const hits = findPromises(line, { quote });
     for (const h of hits) problems.push(at
       ? `Step ${at.n} makes ${h.why} ("${h.words}")${at.s.type === 'fact' ? ', and its quote does not say that' : ''}.`
       : `The line "${line}" makes ${h.why} ("${h.words}").`);

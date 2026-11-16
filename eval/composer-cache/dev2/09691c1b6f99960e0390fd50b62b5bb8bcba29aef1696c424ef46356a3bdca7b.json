@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4802,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why Bluesky posts show Published but links open 'post not found' and nothing is on the profile",
+    "steps": []
+   },
+   {
+    "item": "Whether this is caused by the connection (customer says connecting worked)",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help sentences give no cause or fix for a post that shows Published in Blotato but is missing on Bluesky; the FAQ heading \"My post shows 'published' but does not appear on the platform\" appears only as a title with no answer text, and the connection and reconnect sentences do not address it.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:59:26.248Z"
+}

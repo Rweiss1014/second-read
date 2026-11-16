@@ -1,0 +1,44 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5075,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Which template for a made-up person talking to camera, selfie style",
+    "steps": [
+     1,
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages name the AI Selfie Talking Video with Consistent Character template for a generated character talking to the camera, and say where to find it.",
+  "steps": [
+   {
+    "text": "Pick the \"AI Selfie Talking Video with Consistent Character\" template for a generated character video.",
+    "quotes": [
+     "S18"
+    ]
+   },
+   {
+    "text": "It is meant for a consistent AI-generated character (not your real face) and for videos where a character \"talks to the camera\".",
+    "quotes": [
+     "S4",
+     "S5"
+    ]
+   },
+   {
+    "text": "In the web app, open Videos > Create New Video and select it there.",
+    "quotes": [
+     "S17",
+     "S18"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:33:04.993Z"
+}

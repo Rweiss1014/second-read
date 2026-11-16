@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4323,
+ "verdict": {
+  "queries": [
+   "Update payment method billing settings",
+   "Unpaid invoice past due blocks dashboard access",
+   "Billing history invoices pay outstanding balance",
+   "Dashboard not loading login error workspace"
+  ]
+ },
+ "at": "2026-11-16T07:51:14.868Z"
+}

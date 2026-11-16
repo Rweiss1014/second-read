@@ -1,0 +1,55 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 11753,
+ "verdict": {
+  "asked": [
+   {
+    "item": "demo API key to try before paying",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "YOUR_API_KEY placeholder doesn't work",
+    "steps": [
+     3,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages state that API access is not included in the free trial and that generating a key starts billing, and they explain how to use the key from Settings > API, which answers the trial question and the placeholder problem.",
+  "steps": [
+   {
+    "text": "API access is not included in the free trial.",
+    "quotes": [
+     "S32"
+    ]
+   },
+   {
+    "text": "Generating an API key during a trial ends the trial and starts billing.",
+    "quotes": [
+     "S35"
+    ]
+   },
+   {
+    "text": "Replace the YOUR_API_KEY placeholder with your full API key, copied from Settings > API.",
+    "quotes": [
+     "S34",
+     "S53"
+    ]
+   },
+   {
+    "text": "Make sure there are no extra spaces or missing characters in the key.",
+    "quotes": [
+     "S66"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:14:41.516Z"
+}

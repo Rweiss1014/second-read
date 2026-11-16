@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6526,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Rate limit on schedules routes (DELETE /v2/schedules/:id)",
+    "steps": []
+   },
+   {
+    "item": "How to avoid 429s on bulk deletes",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The rate limit tables do not list the schedules routes, and S19 only says to consult each endpoint's reference for other limits, so no sentence states the limit for DELETE /v2/schedules/:id.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:33:11.014Z"
+}

@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4709,
+ "verdict": {
+  "points": [
+   {
+    "point": "post went out to a removed channel after disconnect",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry explains why a post still published to a channel after it was removed; the Slack entry says disconnecting removes future scheduled entries, which contradicts this customer's account, so it needs a person to look at the account."
+ },
+ "at": "2026-11-16T08:08:03.683Z"
+}

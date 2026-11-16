@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4628,
+ "verdict": {
+  "queries": [
+   "Access to this website is blocked by your network egress settings",
+   "Cowork network egress allowlist applies to new conversations only",
+   "Cowork existing conversation still blocked after egress change restart session",
+   "Cowork egress Package managers only allowed domains database.blotato.io",
+   "Cowork file upload blocked network egress existing chat"
+  ]
+ }
+}

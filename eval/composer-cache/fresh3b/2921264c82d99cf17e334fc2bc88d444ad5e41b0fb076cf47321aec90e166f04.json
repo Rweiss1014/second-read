@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3931,
+ "verdict": {
+  "queries": [
+   "Support response time",
+   "Agency plan service level agreement SLA",
+   "Agency plan priority support response times",
+   "Contact support Blotato help center",
+   "Enterprise custom contract SLA terms"
+  ]
+ },
+ "at": "2026-11-16T08:11:29.349Z"
+}

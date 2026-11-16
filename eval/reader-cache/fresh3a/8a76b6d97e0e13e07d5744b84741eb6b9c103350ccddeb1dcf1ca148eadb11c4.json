@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3220,
+ "verdict": {
+  "points": [
+   {
+    "point": "written guarantee against Pinterest shadowban",
+    "sentence": ""
+   },
+   {
+    "point": "legal responsibility threat",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer demands a written guarantee and threatens legal action, and no entry states such a guarantee, so the message goes to the team."
+ },
+ "at": "2026-11-16T08:07:57.169Z"
+}

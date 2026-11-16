@@ -1,0 +1,62 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9909,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why no company Page shows in the picker",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Listed as Analyst on the company Page",
+    "steps": [
+     2,
+     3,
+     4
+    ]
+   },
+   {
+    "item": "Whether the personal LinkedIn connection worked",
+    "steps": [
+     1
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The sentences say the Analyst role does not expose a Page to Blotato, and they give the role change and the fallback.",
+  "steps": [
+   {
+    "text": "The \"No LinkedIn pages found for this account\" message is informational, not an error, and your personal LinkedIn profile is already connected.",
+    "quotes": [
+     "S81"
+    ]
+   },
+   {
+    "text": "Your profile must have the Super Admin or Content Admin role, and Analyst access does not expose the Page to Blotato.",
+    "quotes": [
+     "S84",
+     "S85"
+    ]
+   },
+   {
+    "text": "Ask a Super Admin to update your role, then reconnect from an incognito Chrome window and select the Page.",
+    "quotes": [
+     "S86"
+    ]
+   },
+   {
+    "text": "If your role stays unchanged, ask a Super Admin or Content Admin to connect the Page to Blotato.",
+    "quotes": [
+     "S87"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:49:16.557Z"
+}

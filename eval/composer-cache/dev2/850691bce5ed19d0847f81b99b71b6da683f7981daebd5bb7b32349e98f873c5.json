@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4000,
+ "verdict": {
+  "queries": [
+   "Blotato API key location settings",
+   "Blotato MCP server configuration bearer token",
+   "MCP client config Bearer token env var setting",
+   "Blotato API authentication Authorization header Bearer"
+  ]
+ }
+}

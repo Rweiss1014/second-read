@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9489,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Where the other 18 runs went",
+    "steps": []
+   },
+   {
+    "item": "Whether those 18 contacts got their DM",
+    "steps": []
+   },
+   {
+    "item": "Whether leads are being lost",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say that in-progress, expired and superseded runs count toward triggered but not completed or failed, and that issues is a subset of failed. They don't say which of these the 18 runs are or whether those contacts got a DM, and only this account's runs can show that.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:24:45.636Z"
+}

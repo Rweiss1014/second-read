@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6302,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why the post published immediately instead of tomorrow 9am",
+    "sentence": ""
+   },
+   {
+    "point": "scheduledTime placed inside post{} (field placement)",
+    "sentence": ""
+   },
+   {
+    "point": "n8n HTTP node",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry (publish-now-vs-scheduled-api) says a post publishes immediately when no scheduling fields are provided, but none of its sentences say where scheduledTime belongs or that putting it inside post{} counts as omitting it, so the answer would be a guess."
+ },
+ "at": "2026-11-16T08:11:40.251Z"
+}

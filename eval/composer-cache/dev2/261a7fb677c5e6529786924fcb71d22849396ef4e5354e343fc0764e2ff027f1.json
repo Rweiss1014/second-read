@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3603,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Ask TikTok to restore banned shop account",
+    "steps": []
+   },
+   {
+    "item": "Why TikTok banned the account",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer asks staff to contact TikTok and get the banned account restored, which is a request for staff action, and whether this ban came from their posting is a fact only their own account can show.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:45:17.671Z"
+}

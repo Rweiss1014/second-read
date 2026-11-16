@@ -1,0 +1,48 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 11039,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is the title the problem?",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Title contains <NEW> (angle brackets)",
+    "steps": [
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The page's title rule says titles must not contain < or >, and the customer's title contains both, though the page does not name the exact rejection message.",
+  "steps": [
+   {
+    "text": "The YouTube API Fields list says the title must not include < or >.",
+    "quotes": [
+     "S86"
+    ]
+   },
+   {
+    "text": "Your title contains < and > characters, which that rule does not allow.",
+    "quotes": [
+     "S86"
+    ]
+   },
+   {
+    "text": "Remove the < and > characters from the title.",
+    "quotes": [
+     "S86"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:26:48.794Z"
+}

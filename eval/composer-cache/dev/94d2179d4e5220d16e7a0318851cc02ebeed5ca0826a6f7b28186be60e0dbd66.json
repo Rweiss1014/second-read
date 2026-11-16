@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3241,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Switch Blotato menus and buttons to German",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the help sentences say whether Blotato's interface language can be changed or whether German is available, so the question has no answer in them.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:38:14.645Z"
+}

@@ -40,7 +40,12 @@ function printResult(r) {
   for (const c of r.check.citations) console.log(`  step ${c.step}: ${c.found ? 'found' : 'NOT FOUND'} on ${c.url}${c.fetchedAt ? ` (fetched ${c.fetchedAt.slice(0, 10)})` : ''}`);
   if (r.fresh) {
     const words = { passed: 'PASSED this exact text. Cleared to send.', 'passed-saved': 'passed the saved copy, not this run\'s text. Not cleared.', blocked: 'BLOCKED the saved copy. Not cleared.', stale: 'its verdict is for an older text. Not cleared.', none: 'not run yet. Not cleared to send.' };
-    console.log(`Fresh checker: ${words[r.fresh.state]}`);
+    if (r.path === 'composed') {
+      // A composed reply never has a saved fresh-checker pass; say what checked it instead (src/composer.mjs).
+      const sr = r.composed?.secondRead;
+      console.log(`Composed, not a saved reply. ${r.fresh.state === 'checked-live' ? `Second reader (${sr?.model}): passed it just now.` : r.fresh.state === 'script-checked' ? 'Second read: off.' : 'Blocked.'} Fresh checker: none for composed text.`);
+      for (const [i, s] of (r.composed?.steps || []).entries()) for (const q of s.quotes) console.log(`  step ${i + 1} rests on ${q.id}: "${q.sentence}" (${q.url})`);
+    } else console.log(`Fresh checker: ${words[r.fresh.state]}`);
   }
   if (r.refused) console.log(`\n${r.refused}`);
   if (r.escalationText) console.log(`\n${r.escalationText}`);

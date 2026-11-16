@@ -1,0 +1,31 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9209,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Switch from Starter to Creator",
+    "steps": []
+   },
+   {
+    "item": "Switch to yearly billing",
+    "steps": []
+   },
+   {
+    "item": "Need to cancel first?",
+    "steps": []
+   },
+   {
+    "item": "Is it one combined change or two separate steps?",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say no cancelling is needed and describe a plan change and a monthly-to-yearly switch separately, but none says whether changing plan and going yearly can be done together or must be two steps.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:39:15.355Z"
+}

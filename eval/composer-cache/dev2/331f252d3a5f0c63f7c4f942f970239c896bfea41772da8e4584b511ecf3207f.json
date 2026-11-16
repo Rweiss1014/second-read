@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4527,
+ "verdict": {
+  "queries": [
+   "export carousel slides as ZIP file download",
+   "export format MP4 video instead of ZIP images",
+   "carousel to video conversion MP4 export setting",
+   "download media as MP4 slideshow video"
+  ]
+ }
+}

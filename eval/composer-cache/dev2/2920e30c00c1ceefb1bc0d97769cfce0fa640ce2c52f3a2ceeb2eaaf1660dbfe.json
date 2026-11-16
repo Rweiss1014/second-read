@@ -1,0 +1,75 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9751,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why the TikTok video is muted after Blotato posts it",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Why Blotato removes the music",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Song plays when uploaded manually in the app",
+    "steps": [
+     2
+    ]
+   },
+   {
+    "item": "Business account",
+    "steps": [
+     2
+    ]
+   },
+   {
+    "item": "What to do about it",
+    "steps": [
+     3,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The TikTok muted-video FAQ explains the cause for Business accounts and gives the fix.",
+  "steps": [
+   {
+    "text": "Blotato does not mute your video. TikTok mutes it on their end when their system detects copyrighted or commercially licensed music in the audio.",
+    "quotes": [
+     "S13",
+     "S14"
+    ]
+   },
+   {
+    "text": "TikTok Business accounts are limited to TikTok's Commercial Music Library, and music from outside that library is the usual reason an API-posted video gets muted, even when the same file uploads fine in the TikTok app.",
+    "quotes": [
+     "S17",
+     "S18"
+    ]
+   },
+   {
+    "text": "Replace the audio with a track from TikTok's Commercial Music Library, or use original audio you own.",
+    "quotes": [
+     "S20"
+    ]
+   },
+   {
+    "text": "Re-export the video with the cleared audio, then publish again from Blotato.",
+    "quotes": [
+     "S21",
+     "S22"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:30:52.374Z"
+}

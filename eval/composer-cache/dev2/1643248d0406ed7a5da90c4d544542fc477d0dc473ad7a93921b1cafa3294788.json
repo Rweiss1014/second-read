@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4180,
+ "verdict": {
+  "queries": [
+   "TikTok analytics not showing top posts",
+   "Analytics dashboard filter by platform TikTok",
+   "Top performing posts analytics by platform",
+   "LinkedIn post analytics ranking top posts",
+   "Blotato analytics supported platforms LinkedIn TikTok Instagram X"
+  ]
+ }
+}

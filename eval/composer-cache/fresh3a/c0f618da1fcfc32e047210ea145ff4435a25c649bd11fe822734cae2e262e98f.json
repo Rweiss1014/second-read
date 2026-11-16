@@ -1,0 +1,61 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7498,
+ "verdict": {
+  "asked": [
+   {
+    "item": "why collaborators fail on carousels",
+    "steps": [
+     1,
+     3
+    ]
+   },
+   {
+    "item": "collaborators work on single image posts",
+    "steps": [
+     2
+    ]
+   },
+   {
+    "item": "what is different about carousels",
+    "steps": [
+     1,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages directly state that collaborators are not supported on carousels, give the same error text, explain why, and say they work on single image posts.",
+  "steps": [
+   {
+    "text": "Collaborators are not supported on carousels (multi-image or multi-video posts) through Blotato, and the post fails with an error like the one you saw.",
+    "quotes": [
+     "S29"
+    ]
+   },
+   {
+    "text": "Collaborator tagging works on single image posts and reels.",
+    "quotes": [
+     "S30"
+    ]
+   },
+   {
+    "text": "Instagram applies a collaborator tag to a carousel as a single unit, not to each photo or video inside it.",
+    "quotes": [
+     "S28"
+    ]
+   },
+   {
+    "text": "If you need a collaborator on a carousel, publish the carousel through Blotato without collaborators, then open the Instagram app and add the collaborator to the published post.",
+    "quotes": [
+     "S32",
+     "S33"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:26:00.025Z"
+}

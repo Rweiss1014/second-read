@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3640,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is Blotato missing views (YouTube 4,100 vs Blotato 3,200)?",
+    "sentence": "Blotato and the YouTube watch page count views differently, so the two numbers never match exactly."
+   },
+   {
+    "point": "Why the YouTube count is higher than Blotato's",
+    "sentence": "The watch page count updates in near real time and includes views YouTube has not validated yet. Blotato's count comes from the YouTube Analytics API, which reports only finalized views."
+   }
+  ],
+  "pick": "youtube-views-lower",
+  "reason": "The youtube-views-lower entry directly explains why Blotato's YouTube view count is lower than the YouTube watch page count."
+ },
+ "at": "2026-11-16T08:08:47.207Z"
+}

@@ -1,0 +1,54 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 13784,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why the \"Invalid or expired token\" error appeared",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "What to do after the code failed",
+    "steps": [
+     3,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages explain the \\\"Invalid or expired token\\\" error, the roughly 15-minute code expiry, and what to do when a code has expired.",
+  "steps": [
+   {
+    "text": "The \"Invalid or expired token\" error means the code was entered in the wrong session or after it expired.",
+    "quotes": [
+     "S14"
+    ]
+   },
+   {
+    "text": "Codes expire in about 15 minutes.",
+    "quotes": [
+     "S12"
+    ]
+   },
+   {
+    "text": "If the code expired, request a fresh one at my.blotato.com/login and use it immediately.",
+    "quotes": [
+     "S13"
+    ]
+   },
+   {
+    "text": "Redo the transfer steps from your original browser.",
+    "quotes": [
+     "S15"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:28:10.833Z"
+}

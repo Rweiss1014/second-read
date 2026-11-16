@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4387,
+ "verdict": {
+  "asked": [
+   {
+    "item": "sort param on GET /v2/posts for oldest first",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say /v2/posts is ordered by post time, most recent first, but list no sort parameter for it, so the question of how to get oldest first has no stated answer.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:32:12.884Z"
+}

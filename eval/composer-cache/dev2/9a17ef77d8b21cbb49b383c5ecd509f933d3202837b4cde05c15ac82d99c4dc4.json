@@ -1,0 +1,71 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 12179,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Add assistant as a second user",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Her own separate login",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Her own password",
+    "steps": [
+     3
+    ]
+   },
+   {
+    "item": "How to give her access in Blotato",
+    "steps": [
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The team access and login pages state that there is one user per account, no separate logins and no passwords, and they give the shared-login steps.",
+  "steps": [
+   {
+    "text": "Blotato supports one user per account.",
+    "quotes": [
+     "S2"
+    ]
+   },
+   {
+    "text": "Native multi-user and team-member access is not live yet and has no firm release date, so there are no separate teammate logins.",
+    "quotes": [
+     "S3",
+     "S5"
+    ]
+   },
+   {
+    "text": "Blotato uses magic link authentication, so there is no password and no way to set one for your assistant.",
+    "quotes": [
+     "S87",
+     "S91"
+    ]
+   },
+   {
+    "text": "To give your assistant access today, have her enter your email address when logging in, give her the authentication code sent to your email, and have her complete the login process.",
+    "quotes": [
+     "S7",
+     "S8",
+     "S9",
+     "S10"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:54:52.553Z"
+}

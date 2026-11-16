@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3263,
+ "verdict": {
+  "queries": [
+   "Time slots queue scheduling Blotato",
+   "No available slot time found in the next 9 months error",
+   "Scheduling a post at a specific time instead of using time slots",
+   "Time Slots settings schedule posts Blotato",
+   "Schedule post specific date and time scheduledTime API"
+  ]
+ }
+}

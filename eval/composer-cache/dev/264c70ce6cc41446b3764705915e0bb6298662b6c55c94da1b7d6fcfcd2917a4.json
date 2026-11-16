@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3480,
+ "verdict": {
+  "queries": [
+   "Blotato Facebook group posting",
+   "Blotato Facebook Groups target selection",
+   "Blotato Facebook Page vs Facebook group account type",
+   "Facebook group admin approval app posting permission",
+   "Blotato Facebook group not appearing in account list"
+  ]
+ }
+}

@@ -1,0 +1,40 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7015,
+ "verdict": {
+  "asked": [
+   {
+    "item": "How to get more credits (the 'magic picture points')",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Checking the current balance",
+    "steps": [
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help page says credits are purchased in Settings > Billing and that the balance is under Settings > Billing > AI Credits.",
+  "steps": [
+   {
+    "text": "You can purchase more credits in Settings > Billing.",
+    "quotes": [
+     "S41"
+    ]
+   },
+   {
+    "text": "To check your current balance, go to Settings > Billing > AI Credits.",
+    "quotes": [
+     "S42"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:38:57.199Z"
+}

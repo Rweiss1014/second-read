@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6109,
+ "verdict": {
+  "asked": [
+   {
+    "item": "First Comment missing on about 1 in 4 Instagram posts",
+    "steps": []
+   },
+   {
+    "item": "Feed posts and reels, comments under 500 characters",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer's posts are types that First Comment supports, and their comments are under the 2200-character limit. The sentences give no other cause for comments that sometimes don't appear, so the team needs to look at it.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:09:07.391Z"
+}

@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3838,
+ "verdict": {
+  "queries": [
+   "Combine Clips Apply Basic Edits musicConfig fade out",
+   "musicConfig volume fadeOut duration seconds API",
+   "background music fade out end of video Blotato",
+   "musicConfig enabled volume API field reference"
+  ]
+ },
+ "at": "2026-11-16T07:45:49.556Z"
+}

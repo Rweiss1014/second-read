@@ -1,0 +1,47 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4090,
+ "verdict": {
+  "asked": [
+   {
+    "item": "No choose platforms step before AI writes",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "How to ask for one Facebook and one LinkedIn post",
+    "steps": [
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The FAQ states that platforms are named in the chat prompt and gives an example for LinkedIn and Facebook.",
+  "steps": [
+   {
+    "text": "In the AI Agent there is no separate \"select platforms\" step before generating.",
+    "quotes": [
+     "S105"
+    ]
+   },
+   {
+    "text": "Instead, name the platforms in your chat prompt, for example: \"Using my context, create one LinkedIn post and one Facebook post.\"",
+    "quotes": [
+     "S106",
+     "S107"
+    ]
+   },
+   {
+    "text": "Blotato generates one draft per platform you ask for.",
+    "quotes": [
+     "S107"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:38:31.998Z"
+}

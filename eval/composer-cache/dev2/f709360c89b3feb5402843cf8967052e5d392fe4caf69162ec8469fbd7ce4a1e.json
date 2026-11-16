@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7444,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why the post went out at 4:00 am New York time instead of 9:00",
+    "steps": []
+   },
+   {
+    "item": "scheduledTime sent as 2026-12-01T09:00:00 with no timezone offset",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say to use ISO 8601 with a timezone offset, but no sentence says how a time without an offset is read or why this post went out at 4:00 am, so the cause isn't stated.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:32:04.670Z"
+}

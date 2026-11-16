@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4334,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Page limit for PDF sources",
+    "steps": []
+   },
+   {
+    "item": "Using a 400-page ebook as context",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences say how to add a PDF as context but give no page limit for PDF sources, and the file size limits cover media uploads, not PDF context.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:08:43.520Z"
+}

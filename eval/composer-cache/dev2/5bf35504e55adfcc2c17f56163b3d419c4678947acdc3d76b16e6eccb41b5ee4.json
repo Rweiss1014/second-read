@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 6113,
+ "verdict": {
+  "queries": [
+   "Google Drive video upload maximum file size",
+   "Google Drive virus scan warning large file download",
+   "Blotato media upload file size limit Creator plan",
+   "Google Drive public link sharing media URL"
+  ]
+ }
+}

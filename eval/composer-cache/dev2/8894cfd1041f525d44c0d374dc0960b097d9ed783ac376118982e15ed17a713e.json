@@ -1,0 +1,41 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6891,
+ "verdict": {
+  "asked": [
+   {
+    "item": "2 videos in one Bluesky post",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Bluesky platform",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The sentences state the Bluesky limit of one video per post, which answers the customer's question directly.",
+  "steps": [
+   {
+    "text": "No, Blotato allows only 1 video per post on Bluesky.",
+    "quotes": [
+     "S23"
+    ]
+   },
+   {
+    "text": "A Bluesky post supports up to 4 images or 1 video.",
+    "quotes": [
+     "S72"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:01:11.295Z"
+}

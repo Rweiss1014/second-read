@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4106,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does the viral coach accept .mov files",
+    "sentence": ""
+   },
+   {
+    "point": "Or does it accept only MP4",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The MOV entry covers how publishing platforms handle MOV files, and no entry says what file formats the viral coach accepts."
+ },
+ "at": "2026-11-16T08:11:29.662Z"
+}

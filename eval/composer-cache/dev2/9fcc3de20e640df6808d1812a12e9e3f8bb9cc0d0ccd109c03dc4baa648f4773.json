@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4733,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is the Blotato MCP server open source?",
+    "steps": []
+   },
+   {
+    "item": "Link to the repo",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the sentences say whether the Blotato MCP server is open source or give a repo link; they only cover setup, the server URL and features.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:32:55.938Z"
+}

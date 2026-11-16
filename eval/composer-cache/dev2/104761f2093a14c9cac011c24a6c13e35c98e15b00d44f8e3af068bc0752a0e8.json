@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4902,
+ "verdict": {
+  "queries": [
+   "GET /v2/comments Instagram comments retrieval",
+   "Instagram comments older than posts not returned API",
+   "Instagram account reconnect permissions comments scope",
+   "GET /v2/comments pagination limit offset parameters",
+   "Blotato API comments date range filter"
+  ]
+ }
+}

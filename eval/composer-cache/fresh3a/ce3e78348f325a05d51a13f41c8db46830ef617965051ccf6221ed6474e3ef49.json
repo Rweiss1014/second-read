@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6174,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Daily X post limit per account",
+    "steps": []
+   },
+   {
+    "item": "News account",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages give posting limits for other platforms (TikTok, Instagram, Facebook, LinkedIn, YouTube, Slack, Pinterest) but none for X, so the team needs to answer.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:07:49.878Z"
+}

@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 5079,
+ "verdict": {
+  "queries": [
+   "All LinkedIn option time slot account selection",
+   "LinkedIn company page profile posting Blotato",
+   "Next free slot scheduling post to multiple accounts",
+   "time slots queue per account LinkedIn personal profile and Page",
+   "Blotato connect LinkedIn company page account"
+  ]
+ }
+}

@@ -1,0 +1,17 @@
+{
+ "kind": "second",
+ "version": "second-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 12009,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "not-answered",
+    "about": "The customer asked directly whether the skills only work for coders, and the reply never says whether they do; it only gives the Cowork upload steps. It also never states plainly whether the ~/.claude/skills copy was the wrong place, only that Cowork does not read that folder."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T08:01:44.572Z"
+}

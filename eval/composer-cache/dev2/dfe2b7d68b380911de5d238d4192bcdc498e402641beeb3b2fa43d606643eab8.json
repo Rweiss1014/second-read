@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6168,
+ "verdict": {
+  "asked": [
+   {
+    "item": "cooking channel shows gaming channel's playlist dropdown",
+    "steps": []
+   },
+   {
+    "item": "reconnecting both channels already tried, still same result",
+    "steps": []
+   },
+   {
+    "item": "video landed in a gaming playlist",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer reports a bug that still happens after reconnecting both channels, and the help pages do not say why a playlist dropdown would show another channel's playlists or how to fix a video landing in the wrong playlist, so this needs the team.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:01:17.184Z"
+}

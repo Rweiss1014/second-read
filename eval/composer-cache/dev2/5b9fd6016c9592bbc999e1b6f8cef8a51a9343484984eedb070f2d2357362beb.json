@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3783,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Country where Blotato servers and data are stored",
+    "steps": []
+   },
+   {
+    "item": "EU storage for GDPR",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence states the country or region where Blotato servers or customer data are stored; the GDPR sentence covers only the DPA, which is a neighboring question.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:46:31.516Z"
+}

@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4691,
+ "verdict": {
+  "queries": [
+   "Blotato API key generate Settings",
+   "Blotato API authentication Authorization header Bearer token",
+   "Blotato API access free trial plan",
+   "Blotato API sandbox test key"
+  ]
+ }
+}

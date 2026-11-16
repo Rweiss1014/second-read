@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3956,
+ "verdict": {
+  "queries": [
+   "LinkedIn event post Blotato",
+   "create LinkedIn event for Company Page",
+   "LinkedIn Page events RSVP scheduling",
+   "LinkedIn event type not supported Blotato",
+   "LinkedIn company page post types"
+  ]
+ },
+ "at": "2026-11-16T08:10:24.407Z"
+}

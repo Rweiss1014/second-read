@@ -1,0 +1,49 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4182,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Did my account break? / why only a big box",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Where are calendar and settings",
+    "steps": [
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The FAQ describes this exact empty Post editor screen and how to reach Calendar and Settings via the navigation menu.",
+  "steps": [
+   {
+    "text": "The empty Post editor screen shows \"What are we making today?\" and a Write posts about... box.",
+    "quotes": [
+     "S2"
+    ]
+   },
+   {
+    "text": "You do not need to generate a draft to access the rest of Blotato.",
+    "quotes": [
+     "S3"
+    ]
+   },
+   {
+    "text": "Open the navigation menu, then select Calendar, Posts, Videos, Accounts, or Settings.",
+    "quotes": [
+     "S4",
+     "S5"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:50:49.413Z"
+}

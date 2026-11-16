@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5420,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Creator yearly: all 60,000 credits up front?",
+    "steps": []
+   },
+   {
+    "item": "Creator yearly: 5,000 credits each month?",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences give Creator's 5,000 AI credits per month and say yearly billing saves about 17%, but none says how credits are delivered on a yearly plan, so the up-front 60,000 question is unanswered.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:59:59.770Z"
+}

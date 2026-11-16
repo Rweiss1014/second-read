@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6365,
+ "verdict": {
+  "asked": [
+   {
+    "item": "sort param on GET /v2/posts for oldest first",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The List Posts page documents the /v2/posts query parameters (since, until, limit, cursor, status, platform) and says results are ordered most recent first, but no sentence gives a sort parameter or an oldest-first option for this endpoint, so answering would be a guess.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:59:54.809Z"
+}

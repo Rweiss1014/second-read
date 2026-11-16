@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4698,
+ "verdict": {
+  "queries": [
+   "Brand kit connected accounts assign social accounts to brand",
+   "Multiple brands workspace separate accounts per brand kit",
+   "Blotato MCP server connector select account for post",
+   "Blotato API accountId selecting connected social account",
+   "Restrict posting to specific connected accounts per brand"
+  ]
+ }
+}

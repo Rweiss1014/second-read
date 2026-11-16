@@ -1,0 +1,65 @@
+{
+ "kind": "write",
+ "version": "compose-w1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 10289,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Commented GUIDE from own business account, no DM arrived",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "How to test the automation",
+    "steps": [
+     3,
+     4,
+     5
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages say Blotato skips comments from the connected account itself, and they give the steps to test from a different account.",
+  "steps": [
+   {
+    "text": "Your own comments do not trigger a DM automation.",
+    "quotes": [
+     "S2"
+    ]
+   },
+   {
+    "text": "Blotato skips comments posted by the same Instagram account connected to the automation, even when the comment contains the correct keyword.",
+    "quotes": [
+     "S51",
+     "S52"
+    ]
+   },
+   {
+    "text": "To test, publish the automation, sign in to a different Instagram or Facebook account, and leave a new top-level comment on the target post using one of the automation's keywords.",
+    "quotes": [
+     "S3",
+     "S4",
+     "S5"
+    ]
+   },
+   {
+    "text": "A reply to an existing comment does not trigger the automation.",
+    "quotes": [
+     "S6"
+    ]
+   },
+   {
+    "text": "Confirm the other account receives the direct message, and if no message arrives, open the automation and review its runs and logs.",
+    "quotes": [
+     "S57",
+     "S58"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:25:12.145Z"
+}

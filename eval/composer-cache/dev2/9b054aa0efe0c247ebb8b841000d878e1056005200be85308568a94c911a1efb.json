@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4455,
+ "verdict": {
+  "queries": [
+   "Slack channel archived connected account",
+   "Slack channel archived disconnect account limit",
+   "connected accounts limit Starter plan",
+   "removing disconnected social accounts frees account slot",
+   "Slack channel connection deleted or archived in Slack"
+  ]
+ },
+ "at": "2026-11-16T07:48:56.933Z"
+}

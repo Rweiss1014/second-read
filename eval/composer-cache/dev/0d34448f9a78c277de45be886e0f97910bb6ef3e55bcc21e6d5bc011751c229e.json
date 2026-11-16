@@ -1,0 +1,34 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6984,
+ "verdict": {
+  "asked": [
+   {
+    "item": "get more AI image credits after running out",
+    "steps": [
+     1
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S79 says how to purchase more credits, which fits running out of image generation points.",
+  "steps": [
+   {
+    "text": "You can purchase more credits in Settings > Billing, or via the Credits API (POST /v2/credits).",
+    "quotes": [
+     "S79"
+    ]
+   },
+   {
+    "text": "To check your current balance, go to Settings > Billing > AI Credits.",
+    "quotes": [
+     "S80"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:51:17.228Z"
+}

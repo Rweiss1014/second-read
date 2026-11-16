@@ -1,0 +1,54 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8801,
+ "verdict": {
+  "asked": [
+   {
+    "item": "why the dental brand channel does not appear when connecting YouTube",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Manager role shown in YouTube Studio",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "what to do to get the channel to show",
+    "steps": [
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages state that a channel where the user is only a Manager may not appear when connecting, and give the fix of getting the Owner role and then reconnecting.",
+  "steps": [
+   {
+    "text": "If you are listed only as a Manager on the brand channel, the channel may not appear when connecting.",
+    "quotes": [
+     "S17"
+    ]
+   },
+   {
+    "text": "Ask the current Owner to make you an Owner of the channel, or to transfer ownership to you.",
+    "quotes": [
+     "S18"
+    ]
+   },
+   {
+    "text": "After that, reconnect the channel in Blotato.",
+    "quotes": [
+     "S18"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:00:47.953Z"
+}

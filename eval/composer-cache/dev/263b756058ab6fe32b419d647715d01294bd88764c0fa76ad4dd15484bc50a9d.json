@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7418,
+ "verdict": {
+  "asked": [
+   {
+    "item": "custom thumbnail via thumbnailUrl never applies",
+    "steps": []
+   },
+   {
+    "item": "channel is verified and in good standing",
+    "steps": []
+   },
+   {
+    "item": "image is public 1280x720 JPG under 2MB",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer says the thumbnail still fails after meeting the listed requirements (verified channel, public 1280x720 JPG under 2MB), and the only other cause on the pages (reconnecting the YouTube account) depends on when the account was connected and verified, which the message does not say, so the team should check.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:14:20.960Z"
+}

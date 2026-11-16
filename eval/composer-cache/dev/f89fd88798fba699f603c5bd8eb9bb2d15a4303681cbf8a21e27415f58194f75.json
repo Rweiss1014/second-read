@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4452,
+ "verdict": {
+  "queries": [
+   "Blotato media upload from URL not supported",
+   "Add images or videos to a post from a link media URL",
+   "Upload media file to post from computer",
+   "Claude artifact link cannot be read as media",
+   "Supported media formats and file types for Blotato posts"
+  ]
+ }
+}

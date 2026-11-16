@@ -1,0 +1,49 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6635,
+ "verdict": {
+  "asked": [
+   {
+    "item": "No 'choose platforms' step before AI writes",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "How to ask for one Facebook post and one LinkedIn post",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The FAQ says platform selection happens in the chat prompt when generating, and gives an example prompt naming LinkedIn and Facebook.",
+  "steps": [
+   {
+    "text": "There is no separate \"select platforms\" step before generating; when generating, name the platforms in your chat prompt.",
+    "quotes": [
+     "S2",
+     "S3"
+    ]
+   },
+   {
+    "text": "For example: \"Using my context, create one LinkedIn post and one Facebook post.\" Blotato generates one draft per platform you ask for.",
+    "quotes": [
+     "S4"
+    ]
+   },
+   {
+    "text": "When scheduling, open the draft post, select your social accounts in the Schedule panel on the right side of the screen, then click Schedule.",
+    "quotes": [
+     "S5",
+     "S6"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:50:49.147Z"
+}

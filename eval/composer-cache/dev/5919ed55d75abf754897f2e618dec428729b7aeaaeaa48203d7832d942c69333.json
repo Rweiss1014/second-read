@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7802,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does Blotato automatically repost failed Instagram posts forever",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages only say Blotato retries 2 times for the 'internal server error' failure. They don't say what happens for failed Instagram posts in general, and the customer didn't name an error.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:38:09.752Z"
+}

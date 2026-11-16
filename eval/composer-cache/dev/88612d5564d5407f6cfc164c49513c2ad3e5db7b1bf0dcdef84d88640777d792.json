@@ -1,0 +1,54 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 13902,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Freeze or pause plan for a few months",
+    "steps": [
+     1,
+     3
+    ]
+   },
+   {
+    "item": "Keep credits while off",
+    "steps": [
+     2,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The FAQ says there is no pause or freeze feature and gives the two options, keeping the subscription active or cancelling, with how credits are handled in each.",
+  "steps": [
+   {
+    "text": "Blotato does not have a pause or freeze feature.",
+    "quotes": [
+     "S10"
+    ]
+   },
+   {
+    "text": "Keep your subscription active to retain your credits, scheduled posts, and access.",
+    "quotes": [
+     "S12"
+    ]
+   },
+   {
+    "text": "Your other choice is to cancel from Settings > Billing > View Billing Portal.",
+    "quotes": [
+     "S13"
+    ]
+   },
+   {
+    "text": "For period-end cancellation, access and remaining credits continue until the paid period ends.",
+    "quotes": [
+     "S15"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:55:49.006Z"
+}

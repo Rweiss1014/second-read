@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3891,
+ "verdict": {
+  "queries": [
+   "Invoice can no longer be paid on Stripe",
+   "Failed payment card declined retry invoice Blotato billing",
+   "Unpaid invoice account access suspended restore subscription",
+   "Update payment method billing details Blotato subscription"
+  ]
+ }
+}

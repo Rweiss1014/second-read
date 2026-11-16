@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3597,
+ "verdict": {
+  "queries": [
+   "Instagram auto-reply DM comment keyword trigger not sent",
+   "Blotato Instagram comment automation keyword DM troubleshooting",
+   "comment-to-DM automation own post not triggered Instagram business account",
+   "Instagram DM automation requirements Meta app permissions instagram_manage_comments"
+  ]
+ }
+}

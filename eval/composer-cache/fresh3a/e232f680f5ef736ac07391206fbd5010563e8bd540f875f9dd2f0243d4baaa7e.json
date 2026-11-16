@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4605,
+ "verdict": {
+  "asked": [
+   {
+    "item": "how to set the YouTube category (e.g. Education) when posting from Blotato",
+    "steps": []
+   },
+   {
+    "item": "category field not found in the fields",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the provided sentences mention a YouTube category setting or where to find one; they only cover title, description, privacy, playlists, thumbnails, and similar fields.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:26:10.595Z"
+}

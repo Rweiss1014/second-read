@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7754,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why the code gave Invalid or expired token after an hour",
+    "sentence": "The code expires after a few minutes."
+   },
+   {
+    "point": "What to do now to get a working code",
+    "sentence": "If it expires, click Update Email again to get a new code."
+   }
+  ],
+  "pick": "update-email",
+  "reason": "The customer's code arrived an hour late and was rejected as expired, and this entry says the code expires after a few minutes and tells them to click Update Email again for a new one."
+ },
+ "at": "2026-11-16T08:11:51.861Z"
+}

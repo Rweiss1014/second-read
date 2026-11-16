@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4532,
+ "verdict": {
+  "queries": [
+   "Delete scheduled posts",
+   "Bulk delete scheduled posts in Blotato",
+   "Cancel scheduled post before publishing",
+   "Scheduled posts queue remove all posts",
+   "Deleting a scheduled post via API"
+  ]
+ }
+}

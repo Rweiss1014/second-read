@@ -1,0 +1,46 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6334,
+ "verdict": {
+  "asked": [
+   {
+    "item": "how long comments and DMs are kept in the Inbox",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "whether older Instagram DMs from before connecting are pulled in",
+    "steps": [
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "Both questions are general Inbox facts that the cited sentences answer directly: the retention period and the lack of any import of older Instagram messages.",
+  "steps": [
+   {
+    "text": "Comments and messages in the Inbox are retained for up to 45 days.",
+    "quotes": [
+     "S14"
+    ]
+   },
+   {
+    "text": "Blotato does not import older Instagram posts, comments, or direct messages.",
+    "quotes": [
+     "S12"
+    ]
+   },
+   {
+    "text": "The Inbox starts capturing new comments and messages after your account connects with the required permissions.",
+    "quotes": [
+     "S13"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:27:52.229Z"
+}

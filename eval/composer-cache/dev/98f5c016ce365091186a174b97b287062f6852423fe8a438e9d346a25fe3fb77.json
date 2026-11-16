@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6396,
+ "verdict": {
+  "asked": [
+   {
+    "item": "what \"Incomplete\" means",
+    "steps": []
+   },
+   {
+    "item": "why the portal won't let me pick Starter when going down from Creator",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences say a stale Incomplete subscription blocks plan changes such as Creator to Starter, and that support must cancel the incomplete subscription first, so this needs a support action rather than a step the customer can take.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:13:52.590Z"
+}

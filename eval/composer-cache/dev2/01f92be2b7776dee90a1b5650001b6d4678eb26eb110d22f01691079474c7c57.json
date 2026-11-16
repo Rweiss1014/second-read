@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4011,
+ "verdict": {
+  "queries": [
+   "Scheduled time is too far in the future error",
+   "maximum scheduling window how far in advance can I schedule a post",
+   "LinkedIn scheduled time limit scheduledTime API field",
+   "schedule post date beyond maximum allowed scheduling horizon"
+  ]
+ },
+ "at": "2026-11-16T07:46:06.652Z"
+}

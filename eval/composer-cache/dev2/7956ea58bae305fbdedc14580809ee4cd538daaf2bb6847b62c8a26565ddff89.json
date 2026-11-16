@@ -1,0 +1,60 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 13515,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is there an endpoint to edit a comment",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Is there an endpoint to delete a comment",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Is editing or deleting something Blotato can't do",
+    "steps": [
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The Comments page lists exactly three comment endpoints (list, get, post), and none of them edits or deletes a comment, so the closed list answers the question.",
+  "steps": [
+   {
+    "text": "The Comments API has three endpoints: List Comments (GET /v2/comments), Get Comment (GET /v2/comments/:commentId), and Post Comment (POST /v2/comments).",
+    "quotes": [
+     "Blotato exposes three comment endpoints:",
+     "List Comments — GET /v2/comments",
+     "Get Comment — GET /v2/comments/:commentId",
+     "Post Comment — POST /v2/comments"
+    ]
+   },
+   {
+    "text": "None of these three endpoints edits or deletes a comment.",
+    "quotes": [
+     "Three endpoints let you list, read, and post comments:",
+     "List Comments (GET /v2/comments) returns the comments on your published Instagram and Facebook posts, including audience replies and your own.",
+     "Get Comment (GET /v2/comments/:commentId) returns a single comment.",
+     "Post Comment (POST /v2/comments) posts a top-level comment, or a reply when you pass parentCommentId, on one of your published Instagram or Facebook posts."
+    ]
+   },
+   {
+    "text": "To manage Instagram and Facebook comments in the Blotato web app, check the Comments and Messaging Inbox page.",
+    "quotes": [
+     "To manage Instagram and Facebook comments in the Blotato web app, see Comments and Messaging Inbox."
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:01:02.190Z"
+}

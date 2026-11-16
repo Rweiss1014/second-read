@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4082,
+ "verdict": {
+  "queries": [
+   "Blotato Claude skills free included skills list",
+   "Blotato skills ZIP download folders contents",
+   "Blotato generate skill pricing free plan",
+   "Blotato Claude skills FAQ number of free skills",
+   "Blotato skill folder generate SKILL.md"
+  ]
+ }
+}

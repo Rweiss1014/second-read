@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3207,
+ "verdict": {
+  "queries": [
+   "Tolt affiliate payout minimum balance threshold",
+   "Tolt payouts minimum payout amount",
+   "Tolt affiliate commission fees deducted payout",
+   "Tolt payout processing fees transaction fee affiliate"
+  ]
+ },
+ "at": "2026-11-16T08:11:00.078Z"
+}

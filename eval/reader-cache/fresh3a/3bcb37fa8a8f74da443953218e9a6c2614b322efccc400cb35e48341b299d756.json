@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3163,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can a TikTok Shop link be added to posted TikTok videos",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry says anything about TikTok Shop links or adding product links to TikTok videos; the link entry covers only Twitter, Threads, Bluesky, Instagram and Facebook."
+ },
+ "at": "2026-11-16T08:10:12.262Z"
+}

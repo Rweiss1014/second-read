@@ -1,0 +1,21 @@
+{
+ "kind": "refute",
+ "version": "refute-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6759,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "not-answered",
+    "about": "The customer asked why voiceName 'Brian' is rejected even though it appears in the voice list, and the reply never addresses voiceName, the allowed values, or why Brian fails."
+   },
+   {
+    "kind": "wrong-for-customer",
+    "about": "The reply talks about a 'missing object' error at scenes.0 and generic template mismatch, but the customer got a 400 about voiceName not matching allowed values, so the guidance and the success criterion do not fit their error."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T08:11:21.033Z"
+}

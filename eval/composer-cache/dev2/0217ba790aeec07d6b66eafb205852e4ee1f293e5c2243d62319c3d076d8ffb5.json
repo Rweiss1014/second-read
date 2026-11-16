@@ -1,0 +1,25 @@
+{
+ "kind": "second",
+ "version": "second-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5088,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "not-answered",
+    "about": "The customer asked directly whether animating with Seedance uses their 5,000 Blotato Creator credits; the reply never says yes or no and only lists generic facts, leaving them to infer that animation draws from kie.ai credits."
+   },
+   {
+    "kind": "says-more",
+    "about": "Step 4 says balance.sh checks kie.ai credits and that the skill quotes remaining budget before spending, but it is placed as if it answers the question; also the reply's step 3 is vague and doesn't state that Seedance charges go to the kie.ai provider rather than Blotato credits, which the section doesn't explicitly say for Seedance."
+   },
+   {
+    "kind": "not-answered",
+    "about": "The customer called the skill 'free'; the reply doesn't address that paid animation through kie.ai is separate and installation does not authorize paid generation, so the 'free' premise is left uncorrected."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T07:47:30.729Z"
+}

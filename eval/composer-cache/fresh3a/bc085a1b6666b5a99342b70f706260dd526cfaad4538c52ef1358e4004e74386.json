@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3997,
+ "verdict": {
+  "queries": [
+   "maximum number of trigger keywords per DM automation",
+   "DM automation trigger keywords limit",
+   "Instagram DM automation keyword trigger settings",
+   "add multiple keywords to auto-reply DM trigger",
+   "keyword trigger character limit DM automation"
+  ]
+ },
+ "at": "2026-11-16T08:08:18.396Z"
+}

@@ -1,0 +1,49 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4208,
+ "verdict": {
+  "asked": [
+   {
+    "item": "LinkedIn comments and DMs in Inbox",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "TikTok comments and DMs in Inbox",
+    "steps": [
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "Sentences state Inbox covers only Instagram and Facebook, and that LinkedIn and TikTok comments/DMs are not supported.",
+  "steps": [
+   {
+    "text": "No, LinkedIn comments and direct messages are not supported in Inbox.",
+    "quotes": [
+     "S8",
+     "S43"
+    ]
+   },
+   {
+    "text": "TikTok comments are not supported either, and Inbox direct messages cover Instagram and Facebook only.",
+    "quotes": [
+     "S143",
+     "S160"
+    ]
+   },
+   {
+    "text": "Use each other platform's own inbox for those conversations.",
+    "quotes": [
+     "S140"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:51:22.426Z"
+}

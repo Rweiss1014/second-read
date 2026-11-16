@@ -1,0 +1,69 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7141,
+ "verdict": {
+  "asked": [
+   {
+    "item": "export gave slides.zip instead of MP4",
+    "steps": [
+     2
+    ]
+   },
+   {
+    "item": "how to get an MP4 instead of the ZIP",
+    "steps": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages give the exact steps to re-export as MP4 by turning off the Slideshow toggle, which answers the customer's question about getting an MP4 instead of the ZIP.",
+  "steps": [
+   {
+    "text": "A ZIP of slide images comes from exporting with the Slideshow toggle on, and an MP4 comes from exporting with it off.",
+    "quotes": [
+     "S26",
+     "S27"
+    ]
+   },
+   {
+    "text": "Open the visual in the editor.",
+    "quotes": [
+     "S29"
+    ]
+   },
+   {
+    "text": "Turn OFF the \"Slideshow\" toggle.",
+    "quotes": [
+     "S30"
+    ]
+   },
+   {
+    "text": "Click \"Export\" in the top right corner.",
+    "quotes": [
+     "S31"
+    ]
+   },
+   {
+    "text": "Wait for rendering to finish.",
+    "quotes": [
+     "S32"
+    ]
+   },
+   {
+    "text": "Click \"Download\" to save the MP4 file.",
+    "quotes": [
+     "S33"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:58:58.331Z"
+}

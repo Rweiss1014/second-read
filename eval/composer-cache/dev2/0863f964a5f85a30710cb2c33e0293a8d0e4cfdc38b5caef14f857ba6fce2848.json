@@ -1,0 +1,54 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5652,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Claude only posts when typed to",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "How to post every morning automatically",
+    "steps": [
+     2,
+     3,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The FAQ entry directly answers how to make posting automatic with a schedule.",
+  "steps": [
+   {
+    "text": "A regular Claude chat acts only when you send a message, so posting stays manual.",
+    "quotes": [
+     "S30"
+    ]
+   },
+   {
+    "text": "Set up a Claude Code Routine (a scheduled agent) that runs your Blotato posting workflow on a recurring schedule, for example every morning.",
+    "quotes": [
+     "S32"
+    ]
+   },
+   {
+    "text": "Or use a Managed Agent to run the posting workflow in the cloud on a schedule.",
+    "quotes": [
+     "S33"
+    ]
+   },
+   {
+    "text": "Alternatively, run the same flow from n8n or Make.com with a schedule trigger and the official Blotato nodes.",
+    "quotes": [
+     "S35"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:31:05.813Z"
+}

@@ -1,0 +1,21 @@
+{
+ "kind": "second",
+ "version": "second-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3342,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "not-answered",
+    "about": "The customer asked why the trial shows this when pricing says it includes everything except the API; the reply never addresses the pricing discrepancy, only restates that analytics need a paid plan."
+   },
+   {
+    "kind": "not-answered",
+    "about": "The customer asked whether old posts will fill in once they pay; step 3 is generic and never says plainly that posts published on the trial (before analytics was active) will not backfill after upgrading."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T07:50:07.711Z"
+}

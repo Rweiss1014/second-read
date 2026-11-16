@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6206,
+ "verdict": {
+  "asked": [
+   {
+    "item": "What Incomplete means",
+    "steps": []
+   },
+   {
+    "item": "Can't pick Starter when downgrading from Creator",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages say an Incomplete subscription blocks plan changes and that support must cancel it first, so the support team needs to handle this.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:50:00.149Z"
+}

@@ -1,0 +1,35 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3759,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does Blotato check the mailbox is real for a fake email like abc@abc.abc",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S18 and S97 state that Blotato checks only the address shape, not whether the mailbox exists, and a nonexistent address still passes.",
+  "steps": [
+   {
+    "text": "No, Blotato checks the shape of the address, not whether the mailbox exists.",
+    "quotes": [
+     "S18"
+    ]
+   },
+   {
+    "text": "A nonexistent address still passes the email gate.",
+    "quotes": [
+     "S97"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:08:48.556Z"
+}

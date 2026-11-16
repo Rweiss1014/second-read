@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3600,
+ "verdict": {
+  "queries": [
+   "Threads daily posting limit per account Blotato",
+   "Facebook daily post limit per Page or per account Blotato",
+   "Blotato Threads posts per day cap",
+   "Blotato Facebook 25 posts per day limit Page"
+  ]
+ },
+ "at": "2026-11-16T07:47:19.833Z"
+}

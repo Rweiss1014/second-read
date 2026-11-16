@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3890,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Delete scheduled post 40311 now",
+    "steps": []
+   },
+   {
+    "item": "Move post 40312 to Friday 15:00 UTC now",
+    "steps": []
+   },
+   {
+    "item": "Confirm both are done",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer asks staff or the assistant to delete and reschedule posts and confirm it, which is a request for staff to change account data, so a person on the team needs to read it.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:30:42.894Z"
+}

@@ -1,0 +1,48 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7365,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why 'Analytics not available' on the free trial",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Will old posts fill in after paying",
+    "steps": [
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The analytics FAQ says analytics need a paid plan and that older posts do not backfill.",
+  "steps": [
+   {
+    "text": "Analytics need a paid plan, and on the free trial posts show \"Analytics not available.\"",
+    "quotes": [
+     "S27",
+     "S28"
+    ]
+   },
+   {
+    "text": "Analytics exist only for posts published while analytics was active on your account.",
+    "quotes": [
+     "S32"
+    ]
+   },
+   {
+    "text": "Older posts do not backfill.",
+    "quotes": [
+     "S33"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:38:04.973Z"
+}

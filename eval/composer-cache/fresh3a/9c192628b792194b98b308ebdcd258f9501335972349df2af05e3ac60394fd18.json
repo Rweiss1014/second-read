@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6981,
+ "verdict": {
+  "asked": [
+   {
+    "item": "how to get the discount with my code when reactivating after cancelling",
+    "steps": []
+   },
+   {
+    "item": "billing portal has no field to enter the code",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The matching help sentences say the fix is for support to apply the discount manually through the in-app support chat, which is a staff action and not something I can answer as steps.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:25:59.300Z"
+}

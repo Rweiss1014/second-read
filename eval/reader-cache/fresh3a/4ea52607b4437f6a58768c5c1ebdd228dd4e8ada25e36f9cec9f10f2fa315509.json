@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 2914,
+ "verdict": {
+  "points": [
+   {
+    "point": "Facebook page can require a follow before link",
+    "sentence": "A follow gate runs on Instagram only."
+   }
+  ],
+  "pick": "follow-gate-instagram-only",
+  "reason": "The entry states that a follow gate runs on Instagram only and that a Facebook automation rejects it, which answers the customer's question for Facebook."
+ },
+ "at": "2026-11-16T08:08:19.379Z"
+}

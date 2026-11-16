@@ -1,0 +1,89 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 16166,
+ "verdict": {
+  "asked": [
+   {
+    "item": "per-clip credit costs",
+    "steps": [
+     1,
+     2,
+     3,
+     4
+    ]
+   },
+   {
+    "item": "video clip costs",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "image clip costs",
+    "steps": [
+     3,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages list the credit cost for every AI video model per video clip and for every AI image model per image, so the full list can be given from the cited sentences.",
+  "steps": [
+   {
+    "text": "Per video clip costs are: framepack 55, kling v1.5 210, kling v1.6 210, luma dream machine 170, runway gen3 85, minimax 170, google veo2 835, veo3 1250, and veo3/fast 400.",
+    "quotes": [
+     "S20",
+     "S21",
+     "S22",
+     "S23",
+     "S24",
+     "S25",
+     "S26",
+     "S27",
+     "S28",
+     "S29"
+    ]
+   },
+   {
+    "text": "The google/gemini-omni-flash/v1.1 text-to-video and image-to-video models cost 35/sec at 720p, 50/sec at 1080p.",
+    "quotes": [
+     "S30",
+     "S31"
+    ]
+   },
+   {
+    "text": "Per image costs are: flux schnell 1, flux dev 10, flux 1.1 pro 15, flux 1.1 pro ultra 20, recraft v3 15, ideogram v2 30, luma photon 10, and gpt-image-1 (ChatGPT 4o) 25.",
+    "quotes": [
+     "S2",
+     "S3",
+     "S4",
+     "S5",
+     "S6",
+     "S7",
+     "S8",
+     "S9",
+     "S10"
+    ]
+   },
+   {
+    "text": "The remaining per image costs are: gpt-image-2 25, nano-banana 15, nano-banana/edit 15, nano-banana-2 30, nano-banana-2/edit 30, nano-banana-pro 50, nano-banana-pro/edit 50, bytedance/seedream/v4.5/text-to-image 15, and bytedance/seedream/v4.5/edit 15.",
+    "quotes": [
+     "S11",
+     "S12",
+     "S13",
+     "S14",
+     "S15",
+     "S16",
+     "S17",
+     "S18",
+     "S19"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:58:00.514Z"
+}

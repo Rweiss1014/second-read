@@ -1,0 +1,52 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6907,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can AI write a caption for my dog photo",
+    "steps": [
+     1,
+     2,
+     3,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The FAQ explains how to get an AI-generated caption for a photo.",
+  "steps": [
+   {
+    "text": "You can't upload a photo as Context, because Context is for text-based content.",
+    "quotes": [
+     "S33",
+     "S34"
+    ]
+   },
+   {
+    "text": "Go to the AI Agent and add text Context describing what the photo is about.",
+    "quotes": [
+     "S36",
+     "S37"
+    ]
+   },
+   {
+    "text": "Type your request in the chat box at the bottom of the screen to generate a draft post from your text.",
+    "quotes": [
+     "S38"
+    ]
+   },
+   {
+    "text": "Click Photo / Video on the post to attach your photo, then edit the caption with Chat as needed.",
+    "quotes": [
+     "S39",
+     "S40"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:49:53.284Z"
+}

@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3960,
+ "verdict": {
+  "queries": [
+   "Creator plan connected accounts limit",
+   "Maximum connected accounts reached error",
+   "Disconnect account to free up connected account slot",
+   "Facebook Pages LinkedIn Pages Slack channels counted as connected accounts",
+   "Pricing plans connected accounts per plan"
+  ]
+ },
+ "at": "2026-11-16T07:47:03.101Z"
+}

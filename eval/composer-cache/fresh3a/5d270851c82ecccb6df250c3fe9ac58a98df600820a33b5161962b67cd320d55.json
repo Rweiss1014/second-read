@@ -1,0 +1,42 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5603,
+ "verdict": {
+  "asked": [
+   {
+    "item": "is there a max time for AI video length",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "how long can my AI video be",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages directly state there is no time limit on video duration, with the only condition being enough credits.",
+  "steps": [
+   {
+    "text": "There is no time limit on video duration.",
+    "quotes": [
+     "S24",
+     "S41"
+    ]
+   },
+   {
+    "text": "As long as you have sufficient credits, you can generate very long videos.",
+    "quotes": [
+     "S25"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:25:28.666Z"
+}

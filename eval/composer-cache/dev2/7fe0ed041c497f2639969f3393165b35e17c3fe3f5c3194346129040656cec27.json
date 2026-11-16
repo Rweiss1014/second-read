@@ -1,0 +1,17 @@
+{
+ "kind": "second",
+ "version": "second-r1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7372,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "caveat",
+    "about": "The help page says the assistant would sign in as the account owner with full access and no separate roles or audit trail, but the reply omits this, even though the customer specifically asked for her own login."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T07:56:39.381Z"
+}

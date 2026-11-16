@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3105,
+ "verdict": {
+  "queries": [
+   "Blotato API slides image field base64 image data",
+   "Blotato slides.image maximum length 400 characters",
+   "Blotato API image URL required publicly accessible link instead of base64",
+   "Blotato carousel slides image field format validation error"
+  ]
+ }
+}

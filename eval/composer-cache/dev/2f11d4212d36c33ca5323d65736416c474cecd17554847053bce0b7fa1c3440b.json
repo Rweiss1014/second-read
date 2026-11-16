@@ -1,0 +1,65 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6971,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Switch from Starter to Creator",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Switch to yearly billing",
+    "steps": [
+     2
+    ]
+   },
+   {
+    "item": "Need to cancel first?",
+    "steps": [
+     3
+    ]
+   },
+   {
+    "item": "Is it two separate steps?",
+    "steps": [
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The change-plan and yearly sections state the steps, that the same steps switch monthly to yearly, and that cancelling first is not needed.",
+  "steps": [
+   {
+    "text": "Go to Settings > Billing, click \"View Billing Portal\", then click the purple \"Update subscription\" button next to your current plan.",
+    "quotes": [
+     "S46",
+     "S47",
+     "S48"
+    ]
+   },
+   {
+    "text": "Select the plan you want to switch to, and to go yearly, pick the yearly option for that plan, then confirm the change.",
+    "quotes": [
+     "S49",
+     "S50",
+     "S52",
+     "S60",
+     "S61"
+    ]
+   },
+   {
+    "text": "You do not need to cancel your monthly subscription first.",
+    "quotes": [
+     "S62"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:51:36.707Z"
+}

@@ -1,0 +1,63 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 10576,
+ "verdict": {
+  "asked": [
+   {
+    "item": "cleanTranscript=true still returns timestamps on GET",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "why n8n strips them fine",
+    "steps": [
+     2
+    ]
+   },
+   {
+    "item": "is the param named differently in REST",
+    "steps": [
+     1,
+     3,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages say cleanTranscript is not a REST parameter and that cleaning is a client-side step, which covers all three items.",
+  "steps": [
+   {
+    "text": "cleanTranscript is not a REST query parameter, so sending it to this endpoint won't change the response.",
+    "quotes": [
+     "S10",
+     "S14"
+    ]
+   },
+   {
+    "text": "The n8n Blotato node's Source > Get operation has a local Clean Transcript option, enabled by default, that processes the returned content after the API request.",
+    "quotes": [
+     "S11",
+     "S12"
+    ]
+   },
+   {
+    "text": "The page doesn't list a REST parameter under another name. It calls cleaning a client-side transformation, not an API query option.",
+    "quotes": [
+     "S21"
+    ]
+   },
+   {
+    "text": "For REST, retrieve the completed content first, then remove the transcript timestamps in your agent or workflow.",
+    "quotes": [
+     "S13"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:48:22.451Z"
+}

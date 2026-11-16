@@ -1,0 +1,34 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4643,
+ "verdict": {
+  "asked": [
+   {
+    "item": "how to log out of Blotato on this computer",
+    "steps": [
+     1
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help page directly states the log-out steps, and the customer's question is a general how-to with no exception in the cited sentence.",
+  "steps": [
+   {
+    "text": "To log out of Blotato, open Settings > Profile.",
+    "quotes": [
+     "S128"
+    ]
+   },
+   {
+    "text": "Then click Log out.",
+    "quotes": [
+     "S128"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:13:58.658Z"
+}

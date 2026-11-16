@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5880,
+ "verdict": {
+  "asked": [
+   {
+    "item": "make a second API key",
+    "steps": []
+   },
+   {
+    "item": "read-only key that cannot publish",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages only say to generate a new API key in Settings > API (S68) and never say whether a key can be limited to read-only or to posts, so the question about a read-only key has no answer in the sentences.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:14:22.656Z"
+}

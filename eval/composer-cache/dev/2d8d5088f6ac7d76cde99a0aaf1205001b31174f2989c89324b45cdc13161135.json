@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4720,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Invoiced in euros instead of dollars",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "No sentence says whether invoices can be issued in euros or any other currency; the invoice sentences cover only where to see invoices and how to add company or tax details.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:38:50.805Z"
+}

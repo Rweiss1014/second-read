@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4788,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why the DM automation did not fire after a friend commented PDF on the reel",
+    "steps": []
+   },
+   {
+    "item": "Why the automation runs and logs show nothing, not even a run",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer already tested from a different account as the help pages advise, and it still fails with no runs or logs, so the cause depends on their own account and automation settings that only the team can check.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:59:38.533Z"
+}

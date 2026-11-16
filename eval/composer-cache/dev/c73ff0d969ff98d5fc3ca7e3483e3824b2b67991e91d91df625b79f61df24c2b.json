@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5767,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why only a.jpg showed up as a story",
+    "steps": []
+   },
+   {
+    "item": "Where b.jpg and c.jpg went",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages show a Facebook story request with one image in mediaUrls but don't say what happens when several URLs are sent for a story, so they don't explain where b.jpg and c.jpg went.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:37:51.712Z"
+}

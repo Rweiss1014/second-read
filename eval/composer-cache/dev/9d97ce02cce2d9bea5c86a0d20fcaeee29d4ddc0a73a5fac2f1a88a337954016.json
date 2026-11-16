@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4306,
+ "verdict": {
+  "queries": [
+   "How to cancel your Blotato subscription",
+   "Cancel plan billing settings subscription cancellation",
+   "Blotato annual or monthly plan contract terms and commitment",
+   "Refund policy and cancellation terms Blotato"
+  ]
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 14279,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is the comment's age (older than 7 days) the cause of the failed status",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages state the 7-day limit for private replies to a comment and that a message sent outside an allowed window reaches status failed, which covers this customer's question about the comment's age.",
+  "steps": [
+   {
+    "text": "A private reply to a comment can be sent only within 7 days of the comment.",
+    "quotes": [
+     "S123"
+    ]
+   },
+   {
+    "text": "A message sent outside an allowed window reaches status failed, so a comment older than 7 days is a likely cause of the failed status.",
+    "quotes": [
+     "S126",
+     "S123"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:28:01.359Z"
+}

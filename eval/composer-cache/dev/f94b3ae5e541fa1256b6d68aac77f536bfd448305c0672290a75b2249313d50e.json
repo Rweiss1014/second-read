@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3978,
+ "verdict": {
+  "queries": [
+   "Publish post now Instagram",
+   "Instagram post image media upload requirements",
+   "Blotato Instagram account connect post immediately",
+   "Media library uploaded images attach to post",
+   "Instagram post failed error publishing"
+  ]
+ }
+}

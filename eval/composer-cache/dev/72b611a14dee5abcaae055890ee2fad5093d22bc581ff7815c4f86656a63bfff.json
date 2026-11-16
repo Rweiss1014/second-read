@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7427,
+ "verdict": {
+  "asked": [
+   {
+    "item": "7 free skills vs 8 folders: which is right",
+    "steps": []
+   },
+   {
+    "item": "is the extra generate skill free to use",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say the ZIP has 8 skill folders and the FAQ lists 7 skills, but no sentence says whether the generate skill is free, and it may need separate provider credentials.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:51:16.847Z"
+}

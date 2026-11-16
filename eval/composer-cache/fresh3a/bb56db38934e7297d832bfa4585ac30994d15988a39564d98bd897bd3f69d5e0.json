@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3802,
+ "verdict": {
+  "asked": [
+   {
+    "item": "how often new posts get added to Inspiration",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the sentences state how often new posts are added to Inspiration; they only describe how to browse, filter, and remix posts and how to request topics.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:26:29.806Z"
+}

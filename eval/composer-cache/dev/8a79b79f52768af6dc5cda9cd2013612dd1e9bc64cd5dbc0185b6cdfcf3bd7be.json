@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4569,
+ "verdict": {
+  "queries": [
+   "n8n Blotato node account not found",
+   "accountId not found after reconnecting social account",
+   "Blotato API accountId changed after reconnect",
+   "n8n Blotato credentials account dropdown refresh",
+   "Blotato list accounts API id field"
+  ]
+ }
+}

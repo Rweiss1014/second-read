@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5003,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Direct download link format for OneDrive",
+    "steps": []
+   },
+   {
+    "item": "Whether Blotato can use a OneDrive direct link",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages only give a direct download URL format for Google Drive and say nothing about OneDrive, so no sentence answers this.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:33:06.416Z"
+}

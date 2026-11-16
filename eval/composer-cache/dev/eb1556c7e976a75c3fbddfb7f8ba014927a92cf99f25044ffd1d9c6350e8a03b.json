@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3979,
+ "verdict": {
+  "queries": [
+   "Blotato $1 trial charge currency conversion AUD",
+   "Blotato billing charge unrecognized subscription after $1 trial",
+   "Blotato trial $1 first month price billing cycle",
+   "Blotato invoice receipt charge statement descriptor"
+  ]
+ },
+ "at": "2026-11-16T07:50:29.274Z"
+}

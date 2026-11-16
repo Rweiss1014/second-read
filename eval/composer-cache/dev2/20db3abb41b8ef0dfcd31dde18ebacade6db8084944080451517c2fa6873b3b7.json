@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5714,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Add a delay (e.g. 10 minutes) between the comment and the DM",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages don't say whether a DM automation can wait a set time after a comment before sending. They only describe the 7-day private reply window and the follow and email gates, which are different features.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:46:57.274Z"
+}

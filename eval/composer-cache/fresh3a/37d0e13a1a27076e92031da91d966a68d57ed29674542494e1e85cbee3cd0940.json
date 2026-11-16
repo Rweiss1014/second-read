@@ -1,0 +1,48 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7931,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Caption missing from TikTok draft; did I type it wrong?",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "How to get the caption back before publishing",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The sentences say captions are not carried over when publishing a TikTok post as a draft, and say to re-enter the caption in the TikTok app.",
+  "steps": [
+   {
+    "text": "Captions are not carried over when publishing a TikTok post as a draft.",
+    "quotes": [
+     "S52",
+     "S23"
+    ]
+   },
+   {
+    "text": "This is a TikTok API limitation.",
+    "quotes": [
+     "S24"
+    ]
+   },
+   {
+    "text": "After the draft is created, open the TikTok app and re-enter your caption before publishing the draft.",
+    "quotes": [
+     "S25"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:07:54.709Z"
+}

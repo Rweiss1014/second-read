@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4923,
+ "verdict": {
+  "queries": [
+   "free trial credits used up upgrade plan",
+   "trial ended billing charge when upgrading",
+   "upgrade popup subscription started payment",
+   "cancel subscription after accidental upgrade refund",
+   "trial credits exhausted what happens next"
+  ]
+ }
+}

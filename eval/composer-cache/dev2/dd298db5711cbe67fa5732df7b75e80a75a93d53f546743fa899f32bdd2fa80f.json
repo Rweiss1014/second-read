@@ -1,0 +1,57 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5670,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Pinterest error 'Sorry! This site doesn't allow you to save Pins'",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "How to get around it (own blog link)",
+    "steps": [
+     3,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The Troubleshooting page covers this exact Pinterest error, its causes, and the query parameter workaround.",
+  "steps": [
+   {
+    "text": "This error comes from Pinterest, not Blotato, and it means Pinterest blocked the destination link in your pin.",
+    "quotes": [
+     "S27",
+     "S28"
+    ]
+   },
+   {
+    "text": "Two common causes are that the destination website opted out of being pinned, or that Pinterest's blocklist flagged your URL, often a false positive.",
+    "quotes": [
+     "S30",
+     "S31"
+    ]
+   },
+   {
+    "text": "To work around it, add a query parameter to the end of your link, for example ?ref=pin or ?v=111, so Pinterest reads it as a new URL.",
+    "quotes": [
+     "S32",
+     "S34"
+    ]
+   },
+   {
+    "text": "Use the modified link in your pin and publish again.",
+    "quotes": [
+     "S35"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:31:57.193Z"
+}

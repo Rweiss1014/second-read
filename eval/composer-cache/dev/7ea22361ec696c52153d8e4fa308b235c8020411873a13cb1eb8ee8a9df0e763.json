@@ -1,0 +1,25 @@
+{
+ "kind": "second",
+ "version": "second-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 10437,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "not-answered",
+    "about": "The customer asked which number is the real one to put in a sponsor report this week. The reply never says which figure to use, or that Blotato's figure is a lagging snapshot that will rise at later checkpoints, so the report number could change."
+   },
+   {
+    "kind": "caveat",
+    "about": "The section says two delays stack: YouTube's validation delay and Blotato's collection schedule, where Blotato returns the latest snapshot it collected and not a live figure. The reply names only the YouTube delay, yet step 4 says 'Neither delay'. It leaves out the Blotato snapshot timing, which matters for a report due this week."
+   },
+   {
+    "kind": "not-answered",
+    "about": "The customer asked directly whether Blotato is missing views and whether the connection is broken. The reply only says 'not a bug and no action is needed'. It doesn't say outright that no reconnect is needed or that the connection is fine."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T07:51:41.811Z"
+}

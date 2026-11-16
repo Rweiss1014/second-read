@@ -1,0 +1,50 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5633,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Use brand details when generating a carousel from Videos templates",
+    "steps": [
+     1,
+     2,
+     3,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The Brand Kit page gives the web app steps for template-based carousels using the Use brand kit toggle.",
+  "steps": [
+   {
+    "text": "Configure your primary brand in Settings > My Brand.",
+    "quotes": [
+     "S17"
+    ]
+   },
+   {
+    "text": "Select a template at Videos > Create New Video.",
+    "quotes": [
+     "S18"
+    ]
+   },
+   {
+    "text": "Enter a prompt.",
+    "quotes": [
+     "S19"
+    ]
+   },
+   {
+    "text": "Enable \"Use brand kit\" before generation, since the toggle starts off.",
+    "quotes": [
+     "S20",
+     "S21"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:54:59.994Z"
+}

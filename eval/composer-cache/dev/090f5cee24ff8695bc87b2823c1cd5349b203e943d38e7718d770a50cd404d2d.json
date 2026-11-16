@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3535,
+ "verdict": {
+  "asked": [
+   {
+    "item": "DELETE /v2/schedules/{id} returns 404 though post is listed",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages list the DELETE endpoint but never say why it would return 404 for an id that GET /v2/schedules lists, so the cause depends on this customer's account and request.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:38:25.164Z"
+}

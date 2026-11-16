@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4521,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Payout method: PayPal or bank account",
+    "steps": []
+   },
+   {
+    "item": "Customer has only a Brazilian bank, no PayPal",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences say payouts are managed in Tolt but never state which payout methods (PayPal or bank account) are supported, so the question is unanswered.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:11:05.024Z"
+}

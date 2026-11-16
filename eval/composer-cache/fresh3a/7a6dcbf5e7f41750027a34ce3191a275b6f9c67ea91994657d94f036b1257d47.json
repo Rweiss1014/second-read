@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4384,
+ "verdict": {
+  "queries": [
+   "Instagram DM automation setup",
+   "DM automation funnel templates",
+   "customer list Blotato accounts by plan",
+   "Instagram handle connected account settings",
+   "Blotato case studies fitness"
+  ]
+ },
+ "at": "2026-11-16T08:08:07.645Z"
+}

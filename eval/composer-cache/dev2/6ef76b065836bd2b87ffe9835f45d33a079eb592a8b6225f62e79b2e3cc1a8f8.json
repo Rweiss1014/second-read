@@ -1,0 +1,31 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9075,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is the Creator plan limit really 40 connected accounts?",
+    "steps": []
+   },
+   {
+    "item": "Count of 24 connections, with Facebook Pages, LinkedIn Pages and Slack channels counted separately",
+    "steps": []
+   },
+   {
+    "item": "Error 'maximum connected accounts reached' when connecting account 25",
+    "steps": []
+   },
+   {
+    "item": "Do I have to disconnect an account to add this one?",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer's own count of 24 is below the Creator limit of 40, yet the connection is refused, and the page says that mismatch should go to support rather than be resolved from the help pages (S43, S44).",
+  "steps": []
+ },
+ "at": "2026-11-16T07:59:27.119Z"
+}

@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4301,
+ "verdict": {
+  "queries": [
+   "Reconnect button TikTok account not working",
+   "Reconnect TikTok account Accounts page",
+   "TikTok account reconnect fails no error",
+   "Starter plan connected accounts limit",
+   "Accounts page connected accounts count plan limit"
+  ]
+ }
+}

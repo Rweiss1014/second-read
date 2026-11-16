@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3507,
+ "verdict": {
+  "queries": [
+   "error code 20305 webhook request timed out after 15s",
+   "DM automation webhook timeout",
+   "webhook response timeout limit 15 seconds",
+   "automation run log webhook failed message not sent",
+   "webhook retry on failed request DM automation"
+  ]
+ }
+}

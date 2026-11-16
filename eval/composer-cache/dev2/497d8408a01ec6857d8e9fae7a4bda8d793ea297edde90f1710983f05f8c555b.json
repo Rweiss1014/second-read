@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4901,
+ "verdict": {
+  "queries": [
+   "edit scheduled post caption keep media attachment",
+   "scheduled Instagram post image removed after editing text",
+   "Blotato editing scheduled post media missing",
+   "Instagram post media URL not found error scheduled post",
+   "scheduled post update caption images reattach"
+  ]
+ }
+}

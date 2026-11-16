@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3792,
+ "verdict": {
+  "queries": [
+   "Accepted payment methods PayPal",
+   "Billing settings payment method options credit card PayPal",
+   "Subscription payment methods supported Blotato plan"
+  ]
+ },
+ "at": "2026-11-16T07:50:07.802Z"
+}

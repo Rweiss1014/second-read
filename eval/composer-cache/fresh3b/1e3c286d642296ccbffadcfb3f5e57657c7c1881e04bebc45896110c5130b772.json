@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3311,
+ "verdict": {
+  "queries": [
+   "TikTok account warm-up period before connecting to Blotato",
+   "Connecting an existing TikTok account dormant or inactive account",
+   "Blotato new account warm-up 4 weeks TikTok",
+   "TikTok account age and activity requirements for connecting social accounts"
+  ]
+ },
+ "at": "2026-11-16T08:11:46.014Z"
+}

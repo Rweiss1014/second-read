@@ -1,0 +1,48 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7363,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can six slide images and one video go in a single LinkedIn carousel?",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Six images as a carousel for the company page (within the 2-10 image range)",
+    "steps": [
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages directly state that videos cannot be mixed into a LinkedIn carousel and that carousels take 2-10 image URLs, which answers the customer's question.",
+  "steps": [
+   {
+    "text": "No, videos cannot be mixed into a LinkedIn carousel.",
+    "quotes": [
+     "S7"
+    ]
+   },
+   {
+    "text": "A LinkedIn carousel takes 2 to 10 image URLs in content.mediaUrls, so six images can form a carousel.",
+    "quotes": [
+     "S5"
+    ]
+   },
+   {
+    "text": "A video can be published as its own LinkedIn post, separate from the carousel.",
+    "quotes": [
+     "S122"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:00:17.513Z"
+}

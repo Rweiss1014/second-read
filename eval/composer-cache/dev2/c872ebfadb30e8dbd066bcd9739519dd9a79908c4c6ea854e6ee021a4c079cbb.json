@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4693,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Send emails and plans of people who signed up via their link",
+    "steps": []
+   },
+   {
+    "item": "Identify referrals who didn't pay",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer asks staff to send other people's emails and plan data, which is another person's data and not something the help pages let me provide.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:31:51.445Z"
+}

@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4291,
+ "verdict": {
+  "points": [
+   {
+    "point": "Single sign-on with Google Workspace support",
+    "sentence": ""
+   },
+   {
+    "point": "Two-factor authentication support",
+    "sentence": ""
+   },
+   {
+    "point": "Team of four users",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry states anything about SSO, two-factor authentication, or team seats, so none answers this customer's security-policy question."
+ },
+ "at": "2026-11-16T08:11:14.134Z"
+}

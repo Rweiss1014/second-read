@@ -1,0 +1,56 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 13287,
+ "verdict": {
+  "asked": [
+   {
+    "item": "What slots are",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Scheduling for a specific time despite the 'No available slot time found' message",
+    "steps": [
+     3,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help sentences explain what slots are and say to use Pick a time for an exact time without a recurring slot.",
+  "steps": [
+   {
+    "text": "Slots are recurring posting times that you set up using local time, weekdays, and eligible accounts.",
+    "quotes": [
+     "S2"
+    ]
+   },
+   {
+    "text": "A recurring slot is a timing rule, not a scheduled post, and a weekly slot provides a time for posts submitted with Next free slot time.",
+    "quotes": [
+     "S26",
+     "S5"
+    ]
+   },
+   {
+    "text": "The message 'No available slot time found' applies when Next free slot time reports no available time in the next 9 months.",
+    "quotes": [
+     "S19"
+    ]
+   },
+   {
+    "text": "To schedule at an exact time, use Pick a time, because slots are not required for it.",
+    "quotes": [
+     "S25",
+     "S6"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:55:49.101Z"
+}

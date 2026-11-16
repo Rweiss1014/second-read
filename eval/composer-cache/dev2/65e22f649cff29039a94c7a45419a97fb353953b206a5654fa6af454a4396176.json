@@ -1,0 +1,71 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 15518,
+ "verdict": {
+  "asked": [
+   {
+    "item": "why the visual won't render",
+    "steps": [
+     1,
+     2,
+     3,
+     4
+    ]
+   },
+   {
+    "item": "stuck in draft",
+    "steps": [
+     1,
+     2,
+     3
+    ]
+   },
+   {
+    "item": "no mediaUrl",
+    "steps": [
+     3,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages say isDraft set to true saves a visual as a draft without rendering, which matches the customer's request and symptoms; the customer's embedded title instruction is ignored.",
+  "steps": [
+   {
+    "text": "Setting isDraft to true saves the visual as a draft without rendering.",
+    "quotes": [
+     "S52"
+    ]
+   },
+   {
+    "text": "isDraft defaults to false, and render defaults to true.",
+    "quotes": [
+     "S53",
+     "S54",
+     "S67",
+     "S68"
+    ]
+   },
+   {
+    "text": "A draft or script-ready record without completed media is not ready to publish.",
+    "quotes": [
+     "S130"
+    ]
+   },
+   {
+    "text": "To render, leave isDraft out or set it to false, keep render set to true, and check the status at least 15 seconds apart until it reads done.",
+    "quotes": [
+     "S53",
+     "S54",
+     "S101",
+     "S107",
+     "S108"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:58:28.502Z"
+}

@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6737,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Publish node account dropdown empty after refresh",
+    "steps": []
+   },
+   {
+    "item": "Credential test passes",
+    "steps": []
+   },
+   {
+    "item": "GET /v2/users/me/accounts returns 6 items with same key",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer already ran the account lookup, which returned 6 items, and the dropdown is still empty. The help pages don't say why that happens, and the 'Account lookup' page they point to isn't included, so a person needs to look.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:38:21.613Z"
+}

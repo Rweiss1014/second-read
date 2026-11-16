@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8230,
+ "verdict": {
+  "asked": [
+   {
+    "item": "filter GET /v2/comments to audience comments only (isAuthor false)",
+    "steps": []
+   },
+   {
+    "item": "?isAuthor=false parameter does nothing (already tried)",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer already tried ?isAuthor=false and says it fails, and the sentences list no isAuthor query filter, so they do not answer whether one exists or why the attempt failed.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:58:45.205Z"
+}

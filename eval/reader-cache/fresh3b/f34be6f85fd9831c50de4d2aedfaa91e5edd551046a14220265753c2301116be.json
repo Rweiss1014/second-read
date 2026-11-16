@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4347,
+ "verdict": {
+  "points": [
+   {
+    "point": "turn off watermark text in template output",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states how to remove the default watermark text from an API template render; the closest entries (template-id error, carousel making) cover different questions."
+ },
+ "at": "2026-11-16T08:10:57.736Z"
+}

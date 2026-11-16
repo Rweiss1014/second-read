@@ -1,0 +1,35 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9174,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Switch existing automation to a different (main) Instagram account",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages say the connected account is locked after creation and that a different account needs a new flow.",
+  "steps": [
+   {
+    "text": "You can't switch an existing flow to another account, because the connected account is locked for the flow after creation.",
+    "quotes": [
+     "S19"
+    ]
+   },
+   {
+    "text": "To use a different account, create a new flow.",
+    "quotes": [
+     "S20"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:09:35.283Z"
+}

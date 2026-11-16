@@ -1,0 +1,41 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 11373,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Next free slot time with no weekly slots: does the post go out right away?",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Will it fail instead?",
+    "steps": [
+     1
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S18 says scheduling fails instead of publishing immediately when no matching slot time is available, and S52 says slots supply the time for Next free slot time.",
+  "steps": [
+   {
+    "text": "If no matching slot time is available, scheduling fails instead of publishing immediately.",
+    "quotes": [
+     "S18"
+    ]
+   },
+   {
+    "text": "A weekly slot provides a time for posts submitted with Next free slot time.",
+    "quotes": [
+     "S52"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:10:09.073Z"
+}

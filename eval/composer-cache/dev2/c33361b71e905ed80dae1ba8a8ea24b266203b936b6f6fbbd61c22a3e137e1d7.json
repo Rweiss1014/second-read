@@ -1,0 +1,67 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8260,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Should I log in with Facebook to connect Instagram",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Linked Facebook Page affects the connection",
+    "steps": [
+     4
+    ]
+   },
+   {
+    "item": "How to connect Instagram in Blotato",
+    "steps": [
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages directly state to use the Instagram login rather than Facebook and that a linked Facebook Page is not required.",
+  "steps": [
+   {
+    "text": "No, use your Instagram login, not your Facebook login.",
+    "quotes": [
+     "S7"
+    ]
+   },
+   {
+    "text": "Open Accounts, select Connect account, then Instagram.",
+    "quotes": [
+     "S2",
+     "S3"
+    ]
+   },
+   {
+    "text": "Sign in with your Instagram login details, then approve the requested permissions.",
+    "quotes": [
+     "S4",
+     "S5"
+    ]
+   },
+   {
+    "text": "The connection does not require a linked Facebook Page.",
+    "quotes": [
+     "S9"
+    ]
+   },
+   {
+    "text": "Blotato uses Instagram Login for professional accounts of type Business or Creator.",
+    "quotes": [
+     "S8"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:00:55.354Z"
+}

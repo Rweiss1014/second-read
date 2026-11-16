@@ -1,0 +1,35 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6508,
+ "verdict": {
+  "asked": [
+   {
+    "item": "why the automation's public comment replies differ from comment to comment",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The sentences explain that the public reply picks one of several configured reply texts at random for each comment, which answers why the replies vary.",
+  "steps": [
+   {
+    "text": "Blotato picks one of your public reply texts at random for each comment.",
+    "quotes": [
+     "S36"
+    ]
+   },
+   {
+    "text": "The public replies rotate because you can set up to 6 reply texts by clicking Add another reply.",
+    "quotes": [
+     "S35"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:26:35.588Z"
+}

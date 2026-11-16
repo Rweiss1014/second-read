@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3495,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does Blotato sign webhook publish target requests (HMAC header or shared secret)",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences say the webhook publish target sends post content to your URL but never state whether requests are signed or carry an HMAC header or shared secret.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:51:38.917Z"
+}

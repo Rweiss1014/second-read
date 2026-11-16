@@ -1,0 +1,53 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8923,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Canceled screen while Billing says ACTIVE",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Do I have to pay a second time to get in",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "How to get back in",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help page covers this case: Billing shows ACTIVE but the canceled screen still appears. It says not to pay again and gives the fix.",
+  "steps": [
+   {
+    "text": "If Billing shows your subscription is ACTIVE but you still see the canceled/reactivate screen, do not pay again.",
+    "quotes": [
+     "S22"
+    ]
+   },
+   {
+    "text": "The lock screen is stale on your browser.",
+    "quotes": [
+     "S23"
+    ]
+   },
+   {
+    "text": "Clear your browser cache, then log in again at my.blotato.com/login with your exact account email, spelled in all lowercase.",
+    "quotes": [
+     "S24"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:30:54.699Z"
+}

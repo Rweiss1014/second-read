@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4791,
+ "verdict": {
+  "queries": [
+   "Instagram DM automation limit per account",
+   "maximum number of automations per connected Instagram account",
+   "blotato_create_automation keyword trigger",
+   "Instagram auto DM keyword rate limit API",
+   "automation quota plan limits Blotato"
+  ]
+ },
+ "at": "2026-11-16T07:46:08.291Z"
+}

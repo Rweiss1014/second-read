@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4720,
+ "verdict": {
+  "queries": [
+   "\"invalid API key\" 401 blotato-api-key header",
+   "Settings > API key copy and paste",
+   "API key missing trailing characters truncated when copied",
+   "blotato-api-key environment variable .env setup",
+   "regenerate API key Settings API"
+  ]
+ },
+ "at": "2026-11-16T07:46:53.227Z"
+}

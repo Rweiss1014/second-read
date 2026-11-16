@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6519,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does OAuth sign-in work in Gemini CLI, or only the blotato-api-key header",
+    "steps": []
+   },
+   {
+    "item": "Is Gemini CLI an officially supported client",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages never mention Gemini CLI, so they don't say whether OAuth works there or whether it is officially supported, and they say not to apply one client's setup to another.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:29:33.382Z"
+}

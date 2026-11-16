@@ -14,3 +14,7 @@ logs/
 # They are Blotato's to publish, so they are not republished here.
 .cache/
 eval/reader-cache/test*/
+# Held-out exams that are not committed, and the composer's verdicts for any held-out set (they paraphrase its messages).
+eval/tickets.test3.jsonl
+eval/tickets.test4.jsonl
+eval/composer-cache/test*/

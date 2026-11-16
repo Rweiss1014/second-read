@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5896,
+ "verdict": {
+  "points": [
+   {
+    "point": "12 of 50 batch posts never published",
+    "sentence": ""
+   },
+   {
+    "point": "not in Failed, Scheduled or anywhere in Posts",
+    "sentence": ""
+   },
+   {
+    "point": "how to avoid double-posting the 38 that published",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer says they already checked Posts, including Failed and Scheduled, and the 12 posts are still missing. Finding them needs a look at this customer's own account, so a person on the team should take it."
+ },
+ "at": "2026-11-16T08:08:57.841Z"
+}

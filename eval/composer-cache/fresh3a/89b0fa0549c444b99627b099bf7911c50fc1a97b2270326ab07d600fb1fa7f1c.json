@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5846,
+ "verdict": {
+  "asked": [
+   {
+    "item": "why a scheduled post published to a removed Slack channel",
+    "steps": []
+   },
+   {
+    "item": "whether removing a channel stops its scheduled posts",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say removing a channel moves its scheduled posts to drafts (S35), but no sentence explains why this post published after the removal, which needs a check of the customer's own account and post.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:26:01.037Z"
+}

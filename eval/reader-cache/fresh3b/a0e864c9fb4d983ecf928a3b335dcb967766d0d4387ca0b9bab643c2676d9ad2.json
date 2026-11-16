@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3042,
+ "verdict": {
+  "points": [
+   {
+    "point": "max length of background video for tweet card template",
+    "sentence": ""
+   },
+   {
+    "point": "max file size for that template's background video",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry covers the tweet card template's background video length or size limit; max-upload-size only covers general upload size by plan and says nothing about video duration or this template."
+ },
+ "at": "2026-11-16T08:12:11.822Z"
+}

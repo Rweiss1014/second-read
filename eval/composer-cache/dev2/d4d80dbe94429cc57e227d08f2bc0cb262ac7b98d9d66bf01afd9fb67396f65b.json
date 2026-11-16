@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4272,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can background music fade out over the last 3 seconds via the API",
+    "steps": []
+   },
+   {
+    "item": "Whether the transition fade option applies to music instead of clips",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages list no fade-out or fade-duration setting for musicConfig (only enabled, url, and volume), and the transition fade (S28-S29) applies to transitions, not to the music track, so the sentences answer a neighboring question rather than whether the music can fade out.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:58:22.034Z"
+}

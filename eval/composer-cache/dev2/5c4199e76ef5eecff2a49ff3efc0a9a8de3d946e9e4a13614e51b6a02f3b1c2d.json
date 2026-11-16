@@ -1,0 +1,52 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 10453,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Should I uncheck the messaging permission to get past the 'isn't eligible' error",
+    "steps": [
+     1,
+     2,
+     3
+    ]
+   },
+   {
+    "item": "Two DM automations live on the account",
+    "steps": [
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The Instagram page says unchecking messaging excludes DM automations, including live ones, and says to escalate instead of removing it.",
+  "steps": [
+   {
+    "text": "Unchecking the messaging permission only attempts publishing-only authorization, and it does not guarantee eligibility.",
+    "quotes": [
+     "S33",
+     "S34"
+    ]
+   },
+   {
+    "text": "It also excludes the messaging permission that DM automations need, including any automation already live on the account.",
+    "quotes": [
+     "S34",
+     "S38"
+    ]
+   },
+   {
+    "text": "If you have live DM automations, the page says not to silently remove this permission and to escalate the eligibility error.",
+    "quotes": [
+     "S40",
+     "S41"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:32:51.155Z"
+}

@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 11688,
+ "verdict": {
+  "asked": [
+   {
+    "item": "is the visual dead after 3 hours on exporting",
+    "steps": []
+   },
+   {
+    "item": "no error field, keep polling",
+    "steps": []
+   },
+   {
+    "item": "avoid burning credits by not making another",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences say AI video renders take up to 10-15 minutes and that a long render is normal, but none says whether a visual still exporting after 3 hours is normal or stuck, so the \"is it dead\" question is not answered for this duration.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:00:37.109Z"
+}

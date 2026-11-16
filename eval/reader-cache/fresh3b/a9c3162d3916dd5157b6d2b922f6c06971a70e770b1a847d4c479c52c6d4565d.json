@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3380,
+ "verdict": {
+  "points": [
+   {
+    "point": "14 quick reply chips in one message limit",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer is asking, without a question mark, whether 14 quick reply chips in one POST /messages call are allowed, and no candidate states a chip or quick reply limit, so none answers it."
+ },
+ "at": "2026-11-16T08:12:00.962Z"
+}

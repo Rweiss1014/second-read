@@ -1,0 +1,61 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9787,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Filter List Comments by isAuthor false",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Tell audience comments from own replies",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The query parameter table lists the supported filters, which don't include isAuthor, and the comment object says isAuthor marks audience comments.",
+  "steps": [
+   {
+    "text": "The List Comments query parameters are limit, cursor, platform, accountId, parentCommentId, postId, since and until.",
+    "quotes": [
+     "S29",
+     "S30",
+     "S31",
+     "S32",
+     "S33",
+     "S34",
+     "S35",
+     "S36"
+    ]
+   },
+   {
+    "text": "isAuthor is not one of the listed query parameters.",
+    "quotes": [
+     "S29",
+     "S30",
+     "S31",
+     "S32",
+     "S33",
+     "S34",
+     "S35",
+     "S36"
+    ]
+   },
+   {
+    "text": "Each comment in the response has an isAuthor field, which is false for an audience reply and true when your connected account wrote the comment.",
+    "quotes": [
+     "S54"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:29:06.117Z"
+}

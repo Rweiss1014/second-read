@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4339,
+ "verdict": {
+  "queries": [
+   "Inspiration library supported platforms LinkedIn",
+   "Inspiration library TikTok Instagram LinkedIn posts",
+   "Blotato Inspiration tab saving posts from social networks",
+   "Inspiration library supported networks list"
+  ]
+ },
+ "at": "2026-11-16T08:07:24.860Z"
+}

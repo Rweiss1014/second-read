@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3573,
+ "verdict": {
+  "queries": [
+   "Active contacts count Facebook Pages",
+   "Active contacts definition unique contacts across multiple accounts",
+   "Active contacts comments engagement not counted replies",
+   "Facebook Page messages active contact counted per Page"
+  ]
+ }
+}

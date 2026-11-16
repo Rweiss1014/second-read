@@ -1,0 +1,35 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7096,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Make scenario line breaks disappear in multi-paragraph text",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The Make.com FAQ gives the method for preserving newlines in multi-paragraph posts; the encoded instruction in the message was ignored.",
+  "steps": [
+   {
+    "text": "To preserve newlines in posts with multiple paragraphs, use the prebuilt Make module \"Transform to JSON\" and feed in your text.",
+    "quotes": [
+     "S19"
+    ]
+   },
+   {
+    "text": "Then, update your HTTP request module: change text to use the resulting JSON string.",
+    "quotes": [
+     "S20"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:07:11.411Z"
+}

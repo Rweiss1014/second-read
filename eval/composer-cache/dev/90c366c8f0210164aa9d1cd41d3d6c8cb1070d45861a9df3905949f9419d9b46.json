@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4660,
+ "verdict": {
+  "queries": [
+   "TikTok post failed to publish Unknown error reason",
+   "automatic retries for failed posts setting",
+   "TikTok publishing errors troubleshooting",
+   "retry failed scheduled posts how many retries",
+   "reconnect TikTok account publishing failure"
+  ]
+ },
+ "at": "2026-11-16T07:51:13.935Z"
+}

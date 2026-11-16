@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 2965,
+ "verdict": {
+  "queries": [
+   "Blotato Google Calendar integration view scheduled posts",
+   "Blotato calendar view scheduled posts sync",
+   "Blotato iCal calendar feed subscribe scheduled posts",
+   "Blotato Google Calendar sync scheduled posts"
+  ]
+ },
+ "at": "2026-11-16T08:09:42.117Z"
+}

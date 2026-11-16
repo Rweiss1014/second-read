@@ -1,0 +1,43 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5943,
+ "verdict": {
+  "asked": [
+   {
+    "item": "where to get the current price per 1000 credits from the API",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "avoid hardcoding the price",
+    "steps": [
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages state that the Get Credit Balance endpoint returns the current price per 1,000 credits, and that the price should be read from it because pricing changes over time.",
+  "steps": [
+   {
+    "text": "Call the Get Credit Balance endpoint, GET /v2/credits, which also returns the current purchase pricing.",
+    "quotes": [
+     "S6",
+     "S11"
+    ]
+   },
+   {
+    "text": "Read the price from the pricePer1000CreditsUsd field in the response, which is the price in US dollars per 1,000 credits.",
+    "quotes": [
+     "S18",
+     "S23"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:59:06.327Z"
+}

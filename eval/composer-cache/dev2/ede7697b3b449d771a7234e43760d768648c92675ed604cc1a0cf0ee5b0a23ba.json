@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4583,
+ "verdict": {
+  "queries": [
+   "Instagram text-only post without media",
+   "Instagram post requires image or video media",
+   "Instagram media required error",
+   "Blotato Instagram post type image video carousel",
+   "Create Instagram post mediaUrls field API"
+  ]
+ }
+}

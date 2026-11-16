@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6711,
+ "verdict": {
+  "asked": [
+   {
+    "item": "X threads posting in reverse order since Friday",
+    "steps": []
+   },
+   {
+    "item": "happening on every thread, 6 so far",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages say nothing about thread post order or reversed posting, and this is a bug report across multiple threads that the team needs to look at.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:48:41.090Z"
+}

@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4096,
+ "verdict": {
+  "queries": [
+   "Video templates watermark input field API inputs",
+   "Remove watermark text from rendered video template",
+   "Watermark not removed when rendering video via API",
+   "Images with text template inputs watermark empty string",
+   "Blotato watermark plan requirement video output"
+  ]
+ },
+ "at": "2026-11-16T08:11:01.837Z"
+}

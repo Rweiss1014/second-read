@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3432,
+ "verdict": {
+  "points": [
+   {
+    "point": "Open CapCut project file in Blotato video editor",
+    "sentence": ""
+   },
+   {
+    "point": "Keep working on the project there",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether a CapCut project file can be opened in the Blotato video editor; the closest entry only covers uploading a finished video or pasting a transcript."
+ },
+ "at": "2026-11-16T08:10:09.852Z"
+}

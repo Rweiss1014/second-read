@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5972,
+ "verdict": {
+  "asked": [
+   {
+    "item": "how many X posts per day from one account",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages give posting limits for TikTok, Instagram, Pinterest, Facebook, LinkedIn, YouTube and Slack, but no sentence states a daily posting limit for X, so the customer's question has no answer in the sentences.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:25:52.458Z"
+}

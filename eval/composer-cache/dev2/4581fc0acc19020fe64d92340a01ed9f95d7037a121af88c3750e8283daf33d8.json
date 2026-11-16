@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4233,
+ "verdict": {
+  "queries": [
+   "connect Instagram account to Blotato",
+   "Blotato add social account Instagram OAuth authorization",
+   "Instagram business or creator account requirement Blotato connection",
+   "Blotato Instagram connection error reconnect account"
+  ]
+ }
+}

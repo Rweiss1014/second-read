@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7263,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Old July invoice still showing after updating card",
+    "steps": []
+   },
+   {
+    "item": "Dashboard won't open",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer already updated their card and the problem persists, and the message doesn't say what the dashboard shows, so a team member needs to review it.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:38:58.095Z"
+}

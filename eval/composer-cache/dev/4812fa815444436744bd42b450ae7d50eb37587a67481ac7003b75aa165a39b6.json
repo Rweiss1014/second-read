@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4007,
+ "verdict": {
+  "queries": [
+   "Publish step error URL is empty",
+   "Create Visual step output image URL",
+   "Create Visual media URL passed to Publish node",
+   "Publish node mediaUrls required field",
+   "Automation workflow step failed empty URL troubleshooting"
+  ]
+ }
+}

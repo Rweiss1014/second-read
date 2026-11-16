@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3945,
+ "verdict": {
+  "queries": [
+   "Blotato approval link for client post approval",
+   "Blotato share post for client review and approval",
+   "Blotato draft status hold post before publishing",
+   "Blotato edit scheduled post before publishing",
+   "Blotato approvals workflow client review"
+  ]
+ }
+}

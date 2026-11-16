@@ -1,0 +1,55 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8745,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does animating a still with Seedance in the generate skill use Blotato Creator credits",
+    "steps": [
+     1,
+     2,
+     3
+    ]
+   },
+   {
+    "item": "How to see what the skill will spend",
+    "steps": [
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The generate skill page says it runs through kie.ai and that provider credits and Blotato credits are separate.",
+  "steps": [
+   {
+    "text": "The generate skill generates images and videos through kie.ai.",
+    "quotes": [
+     "S75"
+    ]
+   },
+   {
+    "text": "It animates the approved still through kie.ai.",
+    "quotes": [
+     "S83"
+    ]
+   },
+   {
+    "text": "Provider credits and Blotato credits are separate.",
+    "quotes": [
+     "S77"
+    ]
+   },
+   {
+    "text": "The skill quotes estimated credits and remaining budget before spending, and balance.sh checks kie.ai credits.",
+    "quotes": [
+     "S82",
+     "S91"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:47:25.632Z"
+}

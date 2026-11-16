@@ -1,0 +1,49 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8121,
+ "verdict": {
+  "asked": [
+   {
+    "item": "set up company name and address myself",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "email someone each month to get company details on invoices",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages describe a self-service way to add company details to invoices through the billing portal, and state that future invoices will include the updated information.",
+  "steps": [
+   {
+    "text": "You can add the company details yourself: go to Settings > Billing and click \"View Billing Portal\".",
+    "quotes": [
+     "S12",
+     "S13"
+    ]
+   },
+   {
+    "text": "In the billing information, update your company details, including your company name and address.",
+    "quotes": [
+     "S14",
+     "S20"
+    ]
+   },
+   {
+    "text": "Future invoices will include your updated company information.",
+    "quotes": [
+     "S15"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:26:24.146Z"
+}

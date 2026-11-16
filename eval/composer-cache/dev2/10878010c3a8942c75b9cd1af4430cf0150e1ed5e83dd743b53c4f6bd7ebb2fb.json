@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6365,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Instagram Story caption text not showing",
+    "steps": []
+   },
+   {
+    "item": "Is text the wrong field",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages don't say whether Instagram Stories display the text field as a caption, so they don't answer why the caption is missing or whether the field is wrong.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:24:39.647Z"
+}

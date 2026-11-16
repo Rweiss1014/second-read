@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5544,
+ "verdict": {
+  "asked": [
+   {
+    "item": "daily posting cap for Threads",
+    "steps": []
+   },
+   {
+    "item": "is the Facebook 25 per Page or per login",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The Threads daily posting cap is not stated anywhere in the sentences; Threads appears only in warm-up timing, so one of the two questions has no answer and the reply is passed over for team review.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:59:32.722Z"
+}

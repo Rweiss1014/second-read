@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4904,
+ "verdict": {
+  "queries": [
+   "Slack posts support images only video not supported",
+   "Slack error code 7000 video not supported",
+   "Slack target media upload image only Blotato",
+   "Blotato scenario Slack step fails with video attachment",
+   "exclude Slack account from multi-platform post media type",
+   "Slack image post requirements supported file types"
+  ]
+ }
+}

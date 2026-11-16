@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6136,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does the archived #old-promos channel still count toward the 20-account limit",
+    "steps": []
+   },
+   {
+    "item": "Is an archived channel freed up automatically",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say each connected Slack channel counts as 1 account and that archived channels do not appear in the channel list, but they never say whether an already-connected channel that gets archived stays counted or is freed automatically.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:49:03.081Z"
+}

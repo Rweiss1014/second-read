@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3345,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Uptime guarantee",
+    "steps": []
+   },
+   {
+    "item": "Service credits for missed scheduled post times",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the sentences state an uptime guarantee or service credits for missed scheduled posts; the credits mentioned are AI generation credits, which is a different topic.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:38:26.455Z"
+}

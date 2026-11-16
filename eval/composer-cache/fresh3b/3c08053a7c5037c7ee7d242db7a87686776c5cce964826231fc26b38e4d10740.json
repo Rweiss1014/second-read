@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4007,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does the Viral AI Coach accept .mov files?",
+    "steps": []
+   },
+   {
+    "item": "Does the Viral AI Coach accept only mp4 files?",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences give the Viral AI Coach's upload size limit (100MB) but do not state which file formats the coach accepts; the format lists (MP4, MOV, WebM) belong to publishing media requirements for TikTok, Pinterest, and Bluesky, not to the coach.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:27:54.997Z"
+}

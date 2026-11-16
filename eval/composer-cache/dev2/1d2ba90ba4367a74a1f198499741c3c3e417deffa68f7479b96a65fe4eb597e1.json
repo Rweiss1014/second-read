@@ -1,0 +1,49 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3997,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Log in with Facebook to connect Instagram?",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Instagram linked to a Facebook Page",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S18 and S20 directly say to use the Instagram login and that a linked Facebook Page isn't required.",
+  "steps": [
+   {
+    "text": "Use your Instagram login, not your Facebook login.",
+    "quotes": [
+     "S18"
+    ]
+   },
+   {
+    "text": "In Accounts, select Connect account, then Instagram, and sign in with your Instagram login details.",
+    "quotes": [
+     "S13",
+     "S14",
+     "S15"
+    ]
+   },
+   {
+    "text": "This connection does not require a linked Facebook Page.",
+    "quotes": [
+     "S20"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:32:54.641Z"
+}

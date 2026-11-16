@@ -1,0 +1,43 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4870,
+ "verdict": {
+  "asked": [
+   {
+    "item": "How to turn off the watermark",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Customer sent watermark set to empty but word still shows",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The template page says the parameter is named `watemark`, not `watermark`, and that setting it to an empty string hides the watermark.",
+  "steps": [
+   {
+    "text": "For this template, the parameter name is `watemark`, not `watermark`.",
+    "quotes": [
+     "S13"
+    ]
+   },
+   {
+    "text": "To hide the watermark, set `watemark` to `\"\"` (empty string).",
+    "quotes": [
+     "S13",
+     "S17"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:11:06.765Z"
+}

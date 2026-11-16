@@ -1,0 +1,28 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4309,
+ "verdict": {
+  "asked": [
+   {
+    "item": "YouTube community post with a picture via Blotato",
+    "steps": [
+     1
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S4 states that the publish operation does not create YouTube community image posts.",
+  "steps": [
+   {
+    "text": "No, the YouTube publish operation does not create YouTube community image posts.",
+    "quotes": [
+     "S4"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:09:11.955Z"
+}

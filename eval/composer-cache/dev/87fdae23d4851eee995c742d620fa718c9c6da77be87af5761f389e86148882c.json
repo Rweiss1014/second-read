@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3565,
+ "verdict": {
+  "queries": [
+   "Blotato status page service status incidents",
+   "Blotato scheduled posts delayed publishing delay",
+   "Blotato outage known issues system status",
+   "Blotato post publishing queue timing not published on time"
+  ]
+ },
+ "at": "2026-11-16T07:50:42.386Z"
+}

@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4165,
+ "verdict": {
+  "queries": [
+   "video creations API templateId valid template IDs",
+   "400 body/template/id must be equal to constant",
+   "video creation API request body inputs quote template",
+   "Blotato v2 videos creations endpoint request body schema"
+  ]
+ }
+}

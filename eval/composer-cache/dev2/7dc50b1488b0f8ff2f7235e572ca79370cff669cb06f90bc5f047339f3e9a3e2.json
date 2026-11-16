@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4000,
+ "verdict": {
+  "queries": [
+   "Visual stays in draft isDraft false render",
+   "Blotato visual creation API templateId inputs prompt",
+   "Visual rendering status mediaUrl not returned",
+   "Quote card template visual generation API",
+   "Visual generation failed draft status troubleshooting"
+  ]
+ },
+ "at": "2026-11-16T07:45:40.791Z"
+}

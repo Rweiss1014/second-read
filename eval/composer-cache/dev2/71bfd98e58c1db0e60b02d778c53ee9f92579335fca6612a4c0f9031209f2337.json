@@ -1,0 +1,61 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9442,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Fix My Automation button missing on failed Make.com request",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Is it hidden on my plan (answered by the n8n-only availability)",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "What to do instead for Make.com failures",
+    "steps": [
+     2,
+     3,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages state that Fix My Automation is n8n only and does not work for Make.com, and they give the manual checklist to use instead.",
+  "steps": [
+   {
+    "text": "The Fix My Automation button is only for n8n workflows and does not work for Make.com.",
+    "quotes": [
+     "S16",
+     "S74"
+    ]
+   },
+   {
+    "text": "For Make.com, use the manual troubleshooting checklist instead.",
+    "quotes": [
+     "S17"
+    ]
+   },
+   {
+    "text": "Check that your Blotato API key, Account IDs, and Page/channel IDs are correct.",
+    "quotes": [
+     "S19"
+    ]
+   },
+   {
+    "text": "Open your Logs and click the request to see the full payload, error response, and which account it was sent to.",
+    "quotes": [
+     "S23"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:00:16.925Z"
+}

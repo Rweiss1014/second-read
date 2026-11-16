@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3667,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Field to attach .srt caption file for YouTube",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The YouTube fields listed (title, privacyStatus, shouldNotifySubscribers, isMadeForKids, containsSyntheticMedia, playlistIds, thumbnailUrl) don't mention captions or .srt files, so no sentence states whether captions can be attached.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:07:05.882Z"
+}

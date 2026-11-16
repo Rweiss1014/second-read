@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4357,
+ "verdict": {
+  "queries": [
+   "YouTube link as context extraction failed",
+   "YouTube video transcript not available captions language",
+   "YouTube context extraction supported languages subtitles",
+   "Add context from a URL YouTube video transcript required",
+   "Extraction failed for YouTube video non-English captions"
+  ]
+ }
+}

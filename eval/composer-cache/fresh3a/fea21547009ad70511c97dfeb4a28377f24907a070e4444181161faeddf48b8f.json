@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7225,
+ "verdict": {
+  "asked": [
+   {
+    "item": "List returns id 98431 but GET by that id returns 404 with the same API key",
+    "steps": []
+   },
+   {
+    "item": "Post is live and shows in Posts > Published",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The only cause the pages give for a 404 is an ID that does not exist or does not belong to the authenticated user. The customer says the same key was used and the post is live, and no sentence gives another cause, so the team needs to check this.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:07:10.630Z"
+}

@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5144,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Number of brands allowed in Brand Kit on Starter",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences say you can create multiple brands but give no limit on the number of brands, and none ties a brand limit to the Starter plan.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:50:24.501Z"
+}

@@ -1,0 +1,49 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6602,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Do I get 50% of every month a monthly Creator referral stays?",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Meaning of the Tolt 'Earn 50% on all paid customers' message",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The sentences state directly that commission applies only to the referred customer's first payment, not every recurring payment, which answers the customer's question.",
+  "steps": [
+   {
+    "text": "No, the 50% commission applies only to the referred customer's first payment, not to every recurring subscription payment.",
+    "quotes": [
+     "S41",
+     "S27"
+    ]
+   },
+   {
+    "text": "For example, referring a customer to the Creator plan at $97/month earns $48.50 after the customer's first payment succeeds.",
+    "quotes": [
+     "S42"
+    ]
+   },
+   {
+    "text": "The message \"Earn 50% on all paid customers\" is generic Tolt text and does not mean you get commission on every recurring payment.",
+    "quotes": [
+     "S40",
+     "S27"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:13:46.113Z"
+}

@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3830,
+ "verdict": {
+  "queries": [
+   "Facebook Page not showing in Blotato after reconnecting account",
+   "Connect Facebook Page Blotato select Pages in Meta permissions",
+   "Facebook account reconnect Blotato missing Pages admin role required",
+   "Meta Business Suite Page access granted to Blotato app pages_show_list",
+   "Blotato Facebook Page connected but not appearing in accounts list"
+  ]
+ },
+ "at": "2026-11-16T08:11:16.434Z"
+}

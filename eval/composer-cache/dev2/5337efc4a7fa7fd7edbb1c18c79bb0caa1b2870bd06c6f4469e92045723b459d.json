@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7267,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can the keyword be set to match only the exact word \"free\"",
+    "steps": []
+   },
+   {
+    "item": "Why \"freezing\" and \"carefree\" trigger the automation",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences explain that a keyword matches anywhere in the text (S29), which answers why \"freezing\" and \"carefree\" trigger it, but no sentence says whether a whole-word or exact-match setting exists, so the main question is unanswered.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:58:46.805Z"
+}

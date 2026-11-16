@@ -1,0 +1,77 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 13078,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Did I put the folders in the wrong place?",
+    "steps": [
+     1,
+     3,
+     4
+    ]
+   },
+   {
+    "item": "Do the skills only work for coders?",
+    "steps": [
+     2
+    ]
+   },
+   {
+    "item": "Cowork doesn't know content-coach (Mac, ~/.claude/skills)",
+    "steps": [
+     1,
+     3,
+     4,
+     5
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages say Cowork does not read ~/.claude/skills, that skills work in Cowork, and how to upload them.",
+  "steps": [
+   {
+    "text": "Cowork does not read the computer's ~/.claude/skills folder.",
+    "quotes": [
+     "S11",
+     "S32"
+    ]
+   },
+   {
+    "text": "The skills aren't only for coders: you install each skill once and use it in Claude Code, Claude Desktop, and Claude Cowork.",
+    "quotes": [
+     "S72"
+    ]
+   },
+   {
+    "text": "For Cowork, use the personal-account upload route: package 1 selected skill folder as a ZIP containing its SKILL.md and support files.",
+    "quotes": [
+     "S31",
+     "S15"
+    ]
+   },
+   {
+    "text": "Open Customize > Skills, select +, then + Create skill, select Upload a skill, upload that skill's ZIP, and enable it.",
+    "quotes": [
+     "S16",
+     "S17",
+     "S18",
+     "S19",
+     "S20"
+    ]
+   },
+   {
+    "text": "Start a conversation using the same Claude account, repeat for each required skill, and do not upload the entire 8-skill pack as 1 skill.",
+    "quotes": [
+     "S21",
+     "S22",
+     "S23"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:30:34.158Z"
+}

@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3980,
+ "verdict": {
+  "queries": [
+   "DM automation collect phone number from user",
+   "DM automation ask for email address input step",
+   "DM automation webhook send collected data",
+   "DM automation custom input field webhook payload"
+  ]
+ },
+ "at": "2026-11-16T07:45:58.426Z"
+}

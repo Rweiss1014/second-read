@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6682,
+ "verdict": {
+  "asked": [
+   {
+    "item": "How to add alt text to each image on Bluesky",
+    "steps": []
+   },
+   {
+    "item": "altText field seen for Instagram and Pinterest",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages list no optional fields for Bluesky and never say whether or how alt text can be added there. The altText details they give are only for Instagram and Pinterest.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:32:40.419Z"
+}

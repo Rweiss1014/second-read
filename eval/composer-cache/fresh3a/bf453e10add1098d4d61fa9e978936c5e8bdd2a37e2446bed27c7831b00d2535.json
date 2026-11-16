@@ -1,0 +1,28 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4877,
+ "verdict": {
+  "asked": [
+   {
+    "item": "make a YouTube community post with a picture using Blotato",
+    "steps": [
+     1
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help page states directly that Blotato's publish operation does not create YouTube community image posts, which answers the question.",
+  "steps": [
+   {
+    "text": "No, Blotato does not create YouTube community image posts.",
+    "quotes": [
+     "S4"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:26:26.039Z"
+}

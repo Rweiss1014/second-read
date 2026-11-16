@@ -1,0 +1,56 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8499,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Must I switch Primary brand for each client's post?",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Does picking a brand also pick which client's Instagram the post goes to?",
+    "steps": [
+     3,
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The Manage multiple brand voices and Brand Kit pages state both that the primary brand need not change and that brand selection does not assign social accounts.",
+  "steps": [
+   {
+    "text": "No, you do not need to change your primary brand to select another brand for a post.",
+    "quotes": [
+     "S85"
+    ]
+   },
+   {
+    "text": "In the AI Agent, pick the brand you want from the Brand selector in the left sidebar.",
+    "quotes": [
+     "S81",
+     "S82"
+    ]
+   },
+   {
+    "text": "No, a brand selection does not assign a social destination, and social accounts are not linked to a brand.",
+    "quotes": [
+     "S87",
+     "S53"
+    ]
+   },
+   {
+    "text": "When scheduling or publishing the post, select only the social accounts belonging to that brand or client.",
+    "quotes": [
+     "S58"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T08:12:46.501Z"
+}

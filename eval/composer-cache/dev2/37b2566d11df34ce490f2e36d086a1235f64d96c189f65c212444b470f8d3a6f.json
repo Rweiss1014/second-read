@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3657,
+ "verdict": {
+  "queries": [
+   "GET /v2/posts query parameters sortBy",
+   "/v2/posts sort order oldest first",
+   "GET /v2/posts status filter scheduled failed",
+   "sortBy oldest published-posts API parameter",
+   "Blotato API list posts sorting parameters"
+  ]
+ }
+}

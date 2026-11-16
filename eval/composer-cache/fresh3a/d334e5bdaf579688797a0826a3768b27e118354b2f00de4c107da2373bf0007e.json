@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3171,
+ "verdict": {
+  "queries": [
+   "Audio source file size limit MB",
+   "Audio source maximum duration hours",
+   "Upload audio file as source supported formats mp3",
+   "Audio source import limits Blotato post generation",
+   "Audio source processing time large files"
+  ]
+ },
+ "at": "2026-11-16T08:08:44.976Z"
+}

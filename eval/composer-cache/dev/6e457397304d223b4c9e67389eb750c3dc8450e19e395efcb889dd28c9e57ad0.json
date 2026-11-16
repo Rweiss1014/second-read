@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4849,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Posting to an Instagram broadcast channel",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences list Instagram posts, reels, stories and carousels but never mention broadcast channels, so none of them states whether Blotato can post to one.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:50:05.493Z"
+}

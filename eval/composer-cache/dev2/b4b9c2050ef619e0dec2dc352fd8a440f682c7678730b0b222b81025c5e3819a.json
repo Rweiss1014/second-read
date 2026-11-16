@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6164,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Whether they keep paying $29 if Blotato raises prices later",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages give the current Starter price of $29 per month but say nothing about whether existing subscribers keep that price if prices rise, so a team member should answer.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:32:19.062Z"
+}

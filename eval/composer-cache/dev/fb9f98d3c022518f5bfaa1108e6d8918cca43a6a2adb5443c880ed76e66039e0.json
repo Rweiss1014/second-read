@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5615,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Switch Blotato menus and buttons to German",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences only cover the language of generated content and videos (Settings > Profile > Default language). None of them say whether the menus and buttons can be shown in German.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:50:23.060Z"
+}

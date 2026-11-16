@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4192,
+ "verdict": {
+  "queries": [
+   "LinkedIn account selection personal profile and company page",
+   "Blotato LinkedIn target page or profile setting",
+   "All LinkedIn calendar slot posts to which accounts",
+   "LinkedIn company page post only not personal profile",
+   "Schedule post to multiple LinkedIn accounts Blotato"
+  ]
+ }
+}

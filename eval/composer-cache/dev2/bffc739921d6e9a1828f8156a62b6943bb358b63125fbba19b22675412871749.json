@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7830,
+ "verdict": {
+  "asked": [
+   {
+    "item": "\"Scheduled time is too far in the future.\" error on a LinkedIn post for 2026-12-06T15:00:00Z, in the app and via API",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages say this error means the time is more than 9 months away, but the customer's time is about three weeks away, so the pages don't explain why it appears. A team member needs to look at it.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:24:37.459Z"
+}

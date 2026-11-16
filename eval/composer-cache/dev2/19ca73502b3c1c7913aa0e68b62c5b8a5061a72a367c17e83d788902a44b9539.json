@@ -1,0 +1,55 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 8514,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Did I set up the automation wrong?",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Why her LINK reply under someone else's comment got nothing",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "What kind of comment starts a run",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The sentences state directly that a reply to another comment does not start a run, which covers the customer's case.",
+  "steps": [
+   {
+    "text": "Only top-level comments start a run, so a reply to another comment does not start one.",
+    "quotes": [
+     "S5",
+     "S46"
+    ]
+   },
+   {
+    "text": "A reply inside a comment thread is skipped, even when it has a matching keyword.",
+    "quotes": [
+     "S47"
+    ]
+   },
+   {
+    "text": "Only a top-level comment under the post starts a run.",
+    "quotes": [
+     "S46"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:59:15.441Z"
+}

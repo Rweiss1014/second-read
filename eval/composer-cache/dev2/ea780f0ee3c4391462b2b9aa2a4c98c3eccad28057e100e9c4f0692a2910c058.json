@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4405,
+ "verdict": {
+  "queries": [
+   "Annual billing plan yearly subscription pricing",
+   "Switch from monthly to annual billing period",
+   "Changing billing cycle monthly subscription cancel existing plan",
+   "Upgrade to yearly plan proration credit unused monthly time"
+  ]
+ }
+}

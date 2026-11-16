@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 6691,
+ "verdict": {
+  "queries": [
+   "Blotato MCP server URL mcp.blotato.com/mcp setup",
+   "ChatGPT desktop add MCP server remote URL",
+   "ChatGPT Plugins MCPs Add MCP server command to launch arguments",
+   "mcp-remote command args npx Blotato MCP",
+   "Blotato MCP server connect ChatGPT desktop app"
+  ]
+ }
+}

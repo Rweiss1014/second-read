@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5136,
+ "verdict": {
+  "queries": [
+   "affiliate program referred users list dashboard",
+   "affiliate referral link signups conversions view",
+   "affiliate dashboard referred customer plan status",
+   "affiliate program customer personal data email privacy",
+   "referral program commission paid subscriptions"
+  ]
+ },
+ "at": "2026-11-16T07:47:03.055Z"
+}

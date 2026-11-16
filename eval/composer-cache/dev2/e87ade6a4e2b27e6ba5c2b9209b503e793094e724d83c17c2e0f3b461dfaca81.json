@@ -1,0 +1,49 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8723,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Charged 2,000 credits on every run of the POST /v2/credits call",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Running it several times in a test loop",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The Credits pages say Buy Credits only creates a Stripe Checkout link and charges nothing until payment is completed in a browser.",
+  "steps": [
+   {
+    "text": "Calling Buy Credits (POST /v2/credits) does not charge anything.",
+    "quotes": [
+     "S11",
+     "S88"
+    ]
+   },
+   {
+    "text": "It returns a Stripe Checkout link (checkoutUrl), and the account owner completes payment by opening that link in a browser.",
+    "quotes": [
+     "S10",
+     "S89"
+    ]
+   },
+   {
+    "text": "If your loop runs this call often, a 429 error means the rate limit was exceeded (10 requests per hour).",
+    "quotes": [
+     "S97"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:46:38.199Z"
+}

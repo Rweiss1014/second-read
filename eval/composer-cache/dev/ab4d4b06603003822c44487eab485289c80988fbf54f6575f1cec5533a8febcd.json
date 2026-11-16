@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8232,
+ "verdict": {
+  "asked": [
+   {
+    "item": "DELETE /v2/schedules/{id} returns 404",
+    "steps": []
+   },
+   {
+    "item": "Post shows in Calendar and GET /v2/schedules lists the same id",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The 404 sentence lists three causes (not found, not your account, no longer a future scheduled post), but the customer says GET lists the same id for a future post. No other cause is given, so the team needs to check this.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:50:39.081Z"
+}

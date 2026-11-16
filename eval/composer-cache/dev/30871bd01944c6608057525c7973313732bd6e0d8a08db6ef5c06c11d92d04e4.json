@@ -1,0 +1,44 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6409,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why only a.jpg showed up as a story",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Where b.jpg and c.jpg are",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages say a Facebook Story takes one image or video and only the first URL is used when several are passed.",
+  "steps": [
+   {
+    "text": "Each story takes one image or one video, and if you pass multiple URLs, only the first is used.",
+    "quotes": [
+     "S15",
+     "S16"
+    ]
+   },
+   {
+    "text": "If more than one is provided, only the first is used and published, so the other images were not published as stories.",
+    "quotes": [
+     "S47",
+     "S65"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:49:45.301Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3028,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does muting the preview player carry over to the exported MP4",
+    "sentence": ""
+   },
+   {
+    "point": "What else to do to remove music from export",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry addresses preview-player muting or music in exported videos; all cover unrelated topics (AI agents, drafts, sources, platform limits, cloud storage)."
+ },
+ "at": "2026-11-16T08:07:23.067Z"
+}

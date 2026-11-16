@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5484,
+ "verdict": {
+  "asked": [
+   {
+    "item": "minimum balance before payout",
+    "steps": []
+   },
+   {
+    "item": "fee taken out of commission",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences explain commission amounts and payout timing (NET-15, funds in 1–2 days after the 15th), but no sentence states a minimum payout balance or says whether any fee is deducted.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:27:42.326Z"
+}

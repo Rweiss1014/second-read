@@ -1,0 +1,25 @@
+{
+ "kind": "second",
+ "version": "second-r1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4860,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "caveat",
+    "about": "The customer says about 30 views on every video, but the reply only gives the shadowban branch and omits the other branches, such as a single video stuck at low views, which can be fixed by toggling privacy. It also omits that the 10-in-a-row condition is what makes a shadowban likely, so the answer may wrongly steer them to a new account."
+   },
+   {
+    "kind": "says-more",
+    "about": "Step 1 says the page states something is wrong with the account if views are under 50. The page says this, but step 3 drops the page's 'I honestly recommend' framing and presents starting a new account as a firm recommendation without the 'likely' qualifier, so it is stated more strongly."
+   },
+   {
+    "kind": "not-answered",
+    "about": "The reply doesn't tell the customer how to check whether they meet the 10-videos-in-a-row condition, and it doesn't cover the other fixes the page gives, such as adding niche keywords, for views that are low but not under 50."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-16T07:48:27.340Z"
+}

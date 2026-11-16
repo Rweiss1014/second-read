@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3482,
+ "verdict": {
+  "queries": [
+   "Slack Connect channel posting Blotato",
+   "Connect Slack account Blotato social account setup",
+   "Slack channel selection for scheduled posts Blotato",
+   "Slack Connect shared channel external workspace permissions app installation",
+   "Blotato Slack integration channel not showing error"
+  ]
+ },
+ "at": "2026-11-16T08:07:45.929Z"
+}

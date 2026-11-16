@@ -1,0 +1,40 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8297,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Why Reconnect shows the maximum connected accounts error for an existing account",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "What to do about the error (20 connected)",
+    "steps": [
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "S79 says reconnecting an existing account counts against the connected-accounts limit and says how to free a slot.",
+  "steps": [
+   {
+    "text": "Reconnecting an existing account counts against the same connected-accounts limit, so Reconnect fails too until you free a slot.",
+    "quotes": [
+     "S79"
+    ]
+   },
+   {
+    "text": "To free a slot, disconnect an account in Accounts, or upgrade your plan.",
+    "quotes": [
+     "S79"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:32:05.987Z"
+}

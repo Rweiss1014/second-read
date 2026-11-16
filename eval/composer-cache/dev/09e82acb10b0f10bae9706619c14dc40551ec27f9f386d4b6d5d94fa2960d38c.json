@@ -1,0 +1,49 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 9385,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Custom thumbnail via thumbnailUrl never applies",
+    "steps": [
+     1,
+     2,
+     3
+    ]
+   },
+   {
+    "item": "Channel verified, good standing, image meets specs",
+    "steps": [
+     1
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The FAQ gives a separate cause, an account connected before verification or before thumbnail support, and says to re-connect.",
+  "steps": [
+   {
+    "text": "If you connected your YouTube account before custom thumbnail support was added, or you verified your account after first connecting it to Blotato, you'll need to re-connect your account.",
+    "quotes": [
+     "S50"
+    ]
+   },
+   {
+    "text": "To re-connect, go to Settings, then click \"Connect account > YouTube\" or click the \"Reconnect\" button on your YouTube account.",
+    "quotes": [
+     "S52",
+     "S53"
+    ]
+   },
+   {
+    "text": "Grant all requested permissions.",
+    "quotes": [
+     "S54"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:50:57.551Z"
+}

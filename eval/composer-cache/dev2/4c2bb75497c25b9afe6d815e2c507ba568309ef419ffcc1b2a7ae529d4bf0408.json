@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4052,
+ "verdict": {
+  "queries": [
+   "Comments API edit comment PUT /v2/comments/{id}",
+   "Comments API delete comment DELETE /v2/comments/{id}",
+   "Comments API update or delete a posted comment",
+   "Blotato API comment id status posted"
+  ]
+ },
+ "at": "2026-11-16T07:48:49.629Z"
+}

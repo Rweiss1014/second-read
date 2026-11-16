@@ -1,0 +1,43 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6234,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Post the same posts to a Facebook Group automatically",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Is there a setting or Facebook-side approval I'm missing",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages state Blotato cannot post to Facebook Groups because Facebook's API does not allow it, so no setting or approval changes that.",
+  "steps": [
+   {
+    "text": "Blotato can't post to Facebook Groups, so no setting or approval on your side enables it.",
+    "quotes": [
+     "S16",
+     "S29"
+    ]
+   },
+   {
+    "text": "Facebook's API does not let third-party tools post to Facebook Groups, and Blotato publishes to Facebook Pages only.",
+    "quotes": [
+     "S17"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:38:48.707Z"
+}

@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4817,
+ "verdict": {
+  "asked": [
+   {
+    "item": "support response time",
+    "steps": []
+   },
+   {
+    "item": "SLA for agency plan",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages say nothing about support response times or any SLA; the agency passages only cover client account setup, analytics, and client connection links, which are neighboring topics.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:27:52.365Z"
+}

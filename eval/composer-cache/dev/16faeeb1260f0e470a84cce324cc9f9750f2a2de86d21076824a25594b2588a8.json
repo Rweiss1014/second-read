@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4050,
+ "verdict": {
+  "queries": [
+   "Change account email address Blotato",
+   "Update login email Blotato account settings",
+   "Blotato credits transfer when changing email or creating new account",
+   "Blotato delete account and data retention scheduled posts videos",
+   "Merge multiple Blotato accounts into one workspace"
+  ]
+ }
+}

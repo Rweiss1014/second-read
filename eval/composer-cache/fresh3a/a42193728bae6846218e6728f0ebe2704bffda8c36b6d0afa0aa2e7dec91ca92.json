@@ -1,0 +1,19 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3313,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does Blotato offer 2FA / authenticator app on login",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say login uses an emailed authentication code but never state whether 2FA or an authenticator app is supported, so a team member should confirm.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:10:03.417Z"
+}

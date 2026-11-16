@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4461,
+ "verdict": {
+  "queries": [
+   "signup bonus credits free trial",
+   "bonus credits not showing in Billing",
+   "Billing credits balance trial plan",
+   "how credits are added to account after signup offer",
+   "free trial credits day 3 Billing page"
+  ]
+ }
+}

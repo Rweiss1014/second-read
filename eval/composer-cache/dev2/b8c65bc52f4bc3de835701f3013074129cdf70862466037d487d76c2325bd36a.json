@@ -1,0 +1,31 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9850,
+ "verdict": {
+  "asked": [
+   {
+    "item": "why triggered 230 does not equal completed 201 plus failed 11",
+    "steps": []
+   },
+   {
+    "item": "where the other 18 runs went",
+    "steps": []
+   },
+   {
+    "item": "whether those 18 contacts got their DM",
+    "steps": []
+   },
+   {
+    "item": "whether leads are being lost",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences explain that runs still in progress, expired, or superseded count toward triggered but not toward completed or failed, but they do not say how many of the 18 fall into each state, whether those contacts received their DM, or whether any leads are lost, so the customer's specific questions are not answered.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:58:58.113Z"
+}

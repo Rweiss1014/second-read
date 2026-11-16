@@ -1,0 +1,56 @@
+{
+ "kind": "write",
+ "version": "compose-w1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8961,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Dental brand channel missing from the YouTube connect list",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Manager role on the channel",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "What to do to connect it",
+    "steps": [
+     2,
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages say a channel may not appear when you only have the Manager role, and they give the fix.",
+  "steps": [
+   {
+    "text": "If you are listed only as a Manager, the channel may not appear when connecting.",
+    "quotes": [
+     "S12"
+    ]
+   },
+   {
+    "text": "Ask the current Owner to make you an Owner of the channel (or transfer ownership to you), then reconnect.",
+    "quotes": [
+     "S13",
+     "S50"
+    ]
+   },
+   {
+    "text": "For a branded or managed channel, select the channel from your main Google account before connecting.",
+    "quotes": [
+     "S49"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:25:06.428Z"
+}

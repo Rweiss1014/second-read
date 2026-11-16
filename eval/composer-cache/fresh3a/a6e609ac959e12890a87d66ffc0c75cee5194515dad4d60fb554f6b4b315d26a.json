@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7278,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Maximum number of images in Brand Visuals",
+    "steps": []
+   },
+   {
+    "item": "Whether about 80 product photos can be uploaded",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences give supported formats and a 10MB max file size for Brand Visuals, but none states how many images can be uploaded.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:10:41.713Z"
+}

@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7255,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Is the Creator limit really 40?",
+    "steps": []
+   },
+   {
+    "item": "Must I disconnect an account to add number 25?",
+    "steps": []
+   },
+   {
+    "item": "Error at 24 connections, below the limit",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages give the Creator limit as 40, but the customer counted 24 accounts and still gets the limit error. The sentences say to contact support in that case (S43), so a person needs to check the account.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:47:10.378Z"
+}

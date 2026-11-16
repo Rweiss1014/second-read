@@ -1,0 +1,37 @@
+{
+ "kind": "write",
+ "version": "compose-w1",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3825,
+ "verdict": {
+  "asked": [
+   {
+    "item": "where to get current price per 1000 credits from the API",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The Credits page says the price is returned by Get Credit Balance in pricePer1000CreditsUsd.",
+  "steps": [
+   {
+    "text": "Call Get Credit Balance, GET /v2/credits, which returns your current purchase pricing.",
+    "quotes": [
+     "S6",
+     "S11"
+    ]
+   },
+   {
+    "text": "Read the price from the pricePer1000CreditsUsd field, which is the price in US dollars per 1,000 credits, because pricing changes over time.",
+    "quotes": [
+     "S18",
+     "S23"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:24:41.332Z"
+}

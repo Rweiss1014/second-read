@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 5266,
+ "verdict": {
+  "queries": [
+   "How to add VAT number to invoice Blotato",
+   "Blotato billing settings company details tax ID",
+   "Blotato invoice VAT ID field Portugal",
+   "Blotato edit billing information invoice tax number"
+  ]
+ }
+}

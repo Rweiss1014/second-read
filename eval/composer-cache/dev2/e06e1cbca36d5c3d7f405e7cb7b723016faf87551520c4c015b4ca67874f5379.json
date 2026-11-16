@@ -1,0 +1,17 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 3901,
+ "verdict": {
+  "queries": [
+   "LinkedIn document carousel PDF upload Blotato",
+   "LinkedIn document post PDF file title",
+   "Blotato LinkedIn document media PDF file name document title",
+   "Blotato API LinkedIn document carousel mediaUrls pdf",
+   "LinkedIn company page document post Blotato"
+  ]
+ },
+ "at": "2026-11-16T07:45:45.481Z"
+}

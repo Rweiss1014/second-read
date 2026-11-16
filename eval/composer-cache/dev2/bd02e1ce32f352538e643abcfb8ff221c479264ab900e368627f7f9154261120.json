@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5159,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Monthly reset: midnight UTC or Sydney time?",
+    "steps": []
+   },
+   {
+    "item": "Launch DM giveaway right after the reset",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences say the active-contact count resets at the start of each month but never state which timezone that start is measured in, so the UTC-versus-Sydney question has no answer on these pages.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:59:50.610Z"
+}

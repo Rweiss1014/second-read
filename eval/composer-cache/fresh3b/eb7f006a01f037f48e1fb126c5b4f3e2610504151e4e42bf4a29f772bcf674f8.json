@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7823,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Does a dormant, not-new TikTok account need the full 4-week warm-up?",
+    "steps": []
+   },
+   {
+    "item": "Can the account be connected now?",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences cover brand new accounts and say an old account is ideal, but none say whether an account unused for almost two years counts as warmed up or needs the 4 weeks, so the team should answer.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:11:53.851Z"
+}

@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4120,
+ "verdict": {
+  "queries": [
+   "Google Business Profile integration connect account",
+   "Google Business Profile posts supported post types",
+   "Connecting a Google Business Profile location to Blotato",
+   "Google Business Profile local post call to action offer event"
+  ]
+ }
+}

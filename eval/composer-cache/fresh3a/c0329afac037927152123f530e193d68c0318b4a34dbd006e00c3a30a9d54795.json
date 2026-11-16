@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4289,
+ "verdict": {
+  "asked": [
+   {
+    "item": "field for X Community ID in Blotato",
+    "steps": []
+   },
+   {
+    "item": "posting to an X Community instead of the normal timeline",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "None of the help sentences mention X, X Communities, a community ID, or any such field, so they do not answer whether Blotato has one.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:27:03.059Z"
+}

@@ -1,0 +1,13 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4056,
+ "verdict": {
+  "points": [],
+  "pick": "none",
+  "reason": "The customer asks for access to, or the balance of, another person's account and for staff to pause that person's posts, so a team member must handle it and no entry applies."
+ },
+ "at": "2026-11-16T08:08:21.353Z"
+}

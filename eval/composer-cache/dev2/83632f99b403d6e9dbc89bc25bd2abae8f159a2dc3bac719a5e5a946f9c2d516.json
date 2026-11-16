@@ -1,0 +1,18 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4297,
+ "verdict": {
+  "queries": [
+   "DM automation webhook x-source-account header",
+   "webhook payload connected account ID Instagram",
+   "Instagram DM automation webhook unknown source account",
+   "duplicate account connected accounts Blotato",
+   "Instagram account disconnected or reconnected webhook data",
+   "webhook signature verification unauthorized requests endpoint"
+  ]
+ },
+ "at": "2026-11-16T07:49:13.129Z"
+}

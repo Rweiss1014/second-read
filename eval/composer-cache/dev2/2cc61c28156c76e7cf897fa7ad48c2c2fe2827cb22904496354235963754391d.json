@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4987,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Retry-After header on 429",
+    "steps": []
+   },
+   {
+    "item": "X-RateLimit-Remaining header on 429",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The help pages show the 429 JSON body with a message string but never say whether the response includes Retry-After or X-RateLimit-Remaining headers.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:29:10.731Z"
+}

@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 6759,
+ "verdict": {
+  "asked": [
+   {
+    "item": "create a brand new YouTube playlist inside Blotato while uploading",
+    "steps": []
+   },
+   {
+    "item": "must make the playlist on YouTube first",
+    "steps": []
+   },
+   {
+    "item": "new playlist not showing in the dropdown, only old playlists",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences only say you can add a video to an existing playlist and that playlists appear after reconnecting an older account; none say whether a playlist can be created in Blotato or whether a newly made YouTube playlist will appear in the dropdown.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:59:45.366Z"
+}

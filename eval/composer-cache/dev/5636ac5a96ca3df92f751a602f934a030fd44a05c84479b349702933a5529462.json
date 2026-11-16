@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4176,
+ "verdict": {
+  "queries": [
+   "SOC 2 Type II report download",
+   "Blotato trust center security compliance documents",
+   "request SOC 2 report NDA",
+   "security and compliance certifications Blotato"
+  ]
+ },
+ "at": "2026-11-16T07:50:58.790Z"
+}

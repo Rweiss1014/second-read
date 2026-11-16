@@ -1,0 +1,14 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3886,
+ "verdict": {
+  "queries": [
+   "Regenerate API key",
+   "API key compromised revoke and generate new key",
+   "Blotato API key settings Settings > API",
+   "Update API key in n8n Blotato credential"
+  ]
+ }
+}

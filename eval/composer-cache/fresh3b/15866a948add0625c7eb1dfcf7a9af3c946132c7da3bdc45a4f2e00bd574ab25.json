@@ -1,0 +1,16 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5100,
+ "verdict": {
+  "queries": [
+   "voiceName must be equal to one of the allowed values",
+   "POST /v2/videos/from-templates voiceName allowed values",
+   "AI Video with AI Voice template inputs voiceName scenes",
+   "AI voice list voice names API voiceName"
+  ]
+ },
+ "at": "2026-11-16T08:11:26.136Z"
+}

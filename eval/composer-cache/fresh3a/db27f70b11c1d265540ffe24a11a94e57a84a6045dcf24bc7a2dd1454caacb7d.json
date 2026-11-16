@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 4264,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Will Blotato match a competitor's 50% discount by Friday?",
+    "steps": []
+   },
+   {
+    "item": "Threatened cancellation and moving 6 brands if no match by deadline",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer asks staff to set a custom 50% discount and includes a deadline threat with consequences, and the help pages give no price-match or custom-pricing answer.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:26:29.027Z"
+}

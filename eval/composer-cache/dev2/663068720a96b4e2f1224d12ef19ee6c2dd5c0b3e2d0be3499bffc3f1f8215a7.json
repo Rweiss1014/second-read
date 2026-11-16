@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7301,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Should I disconnect Instagram from Blotato and start over to find the setting",
+    "steps": []
+   },
+   {
+    "item": "Should I reset my Meta privacy settings",
+    "steps": []
+   },
+   {
+    "item": "Setting \"future activity history off Meta technologies\" missing from Accounts Center",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences say not to remove a working connection to find an old menu label (S11, S82), but no sentence says whether to reset Meta privacy settings, and whether a privacy change is needed depends on the exact message on the authorization screen (S4, S5), which the customer has not quoted.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:59:10.824Z"
+}

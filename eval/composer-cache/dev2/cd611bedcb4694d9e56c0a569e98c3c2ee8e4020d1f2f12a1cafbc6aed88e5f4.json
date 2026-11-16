@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4600,
+ "verdict": {
+  "queries": [
+   "follow gate skipped confirmed follower",
+   "follow gate Instagram automation not triggered",
+   "follow gate setting Instagram auto DM",
+   "Instagram follower check requirements business account",
+   "automation follow gate status skipped log"
+  ]
+ }
+}

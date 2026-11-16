@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6697,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Meaning of the YouTube error \"The user has exceeded the number of videos they may upload\"",
+    "steps": []
+   },
+   {
+    "item": "Exact number of videos per day YouTube allows for an unverified channel",
+    "steps": []
+   },
+   {
+    "item": "Channel is new and not verified",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The pages say new or unverified accounts may have lower upload limits, but none states an exact number of videos per day for an unverified channel, so the main question has no answer.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:30:46.620Z"
+}

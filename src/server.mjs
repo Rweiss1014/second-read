@@ -152,6 +152,10 @@ function view(r, env, trace) {
   const ctx = (url, quote) => (url && quote ? pageContext(pages[pageUrl(url)] || pages[url], quote) : null);
   return {
     fresh: r.fresh,
+    // Which path wrote the reply ('saved' or 'composed'), and for a composed one its steps with their quoted
+    // sentences, the script checks and the second reader's verdict (src/composer.mjs). Additive: the page may ignore it.
+    path: r.path || null,
+    composed: r.composed || null,
     mock: isMock(env),
     ticket: r.ticket, entry: r.entry, status: r.status, outcome: r.outcome, seenBefore: r.seenBefore,
     evidence: r.evidence ? { kind: r.evidence.kind, ok: r.evidence.ok, summary: r.evidence.summary, calls: r.evidence.calls, searched: r.evidence.searched, status: r.evidence.status, missing: r.evidence.missing } : null,

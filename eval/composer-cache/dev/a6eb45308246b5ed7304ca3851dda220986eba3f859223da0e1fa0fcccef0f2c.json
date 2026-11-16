@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 3940,
+ "verdict": {
+  "queries": [
+   "Done-for-you account setup service",
+   "Onboarding call with Blotato team",
+   "Setting up your account and connecting social accounts",
+   "Scheduling your first posts in the Blotato web app",
+   "Managed setup for social media accounts"
+  ]
+ }
+}

@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4190,
+ "verdict": {
+  "queries": [
+   "Facebook Page connection personal profile required",
+   "Connect Facebook Page Blotato personal account login",
+   "Starter plan social accounts limit",
+   "Facebook personal profile counts toward connected accounts",
+   "additional social accounts add-on pricing Starter plan"
+  ]
+ }
+}

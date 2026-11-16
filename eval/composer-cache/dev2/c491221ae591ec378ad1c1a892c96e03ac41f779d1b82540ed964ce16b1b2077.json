@@ -1,0 +1,55 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4581,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Can all four pictures go out on Threads in one post",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Or must they pick one picture",
+    "steps": [
+     2,
+     3
+    ]
+   },
+   {
+    "item": "Why the error occurred with the copied Instagram request",
+    "steps": [
+     1
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The pages say Threads takes 1 image or video per post and that multiple images go out as a thread with one image per post via additionalPosts.",
+  "steps": [
+   {
+    "text": "Blotato's Threads publisher accepts 1 image or video per post, so a mediaUrls array with more than one item fails with the error \"Threads only supports a single image or a video\".",
+    "quotes": [
+     "S36",
+     "S37"
+    ]
+   },
+   {
+    "text": "You don't have to pick one: publish a thread instead, with one image per post.",
+    "quotes": [
+     "S38"
+    ]
+   },
+   {
+    "text": "Put each extra post in the additionalPosts array with a single item in its mediaUrls: post 1 contains image 1, post 2 contains image 2, and so on.",
+    "quotes": [
+     "S39"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:46:20.764Z"
+}

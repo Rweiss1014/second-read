@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7049,
+ "verdict": {
+  "points": [
+   {
+    "point": "LinkedIn posts show no analytics",
+    "sentence": ""
+   },
+   {
+    "point": "Whether LinkedIn needs to be reconnected",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The linkedin-analytics entry says LinkedIn analytics are not available, but no sentence in any entry says whether reconnecting LinkedIn would change that, and that entry's own steps defer to a person."
+ },
+ "at": "2026-11-16T08:07:20.972Z"
+}

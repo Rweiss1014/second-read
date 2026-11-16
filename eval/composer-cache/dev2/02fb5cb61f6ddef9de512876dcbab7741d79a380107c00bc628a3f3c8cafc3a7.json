@@ -1,0 +1,59 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 7289,
+ "verdict": {
+  "asked": [
+   {
+    "item": "why Claude only posts when I type",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "how to make posting run every morning by itself",
+    "steps": [
+     2,
+     3
+    ]
+   },
+   {
+    "item": "automatic posting without a manual trigger (cloud option)",
+    "steps": [
+     4
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages directly answer how to make Claude post automatically on a schedule, including the every-morning example.",
+  "steps": [
+   {
+    "text": "A regular Claude chat only acts when you send a message, so posting stays manual.",
+    "quotes": [
+     "S28"
+    ]
+   },
+   {
+    "text": "To automate posting completely, schedule the run instead of starting it by hand.",
+    "quotes": [
+     "S29"
+    ]
+   },
+   {
+    "text": "Set up a Claude Code Routine, which is a scheduled agent, to run your Blotato posting workflow on a recurring schedule, for example every morning.",
+    "quotes": [
+     "S30"
+    ]
+   },
+   {
+    "text": "Alternatively, use a Managed Agent to run the posting workflow in the cloud on a schedule.",
+    "quotes": [
+     "S31"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:58:30.909Z"
+}

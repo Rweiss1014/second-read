@@ -1,0 +1,15 @@
+{
+ "kind": "expand",
+ "version": "expand-e1",
+ "model": "claude-haiku-5-5",
+ "ms": 4014,
+ "verdict": {
+  "queries": [
+   "Bulk upload posts CSV import calendar",
+   "Import scheduled posts from spreadsheet CSV file",
+   "CSV template columns text scheduledTime date mediaUrls",
+   "Bulk scheduling upload posts with date and time",
+   "Supported file formats for bulk post import XLSX CSV"
+  ]
+ }
+}

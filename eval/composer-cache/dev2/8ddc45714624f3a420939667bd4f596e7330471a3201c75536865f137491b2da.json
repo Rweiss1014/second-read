@@ -1,0 +1,47 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 9445,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Will each POST /v2/credits run charge 2,000 credits?",
+    "steps": [
+     1,
+     2
+    ]
+   },
+   {
+    "item": "Repeated calls in a test loop",
+    "steps": [
+     3
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The help pages state that calling Buy Credits does not charge anything and that payment happens only when the checkoutUrl is opened and completed, which answers whether each run is charged.",
+  "steps": [
+   {
+    "text": "Calling POST /v2/credits does not charge anything.",
+    "quotes": [
+     "S11"
+    ]
+   },
+   {
+    "text": "A payment is made only when you open the returned checkoutUrl in a browser and complete payment there.",
+    "quotes": [
+     "S12"
+    ]
+   },
+   {
+    "text": "Buy Credits returns a 429 error when the rate limit is exceeded, which is 10 requests per hour.",
+    "quotes": [
+     "S97"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:59:05.613Z"
+}

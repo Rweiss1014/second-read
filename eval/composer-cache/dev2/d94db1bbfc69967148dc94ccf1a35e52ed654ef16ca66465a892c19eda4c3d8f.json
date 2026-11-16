@@ -1,0 +1,47 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8828,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Credit cost of one nano-banana-pro image (they assumed 1 credit each)",
+    "steps": [
+     1
+    ]
+   },
+   {
+    "item": "Whether 300 remaining credits is enough for 40 images",
+    "steps": [
+     1,
+     2
+    ]
+   }
+  ],
+  "answerable": true,
+  "reason": "The credit table gives the per-image cost of nano-banana-pro, and the credits page says to compare the balance with the whole job's cost.",
+  "steps": [
+   {
+    "text": "The nano-banana-pro model costs 50 credits per image, not 1 credit.",
+    "quotes": [
+     "S16"
+    ]
+   },
+   {
+    "text": "Before generating, compare your balance with the cost of the entire job.",
+    "quotes": [
+     "S36"
+    ]
+   },
+   {
+    "text": "Credits are not used for scheduling or publishing posts.",
+    "quotes": [
+     "S34"
+    ]
+   }
+  ]
+ },
+ "at": "2026-11-16T07:46:24.777Z"
+}

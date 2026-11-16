@@ -1,0 +1,27 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-haiku-5-5",
+ "servedBy": "claude-haiku-5-5",
+ "ms": 5253,
+ "verdict": {
+  "asked": [
+   {
+    "item": "What the app did when the customer reconnected Slack",
+    "steps": []
+   },
+   {
+    "item": "Why the other channels are now unchecked",
+    "steps": []
+   },
+   {
+    "item": "Why posts are not going to the other channels after reconnecting",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The customer reports that posts still fail after they reconnected, and asking what the app did in their account is a fact only their own account can show, so this goes to the team.",
+  "steps": []
+ },
+ "at": "2026-11-16T08:25:33.120Z"
+}

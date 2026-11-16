@@ -1,0 +1,23 @@
+{
+ "kind": "write",
+ "version": "compose-w3",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5428,
+ "verdict": {
+  "asked": [
+   {
+    "item": "Show both Facebook Pages as collaborators on a Reel",
+    "steps": []
+   },
+   {
+    "item": "Works like Instagram collab posts",
+    "steps": []
+   }
+  ],
+  "answerable": false,
+  "reason": "The sentences cover collaborators only for Instagram posts and reels, and none say whether Facebook Pages can be tagged as collaborators on a Facebook Reel.",
+  "steps": []
+ },
+ "at": "2026-11-16T07:46:59.087Z"
+}
