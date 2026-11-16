@@ -5,10 +5,12 @@
 // 3. Compose: a numbered reply, an escalation packet when a person must decide, a help-doc edit when the docs
 //    have no answer or the wrong one.
 import { routeMessage, PAGES } from '../knowledge/playbook.mjs';
-import { listPosts, getSubmission, errorText } from './api.mjs';
+import { listPosts, getSubmission, errorText, listAccounts } from './api.mjs';
 import { explain } from './explain.mjs';
 import { READER_OFF } from './reader.mjs';
 
+// Error text from a platform can carry an account number; keep it, but cut it to one line.
+const redactErr = (e) => String(e).replace(/s+/g, ' ').slice(0, 200);
 const PLATFORM_WORDS = ['instagram', 'linkedin', 'twitter', 'facebook', 'tiktok', 'youtube', 'threads', 'bluesky', 'pinterest', 'slack'];
 // The raw stamp, for the escalation packet and the technical evidence: "Sun, 15 Nov 2026 19:00:00 UTC".
 export const whenRaw = (t) => new Date(t).toUTCString().replace(' GMT', ' UTC');
@@ -62,6 +64,69 @@ async function lookup(kind, ticket, { client, docs, entry, now = Date.now }) {
       const lead = same.length ? `from 2 days ago to 2 weeks ahead I see ${same.length} ${where}post${same.length === 1 ? '' : 's'}: ${count('scheduled')} scheduled, ${count('published')} published and ${count('failed')} failed. The newest is ${same[0].state?.type} for ` : '';
       ev.summary = same.length ? `${lead}${when(same[0].postTime, t0)}.` : `I see no ${where}posts from 2 days ago to 2 weeks ahead.`;
       ev.technical = same.length ? `${lead}${whenRaw(same[0].postTime)} (id ${same[0].id}).` : ev.summary;
+      ev.ok = true;
+    }
+    // Account first (Nov 16, 2026): "did my posts go out?" is answered from the customer's own posts, read-only.
+    // The facts come from Blotato's records, so they are right by construction; no model writes them.
+    if (kind === 'publish-check') {
+      const platform = PLATFORM_WORDS.find(p => new RegExp(`\\b${p}\\b`, 'i').test(text));
+      const since = new Date(t0 - 7 * 864e5).toISOString();
+      const until = new Date(t0 + 7 * 864e5).toISOString();
+      const items = await listPosts(client, { since, until });
+      ev.calls.push(`GET /v2/posts?since=${since.slice(0, 10)}&until=${until.slice(0, 10)}: ${items.length} item(s)`);
+      const mine = items.filter(i => !platform || i.platform === platform);
+      const typeOf = (i) => i.state?.type || i.status || 'unknown';
+      const byTime = (a, b) => String(b.postTime).localeCompare(String(a.postTime));
+      const published = mine.filter(i => typeOf(i) === 'published').sort(byTime);
+      const failed = mine.filter(i => typeOf(i) === 'failed').sort(byTime);
+      const upcoming = mine.filter(i => typeOf(i) === 'scheduled').sort((a, b) => -byTime(a, b));
+      const where = platform ? `${nice(platform)} ` : '';
+      const n = (k, w) => `${k} ${where}${w}${k === 1 ? '' : 's'}`;
+      const parts = [];
+      parts.push(published.length || failed.length
+        ? `In the last 7 days, ${n(published.length, 'post')} went out and ${failed.length ? n(failed.length, 'post') + ' failed' : 'none failed'}.`
+        : `I see no ${where}posts that went out or failed in the last 7 days.`);
+      const p = published[0];
+      if (p) {
+        const plat = platform ? '' : ` on ${nice(p.platform)}`;
+        const link = client?.mock ? ' This is the practice account, with made-up sample posts, so there is no real post link to open.'
+          : p.state?.postUrl ? ` Here it is: ${p.state.postUrl}` : ' Blotato did not return a link for it.';
+        parts.push(`The newest went out${plat} ${when(p.postTime, t0)}.${link}`);
+      }
+      const x = failed[0];
+      if (x) {
+        const err = x.state?.errorMessage || x.errorMessage;
+        parts.push(`The newest failure${platform ? '' : ` was on ${nice(x.platform)}`}, ${when(x.postTime, t0)}${err ? `, with the error "${redactErr(err)}"` : ', with no error text'}.`);
+      }
+      // Nothing in the last 7 days: say when the newest post really went out, so "none" is never the whole answer.
+      if (!p && !x) {
+        const longSince = new Date(t0 - 60 * 864e5).toISOString();
+        const older = (await listPosts(client, { since: longSince, until: new Date(t0).toISOString(), status: ['published'] }))
+          .filter(i => !platform || i.platform === platform).sort(byTime);
+        ev.calls.push(`GET /v2/posts?status=published&since=${longSince.slice(0, 10)}: ${older.length} item(s)`);
+        const o = older[0];
+        if (o) {
+          const link = client?.mock ? '' : o.state?.postUrl ? ` Here it is: ${o.state.postUrl}` : '';
+          parts.push(`Your newest ${where}post went out${platform ? '' : ` on ${nice(o.platform)}`} ${when(o.postTime, t0)}.${link}`);
+        } else parts.push(`I see no published ${where}posts in the last 60 days either.`);
+      }
+      if (upcoming.length) parts.push(`${n(upcoming.length, 'post')} ${upcoming.length === 1 ? 'is' : 'are'} still scheduled; the next goes out ${when(upcoming[0].postTime, t0)}.`);
+      ev.summary = parts.join(' ');
+      ev.technical = ev.summary + (p ? ` (newest published post ${p.id})` : '') + (x ? ` (newest failed post ${x.id})` : '');
+      ev.counts = { published: published.length, failed: failed.length, scheduled: upcoming.length, platform: platform || null };
+      ev.ok = true;
+    }
+    if (kind === 'connected-accounts') {
+      const accts = await listAccounts(client);
+      ev.calls.push(`GET /v2/users/me/accounts: ${accts.length} account(s)`);
+      const groups = {};
+      for (const a of accts) (groups[a.platform] ||= []).push(a.username || a.fullname || 'no name returned');
+      const platform = PLATFORM_WORDS.find(p => new RegExp(`\\b${p}\\b`, 'i').test(text));
+      const list =Object.entries(groups).map(([pl, names]) => `${nice(pl)} (${names.join(', ')})`);
+      ev.summary = !accts.length ? 'I see no connected accounts.'
+        : `I see ${accts.length} connected account${accts.length === 1 ? '' : 's'}: ${list.join('; ')}.`
+          + (platform ? (groups[platform] ? ` Yes, ${nice(platform)} is connected.` : ` I do not see a ${nice(platform)} account.`) : '');
+      ev.technical = ev.summary;
       ev.ok = true;
     }
     if (kind === 'submission') {

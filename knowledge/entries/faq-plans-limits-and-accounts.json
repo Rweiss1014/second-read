@@ -3173,6 +3173,74 @@
       ],
       "next": "Write down the exact error and the failed post ID, then check the file against the destination's media requirements.",
       "proof": "Still open: if the media is accessible and meets the requirements, support needs the exact error and post ID to look at the logs."
+    },
+    {
+      "id": "which-accounts-connected",
+      "kind": "non-technical",
+      "title": "Which of my accounts are connected?",
+      "phrasings": [
+        "which accounts are connected",
+                "is my instagram connected",
+                "show me my connected accounts",
+        "did my tiktok connect",
+        "which social accounts are linked to blotato",
+        "is my youtube channel connected",
+        "what platforms am I connected to",
+        "list my connected accounts"
+      ],
+      "not_this": [
+        "how do I connect an account",
+        "I cannot connect my instagram",
+        "my account disconnected",
+        "how many accounts can I connect on my plan",
+        "error connecting tiktok",
+        "reconnect my facebook page"
+      ],
+      "anchors": [
+        [
+          "connected",
+          "connect",
+          "linked",
+          "hooked up"
+        ],
+        [
+          "/\\b(which|what|how many|is|are|did|show|list)\\b.{0,40}\\b(account|accounts|platform|platforms|channel|page|instagram|tiktok|youtube|facebook|linkedin|twitter|threads|pinterest|bluesky)\\b/"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ]
+      },
+      "lookup": "connected-accounts",
+      "opening": "I looked at your account.",
+      "steps": [
+        {
+          "type": "evidence",
+          "text": "Here is what it shows: {evidence}",
+          "ref": "status"
+        },
+        {
+          "type": "fact",
+          "text": "To add another one, go to Accounts > Connect account and pick the platform.",
+          "cite": {
+            "url": "https://help.blotato.com/navigation",
+            "quote": "Accounts > Connect account > select a platform."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "If one you expect is missing or not working, reconnect it from that account's actions menu.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agents",
+            "quote": "Connect or reconnect social destinations: Accounts > Connect account, or the existing account's actions menu > Reconnect."
+          }
+        }
+      ],
+      "next": "Open Accounts to see each connected account.",
+      "proof": "You will know it is connected when it shows in Accounts."
     }
   ]
 }

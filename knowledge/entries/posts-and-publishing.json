@@ -676,6 +676,90 @@
       "next": "Check Posts under Scheduled, Published and Failed for that post, and send us what you find, with the exact error if it shows one.",
       "proof": "You will know it worked when you find the post in one of those three lists or on the platform itself.",
       "note": "For a missing post with no error text and no known platform symptom. Neighbors: scheduled-posts-disappear-no-error (left Upcoming, YouTube, Facebook, Instagram), tiktok-post-disappears-buffering, published-not-visible."
+    },
+    {
+      "id": "did-my-posts-go-out",
+      "kind": "non-technical",
+      "title": "Did my posts go out?",
+      "phrasings": [
+        "did my posts go out",
+                "I'm not sure my posts went out",
+        "are my posts live yet",
+        "did everything get posted this week",
+        "did my tiktok publish",
+        "were my posts published",
+        "can you check if my posts posted",
+        "did anything fail this week",
+        "have my posts been published yet",
+        "did my instagram post publish this morning",
+        "can you check if my posts got published"
+      ],
+      "not_this": [
+        "Blotato says my post is published but I cannot find it on the platform",
+        "my post failed to publish",
+        "how do I schedule a post",
+        "why did my post fail",
+        "my scheduled post did not go out at its time",
+        "how do I see analytics for my posts",
+        "it says published but it is not on my profile, did it go out",
+        "the post shows published but the video has no sound",
+        "published but the caption or image is wrong"
+      ],
+      "anchors": [
+        [
+          "go out",
+          "went out",
+          "gone out",
+          "publish",
+          "published",
+          "posted",
+          "go live",
+          "live yet",
+          "went live",
+          "fail"
+        ],
+        [
+          "/\\b(did|have|has|were|was|are|is)\\b.{0,40}\\b(post|posts|video|videos|reel|reels|everything|anything|tiktok|instagram|linkedin|youtube|facebook|threads|pinterest|bluesky|twitter)\\b/",
+          "not sure",
+          "check if",
+          "check my",
+          "can you check"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken",
+          "retried"
+        ]
+      },
+      "lookup": "publish-check",
+      "opening": "I looked at your account to see what happened to your posts.",
+      "steps": [
+        {
+          "type": "evidence",
+          "text": "Here is what your account shows: {evidence}",
+          "ref": "status"
+        },
+        {
+          "type": "fact",
+          "text": "You can see the same list yourself: open Posts and filter by Scheduled, Published or Failed, and by platform.",
+          "cite": {
+            "url": "https://help.blotato.com/navigation",
+            "quote": "Filter All, Scheduled, Published, or Failed posts by platform and time window."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Any post that failed is also listed with its error details.",
+          "cite": {
+            "url": "https://help.blotato.com/blog/fix-silent-failures-social-media-n8n-make",
+            "quote": "Failed posts also appear at my.blotato.com/failed with the error details."
+          }
+        }
+      ],
+      "next": "Open Posts > Published to see each post that went out.",
+      "proof": "You will know it went out when the post opens on the platform from its link."
     }
   ]
 }
