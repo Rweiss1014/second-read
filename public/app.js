@@ -674,13 +674,13 @@ function docEditHTML(r) {
         rows.push(`<span class="cl">${esc(l.slice(0, at))}<span class="circled">${esc(fromV)}</span>${esc(l.slice(at + fromV.length))}<span class="pen" aria-label="Change it to ${esc(toV)}"> change to ${esc(toV)}</span></span>`);
       }
       const gap = '<span class="cl dimline">⋮</span>';
-      sheet = `${p.heading ? `<p class="sub">The part called “${esc(dash(p.heading))}”, the example on the page:</p>` : ''}<div class="page-code">${from > 0 ? gap : ''}${rows.join('')}${to < p.code.lines.length - 1 ? gap : ''}</div><div class="added-block"><span class="add-k">Add this sentence under the example:</span> ${tq(d.add)}</div>`;
+      sheet = `${p.heading ? `<p class="sub">The part called “${esc(dash(p.heading))}”, the example on the page:</p>` : ''}<div class="page-code">${from > 0 ? gap : ''}${rows.join('')}${to < p.code.lines.length - 1 ? gap : ''}</div>${d.add ? `<div class="added-block"><span class="add-k">Add this sentence under the example:</span> ${tq(d.add)}</div>` : ''}`;
     } else {
       const ctx = p?.found && p.mark
         ? (() => { const t = p.text; const [s, e] = p.mark; let a = Math.max(0, s - 60); let z = Math.min(t.length, e + 90); if (a > 0) a = t.indexOf(' ', a) + 1 || a; if (z < t.length) z = t.lastIndexOf(' ', z) > e ? t.lastIndexOf(' ', z) : z; return `${tq(t.slice(a, s))}<span class="circled">${tq(t.slice(s, e))}</span><span class="pen"> change to ${tq(d.after)}</span>${tq(t.slice(e, z))}`; })()
         : `<span class="circled">${tq(d.before)}</span><span class="pen"> change to ${tq(d.after)}</span>`;
       circled = true;
-      sheet = `<p class="ctx">${ctx}</p><div class="added-block"><span class="add-k">Add:</span> ${tq(d.add)}</div>`;
+      sheet = `<p class="ctx">${ctx}</p>${d.add ? `<div class="added-block"><span class="add-k">Add:</span> ${tq(d.add)}</div>` : ''}`;
     }
   } else {
     const head = cap(plainWords(d.heading)); const add = plainWords(String(d.add).replace(/^\[|\]$/g, ''));
@@ -690,7 +690,8 @@ function docEditHTML(r) {
   const lead = d.kind === 'change'
     ? `The desk found a help page that leads people the wrong way. Here is the page, marked up with the change it suggests. A person on the team decides if it goes in.`
     : `The desk suggests a new part for this help page. A person on the team writes the answer and decides if it goes in.`;
-  const legend = `${circled ? 'Circled in red: what the desk would change, with the change written in red. ' : ''}In yellow: what it would add. Nothing changes on the real help page until a person does it.`;
+  // A change can come with no sentence to add; then there is no yellow block, so the legend leaves yellow out.
+  const legend = `${circled ? 'Circled in red: what the desk would change, with the change written in red. ' : ''}${d.kind !== 'change' || d.add ? 'In yellow: what it would add. ' : ''}Nothing changes on the real help page until a person does it.`;
   return `<section class="note doc" aria-labelledby="doc-h">
     <h3 id="doc-h">${heading}</h3>
     <p class="note-lead">${lead}</p>

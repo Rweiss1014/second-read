@@ -319,7 +319,8 @@ export function renderDocEdit(d) {
   if (!d) return '';
   const lines = [`## Proposed help-doc edit`, '', `Article: ${d.article}${d.pageFetchedAt ? ` (as fetched ${d.pageFetchedAt.slice(0, 10)})` : ''}`, ''];
   if (d.kind === 'change') {
-    lines.push('```diff', `- ${d.before}`, `+ ${d.after}`, '```', '', 'Add under the response table:', '', `> ${d.add}`);
+    lines.push('```diff', `- ${d.before}`, `+ ${d.after}`, '```');
+    if (d.add) lines.push('', 'Add under the response table:', '', `> ${d.add}`);
     if (d.beforeFound === false) lines.push('', '(The "before" line was not found on the page as fetched. Check the page again before editing.)');
   } else {
     lines.push('New entry:', '', `> **${d.heading}**`, `> ${d.add}`);

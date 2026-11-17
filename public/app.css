@@ -330,6 +330,7 @@ body.tech-on .plain-only { display: none; }
 .page-sheet .ttl { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font: 500 22px/1.2 var(--serif); margin: 0 0 6px; }
 .page-sheet .sub { font: 600 14.5px var(--sans); color: var(--muted); margin: 0 0 8px; }
 .page-sheet .ctx { margin: 0; overflow-wrap: anywhere; }
+.page-sheet .ctx .pen { white-space: normal; }
 /* the page's example, marked up: a long line wraps inside the card, never past its edge */
 .page-code { font: 400 13.5px/1.75 var(--mono); color: #2a2d34; background: var(--paper-2); border-radius: 10px; padding: 10px 14px; overflow-wrap: anywhere; }
 .page-code .cl { display: block; white-space: pre-wrap; }
