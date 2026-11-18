@@ -42,8 +42,24 @@ const whyOfSignals = (hits, text) => {
 // Which holding reply a hand-over sends, by its reason code (guard names in knowledge/entries/guards.json).
 // needs-person opens "Thank you for telling me what you have already tried", which is true only for tried-already.
 // An outage question gets the possible-outage reply. Every other reason gets the neutral handover reply.
-export const HOLDING_FOR = { 'tried-already': 'needs-person', outage: 'possible-outage' };
+// A very upset customer (pressure) gets the upset reply: sorry first, and what they said failed, said back to them.
+export const HOLDING_FOR = { 'tried-already': 'needs-person', outage: 'possible-outage', pressure: 'upset' };
 export const holdingGuardFor = (why) => HOLDING_FOR[why] || 'handover';
+
+// An error the customer describes in their own words, with no quotes or code: "It says the text is too long.",
+// "it shows that the video is too large", "the caption exceeds the limit". An entry whose premise is that the
+// customer has not given the error (symptom_only) must not answer them (Nov 18, 2026: "Why did my X post fail? It
+// says the text is too long." got "send us the exact error"). "It just says failed" is no error text: it names only
+// the state, so the symptom entry still fits.
+const STATE_ONLY = /^(?:(?:just|only|simply|that|it|it's|its|is|was|the|my|our|this|post|video|reel|status|has|been)\s+)*(?:failed|failure|error|an error|errored|failed to post|not posted|published|posted|scheduled|pending|processing|in progress|in-progress|canceled|cancelled|done|success|successful)\b(?:\s+(?:in|on|next to|under|beside|at|for|by)\b[^.?!]*)?[.!?]?\s*$/i; // "it says failed next to my reel" names only where
+export function describedError(text) {
+  const t = String(text || '');
+  for (const m of t.matchAll(/\b(?:it|this|that|the (?:error|message|app|platform|post|notice|banner|screen)|blotato|x|twitter|instagram|tiktok|youtube|linkedin|facebook|threads|bluesky|pinterest)\s+(?:just\s+|only\s+)?(?:says|said|shows|showed|reads|read|tells me|told me|gives me|gave me|displays|displayed)\s+(?:that\s+)?([^.?!\n]{3,120})/gi)) {
+    if (!STATE_ONLY.test(m[1].trim())) return m[0].trim();
+  }
+  const limit = t.match(/\b(?:is |was |are |were )?(?:too long|too large|too big|too short|too small|too many \w+|exceeds?|exceeded|over the (?:limit|character limit|max\w*)|not supported|unsupported|not allowed|duplicate content|is a duplicate)\b/i);
+  return limit ? limit[0].trim() : null;
+}
 
 // The same test as isErrorEntry in entries.mjs (kept here so route.mjs does not import entries.mjs, which imports it).
 const isErrorEntryLike = (e) => !!e && ((e.steps || []).some(s => /\/errors?\b|error-handling|limitations/.test(s?.cite?.url || '')) || /\b(?:error|errors|failed|fails|rejected|not found|invalid|exceeded|unsupported)\b/i.test(e.title || ''));
@@ -281,7 +297,7 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
     // and asks for the error. When the customer does give an exact error or code, that error decides the fix,
     // and this entry is not about it: a person takes it (or that error's own entry, when it wins the match).
     if (entry.symptom_only) {
-      const err = specificError(real);
+      const err = specificError(real) || describedError(real);
       if (err) return { ...base, decision: 'abstain', entry: null, why: 'no-coverage', whyDetail: { error: err, nearest: entry.id }, reason: `"${entry.id}" is for a failure with no error text, but the message gives one ("${err}"), and no entry is a clear match for it.` };
     }
 
@@ -289,7 +305,7 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
     // gives the same thing with another count ("26 posts") is quoting a different error, or none the docs list.
     if (isErrorEntryLike(entry)) {
       const wrongCount = countMismatch(entry.title, real);
-      if (wrongCount) return { ...base, decision: 'abstain', entry: null, silent: { kind: 'number', term: wrongCount.said }, why: 'docs-silent', whyDetail: { kind: 'number', item: wrongCount.said, nearest: entry.id }, reason: `"${entry.id}" is about "${wrongCount.title}", but the message says "${wrongCount.said}". The docs may not list that error.` };
+      if (wrongCount) return { ...base, decision: 'abstain', entry: null, silent: { kind: 'number', term: wrongCount.said }, why: 'docs-silent', whyDetail: { kind: 'number', item: wrongCount.said, nearest: entry.id }, reason: `"${entry.id}" is about "${wrongCount.title}", but the message says "${wrongCount.said}". None of the desk's saved answers is about that error.` };
     }
 
     // The thing asked about must be something the entry speaks about. Only the questions are read (the whole
@@ -300,7 +316,7 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
       if (silent) {
         const what = silent.kind === 'number' ? `asks for a number ("${silent.term}"), and its steps give none`
           : `asks about ${silent.kind === 'name' ? '' : `${/^[aeiou]/.test(silent.kind) ? 'an' : 'a'} ${silent.kind}, `}"${silent.term}", which it never mentions`;
-        return { ...base, decision: 'abstain', entry: null, silent, why: 'docs-silent', whyDetail: { kind: silent.kind, item: silent.term, nearest: entry.id }, reason: `"${entry.id}" matched the message, but the message ${what}. The docs may be silent on it.` };
+        return { ...base, decision: 'abstain', entry: null, silent, why: 'docs-silent', whyDetail: { kind: silent.kind, item: silent.term, nearest: entry.id }, reason: `"${entry.id}" matched the message, but the message ${what}. None of the desk's saved answers covers it.` };
       }
     }
 
@@ -322,7 +338,7 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
       const whole = coverage.gap(entry, real, coverageOpt);
       if (whole) {
         const each = qs.length >= 2 ? qs.map(q => [q, coverage.gap(entry, q, coverageOpt)]) : [];
-        if (!each.length || each.every(([, g]) => g)) return { ...base, decision: 'abstain', entry: null, silent: whole, why: 'docs-silent', whyDetail: { kind: whole.kind, item: whole.term, nearest: entry.id }, reason: `"${entry.id}" matched the message, but what it would quote does not cover the ${whole.kind} asked about ("${whole.term}"). The docs may be silent on it.` };
+        if (!each.length || each.every(([, g]) => g)) return { ...base, decision: 'abstain', entry: null, silent: whole, why: 'docs-silent', whyDetail: { kind: whole.kind, item: whole.term, nearest: entry.id }, reason: `"${entry.id}" matched the message, but what it would quote does not cover the ${whole.kind} asked about ("${whole.term}"). None of the desk's saved answers covers it.` };
         for (const [q, g] of each) if (g) uncovered.add(q);
       }
     }
@@ -380,7 +396,7 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
       signals = { hits, ...w, holding: entry.holding || guardEntry(holdingGuardFor(w.why)), reason: `${hits[0].about} ("${hits[0].words}")` };
     }
     const gaps = [];
-    if (entry.symptom_only) { const err = specificError(real); if (err) gaps.push({ kind: 'error', term: err, hard: true, rule: 'symptom-only' }); }
+    if (entry.symptom_only) { const err = specificError(real) || describedError(real); if (err) gaps.push({ kind: 'error', term: err, hard: true, rule: 'symptom-only' }); }
     if (isErrorEntryLike(entry)) { const wc = countMismatch(entry.title, real); if (wc) gaps.push({ kind: 'number', term: wc.said, hard: true, rule: 'count' }); }
     if (!entry.escalate && !entry.noDocAnswer) {
       const s = silentOn(entry, askedText(real));

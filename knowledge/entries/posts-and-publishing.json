@@ -514,7 +514,7 @@
         },
         {
           "type": "fact",
-          "text": "Then check the account on the platform itself, for example your Instagram or TikTok page, to see if the post is there. If Blotato shows a link to the post, open it.",
+          "text": "Then check the account on the social platform itself to see if the post is there. If Blotato shows a link to the post, open it.",
           "cite": {
             "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
             "quote": "Open any returned platform URL and check the intended account on the platform."

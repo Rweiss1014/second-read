@@ -1,0 +1,11 @@
+{
+  "replySha256": "1fb560464bbc7382a9609acc46c387d4e6ed50502538958d65945025fcd79b99",
+  "verdict": "pass",
+  "findings": [
+    "Style only: the Next step asks the customer to send \"the exact error\" even though the page says to read it and contact support only if the records do not establish the result; harmless, since sending it does not change anything."
+  ],
+  "checkedAt": "2026-11-18T19:51:30Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "post-failed-no-error-text"
+}
