@@ -52,6 +52,8 @@ test('sample mode never puts a made-up post link into a reply, and every sample 
   const b = await runOnce();
   assert.deepEqual(a, b);
   for (const [id, reply] of Object.entries(a)) assert.doesNotMatch(reply || '', /SAMPLE-POST|instagram\.com\/p\/|linkedin\.com\/feed/i, id);
-  assert.match(a.T01, /This is the practice account, with made-up sample posts, so there is no real post link to open\./);
+  // The letter is for the customer: the practice-account note is for the team, in the escalation and the engineer
+  // view (Nov 18, 2026: a tester found the demo talked about in a letter).
+  for (const [id, reply] of Object.entries(a)) assert.doesNotMatch(reply || '', /practice account|real API was not called/i, id);
   assert.doesNotMatch(a.T01, /post link above/);
 });

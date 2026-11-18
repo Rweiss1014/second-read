@@ -14,7 +14,7 @@ import { TICKETS, PLAYBOOK, ENTRY_BY_ID, ROUTER } from '../knowledge/playbook.mj
 import { createReader } from './reader.mjs';
 import { createComposer } from './composer.mjs';
 import path from 'node:path';
-import { MOCK_NOW } from './mock.mjs';
+import { MOCK_NOW, createMockApi } from './mock.mjs';
 
 // The desk's clock. Sample mode always uses the sample world's own fixed clock, so replies to the sample
 // tickets read the same on every run. A real account uses the real clock (or one passed in, for tests).
@@ -24,9 +24,14 @@ export function openDesk({ env = process.env, run = newRunId(), fetchImpl, mockA
   ensureFailuresFile(paths.failures);
   const mock = isMock(env);
   const logger = createLogger({ dir: paths.logs, run, key: mock ? undefined : loadKey({ env }), mock });
-  const client = createClient({ env, logger, fetchImpl, mockApi });
+  // SUPPORT_DESK_MOCK_CLOCK=now (the public site): the sample world's clock is the real hour, so a sample post
+  // "scheduled for" a time is always in the future for the visitor (Nov 18, 2026: the 504 example showed a time
+  // already past). The words that hold those times are checked as words ({evidence}), so nothing loses its check.
+  // Otherwise (tests, the exam, the local page) it stays fixed at MOCK_NOW, so replies read the same on every run.
+  const sampleNow = env.SUPPORT_DESK_MOCK_CLOCK === 'now' ? Math.floor(Date.now() / 3600000) * 3600000 : MOCK_NOW;
+  const client = createClient({ env, logger, fetchImpl, mockApi: mockApi || (mock && sampleNow !== MOCK_NOW ? createMockApi({ now: () => sampleNow }) : undefined) });
   const docs = createDocs({ cacheDir: paths.docsCache, env, logger, fetchImpl });
-  const clock = mock ? () => MOCK_NOW : (now || Date.now);
+  const clock = mock ? () => sampleNow : (now || Date.now);
   // The reader (src/reader.mjs): off unless SUPPORT_DESK_READER names a backend. Its verdict cache lives in the
   // desk folder unless SUPPORT_DESK_READER_CACHE says where.
   const reader = createReader({ router: ROUTER, env, call: readerCall, cacheDir: env.SUPPORT_DESK_READER_CACHE || path.join(paths.dir, 'reader-cache') });

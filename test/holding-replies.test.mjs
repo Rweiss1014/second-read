@@ -7,6 +7,7 @@ import { PLAYBOOK, routeMessage } from '../knowledge/playbook.mjs';
 import { WHY_CODES, holdingGuardFor } from '../src/route.mjs';
 import { openDesk, handleTicket } from '../src/desk.mjs';
 import { tempDesk } from './helpers.mjs';
+import { accountTemplate } from '../src/checkreply.mjs';
 
 const TRIED = /what you have already tried/i;
 const guard = (g) => PLAYBOOK.find(e => e.guard === g);
@@ -49,7 +50,9 @@ test('every reason code is listed, and each holding reason maps to a holding rep
   for (const why of WHY_CODES.filter(w => KIND[w] === 'holding')) assert.ok(guard(holdingGuardFor(why)), why);
   assert.equal(holdingGuardFor('tried-already'), 'needs-person');
   assert.equal(holdingGuardFor('outage'), 'possible-outage');
-  for (const why of ['records-disagree', 'docs-wrong', 'access-blocked', 'past-docs', 'pressure']) assert.equal(holdingGuardFor(why), 'handover', why);
+  for (const why of ['records-disagree', 'docs-wrong', 'access-blocked', 'past-docs']) assert.equal(holdingGuardFor(why), 'handover', why);
+  // A very upset customer gets the upset reply: sorry first, and what failed said back (Nov 18, 2026).
+  assert.equal(holdingGuardFor('pressure'), 'upset');
 });
 
 test('only the tried-already reason gets the reply that thanks the customer for what they tried', () => {
@@ -75,7 +78,7 @@ test('each reason code, from a real message, gets a reply whose opening is true 
       assert.ok(d.reply, why);
       if (why === 'tried-already') assert.match(d.reply, TRIED);
       else assert.doesNotMatch(d.reply, TRIED, why);
-      if (KIND[why] === 'holding') assert.ok(d.reply.includes(guard(holdingGuardFor(why)).opening), why);
+      if (KIND[why] === 'holding') assert.ok((accountTemplate(d) || d.reply).includes(guard(holdingGuardFor(why)).opening), why); // the upset opening is checked with its {what} slot in place
       assert.equal(d.check.pass, true, `${why}: ${d.check.problems.join(' | ')}`);
     }
   } finally { await desk.close(); }

@@ -217,8 +217,12 @@ export function clearedToSend(reviewsDir, name, { checksDir = defaultChecksDir()
 // Account first (Nov 16, 2026): a reply whose facts are read from the customer's own account changes with the account,
 // so its exact text can never have a stored pass. Its WORDS can: the reply with the account facts replaced by
 // "{evidence}" is checked once, and the facts come from Blotato's records each time.
-export const ACCOUNT_KINDS = ['publish-check', 'connected-accounts'];
+// reproduce-schedule joined Nov 18, 2026: what the lookup gave is now said plainly, and it changes with the id asked about.
+// A slot the desk fills from a fixed word list (d.slot, the upset reply's "{what}") is checked the same way: its words
+// with "{what}" in place.
+export const ACCOUNT_KINDS = ['publish-check', 'connected-accounts', 'reproduce-schedule', 'recent-published', 'recent-activity'];
 export function accountTemplate(d) {
+  if (d?.slot?.value && d.reply?.includes(d.slot.value)) return d.reply.split(d.slot.value).join(`{${d.slot.name}}`);
   const s = d?.evidence?.summary;
   if (!d?.reply || !s || !ACCOUNT_KINDS.includes(d.evidence.kind) || !d.reply.includes(s)) return null;
   return d.reply.split(s).join('{evidence}');
@@ -230,7 +234,7 @@ export function freshState(reviewsDir, d, { checksDir = defaultChecksDir() } = {
   const template = accountTemplate(d);
   if (template) {
     const t = lookupCheck(template, { reviewsDir, checksDir });
-    if (t.state === 'pass') return { state: 'passed', scope: 'words', name, checkedAt: t.checkedAt, notes: t.findings || [], checker: t.checker, model: t.model, source: t.source };
+    if (t.state === 'pass') return { state: 'passed', scope: 'words', filled: d.slot ? 'slot' : 'account', name, checkedAt: t.checkedAt, notes: t.findings || [], checker: t.checker, model: t.model, source: t.source };
     if (t.state === 'block') return { state: 'blocked', scope: 'words', name, why: `The fresh checker blocked these words: ${(t.findings || []).join('; ') || 'no reason given'}`, findings: t.findings || [], checkedAt: t.checkedAt };
   }
   // The exact text first: a pass in the shipped store or in desk/reviews clears it, even for a typed message

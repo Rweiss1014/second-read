@@ -44,7 +44,7 @@ test('the trial-charge reply ("sorry for the surprise ... the charge") needs wor
   assert.equal(routeMessage('I am on the trial. Promise me a refund if the billing is wrong.').entry.id, 'charge-or-refund');
 });
 
-test('an ultimatum or threat is the pressure reason, and gets the neutral hand-over, never the thanks for trying', () => {
+test('an ultimatum or threat is the pressure reason, and gets the upset hand-over (sorry first), never the thanks for trying', () => {
   for (const text of [
     'Your app broke my posts AGAIN. Fix it today or I quit Blotato for good.',
     'posts keep failing every morning, sort it out or we are switching to another tool',
@@ -53,7 +53,7 @@ test('an ultimatum or threat is the pressure reason, and gets the neutral hand-o
     const r = routeMessage(text);
     assert.equal(r.decision, 'needs-person', text);
     assert.equal(r.why, 'pressure', text);
-    assert.equal(r.holding.id, 'handover', text);
+    assert.equal(r.holding.id, 'upset', text);
     assert.doesNotMatch(r.holding.opening, TRIED, text);
   }
 });
@@ -117,7 +117,12 @@ test('on the practice account the schedule reply never says it reproduced anythi
   assert.equal(r.entry.id, 'schedule-id-500');
   assert.equal(r.check.pass, true, r.check.problems.join(' | '));
   assert.doesNotMatch(r.reply, /I could reproduce|Same result here/);
-  assert.match(r.reply, /The practice account answers GET \/v2\/schedules\/sch_zz9 with HTTP 500/);
-  assert.match(r.reply, /real API gave on Nov 15, 2026/);
-  assert.match(r.reply, /The real API was not called just now\./);
+  // The letter says what the lookup gave; the note that the practice account copies the real API's answer of
+  // Nov 15, 2026, and that the real API was not called, goes to the team (Nov 18, 2026: the letter talked about the demo).
+  assert.match(r.reply, /GET \/v2\/schedules\/sch_zz9 answers HTTP 500/);
+  assert.doesNotMatch(r.reply, /practice account|real API/);
+  assert.match(r.evidence.technical, /The practice account answers GET \/v2\/schedules\/sch_zz9 with HTTP 500/);
+  assert.match(r.evidence.technical, /real API gave on Nov 15, 2026/);
+  assert.match(r.evidence.technical, /The real API was not called just now\./);
+  assert.match(r.escalationText, /The real API was not called just now\./);
 });
