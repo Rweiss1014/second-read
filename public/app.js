@@ -800,7 +800,7 @@ function techHTML(r) {
   const steps = (r.steps || []).map((s, i) => {
     const c = (r.check?.citations || []).find(x => x.step === i + 1);
     const what = s.type === 'fact' ? `Quote from <a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(String(s.url).replace('https://', ''))}</a>` : s.type === 'evidence' ? (r.mock ? 'From the practice account' : 'From the account') : ({ rule: 'A rule of this desk', advice: 'Advice for the customer' }[actionKind(s.text)] || 'An action the desk takes');
-    return `<li><span class="what">Step ${i + 1}. ${what}</span><span class="meta">${s.quote ? `<code>${esc(s.quote)}</code>` : esc(s.type === 'evidence' ? cleanCall(r.evidence?.summary || '') + (r.evidence?.technical ? ` (Note for the team, not in the letter: ${r.evidence.technical})` : '') : 'No page to quote.')}${c ? ` ${c.found ? 'Found on the page' : 'NOT found on the page'}${c.fetchedAt ? `, page read ${esc(techTime(c.fetchedAt))}` : ''}.` : ''}</span></li>`;
+    return `<li><span class="what">Step ${i + 1}. ${what}</span><span class="meta">${s.quote ? `<code>${esc(s.quote)}</code>` : esc(s.type === 'evidence' ? cleanCall(r.evidence?.summary || '') + (r.evidence?.technical && /^The practice account/.test(r.evidence.technical) ? ` (Note for the team, not in the letter: ${r.evidence.technical})` : '') : 'No page to quote.')}${c ? ` ${c.found ? 'Found on the page' : 'NOT found on the page'}${c.fetchedAt ? `, page read ${esc(techTime(c.fetchedAt))}` : ''}.` : ''}</span></li>`;
   }).join('');
   const findings = f.findings || f.notes || [];
   const ex = r.example;
