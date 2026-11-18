@@ -122,7 +122,8 @@ test('quick fixes: shown code, resolved notes, list numbers, stopped heading, le
   } finally { await desk.close(); }
   assert.equal(moneySorry('I canceled my plan last month but you charged me again. I want a refund.'), "I'm sorry you were charged when you did not expect it.");
   assert.equal(moneySorry('I upgraded yesterday and got charged the full price.'), "I'm sorry this charge was not what you expected.");
-  assert.equal(moneySorry('Can I get a refund if I forgot to cancel before my renewal yesterday?'), null);
+  assert.equal(moneySorry('Can I get a refund if I forgot to cancel before my renewal yesterday?'), "I'm sorry this charge was not what you expected.");
+  assert.equal(moneySorry('Do you offer refunds?'), null);
   // The sandbox note says what this run did, and labels the Nov 15 live search as an earlier check.
   const sb = PLAYBOOK.find(e => e.id === 'sandbox-question');
   assert.doesNotMatch(JSON.stringify(sb), /live docs search found none on Nov 15/);

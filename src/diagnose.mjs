@@ -334,7 +334,7 @@ export async function diagnose(ticket, { client, docs, agent = 'Support', route 
   out.outcome = esc ? 'escalate' : 'reply';
   // A hand-over letter: it tells the customer a person will answer, and answers nothing itself. The page never stamps it
   // as if it were the answer (Nov 18, 2026: a hand-over was stamped "Checked. Safe to send." with no word that it was one).
-  out.handover = r.decision === 'needs-person' || (!!entry.guard && entry.guard !== 'money') || (!!entry.escalate && /\bA person on the team (?:needs to|will)\b/.test(reply.opening || ''));
+  out.handover = r.decision === 'needs-person' || !!entry.guard || (!!entry.escalate && /\bA person on the team (?:needs to|will)\b/.test(reply.opening || ''));
   if (entry.noDocAnswer) out.outcome = 'no-answer';
   if (esc) out.escalation = buildEscalation(ticket, entry, out, esc);
   if (entry.docEdit) out.docEdit = { ...entry.docEdit, pageFetchedAt: out.pages[entry.docEdit.article]?.fetchedAt, beforeFound: entry.docEdit.before ? (out.pages[entry.docEdit.article]?.text || '').includes(entry.docEdit.before) : undefined };
@@ -344,7 +344,7 @@ export async function diagnose(ticket, { client, docs, agent = 'Support', route 
 // The apology a money letter opens with, from a fixed list, or null. Only for a customer who says money was taken.
 export const MONEY_SORRY = [
   { re: /\b(?:charged|billed|debited)\b[^.?!\n]{0,40}\b(?:again|twice|two times|double)\b|\b(?:double|duplicate) (?:charge|payment|billing)\b|\bcancel+ed\b[^.?!\n]{0,60}\b(?:charged|billed)\b/i, line: "I'm sorry you were charged when you did not expect it." },
-  { re: /\b(?:charged|billed|debited|took (?:my|our) money|charge on my|charge to my)\b/i, line: "I'm sorry this charge was not what you expected." },
+  { re: /\b(?:charged|billed|debited|took (?:my|our) money|charge on my|charge to my|renewal|renewed)\b/i, line: "I'm sorry this charge was not what you expected." },
 ];
 export function moneySorry(text) { const t = String(text || ''); return (MONEY_SORRY.find(x => x.re.test(t)) || {}).line || null; }
 

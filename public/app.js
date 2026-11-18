@@ -821,7 +821,7 @@ function techHTML(r) {
     <dl class="kv">
       <dt>Account data</dt><dd>${r.mock ? 'Practice account, no real account connected. Its posts are made up; the one error it copies from the real API is marked where it is used.' : 'Live, read-only'}</dd>
       ${whyOf(r) ? `<dt>${whyOf(r) === 'nonsense' ? 'Why it asked for a clearer message' : 'Why it went to a person'}</dt><dd><code>${esc(shownCode(whyOf(r)))}</code>${r.route?.reason || r.match?.reason ? ` ${esc(String(r.route?.reason || r.match?.reason).replace(/\s*\(words: [^)]*\)/, ''))}` : ''}</dd>` : ''}
-      ${r.entry ? `<dt>A saved, checked answer for this kind of message</dt><dd>${f.state === 'passed' ? 'Yes' : 'No'}</dd>` : ''}
+      ${r.entry ? `<dt>${r.handover ? "A saved, checked hand-over letter for this message" : "A saved, checked answer for this kind of message"}</dt><dd>${f.state === 'passed' ? 'Yes' : 'No'}</dd>` : ''}
     </dl>
     ${ex ? `<h3>About this example</h3><p>The first reply the desk wrote to this sample message on Nov 15, rebuilt byte for byte from that day's code. On every load the server hashes this text and compares it with the second checker's saved verdict. The desk was fixed after this verdict, and today's reply to the same message passed.</p><dl class="kv"><dt>Matches the saved verdict</dt><dd>${ex.hashMatches ? 'Yes, checked by the server on this load' : 'NO'}</dd></dl>` : ''}
     <h3>Every read the desk made, in order</h3>
