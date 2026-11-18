@@ -195,7 +195,7 @@ function view(r, env, trace) {
     composed: r.composed || null,
     mock: isMock(env),
     ticket: r.ticket, entry: r.entry, status: r.status, outcome: r.outcome, seenBefore: r.seenBefore,
-    evidence: r.evidence ? { kind: r.evidence.kind, ok: r.evidence.ok, summary: r.evidence.summary, calls: r.evidence.calls, searched: r.evidence.searched, status: r.evidence.status, missing: r.evidence.missing } : null,
+    evidence: r.evidence ? { kind: r.evidence.kind, ok: r.evidence.ok, summary: r.evidence.summary, technical: r.evidence.technical || null, calls: r.evidence.calls, searched: r.evidence.searched, status: r.evidence.status, missing: r.evidence.missing } : null,
     steps: (r.steps || []).map(s => ({ type: s.type, text: s.text, url: s.cite?.url ?? s.url, quote: s.cite?.quote ?? s.quote, page: stepCtx(s) })),
     reply: r.reply, next: r.next, check: r.check, refused: r.refused || null,
     escalationText: r.escalationText, docEditText: r.docEditText,
@@ -241,7 +241,7 @@ function tracedDesk(desk, emit) {
     search: async (q) => {
       const s = performance.now();
       const r = await desk.docs.search(q);
-      emit({ t: 'search', query: q, results: r.results.length, offline: !!r.offline, ms: ms(s), at: ms(t0) });
+      emit({ t: 'search', query: q, results: r.results.length, offline: !!r.offline, saved: !!r.saved, savedAt: r.savedAt || null, pagesSearched: r.pagesSearched || null, error: r.error ? true : undefined, ms: ms(s), at: ms(t0) });
       return r;
     },
   };

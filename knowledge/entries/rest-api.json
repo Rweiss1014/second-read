@@ -406,7 +406,7 @@
       "proof": "Still open: the answer itself.",
       "noDocAnswer": true,
       "escalate": {
-        "why": "The docs do not answer this. A person on the team decides what the answer is.",
+        "why": "No saved copy of the help pages mentions a test mode or sandbox for the API, and Blotato's live docs search found none on Nov 15, 2026. A person on the team decides what the answer is.",
         "causes": [
           {
             "text": "There is no test mode, and the docs should say so."

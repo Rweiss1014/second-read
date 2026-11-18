@@ -72,9 +72,33 @@ export function createDocs({ cacheDir, env = process.env, logger, fetchImpl = gl
     return page;
   }
 
+  // Offline (tests, the free demo): the search runs over the saved copies of the help pages in the cache, with the
+  // same plain lexical ranking the composer uses (src/passages.mjs, BM25). It is a real search, but of saved
+  // copies, so the result says so (saved: true, and the newest copy's date): nobody may call it a live search, and
+  // nobody may read "no hit" as proof that the live help pages lack something (Nov 18, 2026).
+  let savedIndex = null;
+  async function searchSaved(query) {
+    if (!savedIndex) {
+      const { buildPassageIndex } = await import('./passages.mjs');
+      const pages = readCacheDir(cacheDir);
+      const dates = Object.values(pages).map(p => p.fetchedAt).filter(Boolean).sort();
+      savedIndex = { index: Object.keys(pages).length ? buildPassageIndex(pages) : null, pages: Object.keys(pages).length, newest: dates[dates.length - 1] || null };
+    }
+    if (!savedIndex.index) return { offline: true, saved: false, results: [] };
+    const results = []; const seen = new Set();
+    for (const { d } of savedIndex.index.score(query)) {
+      if (seen.has(d.url)) continue;
+      seen.add(d.url);
+      const page = savedIndex.index.byUrl.get(d.url);
+      results.push({ title: [page?.title, ...(d.section.path || [])].filter((x, i, a) => x && x !== a[i - 1]).join(' > '), url: d.url, excerpt: d.section.units.map(u => u.text).join(' ').replace(/\s+/g, ' ').slice(0, 280) });
+      if (results.length >= 5) break;
+    }
+    return { offline: true, saved: true, pagesSearched: savedIndex.pages, savedAt: savedIndex.newest, results };
+  }
+
   // Returns [{ title, url, excerpt }]. Search rank is not proof of relevance (the docs say so too).
   async function search(query) {
-    if (offline) return { offline: true, results: [] };
+    if (offline) return searchSaved(query);
     try {
       const c = await mcp();
       const r = await c.callTool({ name: 'searchDocumentation', arguments: { query } });
