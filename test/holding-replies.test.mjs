@@ -4,7 +4,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { PLAYBOOK, routeMessage } from '../knowledge/playbook.mjs';
-import { WHY_CODES, holdingGuardFor } from '../src/route.mjs';
+import { WHY_CODES, holdingGuardFor, holdingFor } from '../src/route.mjs';
 import { openDesk, handleTicket } from '../src/desk.mjs';
 import { tempDesk } from './helpers.mjs';
 import { accountTemplate } from '../src/checkreply.mjs';
@@ -78,7 +78,7 @@ test('each reason code, from a real message, gets a reply whose opening is true 
       assert.ok(d.reply, why);
       if (why === 'tried-already') assert.match(d.reply, TRIED);
       else assert.doesNotMatch(d.reply, TRIED, why);
-      if (KIND[why] === 'holding') assert.ok((accountTemplate(d) || d.reply).includes(guard(holdingGuardFor(why)).opening), why); // the upset opening is checked with its {what} slot in place
+      if (KIND[why] === 'holding') assert.ok((accountTemplate(d) || d.reply).includes(guard(holdingFor(why, text)).opening), why); // the upset opening is checked with its {what} slot in place
       assert.equal(d.check.pass, true, `${why}: ${d.check.problems.join(' | ')}`);
     }
   } finally { await desk.close(); }

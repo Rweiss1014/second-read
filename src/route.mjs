@@ -45,6 +45,11 @@ const whyOfSignals = (hits, text) => {
 // A very upset customer (pressure) gets the upset reply: sorry first, and what they said failed, said back to them.
 export const HOLDING_FOR = { 'tried-already': 'needs-person', outage: 'possible-outage', pressure: 'upset' };
 export const holdingGuardFor = (why) => HOLDING_FOR[why] || 'handover';
+// A hand-over for a message that reports no problem (a plain question) never asks for "the exact error": the
+// neutral and the upset hand-overs have a question form (Nov 18, 2026: "do my scheduled posts still go out?" was
+// told to send the exact error and the time it happened).
+export const QUESTION_FORM = { handover: 'handover-question', upset: 'upset-question' };
+export const holdingFor = (why, text) => { const g = holdingGuardFor(why); return QUESTION_FORM[g] && !reportsProblem(text) ? QUESTION_FORM[g] : g; };
 
 // An error the customer describes in their own words, with no quotes or code: "It says the text is too long.",
 // "it shows that the video is too large", "the caption exceeds the limit". An entry whose premise is that the
@@ -59,6 +64,25 @@ export function describedError(text) {
   }
   const limit = t.match(/\b(?:is |was |are |were )?(?:too long|too large|too big|too short|too small|too many \w+|exceeds?|exceeded|over the (?:limit|character limit|max\w*)|not supported|unsupported|not allowed|duplicate content|is a duplicate)\b/i);
   return limit ? limit[0].trim() : null;
+}
+
+// An entry whose premise is that the customer hit an error or a symptom ("Your workflow is sending faster than
+// Blotato accepts.", "This error means...", "Let's find out what happened to your post."): its reply starts from a
+// problem the customer reported. A plain question that reports no problem must not get it (Nov 18, 2026: "How many
+// API calls can I make per minute?" got the n8n rate-limit fix, word for word, stamped Checked).
+const PREMISE_OPENING = /\b(?:this|that|the|your|an?)\s+(?:\w+\s+){0,2}?(?:error|message|rejection|failure|timeout|exception)\b|\bsending faster\b|\bturn(?:ing|ed|s)? (?:down|away)\b|\brejecting\b|\bhappened to (?:your|that) post\b|\bfail(?:ed|s|ure)?\b|\bnot (?:accept|recogni[sz]e|match)\w*\b|\bcould not\b|\bdoes not tell us\b|\bexpired\b|\bstuck\b|\bmissing\b|\bdouble post\b/i;
+export const problemPremise = (e) => !!e && !e.guard && (!!e.symptom_only || PREMISE_OPENING.test(e.opening || ''));
+// Does the message report a problem? Trouble words ("still" and "again" alone are not one: "do my posts still go
+// out?"), an exact error or code, an error told in the customer's words, or words that say something was seen or
+// received ("I got a message", "it shows 0", "views are lower").
+const REPORTS = /\b(?:broke|breaks|breaking|crash\w*|blocks|blocking|show|appears?|got|getting|gets? (?:a|an|the|this|that)|received|receiving|seeing|saw|says|said|shows|showing|showed|returns?|returned|answers?|answered|message|messages|notification|popup|pop-up|warning|lower|higher|different|differs|wrong|bug|weird|strange|odd|instead|disappear\w*|vanish\w*|blank|duplicate\w*|twice|double|rate[- ]limited|throttl\w*|too many|timed? out|timeout|slow|delay\w*|late|never|not|no longer|didn'?t|didnt|did not|doesn'?t|doesnt|don'?t|dont|isn'?t|isnt|wasn'?t|hasn'?t|haven'?t|went wrong|what now|now what)\b/i;
+// The customer pasted the error itself, unquoted: five words in a row from the entry's title ("This video is 130
+// seconds long, but we can only automatically fix videos up to 120 seconds").
+const words5 = (s) => { const w = String(s || '').toLowerCase().match(/[a-z0-9]+/g) || []; return new Set(w.slice(0, Math.max(0, w.length - 4)).map((x, i) => w.slice(i, i + 5).join(' '))); };
+const pastesTitle = (text, e) => { const t = words5(e?.title); for (const g of words5(text)) if (t.has(g)) return true; return false; };
+export function reportsProblem(text, entry = null) {
+  const t = String(text || '');
+  return (!!entry && pastesTitle(t, entry)) || TROUBLE.test(t.replace(/\b(?:still|again)\b/gi, ' ')) || !!specificError(t) || !!describedError(t) || REPORTS.test(t) || /"[^"\n]{3,}"|“[^”\n]{3,}”|`[^`\n]+`/.test(t);
 }
 
 // The same test as isErrorEntry in entries.mjs (kept here so route.mjs does not import entries.mjs, which imports it).
@@ -272,7 +296,7 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
       const hits = needsPerson(full, { signals: TROUBLE.test(full) ? GENERAL_SIGNALS : [] }, { hasTerm, allStems }, { defaults: true });
       if (hits.length) {
         const w = whyOfSignals(hits, full);
-        const holding = guardEntry(holdingGuardFor(w.why));
+        const holding = guardEntry(holdingFor(w.why, full));
         return { ...base, decision: 'needs-person', entry: holding, holding, signals: hits, ...w, reason: `${why} And: ${hits[0].about} ("${hits[0].words}")` };
       }
       const tied = best && second && best.score >= need && gap < margin;
@@ -290,7 +314,7 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
     const hits = needsPerson(full, entry.needs_person_if, { hasTerm, allStems }, { defaults: true });
     if (hits.length && !entry.escalate && !entry.noDocAnswer) {
       const w = whyOfSignals(hits, full);
-      return { ...base, decision: 'needs-person', entry, signals: hits, holding: entry.holding || guardEntry(holdingGuardFor(w.why)), ...w, reason: `${hits[0].about} ("${hits[0].words}")` };
+      return { ...base, decision: 'needs-person', entry, signals: hits, holding: entry.holding || guardEntry(holdingFor(w.why, full)), ...w, reason: `${hits[0].about} ("${hits[0].words}")` };
     }
 
     // An entry for a symptom with no error text ("my post failed", "it never went up") gives the first steps
@@ -299,6 +323,12 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
     if (entry.symptom_only) {
       const err = specificError(real) || describedError(real);
       if (err) return { ...base, decision: 'abstain', entry: null, why: 'no-coverage', whyDetail: { error: err, nearest: entry.id }, reason: `"${entry.id}" is for a failure with no error text, but the message gives one ("${err}"), and no entry is a clear match for it.` };
+    }
+
+    // An entry that starts from a reported problem does not answer a message that reports none: the customer asked
+    // for information, and the fix for a failure answers a question they did not ask.
+    if (problemPremise(entry) && !reportsProblem(real, entry)) {
+      return { ...base, decision: 'abstain', entry: null, why: 'no-coverage', whyDetail: { kind: 'premise', nearest: entry.id }, reason: `"${entry.id}" is for a customer who hit a problem, but the message reports none: it asks for information. None of the desk's saved answers is written for that question.` };
     }
 
     // A count in an error entry's title is part of that error: "the maximum number of 25 posts". A message that
@@ -393,10 +423,11 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
     const hits = needsPerson(full, entry.needs_person_if, { hasTerm, allStems }, { defaults: true });
     if (hits.length && !entry.escalate && !entry.noDocAnswer) {
       const w = whyOfSignals(hits, full);
-      signals = { hits, ...w, holding: entry.holding || guardEntry(holdingGuardFor(w.why)), reason: `${hits[0].about} ("${hits[0].words}")` };
+      signals = { hits, ...w, holding: entry.holding || guardEntry(holdingFor(w.why, full)), reason: `${hits[0].about} ("${hits[0].words}")` };
     }
     const gaps = [];
     if (entry.symptom_only) { const err = specificError(real) || describedError(real); if (err) gaps.push({ kind: 'error', term: err, hard: true, rule: 'symptom-only' }); }
+    if (problemPremise(entry) && !reportsProblem(real, entry)) gaps.push({ kind: 'premise', term: 'no problem reported', hard: true, rule: 'premise' });
     if (isErrorEntryLike(entry)) { const wc = countMismatch(entry.title, real); if (wc) gaps.push({ kind: 'number', term: wc.said, hard: true, rule: 'count' }); }
     if (!entry.escalate && !entry.noDocAnswer) {
       const s = silentOn(entry, askedText(real));

@@ -272,7 +272,7 @@ export async function diagnose(ticket, { client, docs, agent = 'Support', route 
   if (entry.guard === 'money') esc = { why: 'A billing question for a person on the team. The desk cannot see payments, so it does not guess what happened.', causes: [], ruledOut: [] };
   if (r.decision === 'needs-person') {
     reply = r.holding;
-    esc = { why: `A person needs to take this: ${r.reason}`, causes: entry.escalate?.causes || [], ruledOut: entry.escalate?.ruledOut || [] };
+    esc = { why: `A person needs to take this. ${r.reason}`, causes: entry.escalate?.causes || [], ruledOut: entry.escalate?.ruledOut || [] };
   }
   if (r.decision === 'partial') {
     reply = { ...entry, steps: [...entry.steps, { type: 'action', text: 'Your other question needs a person on the team, so I am passing that part over with your message.' }] };
