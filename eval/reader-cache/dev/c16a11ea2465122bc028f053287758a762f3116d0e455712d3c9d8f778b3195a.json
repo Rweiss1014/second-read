@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3989,
+ "verdict": {
+  "points": [
+   {
+    "point": "Carousel made via n8n is not visible in the app",
+    "sentence": "are saved at Videos, regardless of how you created them (in the web app, in n8n or Make.com, through the REST API, or through MCP)."
+   },
+   {
+    "point": "Where to look to find it",
+    "sentence": "If you can't find a visual, go directly to my.blotato.com/videos and look for your recent creations there."
+   }
+  ],
+  "pick": "where-are-generated-visuals",
+  "reason": "The customer's n8n-generated carousel is a visual, and this entry says visuals from n8n are saved in Videos and tells them where to look."
+ },
+ "at": "2026-11-18T18:38:02.232Z"
+}

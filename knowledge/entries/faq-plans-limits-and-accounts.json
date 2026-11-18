@@ -482,7 +482,8 @@
         "how do I start my paid subscription",
         "how do I change my email",
         "why was I charged for an upgrade",
-        "how many accounts can I connect on each plan"
+        "how many accounts can I connect on each plan",
+        "is my plan change prorated"
       ],
       "anchors": [
         [
@@ -546,10 +547,111 @@
             "url": "https://help.blotato.com/support/faqs",
             "quote": "The same steps switch you between monthly and yearly billing. You do not need to cancel first."
           }
+        },
+        {
+          "type": "fact",
+          "text": "When you change plans, Stripe prorates the charge based on what is left of your billing cycle.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "Stripe prorates the charge based on your remaining billing cycle."
+          }
         }
       ],
       "next": "Open Settings > Billing, click View Billing Portal, then click Update subscription.",
       "proof": "You will know it worked when the Billing Portal shows your new plan."
+    },
+    {
+      "id": "plan-change-proration",
+      "kind": "billing",
+      "title": "How a plan change partway through a billing cycle is billed (prorated)",
+      "note": "Added Nov 18, 2026 after a tester asked about proration and got no answer. The billing page says Stripe prorates a plan change. A message about a specific charge or a refund still goes to a person through the money guard before this entry is scored.",
+      "phrasings": [
+        "is a plan upgrade prorated",
+        "do you prorate when I switch plans halfway through the month",
+        "if I move to a bigger plan in the middle of my billing cycle do I pay the full price again",
+        "how does billing work when I change plans mid cycle",
+        "will my new plan be prorated for the rest of the month",
+        "is a downgrade prorated too",
+        "proration when upgrading from starter to creator",
+        "prorated billing after switching plans",
+        "I went up a plan part way through the month, how does that work",
+        "does blotato prorate plan changes"
+      ],
+      "not_this": [
+        "how do I change my plan",
+        "how do I cancel my subscription"
+      ],
+      "anchors": [
+        [
+          "/\\bpro-?rat/",
+          "/\\bmid[- ]?(?:month|cycle)\\b/",
+          "/\\b(?:middle|halfway|half way|part ?way)\\b[^.?!]{0,30}\\b(?:month|cycle|billing)\\b/"
+        ],
+        [
+          "plan",
+          "plans",
+          "subscription",
+          "upgrade",
+          "upgraded",
+          "upgrading",
+          "downgrade",
+          "downgraded",
+          "switch",
+          "switched",
+          "switching",
+          "change",
+          "changed",
+          "changing",
+          "move",
+          "moved",
+          "billing",
+          "billed"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": []
+      },
+      "opening": "Here is how Blotato bills a plan change partway through a billing cycle.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "When you change plans, Stripe prorates the charge based on what is left of your billing cycle.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "Stripe prorates the charge based on your remaining billing cycle."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "You change plans with the purple Update subscription button next to your current plan.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "Click the purple \"Update subscription\" button next to your current plan"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "The same steps switch you between monthly and yearly billing on the same plan.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "To switch between monthly and yearly billing on the same plan, use the same steps and pick the yearly option."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "You can see your invoices yourself: open Settings > Billing, select View Billing Portal, then scroll to INVOICE HISTORY.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "Open Settings > Billing, select View Billing Portal, then scroll to INVOICE HISTORY."
+          }
+        }
+      ],
+      "next": "Open Settings > Billing, select View Billing Portal, and scroll to INVOICE HISTORY to see your invoices.",
+      "proof": "You will know it worked when your invoices show under INVOICE HISTORY."
     },
     {
       "id": "posting-limits-per-platform",
