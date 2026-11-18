@@ -38,7 +38,7 @@ export function openDesk({ env = process.env, run = newRunId(), fetchImpl, mockA
   // The composer (src/composer.mjs): off unless SUPPORT_DESK_COMPOSER names a backend. It retrieves from every page in
   // the docs cache. Its verdict cache lives in the desk folder unless SUPPORT_DESK_COMPOSER_CACHE says where.
   const composer = createComposer({ router: ROUTER, env, call: composerCall, pages: composerPages, docsCacheDir: paths.docsCache, cacheDir: env.SUPPORT_DESK_COMPOSER_CACHE || path.join(paths.dir, 'composer-cache') });
-  return { env, paths, checksDir: defaultChecksDir(env), mock, logger, client, docs, run, now: clock, reader, composer, agent: env.SUPPORT_AGENT_NAME || 'Support', close: () => docs.close() };
+  return { env, paths, checksDir: defaultChecksDir(env), mock, logger, client, docs, run, now: clock, relativeTimes: mock && sampleNow !== MOCK_NOW, reader, composer, agent: env.SUPPORT_AGENT_NAME || 'Support', close: () => docs.close() };
 }
 
 export async function handleTicket(desk, ticket, { requireReview = false } = {}) {

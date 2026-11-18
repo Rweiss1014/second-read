@@ -231,17 +231,21 @@ export function accountTemplate(d) {
 export function freshState(reviewsDir, d, { checksDir = defaultChecksDir() } = {}) {
   if (!d?.reply) return null;
   const name = reviewName(d.ticket);
-  const template = accountTemplate(d);
-  if (template) {
-    const t = lookupCheck(template, { reviewsDir, checksDir });
-    if (t.state === 'pass') return { state: 'passed', scope: 'words', filled: d.slot ? 'slot' : 'account', name, checkedAt: t.checkedAt, notes: t.findings || [], checker: t.checker, model: t.model, source: t.source };
-    if (t.state === 'block') return { state: 'blocked', scope: 'words', name, why: `The fresh checker blocked these words: ${(t.findings || []).join('; ') || 'no reason given'}`, findings: t.findings || [], checkedAt: t.checkedAt };
-  }
   // The exact text first: a pass in the shipped store or in desk/reviews clears it, even for a typed message
-  // whose saved copy was never written on this machine.
+  // whose saved copy was never written on this machine. A checker that read these exact words (account facts and
+  // all) beats one that read the words with a slot (Nov 18, 2026: the page showed a slot check's note, about its
+  // own example numbers, beside a reply with other numbers).
   const hit = lookupCheck(d.reply, { reviewsDir, checksDir });
   if (hit.state === 'pass') return { state: 'passed', name, checkedAt: hit.checkedAt, notes: hit.findings || [], checker: hit.checker, model: hit.model, source: hit.source };
   if (hit.state === 'block') return { state: 'blocked', name, why: `The fresh checker blocked it: ${(hit.findings || []).join('; ') || 'no reason given'}`, findings: hit.findings || [], checkedAt: hit.checkedAt };
+  // Then the words, with the account facts (or the fixed-list slot) as a slot. `template` is exactly what the
+  // checker read, so the page can show it beside the checker's notes.
+  const template = accountTemplate(d);
+  if (template) {
+    const t = lookupCheck(template, { reviewsDir, checksDir });
+    if (t.state === 'pass') return { state: 'passed', scope: 'words', filled: d.slot ? 'slot' : 'account', template, name, checkedAt: t.checkedAt, notes: t.findings || [], checker: t.checker, model: t.model, source: t.source };
+    if (t.state === 'block') return { state: 'blocked', scope: 'words', template, name, why: `The fresh checker blocked these words: ${(t.findings || []).join('; ') || 'no reason given'}`, findings: t.findings || [], checkedAt: t.checkedAt };
+  }
   const c = clearedToSend(reviewsDir, name, { checksDir });
   if (!c.ok && /No saved reply|No fresh-checker verdict/.test(c.why)) return { state: 'none', name };
   if (!c.ok) return { state: c.blocked ? 'blocked' : 'stale', name, why: c.why };

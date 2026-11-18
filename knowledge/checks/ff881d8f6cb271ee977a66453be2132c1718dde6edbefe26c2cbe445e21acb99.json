@@ -1,0 +1,11 @@
+{
+  "replySha256": "ff881d8f6cb271ee977a66453be2132c1718dde6edbefe26c2cbe445e21acb99",
+  "verdict": "pass",
+  "findings": [
+    "Style only: step 3 says failed posts are \"also listed with its error details\" without saying where, which is less specific than the page (\"appear at my.blotato.com/failed\"); this is not misleading, because step 2 already points to the Failed filter and the account shows none failed."
+  ],
+  "checkedAt": "2026-11-18T21:09:05Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "did-my-posts-go-out"
+}

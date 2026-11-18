@@ -197,7 +197,7 @@ function view(r, env, trace) {
     ticket: r.ticket, entry: r.entry, status: r.status, outcome: r.outcome, seenBefore: r.seenBefore,
     evidence: r.evidence ? { kind: r.evidence.kind, ok: r.evidence.ok, summary: r.evidence.summary, technical: r.evidence.technical || null, calls: r.evidence.calls, searched: r.evidence.searched, status: r.evidence.status, missing: r.evidence.missing } : null,
     steps: (r.steps || []).map(s => ({ type: s.type, text: s.text, url: s.cite?.url ?? s.url, quote: s.cite?.quote ?? s.quote, page: stepCtx(s) })),
-    reply: r.reply, next: r.next, check: r.check, refused: r.refused || null,
+    reply: r.reply, next: r.next, check: r.check, refused: r.refused || null, handover: !!r.handover,
     escalationText: r.escalationText, docEditText: r.docEditText,
     // Added for the page: the same two notes as data, and where a proposed edit sits on its page.
     escalation: r.escalation || null,

@@ -3434,7 +3434,7 @@
         },
         {
           "type": "fact",
-          "text": "If one you expect is missing or not working, reconnect it from that account's actions menu.",
+          "text": "If one is listed but not working, reconnect it from that account's actions menu. If one is missing, connect it again with Accounts > Connect account.",
           "cite": {
             "url": "https://help.blotato.com/start-with-an-ai-agent/agents",
             "quote": "Connect or reconnect social destinations: Accounts > Connect account, or the existing account's actions menu > Reconnect."

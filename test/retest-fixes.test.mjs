@@ -143,16 +143,14 @@ test('10. the bigint letter is a letter to the customer: the demo note goes to t
   assert.match(r.escalationText, /The practice account answers/);
 });
 
-test('10b. on the public site the sample clock is the real hour, so a scheduled sample post is in the future', async () => {
+test('10b. on the public site the sample clock is the real hour, a scheduled sample post is in the future, and times are said from now so the words never change', async () => {
   const { env } = tempDesk();
   const desk = openDesk({ env: { ...env, SUPPORT_DESK_MOCK_CLOCK: 'now' } });
   const r = await handleTicket(desk, TICKETS.find(t => t.id === 'T09'));
   await desk.close();
-  const m = r.reply.match(/scheduled for (\w+day, \w{3} \d{1,2}, at \d{1,2}:\d\d [ap]m) UTC/);
-  assert.ok(m, r.reply);
-  const year = new Date().getUTCFullYear();
-  const t = Date.parse(`${m[1].replace(/^\w+day, /, '').replace(', at', ` ${year}`)} UTC`);
-  assert.ok(t > Date.now() - 3600000, `${m[1]} is in the past`);
+  // "The newest is scheduled for 3 days from now.": in the future, and the same words for every visitor (Nov 18, 2026).
+  assert.match(r.reply, /The newest is scheduled for \d+ (?:hours?|days?) from now\./, r.reply);
+  assert.doesNotMatch(r.reply, /\b(?:Mon|Tues|Wednes|Thurs|Fri|Satur|Sun)day\b|\bUTC\b/, r.reply);
 });
 
 test('11. "Two most likely causes" is only for a failure; a how-to or yes-no hand-over has no causes heading', async () => {

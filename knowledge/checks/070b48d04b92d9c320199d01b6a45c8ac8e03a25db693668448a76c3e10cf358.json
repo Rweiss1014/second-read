@@ -1,0 +1,11 @@
+{
+  "replySha256": "070b48d04b92d9c320199d01b6a45c8ac8e03a25db693668448a76c3e10cf358",
+  "verdict": "pass",
+  "findings": [
+    "Style note, not misleading: the Next step line \"A person on the team will reply here with the answer\" is a little surer than the evidence, which shows only that an escalation packet goes with the reply; the \"Still open\" line already tells the customer the answer is pending, so no one is misled."
+  ],
+  "checkedAt": "2026-11-18T21:06:26Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "upset-question"
+}

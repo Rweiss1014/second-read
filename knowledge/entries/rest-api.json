@@ -406,7 +406,7 @@
       "proof": "Still open: the answer itself.",
       "noDocAnswer": true,
       "escalate": {
-        "why": "No saved copy of the help pages mentions a test mode or sandbox for the API, and Blotato's live docs search found none on Nov 15, 2026. A person on the team decides what the answer is.",
+        "why": "None of the desk's saved copies of the help pages mentions a test mode or sandbox for the API. (An earlier check, on Nov 15, 2026, with Blotato's live docs search, also found none.) A person on the team decides what the answer is.",
         "causes": [
           {
             "text": "There is no test mode, and the docs should say so."
@@ -422,7 +422,7 @@
         "kind": "new",
         "heading": "Is there a test mode for the API?",
         "add": "[Answer to confirm with a person on the team: is there a test mode, and if not, how should developers test safely?]",
-        "note": "Two docs searches on Nov 15, 2026 found no page about a sandbox or test mode."
+        "note": "An earlier check, on Nov 15, 2026: two searches of Blotato's live docs found no page about a sandbox or test mode. The desk's saved copies of the help pages mention none either."
       }
     }
   ]

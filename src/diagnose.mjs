@@ -28,8 +28,22 @@ export function when(t, now = Date.now()) {
 const NAMES = { instagram: 'Instagram', linkedin: 'LinkedIn', twitter: 'X (Twitter)', facebook: 'Facebook', tiktok: 'TikTok', youtube: 'YouTube', threads: 'Threads', bluesky: 'Bluesky', pinterest: 'Pinterest', slack: 'Slack' };
 export const nice = (p) => NAMES[p] || p;
 
-async function lookup(kind, ticket, { client, docs, entry, now = Date.now }) {
+// A time said from now ("5 hours ago", "3 days from now"). The public site's practice account runs on the visitor's
+// hour, so a date it named changed every hour and no checker could read those exact words ahead of time (Nov 18,
+// 2026: the engineer view showed a checker note about other numbers than the reply). Said from now, the practice
+// account's words are the same for every visitor, and the checker reads those exact words.
+export function fromNow(t, now) {
+  const h = Math.round((Date.parse(t) - now) / 3600000);
+  if (h === 0) return 'within the hour';
+  const n = Math.abs(h) < 48 ? Math.abs(h) : Math.round(Math.abs(h) / 24);
+  const unit = Math.abs(h) < 48 ? (n === 1 ? 'hour' : 'hours') : (n === 1 ? 'day' : 'days');
+  return h < 0 ? `${n} ${unit} ago` : `${n} ${unit} from now`;
+}
+
+async function lookup(kind, ticket, { client, docs, entry, now = Date.now, relative = false }) {
   const t0 = now();
+  const at = (t) => (relative ? fromNow(t, t0) : when(t, t0));
+  const raw = (t) => (relative ? fromNow(t, t0) : whenRaw(t));
   const text = ticket.text;
   const ev = { kind, ok: false, lines: [], calls: [] };
   try {
@@ -50,8 +64,8 @@ async function lookup(kind, ticket, { client, docs, entry, now = Date.now }) {
         : `${p.state?.postUrl ? `, with this link: ${p.state.postUrl}` : ', with no platform link returned'}.`;
       // summary is what the customer reads: a date a person would write, no internal post id.
       // technical is for the escalation packet and the checker: the raw stamp and the post id.
-      ev.summary = p ? `${head}${when(p.postTime, t0)}${tail}` : `Blotato shows no published ${platform ? nice(platform) + ' ' : ''}post in the last 7 days.`;
-      ev.technical = p ? `${head}${whenRaw(p.postTime)} (post ${p.id})${tail}${client?.mock ? ' Note for the team, not in the letter: This is the practice account, with made-up sample posts, so there is no real post link to open.' : ''}` : ev.summary;
+      ev.summary = p ? `${head}${at(p.postTime)}${tail}` : `Blotato shows no published ${platform ? nice(platform) + ' ' : ''}post in the last 7 days.`;
+      ev.technical = p ? `${head}${raw(p.postTime)} (post ${p.id})${tail}${client?.mock ? ' Note for the team, not in the letter: This is the practice account, with made-up sample posts, so there is no real post link to open.' : ''}` : ev.summary;
       ev.ok = true;
     }
     if (kind === 'recent-activity') {
@@ -64,8 +78,8 @@ async function lookup(kind, ticket, { client, docs, entry, now = Date.now }) {
       const count = (t) => same.filter(i => i.state?.type === t).length;
       const where = platform ? `${nice(platform)} ` : '';
       const lead = same.length ? `from 2 days ago to 2 weeks ahead I see ${same.length} ${where}post${same.length === 1 ? '' : 's'}: ${count('scheduled')} scheduled, ${count('published')} published and ${count('failed')} failed. The newest is ${same[0].state?.type} for ` : '';
-      ev.summary = same.length ? `${lead}${when(same[0].postTime, t0)}.` : `I see no ${where}posts from 2 days ago to 2 weeks ahead.`;
-      ev.technical = same.length ? `${lead}${whenRaw(same[0].postTime)} (id ${same[0].id}).` : ev.summary;
+      ev.summary = same.length ? `${lead}${at(same[0].postTime)}.` : `I see no ${where}posts from 2 days ago to 2 weeks ahead.`;
+      ev.technical = same.length ? `${lead}${raw(same[0].postTime)} (id ${same[0].id}).` : ev.summary;
       ev.ok = true;
     }
     // Account first (Nov 16, 2026): "did my posts go out?" is answered from the customer's own posts, read-only.
@@ -93,12 +107,12 @@ async function lookup(kind, ticket, { client, docs, entry, now = Date.now }) {
         const plat = platform ? '' : ` on ${nice(p.platform)}`;
         const link = client?.mock ? ''
           : p.state?.postUrl ? ` Here it is: ${p.state.postUrl}` : ' Blotato did not return a link for it.';
-        parts.push(`The newest went out${plat} ${when(p.postTime, t0)}.${link}`);
+        parts.push(`The newest went out${plat} ${at(p.postTime)}.${link}`);
       }
       const x = failed[0];
       if (x) {
         const err = x.state?.errorMessage || x.errorMessage;
-        parts.push(`The newest failure${platform ? '' : ` was on ${nice(x.platform)}`}, ${when(x.postTime, t0)}${err ? `, with the error "${redactErr(err)}"` : ', with no error text'}.`);
+        parts.push(`The newest failure was${platform ? "" : ` on ${nice(x.platform)},`} ${at(x.postTime)}${err ? `, with the error "${redactErr(err)}"` : ', with no error text'}.`);
       }
       // Nothing in the last 7 days: say when the newest post really went out, so "none" is never the whole answer.
       if (!p && !x) {
@@ -109,10 +123,10 @@ async function lookup(kind, ticket, { client, docs, entry, now = Date.now }) {
         const o = older[0];
         if (o) {
           const link = client?.mock ? '' : o.state?.postUrl ? ` Here it is: ${o.state.postUrl}` : '';
-          parts.push(`Your newest ${where}post went out${platform ? '' : ` on ${nice(o.platform)}`} ${when(o.postTime, t0)}.${link}`);
+          parts.push(`Your newest ${where}post went out${platform ? '' : ` on ${nice(o.platform)}`} ${at(o.postTime)}.${link}`);
         } else parts.push(`I see no published ${where}posts in the last 60 days either.`);
       }
-      if (upcoming.length) parts.push(`${n(upcoming.length, 'post')} ${upcoming.length === 1 ? 'is' : 'are'} still scheduled; the next goes out ${when(upcoming[0].postTime, t0)}.`);
+      if (upcoming.length) parts.push(`${n(upcoming.length, 'post')} ${upcoming.length === 1 ? 'is' : 'are'} still scheduled; the next goes out ${at(upcoming[0].postTime)}.`);
       ev.summary = parts.join(' ');
       ev.technical = ev.summary + (p ? ` (newest published post ${p.id})` : '') + (x ? ` (newest failed post ${x.id})` : '') + (client?.mock && p ? ' Note for the team, not in the letter: This is the practice account, with made-up sample posts, so there is no real post link to open.' : '');
       ev.counts = { published: published.length, failed: failed.length, scheduled: upcoming.length, platform: platform || null };
@@ -147,7 +161,7 @@ async function lookup(kind, ticket, { client, docs, entry, now = Date.now }) {
       const s = await getSubmission(client, id);
       ev.calls.push(`GET /v2/posts/${id}: status "${s.status}" (request ${s.requestId})`);
       ev.status = s.status;
-      ev.summary = `Blotato answers "${s.status}" for submission ${id}${s.errorMessage ? `, with the error "${s.errorMessage}"` : ''}${s.scheduledTime ? `, scheduled for ${when(s.scheduledTime, t0)}` : ''}.`;
+      ev.summary = `Blotato answers "${s.status}" for submission ${id}${s.errorMessage ? `, with the error "${s.errorMessage}"` : ''}${s.scheduledTime ? `, scheduled for ${at(s.scheduledTime)}` : ''}.`;
       if (s.status === 'failed') ev.explained = explain(s.errorMessage);
       ev.ok = true;
     }
@@ -158,14 +172,14 @@ async function lookup(kind, ticket, { client, docs, entry, now = Date.now }) {
       const msg = r.ok ? 'found' : errorText(r.data, r.status);
       ev.calls.push(`GET /v2/schedules/${id}: HTTP ${r.status} "${msg}"${r.data?.reqId ? ` (Blotato reqId ${r.data.reqId})` : ''}`);
       ev.status = r.status;
-      ev.summary = `GET /v2/schedules/${id} answers HTTP ${r.status}: "${msg}".`;
+      ev.summary = `GET /v2/schedules/${id} answers HTTP ${r.status}, with the message: ${msg}.`;  // the message as Blotato gave it, quotes and all, never wrapped in a second pair (Nov 18, 2026)
       ev.ok = !r.ok && /bigint/i.test(msg); // reproduced = it fails the same way
       if (!ev.ok) ev.summary += ' That is not the error in the ticket, so this is not reproduced.';
       // The practice account only gives back what the real API answered on Nov 15, 2026 (BUILD-LOG.md, README): it says so.
       // The letter says only what the lookup gave; that the practice account copies the real API's answer of Nov 15,
       // 2026 (and that the real API was not called) is a note for the team and the engineer view, not for the
       // customer (Nov 18, 2026: the letter talked about the demo).
-      else if (client?.mock) ev.technical = `The practice account answers GET /v2/schedules/${id} with HTTP ${r.status}: "${msg}". That copies the answer Blotato's real API gave on Nov 15, 2026, to a read-only lookup with a schedule id that is not a number. The real API was not called just now.`;
+      else if (client?.mock) ev.technical = `The practice account answers GET /v2/schedules/${id} with HTTP ${r.status} and the message: ${msg}. That copies the answer Blotato's real API gave on Nov 15, 2026, to a read-only lookup with a schedule id that is not a number. The real API was not called just now.`;
     }
     if (kind === 'docs-search') {
       // Live: Blotato's docs MCP search. Offline (the free demo, tests): a search of the saved copies of the help
@@ -198,7 +212,7 @@ async function lookup(kind, ticket, { client, docs, entry, now = Date.now }) {
 const SAMPLE_TEXT = new Set(TICKETS.map(t => t.text.trim()));
 const isSample = (ticket) => SAMPLE_TEXT.has(String(ticket?.text || '').trim());
 
-export async function diagnose(ticket, { client, docs, agent = 'Support', route = routeMessage, now = Date.now, reader = null, composer = null }) {
+export async function diagnose(ticket, { client, docs, agent = 'Support', route = routeMessage, now = Date.now, reader = null, composer = null, relativeTimes = false }) {
   // The reader (src/reader.mjs), when on, reviews route()'s decision: it may pick an entry or hand over. It never
   // sees a message a guard or a hand-over signal took, and on any error the decision stays route()'s own.
   // The composer (src/composer.mjs), when on, runs last, and only on a message that is still handed over with no
@@ -285,7 +299,7 @@ export async function diagnose(ticket, { client, docs, agent = 'Support', route 
   if (entry.docEdit) urls.add(entry.docEdit.article);
   for (const u of urls) out.pages[u] = await docs.getPage(u);
 
-  if (entry.lookup) out.evidence = await lookup(entry.lookup, ticket, { client, docs, entry, now });
+  if (entry.lookup) out.evidence = await lookup(entry.lookup, ticket, { client, docs, entry, now, relative: relativeTimes });
 
   const steps = reply.steps.map(s => ({ ...s, text: s.text.replace('{evidence}', out.evidence?.summary || 'no lookup was made') }));
   const name = (ticket.name || '').trim();
@@ -298,6 +312,10 @@ export async function diagnose(ticket, { client, docs, agent = 'Support', route 
   // A slot in the opening ("{what}", the upset reply) is filled from a fixed word list, and the checker reads the
   // words with the slot in place (accountTemplate in src/checkreply.mjs).
   let opening = reply.opening;
+  // A money letter to a customer who says they were charged starts with a short apology, from a fixed list (never the
+  // customer's own words, and never for a money message that reports no charge). Nov 18, 2026: "you charged me
+  // again" got a bare "Thanks for writing in."
+  if (entry.guard === 'money' && reply === entry && !/sorry/i.test(opening || '')) { const sorry = moneySorry(ticket.text); if (sorry) opening = `${sorry} ${opening}`; }
   if (/\{what\}/.test(opening || '')) { const what = upsetWhat(ticket.text); opening = opening.replace('{what}', what); out.slot = { name: 'what', value: what }; }
   out.reply = [
     `Hi${name ? ' ' + name : ''},`,
@@ -314,11 +332,21 @@ export async function diagnose(ticket, { client, docs, agent = 'Support', route 
     agent,
   ].join('\n');
   out.outcome = esc ? 'escalate' : 'reply';
+  // A hand-over letter: it tells the customer a person will answer, and answers nothing itself. The page never stamps it
+  // as if it were the answer (Nov 18, 2026: a hand-over was stamped "Checked. Safe to send." with no word that it was one).
+  out.handover = r.decision === 'needs-person' || (!!entry.guard && entry.guard !== 'money') || (!!entry.escalate && /\bA person on the team (?:needs to|will)\b/.test(reply.opening || ''));
   if (entry.noDocAnswer) out.outcome = 'no-answer';
   if (esc) out.escalation = buildEscalation(ticket, entry, out, esc);
   if (entry.docEdit) out.docEdit = { ...entry.docEdit, pageFetchedAt: out.pages[entry.docEdit.article]?.fetchedAt, beforeFound: entry.docEdit.before ? (out.pages[entry.docEdit.article]?.text || '').includes(entry.docEdit.before) : undefined };
   return out;
 }
+
+// The apology a money letter opens with, from a fixed list, or null. Only for a customer who says money was taken.
+export const MONEY_SORRY = [
+  { re: /\b(?:charged|billed|debited)\b[^.?!\n]{0,40}\b(?:again|twice|two times|double)\b|\b(?:double|duplicate) (?:charge|payment|billing)\b|\bcancel+ed\b[^.?!\n]{0,60}\b(?:charged|billed)\b/i, line: "I'm sorry you were charged when you did not expect it." },
+  { re: /\b(?:charged|billed|debited|took (?:my|our) money|charge on my|charge to my)\b/i, line: "I'm sorry this charge was not what you expected." },
+];
+export function moneySorry(text) { const t = String(text || ''); return (MONEY_SORRY.find(x => x.re.test(t)) || {}).line || null; }
 
 // What an upset customer said went wrong, said back in the desk's own words: "your reels failed to post, and not for the first time".
 // Only words from these lists are used, never the customer's own wording, so nothing rude is repeated back.

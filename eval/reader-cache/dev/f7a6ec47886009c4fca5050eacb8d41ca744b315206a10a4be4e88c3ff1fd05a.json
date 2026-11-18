@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 11125,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can the Black Friday code be used to reactivate",
+    "sentence": ""
+   },
+   {
+    "point": "Will old scheduled posts still go out after the lapse",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states anything about applying a Black Friday code to reactivate or whether scheduled posts publish after a lapsed plan; the reactivation entries cover only content being saved or DM automations, and the posts entries are about locating posts."
+ },
+ "at": "2026-11-18T21:11:13.373Z"
+}

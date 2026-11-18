@@ -75,14 +75,14 @@ export const problemPremise = (e) => !!e && !e.guard && (!!e.symptom_only || PRE
 // Does the message report a problem? Trouble words ("still" and "again" alone are not one: "do my posts still go
 // out?"), an exact error or code, an error told in the customer's words, or words that say something was seen or
 // received ("I got a message", "it shows 0", "views are lower").
-const REPORTS = /\b(?:broke|breaks|breaking|crash\w*|blocks|blocking|show|appears?|got|getting|gets? (?:a|an|the|this|that)|received|receiving|seeing|saw|says|said|shows|showing|showed|returns?|returned|answers?|answered|message|messages|notification|popup|pop-up|warning|lower|higher|different|differs|wrong|bug|weird|strange|odd|instead|disappear\w*|vanish\w*|blank|duplicate\w*|twice|double|rate[- ]limited|throttl\w*|too many|timed? out|timeout|slow|delay\w*|late|never|not|no longer|didn'?t|didnt|did not|doesn'?t|doesnt|don'?t|dont|isn'?t|isnt|wasn'?t|hasn'?t|haven'?t|went wrong|what now|now what)\b/i;
+const REPORTS = /\b(?:hit|hitting|reached|reaching|ran into|running into|broke|breaks|breaking|crash\w*|blocks|blocking|show|appears?|got|getting|gets? (?:a|an|the|this|that)|received|receiving|seeing|saw|says|said|shows|showing|showed|returns?|returned|message|messages|notification|popup|pop-up|warning|lower|higher|different|differs|wrong|bug|weird|strange|odd|instead|disappear\w*|vanish\w*|blank|duplicate\w*|twice|double|rate[- ]limited|throttl\w*|too many|timed? out|timeout|slow|delay\w*|late|never|not|no longer|didn'?t|didnt|did not|doesn'?t|doesnt|don'?t|dont|isn'?t|isnt|wasn'?t|hasn'?t|haven'?t|went wrong|what now|now what)\b/i;
 // The customer pasted the error itself, unquoted: five words in a row from the entry's title ("This video is 130
 // seconds long, but we can only automatically fix videos up to 120 seconds").
 const words5 = (s) => { const w = String(s || '').toLowerCase().match(/[a-z0-9]+/g) || []; return new Set(w.slice(0, Math.max(0, w.length - 4)).map((x, i) => w.slice(i, i + 5).join(' '))); };
 const pastesTitle = (text, e) => { const t = words5(e?.title); for (const g of words5(text)) if (t.has(g)) return true; return false; };
 export function reportsProblem(text, entry = null) {
   const t = String(text || '');
-  return (!!entry && pastesTitle(t, entry)) || TROUBLE.test(t.replace(/\b(?:still|again)\b/gi, ' ')) || !!specificError(t) || !!describedError(t) || REPORTS.test(t) || /"[^"\n]{3,}"|“[^”\n]{3,}”|`[^`\n]+`/.test(t);
+  return (!!entry && pastesTitle(t, entry)) || TROUBLE.test(t.replace(/\b(?:still|again)\b/gi, ' ')) || !!specificError(t.replace(/\brate limits?\b(?!ed)/gi, 'rate cap')) || !!describedError(t) || REPORTS.test(t) || /"[^"\n]{3,}"|“[^”\n]{3,}”|`[^`\n]+`/.test(t);
 }
 
 // The same test as isErrorEntry in entries.mjs (kept here so route.mjs does not import entries.mjs, which imports it).
