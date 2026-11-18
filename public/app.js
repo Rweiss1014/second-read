@@ -479,14 +479,17 @@ function wholeSentences(s, max, fromEnd) {
 const tq = (s) => termify(esc(s));
 // The words around the lit part belong to the same sentence, so they always stay (round 6): a proof starts at its
 // sentence's start and ends at its end. Only whole sentences, lists and table cells outside it ever fold away.
-const sentenceHTML = (page) => { const x = sentence(page); return `${tq(x.pre)}<mark>${tq(x.mark)}</mark>${tq(x.post)}`; };
+// A numbered list run together on the page ("Open the AI Agent. 3. Select New draft. 4. Click...") reads as stray
+// numbers in a proof: the item numbers are left out where the proof is shown (Nov 18, 2026).
+const unlist = (s) => String(s || '').replace(/(^|[\s:.!?])\d{1,2}[.)]\s+(?=[A-Z"“'(])/g, '$1');
+const sentenceHTML = (page) => { const x = sentence(page); return `${tq(unlist(x.pre))}<mark>${tq(unlist(x.mark))}</mark>${tq(unlist(x.post))}`; };
 // A page's name beside its sentence. A long name gets its own line, so it never pushes one word onto a line alone.
 const srcHTML = (src) => `<span class="src${String(src).length > 24 ? ' long' : ''}">${esc(src)}</span>`;
 function paragraphHTML(page) {
   const t = page.text; const [s, e] = page.mark;
-  const clean = (x) => tq(String(x || '').replace(/^\.\.\.\s*/, '').replace(/\s*\.\.\.$/, ''));
+  const clean = (x) => tq(unlist(String(x || '').replace(/^\.\.\.\s*/, '').replace(/\s*\.\.\.$/, '')));
   // Only the sentence's own paragraph: a neighbor block can be a list run together with no stops.
-  return `<span class="dim">${clean(t.slice(0, s))}</span><mark>${tq(t.slice(s, e))}</mark><span class="dim">${clean(t.slice(e))}</span>`;
+  return `<span class="dim">${clean(t.slice(0, s))}</span><mark>${tq(unlist(t.slice(s, e)))}</mark><span class="dim">${clean(t.slice(e))}</span>`;
 }
 const loose = (s) => String(s || '').toLowerCase().replace(/[`*_"'\s]+/g, ' ').replace(/[.:,]+$/, '').trim();
 // A code example: only the lines that hold the quote (whole lines), or every line with them marked.
@@ -524,7 +527,7 @@ const listHTML = (items) => `<ul class="plist">${items.map(i => {
   const m = String(i).match(/^(.*?)\s*(\((?:DELETE|GET|POST|PUT|PATCH) [^)]*\))\s*$/);
   return `<li>${m ? `${tq(m[1])}<span class="tech-only"> ${tq(m[2])}</span>` : tq(i)}</li>`;
 }).join('')}</ul>`;
-const plainLineHTML = (s) => { const p = plainQuote(s); return p ? `<p class="pline plain-only"><b>In plain words:</b> ${esc(p)}</p>` : ''; };
+const plainLineHTML = (s) => { const p = plainQuote(unlist(s)); return p ? `<p class="pline plain-only"><b>In plain words:</b> ${esc(p)}</p>` : ''; };
 
 // One proof: the compact form that fits its row, the long form that opens when you point at it,
 // and the page's name, small, beside the sentence.
@@ -647,7 +650,7 @@ function noteHTML(r, own = true, lead = false) {
       <p>A customer wrote: <span class="cq">&ldquo;${esc(e.asked)}&rdquo;</span></p>
       <p><b>Why it needs you.</b> <span class="plain-only">${esc(personReason(r) || refusalReason(r))}</span><span class="tech-only">${termify(esc(why))}</span></p>
       <p><b>What I checked.</b> ${esc(plainChecked(r))}</p>
-      ${causes.length ? `<p><b>What I think it is:</b></p>${li(causes, pn.causes)}` : (whyOf(r) === 'money' ? '<p><b>What I think it is.</b> A billing question for you. I cannot see payments, so I will not guess the cause.</p>' : '<p><b>What I think it is.</b> Not known yet. There is no checked answer for this, so I will not guess.</p>')}
+      ${causes.length ? `<p><b>What I think it is:</b></p>${li(causes, pn.causes)}` : (whyOf(r) === 'money' || e.kind === 'billing' ? '<p><b>What I think it is.</b> A billing question for you. I cannot see payments, so I will not guess the cause.</p>' : '<p><b>What I think it is.</b> Not known yet. There is no checked answer for this, so I will not guess.</p>')}
       ${(e.ruledOut || []).length ? `<p><b>What I ruled out:</b></p>${li(e.ruledOut, pn.ruledOut)}` : ''}
     </div>
     <div class="note-act"><button type="button" class="${lead ? 'btn' : 'btn-quiet'}" data-copy="sabrina">Copy the note</button><span class="copied" data-copied="sabrina" aria-live="polite"></span></div>
@@ -833,7 +836,9 @@ function practiceHTML(r, st) {
 function shellHTML(meta, r) {
   const st = stateOf(r);
   const line = r.example ? PLAIN_STOPPED : (r.ticket?.id && PLAIN_LINES[r.ticket.id]) || null;
-  const person = st !== 'refused' && !line ? personReason(r) : null;
+  // A checked reply to a money message goes out, and its note sends the money part to a person: one line says both.
+  const moneyPart = st === 'checked' && whyOf(r) === 'money' && !!r.escalation;
+  const person = st !== 'refused' && !line && !moneyPart ? personReason(r) : null;
   // A sample message is labeled as one where it is shown (the founder's test, round 4).
   const sample = (!!meta.body?.id || !!meta.example) && !meta.demo;
   const by = `${meta.who ? `${meta.who} wrote this.` : 'The customer wrote this.'}${sample ? ' It is made up, on a practice account.' : ''}`;
@@ -846,7 +851,7 @@ function shellHTML(meta, r) {
     </div>
     ${meta.example ? '<p class="example-tag">A saved example from Nov 15: the desk\'s first reply to this message. The second checker stopped it, and the desk was fixed.</p>' : ''}
     <div class="did-row"><ol class="did" id="did" aria-label="What the desk did"></ol></div>
-    ${VLINE[st] ? `<p class="vline away" id="vline" style="--tone: ${VLINE[st][1]}">${VLINE[st][0]}</p>` : ''}
+    ${VLINE[st] ? `<p class="vline away" id="vline" style="--tone: ${VLINE[st][1]}">${moneyPart ? 'Checked. Safe to send. A person takes the money part.' : VLINE[st][0]}</p>` : ''}
     ${practiceHTML(r, st)}
     ${line ?`<p class="plainline"><b>In plain words:</b> ${esc(line)}</p>` : ''}
     ${person ? `<p class="plainline person"><b>A person on the team takes this one.</b> ${esc(person)}</p>` : ''}

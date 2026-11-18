@@ -83,3 +83,13 @@ test('a proof shows the row the answer is about, not the first place its sentenc
   assert.match(p.row.cells[0], /update your TikTok app/);
   assert.match(p.text.slice(p.mark[0] - 40, p.mark[1]), /phone\. Retry from Posts > Failed\./);
 });
+
+test('the page: list numbers are left out of proofs, and a checked money reply says a person takes the money part', () => {
+  const app = fs.readFileSync(path.join(root, 'public', 'app.js'), 'utf8');
+  const m = app.match(/^const unlist = (.*);$/m);
+  assert.ok(m, 'unlist is defined');
+  const unlist = eval(m[1]);
+  assert.equal(unlist('Open the AI Agent. 3. Select New draft. 4. Click Save.'), 'Open the AI Agent. Select New draft. Click Save.');
+  assert.equal(unlist('Version 2.5 works. Wait 2 minutes.'), 'Version 2.5 works. Wait 2 minutes.');
+  assert.match(app, /Checked\. Safe to send\. A person takes the money part\./);
+});

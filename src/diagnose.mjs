@@ -4,7 +4,7 @@
 //    a post or an id, a read-only status lookup through the Blotato API.
 // 3. Compose: a numbered reply, an escalation packet when a person must decide, a help-doc edit when the docs
 //    have no answer or the wrong one.
-import { routeMessage, PAGES, TICKETS } from '../knowledge/playbook.mjs';
+import { routeMessage, PAGES, TICKETS, ENTRY_BY_ID } from '../knowledge/playbook.mjs';
 import { listPosts, getSubmission, errorText, listAccounts } from './api.mjs';
 import { explain } from './explain.mjs';
 import { READER_OFF } from './reader.mjs';
@@ -244,6 +244,9 @@ export async function diagnose(ticket, { client, docs, agent = 'Support', route 
     };
     const causes = (r.candidates || []).length ? [`Not an answer, only where to start: the matcher's top candidates were ${cands}.`] : [];
     out.escalation = buildEscalation(ticket, null, out, { why: `The desk has no documented answer it trusts for this ticket. ${r.reason}`, causes, ruledOut: [] });
+    // The kind of the closest entry (a billing question, say), so the note can name it without guessing a cause.
+    const nearest = ENTRY_BY_ID.get(r.whyDetail?.nearest || (r.why === 'tie' ? (r.candidates || [])[0]?.id : null));
+    if (nearest?.kind) out.escalation.kind = nearest.kind;
     return out;
   }
 
