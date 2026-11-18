@@ -482,14 +482,17 @@ const tq = (s) => termify(esc(s));
 // A numbered list run together on the page ("Open the AI Agent. 3. Select New draft. 4. Click...") reads as stray
 // numbers in a proof: the item numbers are left out where the proof is shown (Nov 18, 2026).
 const unlist = (s) => String(s || '').replace(/(^|[\s:.!?])\d{1,2}[.)]\s+(?=[A-Z"“'(])/g, '$1');
-const sentenceHTML = (page) => { const x = sentence(page); return `${tq(unlist(x.pre))}<mark>${tq(unlist(x.mark))}</mark>${tq(unlist(x.post))}`; };
+// The words before the lit sentence: an item number right before it ("Billing 2." + "Click ...") goes too.
+const unlistBefore = (s, lit) => { const u = unlist(s); return /^\s*[A-Z"“'(]/.test(lit) ? u.replace(/(^|[\s:.!?])\d{1,2}[.)]\s*$/, '$1') : u; };
+const sentenceHTML = (page) => { const x = sentence(page); return `${tq(unlistBefore(x.pre, x.mark))}<mark>${tq(unlist(x.mark))}</mark>${tq(unlist(x.post))}`; };
 // A page's name beside its sentence. A long name gets its own line, so it never pushes one word onto a line alone.
 const srcHTML = (src) => `<span class="src${String(src).length > 24 ? ' long' : ''}">${esc(src)}</span>`;
 function paragraphHTML(page) {
   const t = page.text; const [s, e] = page.mark;
-  const clean = (x) => tq(unlist(String(x || '').replace(/^\.\.\.\s*/, '').replace(/\s*\.\.\.$/, '')));
+  const trim = (x) => String(x || '').replace(/^\.\.\.\s*/, '').replace(/\s*\.\.\.$/, '');
+  const clean = (x) => tq(unlist(trim(x)));
   // Only the sentence's own paragraph: a neighbor block can be a list run together with no stops.
-  return `<span class="dim">${clean(t.slice(0, s))}</span><mark>${tq(unlist(t.slice(s, e)))}</mark><span class="dim">${clean(t.slice(e))}</span>`;
+  return `<span class="dim">${tq(unlistBefore(trim(t.slice(0, s)), t.slice(s, e)))}</span><mark>${tq(unlist(t.slice(s, e)))}</mark><span class="dim">${clean(t.slice(e))}</span>`;
 }
 const loose = (s) => String(s || '').toLowerCase().replace(/[`*_"'\s]+/g, ' ').replace(/[.:,]+$/, '').trim();
 // A code example: only the lines that hold the quote (whole lines), or every line with them marked.

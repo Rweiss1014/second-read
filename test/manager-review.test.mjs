@@ -93,3 +93,12 @@ test('the page: list numbers are left out of proofs, and a checked money reply s
   assert.equal(unlist('Version 2.5 works. Wait 2 minutes.'), 'Version 2.5 works. Wait 2 minutes.');
   assert.match(app, /Checked\. Safe to send\. A person takes the money part\./);
 });
+
+test('a list number right before the lit sentence is left out too, and a sentence that ends in a number keeps it', () => {
+  const app = fs.readFileSync(path.join(root, 'public', 'app.js'), 'utf8');
+  const unlist = eval(app.match(/^const unlist = (.*);$/m)[1]);
+  const unlistBefore = eval(app.match(/^const unlistBefore = (.*);$/m)[1]); // direct eval: it sees unlist above
+  assert.equal(unlistBefore('Go to Settings > Billing 2. ', 'Click "View Billing Portal"'), 'Go to Settings > Billing ');
+  assert.equal(unlistBefore('The limit is 10. ', 'that is per day'), 'The limit is 10. ');
+  assert.equal(unlist('The limit is 25.'), 'The limit is 25.');
+});
