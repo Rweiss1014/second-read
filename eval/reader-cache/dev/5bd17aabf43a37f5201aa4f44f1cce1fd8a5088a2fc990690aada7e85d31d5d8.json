@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3203,
+ "verdict": {
+  "points": [
+   {
+    "point": "Switch Blotato menus and buttons to German",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states anything about changing the interface language to German; the navigation menu entries only cover finding screens, so a human should answer."
+ },
+ "at": "2026-11-18T19:58:31.455Z"
+}

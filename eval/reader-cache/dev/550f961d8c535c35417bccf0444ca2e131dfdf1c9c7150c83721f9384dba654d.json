@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3063,
+ "verdict": {
+  "points": [
+   {
+    "point": "What is being connected ('it' is unspecified: platform, tool, or feature)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The customer never says what \"it\" is (which platform, account or tool), so no entry's sentences can be shown to answer the connection walkthrough they want."
+ },
+ "at": "2026-11-18T19:58:31.179Z"
+}

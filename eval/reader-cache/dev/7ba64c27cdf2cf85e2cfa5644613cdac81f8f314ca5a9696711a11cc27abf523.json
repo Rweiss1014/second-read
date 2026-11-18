@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6028,
+ "verdict": {
+  "points": [
+   {
+    "point": "How to connect an account (Accounts > Connect account)",
+    "sentence": "Select Connect account."
+   },
+   {
+    "point": "Choosing TikTok as the platform",
+    "sentence": "Select the platform."
+   }
+  ],
+  "pick": "connect-social-accounts",
+  "reason": "The customer asks how to connect TikTok, and this entry gives the generic connect steps, which include picking the platform. Scheduling is only their goal, not a separate question."
+ },
+ "at": "2026-11-18T19:59:06.052Z"
+}

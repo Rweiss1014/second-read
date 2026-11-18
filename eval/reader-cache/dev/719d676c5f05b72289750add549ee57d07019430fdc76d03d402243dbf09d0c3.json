@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3829,
+ "verdict": {
+  "points": [
+   {
+    "point": "Download a list of published posts as a spreadsheet",
+    "sentence": ""
+   },
+   {
+    "point": "Everything published this year (annual report)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states that published posts can be exported or downloaded as a spreadsheet; the CSV entry covers importing, and the posts-filter entry only shows posts on screen."
+ },
+ "at": "2026-11-18T19:58:46.517Z"
+}

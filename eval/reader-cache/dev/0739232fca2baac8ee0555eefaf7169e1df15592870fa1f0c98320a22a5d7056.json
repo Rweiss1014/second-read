@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3306,
+ "verdict": {
+  "points": [
+   {
+    "point": "Blotato editor works with VoiceOver screen reader (accessibility)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry says anything about screen reader or VoiceOver accessibility, so none answers this question."
+ },
+ "at": "2026-11-18T19:59:01.127Z"
+}

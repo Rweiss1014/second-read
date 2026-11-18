@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5476,
+ "verdict": {
+  "points": [
+   {
+    "point": "What 'Incomplete' means in the portal",
+    "sentence": ""
+   },
+   {
+    "point": "How to downgrade from Creator to Starter",
+    "sentence": ""
+   },
+   {
+    "point": "Why Starter can't be selected (the customer's own account state)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The change-plan entry gives the downgrade steps but doesn't explain 'Incomplete', and the incomplete-subscription entry explains the status but not the downgrade. Why this customer's portal blocks Starter depends on their own payment record, so a person on the team should read it."
+ },
+ "at": "2026-11-18T19:58:28.149Z"
+}

@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8650,
+ "verdict": {
+  "points": [
+   {
+    "point": "YouTube video failed to upload (why it failed)",
+    "sentence": "The platform rejected the media Blotato tried to upload. It is not a rate-limit or credits problem, and retrying the same media without changes will not help."
+   },
+   {
+    "point": "What to do about the failed upload",
+    "sentence": "Open the failed post in Posts > Failed (in the web app), or in Logs (if you use the API), to read its exact error. Then follow the matching steps in the Error Reference."
+   }
+  ],
+  "pick": "could-not-upload-media",
+  "reason": "The customer gives no error text or code, and this generic entry covers a failed video upload to any platform, including YouTube, and tells them how to find the exact error."
+ },
+ "at": "2026-11-18T19:59:09.822Z"
+}

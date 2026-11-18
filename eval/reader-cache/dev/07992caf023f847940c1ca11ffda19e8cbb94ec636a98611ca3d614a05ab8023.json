@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4661,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can pay with PayPal (payment method)",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry's sentences mention PayPal or state which payment methods are accepted, so none answers this question."
+ },
+ "at": "2026-11-18T19:58:30.990Z"
+}

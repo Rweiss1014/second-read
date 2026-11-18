@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3390,
+ "verdict": {
+  "points": [
+   {
+    "point": "GET /v2/analytics returns 404 for a published Instagram post",
+    "sentence": ""
+   },
+   {
+    "point": "Creator plan, post id from List Posts, same key",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry explains or states anything about a 404 from GET /v2/analytics; the closest entries cover the dashboard, metrics by plan, refresh timing, and a 401, which are neighboring questions."
+ },
+ "at": "2026-11-18T19:58:26.215Z"
+}

@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4162,
+ "verdict": {
+  "points": [
+   {
+    "point": "No code arrived at the OLD inbox after clicking Update Email",
+    "sentence": "Blotato sends a verification code to your new email, not the old one. Enter that code in the prompt that appears in Blotato."
+   }
+  ],
+  "pick": "update-email",
+  "reason": "The update-email entry states the code goes to the new email, not the old one, which explains why nothing arrived in the old inbox."
+ },
+ "at": "2026-11-18T19:58:19.466Z"
+}

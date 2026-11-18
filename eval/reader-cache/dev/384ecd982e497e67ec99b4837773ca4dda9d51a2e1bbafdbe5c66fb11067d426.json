@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6172,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can a post be scheduled about 11 months ahead?",
+    "sentence": "The furthest date in the future you can schedule a post for is 9 months on every plan."
+   },
+   {
+    "point": "11 months is past the limit, so what happens",
+    "sentence": "If you try to schedule a post past 9 months, Blotato returns an error."
+   }
+  ],
+  "pick": "scheduling-horizon",
+  "reason": "The scheduling-horizon entry states the 9-month limit on every plan, so an 11-month-ahead post can't be scheduled yet and would return an error."
+ },
+ "at": "2026-11-18T19:58:42.379Z"
+}

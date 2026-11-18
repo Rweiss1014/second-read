@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3614,
+ "verdict": {
+  "points": [
+   {
+    "point": "Affiliate commission of 50% on every month a referral stays (Tolt program terms)",
+    "sentence": ""
+   },
+   {
+    "point": "Creator monthly plan referral payout",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry covers the affiliate/referral program or commission terms; the plan and pricing entries only state plan prices and credits, not what a referrer earns."
+ },
+ "at": "2026-11-18T19:58:22.703Z"
+}

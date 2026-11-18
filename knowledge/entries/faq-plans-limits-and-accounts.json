@@ -654,6 +654,105 @@
       "proof": "You will know it worked when your invoices show under INVOICE HISTORY."
     },
     {
+      "id": "yearly-plan-discount",
+      "kind": "billing",
+      "title": "Is there a yearly plan, and how much does yearly billing save?",
+      "note": "Added Nov 18, 2026 after a tester asked \"Do you offer an annual plan discount?\" and was handed over. Every step quotes the Billing & Credits page section \"Is there a yearly plan? How do I switch from monthly to yearly?\" (saved copy read Nov 15, 2026). A discount code or a promo is a different question (not_this).",
+      "phrasings": [
+        "do you offer an annual plan discount",
+        "is there a discount for paying yearly",
+        "how much do I save with yearly billing",
+        "is the annual plan cheaper than monthly",
+        "do you have a yearly plan",
+        "is there an annual subscription option",
+        "what is the discount for annual billing",
+        "does yearly billing cost less than monthly"
+      ],
+      "not_this": [
+        "how do I enter a discount code",
+        "my promo code was not applied",
+        "is there a current promo"
+      ],
+      "anchors": [
+        [
+          "yearly",
+          "annual",
+          "annually",
+          "per year",
+          "a year"
+        ],
+        [
+          "discount",
+          "discounts",
+          "save",
+          "saves",
+          "saving",
+          "savings",
+          "cheaper",
+          "less",
+          "offer",
+          "plan",
+          "plans",
+          "billing",
+          "deal",
+          "subscription",
+          "option"
+        ]
+      ],
+      "needs_person_if": {
+        "signals": [
+          "tried-steps",
+          "still-broken"
+        ],
+        "phrases": []
+      },
+      "opening": "Yes. There is a yearly plan, and it costs less than paying month to month.",
+      "steps": [
+        {
+          "type": "fact",
+          "text": "Yearly billing saves about 17% compared to paying month to month.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "Yearly billing saves about 17% compared to paying month to month"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "With yearly billing, you pay for 10 months and get 12.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "you pay for 10 months and get 12."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "To switch, open Settings > Billing, click View Billing Portal, click the purple Update subscription button, and pick the yearly option for your plan.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "Select the yearly option for the plan you want"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Then confirm the change.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "Confirm the change"
+          }
+        },
+        {
+          "type": "fact",
+          "text": "You do not need to cancel your monthly plan first. Stripe prorates the charge based on what is left of your billing cycle, and your credits and scheduled posts stay in place.",
+          "cite": {
+            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "quote": "You do not need to cancel your monthly subscription first. Stripe prorates the charge based on your remaining billing cycle, and your credits and scheduled posts stay in place."
+          }
+        }
+      ],
+      "next": "Open Settings > Billing, click View Billing Portal, click Update subscription, pick the yearly option, and confirm the change.",
+      "proof": "You will know it worked when the Billing Portal shows yearly billing for your plan."
+    },
+    {
       "id": "posting-limits-per-platform",
       "kind": "non-technical",
       "title": "Posting limits per platform",
@@ -1201,15 +1300,15 @@
           "type": "fact",
           "text": "You can schedule a post up to 9 months ahead on every plan.",
           "cite": {
-            "url": "https://help.blotato.com/settings/billing-and-credits",
-            "quote": "The furthest date in the future you can schedule a post for is 9 months on every plan."
+            "url": "https://help.blotato.com/support/faqs",
+            "quote": "The scheduling horizon is 9 months on every plan."
           }
         },
         {
           "type": "fact",
           "text": "If you try to schedule past 9 months, Blotato returns an error.",
           "cite": {
-            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "url": "https://help.blotato.com/support/faqs",
             "quote": "If you try to schedule a post past 9 months, Blotato returns an error."
           }
         },
@@ -1217,13 +1316,14 @@
           "type": "fact",
           "text": "Pick a time within the 9-month window, or break longer campaigns into shorter batches.",
           "cite": {
-            "url": "https://help.blotato.com/settings/billing-and-credits",
+            "url": "https://help.blotato.com/support/faqs",
             "quote": "Pick a time within the 9-month window or break longer campaigns into shorter batches."
           }
         }
       ],
       "next": "Pick a date within the next 9 months for your post.",
-      "proof": "You will know it worked when the post saves as scheduled without an error."
+      "proof": "You will know it worked when the post saves as scheduled without an error.",
+      "note": "Cites the FAQ section \"How far in advance can I schedule posts?\" since Nov 18, 2026 (the same three sentences are on the Billing & Credits page; the FAQ is the page that answers this exact question)."
     },
     {
       "id": "post-approval",
@@ -3282,8 +3382,8 @@
       "title": "Which of my accounts are connected?",
       "phrasings": [
         "which accounts are connected",
-                "is my instagram connected",
-                "show me my connected accounts",
+        "is my instagram connected",
+        "show me my connected accounts",
         "did my tiktok connect",
         "which social accounts are linked to blotato",
         "is my youtube channel connected",

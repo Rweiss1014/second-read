@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4070,
+ "verdict": {
+  "points": [
+   {
+    "point": "Link to a Discord for developers building on the Blotato API",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry mentions a Discord community or a link to one, so none answers this customer's question."
+ },
+ "at": "2026-11-18T19:58:35.206Z"
+}

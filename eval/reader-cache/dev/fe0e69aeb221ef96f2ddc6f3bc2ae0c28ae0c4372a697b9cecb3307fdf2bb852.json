@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3459,
+ "verdict": {
+  "points": [
+   {
+    "point": "Does Blotato post to Mastodon (platform support)",
+    "sentence": "Blotato does not publish to platforms outside this list."
+   }
+  ],
+  "pick": "supported-platforms",
+  "reason": "The entry lists the supported platforms (Mastodon is not among them) and states Blotato does not publish to platforms outside that list, which answers the question."
+ },
+ "at": "2026-11-18T19:58:58.951Z"
+}

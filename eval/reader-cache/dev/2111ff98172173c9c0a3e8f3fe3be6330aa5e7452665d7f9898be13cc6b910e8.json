@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3544,
+ "verdict": {
+  "points": [
+   {
+    "point": "YouTube custom thumbnail via thumbnailUrl not applying",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry covers YouTube custom thumbnails; the Instagram Reels cover image entry and the YouTube Unauthorized entry address different features or errors."
+ },
+ "at": "2026-11-18T19:58:38.174Z"
+}

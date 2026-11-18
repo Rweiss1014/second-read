@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5848,
+ "verdict": {
+  "points": [
+   {
+    "point": "Posting with Account ID only fails with Wrong Page ID on Facebook",
+    "sentence": "Facebook needs both an Account ID and a Page ID."
+   },
+   {
+    "point": "Where to find the Page ID",
+    "sentence": "For Facebook Pages, use Copy page ID beside the Page you want in Accounts."
+   }
+  ],
+  "pick": "facebook-wrong-page-id",
+  "reason": "This entry says Facebook needs both IDs, which explains the error, and says to use Copy page ID beside the Page in Accounts, which answers where to find it."
+ },
+ "at": "2026-11-18T19:58:50.900Z"
+}
