@@ -181,7 +181,7 @@ const PLAIN_LINES = {
   T09: 'Their code asked Blotato to make a LinkedIn post, but no answer came back, so they do not know if it worked. The reply says to look for the post before sending it again, so it does not go out twice.',
   T10: 'They are waiting on a post that still says "in progress". The reply explains that this can also mean Blotato has no record of that number, and asks them not to post it again yet.',
   T11: 'Their code asked for a schedule with the wrong kind of id. The reply tells them which id to use, and the desk tells a person on the team so the help page can be fixed.',
-  T12: 'They want a safe place to test their code without posting for real. The help pages do not say if there is one, so the reply says so and passes the question to the team.',
+  T12: 'They want a safe place to test their code without posting for real. None of the saved help pages mentions one, so the reply says so and passes the question to the team.',
 };
 // The note for a person on the team in plain words, for the one sample whose note is written in code terms. The exact note
 // is in the details for engineers, and Copy gives it word for word. In the same order as the desk's note.
@@ -667,7 +667,7 @@ function noteHTML(r, own = true, lead = false) {
       <p>A customer wrote: <span class="cq">&ldquo;${esc(e.asked)}&rdquo;</span></p>
       <p><b>Why it needs you.</b> <span class="plain-only">${esc(personReason(r) || refusalReason(r))}</span><span class="tech-only">${termify(esc(why))}</span></p>
       <p><b>What I checked.</b> ${esc(plainChecked(r))}</p>
-      ${causes.length ? `<p><b>What I think it is:</b></p>${li(causes, pn.causes)}` : (whyOf(r) === 'money' || e.kind === 'billing' ? '<p><b>What I think it is.</b> A billing question for you. I cannot see payments, so I will not guess the cause.</p>' : '<p><b>What I think it is.</b> Not known yet. There is no checked answer for this, so I will not guess.</p>')}
+      ${causes.length ? `<p><b>What I think it is:</b></p>${li(causes, pn.causes)}` : (whyOf(r) === 'money' || e.money ? '<p><b>What I think it is.</b> A billing question for you. I cannot see payments, so I will not guess the cause.</p>' : '<p><b>What I think it is.</b> Not known yet. There is no checked answer for this, so I will not guess.</p>')}
       ${(e.ruledOut || []).length ? `<p><b>What I ruled out:</b></p>${li(e.ruledOut, pn.ruledOut)}` : ''}
     </div>
     <div class="note-act"><button type="button" class="${lead ? 'btn' : 'btn-quiet'}" data-copy="sabrina">Copy the note</button><span class="copied" data-copied="sabrina" aria-live="polite"></span></div>

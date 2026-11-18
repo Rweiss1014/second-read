@@ -359,7 +359,8 @@ function buildEscalation(ticket, entry, out, esc) {
     // "Two most likely causes" is a heading for a failure only: something the customer says went wrong, or an entry
     // about an error. A how-to or a yes-no question has no cause (Nov 18, 2026: "Two most likely causes" under
     // "Can I schedule posts to Threads and Bluesky?").
-    failure: TROUBLE.test(String(ticket.text || '')) || (!!entry && !entry.guard && /\b(?:error|errors|failed|fails|rejected|not found|invalid|exceeded|unsupported|stuck|timed out|timeout)\b/i.test(entry.title || '')),
+    // "still" and "again" alone are not a failure: "will my API key still work if I cancel?" is a yes-no question.
+    failure: TROUBLE.test(String(ticket.text || '').replace(/\b(?:still|again)\b/gi, ' ')) || (!!entry && !entry.guard && /\b(?:error|errors|failed|fails|rejected|not found|invalid|exceeded|unsupported|stuck|timed out|timeout)\b/i.test(entry.title || '')),
   };
 }
 

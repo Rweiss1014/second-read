@@ -155,11 +155,17 @@ test('10b. on the public site the sample clock is the real hour, so a scheduled 
   assert.ok(t > Date.now() - 3600000, `${m[1]} is in the past`);
 });
 
-test('11. "Two most likely causes" is only for a failure; a how-to or yes-no hand-over has no causes heading', () => {
+test('11. "Two most likely causes" is only for a failure; a how-to or yes-no hand-over has no causes heading', async () => {
   const base = { asked: 'Can I schedule posts to Threads and Bluesky?', why: 'x', checked: [], evidence: [], causes: [], ruledOut: [] };
   assert.doesNotMatch(renderEscalation({ ...base, failure: false }), /Two most likely causes/);
   assert.match(renderEscalation({ ...base, failure: true }), /Two most likely causes/);
   assert.match(renderEscalation({ ...base, failure: false, causes: ['There is no test mode.'] }), /Possible answers, to confirm/);
+  // A consequence question is not a failure, even with "still" in it.
+  const { env } = tempDesk();
+  const desk = openDesk({ env });
+  const r = await handleTicket(desk, { id: null, text: 'If I cancel my subscription, will my API key still work?' });
+  await desk.close();
+  assert.doesNotMatch(r.escalationText, /Two most likely causes/);
   // The page's line of work and its engineer view agree for nonsense: it asked for a clearer message.
   assert.match(appJs, /whyOf\(r\) === 'nonsense' \? 'Why it asked for a clearer message' : 'Why it went to a person'/);
 });
