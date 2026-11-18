@@ -126,20 +126,29 @@ const GIVES_CAUSE = /\b(?:because|when|if|means|caused|cause|due to|so that|sinc
 
 // The action the customer wants to take (Nov 18, 2026: "How do I connect my TikTok account so I can schedule
 // videos?" got the scheduling entry, and "My YouTube video failed to upload" got the missing-post one). An entry
-// answers a "connect", "delete", "upload"... question only when it speaks about that action somewhere (title,
-// quotes, steps, reply lines, scope or phrasings). `asks` reads the customer's words; `covers` reads the entry's.
+// answers a "connect", "delete", "upload"... question only when it speaks about that action in what it would say
+// (title, quotes, steps, reply lines, scope; not its phrasings, which are guesses at customer words). `verbs` are the customer's words; `covers` reads the entry's.
+// Only an action the customer asks to take, or says failed, counts: the verb right after "how do I", "can I",
+// "want to", "failed to", "can't"... ("How do I delete a post?", "it failed to upload"). A verb in passing ("the
+// assistant I connect with MCP", "a new post without deleting the drafts") is background.
+// An entry about one error is exempt: the error text the customer gives decides it, whatever verb it uses.
+const ACTION_LEAD = String.raw`(?:how (?:do|can|could|would|should|will) (?:i|we|you)|how to|where (?:do|can) (?:i|we)|can (?:i|we)|could (?:i|we)|is it possible to|is there a way to|(?:want|wanted|need|needed|trying|try|tried|able|unable|failed|fails|failing|fail) to|help me|can'?t|cannot|could ?n'?t|could not|won'?t|wont|will not|would ?n'?t|would not|didn'?t|did not|does ?n'?t|does not)`;
+const lead = (verbs) => new RegExp(String.raw`\b${ACTION_LEAD}\s+(?:\w+\s+)?(?:${verbs})\b`);
 export const ACTIONS = {
-  connect: { asks: /\b(?:connect|connecting|hook(?:ing)? up|link(?:ing)? (?:up )?(?:my|our|a|an|another|the|it|them))\b/, covers: /\b(?:connect\w*|reconnect\w*|link\w*|hook\w*)\b/ },
-  disconnect: { asks: /\b(?:disconnect|disconnecting|unlink|unlinking)\b/, covers: /\b(?:disconnect\w*|unlink\w*|remov\w*)\b/ },
-  delete: { asks: /\b(?:delete|deleting|erase|erasing|unschedule|unscheduling)\b/, covers: /\b(?:delet\w*|remov\w*|eras\w*|unschedul\w*|cancel\w*|trash\w*)\b/ },
-  cancel: { asks: /\b(?:cancel|canceling|cancelling|unsubscribe)\b/, covers: /\b(?:cancel\w*|unsubscrib\w*|delet\w*|remov\w*|stop\w*|pause\w*)\b/ },
-  upload: { asks: /\b(?:upload|uploading|uploads)\b/, covers: /\bupload\w*\b/ },
-  download: { asks: /\b(?:download|downloading|export|exporting)\b/, covers: /\b(?:download\w*|export\w*)\b/ },
-  restore: { asks: /\b(?:restore|restoring|undelete|undo|recover|recovering)\b/, covers: /\b(?:restor\w*|undelet\w*|undo\w*|recover\w*)\b/ },
-  rename: { asks: /\b(?:rename|renaming)\b/, covers: /\b(?:renam\w*|name)\b/ },
-  invite: { asks: /\b(?:invite|inviting)\b/, covers: /\b(?:invit\w*|team\w*|member\w*|seat\w*)\b/ },
+  connect: { asks: lead('connect|hook up|link'), covers: /\b(?:connect\w*|reconnect\w*|link\w*|hook\w*)\b/ },
+  disconnect: { asks: lead('disconnect|unlink'), covers: /\b(?:disconnect\w*|unlink\w*|remov\w*)\b/ },
+  delete: { asks: lead('delete|erase|unschedule'), covers: /\b(?:delet\w*|remov\w*|eras\w*|unschedul\w*|cancel\w*|trash\w*)\b/ },
+  cancel: { asks: lead('cancel|unsubscribe'), covers: /\b(?:cancel\w*|unsubscrib\w*|delet\w*|remov\w*|stop\w*|pause\w*)\b/ },
+  upload: { asks: lead('upload'), covers: /\bupload\w*\b/ },
+  download: { asks: lead('download|export'), covers: /\b(?:download\w*|export\w*)\b/ },
+  restore: { asks: lead('restore|undelete|undo|recover'), covers: /\b(?:restor\w*|undelet\w*|undo\w*|recover\w*)\b/ },
+  rename: { asks: lead('rename'), covers: /\b(?:renam\w*|name)\b/ },
+  invite: { asks: lead('invite'), covers: /\b(?:invit\w*|team\w*|member\w*|seat\w*|collaborat\w*|add\w*)\b/ },
 };
 export function actionsAsked(text) { const t = foldText(text); return Object.entries(ACTIONS).filter(([, a]) => a.asks.test(t)).map(([k]) => k); }
+// An entry about one error (it cites an Errors or limitations page, or its title names an error) is decided by
+// the error text, not by the verb around it. A no-error-text entry ("my post failed") is not exempt.
+const errorEntry = (e) => !e.symptom_only && ((e.steps || []).some(s => /\/errors\b|limitations/.test(s.cite?.url || '')) || /\b(?:error|failed|rejected|invalid|exceeded|not found|unsupported)\b/i.test(e.title || ''));
 
 const has = (stems, term) => { const t = allStems(term); outer: for (let i = 0; i + t.length <= stems.length; i++) { for (let j = 0; j < t.length; j++) if (stems[i + j] !== t[j]) continue outer; return true; } return false; };
 
@@ -183,7 +192,7 @@ export function createCoverage(entries, { rareDf = 3, phrasings = true, twoWhenN
       date: lines.some(t => GIVES_DATE.test(t)),
       cause: (e.steps || []).some(s => GIVES_CAUSE.test(s.cite?.quote || '') || GIVES_CAUSE.test(s.text || '')),
       not: (e.scope?.not || []),
-      actionText: foldText(text),
+      actionText: errorEntry(e) ? null : foldText(text),
     };
   }
 
@@ -209,7 +218,7 @@ export function createCoverage(entries, { rareDf = 3, phrasings = true, twoWhenN
     if (want('scope')) for (const t of c.not) if (has(stems, t)) return { kind: 'outside scope', term: t };
     // The customer's action must be one the entry speaks about (ACTIONS above). Read in the questions (or the
     // whole message when it asks none), pasted text left out.
-    if (want('action')) for (const a of actionsAsked(sp.questions)) if (!ACTIONS[a].covers.test(c.actionText)) return { kind: 'action', term: a };
+    if (want('action') && c.actionText !== null) for (const a of actionsAsked(sp.questions)) if (!ACTIONS[a].covers.test(c.actionText)) return { kind: 'action', term: a };
     // Platforms and plans are read in the questions only: "someone in a Facebook group said..." is background.
     if (want('platform') && sp.asked && c.platformSpecific && !c.anyPlatform) {
       for (const [p, al] of Object.entries(PLATFORMS)) if (al.some(a => hasRaw(rawWords(sp.questions), a)) && !c.platforms.includes(p)) return { kind: 'platform', term: p };
