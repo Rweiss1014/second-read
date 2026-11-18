@@ -219,7 +219,7 @@ const WHY_PLAIN = {
   'access-blocked': 'The customer cannot reach the screen the steps need, so a person on the team will help.',
   'past-docs': 'This goes past what the help pages cover, so a person on the team will answer it.',
   pressure: 'The customer is very upset and wants it fixed now, so a person on the team will answer this one, quickly.',
-  'docs-silent': 'The help pages do not cover this yet, so the desk will not guess.',
+  'docs-silent': 'The help pages don\'t have a checked answer for this yet, so a person on the team will take it.',
   tie: 'The desk could not tell which of two questions this is, so it will not guess.',
   'partly-covered': 'The message asks more than one thing. The desk answers the part the help pages cover, and a person on the team takes the rest.',
   'not-english': 'The desk can only read English for now, so a person on the team will answer this one.',
@@ -229,13 +229,17 @@ const WHY_PLAIN = {
   'second-read-objected': 'The desk wrote an answer from the help pages, and a second read found a problem with it, so a person on the team will answer.',
 };
 const whyOf = (r) => r.route?.why || r.match?.why || null;
+// The help-page search was skipped (this copy runs without the network, as the free demo always does): the desk
+// checked only its own saved answers, so it must never say it looked through Blotato's help pages (Nov 18, 2026).
+const searchSkipped = (r) => { const s = (r.trace || []).filter(e => e.t === 'search'); return s.length > 0 && s.every(e => e.offline); };
+const SAVED_ONLY = 'This demo has no checked answer for this one yet, so a person on the team will take it.';
 function whyPlain(r) {
   const w = whyOf(r); if (!w || !WHY_PLAIN[w]) return null;
-  const d = r.route?.whyDetail || r.match?.whyDetail || null;
+  if ((w === 'no-coverage' || w === 'docs-silent') && searchSkipped(r)) return SAVED_ONLY;
   // The desk had near candidates but none it trusted: it was not sure, which is not the same as "no page answers this".
   if (w === 'no-coverage' && (r.route?.candidates || []).length) return 'The desk was not sure which help page this is about, so it did not guess.';
-  const item = w === 'docs-silent' && d?.item ? String(d.item).trim() : '';
-  return item && item.length < 40 ? `${WHY_PLAIN[w]} They say nothing about \u201c${item}\u201d.` : WHY_PLAIN[w];
+  // Never the raw item the check pulled out ("middle, price"): it reads as broken to a customer (Nov 18, 2026).
+  return WHY_PLAIN[w];
 }
 function personReason(r) {
   const named = whyPlain(r); if (named) return named;
@@ -267,6 +271,7 @@ function refusalReason(r) {
   const d = r.route?.decision; const g = r.route?.guard;
   if (d === 'guard' && GUARD_PLAIN[g]) return GUARD_PLAIN[g];
   if ((r.route?.candidates || []).length) return 'The desk could not tell for sure which question this is, so it did not write a reply.';
+  if (searchSkipped(r)) return SAVED_ONLY;
   return 'None of Blotato\'s help pages answers this message, so the desk did not write a reply.';
 }
 const TRY_THIS = "Blotato says my post is published but I can't see it on Instagram.";
@@ -622,6 +627,7 @@ function plainChecked(r) {
   const parts = [];
   if (pages) parts.push(`I read ${pages === 1 ? "one of Blotato's help pages" : `${pages} of Blotato's help pages`}.`);
   if (trace.some(e => e.t === 'search' && !e.offline)) parts.push('I searched the help pages for the question, and none of them answers it.');
+  else if (searchSkipped(r)) parts.push('I checked the desk\'s saved, checked answers, and none of them fits. This copy did not search the help pages.');
   if (r.evidence && r.evidence.kind !== 'docs-search') parts.push(plainEvidence(r.evidence).replace(/^The desk /, 'I '));
   return parts.join(' ') || 'Nothing could be checked.';
 }
@@ -641,7 +647,7 @@ function noteHTML(r, own = true, lead = false) {
       <p>A customer wrote: <span class="cq">&ldquo;${esc(e.asked)}&rdquo;</span></p>
       <p><b>Why it needs you.</b> <span class="plain-only">${esc(personReason(r) || refusalReason(r))}</span><span class="tech-only">${termify(esc(why))}</span></p>
       <p><b>What I checked.</b> ${esc(plainChecked(r))}</p>
-      ${causes.length ? `<p><b>What I think it is:</b></p>${li(causes, pn.causes)}` : '<p><b>What I think it is.</b> Not known yet. The help pages have no answer, so I will not guess.</p>'}
+      ${causes.length ? `<p><b>What I think it is:</b></p>${li(causes, pn.causes)}` : (whyOf(r) === 'money' ? '<p><b>What I think it is.</b> A billing question for you. I cannot see payments, so I will not guess the cause.</p>' : '<p><b>What I think it is.</b> Not known yet. There is no checked answer for this, so I will not guess.</p>')}
       ${(e.ruledOut || []).length ? `<p><b>What I ruled out:</b></p>${li(e.ruledOut, pn.ruledOut)}` : ''}
     </div>
     <div class="note-act"><button type="button" class="${lead ? 'btn' : 'btn-quiet'}" data-copy="sabrina">Copy the note</button><span class="copied" data-copied="sabrina" aria-live="polite"></span></div>
@@ -798,7 +804,7 @@ function techHTML(r) {
     ${findings.length ? `<p>${f.state === 'blocked' ? 'Its findings:' : 'Its notes:'}</p><ul class="mono-list">${findings.map(x => `<li>${tq(x)}</li>`).join('')}</ul>` : ''}
     <h3>The exact text the checker read (what Copy gives you)</h3><pre>${esc(r.reply)}</pre>` : ''}
     ${r.escalationText ? `<h3>The note for a person, as the desk saved it</h3>${mdHTML(r.escalationText)}` : ''}
-    ${r.docEditText ? `<h3>The proposed help-page edit, as the desk saved it</h3>${mdHTML(r.docEditText)}` : ''}
+    ${r.docEditText && !(searchSkipped(r) && !r.entry) ? `<h3>The proposed help-page edit, as the desk saved it</h3>${mdHTML(r.docEditText)}` : ''}
   </section>`;
 }
 
@@ -1322,7 +1328,7 @@ class Moment {
     const called = trace.some(e => e.t === 'call');
     const f = r.fresh || {};
     this.texts = {
-      read: pages ? (pages === 1 ? "Read Blotato's help page" : `Read ${pages} of Blotato's help pages`) : searched ? "Looked through Blotato's help pages" : 'No help page was needed',
+      read: pages ? (pages === 1 ? "Read Blotato's help page" : `Read ${pages} of Blotato's help pages`) : searched && searchSkipped(r) ? 'Checked its saved answers' : searched ? "Looked through Blotato's help pages" : 'No help page was needed',
       // on the practice account, the account is made up: the line says so where it is used
       account: r.mock ? 'Looked at the practice account' : 'Looked at their account',
       write: st === 'refused' ? (whyOf(r) === 'nonsense' ? 'Wrote no reply' : guessing(r) ? 'Wrote no reply. It will not guess.' : 'Wrote no reply') : `Wrote ${(r.steps || []).length} steps`,
@@ -1349,7 +1355,7 @@ class Moment {
     stage.classList.add('moving');
     const letter = $('#letter', stage);
     const firstFact = st === 'refused' ? -1 : steps.findIndex(s => s.type === 'fact' && s.page?.found && s.page.mark);
-    this.tick('read', 'wait', this.texts.read.replace(/^Read /, 'Reading ').replace(/^Looked through/, 'Looking through'));
+    this.tick('read', 'wait', this.texts.read.replace(/^Read /, 'Reading ').replace(/^Looked through/, 'Looking through').replace(/^Checked its/, 'Checking its'));
     say('The desk is working on the answer.');
     await this.lifting;
     this.mark('frame');

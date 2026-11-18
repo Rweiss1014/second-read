@@ -11,7 +11,7 @@ import { READER_OFF } from './reader.mjs';
 import { COMPOSER_OFF, assembleReply } from './composer.mjs';
 
 // Error text from a platform can carry an account number; keep it, but cut it to one line.
-const redactErr = (e) => String(e).replace(/s+/g, ' ').slice(0, 200);
+const redactErr = (e) => String(e).replace(/\s+/g, ' ').slice(0, 200);
 const PLATFORM_WORDS = ['instagram', 'linkedin', 'twitter', 'facebook', 'tiktok', 'youtube', 'threads', 'bluesky', 'pinterest', 'slack'];
 // The raw stamp, for the escalation packet and the technical evidence: "Sun, 15 Nov 2026 19:00:00 UTC".
 export const whenRaw = (t) => new Date(t).toUTCString().replace(' GMT', ' UTC');
@@ -232,8 +232,12 @@ export async function diagnose(ticket, { client, docs, agent = 'Support', route 
     out.outcome = 'no-answer';
     out.reply = null;
     const cands = (r.candidates || []).map(c => `${c.id} (${c.score})`).join(', ');
-    out.refused = `The desk will not write a reply: ${r.reason}${cands ? ` Top candidates: ${cands}.` : ''} See the docs search and the proposed help-doc edit.`;
-    out.docEdit = {
+    // A new help-page entry is proposed only when the help pages were really searched. With the search skipped
+    // (offline, as on the free demo) nobody knows the pages lack it (Nov 18, 2026: "add Pinterest to the FAQ",
+    // though Blotato has a Pinterest page).
+    const searchedLive = (ev.searched || []).some(q => !q.offline);
+    out.refused = `The desk will not write a reply: ${r.reason}${cands ? ` Top candidates: ${cands}.` : ''} ${searchedLive ? 'See the docs search and the proposed help-doc edit.' : 'The help-page search was skipped, so no help-doc edit is proposed.'}`;
+    if (searchedLive) out.docEdit = {
       article: PAGES.faqs, kind: 'new', heading: ticket.text.split(/[.?!]/)[0].slice(0, 90) + '?',
       add: '[Answer to confirm with a person on the team.]',
       note: `No playbook entry matched. ${ev.summary}`,

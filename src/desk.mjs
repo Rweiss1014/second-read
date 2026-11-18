@@ -54,7 +54,7 @@ export async function handleTicket(desk, ticket, { requireReview = false } = {})
   // never the customer's text.
   let recorded;
   if (!entry) {
-    recorded = recordFailure(paths.failures, { id: unknownId(ticket.text), title: 'A question the playbook could not answer', why: `No entry the desk trusts matched, so it wrote no reply. ${d.match?.reason || ''} It ran a docs search for a person to read.`.replace(/s+/g, ' '), fix: 'Get the answer from the founder, add it to the help docs (see the proposed edit), then add an entry in knowledge/entries/.', source: 'docs MCP searchDocumentation' });
+    recorded = recordFailure(paths.failures, { id: unknownId(ticket.text), title: 'A question the playbook could not answer', why: `No entry the desk trusts matched, so it wrote no reply. ${d.match?.reason || ''} It ran a docs search for a person to read.`.replace(/\s+/g, ' '), fix: 'Get the answer from the founder, add it to the help docs (see the proposed edit), then add an entry in knowledge/entries/.', source: 'docs MCP searchDocumentation' });
   } else if (!check.pass) {
     recorded = recordFailure(paths.failures, { id: `blocked-${entry.id}`, title: `A reply about "${entry.title}" was blocked`, why: check.problems[0], fix: 'Fix the entry step or its citation, then run the ticket again. Never send the blocked version.' });
   } else {

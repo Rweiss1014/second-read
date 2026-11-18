@@ -116,19 +116,26 @@ test('the schedule-id ticket is reproduced, escalated with two causes, and gets 
   assert.match(r.docEditText, /Nothing is published by the desk/);
 });
 
-test('a question with no playbook entry gets no reply: it is refused, escalated and turned into a doc edit', async () => {
+test('a question with no playbook entry gets no reply: it is refused and escalated; offline, no doc edit is proposed', async () => {
   const { env } = tempDesk();
   const desk = openDesk({ env });
   // No help page mentions Outlook. (This used to ask about Mastodon, which the supported-platforms entry now
   // answers from the FAQ's complete list of platforms.)
   const r = await handleTicket(desk, { id: 'X1', text: 'Can I sync my Blotato calendar with Outlook?' });
+  // The same message again: what was recorded the first time is read back, every letter kept (it once lost every "s").
+  const again = await handleTicket(desk, { id: 'X1', text: 'Can I sync my Blotato calendar with Outlook?' });
   await desk.close();
   assert.equal(r.entry, null);
   assert.equal(r.reply, null);
   assert.equal(r.check.pass, false);
   assert.match(r.refused, /will not write a reply/);
-  assert.match(r.docEditText, /\[Answer to confirm with a person on the team\.\]/);
+  assert.ok(r.escalation, 'it still goes to a person');
+  // The tests run offline: the help pages were not searched, so nobody knows they lack it. No edit is proposed.
+  assert.ok(!r.docEdit);
+  assert.equal(r.docEditText, '');
+  assert.match(r.refused, /search was skipped/);
   assert.equal(r.status, 'refused: no documented answer');
+  assert.match(again.seenBefore[0].why, /No entry the desk trusts matched, so it wrote no reply\. .* It ran a docs search for a person to read\./);
 });
 
 test('mistakes teach: a solved ticket is recorded, a repeat is "seen before", and a blocked reply is recorded as blocked', async () => {
