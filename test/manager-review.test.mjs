@@ -47,3 +47,39 @@ test('the page never echoes the extracted item back, and says what really happen
   assert.match(app, /This demo has no checked answer for this one yet, so a person on the team will take it\./);
   assert.match(app, /'Checked its saved answers'/);
 });
+
+test('a money hand-over note says it is a billing question, quotes the customer, and never guesses a cause', async () => {
+  const { tempDesk } = await import('./helpers.mjs');
+  const { openDesk, handleTicket } = await import('../src/desk.mjs');
+  const { env } = tempDesk();
+  const desk = openDesk({ env });
+  try {
+    for (const text of ['I canceled my plan last month but you charged me again. I want a refund.', 'I was still on my free trial, I made an API key to try n8n, and now I\'ve been charged. Why?', 'you billed me twice for the upgrade']) {
+      const r = await handleTicket(desk, { text });
+      assert.equal(r.match?.why ?? r.route?.why, 'money', text);
+      assert.equal(r.escalation.asked, text);
+      assert.deepEqual(r.escalation.causes, [], text);
+      assert.match(r.escalation.why, /billing question for a person/);
+      assert.doesNotMatch(r.escalationText, /duplicate/i);
+    }
+  } finally { await desk.close(); }
+});
+
+test('a proof shows the row the answer is about, not the first place its sentence appears on the page', async () => {
+  const { pageContext } = await import('../src/server.mjs');
+  const page = { text: [
+    '# Errors', '', '## Rate limits', '',
+    '| Error | Fix |', '| --- | --- |',
+    '| Exceeded rate limits | Wait an hour. Retry from Posts > Failed. |',
+    '| Some other error | Check the account. |', '',
+    '## TikTok', '',
+    '| Error | Fix |', '| --- | --- |',
+    '| Please update your TikTok app | Update the TikTok app on the phone. Retry from Posts > Failed. If it persists, reconnect TikTok. |',
+  ].join('\n') };
+  const q = 'Retry from Posts > Failed.';
+  assert.match(pageContext(page, q).row.cells[0], /rate limits/i, 'with no hints, the first place, as before');
+  const p = pageContext(page, q, ['Update the TikTok app on the phone.', 'TikTok: update the app']);
+  assert.equal(p.heading, 'TikTok');
+  assert.match(p.row.cells[0], /update your TikTok app/);
+  assert.match(p.text.slice(p.mark[0] - 40, p.mark[1]), /phone\. Retry from Posts > Failed\./);
+});

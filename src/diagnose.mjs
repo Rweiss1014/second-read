@@ -251,6 +251,9 @@ export async function diagnose(ticket, { client, docs, agent = 'Support', route 
   let reply = entry;
   let esc = entry.escalate || null;
   if (r.decision === 'guard' && !esc) esc = { why: r.reason, causes: [], ruledOut: [] };
+  // A money message: the note says plainly that a person takes a billing question, and never guesses the cause
+  // (Nov 18, 2026: a question about moving plans mid-month got "a duplicate payment" as a likely cause).
+  if (entry.guard === 'money') esc = { why: 'A billing question for a person on the team. The desk cannot see payments, so it does not guess what happened.', causes: [], ruledOut: [] };
   if (r.decision === 'needs-person') {
     reply = r.holding;
     esc = { why: `A person needs to take this: ${r.reason}`, causes: entry.escalate?.causes || [], ruledOut: entry.escalate?.ruledOut || [] };
@@ -305,6 +308,7 @@ function buildEscalation(ticket, entry, out, esc) {
   return {
     asked: ticket.text,
     kind: entry?.kind || 'unknown',
+    money: entry?.guard === 'money' || undefined,
     why: esc.why,
     checked,
     evidence: out.evidence?.summary ? [out.evidence.technical || out.evidence.summary] : [],
@@ -316,7 +320,7 @@ function buildEscalation(ticket, entry, out, esc) {
 export function renderEscalation(e) {
   if (!e) return '';
   const list = (a, none) => a.length ? a.map(x => `- ${x}`).join('\n') : `- ${none}`;
-  return `## Escalation\n\n**What was asked**\n> ${e.asked}\n\n**Why it needs a person**\n${e.why}\n\n**What was checked**\n${list(e.checked, 'Nothing could be checked.')}\n\n**Evidence**\n${list(e.evidence, 'No account lookup for this kind of ticket. The pages above are the evidence.')}\n\n**Two most likely causes**\n${list(e.causes, 'Not known yet. The docs have no answer, so the desk will not guess.')}\n\n**Ruled out**\n${list(e.ruledOut, 'Nothing ruled out yet.')}\n`;
+  return `## Escalation\n\n**What was asked**\n> ${e.asked}\n\n**Why it needs a person**\n${e.why}\n\n**What was checked**\n${list(e.checked, 'Nothing could be checked.')}\n\n**Evidence**\n${list(e.evidence, 'No account lookup for this kind of ticket. The pages above are the evidence.')}\n\n**Two most likely causes**\n${list(e.causes, e.money ? 'A billing question. The desk cannot see payments, so it does not guess the cause.' : 'Not known yet. The docs have no answer, so the desk will not guess.')}\n\n**Ruled out**\n${list(e.ruledOut, 'Nothing ruled out yet.')}\n`;
 }
 
 export function renderDocEdit(d) {
