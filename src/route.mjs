@@ -385,7 +385,7 @@ export function createRouter(entries, { threshold = THRESHOLD, thresholdUnanchor
     if (!entry.escalate && !entry.noDocAnswer) {
       const s = silentOn(entry, askedText(real));
       if (s) gaps.push({ ...s, hard: !SOFT_GAPS.has(s.kind), rule: 'docs-silent' });
-      if (coverage) for (const only of ['scope', 'platform', 'plan', 'endpoint', 'name', 'code', 'type', 'short', 'word']) {
+      if (coverage) for (const only of ['scope', 'action', 'platform', 'plan', 'endpoint', 'name', 'code', 'type', 'short', 'word']) {
         const g = coverage.gap(entry, real, { ...coverageOpt, only: [only] });
         if (g) gaps.push({ ...g, hard: !SOFT_GAPS.has(g.kind), rule: `coverage:${only}` });
       }

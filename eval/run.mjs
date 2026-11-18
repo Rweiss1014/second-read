@@ -103,7 +103,10 @@ function outcomeOf(r) {
 
 // right: what a careful person would do.  safe: not the best outcome, but a person sees it and nothing untrue was said.
 // wrong: the customer would get an answer that is not the right one.
-function grade(t, got, citedUrls) {
+// A row may name entries that must never answer it (wrong_entries): the right page is not enough when two entries
+// quote the same page ("connect my TikTok account so I can schedule videos" must not get the scheduling entry).
+function grade(t, got, citedUrls, entryId = null) {
+  if (got === 'answer' && entryId && (t.wrong_entries || []).includes(entryId)) return 'wrong';
   const rightPage = citedUrls.some(u => norm(u) === norm(t.source_url));
   if (t.expected === 'answer') {
     if (got === 'answer') return rightPage ? 'right' : 'wrong';
@@ -158,7 +161,7 @@ async function runSet(name) {
       path: r?.path || null,
       cited,
       labelQuoted,
-      grade: error ? 'wrong' : grade(t, got, cited),
+      grade: error ? 'wrong' : grade(t, got, cited, r?.entry?.id || r?.match?.entry?.id || null),
       adversarial: /^adv-/.test(t.topic),
       promises: promises.length,
       message: t.message, error,

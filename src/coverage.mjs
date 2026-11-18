@@ -124,6 +124,23 @@ const GIVES_DATE = /\b(?:20\d\d|january|february|march|april|may|june|july|augus
 const ASKS_WHY = /(?:^|[.!?]\s+)why\b|\bwhy (?:did|does|do|is|are|was|were|would|has|have)\b/i;
 const GIVES_CAUSE = /\b(?:because|when|if|means|caused|cause|due to|so that|since|unless|after|before|only|requires?|must|needs?|cannot|can't|does not|doesn't|not supported|happens)\b/i;
 
+// The action the customer wants to take (Nov 18, 2026: "How do I connect my TikTok account so I can schedule
+// videos?" got the scheduling entry, and "My YouTube video failed to upload" got the missing-post one). An entry
+// answers a "connect", "delete", "upload"... question only when it speaks about that action somewhere (title,
+// quotes, steps, reply lines, scope or phrasings). `asks` reads the customer's words; `covers` reads the entry's.
+export const ACTIONS = {
+  connect: { asks: /\b(?:connect|connecting|hook(?:ing)? up|link(?:ing)? (?:up )?(?:my|our|a|an|another|the|it|them))\b/, covers: /\b(?:connect\w*|reconnect\w*|link\w*|hook\w*)\b/ },
+  disconnect: { asks: /\b(?:disconnect|disconnecting|unlink|unlinking)\b/, covers: /\b(?:disconnect\w*|unlink\w*|remov\w*)\b/ },
+  delete: { asks: /\b(?:delete|deleting|erase|erasing|unschedule|unscheduling)\b/, covers: /\b(?:delet\w*|remov\w*|eras\w*|unschedul\w*|cancel\w*|trash\w*)\b/ },
+  cancel: { asks: /\b(?:cancel|canceling|cancelling|unsubscribe)\b/, covers: /\b(?:cancel\w*|unsubscrib\w*|delet\w*|remov\w*|stop\w*|pause\w*)\b/ },
+  upload: { asks: /\b(?:upload|uploading|uploads)\b/, covers: /\bupload\w*\b/ },
+  download: { asks: /\b(?:download|downloading|export|exporting)\b/, covers: /\b(?:download\w*|export\w*)\b/ },
+  restore: { asks: /\b(?:restore|restoring|undelete|undo|recover|recovering)\b/, covers: /\b(?:restor\w*|undelet\w*|undo\w*|recover\w*)\b/ },
+  rename: { asks: /\b(?:rename|renaming)\b/, covers: /\b(?:renam\w*|name)\b/ },
+  invite: { asks: /\b(?:invite|inviting)\b/, covers: /\b(?:invit\w*|team\w*|member\w*|seat\w*)\b/ },
+};
+export function actionsAsked(text) { const t = foldText(text); return Object.entries(ACTIONS).filter(([, a]) => a.asks.test(t)).map(([k]) => k); }
+
 const has = (stems, term) => { const t = allStems(term); outer: for (let i = 0; i + t.length <= stems.length; i++) { for (let j = 0; j < t.length; j++) if (stems[i + j] !== t[j]) continue outer; return true; } return false; };
 
 export function groundedLines(e) {
@@ -166,6 +183,7 @@ export function createCoverage(entries, { rareDf = 3, phrasings = true, twoWhenN
       date: lines.some(t => GIVES_DATE.test(t)),
       cause: (e.steps || []).some(s => GIVES_CAUSE.test(s.cite?.quote || '') || GIVES_CAUSE.test(s.text || '')),
       not: (e.scope?.not || []),
+      actionText: foldText(text),
     };
   }
 
@@ -189,6 +207,9 @@ export function createCoverage(entries, { rareDf = 3, phrasings = true, twoWhenN
     const qStems = allStems(sp.questions);
     const want = (k) => !only || only.includes(k);
     if (want('scope')) for (const t of c.not) if (has(stems, t)) return { kind: 'outside scope', term: t };
+    // The customer's action must be one the entry speaks about (ACTIONS above). Read in the questions (or the
+    // whole message when it asks none), pasted text left out.
+    if (want('action')) for (const a of actionsAsked(sp.questions)) if (!ACTIONS[a].covers.test(c.actionText)) return { kind: 'action', term: a };
     // Platforms and plans are read in the questions only: "someone in a Facebook group said..." is background.
     if (want('platform') && sp.asked && c.platformSpecific && !c.anyPlatform) {
       for (const [p, al] of Object.entries(PLATFORMS)) if (al.some(a => hasRaw(rawWords(sp.questions), a)) && !c.platforms.includes(p)) return { kind: 'platform', term: p };
