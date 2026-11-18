@@ -130,7 +130,7 @@ function plainQuote(s) {
 
 // Technical terms inside a letter or a quote: calls, paths, status codes, ids. Works on escaped text.
 const STATUS = '(?:200|201|204|400|401|403|404|409|422|429|500|502|503|504)';
-function termify(h) {
+function termify(h, { keepQuotes = false } = {}) {
   const parts = [];
   const keep = (s) => { parts.push(s); return `\u0000${parts.length - 1}\u0000`; };
   let t = String(h);
@@ -147,27 +147,17 @@ function termify(h) {
   t = t.replace(/\b[a-z][a-zA-Z0-9]*(?:[._][a-zA-Z0-9{}]+)+\b(?!\.[a-z])/g, (m) => /^(?:e\.g|i\.e)$/.test(m) ? m : keep(`<code class="term">${m}</code>`));
   t = t.replace(/\b(?:[a-z]+[A-Z][a-zA-Z]*|bigint|blotato-api-key)\b/g, (m) => keep(`<code class="term">${m}</code>`));
   // A quoted term is already marked by its own face: drop the quote marks around it, so no stray spaces show.
-  t = t.replace(/(?:&quot;|&#39;)(\u0000\d+\u0000)(?:&quot;|&#39;)/g, '$1');
+  if (!keepQuotes) t = t.replace(/(?:&quot;|&#39;)(\u0000\d+\u0000)(?:&quot;|&#39;)/g, '$1');
   return t.replace(/\u0000(\d+)\u0000/g, (m, i) => parts[+i]);
 }
 
-// The reply as the letter shows it: dates read like a person wrote them, ids only in the technical view.
-// (The copy button gives the exact text the checker read.)
+// The reply as the letter shows it: the same words, letter for letter, as the copied reply and as the text the
+// checker read (Nov 18, 2026: the letter dropped quote marks and rewrote dates, so Copy gave different text from the
+// letter on screen). Only the look changes: code terms in their own face, a help link as a link.
 function letterText(s) {
-  const DATE = /\b(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun), (\d{1,2}) (\w{3}) (\d{4}) (\d\d):(\d\d):(\d\d) (?:UTC|GMT)\b/g;
-  const dates = [];
-  let t = String(s ?? '').replace(DATE, (m, d, mon, y, H, M, S) => { dates.push([m, Date.parse(`${mon} ${d}, ${y} ${H}:${M}:${S} GMT`)]); return `\u0001${dates.length - 1}\u0001`; });
-  t = termify(esc(t))
-    .replace(/\u0001(\d+)\u0001/g, (m, i) => { const [raw, ms] = dates[+i]; return Number.isNaN(ms) ? esc(raw) : `<span class="plain-only">${esc(when(ms))}</span><span class="tech-only">${esc(raw)}</span>`; })
-    .replace(/ \(((?:post|id) [\w-]+)\)/g, '<span class="tech-only postid"> ($1)</span>')
-    .replace(/\b(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday), (\w{3}) (\d{1,2}), at (\d{1,2}):(\d\d) (am|pm) UTC\b/g, (m, mon, d, h, mi, ap) => {
-      const ms = Date.parse(`${mon} ${d}, ${new Date().getFullYear()} ${(+h % 12) + (ap === 'pm' ? 12 : 0)}:${mi}:00 GMT`);
-      return Number.isNaN(ms) ? m : `<span class="plain-only">${esc(when(ms))}</span><span class="tech-only">${m}</span>`;
-    })
-    // A post's link reads as a short link in the letter; the copied reply keeps the full address.
-    // (termify has already wrapped the address as a web link by now, so match it in either form)
-    .replace(/Here it is: (?:<span class="url weblink">(https?:\/\/[^\s<]+)<\/span>|(https?:\/\/[^\s<]+))/g, (m, a, b) => `Here it is: <a class="postlink" href="${a || b}" target="_blank" rel="noopener">open the post</a>`);
-  return t;
+  return termify(esc(String(s ?? '')), { keepQuotes: true })
+    // A post's link stays its full address, as a link.
+    .replace(/<span class="url weblink">(https?:\/\/[^\s<]+)<\/span>/g, (m, a) => `<a class="postlink" href="${a}" target="_blank" rel="noopener">${a}</a>`);
 }
 
 // One plain line above a technical reply, written per sample message. True to what each reply says.
@@ -624,7 +614,7 @@ function tailHTML(paras, r) {
     return p.split('\n').map(line => {
       if (/^Next step:/.test(line)) return `<p class="next${flagNext ? ' flag' : ''}">${letterText(line).replace(/^Next step:/, '<b>Next step:</b>')}</p>`;
       const m = line.match(/^Help page: (https:\/\/\S+)$/);
-      if (m) return `<p class="helplink">Help page: <a href="${esc(m[1])}" target="_blank" rel="noopener">${esc(m[1].replace('https://', ''))}</a></p>`;
+      if (m) return `<p class="helplink">Help page: <a href="${esc(m[1])}" target="_blank" rel="noopener">${esc(m[1])}</a></p>`;
       return `<p>${letterText(line)}</p>`;
     }).join('');
   }).join('');
@@ -667,7 +657,7 @@ function noteHTML(r, own = true, lead = false) {
       <p>A customer wrote: <span class="cq">&ldquo;${esc(e.asked)}&rdquo;</span></p>
       <p><b>Why it needs you.</b> <span class="plain-only">${esc(personReason(r) || refusalReason(r))}</span><span class="tech-only">${termify(esc(why))}</span></p>
       <p><b>What I checked.</b> ${esc(plainChecked(r))}</p>
-      ${causes.length ? `<p><b>What I think it is:</b></p>${li(causes, pn.causes)}` : (whyOf(r) === 'money' || e.money ? '<p><b>What I think it is.</b> A billing question for you. I cannot see payments, so I will not guess the cause.</p>' : '<p><b>What I think it is.</b> Not known yet. There is no checked answer for this, so I will not guess.</p>')}
+      ${causes.length ? `<p><b>What I think it is:</b></p>${li(causes, pn.causes)}` : (whyOf(r) === 'money' || e.money ? '<p><b>What I think it is.</b> A billing question for you. I cannot see payments, so I will not guess the cause.</p>' : (r.handover ? '<p><b>What I think it is.</b> Not known yet. The customer gets a checked letter that hands this to you. It answers nothing, so I will not guess the cause.</p>' : '<p><b>What I think it is.</b> Not known yet. There is no checked answer for this, so I will not guess.</p>'))}
       ${(e.ruledOut || []).length ? `<p><b>What I ruled out:</b></p>${li(e.ruledOut, pn.ruledOut)}` : ''}
     </div>
     <div class="note-act"><button type="button" class="${lead ? 'btn' : 'btn-quiet'}" data-copy="sabrina">Copy the note</button><span class="copied" data-copied="sabrina" aria-live="polite"></span></div>
@@ -738,7 +728,8 @@ function verdictHTML(r, st, typed = false) {
     // A typed message gets a reply the desk has given before. Say plainly what the check covers: the reply's words.
     // What the date means is said once, at the top (practiceHTML); here only the record.
     void typed;
-    const what = `A second checker passed these exact words${at ? ` on ${esc(at)}` : ''}.`;
+    const words = f.scope === 'words' ? 'the words of this reply' : 'these exact words';
+    const what = `A second checker passed ${words}${at ? ` on ${esc(at)}` : ''}.${r.handover ? ' It is a hand-over letter: it tells the customer a person will answer, and it answers nothing itself.' : ''}`;
     return `<div class="verdict" style="--tone: var(--pass)"><p class="v1">${what}</p>${disclose('How was it checked?', `<p>${SECOND} The desk found this answer live just now. The second checker read the same words earlier.${notes ? ` It left ${notes === 1 ? 'one small note' : `${notes} small notes`}, which the engineer view shows.` : ''}</p>`)}</div>`;
   }
   if (st === 'stopped') {
@@ -787,6 +778,25 @@ function mdHTML(src) {
   close();
   return `<div class="md">${out.join('')}</div>`;
 }
+// The reason code as the engineer view shows it. "docs-silent" (an exam label) only ever meant that none of the
+// desk's saved, checked answers covers the message; the help pages were not proven silent (Nov 18, 2026).
+const SHOWN_CODES = { 'docs-silent': 'no-saved-answer', 'no-coverage': 'no-saved-answer' };
+const shownCode = (c) => SHOWN_CODES[c] || c;
+// A checker's note that asked the builders to confirm something, with what was done about it. A to-do never shows
+// on its own (Nov 18, 2026: "confirm the live fill drops the id" sat on the page as an open task).
+const RESOLVED_NOTES = [
+  [/confirm the live fill drops the id and the practice-account sentence/i, 'The letter never holds a post id or the practice-account sentence, with a live account or the practice one; both go only to the note for the team. Tests check it (test/plumbing.test.mjs, test/round2-fixes.test.mjs).'],
+  [/sample wording must never reach a real customer/i, 'The letter says only what the lookup gave. The practice-account sentence ("The real API was not called just now") goes only to the note for the team and this view. A test checks it (test/retest-fixes.test.mjs, item 10).'],
+  [/the desk should confirm those pages were read/i, 'The engineer view lists every search and the titles it found. The reply says only that the top results do not cover a test mode, and hands the question to a person.'],
+];
+function resolvedNote(x) { const hit = RESOLVED_NOTES.find(([re]) => re.test(String(x))); return hit ? hit[1] : null; }
+// What the checker really read. These exact words: the reply itself. Its words with a slot: those words, slot and
+// all, and then the reply as Copy gives it. A stopped reply: Copy is off.
+function checkedTextHTML(r, f) {
+  if (stateOf(r) === 'stopped') return `<h3>The exact text the checker read (stopped, so Copy is off)</h3><pre>${esc(r.reply)}</pre>`;
+  if (f.scope === 'words' && f.template) return `<h3>The words the checker read, with ${f.filled === 'slot' ? 'the fixed-list part' : 'the account facts'} as a slot</h3><pre>${esc(f.template)}</pre><h3>What Copy gives you (the slot filled in just now)</h3><pre>${esc(r.reply)}</pre>`;
+  return `<h3>The exact text the checker read (what Copy gives you)</h3><pre>${esc(r.reply)}</pre>`;
+}
 function techHTML(r) {
   const f = r.fresh || {};
   const calls = (r.trace || []).map(e => {
@@ -810,19 +820,19 @@ function techHTML(r) {
     <h2 id="tech-h">The engineer view</h2>
     <dl class="kv">
       <dt>Account data</dt><dd>${r.mock ? 'Practice account, no real account connected. Its posts are made up; the one error it copies from the real API is marked where it is used.' : 'Live, read-only'}</dd>
-      ${whyOf(r) ? `<dt>${whyOf(r) === 'nonsense' ? 'Why it asked for a clearer message' : 'Why it went to a person'}</dt><dd><code>${esc(whyOf(r))}</code>${r.route?.reason || r.match?.reason ? ` ${esc(String(r.route?.reason || r.match?.reason).replace(/\s*\(words: [^)]*\)/, ''))}` : ''}</dd>` : ''}
+      ${whyOf(r) ? `<dt>${whyOf(r) === 'nonsense' ? 'Why it asked for a clearer message' : 'Why it went to a person'}</dt><dd><code>${esc(shownCode(whyOf(r)))}</code>${r.route?.reason || r.match?.reason ? ` ${esc(String(r.route?.reason || r.match?.reason).replace(/\s*\(words: [^)]*\)/, ''))}` : ''}</dd>` : ''}
       ${r.entry ? `<dt>A saved, checked answer for this kind of message</dt><dd>${f.state === 'passed' ? 'Yes' : 'No'}</dd>` : ''}
     </dl>
     ${ex ? `<h3>About this example</h3><p>The first reply the desk wrote to this sample message on Nov 15, rebuilt byte for byte from that day's code. On every load the server hashes this text and compares it with the second checker's saved verdict. The desk was fixed after this verdict, and today's reply to the same message passed.</p><dl class="kv"><dt>Matches the saved verdict</dt><dd>${ex.hashMatches ? 'Yes, checked by the server on this load' : 'NO'}</dd></dl>` : ''}
     <h3>Every read the desk made, in order</h3>
     ${calls ? `<ol class="calls">${calls}</ol>` : '<p>None recorded.</p>'}
     ${searched ? `<h3>${searchedSaved(r) ? 'What the search of the saved help pages found' : 'What the help-page search found'}</h3><p>Closest first. A page listed here is not proof that it answers the question.</p><ol class="calls">${searched}</ol>` : ''}
-    ${r.steps?.length ? `<h3>Each step and its source</h3><ol class="calls">${steps}</ol>` : ''}
+    ${r.steps?.length ? `<h3>Each step and its source</h3><ul class="calls nonum">${steps}</ul>` : ''}
     <h3>Script check</h3>
     <p>${r.entry ? (r.check.pass ? 'Passed. Every quote is on its cited page. Every account step is backed by a lookup. No line makes a promise (a refund, a date, a sure outcome).' : `Blocked: ${esc((r.check.problems || []).join(' '))}`) : 'There was no reply to check.'}</p>
     ${r.reply ? `<h3>Second checker</h3><p>${fstate}</p>
-    ${findings.length ? `<p>${f.state === 'blocked' ? 'Its findings:' : 'Its notes:'}</p><ul class="mono-list">${findings.map(x => `<li>${tq(x)}</li>`).join('')}</ul>` : ''}
-    <h3>The exact text the checker read (what Copy gives you)</h3><pre>${esc(r.reply)}</pre>` : ''}
+    ${findings.length ? `<p>${f.state === 'blocked' ? 'Its findings:' : f.scope === 'words' ? 'Its notes, on the words below and the one example of the slot it was shown (not the facts in this reply):' : 'Its notes:'}</p><ul class="mono-list">${findings.map(x => { const fix = f.state === 'blocked' ? null : resolvedNote(x); return `<li>${tq(x)}${fix ? `<br><b>Resolved:</b> ${tq(fix)}` : ''}</li>`; }).join('')}</ul>` : ''}
+    ${checkedTextHTML(r, f)}` : ''}
     ${r.escalationText && whyOf(r) !== 'nonsense' ? `<h3>The note for a person, as the desk saved it</h3>${mdHTML(r.escalationText)}` : ''}
     ${r.docEditText && !(searchSkipped(r) && !r.entry) ? `<h3>The proposed help-page edit, as the desk saved it</h3>${mdHTML(r.docEditText)}` : ''}
   </section>`;
@@ -845,7 +855,7 @@ function practiceHTML(r, st) {
   const at = r.fresh?.checkedAt ? ` on ${day(r.fresh.checkedAt)}` : '';
   const acct = r.mock ? 'This is a practice account with made-up customers and posts. The help pages and their sentences are real.' : '';
   const words = st === 'checked' && r.fresh?.scope === 'words' && r.fresh?.filled === 'slot' ? `A second checker read the words of this reply${at} and passed them. The short part that says back what went wrong is filled in by the desk, from a fixed list of words.`
-    : st === 'checked' && r.fresh?.scope === 'words' ? `A second checker read the words of this reply${at} and passed them. The facts in step 1 come straight from the ${r.mock ? 'practice account' : "customer's own account"}, just now.`
+    : st === 'checked' && r.fresh?.scope === 'words' ? `A second checker read the words of this reply${at} and passed them. The facts in step ${Math.max(1, (r.steps || []).findIndex(s => s.type === 'evidence') + 1)} come straight from the ${r.mock ? 'practice account' : "customer's own account"}, just now.`
     : st === 'checked' ? `A second checker read these exact words${at} and passed them, so the same words do not need checking twice.`
     : st === 'stopped' && r.fresh?.state === 'blocked' ? `A second checker read these exact words${at} and stopped them.` : '';
   const s = [acct, words].filter(Boolean).join(' ');
@@ -869,7 +879,7 @@ function shellHTML(meta, r) {
     </div>
     ${meta.example ? '<p class="example-tag">A saved example from Nov 15: the desk\'s first reply to this message. The second checker stopped it, and the desk was fixed.</p>' : ''}
     <div class="did-row"><ol class="did" id="did" aria-label="What the desk did"></ol></div>
-    ${VLINE[st] ? `<p class="vline away" id="vline" style="--tone: ${VLINE[st][1]}">${moneyPart ? 'Checked. Safe to send. A person takes the money part.' : VLINE[st][0]}</p>` : ''}
+    ${VLINE[st] ? `<p class="vline away" id="vline" style="--tone: ${VLINE[st][1]}">${moneyPart ? 'Checked. Safe to send. A person takes the money part.' : st === 'checked' && r.handover ? 'Checked. Safe to send. It hands the question to a person; it is not the answer.' : VLINE[st][0]}</p>` : ''}
     ${practiceHTML(r, st)}
     ${line ?`<p class="plainline"><b>In plain words:</b> ${esc(line)}</p>` : ''}
     ${person ? `<p class="plainline person"><b>A person on the team takes this one.</b> ${esc(person)}</p>` : ''}
@@ -911,7 +921,7 @@ function stageHTML(r) {
   const { head, tail } = letterParts(r.reply);
   const steps = r.steps || [];
   const flags = r.example?.plain?.names || [];
-  const title = r.outcome === 'no-answer' ? 'Here is a reply for now' : 'Here is the answer';
+  const title = r.outcome === 'no-answer' || r.handover ? 'Here is a reply for now' : 'Here is the answer';
   const [hi, ...rest] = /^Hi\b/.test(head[0] || '') ? head : ['', ...head];
   const stepsHTML = steps.map((s, i) => {
     const fl = flags.includes(i + 1) ? ' flag' : '';

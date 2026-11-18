@@ -653,3 +653,4 @@ kbd { font: 600 14px var(--sans); box-shadow: inset 0 0 0 2px var(--rule), inset
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0ms !important; animation: none !important; scroll-behavior: auto !important; }
 }
+.calls.nonum { list-style: none; padding-left: 0; }
