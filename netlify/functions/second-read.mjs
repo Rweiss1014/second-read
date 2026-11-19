@@ -43,9 +43,22 @@ async function listen() {
   return port;
 }
 
-export default async (req) => {
-  const p = await listen();
+// The site's visit counter (/api/visit, /api/visits) is answered here, before the app, so one function keeps /api/*.
+// It never touches the app. See netlify/visits/handler.mjs for what is kept (no IP, no cookies).
+let visits = null;
+async function visitsHandler() {
+  if (!visits) {
+    const { getStore } = await import('@netlify/blobs');
+    const { makeVisitsHandler } = await import('../visits/handler.mjs');
+    visits = makeVisitsHandler({ getStore, token: () => process.env.VISITS_TOKEN });
+  }
+  return visits;
+}
+
+export default async (req, context) => {
   const url = new URL(req.url);
+  if (url.pathname === '/api/visit' || url.pathname === '/api/visits') return (await visitsHandler())(req, context);
+  const p = await listen();
   const init = { method: req.method, headers: { 'content-type': req.headers.get('content-type') || 'application/json' } };
   if (req.method !== 'GET' && req.method !== 'HEAD') init.body = await req.text();
   const r = await fetch(`http://127.0.0.1:${p}${url.pathname}${url.search}`, init);

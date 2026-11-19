@@ -48,7 +48,9 @@ npm start     # opens the page with sample data at http://localhost:5610
 
 Paste a customer's message, or click one of the examples under the box.
 
-`npm test` runs the 220 checks. `npm run serve` opens the page on a real account (it needs your key). If port 5610 is busy, run `node bin/support-desk.mjs serve --mock --port 5611`.
+`npm test` runs the 224 checks. `npm run serve` opens the page on a real account (it needs your key). If port 5610 is busy, run `node bin/support-desk.mjs serve --mock --port 5611`.
+
+The public site counts visits with a small first-party beacon (`netlify/visits/v.js` posts to `/api/visit`, stored in Netlify Blobs by `netlify/visits/handler.mjs`): the page, the referrer's host, phone or desktop, a random id per tab, which main link was clicked, how much of the walkthrough was played, a coarse place and browser. No cookies, no fingerprint, and the IP address is never kept. Do Not Track and Global Privacy Control turn it off.
 
 `--mock` means account lookups use made-up posts. The page says so at the top. The help docs are always the real ones.
 
