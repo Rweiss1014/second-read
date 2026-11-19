@@ -53,7 +53,7 @@ function tokenOk(req, token) {
 }
 
 const json = (obj, status = 200) => new Response(JSON.stringify(obj), { status, headers: { 'content-type': 'application/json', 'cache-control': 'no-store' } });
-const none = () => new Response(null, { status: 204, headers: { 'cache-control': 'no-store' } });
+const none = (why = '') => new Response(null, { status: 204, headers: { 'cache-control': 'no-store', 'x-visit': why } });
 
 // getStore is injected so tests can use an in-memory store; on Netlify it is @netlify/blobs' getStore.
 export function makeVisitsHandler({ getStore, token, now = () => Date.now() }) {
@@ -63,13 +63,14 @@ export function makeVisitsHandler({ getStore, token, now = () => Date.now() }) {
     if (url.pathname === '/api/visit') {
       if (req.method !== 'POST') return none();
       const ua = req.headers.get('user-agent') || '';
-      if (isBot(ua)) return none();
+      if (isBot(ua)) return none('bot');
       const text = await req.text();
-      if (text.length > 2000) return none();
-      let body; try { body = JSON.parse(text); } catch { return none(); }
+      if (text.length > 2000) return none('big');
+      let body; try { body = JSON.parse(text); } catch { return none('json'); }
       const e = cleanEvent(body, { ua, geo: context.geo, now: now() });
-      if (e) await store().setJSON(keyFor(e), e);
-      return none();
+      if (!e) return none('dropped');
+      await store().setJSON(keyFor(e), e);
+      return none('kept');
     }
     // /api/visits: the owner's read and delete.
     if (!tokenOk(req, typeof token === 'function' ? token() : token)) return json({ error: 'not allowed' }, 401);

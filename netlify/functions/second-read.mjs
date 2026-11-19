@@ -50,7 +50,8 @@ async function visitsHandler() {
   if (!visits) {
     const { getStore } = await import('@netlify/blobs');
     const { makeVisitsHandler } = await import('../visits/handler.mjs');
-    visits = makeVisitsHandler({ getStore, token: () => process.env.VISITS_TOKEN });
+    // Strong reads: the default (eventual) list() showed new events only minutes later.
+    visits = makeVisitsHandler({ getStore: (name) => getStore({ name, consistency: 'strong' }), token: () => process.env.VISITS_TOKEN });
   }
   return visits;
 }
