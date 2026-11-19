@@ -254,7 +254,7 @@ Send it a support message as JSON, `{"text": "..."}`, and it asks Second Read fo
 
 The flow never sends anything. A person reads the draft and sends it.
 
-`test/n8n-flow.test.mjs` checks the wiring and runs the flow's own expressions against a sample desk, for a how-to and a billing ticket.
+`test/n8n-flow.test.mjs` checks the wiring and runs the flow's own expressions against a sample desk: which answers come back as a plain draft, which go to a person, and the note each one gets.
 That proves the flow's logic and the fields it reads. It was also run inside real n8n (2.48.5, November 18, 2026): imported from this file, published, and sent ten support messages; each one took the right branch and got the right note.
 
 ## The daily "what broke overnight" check
