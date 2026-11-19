@@ -48,6 +48,19 @@ test('n8n flow: only a reply the fresh checker passed is a plain draft; everythi
   assert.equal(noDraft.draftReply, null);
   assert.match(noDraft.note, /No draft/);
   assert.equal(noDraft.handover, '## Escalation');
+  // The note never offers a draft as a holding reply unless the fresh checker cleared it (AGENTS.md).
+  const noteFor = ($json) => JSON.parse(run(node('Hand over to a person').parameters.responseBody, $json)).note;
+  const esc = '## Escalation';
+  assert.match(noteFor({ reply: 'Hi', escalationText: esc, status: 'reply: cleared to send (x) + escalated' }), /may send the draft as a holding reply. Pass the hand-over note on/);
+  assert.match(noteFor({ reply: 'Hi', escalationText: esc, status: 'holding reply: cleared to send (x) + escalated' }), /holding reply/);
+  for (const status of ['reply: script check passed, waiting on the fresh check + escalated', 'blocked', 'blocked: the fresh checker stopped this exact text (a saved example)', 'composed reply: the script checks and the second reader passed it just now (not a saved, pre-checked reply); a saved fresh-checker pass is required and a composed text has none, so it is not cleared to send', 'composed reply: the script checks and the second reader passed it just now (not a saved, pre-checked reply)']) {
+    for (const escalationText of [esc, '']) {
+      const note = noteFor({ reply: 'Hi', escalationText, status });
+      assert.doesNotMatch(note, /may send/, status);
+      assert.match(note, /^Do not send this draft/, status);
+      assert.equal(/hand-over note/.test(note), !!escalationText, status);
+    }
+  }
 });
 
 test('n8n flow: run against the desk, an unchecked how-to, a billing ticket and an off-topic one all reach a person', async () => {
@@ -77,13 +90,16 @@ test('n8n flow: run against the desk, an unchecked how-to, a billing ticket and 
     assert.equal(howTo.toPerson, true);
     assert.equal(howTo.out.outcome, 'reply');
     assert.ok(howTo.out.draftReply.includes('help.blotato.com'), howTo.out.draftReply);
-    assert.match(howTo.out.note, howTo.desk.escalationText ? /holding reply/ : /has not passed the fresh check/);
+    assert.match(howTo.out.note, /^Do not send this draft yet/);
 
     const billing = await flowFor('I was charged twice this month, please refund one of them.');
     assert.equal(billing.toPerson, true);
     assert.equal(billing.out.outcome, 'escalate');
     assert.ok(billing.out.handover.startsWith('## Escalation'), billing.out.handover);
     assert.ok(billing.out.draftReply.length > 40);
+    // No saved passes on this desk, so the billing draft is unchecked: the note must not offer it as a holding reply.
+    assert.doesNotMatch(billing.desk.status, /cleared to send/);
+    assert.match(billing.out.note, /^Do not send this draft yet.*hand-over note/);
 
     const offTopic = await flowFor("What's your favorite pizza topping?");
     assert.equal(offTopic.toPerson, true);

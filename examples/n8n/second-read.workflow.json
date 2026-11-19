@@ -82,7 +82,7 @@
     {
       "parameters": {
         "respondWith": "json",
-        "responseBody": "={{ JSON.stringify({ outcome: $json.outcome, draftReply: $json.reply, handover: $json.escalationText || null, howChecked: $json.status, note: !$json.reply ? 'No draft for this one. Pass the hand-over note to a person on the team.' : $json.escalationText ? 'A person on the team decides this one. You may send the draft as a holding reply, then pass the hand-over note on.' : 'This draft has not passed the fresh check yet. A person on the team reads it before it goes out.' }) }}",
+        "responseBody": "={{ (() => { const st = String($json.status || ''); const pass = $json.escalationText ? ' Pass the hand-over note on.' : ''; const note = !$json.reply ? 'No draft for this one.' + (pass ? ' Pass the hand-over note to a person on the team.' : ' A person on the team answers this one.') : st.startsWith('blocked') ? 'Do not send this draft: the checker blocked it. A person on the team answers this one.' + pass : (st.includes('cleared to send') && !st.includes('not cleared to send')) ? 'A person on the team decides this one. You may send the draft as a holding reply.' + pass : 'Do not send this draft yet: it has not passed the fresh check. A person on the team reads it first.' + pass; return JSON.stringify({ outcome: $json.outcome, draftReply: $json.reply, handover: $json.escalationText || null, howChecked: $json.status, note }); })() }}",
         "options": {}
       },
       "id": "5b1f0c1e-0001-4d6a-9a11-000000000004",
@@ -111,7 +111,7 @@
     },
     {
       "parameters": {
-        "content": "## Second Read in n8n\nPOST a support message to this webhook as JSON: {\"text\": \"...\"}.\nIt asks Second Read for a checked draft and returns it.\nOnly a reply the fresh checker passed, word for word, comes back as a plain draft. Everything else (escalate, no answer, blocked, a composed reply, not yet checked) goes to a person with the hand-over note.\n\nSecond Read only reads. Nothing here sends a reply or changes an account: a person sends the draft.\n\nChange the URL in **Ask Second Read** to wherever Second Read runs. 127.0.0.1:5610 works when n8n runs on the same computer. (Use 127.0.0.1, not localhost: newer n8n looks up localhost as ::1 and cannot reach Second Read.)",
+        "content": "## Second Read in n8n\nPOST a support message to this webhook as JSON: {\"text\": \"...\"}.\nIt asks Second Read for a checked draft and returns it.\nOnly a reply the fresh checker passed, word for word, comes back as a plain draft. Everything else (escalate, no answer, blocked, a composed reply, not yet checked) goes to a person, with the hand-over note when there is one. The note says plainly when a draft must not be sent.\n\nSecond Read only reads. Nothing here sends a reply or changes an account: a person sends the draft.\n\nChange the URL in **Ask Second Read** to wherever Second Read runs. 127.0.0.1:5610 works when n8n runs on the same computer. (Use 127.0.0.1, not localhost: newer n8n looks up localhost as ::1 and cannot reach Second Read.)",
         "height": 260,
         "width": 420
       },
