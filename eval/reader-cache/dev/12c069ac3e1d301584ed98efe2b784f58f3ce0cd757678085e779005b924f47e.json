@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 7494,
+ "verdict": {
+  "points": [
+   {
+    "point": "Did the post go up after the 504 timeout?",
+    "sentence": "The downstream operation's outcome is not established by this response."
+   },
+   {
+    "point": "Is it safe to run the scenario again?",
+    "sentence": "A timeout does not tell us whether the post was created, so please do not send it again yet."
+   }
+  ],
+  "pick": "unknown-outcome-resend",
+  "reason": "This entry covers both questions: a timeout leaves it unknown whether the post was created, and the customer should not resend yet."
+ },
+ "at": "2026-11-18T19:58:54.524Z"
+}

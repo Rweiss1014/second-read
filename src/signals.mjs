@@ -334,10 +334,12 @@ export const SIGNALS = {
     about: 'The customer sets a deadline with a threat, threatens to leave, or brings in legal action.',
     res: [
       // "quit" added Nov 16, 2026: "fix it right now or i quit" (a live tester) got no pressure signal.
-      /\b(?:or|otherwise|else)\s+(?:we|i)(?:'ll|'re|'m| will| are| am| shall)?\s+(?:going to\s+|have to\s+|be\s+)?(?:cancel\w*|leav\w*|quit\w*|switch\w*|mov\w*(?: to| over)?|go(?:ing)? (?:to|elsewhere)|churn\w*|dispute\w*|file\w*|report\w*|find another|look(?:ing)? (?:for|elsewhere)|take (?:our|my) business)\b/i,
-      /\b(?:we|i)(?:'ll|'re| will| are| am|'m)?\s+(?:going to\s+)?(?:cancel\w*|leav\w*|quit\w*|switch\w*|mov\w*|churn\w*)\b[^.?!\n]{0,60}\b(?:unless|if you (?:don'?t|do not|can'?t|cannot))\b/i,
-      /\b(?:legal action|sue you|suing you|lawsuit|small claims|report you to|better business bureau|consumer protection)\b/i,
-      /\b(?:last chance|final warning|i'?m done with (?:you|blotato)|we'?re done with (?:you|blotato)|cancel(?:ling)? everything if)\b/i,
+      // Each pattern names only its own reason, so the note says the one that fired (Nov 18, 2026: the note listed
+      // every trigger, "a deadline with a threat, threatens to leave, or brings in legal action", for "or I'm leaving").
+      { about: 'The customer says they will leave or cancel unless it is fixed.', re: /\b(?:or|otherwise|else)\s+(?:we|i)(?:'ll|'re|'m| will| are| am| shall)?\s+(?:going to\s+|have to\s+|be\s+)?(?:cancel\w*|leav\w*|quit\w*|switch\w*|mov\w*(?: to| over)?|go(?:ing)? (?:to|elsewhere)|churn\w*|dispute\w*|file\w*|report\w*|find another|look(?:ing)? (?:for|elsewhere)|take (?:our|my) business)\b/i },
+      { about: 'The customer says they will leave or cancel unless it is fixed.', re: /\b(?:we|i)(?:'ll|'re| will| are| am|'m)?\s+(?:going to\s+)?(?:cancel\w*|leav\w*|quit\w*|switch\w*|mov\w*|churn\w*)\b[^.?!\n]{0,60}\b(?:unless|if you (?:don'?t|do not|can'?t|cannot))\b/i },
+      { about: 'The customer brings up legal action or a complaint to an outside body.', re: /\b(?:legal action|sue you|suing you|lawsuit|small claims|report you to|better business bureau|consumer protection)\b/i },
+      { about: 'The customer says this is their last warning.', re: /\b(?:last chance|final warning|i'?m done with (?:you|blotato)|we'?re done with (?:you|blotato)|cancel(?:ling)? everything if)\b/i },
     ],
   },
   'access-blocked': {
@@ -440,6 +442,17 @@ export const COMMON_CAPS = new Set('i blotato starter creator agency pro free tr
 // only (quoted or pasted text cut out), so a pasted error that says "use a public URL" is not a claim.
 export const DEFAULT_SIGNALS = ['retried', 'disputes-count', 'records-disagree', 'many-accounts', 'follow-on', 'cause-ruled-out', 'docs-wrong', 'pressure'];
 
+// A yes-no question about what will still happen: "do my posts still go out?", "will my API key still work if I
+// cancel?", "can I still see my drafts?". The "still" is about the future, not about a fix that did not work.
+const WILL_STILL = /\b(?:do|does|will|would|can|could|should|is|are|am)\s+(?:my|our|the|all|any|it|they|these|those|i|we|them|this|that)\b[^.?!\n]{0,60}?\bstill\s+(?:be able to\s+)?(?:go|goes|going|work|works|working|run|runs|post|posts|publish|publishes|be|count|counts|show|shows|exist|exists|stay|stays|keep|keeps|have|has|get|gets|see|use|access|happen|happens|send|sends|appear|appears)\b[^.!\n]*\?/i;
+export function askedWillStill(text, at) {
+  const t = String(text || '');
+  const start = Math.max(t.lastIndexOf('.', at), t.lastIndexOf('?', at - 1), t.lastIndexOf('!', at), t.lastIndexOf('\n', at)) + 1;
+  const end = t.slice(at).search(/[?.!\n]/);
+  const sent = t.slice(start, end < 0 ? t.length : at + end + 1);
+  return WILL_STILL.test(sent) && !/\bwhy\b/i.test(sent);
+}
+
 const patternOf = (p) => (p instanceof RegExp ? { re: p, weak: false } : p);
 
 // Which of an entry's signals fire on this text. Plain phrases are matched on words (stems, one-letter typos).
@@ -462,14 +475,17 @@ export function needsPerson(text, spec, { hasTerm, allStems }, { defaults = fals
         // A weak default pattern counts only in a sentence that also says something is going wrong:
         // "I typed it five times and it writes a LinkedIn post" is not a repeat failure on our side.
         const sent = sentences.find(x => p.re.test(x) && TROUBLE.test(x));
-        if (sent) { hits.push({ signal: name, words: sent.match(p.re)[0].trim(), about: s.about, byDefault: true }); break; }
+        if (sent) { hits.push({ signal: name, words: sent.match(p.re)[0].trim(), about: p.about || s.about, byDefault: true }); break; }
         continue;
       }
       // A pattern with "needs" fires only when the message also says that (a record that disagrees, a trouble word).
       const own = p.unquoted ? withoutQuoted(text) : String(text);
       const m = own.match(p.re);
       if (m && p.needs && !p.needs.test(own)) continue;
-      if (m) { hits.push({ signal: name, words: m[0].trim(), about: s.about, ...(byDefault ? { byDefault: true } : {}) }); break; }
+      // "Do my scheduled posts still go out if my trial ends?" asks what will happen; it reports no failure
+      // (Nov 18, 2026: it was handed over as "the problem is still there after a fix"). A "why" question still counts.
+      if (m && name === 'still-broken' && askedWillStill(own, m.index)) continue;
+      if (m) { hits.push({ signal: name, words: m[0].trim(), about: p.about || s.about, ...(byDefault ? { byDefault: true } : {}) }); break; }
     }
   }
   const stems = allStems(text);

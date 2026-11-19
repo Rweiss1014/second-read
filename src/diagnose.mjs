@@ -4,14 +4,15 @@
 //    a post or an id, a read-only status lookup through the Blotato API.
 // 3. Compose: a numbered reply, an escalation packet when a person must decide, a help-doc edit when the docs
 //    have no answer or the wrong one.
-import { routeMessage, PAGES, TICKETS } from '../knowledge/playbook.mjs';
+import { routeMessage, PAGES, TICKETS, ENTRY_BY_ID } from '../knowledge/playbook.mjs';
 import { listPosts, getSubmission, errorText, listAccounts } from './api.mjs';
 import { explain } from './explain.mjs';
+import { TROUBLE } from './signals.mjs';
 import { READER_OFF } from './reader.mjs';
 import { COMPOSER_OFF, assembleReply } from './composer.mjs';
 
 // Error text from a platform can carry an account number; keep it, but cut it to one line.
-const redactErr = (e) => String(e).replace(/s+/g, ' ').slice(0, 200);
+const redactErr = (e) => String(e).replace(/\s+/g, ' ').slice(0, 200);
 const PLATFORM_WORDS = ['instagram', 'linkedin', 'twitter', 'facebook', 'tiktok', 'youtube', 'threads', 'bluesky', 'pinterest', 'slack'];
 // The raw stamp, for the escalation packet and the technical evidence: "Sun, 15 Nov 2026 19:00:00 UTC".
 export const whenRaw = (t) => new Date(t).toUTCString().replace(' GMT', ' UTC');
@@ -27,8 +28,22 @@ export function when(t, now = Date.now()) {
 const NAMES = { instagram: 'Instagram', linkedin: 'LinkedIn', twitter: 'X (Twitter)', facebook: 'Facebook', tiktok: 'TikTok', youtube: 'YouTube', threads: 'Threads', bluesky: 'Bluesky', pinterest: 'Pinterest', slack: 'Slack' };
 export const nice = (p) => NAMES[p] || p;
 
-async function lookup(kind, ticket, { client, docs, entry, now = Date.now }) {
+// A time said from now ("5 hours ago", "3 days from now"). The public site's practice account runs on the visitor's
+// hour, so a date it named changed every hour and no checker could read those exact words ahead of time (Nov 18,
+// 2026: the engineer view showed a checker note about other numbers than the reply). Said from now, the practice
+// account's words are the same for every visitor, and the checker reads those exact words.
+export function fromNow(t, now) {
+  const h = Math.round((Date.parse(t) - now) / 3600000);
+  if (h === 0) return 'within the hour';
+  const n = Math.abs(h) < 48 ? Math.abs(h) : Math.round(Math.abs(h) / 24);
+  const unit = Math.abs(h) < 48 ? (n === 1 ? 'hour' : 'hours') : (n === 1 ? 'day' : 'days');
+  return h < 0 ? `${n} ${unit} ago` : `${n} ${unit} from now`;
+}
+
+async function lookup(kind, ticket, { client, docs, entry, now = Date.now, relative = false }) {
   const t0 = now();
+  const at = (t) => (relative ? fromNow(t, t0) : when(t, t0));
+  const raw = (t) => (relative ? fromNow(t, t0) : whenRaw(t));
   const text = ticket.text;
   const ev = { kind, ok: false, lines: [], calls: [] };
   try {
@@ -43,14 +58,14 @@ async function lookup(kind, ticket, { client, docs, entry, now = Date.now }) {
       // (it said "2 published Instagram posts" for one Instagram and one LinkedIn post).
       const newest = platform ? 'from ' : `${/^(?:[AEIOU]|X\b)/.test(nice(p?.platform)) ? 'an' : 'a'} ${nice(p?.platform)} post from `;
       const head = p ? `Blotato shows ${mine.length} published ${platform ? nice(platform) + ' ' : ''}post${mine.length === 1 ? '' : 's'} in the last 7 days. The newest is ${newest}` : '';
-      // Sample mode never puts a made-up web address into a reply (a live tester copied one, Nov 15, 2026). It says
-      // plainly that this is the practice account, in words that never change, so a saved check keeps matching.
-      const tail = !p ? '' : client?.mock ? '. This is the practice account, with made-up sample posts, so there is no real post link to open.'
+      // Sample mode never puts a made-up web address into a reply (a live tester copied one, Nov 15, 2026). 
+      // The note that this is the practice account goes to the team (technical), not into the letter (Nov 18, 2026).
+      const tail = !p ? '' : client?.mock ? '.'
         : `${p.state?.postUrl ? `, with this link: ${p.state.postUrl}` : ', with no platform link returned'}.`;
       // summary is what the customer reads: a date a person would write, no internal post id.
       // technical is for the escalation packet and the checker: the raw stamp and the post id.
-      ev.summary = p ? `${head}${when(p.postTime, t0)}${tail}` : `Blotato shows no published ${platform ? nice(platform) + ' ' : ''}post in the last 7 days.`;
-      ev.technical = p ? `${head}${whenRaw(p.postTime)} (post ${p.id})${tail}` : ev.summary;
+      ev.summary = p ? `${head}${at(p.postTime)}${tail}` : `Blotato shows no published ${platform ? nice(platform) + ' ' : ''}post in the last 7 days.`;
+      ev.technical = p ? `${head}${raw(p.postTime)} (post ${p.id})${tail}${client?.mock ? ' Note for the team, not in the letter: This is the practice account, with made-up sample posts, so there is no real post link to open.' : ''}` : ev.summary;
       ev.ok = true;
     }
     if (kind === 'recent-activity') {
@@ -63,8 +78,8 @@ async function lookup(kind, ticket, { client, docs, entry, now = Date.now }) {
       const count = (t) => same.filter(i => i.state?.type === t).length;
       const where = platform ? `${nice(platform)} ` : '';
       const lead = same.length ? `from 2 days ago to 2 weeks ahead I see ${same.length} ${where}post${same.length === 1 ? '' : 's'}: ${count('scheduled')} scheduled, ${count('published')} published and ${count('failed')} failed. The newest is ${same[0].state?.type} for ` : '';
-      ev.summary = same.length ? `${lead}${when(same[0].postTime, t0)}.` : `I see no ${where}posts from 2 days ago to 2 weeks ahead.`;
-      ev.technical = same.length ? `${lead}${whenRaw(same[0].postTime)} (id ${same[0].id}).` : ev.summary;
+      ev.summary = same.length ? `${lead}${at(same[0].postTime)}.` : `I see no ${where}posts from 2 days ago to 2 weeks ahead.`;
+      ev.technical = same.length ? `${lead}${raw(same[0].postTime)} (id ${same[0].id}).` : ev.summary;
       ev.ok = true;
     }
     // Account first (Nov 16, 2026): "did my posts go out?" is answered from the customer's own posts, read-only.
@@ -90,14 +105,14 @@ async function lookup(kind, ticket, { client, docs, entry, now = Date.now }) {
       const p = published[0];
       if (p) {
         const plat = platform ? '' : ` on ${nice(p.platform)}`;
-        const link = client?.mock ? ' This is the practice account, with made-up sample posts, so there is no real post link to open.'
+        const link = client?.mock ? ''
           : p.state?.postUrl ? ` Here it is: ${p.state.postUrl}` : ' Blotato did not return a link for it.';
-        parts.push(`The newest went out${plat} ${when(p.postTime, t0)}.${link}`);
+        parts.push(`The newest went out${plat} ${at(p.postTime)}.${link}`);
       }
       const x = failed[0];
       if (x) {
         const err = x.state?.errorMessage || x.errorMessage;
-        parts.push(`The newest failure${platform ? '' : ` was on ${nice(x.platform)}`}, ${when(x.postTime, t0)}${err ? `, with the error "${redactErr(err)}"` : ', with no error text'}.`);
+        parts.push(`The newest failure was${platform ? "" : ` on ${nice(x.platform)},`} ${at(x.postTime)}${err ? `, with the error "${redactErr(err)}"` : ', with no error text'}.`);
       }
       // Nothing in the last 7 days: say when the newest post really went out, so "none" is never the whole answer.
       if (!p && !x) {
@@ -108,12 +123,12 @@ async function lookup(kind, ticket, { client, docs, entry, now = Date.now }) {
         const o = older[0];
         if (o) {
           const link = client?.mock ? '' : o.state?.postUrl ? ` Here it is: ${o.state.postUrl}` : '';
-          parts.push(`Your newest ${where}post went out${platform ? '' : ` on ${nice(o.platform)}`} ${when(o.postTime, t0)}.${link}`);
+          parts.push(`Your newest ${where}post went out${platform ? '' : ` on ${nice(o.platform)}`} ${at(o.postTime)}.${link}`);
         } else parts.push(`I see no published ${where}posts in the last 60 days either.`);
       }
-      if (upcoming.length) parts.push(`${n(upcoming.length, 'post')} ${upcoming.length === 1 ? 'is' : 'are'} still scheduled; the next goes out ${when(upcoming[0].postTime, t0)}.`);
+      if (upcoming.length) parts.push(`${n(upcoming.length, 'post')} ${upcoming.length === 1 ? 'is' : 'are'} still scheduled; the next goes out ${at(upcoming[0].postTime)}.`);
       ev.summary = parts.join(' ');
-      ev.technical = ev.summary + (p ? ` (newest published post ${p.id})` : '') + (x ? ` (newest failed post ${x.id})` : '');
+      ev.technical = ev.summary + (p ? ` (newest published post ${p.id})` : '') + (x ? ` (newest failed post ${x.id})` : '') + (client?.mock && p ? ' Note for the team, not in the letter: This is the practice account, with made-up sample posts, so there is no real post link to open.' : '');
       ev.counts = { published: published.length, failed: failed.length, scheduled: upcoming.length, platform: platform || null };
       ev.ok = true;
     }
@@ -146,7 +161,7 @@ async function lookup(kind, ticket, { client, docs, entry, now = Date.now }) {
       const s = await getSubmission(client, id);
       ev.calls.push(`GET /v2/posts/${id}: status "${s.status}" (request ${s.requestId})`);
       ev.status = s.status;
-      ev.summary = `Blotato answers "${s.status}" for submission ${id}${s.errorMessage ? `, with the error "${s.errorMessage}"` : ''}${s.scheduledTime ? `, scheduled for ${when(s.scheduledTime, t0)}` : ''}.`;
+      ev.summary = `Blotato answers "${s.status}" for submission ${id}${s.errorMessage ? `, with the error "${s.errorMessage}"` : ''}${s.scheduledTime ? `, scheduled for ${at(s.scheduledTime)}` : ''}.`;
       if (s.status === 'failed') ev.explained = explain(s.errorMessage);
       ev.ok = true;
     }
@@ -157,22 +172,32 @@ async function lookup(kind, ticket, { client, docs, entry, now = Date.now }) {
       const msg = r.ok ? 'found' : errorText(r.data, r.status);
       ev.calls.push(`GET /v2/schedules/${id}: HTTP ${r.status} "${msg}"${r.data?.reqId ? ` (Blotato reqId ${r.data.reqId})` : ''}`);
       ev.status = r.status;
-      ev.summary = `GET /v2/schedules/${id} answers HTTP ${r.status}: "${msg}".`;
+      ev.summary = `GET /v2/schedules/${id} answers HTTP ${r.status}, with the message: ${msg}.`;  // the message as Blotato gave it, quotes and all, never wrapped in a second pair (Nov 18, 2026)
       ev.ok = !r.ok && /bigint/i.test(msg); // reproduced = it fails the same way
       if (!ev.ok) ev.summary += ' That is not the error in the ticket, so this is not reproduced.';
       // The practice account only gives back what the real API answered on Nov 15, 2026 (BUILD-LOG.md, README): it says so.
-      else if (client?.mock) ev.summary = `The practice account answers GET /v2/schedules/${id} with HTTP ${r.status}: "${msg}". That copies the answer Blotato's real API gave on Nov 15, 2026, to a read-only lookup with a schedule id that is not a number. The real API was not called just now.`;
+      // The letter says only what the lookup gave; that the practice account copies the real API's answer of Nov 15,
+      // 2026 (and that the real API was not called) is a note for the team and the engineer view, not for the
+      // customer (Nov 18, 2026: the letter talked about the demo).
+      else if (client?.mock) ev.technical = `The practice account answers GET /v2/schedules/${id} with HTTP ${r.status} and the message: ${msg}. That copies the answer Blotato's real API gave on Nov 15, 2026, to a read-only lookup with a schedule id that is not a number. The real API was not called just now.`;
     }
     if (kind === 'docs-search') {
+      // Live: Blotato's docs MCP search. Offline (the free demo, tests): a search of the saved copies of the help
+      // pages (src/docs.mjs), said as such. A search that could not run at all is said as that, never as a search.
       for (const q of entry?.searchQueries || [text.slice(0, 120)]) {
         const s = await docs.search(q);
-        ev.calls.push(`docs MCP searchDocumentation "${q}": ${s.offline ? 'skipped (offline)' : `${s.results.length} result(s)`}`);
-        ev.searched = [...(ev.searched || []), { query: q, offline: s.offline, results: s.results.slice(0, 5) }];
+        const ran = !s.error && (!s.offline || s.saved);
+        ev.calls.push(s.offline
+          ? (s.saved ? `searched the saved copies of the help pages for "${q}": ${s.results.length} result(s)` : `docs search "${q}": not run (no network and no saved pages)`)
+          : `docs MCP searchDocumentation "${q}": ${s.error ? 'could not be reached' : `${s.results.length} result(s)`}`);
+        ev.searched = [...(ev.searched || []), { query: q, offline: !!s.offline, saved: !!s.saved, ran, savedAt: s.savedAt || null, pagesSearched: s.pagesSearched || null, results: s.results.slice(0, 5) }];
       }
-      ev.ok = ev.searched.every(s => !s.offline);
+      ev.ok = ev.searched.every(s => s.ran);
+      const saved = ev.searched.some(s => s.saved);
+      const savedAt = ev.searched.find(s => s.savedAt)?.savedAt;
       ev.summary = ev.ok
-        ? `Searches: ${ev.searched.map(s => `"${s.query}" (top results: ${s.results.slice(0, 3).map(r => `"${r.title || r.url}"`).join(', ') || 'none'})`).join('; ')}.`
-        : 'the docs search was offline, so nothing was searched.';
+        ? `${saved ? `Searched the saved copies of the help pages${savedAt ? ` (read ${savedAt.slice(0, 10)})` : ''}` : 'Searched the help pages'}: ${ev.searched.map(s => `"${s.query}" (top results: ${s.results.slice(0, 3).map(r => `"${r.title || r.url}"`).join(', ') || 'none'})`).join('; ')}.`
+        : 'the docs search could not run, so nothing was searched.';
     }
   } catch (e) {
     ev.ok = false;
@@ -187,7 +212,7 @@ async function lookup(kind, ticket, { client, docs, entry, now = Date.now }) {
 const SAMPLE_TEXT = new Set(TICKETS.map(t => t.text.trim()));
 const isSample = (ticket) => SAMPLE_TEXT.has(String(ticket?.text || '').trim());
 
-export async function diagnose(ticket, { client, docs, agent = 'Support', route = routeMessage, now = Date.now, reader = null, composer = null }) {
+export async function diagnose(ticket, { client, docs, agent = 'Support', route = routeMessage, now = Date.now, reader = null, composer = null, relativeTimes = false }) {
   // The reader (src/reader.mjs), when on, reviews route()'s decision: it may pick an entry or hand over. It never
   // sees a message a guard or a hand-over signal took, and on any error the decision stays route()'s own.
   // The composer (src/composer.mjs), when on, runs last, and only on a message that is still handed over with no
@@ -232,14 +257,23 @@ export async function diagnose(ticket, { client, docs, agent = 'Support', route 
     out.outcome = 'no-answer';
     out.reply = null;
     const cands = (r.candidates || []).map(c => `${c.id} (${c.score})`).join(', ');
-    out.refused = `The desk will not write a reply: ${r.reason}${cands ? ` Top candidates: ${cands}.` : ''} See the docs search and the proposed help-doc edit.`;
-    out.docEdit = {
+    // A new help-page entry is proposed only when the help pages were really searched. With the search skipped
+    // (offline, as on the free demo) nobody knows the pages lack it (Nov 18, 2026: "add Pinterest to the FAQ",
+    // though Blotato has a Pinterest page).
+    // A search of the saved copies is a real search, but of copies: a miss there is not proof the live pages lack it.
+    const searchedLive = (ev.searched || []).some(q => !q.offline && q.ran);
+    const searchedSaved = (ev.searched || []).some(q => q.saved);
+    out.refused = `The desk will not write a reply: ${r.reason}${cands ? ` Top candidates: ${cands}.` : ''} ${searchedLive ? 'See the docs search and the proposed help-doc edit.' : searchedSaved ? 'The search read only the saved copies of the help pages, so no help-doc edit is proposed.' : 'The help-page search could not run, so no help-doc edit is proposed.'}`;
+    if (searchedLive) out.docEdit = {
       article: PAGES.faqs, kind: 'new', heading: ticket.text.split(/[.?!]/)[0].slice(0, 90) + '?',
       add: '[Answer to confirm with a person on the team.]',
       note: `No playbook entry matched. ${ev.summary}`,
     };
     const causes = (r.candidates || []).length ? [`Not an answer, only where to start: the matcher's top candidates were ${cands}.`] : [];
     out.escalation = buildEscalation(ticket, null, out, { why: `The desk has no documented answer it trusts for this ticket. ${r.reason}`, causes, ruledOut: [] });
+    // The kind of the closest entry (a billing question, say), so the note can name it without guessing a cause.
+    const nearest = ENTRY_BY_ID.get(r.whyDetail?.nearest || (r.why === 'tie' ? (r.candidates || [])[0]?.id : null));
+    if (nearest?.kind) out.escalation.kind = nearest.kind;
     return out;
   }
 
@@ -247,9 +281,12 @@ export async function diagnose(ticket, { client, docs, agent = 'Support', route 
   let reply = entry;
   let esc = entry.escalate || null;
   if (r.decision === 'guard' && !esc) esc = { why: r.reason, causes: [], ruledOut: [] };
+  // A money message: the note says plainly that a person takes a billing question, and never guesses the cause
+  // (Nov 18, 2026: a question about moving plans mid-month got "a duplicate payment" as a likely cause).
+  if (entry.guard === 'money') esc = { why: 'A billing question for a person on the team. The desk cannot see payments, so it does not guess what happened.', causes: [], ruledOut: [] };
   if (r.decision === 'needs-person') {
     reply = r.holding;
-    esc = { why: `A person needs to take this: ${r.reason}`, causes: entry.escalate?.causes || [], ruledOut: entry.escalate?.ruledOut || [] };
+    esc = { why: `A person needs to take this. ${r.reason}`, causes: entry.escalate?.causes || [], ruledOut: entry.escalate?.ruledOut || [] };
   }
   if (r.decision === 'partial') {
     reply = { ...entry, steps: [...entry.steps, { type: 'action', text: 'Your other question needs a person on the team, so I am passing that part over with your message.' }] };
@@ -262,7 +299,7 @@ export async function diagnose(ticket, { client, docs, agent = 'Support', route 
   if (entry.docEdit) urls.add(entry.docEdit.article);
   for (const u of urls) out.pages[u] = await docs.getPage(u);
 
-  if (entry.lookup) out.evidence = await lookup(entry.lookup, ticket, { client, docs, entry, now });
+  if (entry.lookup) out.evidence = await lookup(entry.lookup, ticket, { client, docs, entry, now, relative: relativeTimes });
 
   const steps = reply.steps.map(s => ({ ...s, text: s.text.replace('{evidence}', out.evidence?.summary || 'no lookup was made') }));
   const name = (ticket.name || '').trim();
@@ -272,10 +309,18 @@ export async function diagnose(ticket, { client, docs, agent = 'Support', route 
   // Blotato's own response contract (start-with-an-ai-agent/agent-triage): answer, the next supported action,
   // what proves success or what is still open, and a link to the relevant section.
   out.helpLink = (steps.find(s => s.cite) || {}).cite?.url || (entry.docEdit?.article ?? null);
+  // A slot in the opening ("{what}", the upset reply) is filled from a fixed word list, and the checker reads the
+  // words with the slot in place (accountTemplate in src/checkreply.mjs).
+  let opening = reply.opening;
+  // A money letter to a customer who says they were charged starts with a short apology, from a fixed list (never the
+  // customer's own words, and never for a money message that reports no charge). Nov 18, 2026: "you charged me
+  // again" got a bare "Thanks for writing in."
+  if (entry.guard === 'money' && reply === entry && !/sorry/i.test(opening || '')) { const sorry = moneySorry(ticket.text); if (sorry) opening = `${sorry} ${opening}`; }
+  if (/\{what\}/.test(opening || '')) { const what = upsetWhat(ticket.text); opening = opening.replace('{what}', what); out.slot = { name: 'what', value: what }; }
   out.reply = [
     `Hi${name ? ' ' + name : ''},`,
     '',
-    reply.opening,
+    opening,
     '',
     ...steps.map((s, i) => `${i + 1}. ${s.text}`),
     '',
@@ -287,10 +332,42 @@ export async function diagnose(ticket, { client, docs, agent = 'Support', route 
     agent,
   ].join('\n');
   out.outcome = esc ? 'escalate' : 'reply';
+  // A hand-over letter: it tells the customer a person will answer, and answers nothing itself. The page never stamps it
+  // as if it were the answer (Nov 18, 2026: a hand-over was stamped "Checked. Safe to send." with no word that it was one).
+  out.handover = r.decision === 'needs-person' || !!entry.guard || (!!entry.escalate && /\bA person on the team (?:needs to|will)\b/.test(reply.opening || ''));
   if (entry.noDocAnswer) out.outcome = 'no-answer';
   if (esc) out.escalation = buildEscalation(ticket, entry, out, esc);
   if (entry.docEdit) out.docEdit = { ...entry.docEdit, pageFetchedAt: out.pages[entry.docEdit.article]?.fetchedAt, beforeFound: entry.docEdit.before ? (out.pages[entry.docEdit.article]?.text || '').includes(entry.docEdit.before) : undefined };
   return out;
+}
+
+// The apology a money letter opens with, from a fixed list, or null. Only for a customer who says money was taken.
+export const MONEY_SORRY = [
+  { re: /\b(?:charged|billed|debited)\b[^.?!\n]{0,40}\b(?:again|twice|two times|double)\b|\b(?:double|duplicate) (?:charge|payment|billing)\b|\bcancel+ed\b[^.?!\n]{0,60}\b(?:charged|billed)\b/i, line: "I'm sorry you were charged when you did not expect it." },
+  { re: /\b(?:charged|billed|debited|took (?:my|our) money|charge on my|charge to my|renewal|renewed)\b/i, line: "I'm sorry this charge was not what you expected." },
+];
+export function moneySorry(text) { const t = String(text || ''); return (MONEY_SORRY.find(x => x.re.test(t)) || {}).line || null; }
+
+// What an upset customer said went wrong, said back in the desk's own words: "your reels failed to post, and not for the first time".
+// Only words from these lists are used, never the customer's own wording, so nothing rude is repeated back.
+// With nothing on the lists: "you are dealing with this".
+const UPSET_VERBS = { post: 'post', posting: 'post', publish: 'publish', publishing: 'publish', upload: 'upload', uploading: 'upload', schedule: 'schedule', scheduling: 'schedule', connect: 'connect', connecting: 'connect', 'go out': 'go out', send: 'send', sending: 'send' };
+const UPSET_NOUNS = ['reels', 'reel', 'posts', 'post', 'videos', 'video', 'stories', 'story', 'pins', 'pin', 'threads', 'tweets', 'tweet', 'carousels', 'carousel', 'photos', 'photo', 'images', 'image', 'shorts', 'short', 'scheduled posts', 'account', 'accounts'];
+export function upsetWhat(text) {
+  const t = String(text || '').toLowerCase().replace(/[’']/g, "'");
+  const verbs = Object.keys(UPSET_VERBS).sort((a, b) => b.length - a.length).join('|');
+  const nouns = UPSET_NOUNS.slice().sort((a, b) => b.length - a.length).join('|');
+  const again = /\b(?:again|third time|second time|fourth time|every time|each time|keeps?|always|over and over|\d+(?:st|nd|rd|th)? time)\b/.test(t) ? ', and not for the first time' : ''; // never "post again": it reads as "send it again"
+  let m = t.match(new RegExp(String.raw`\b(?:failed to|fails to|keeps? failing to|won't|will not|didn't|did not|can't|cannot|couldn't|could not|doesn't|does not|never)\s+(${verbs})\b(?:\s+(?:my|our|the|all my|all of my)\s+(${nouns})\b)?`));
+  if (m) {
+    const verb = UPSET_VERBS[m[1]];
+    if (m[2]) return `your ${m[2]} failed to ${verb}${again}`;
+    const before = t.slice(0, m.index).match(new RegExp(String.raw`\b(?:my|our)\s+(${nouns})\s*$`));
+    return before ? `your ${before[1]} failed to ${verb}${again}` : `this failed to ${verb}${again}`;
+  }
+  m = t.match(new RegExp(String.raw`\b(?:my|our)\s+(${nouns})\s+(?:failed|fail|keep failing|keeps failing|won't (?:post|publish|upload)|didn't (?:post|publish|go out)|never (?:posted|published|went out))\b`));
+  if (m) return `your ${m[1]} failed${again}`;
+  return 'you are dealing with this';
 }
 
 function buildEscalation(ticket, entry, out, esc) {
@@ -301,18 +378,33 @@ function buildEscalation(ticket, entry, out, esc) {
   return {
     asked: ticket.text,
     kind: entry?.kind || 'unknown',
+    money: entry?.guard === 'money' || undefined,
     why: esc.why,
     checked,
     evidence: out.evidence?.summary ? [out.evidence.technical || out.evidence.summary] : [],
     causes: (esc.causes || []).slice(0, 2).map(cite),
     ruledOut: (esc.ruledOut || []).map(cite),
+    // "Two most likely causes" is a heading for a failure only: something the customer says went wrong, or an entry
+    // about an error. A how-to or a yes-no question has no cause (Nov 18, 2026: "Two most likely causes" under
+    // "Can I schedule posts to Threads and Bluesky?").
+    // "still" and "again" alone are not a failure: "will my API key still work if I cancel?" is a yes-no question.
+    failure: TROUBLE.test(String(ticket.text || '').replace(/\b(?:still|again)\b/gi, ' ')) || (!!entry && !entry.guard && /\b(?:error|errors|failed|fails|rejected|not found|invalid|exceeded|unsupported|stuck|timed out|timeout)\b/i.test(entry.title || '')),
   };
+}
+
+// The causes part of the note: "Two most likely causes" and "Ruled out" for a failure; for any other question, the
+// possible answers to confirm (when the entry names some), and nothing at all when there is nothing to say.
+function causesPart(e) {
+  const list = (a, none) => a.length ? a.map(x => `- ${x}`).join('\n') : `- ${none}`;
+  if (e.money) return `\n\n**What it might be**\n${list(e.causes, 'A billing question. The desk cannot see payments, so it does not guess the cause.')}\n\n**Ruled out**\n${list(e.ruledOut, 'Nothing ruled out yet.')}\n`;
+  if (e.failure === false) return `${e.causes.length ? `\n\n**Possible answers, to confirm**\n${list(e.causes, '')}` : ''}${e.ruledOut.length ? `\n\n**Ruled out**\n${list(e.ruledOut, '')}` : ''}\n`;
+  return `\n\n**Two most likely causes**\n${list(e.causes, 'Not known yet. No saved, checked answer covers this, so the desk will not guess.')}\n\n**Ruled out**\n${list(e.ruledOut, 'Nothing ruled out yet.')}\n`;
 }
 
 export function renderEscalation(e) {
   if (!e) return '';
   const list = (a, none) => a.length ? a.map(x => `- ${x}`).join('\n') : `- ${none}`;
-  return `## Escalation\n\n**What was asked**\n> ${e.asked}\n\n**Why it needs a person**\n${e.why}\n\n**What was checked**\n${list(e.checked, 'Nothing could be checked.')}\n\n**Evidence**\n${list(e.evidence, 'No account lookup for this kind of ticket. The pages above are the evidence.')}\n\n**Two most likely causes**\n${list(e.causes, 'Not known yet. The docs have no answer, so the desk will not guess.')}\n\n**Ruled out**\n${list(e.ruledOut, 'Nothing ruled out yet.')}\n`;
+  return `## Escalation\n\n**What was asked**\n> ${e.asked}\n\n**Why it needs a person**\n${e.why}\n\n**What was checked**\n${list(e.checked, 'Nothing could be checked.')}\n\n**Evidence**\n${list(e.evidence, 'No account lookup for this kind of ticket. The pages above are the evidence.')}${causesPart(e)}`;
 }
 
 export function renderDocEdit(d) {

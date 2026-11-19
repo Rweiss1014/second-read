@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3016,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can Blotato post to an Instagram broadcast channel",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states whether Blotato supports posting to Instagram broadcast channels; the candidates cover generic account connection and Slack/YouTube issues only."
+ },
+ "at": "2026-11-18T19:58:27.902Z"
+}

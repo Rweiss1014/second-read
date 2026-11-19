@@ -1,0 +1,11 @@
+{
+  "replySha256": "cd7a4b5092c9e808a16c4be76bbb9ebd5ee52f6b078725f9a83f3fbbd4cf28a3",
+  "verdict": "pass",
+  "findings": [
+    "Style only: when {evidence} reports failures (the example has 3, newest \"Unsupported media type\"), the \"Next step: Open Posts > Published\" line points only at the posts that went out; this does not mislead, because step 2 names the Failed filter, step 3 says failed posts carry their error details, and nothing tells the customer to send a post again."
+  ],
+  "checkedAt": "2026-11-18T21:09:05Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "did-my-posts-go-out"
+}

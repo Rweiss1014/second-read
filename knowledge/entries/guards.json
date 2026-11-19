@@ -74,6 +74,102 @@
       "proof": "Still open: the answer to your message. A person on the team has it."
     },
     {
+      "id": "upset",
+      "kind": "non-technical",
+      "title": "A person on the team takes a message from a customer who is very upset or wants it fixed now",
+      "guard": "upset",
+      "note": "Added Nov 18, 2026 after a tester wrote \"This is the third time your garbage app failed to post my reels. Fix it or I am leaving.\" and got the neutral handover, with no word for how they felt. For the pressure reason only (src/route.mjs HOLDING_FOR). {what} is filled by the desk (src/diagnose.mjs upsetWhat) from a short list of words only (post, publish, upload, schedule; reels, posts, videos...), never the customer's own wording, so a rude word is never repeated back. With nothing on the list, it is \"you are dealing with this\". The checker reads the words with {what} in place.",
+      "opening": "I'm sorry {what}. I can see how frustrating that is, and I want a person on the team to look at it.",
+      "steps": [
+        {
+          "type": "action",
+          "text": "I am passing your message to a person on the team, with what you told me."
+        },
+        {
+          "type": "fact",
+          "text": "Until then, please hold off on anything that could post twice, cost credits, or change your account.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Stop if the next action risks another charge, duplicate post, wrong destination, or unauthorized account change."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Please do not send your API key or any login codes here.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Do not include API keys, OAuth codes, signed upload URLs, or unrelated customer data."
+          }
+        }
+      ],
+      "next": "If you have them, reply with the exact error, the time it happened with your time zone, and any id you see.",
+      "proof": "Still open: the answer to your message. A person on the team has it."
+    },
+    {
+      "id": "handover-question",
+      "kind": "non-technical",
+      "title": "A person on the team needs to answer a question that reports no problem",
+      "guard": "handover-question",
+      "note": "Added Nov 18, 2026: the neutral hand-over asked \"If you have them, reply with the exact error...\" of a customer who only asked a question (\"If my free trial ends without me paying, do my scheduled posts still go out?\"). Chosen instead of handover when the message reports no problem (src/route.mjs holdingFor, reportsProblem).",
+      "opening": "Thanks for your question. A person on the team will answer this one.",
+      "steps": [
+        {
+          "type": "action",
+          "text": "I am passing your message to a person on the team, with what you told me."
+        },
+        {
+          "type": "fact",
+          "text": "Until then, please hold off on anything that could post twice, cost credits, or change your account.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Stop if the next action risks another charge, duplicate post, wrong destination, or unauthorized account change."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Please do not send your API key or any login codes here.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Do not include API keys, OAuth codes, signed upload URLs, or unrelated customer data."
+          }
+        }
+      ],
+      "next": "Nothing to do on your side yet. A person on the team will reply here with the answer.",
+      "proof": "Still open: the answer to your question. A person on the team has it."
+    },
+    {
+      "id": "upset-question",
+      "kind": "non-technical",
+      "title": "A person on the team answers a very upset customer whose message reports no problem",
+      "guard": "upset-question",
+      "note": "Added Nov 18, 2026: the question form of the upset hand-over (src/route.mjs holdingFor). It never asks for an error the customer did not report. {what} works as in \"upset\".",
+      "opening": "I'm sorry {what}. I can see how frustrating that is, and I want a person on the team to look at it.",
+      "steps": [
+        {
+          "type": "action",
+          "text": "I am passing your message to a person on the team, with what you told me."
+        },
+        {
+          "type": "fact",
+          "text": "Until then, please hold off on anything that could post twice, cost credits, or change your account.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Stop if the next action risks another charge, duplicate post, wrong destination, or unauthorized account change."
+          }
+        },
+        {
+          "type": "fact",
+          "text": "Please do not send your API key or any login codes here.",
+          "cite": {
+            "url": "https://help.blotato.com/start-with-an-ai-agent/agent-triage",
+            "quote": "Do not include API keys, OAuth codes, signed upload URLs, or unrelated customer data."
+          }
+        }
+      ],
+      "next": "Nothing to do on your side yet. A person on the team will reply here with the answer.",
+      "proof": "Still open: the answer to your question. A person on the team has it."
+    },
+    {
       "id": "possible-outage",
       "kind": "non-technical",
       "title": "The customer asks whether something is down, or says several accounts fail at once",

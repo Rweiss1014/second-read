@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4005,
+ "verdict": {
+  "points": [
+   {
+    "point": "Can I schedule a post about 11 months ahead (scheduling limit)",
+    "sentence": "The scheduling horizon is 9 months on every plan."
+   }
+  ],
+  "pick": "scheduling-horizon",
+  "reason": "The scheduling-horizon entry states the 9-month limit on every plan, which answers that an 11-month-ahead schedule is not possible and the campaign needs shorter batches."
+ },
+ "at": "2026-11-18T20:00:56.754Z"
+}

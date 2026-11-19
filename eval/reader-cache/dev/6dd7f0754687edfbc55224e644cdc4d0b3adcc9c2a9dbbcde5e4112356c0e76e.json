@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4049,
+ "verdict": {
+  "points": [
+   {
+    "point": "New post only shows a chat, why",
+    "sentence": "The chat IS the starting point -- the AI Agent creates your posts from what you type."
+   },
+   {
+    "point": "Where is the add video/media button",
+    "sentence": "To add media to a post: open the draft and click Photo / Video."
+   },
+   {
+    "point": "AI images buttons from tutorial",
+    "sentence": "To generate AI images, carousels, or videos: go to Videos, click \"Create New Video,\" and pick a template."
+   }
+  ],
+  "pick": "new-post-opens-basic-chat",
+  "reason": "The entry explains that the chat is the starting point, where the add media button is (Photo / Video on the draft), and where AI images are generated."
+ },
+ "at": "2026-11-18T19:58:39.433Z"
+}

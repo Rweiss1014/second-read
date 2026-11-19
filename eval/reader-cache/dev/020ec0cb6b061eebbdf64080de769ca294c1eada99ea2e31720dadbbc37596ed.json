@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3390,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is it a bug that 'publishing' status is never seen, jumping straight to 'published'",
+    "sentence": ""
+   },
+   {
+    "point": "Blog post says to poll for status 'publishing'",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry states which statuses the API returns or whether a 'publishing' status exists, so the closest entries (in-progress, published-not-visible) only answer neighboring questions."
+ },
+ "at": "2026-11-18T19:58:30.650Z"
+}

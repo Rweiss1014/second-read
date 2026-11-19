@@ -15,9 +15,9 @@ import { createRouter } from './route.mjs';
 export const ENTRIES_DIR = path.join(ROOT, 'knowledge', 'entries');
 export const KINDS = ['non-technical', 'billing', 'technical'];
 export const LOOKUPS = ['recent-published', 'recent-activity', 'submission', 'reproduce-schedule', 'docs-search', 'publish-check', 'connected-accounts'];
-export const GUARDS = ['money', 'others-data', 'staff-action', 'secret', 'desk-instructions', 'needs-person', 'handover', 'possible-outage'];
+export const GUARDS = ['money', 'others-data', 'staff-action', 'secret', 'desk-instructions', 'needs-person', 'handover', 'possible-outage', 'upset', 'handover-question', 'upset-question'];
 // The guards whose entry is a holding reply for a hand-over signal (src/route.mjs HOLDING_FOR).
-const HOLDING_GUARDS = ['needs-person', 'handover', 'possible-outage'];
+const HOLDING_GUARDS = ['needs-person', 'handover', 'possible-outage', 'upset', 'handover-question', 'upset-question'];
 const ENTRY_KEYS = ['id', 'kind', 'title', 'phrasings', 'not_this', 'anchors', 'needs_person_if', 'lookup', 'searchQueries', 'opening', 'steps', 'next', 'proof', 'escalate', 'docEdit', 'noDocAnswer', 'guard', 'priority', 'holding', 'note', 'symptom_only', 'scope'];
 const REPLY_KEYS = ['opening', 'steps', 'next', 'proof'];
 const SCOPE_KEYS = ['covers', 'coversKinds', 'not', 'why'];

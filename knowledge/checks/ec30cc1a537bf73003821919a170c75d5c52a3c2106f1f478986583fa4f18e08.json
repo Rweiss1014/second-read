@@ -1,0 +1,12 @@
+{
+  "replySha256": "ec30cc1a537bf73003821919a170c75d5c52a3c2106f1f478986583fa4f18e08",
+  "verdict": "pass",
+  "findings": [
+    "Style note, step 2: \"cost credits\" and \"change your account\" are plainer, slightly broader wordings of the page's \"another charge\" and \"unauthorized account change\"; as a caution to hold off, the broader wording cannot lead the customer into harm.",
+    "Style note, step 1 and the Next step line: \"I am passing your message to a person on the team\" and \"A person on the team will reply here\" are backed by the escalation packet the desk wrote, and they promise no time, refund or outcome."
+  ],
+  "checkedAt": "2026-11-18T21:06:46Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "handover-question"
+}

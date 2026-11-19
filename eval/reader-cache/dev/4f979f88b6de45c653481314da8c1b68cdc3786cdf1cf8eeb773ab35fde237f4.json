@@ -1,0 +1,30 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8014,
+ "verdict": {
+  "points": [
+   {
+    "point": "Move from Starter to Creator plan",
+    "sentence": "Select your new plan and confirm."
+   },
+   {
+    "point": "Switch to yearly billing",
+    "sentence": "The same steps switch you between monthly and yearly billing, and you do not need to cancel first."
+   },
+   {
+    "point": "Need to cancel first",
+    "sentence": "The same steps switch you between monthly and yearly billing, and you do not need to cancel first."
+   },
+   {
+    "point": "Whether it is two separate steps",
+    "sentence": "The same steps switch you between monthly and yearly billing, and you do not need to cancel first."
+   }
+  ],
+  "pick": "change-plan",
+  "reason": "The change-plan entry says the same steps handle both a plan change and a monthly/yearly switch, and that no cancellation is needed first."
+ },
+ "at": "2026-11-18T19:59:07.064Z"
+}

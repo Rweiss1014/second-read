@@ -1,0 +1,12 @@
+{
+  "replySha256": "478b5a1440c12bedaaa61afc21c450eedb9a04c1d978423f64a6fd7b3aa5c296",
+  "verdict": "pass",
+  "findings": [
+    "Style only: in \"I'm sorry {what}.\" every listed fill reads correctly (\"I'm sorry you are dealing with this.\", \"I'm sorry this failed to upload.\"), and because the slot takes only fixed desk phrases, no customer wording can reach the reply.",
+    "Style only: \"A person on the team has it\" could be read as the person already having the answer, but next to \"A person on the team will reply here with the answer\" it means they have the question, and the escalation packet backs step 1, so no one is misled."
+  ],
+  "checkedAt": "2026-11-18T21:09:05Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "upset-question"
+}

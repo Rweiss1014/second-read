@@ -1,0 +1,12 @@
+{
+  "replySha256": "94761fc1d2e429e4ccb66f8ca90a316053ea13d9916ddd6b86e5b0bd4107fd0b",
+  "verdict": "pass",
+  "findings": [
+    "Style note, not misleading: the opener \"Good news: the limit is the same on every plan.\" frames a fixed limit as good news, which may read oddly to a customer who hoped to schedule further out; the fact itself matches the page (\"The scheduling horizon is 9 months on every plan.\").",
+    "Style note, not misleading: the success line \"the post saves as scheduled without an error\" is not quoted from the page, but it is the plain converse of the cited \"If you try to schedule a post past 9 months, Blotato returns an error\" and promises nothing extra."
+  ],
+  "checkedAt": "2026-11-18T20:00:49Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "scheduling-horizon"
+}

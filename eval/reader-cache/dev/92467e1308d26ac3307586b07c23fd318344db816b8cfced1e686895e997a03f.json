@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 8107,
+ "verdict": {
+  "points": [
+   {
+    "point": "429 rate limit on the status-check loop",
+    "sentence": ""
+   },
+   {
+    "point": "what to do so the workflow stops failing",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry (rate-limit) states limits only for Upload Media and Publish Post, not for status checks, so it does not cover the status-check endpoint this customer is hitting."
+ },
+ "at": "2026-11-18T19:59:07.408Z"
+}

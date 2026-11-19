@@ -1,0 +1,14 @@
+{
+  "replySha256": "ad4b71f218791a2fe96aa33ee86d102c402fe24e81360b6f22e78115a16be98c",
+  "verdict": "pass",
+  "findings": [
+    "Step 1 ('I am passing your message to a person on the team') is backed by the escalation packet the desk wrote, so the promise is real.",
+    "Step 2 matches the page sentence 'Stripe is the payment processor Blotato uses for payments and refunds.' and makes no refund promise.",
+    "Step 3 matches the page ('Open Settings > Billing, select View Billing Portal, then scroll to INVOICE HISTORY. You can see all your invoices').",
+    "Style note only: the reply has a Next step line, a Still open line that says the money decision is a person's, and a help link; no em dashes, no 'simply', 'obviously' or easy-making 'just'."
+  ],
+  "checkedAt": "2026-11-18T19:57:47Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "charge-or-refund"
+}

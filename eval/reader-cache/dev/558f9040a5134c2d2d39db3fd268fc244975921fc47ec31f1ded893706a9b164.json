@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5121,
+ "verdict": {
+  "points": [
+   {
+    "point": "Old July invoice still showing after card update",
+    "sentence": ""
+   },
+   {
+    "point": "Dashboard won't open",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The July invoice depends on this customer's own billing record, and no entry explains why a dashboard won't open, so a team member should take it."
+ },
+ "at": "2026-11-18T19:58:55.527Z"
+}

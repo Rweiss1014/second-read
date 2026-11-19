@@ -407,8 +407,7 @@
         "blotato could not post my picture, it failed",
         "blotato did not post it",
         "my post did not work",
-        "my post did not go through",
-        "my video will not upload"
+        "my post did not go through"
       ],
       "not_this": [
         "my post shows published but it is not on my page",
@@ -515,7 +514,7 @@
         },
         {
           "type": "fact",
-          "text": "Then check the account on the platform itself, for example your Instagram or TikTok page, to see if the post is there. If Blotato shows a link to the post, open it.",
+          "text": "Then check the account on the social platform itself to see if the post is there. If Blotato shows a link to the post, open it.",
           "cite": {
             "url": "https://help.blotato.com/start-with-an-ai-agent/publishing-status",
             "quote": "Open any returned platform URL and check the intended account on the platform."
@@ -759,7 +758,7 @@
         }
       ],
       "next": "Open Posts > Published to see each post that went out.",
-      "proof": "You will know it went out when the post opens on the platform from its link."
+      "proof": "You will know it went out when it shows under Published and on the account on the platform itself."
     }
   ]
 }

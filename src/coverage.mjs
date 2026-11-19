@@ -124,6 +124,64 @@ const GIVES_DATE = /\b(?:20\d\d|january|february|march|april|may|june|july|augus
 const ASKS_WHY = /(?:^|[.!?]\s+)why\b|\bwhy (?:did|does|do|is|are|was|were|would|has|have)\b/i;
 const GIVES_CAUSE = /\b(?:because|when|if|means|caused|cause|due to|so that|since|unless|after|before|only|requires?|must|needs?|cannot|can't|does not|doesn't|not supported|happens)\b/i;
 
+// A question about a consequence: what happens to a thing when something else changes ("If I cancel my subscription,
+// will my API key still work?", "What happens to my scheduled posts if I downgrade?", "Will I lose my credits?").
+// How-to steps for the change itself do not answer it (Nov 18, 2026: the cancel steps went out, stamped Checked, and
+// the API key was never mentioned). It is answered only by an entry whose own lines (quotes, steps, reply lines,
+// scope) speak about that thing AND say what becomes of it (keeps, stays, ends, stops, is deleted...).
+// consequenceAsked(text) -> the thing asked about ("api key"), or null.
+const CONSEQUENCE_VERB = String.raw`(?:still\s+)?(?:work|working|keep|be|stay|remain|continue|go\s+out|get|disappear|expire|carry\s+over|survive|exist|stop|run|count|show)`;
+const CONSEQUENCE_PATTERNS = [
+  new RegExp(String.raw`\bwhat (?:happens|will happen|would happen) (?:to|with) (?:my|our|the|all|any)\s+([a-z0-9' -]{2,40}?)(?=\s+(?:if|when|after|once|once i|while)\b|[?.!,]|$)`),
+  new RegExp(String.raw`\b(?:will|would|does|do|is|are|can|could)\s+(?:my|our|the|all|any|all of my|all my)\s+([a-z0-9' -]{2,40}?)\s+${CONSEQUENCE_VERB}\b`),
+  new RegExp(String.raw`\b(?:will|would|do|does)\s+(?:i|we)\s+(?:still\s+)?(?:lose|keep|have|get to keep|be able to (?:use|keep))\s+(?:my|our|the|all|any|all of my|all my)?\s*([a-z0-9' -]{2,40}?)(?=\s+(?:if|when|after|once|while)\b|[?.!,]|$)`),
+];
+// The change that sets the consequence off must be in the same question ("if I cancel", "after I downgrade",
+// "when my trial ends"), or the question says "still" / "lose" / "what happens to": otherwise "Will my post go out
+// at 9 am?" would count, which is a plain status question.
+const CONSEQUENCE_TRIGGER = /\b(?:if|when|after|once|while)\s+(?:i|we|my|our|the|it)\b[^?]{0,60}\b(?:cancel\w*|downgrad\w*|upgrad\w*|delet\w*|disconnect\w*|switch\w*|chang\w*|stop\w*|end\w*|expir\w*|leav\w*|clos\w*|remov\w*|pause\w*|move\w*|renew\w*|regenerat\w*|rotat\w*|run\w* out)\b|\bstill\b|\blose\b|\bwhat (?:happens|will happen|would happen)\b/;
+const GIVES_CONSEQUENCE = /\b(?:still|keep|keeps|kept|stay|stays|remain|remains|retain|retains|lose|loses|lost|end|ends|ended|stop|stops|stopped|continue|continues|expire|expires|expired|deleted|removed|in place|no longer|carry over|carries over|revoked|disabled|deactivated|until)\b/i;
+export function consequenceAsked(text, { detail = false } = {}) {
+  for (const sent of splitSentences(foldText(text))) {
+    if (!CONSEQUENCE_TRIGGER.test(sent)) continue;
+    for (const [k, re] of CONSEQUENCE_PATTERNS.entries()) {
+      const m = sent.match(re);
+      if (!m) continue;
+      const thing = m[1].replace(/\b(?:still|also|even|ever|then)\b/g, ' ').replace(/\s+/g, ' ').trim();
+      // state: the question asks whether the thing keeps working, stays or is lost (patterns 2 and 3), not only
+      // what a change does to it (pattern 1, "what happens to my post").
+      if (thing && contentStems(thing).length) return detail ? { thing, state: k > 0 } : thing;
+    }
+  }
+  return null;
+}
+
+// The action the customer wants to take (Nov 18, 2026: "How do I connect my TikTok account so I can schedule
+// videos?" got the scheduling entry, and "My YouTube video failed to upload" got the missing-post one). An entry
+// answers a "connect", "delete", "upload"... question only when it speaks about that action in what it would say
+// (title, quotes, steps, reply lines, scope; not its phrasings, which are guesses at customer words). `verbs` are the customer's words; `covers` reads the entry's.
+// Only an action the customer asks to take, or says failed, counts: the verb right after "how do I", "can I",
+// "want to", "failed to", "can't"... ("How do I delete a post?", "it failed to upload"). A verb in passing ("the
+// assistant I connect with MCP", "a new post without deleting the drafts") is background.
+// An entry about one error is exempt: the error text the customer gives decides it, whatever verb it uses.
+const ACTION_LEAD = String.raw`(?:how (?:do|can|could|would|should|will) (?:i|we|you)|how to|where (?:do|can) (?:i|we)|can (?:i|we)|could (?:i|we)|is it possible to|is there a way to|(?:want|wanted|need|needed|trying|try|tried|able|unable|failed|fails|failing|fail) to|help me|can'?t|cannot|could ?n'?t|could not|won'?t|wont|will not|would ?n'?t|would not|didn'?t|did not|does ?n'?t|does not)`;
+const lead = (verbs) => new RegExp(String.raw`\b${ACTION_LEAD}\s+(?:\w+\s+)?(?:${verbs})\b`);
+export const ACTIONS = {
+  connect: { asks: lead('connect|hook up|link'), covers: /\b(?:connect\w*|reconnect\w*|link\w*|hook\w*)\b/ },
+  disconnect: { asks: lead('disconnect|unlink'), covers: /\b(?:disconnect\w*|unlink\w*|remov\w*)\b/ },
+  delete: { asks: lead('delete|erase|unschedule'), covers: /\b(?:delet\w*|remov\w*|eras\w*|unschedul\w*|cancel\w*|trash\w*)\b/ },
+  cancel: { asks: lead('cancel|unsubscribe'), covers: /\b(?:cancel\w*|unsubscrib\w*|delet\w*|remov\w*|stop\w*|pause\w*)\b/ },
+  upload: { asks: lead('upload'), covers: /\bupload\w*\b/ },
+  download: { asks: lead('download|export'), covers: /\b(?:download\w*|export\w*)\b/ },
+  restore: { asks: lead('restore|undelete|undo|recover'), covers: /\b(?:restor\w*|undelet\w*|undo\w*|recover\w*)\b/ },
+  rename: { asks: lead('rename'), covers: /\b(?:renam\w*|name)\b/ },
+  invite: { asks: lead('invite'), covers: /\b(?:invit\w*|team\w*|member\w*|seat\w*|collaborat\w*|add\w*)\b/ },
+};
+export function actionsAsked(text) { const t = foldText(text); return Object.entries(ACTIONS).filter(([, a]) => a.asks.test(t)).map(([k]) => k); }
+// An entry about one error (it cites an Errors or limitations page, or its title names an error) is decided by
+// the error text, not by the verb around it. A no-error-text entry ("my post failed") is not exempt.
+const errorEntry = (e) => !e.symptom_only && ((e.steps || []).some(s => /\/errors\b|limitations/.test(s.cite?.url || '')) || /\b(?:error|failed|rejected|invalid|exceeded|not found|unsupported)\b/i.test(e.title || ''));
+
 const has = (stems, term) => { const t = allStems(term); outer: for (let i = 0; i + t.length <= stems.length; i++) { for (let j = 0; j < t.length; j++) if (stems[i + j] !== t[j]) continue outer; return true; } return false; };
 
 export function groundedLines(e) {
@@ -166,6 +224,9 @@ export function createCoverage(entries, { rareDf = 3, phrasings = true, twoWhenN
       date: lines.some(t => GIVES_DATE.test(t)),
       cause: (e.steps || []).some(s => GIVES_CAUSE.test(s.cite?.quote || '') || GIVES_CAUSE.test(s.text || '')),
       not: (e.scope?.not || []),
+      // Says what becomes of something (keeps, stays, ends, is deleted...), in its quotes or steps.
+      consequence: (e.steps || []).some(s => GIVES_CONSEQUENCE.test(s.cite?.quote || '') || GIVES_CONSEQUENCE.test(s.text || '')) || (e.scope?.coversKinds || []).includes('consequence'),
+      actionText: errorEntry(e) ? null : foldText(text),
     };
   }
 
@@ -189,6 +250,9 @@ export function createCoverage(entries, { rareDf = 3, phrasings = true, twoWhenN
     const qStems = allStems(sp.questions);
     const want = (k) => !only || only.includes(k);
     if (want('scope')) for (const t of c.not) if (has(stems, t)) return { kind: 'outside scope', term: t };
+    // The customer's action must be one the entry speaks about (ACTIONS above). Read in the questions (or the
+    // whole message when it asks none), pasted text left out.
+    if (want('action') && c.actionText !== null) for (const a of actionsAsked(sp.questions)) if (!ACTIONS[a].covers.test(c.actionText)) return { kind: 'action', term: a };
     // Platforms and plans are read in the questions only: "someone in a Facebook group said..." is background.
     if (want('platform') && sp.asked && c.platformSpecific && !c.anyPlatform) {
       for (const [p, al] of Object.entries(PLATFORMS)) if (al.some(a => hasRaw(rawWords(sp.questions), a)) && !c.platforms.includes(p)) return { kind: 'platform', term: p };
@@ -229,6 +293,19 @@ export function createCoverage(entries, { rareDf = 3, phrasings = true, twoWhenN
       if (ASKS_PRICE.test(asked) && !c.price) return { kind: 'price', term: asked.match(ASKS_PRICE)[0] };
       if (ASKS_WHEN_SHIP.test(asked) && !c.date) return { kind: 'date', term: asked.match(ASKS_WHEN_SHIP)[0] };
       if (why && ASKS_WHY.test(asked) && !c.cause) return { kind: 'cause', term: 'why' };
+      // A consequence question: the thing must be in what the entry would say. "Will X still work?" and "Will I
+      // lose X?" also need a line that says what becomes of it (stays, ends, is deleted...); "What happens to X
+      // when I do Y?" is answered by a line about X that says what Y does.
+      const ask = consequenceAsked(sp.questions, { detail: true });
+      if (ask) {
+        const want = [...new Set(contentStems(ask.thing).filter(w => !CHATTER.has(w)))];
+        const words = rawWords(ask.thing).filter(w => w.length > 2);
+        const hit = want.filter(w => c.gset.has(w) || c.graw.some(r => nearWord(r, w))).length;
+        const rawHit = words.filter(w => c.graw.some(r => r === w || nearWord(r, w))).length;
+        const n = Math.max(want.length, 1);
+        const named = Math.max(hit, Math.min(rawHit, n)) >= (n >= 3 ? n - 1 : n);
+        if (!named || (ask.state && !c.consequence)) return { kind: 'consequence', term: ask.thing };
+      }
     }
     if (want('short') && shortTopic) {
       // A short question names its topic in a word or two ("How can I get the discount?", "Did they get

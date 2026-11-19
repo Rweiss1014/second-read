@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 4282,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is there a status page to check when posts are slow",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No candidate entry mentions a status page or says how to tell whether slowness is on Blotato's side, so none answers this question."
+ },
+ "at": "2026-11-18T19:58:35.568Z"
+}

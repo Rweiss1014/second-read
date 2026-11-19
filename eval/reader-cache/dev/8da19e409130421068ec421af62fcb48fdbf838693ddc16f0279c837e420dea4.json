@@ -1,0 +1,18 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3367,
+ "verdict": {
+  "points": [
+   {
+    "point": "Nonprofit discount available?",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "No entry mentions a nonprofit discount; the yearly-plan entry covers a different discount (yearly billing savings), so it answers a neighboring question."
+ },
+ "at": "2026-11-18T19:58:43.586Z"
+}

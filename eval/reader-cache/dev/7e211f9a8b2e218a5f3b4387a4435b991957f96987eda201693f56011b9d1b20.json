@@ -1,0 +1,21 @@
+{
+ "kind": "refute",
+ "version": "refute-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6079,
+ "verdict": {
+  "objections": [
+   {
+    "kind": "wrong-for-customer",
+    "about": "The customer gave no error message, but the reply says 'This error means the platform rejected the media' and rules out rate-limit and credits causes. It can't know that, and it may be false for this YouTube failure."
+   },
+   {
+    "kind": "wrong-for-customer",
+    "about": "The reply tells the customer to compare every platform's errors when the same message appears everywhere. The customer only mentioned YouTube, so that advice doesn't fit their situation."
+   }
+  ],
+  "verdict": "stop"
+ },
+ "at": "2026-11-18T19:59:15.903Z"
+}

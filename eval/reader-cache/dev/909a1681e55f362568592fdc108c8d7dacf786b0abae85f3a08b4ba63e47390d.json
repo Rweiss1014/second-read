@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6471,
+ "verdict": {
+  "points": [
+   {
+    "point": "Why a slot error appears when scheduling a specific time",
+    "sentence": ""
+   },
+   {
+    "point": "What slots are",
+    "sentence": ""
+   }
+  ],
+  "pick": "none",
+  "reason": "The closest entry says exact-time scheduling does not require slots, but none of its sentences explain what slots are, which the customer asks directly, so a person should answer."
+ },
+ "at": "2026-11-18T19:58:26.815Z"
+}

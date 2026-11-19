@@ -114,7 +114,7 @@
           }
         }
       ],
-      "next": "If a payment is part of this, reply here with its date and the email on your account, so the team can find it.",
+      "next": "To help the team find your account quickly, reply here with the email you use for Blotato.",
       "proof": "Still open: the money part of your message. That is a decision for a person on the team, not for me.",
       "escalate": {
         "why": "A charge or refund is a person's decision. The desk cannot see payments, so it explains, holds, and hands it over. It never promises a refund or a credit.",

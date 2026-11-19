@@ -15,13 +15,23 @@ test('each of the 12 sample tickets goes to the playbook entry it was written fo
 // Offline tests stand in for Blotato's docs search with one fixed, empty-of-answers result.
 const fakeSearch = async (query) => ({ offline: false, results: [{ title: 'API keys', url: 'https://help.blotato.com/settings/api-keys', excerpt: `nothing about ${query}` }] });
 
-test('with the docs search offline, the test-mode ticket is blocked: no search, no claim', async () => {
+test('offline, the test-mode ticket searches the saved copies of the help pages and says so; with no saved pages it is blocked: no search, no claim', async () => {
   const { env } = tempDesk();
-  const desk = openDesk({ env });
+  let desk = openDesk({ env });
   const r = await handleTicket(desk, TICKETS.find(t => t.id === 'T12'));
   await desk.close();
-  assert.equal(r.check.pass, false);
-  assert.match(r.check.problems.join(' '), /the docs search was offline/);
+  assert.equal(r.check.pass, true, r.check.problems.join(' '));
+  assert.ok(r.evidence.searched.every(q => q.saved && q.ran));
+  assert.match(r.evidence.summary, /^Searched the saved copies of the help pages/);
+  assert.match(r.evidence.calls.join(' '), /searched the saved copies of the help pages for/);
+  // No saved pages at all: the search cannot run, and the step that rests on it is blocked.
+  const empty = tempDesk();
+  fs.rmSync(empty.cache, { recursive: true, force: true });
+  desk = openDesk({ env: empty.env });
+  const b = await handleTicket(desk, TICKETS.find(t => t.id === 'T12'));
+  await desk.close();
+  assert.equal(b.check.pass, false);
+  assert.match(b.check.problems.join(' '), /the docs search could not run, so nothing was searched/);
 });
 
 test('a full shift in mock mode: 12 tickets, every reply checked, a handoff written', async () => {
@@ -116,19 +126,26 @@ test('the schedule-id ticket is reproduced, escalated with two causes, and gets 
   assert.match(r.docEditText, /Nothing is published by the desk/);
 });
 
-test('a question with no playbook entry gets no reply: it is refused, escalated and turned into a doc edit', async () => {
+test('a question with no playbook entry gets no reply: it is refused and escalated; offline, no doc edit is proposed', async () => {
   const { env } = tempDesk();
   const desk = openDesk({ env });
   // No help page mentions Outlook. (This used to ask about Mastodon, which the supported-platforms entry now
   // answers from the FAQ's complete list of platforms.)
   const r = await handleTicket(desk, { id: 'X1', text: 'Can I sync my Blotato calendar with Outlook?' });
+  // The same message again: what was recorded the first time is read back, every letter kept (it once lost every "s").
+  const again = await handleTicket(desk, { id: 'X1', text: 'Can I sync my Blotato calendar with Outlook?' });
   await desk.close();
   assert.equal(r.entry, null);
   assert.equal(r.reply, null);
   assert.equal(r.check.pass, false);
   assert.match(r.refused, /will not write a reply/);
-  assert.match(r.docEditText, /\[Answer to confirm with a person on the team\.\]/);
+  assert.ok(r.escalation, 'it still goes to a person');
+  // The tests run offline: the help pages were not searched, so nobody knows they lack it. No edit is proposed.
+  assert.ok(!r.docEdit);
+  assert.equal(r.docEditText, '');
+  assert.match(r.refused, /read only the saved copies of the help pages, so no help-doc edit is proposed/);
   assert.equal(r.status, 'refused: no documented answer');
+  assert.match(again.seenBefore[0].why, /No entry the desk trusts matched, so it wrote no reply\. .* It ran a docs search for a person to read\./);
 });
 
 test('mistakes teach: a solved ticket is recorded, a repeat is "seen before", and a blocked reply is recorded as blocked', async () => {

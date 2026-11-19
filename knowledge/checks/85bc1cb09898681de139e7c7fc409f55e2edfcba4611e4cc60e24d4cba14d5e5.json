@@ -1,0 +1,11 @@
+{
+  "replySha256": "85bc1cb09898681de139e7c7fc409f55e2edfcba4611e4cc60e24d4cba14d5e5",
+  "verdict": "pass",
+  "findings": [
+    "Style only: the success line \"You will know it is connected when it shows in Accounts\" proves an account is listed, not that a reconnected one now works (step 3 itself allows \"listed but not working\"); this is harmless here because the customer asked which accounts are connected, and the line answers exactly that."
+  ],
+  "checkedAt": "2026-11-18T21:09:05Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "which-accounts-connected"
+}

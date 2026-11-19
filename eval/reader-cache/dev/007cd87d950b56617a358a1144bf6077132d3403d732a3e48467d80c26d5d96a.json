@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 3919,
+ "verdict": {
+  "points": [
+   {
+    "point": "LinkedIn comments and DMs in Inbox",
+    "sentence": "Publishing support for other platforms does not add their conversations to Inbox."
+   },
+   {
+    "point": "TikTok comments and DMs in Inbox",
+    "sentence": "Publishing support for other platforms does not add their conversations to Inbox."
+   },
+   {
+    "point": "Which platforms Inbox covers (Instagram works)",
+    "sentence": "Blotato's Inbox combines comments and direct messages from connected Instagram accounts and Facebook Pages."
+   }
+  ],
+  "pick": "supported-inboxes",
+  "reason": "The supported-inboxes entry states Inbox covers only Instagram and Facebook Pages and that connecting other platforms does not add their conversations."
+ },
+ "at": "2026-11-18T19:58:59.085Z"
+}

@@ -69,7 +69,24 @@ function windowAround(text, mark, before = 200, after = 220) {
   return { text: pre + text.slice(s, e) + post, mark: [mark[0] - s + pre.length, mark[1] - s + pre.length] };
 }
 
-export function pageContext(page, quote) {
+// A quote can sit on its page more than once ("Retry from Posts > Failed." is in the rate-limit row and in the
+// TikTok row of the Errors page). `hints` (the reply's other quotes and its title) pick the place the answer is
+// about: the block, and the table row, that holds the most of them (Nov 18, 2026: a TikTok answer showed the
+// rate-limit row as its proof). With no hints, or a tie, the first place wins, as before.
+const HINT_STOP = new Set('the and for with that this from your you are can not but have has was will when then into what which them they their there here only also more must does done been were each'.split(' '));
+function hintScore(text, hints) {
+  if (!hints?.length || !text) return 0;
+  const words = new Set((cleanText(text).toLowerCase().match(/[a-z0-9]{3,}/g) || []).filter(w => !HINT_STOP.has(w)));
+  let s = 0;
+  for (const h of hints) {
+    if (findQuote(text, h)) { s += 100; continue; }
+    for (const w of new Set((cleanText(h).toLowerCase().match(/[a-z0-9]{3,}/g) || []).filter(x => !HINT_STOP.has(x)))) if (words.has(w)) s += 1;
+  }
+  return s;
+}
+const bestBy = (list, score) => list.reduce((b, x) => (b === null || score(x) > score(b) ? x : b), null);
+
+export function pageContext(page, quote, hints = []) {
   if (!page?.text) return null;
   const lines = page.text.split('\n');
   const title = readable((lines.find(l => /^# /.test(l)) || '').replace(/^# /, '')) || null;
@@ -85,7 +102,10 @@ export function pageContext(page, quote) {
     cur.push(l);
   }
   flush();
-  let i = blocks.findIndex(b => findQuote(b.text, quote));
+  const holding = blocks.map((b, k) => k).filter(k => findQuote(blocks[k].text, quote));
+  // In a table block, the score is the best row's (another row's words must not pull the block).
+  const blockScore = (k) => { const rows = rowsWith(blocks[k].raw, quote); return rows.length ? Math.max(...rows.map(r => hintScore(r, hints))) : hintScore(blocks[k].text, hints); };
+  let i = holding.length > 1 && hints.length ? bestBy(holding, blockScore) : (holding[0] ?? -1);
   let block;
   if (i >= 0) block = blocks[i];
   else {
@@ -96,15 +116,17 @@ export function pageContext(page, quote) {
     if (!hit) return { title, heading: null, before: null, text: null, mark: null, after: null, found: false };
     block = { heading: hit[0], text: hit[1] };
   }
-  const where = findQuote(block.text, quote);
+  let where = findQuote(block.text, quote);
+  // The row the hints point to, and the quote's place inside that row (not its first place in the table).
+  const row = block.raw ? tableRow(block.raw, quote, hints) : null;
+  if (row?.text) { const at = block.text.indexOf(row.text); const inRow = at >= 0 ? findQuote(row.text, quote) : null; if (inRow) where = [at + inRow[0], at + inRow[1]]; }
   const w = windowAround(block.text, where);
   const near = (k) => (i >= 0 && blocks[k] && blocks[k].heading === block.heading ? windowAround(blocks[k].text, null).text : null);
   // Added for round 3 (additive): the quote's own setting, so the page can show it whole.
   const extra = {};
   const code = codeAround(fences, quote);
   if (code) extra.code = code;
-  const row = block.raw ? tableRow(block.raw, quote) : null;
-  if (row) extra.row = row;
+  if (row) extra.row = { head: row.head, cells: row.cells };
   const list = i >= 0 && where ? listAfter(block, blocks[i + 1], where) : null;
   if (list) extra.list = list;
   return { title, heading: block.heading === title ? null : block.heading, before: near(i - 1), text: w.text, mark: w.mark, after: near(i + 1), found: true, ...extra };
@@ -127,13 +149,23 @@ function codeAround(fences, quote) {
 }
 
 // A table row that holds the quote: the table's header cells and that row's cells.
-function tableRow(raw, quote) {
-  const rows = raw.filter(l => /^\s*\|/.test(l));
+// With hints, the row that holds the most of them (see pageContext); `text` is the row as readable text.
+function tableBody(raw) {
+  const rows = (raw || []).filter(l => /^\s*\|/.test(l));
   if (rows.length < 2) return null;
+  return rows.filter(l => !/^\s*\|[\s|:-]+\|?\s*$/.test(l));
+}
+function rowsWith(raw, quote) {
+  const body = tableBody(raw);
+  return body ? body.slice(1).map(l => readable(l.replace(/\|/g, ' '))).filter(t => findQuote(t, quote)) : [];
+}
+function tableRow(raw, quote, hints = []) {
+  const body = tableBody(raw);
+  if (!body) return null;
   const cells = (l) => l.trim().replace(/^\||\|$/g, '').split('|').map(c => readable(c));
-  const body = rows.filter(l => !/^\s*\|[\s|:-]+\|?\s*$/.test(l));
-  const hit = body.slice(1).find(l => findQuote(readable(l.replace(/\|/g, ' ')), quote));
-  return hit ? { head: cells(body[0]), cells: cells(hit) } : null;
+  const hits = body.slice(1).filter(l => findQuote(readable(l.replace(/\|/g, ' ')), quote));
+  const hit = hits.length > 1 && hints.length ? bestBy(hits, l => hintScore(readable(l.replace(/\|/g, ' ')), hints)) : hits[0];
+  return hit ? { head: cells(body[0]), cells: cells(hit), text: readable(hit.replace(/\|/g, ' ')) } : null;
 }
 
 // A sentence that ends in a colon and introduces a list: the list's items, as written.
@@ -150,6 +182,11 @@ function listAfter(block, next, where) {
 function view(r, env, trace) {
   const pages = r.pages || {};
   const ctx = (url, quote) => (url && quote ? pageContext(pages[pageUrl(url)] || pages[url], quote) : null);
+  // A step's proof sits where the reply's other quotes from the same page are (its row or section), with the
+  // entry's title as a tie-break hint, never just at the quote's first place on the page.
+  const quoteOf = (s) => s.cite?.quote ?? s.quote;
+  const hintsFor = (s) => [...(r.steps || []).filter(o => o !== s && quoteOf(o) && pageUrl(o.cite?.url ?? o.url ?? '') === pageUrl(s.cite?.url ?? s.url ?? '')).map(quoteOf), r.entry?.title].filter(Boolean);
+  const stepCtx = (s) => { const url = s.cite?.url ?? s.url; const q = quoteOf(s); return url && q ? pageContext(pages[pageUrl(url)] || pages[url], q, hintsFor(s)) : null; };
   return {
     fresh: r.fresh,
     // Which path wrote the reply ('saved' or 'composed'), and for a composed one its steps with their quoted
@@ -158,9 +195,9 @@ function view(r, env, trace) {
     composed: r.composed || null,
     mock: isMock(env),
     ticket: r.ticket, entry: r.entry, status: r.status, outcome: r.outcome, seenBefore: r.seenBefore,
-    evidence: r.evidence ? { kind: r.evidence.kind, ok: r.evidence.ok, summary: r.evidence.summary, calls: r.evidence.calls, searched: r.evidence.searched, status: r.evidence.status, missing: r.evidence.missing } : null,
-    steps: (r.steps || []).map(s => ({ type: s.type, text: s.text, url: s.cite?.url ?? s.url, quote: s.cite?.quote ?? s.quote, page: ctx(s.cite?.url ?? s.url, s.cite?.quote ?? s.quote) })),
-    reply: r.reply, next: r.next, check: r.check, refused: r.refused || null,
+    evidence: r.evidence ? { kind: r.evidence.kind, ok: r.evidence.ok, summary: r.evidence.summary, technical: r.evidence.technical || null, calls: r.evidence.calls, searched: r.evidence.searched, status: r.evidence.status, missing: r.evidence.missing } : null,
+    steps: (r.steps || []).map(s => ({ type: s.type, text: s.text, url: s.cite?.url ?? s.url, quote: s.cite?.quote ?? s.quote, page: stepCtx(s) })),
+    reply: r.reply, next: r.next, check: r.check, refused: r.refused || null, handover: !!r.handover,
     escalationText: r.escalationText, docEditText: r.docEditText,
     // Added for the page: the same two notes as data, and where a proposed edit sits on its page.
     escalation: r.escalation || null,
@@ -204,7 +241,7 @@ function tracedDesk(desk, emit) {
     search: async (q) => {
       const s = performance.now();
       const r = await desk.docs.search(q);
-      emit({ t: 'search', query: q, results: r.results.length, offline: !!r.offline, ms: ms(s), at: ms(t0) });
+      emit({ t: 'search', query: q, results: r.results.length, offline: !!r.offline, saved: !!r.saved, savedAt: r.savedAt || null, pagesSearched: r.pagesSearched || null, error: r.error ? true : undefined, ms: ms(s), at: ms(t0) });
       return r;
     },
   };

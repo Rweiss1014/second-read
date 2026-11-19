@@ -1,0 +1,12 @@
+{
+  "replySha256": "e8171690eb4c639358d15316caa8c61eda1ec0e347f25db8a69b0917d19f0a75",
+  "verdict": "pass",
+  "findings": [
+    "Style note, not misleading: steps 4 and 5 ('The same steps switch you between monthly and yearly billing...' and 'Stripe prorates the charge...') state facts rather than actions, so the reply has three action steps plus two notes; both match the cited page text.",
+    "Style note, not misleading: the success line 'You will know it worked when the Billing Portal shows your new plan' is not stated on either cited page, but it is a reasonable check and promises nothing."
+  ],
+  "checkedAt": "2026-11-18T18:42:59Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "change-plan"
+}

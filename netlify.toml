@@ -1,0 +1,16 @@
+# Second Read, the free public site.
+# dist/ is the published folder (public/ plus the header mark, built by `npm run build:site`). One function answers /api/*; its data (saved verdicts and the help
+# pages) is built by `npm run build:site` into netlify/site-data/ and travels only inside the function bundle.
+[build]
+  publish = "dist"
+  command = "node scripts/build-site.mjs"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+  included_files = ["knowledge/**", "examples/reviews/**", "public/examples/**", "public/art/**", "netlify/site-data/**"]
+
+[dev]
+  framework = "#static"
+  publish = "dist"
+  autoLaunch = false

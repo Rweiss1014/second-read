@@ -1,0 +1,15 @@
+{
+  "replySha256": "a59bd9111f6f99f950a445ca1e322107be966e396cc954d73ac1edc0c72a7eb9",
+  "verdict": "pass",
+  "findings": [
+    "Steps 1 and 2 match the page word for word ('saves about 17% compared to paying month to month', 'you pay for 10 months and get 12').",
+    "Step 3 folds the page's steps 1 to 4 into one line in the same order (Settings > Billing, View Billing Portal, purple Update subscription button, yearly option); 'for your plan' is a fair reading of 'for the plan you want' for a customer staying on the same plan.",
+    "Step 5 matches the page ('You do not need to cancel your monthly subscription first. Stripe prorates the charge ... your credits and scheduled posts stay in place').",
+    "Style note only: the success line 'the Billing Portal shows yearly billing for your plan' is not quoted from the page, but it is a plain check of the result, not a promise, and would not mislead.",
+    "Style note only: the page has a fix for 'I don't see the yearly option' (log out and back in, clear cache, then support chat); the reply leaves it out, which is acceptable since the help link leads there."
+  ],
+  "checkedAt": "2026-11-18T19:57:47Z",
+  "checker": "reply-checker",
+  "model": "claude-opus-5-5",
+  "entry": "yearly-plan-discount"
+}

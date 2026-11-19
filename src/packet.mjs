@@ -70,7 +70,7 @@ export function buildPacket(d, { mock = false, verdictPath } = {}) {
     lines.push(`What was looked up: ${(d.evidence.calls || []).join(' | ') || 'no calls'}`);
     lines.push(`Did the lookup succeed: ${d.evidence.ok ? 'yes' : 'no'}`);
     lines.push(`What it found: ${d.evidence.technical || d.evidence.summary || 'nothing'}`);
-    if (d.evidence.technical && d.evidence.technical !== d.evidence.summary) lines.push('(The reply writes dates the way a person would, in UTC, and leaves post ids out. Those are the same moments as the raw stamps above.)');
+    if (d.evidence.technical && d.evidence.technical !== d.evidence.summary) lines.push('(The reply leaves out post ids and any note for the team, and writes times the way a person would. They are the same facts as above.)');
     if (mock && d.evidence.kind !== 'docs-search') lines.push('(Sample account data, no account connected.)');
   } else lines.push('No account lookup was made for this reply.');
   lines.push('');

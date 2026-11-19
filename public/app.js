@@ -130,7 +130,7 @@ function plainQuote(s) {
 
 // Technical terms inside a letter or a quote: calls, paths, status codes, ids. Works on escaped text.
 const STATUS = '(?:200|201|204|400|401|403|404|409|422|429|500|502|503|504)';
-function termify(h) {
+function termify(h, { keepQuotes = false } = {}) {
   const parts = [];
   const keep = (s) => { parts.push(s); return `\u0000${parts.length - 1}\u0000`; };
   let t = String(h);
@@ -147,27 +147,17 @@ function termify(h) {
   t = t.replace(/\b[a-z][a-zA-Z0-9]*(?:[._][a-zA-Z0-9{}]+)+\b(?!\.[a-z])/g, (m) => /^(?:e\.g|i\.e)$/.test(m) ? m : keep(`<code class="term">${m}</code>`));
   t = t.replace(/\b(?:[a-z]+[A-Z][a-zA-Z]*|bigint|blotato-api-key)\b/g, (m) => keep(`<code class="term">${m}</code>`));
   // A quoted term is already marked by its own face: drop the quote marks around it, so no stray spaces show.
-  t = t.replace(/(?:&quot;|&#39;)(\u0000\d+\u0000)(?:&quot;|&#39;)/g, '$1');
+  if (!keepQuotes) t = t.replace(/(?:&quot;|&#39;)(\u0000\d+\u0000)(?:&quot;|&#39;)/g, '$1');
   return t.replace(/\u0000(\d+)\u0000/g, (m, i) => parts[+i]);
 }
 
-// The reply as the letter shows it: dates read like a person wrote them, ids only in the technical view.
-// (The copy button gives the exact text the checker read.)
+// The reply as the letter shows it: the same words, letter for letter, as the copied reply and as the text the
+// checker read (Nov 18, 2026: the letter dropped quote marks and rewrote dates, so Copy gave different text from the
+// letter on screen). Only the look changes: code terms in their own face, a help link as a link.
 function letterText(s) {
-  const DATE = /\b(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun), (\d{1,2}) (\w{3}) (\d{4}) (\d\d):(\d\d):(\d\d) (?:UTC|GMT)\b/g;
-  const dates = [];
-  let t = String(s ?? '').replace(DATE, (m, d, mon, y, H, M, S) => { dates.push([m, Date.parse(`${mon} ${d}, ${y} ${H}:${M}:${S} GMT`)]); return `\u0001${dates.length - 1}\u0001`; });
-  t = termify(esc(t))
-    .replace(/\u0001(\d+)\u0001/g, (m, i) => { const [raw, ms] = dates[+i]; return Number.isNaN(ms) ? esc(raw) : `<span class="plain-only">${esc(when(ms))}</span><span class="tech-only">${esc(raw)}</span>`; })
-    .replace(/ \(((?:post|id) [\w-]+)\)/g, '<span class="tech-only postid"> ($1)</span>')
-    .replace(/\b(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday), (\w{3}) (\d{1,2}), at (\d{1,2}):(\d\d) (am|pm) UTC\b/g, (m, mon, d, h, mi, ap) => {
-      const ms = Date.parse(`${mon} ${d}, ${new Date().getFullYear()} ${(+h % 12) + (ap === 'pm' ? 12 : 0)}:${mi}:00 GMT`);
-      return Number.isNaN(ms) ? m : `<span class="plain-only">${esc(when(ms))}</span><span class="tech-only">${m}</span>`;
-    })
-    // A post's link reads as a short link in the letter; the copied reply keeps the full address.
-    // (termify has already wrapped the address as a web link by now, so match it in either form)
-    .replace(/Here it is: (?:<span class="url weblink">(https?:\/\/[^\s<]+)<\/span>|(https?:\/\/[^\s<]+))/g, (m, a, b) => `Here it is: <a class="postlink" href="${a || b}" target="_blank" rel="noopener">open the post</a>`);
-  return t;
+  return termify(esc(String(s ?? '')), { keepQuotes: true })
+    // A post's link stays its full address, as a link.
+    .replace(/<span class="url weblink">(https?:\/\/[^\s<]+)<\/span>/g, (m, a) => `<a class="postlink" href="${a}" target="_blank" rel="noopener">${a}</a>`);
 }
 
 // One plain line above a technical reply, written per sample message. True to what each reply says.
@@ -181,7 +171,7 @@ const PLAIN_LINES = {
   T09: 'Their code asked Blotato to make a LinkedIn post, but no answer came back, so they do not know if it worked. The reply says to look for the post before sending it again, so it does not go out twice.',
   T10: 'They are waiting on a post that still says "in progress". The reply explains that this can also mean Blotato has no record of that number, and asks them not to post it again yet.',
   T11: 'Their code asked for a schedule with the wrong kind of id. The reply tells them which id to use, and the desk tells a person on the team so the help page can be fixed.',
-  T12: 'They want a safe place to test their code without posting for real. The help pages do not say if there is one, so the reply says so and passes the question to the team.',
+  T12: 'They want a safe place to test their code without posting for real. None of the saved help pages mentions one, so the reply says so and passes the question to the team.',
 };
 // The note for a person on the team in plain words, for the one sample whose note is written in code terms. The exact note
 // is in the details for engineers, and Copy gives it word for word. In the same order as the desk's note.
@@ -202,7 +192,7 @@ const GUARD_PLAIN = {
   secret: 'The desk never shares a key, a password or its own settings. A person will look at this.',
   'staff-action': 'The desk only reads. It cannot post, delete or change anything on an account, so a person on the team will do this.',
   'desk-instructions': 'The message tells the desk what to do instead of asking a question, so a person will read it.',
-  'needs-person': 'The customer already tried the steps on the help page, or the problem goes past what the help pages cover, so a person will look at it.',
+  'needs-person': 'The customer already tried the usual steps, or the case needs more than the desk\'s saved answer, so a person will look at it.',
 };
 // The desk's named reason for a hand-over (match.why), one short, kind sentence each. The code itself shows
 // only in the details for engineers. Without a code (older data) the page falls back to the route's decision.
@@ -217,25 +207,35 @@ const WHY_PLAIN = {
   'records-disagree': 'Two of Blotato\'s records do not match, so a person on the team will look at both.',
   'docs-wrong': 'The customer says the help pages are wrong, so a person on the team will check them.',
   'access-blocked': 'The customer cannot reach the screen the steps need, so a person on the team will help.',
-  'past-docs': 'This goes past what the help pages cover, so a person on the team will answer it.',
+  'past-docs': 'The desk\'s saved answer does not cover this exact case, so a person on the team will answer it.',
   pressure: 'The customer is very upset and wants it fixed now, so a person on the team will answer this one, quickly.',
-  'docs-silent': 'The help pages do not cover this yet, so the desk will not guess.',
+  'docs-silent': 'This demo has no checked answer for this one yet, so a person on the team will take it.',
   tie: 'The desk could not tell which of two questions this is, so it will not guess.',
   'partly-covered': 'The message asks more than one thing. The desk answers the part the help pages cover, and a person on the team takes the rest.',
   'not-english': 'The desk can only read English for now, so a person on the team will answer this one.',
-  'no-coverage': 'None of Blotato\'s help pages answers this, so the desk will not guess.',
+  'no-coverage': 'This demo has no checked answer for this one yet, so a person on the team will take it.',
   nonsense: 'That does not look like a question about Blotato. Try asking about your posts, your account or your plan.',
   'compose-unverified': 'The desk tried to write an answer from the help pages, but a step said more than the page does, so a person on the team will answer.',
   'second-read-objected': 'The desk wrote an answer from the help pages, and a second read found a problem with it, so a person on the team will answer.',
 };
 const whyOf = (r) => r.route?.why || r.match?.why || null;
+// The help-page search could not run at all (no network and no saved pages): the desk checked only its own saved
+// answers, so it must never say it looked through Blotato's help pages (Nov 18, 2026).
+// searchedSaved: the free demo has no network, so it searched its saved copies of the help pages. That is a real
+// search of copies, said as such, and a miss there is never called proof that the help pages are silent.
+const searchSkipped = (r) => { const s = (r.trace || []).filter(e => e.t === 'search'); return s.length > 0 && s.every(e => e.offline && !e.saved); };
+const searchedSaved = (r) => (r.trace || []).some(e => e.t === 'search' && e.saved);
+const savedTitles = (r, n = 3) => [...new Set((r.evidence?.searched || []).flatMap(q => (q.results || []).map(x => String(x.title || '').split(' > ')[0]).filter(Boolean)))].slice(0, n);
+const andList = (a) => a.length <= 1 ? (a[0] || '') : `${a.slice(0, -1).join(', ')} and ${a[a.length - 1]}`;
+const SAVED_ONLY = 'This demo has no checked answer for this one yet, so a person on the team will take it.';
 function whyPlain(r) {
   const w = whyOf(r); if (!w || !WHY_PLAIN[w]) return null;
-  const d = r.route?.whyDetail || r.match?.whyDetail || null;
-  // The desk had near candidates but none it trusted: it was not sure, which is not the same as "no page answers this".
-  if (w === 'no-coverage' && (r.route?.candidates || []).length) return 'The desk was not sure which help page this is about, so it did not guess.';
-  const item = w === 'docs-silent' && d?.item ? String(d.item).trim() : '';
-  return item && item.length < 40 ? `${WHY_PLAIN[w]} They say nothing about \u201c${item}\u201d.` : WHY_PLAIN[w];
+  // Never "no help page answers this": the desk checked its saved answers, and no search proves a page is silent.
+  // With near candidates but none it trusted, it was not sure, which is not the same as "no page answers this".
+  if (w === 'no-coverage' && (r.route?.candidates || []).length) return 'The desk was not sure which of its saved answers this is about, so it did not guess.';
+  if (w === 'no-coverage' || w === 'docs-silent') return SAVED_ONLY;
+  // Never the raw item the check pulled out ("middle, price"): it reads as broken to a customer (Nov 18, 2026).
+  return WHY_PLAIN[w];
 }
 function personReason(r) {
   const named = whyPlain(r); if (named) return named;
@@ -267,7 +267,7 @@ function refusalReason(r) {
   const d = r.route?.decision; const g = r.route?.guard;
   if (d === 'guard' && GUARD_PLAIN[g]) return GUARD_PLAIN[g];
   if ((r.route?.candidates || []).length) return 'The desk could not tell for sure which question this is, so it did not write a reply.';
-  return 'None of Blotato\'s help pages answers this message, so the desk did not write a reply.';
+  return SAVED_ONLY; // never "no help page answers this": no search proves that
 }
 const TRY_THIS = "Blotato says my post is published but I can't see it on Instagram.";
 
@@ -278,6 +278,7 @@ let pmN = 0;
 const STAMPS = {
   checked: { word: 'CHECKED', top: 'SECOND CHECKER', sub: 'SAFE TO SEND', label: 'Checked by a second checker. Safe to send.' },
   stopped: { word: 'STOPPED', top: 'SECOND CHECKER', sub: 'DO NOT SEND', label: 'Stopped by the second checker. Do not send.' },
+  'script-stopped': { word: 'STOPPED', top: 'SCRIPT CHECK', sub: 'DO NOT SEND', label: 'Stopped by the script check. Do not send.' },
   helped: { word: 'HELPED', top: 'YOUR FIRST SHIFT', sub: 'GOOD FIRST MOVE', label: 'Helped. A good first move.' },
   oops: { word: 'OOPS', top: 'YOUR FIRST SHIFT', sub: 'NOT THIS TIME', label: 'Oops. Not this time.' },
   missed: { word: 'MISSED', top: 'YOUR FIRST SHIFT', sub: 'TRY AGAIN', label: 'Missed this one.' },
@@ -425,6 +426,10 @@ function stateOf(r) {
   return 'draft';
 }
 const sealOf = (st) => (st === 'checked' || st === 'stopped' ? st : null);
+// Who stopped a stopped reply: the script check (it runs first, on every reply) or the second checker (it reads
+// only what the script passed). Every line names the one that really did it (Nov 18, 2026: the headline said "a
+// second checker stopped it" while the engineer view said the second checker had not read it).
+const stoppedBy = (r) => (r.check && !r.check.pass ? 'script' : 'checker');
 
 function plainEvidence(ev) {
   if (!ev) return 'The desk did not need to look at the account for this one.';
@@ -438,8 +443,8 @@ function plainEvidence(ev) {
   if (ev.kind === 'recent-activity') return s.replace(/^from/, 'From').replace(/ I see /, ', the account shows ').replace(/\s*\((?:id|post) [^)]*\)/g, '').replace(/(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun), (\d{1,2}) (\w{3}) (\d{4}) (\d\d:\d\d:\d\d) (?:UTC|GMT)/g, (m, d, mon, y, hms) => { const t = Date.parse(`${mon} ${d}, ${y} ${hms} GMT`); return Number.isNaN(t) ? m : when(t); });
   if (ev.kind === 'submission') return ev.missing ? 'There was no post number in the message, so the desk could not look it up.' : `The desk looked up this post. Blotato says it is "${ev.status}".`;
   // On the practice account the same lookup gives back the answer Blotato's real API gave on Nov 15, 2026 (src/diagnose.mjs).
-  if (ev.kind === 'reproduce-schedule') return ev.missing ? 'There was nothing in the message the desk could try again.' : ev.ok ? (/^The practice account answers/.test(s) ? "The desk tried the same lookup on the practice account. It gives back the error Blotato's real system gave on Nov 15, 2026." : 'The desk tried the same thing on the account and got the same error back.') : 'The desk tried the same thing and got a different answer back.';
-  if (ev.kind === 'docs-search') return "The desk searched Blotato's help pages for the question.";
+  if (ev.kind === 'reproduce-schedule') return ev.missing ? 'There was nothing in the message the desk could try again.' : ev.ok ? (/^The practice account answers/.test(ev.technical || s) ? "The desk tried the same lookup on the practice account. It gives back the error Blotato's real system gave on Nov 15, 2026." : 'The desk tried the same thing on the account and got the same error back.') : 'The desk tried the same thing and got a different answer back.';
+  if (ev.kind === 'docs-search') return ev.ok ? ((ev.searched || []).some(q => q.saved) ? "The desk searched its saved copies of Blotato's help pages for the question." : "The desk searched Blotato's help pages for the question.") : 'The desk could not search the help pages this time.';
   // Account first: the same facts as the reply, with the time in the reader's own time zone and no raw link.
   if (ev.kind === 'publish-check' || ev.kind === 'connected-accounts') return s.replace(/ Here it is: \S+/g, '')
     .replace(/\b(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday), (\w{3}) (\d{1,2}), at (\d{1,2}):(\d\d) (am|pm) UTC\b/g, (m, mon, d, h, mi, ap) => {
@@ -474,14 +479,20 @@ function wholeSentences(s, max, fromEnd) {
 const tq = (s) => termify(esc(s));
 // The words around the lit part belong to the same sentence, so they always stay (round 6): a proof starts at its
 // sentence's start and ends at its end. Only whole sentences, lists and table cells outside it ever fold away.
-const sentenceHTML = (page) => { const x = sentence(page); return `${tq(x.pre)}<mark>${tq(x.mark)}</mark>${tq(x.post)}`; };
+// A numbered list run together on the page ("Open the AI Agent. 3. Select New draft. 4. Click...") reads as stray
+// numbers in a proof: the item numbers are left out where the proof is shown (Nov 18, 2026).
+const unlist = (s) => String(s || '').replace(/(^|[\s:.!?])\d{1,2}[.)]\s+(?=[A-Z"“'(])/g, '$1');
+// The words before the lit sentence: an item number right before it ("Billing 2." + "Click ...") goes too.
+const unlistBefore = (s, lit) => { const u = unlist(s); return /^\s*[A-Z"“'(]/.test(lit) ? u.replace(/(^|[\s:.!?])\d{1,2}[.)]\s*$/, '$1') : u; };
+const sentenceHTML = (page) => { const x = sentence(page); return `${tq(unlistBefore(x.pre, x.mark))}<mark>${tq(unlist(x.mark))}</mark>${tq(unlist(x.post))}`; };
 // A page's name beside its sentence. A long name gets its own line, so it never pushes one word onto a line alone.
 const srcHTML = (src) => `<span class="src${String(src).length > 24 ? ' long' : ''}">${esc(src)}</span>`;
 function paragraphHTML(page) {
   const t = page.text; const [s, e] = page.mark;
-  const clean = (x) => tq(String(x || '').replace(/^\.\.\.\s*/, '').replace(/\s*\.\.\.$/, ''));
+  const trim = (x) => String(x || '').replace(/^\.\.\.\s*/, '').replace(/\s*\.\.\.$/, '');
+  const clean = (x) => tq(unlist(trim(x)));
   // Only the sentence's own paragraph: a neighbor block can be a list run together with no stops.
-  return `<span class="dim">${clean(t.slice(0, s))}</span><mark>${tq(t.slice(s, e))}</mark><span class="dim">${clean(t.slice(e))}</span>`;
+  return `<span class="dim">${tq(unlistBefore(trim(t.slice(0, s)), t.slice(s, e)))}</span><mark>${tq(unlist(t.slice(s, e)))}</mark><span class="dim">${clean(t.slice(e))}</span>`;
 }
 const loose = (s) => String(s || '').toLowerCase().replace(/[`*_"'\s]+/g, ' ').replace(/[.:,]+$/, '').trim();
 // A code example: only the lines that hold the quote (whole lines), or every line with them marked.
@@ -519,7 +530,7 @@ const listHTML = (items) => `<ul class="plist">${items.map(i => {
   const m = String(i).match(/^(.*?)\s*(\((?:DELETE|GET|POST|PUT|PATCH) [^)]*\))\s*$/);
   return `<li>${m ? `${tq(m[1])}<span class="tech-only"> ${tq(m[2])}</span>` : tq(i)}</li>`;
 }).join('')}</ul>`;
-const plainLineHTML = (s) => { const p = plainQuote(s); return p ? `<p class="pline plain-only"><b>In plain words:</b> ${esc(p)}</p>` : ''; };
+const plainLineHTML = (s) => { const p = plainQuote(unlist(s)); return p ? `<p class="pline plain-only"><b>In plain words:</b> ${esc(p)}</p>` : ''; };
 
 // One proof: the compact form that fits its row, the long form that opens when you point at it,
 // and the page's name, small, beside the sentence.
@@ -603,7 +614,7 @@ function tailHTML(paras, r) {
     return p.split('\n').map(line => {
       if (/^Next step:/.test(line)) return `<p class="next${flagNext ? ' flag' : ''}">${letterText(line).replace(/^Next step:/, '<b>Next step:</b>')}</p>`;
       const m = line.match(/^Help page: (https:\/\/\S+)$/);
-      if (m) return `<p class="helplink">Help page: <a href="${esc(m[1])}" target="_blank" rel="noopener">${esc(m[1].replace('https://', ''))}</a></p>`;
+      if (m) return `<p class="helplink">Help page: <a href="${esc(m[1])}" target="_blank" rel="noopener">${esc(m[1])}</a></p>`;
       return `<p>${letterText(line)}</p>`;
     }).join('');
   }).join('');
@@ -621,7 +632,12 @@ function plainChecked(r) {
   const pages = new Set(trace.filter(e => e.t === 'page').map(e => e.url)).size;
   const parts = [];
   if (pages) parts.push(`I read ${pages === 1 ? "one of Blotato's help pages" : `${pages} of Blotato's help pages`}.`);
-  if (trace.some(e => e.t === 'search' && !e.offline)) parts.push('I searched the help pages for the question, and none of them answers it.');
+  // Never "none of them answers it": a search's ranking is not proof of what a page does or does not say.
+  const near = savedTitles(r);
+  const nearLine = near.length ? ` The closest pages it found: ${andList(near)}.` : ' It found no close page.';
+  if (trace.some(e => e.t === 'search' && !e.offline && !e.error)) parts.push(`I searched the help pages for the question.${nearLine} None of the desk's saved, checked answers fits, so I did not write one.`);
+  else if (searchedSaved(r)) parts.push(`I searched this demo's saved copies of the help pages.${nearLine} None of the desk's saved, checked answers fits, so I did not write one.`);
+  else if (trace.some(e => e.t === 'search')) parts.push('I checked the desk\'s saved, checked answers, and none of them fits. The help-page search could not run.');
   if (r.evidence && r.evidence.kind !== 'docs-search') parts.push(plainEvidence(r.evidence).replace(/^The desk /, 'I '));
   return parts.join(' ') || 'Nothing could be checked.';
 }
@@ -641,7 +657,7 @@ function noteHTML(r, own = true, lead = false) {
       <p>A customer wrote: <span class="cq">&ldquo;${esc(e.asked)}&rdquo;</span></p>
       <p><b>Why it needs you.</b> <span class="plain-only">${esc(personReason(r) || refusalReason(r))}</span><span class="tech-only">${termify(esc(why))}</span></p>
       <p><b>What I checked.</b> ${esc(plainChecked(r))}</p>
-      ${causes.length ? `<p><b>What I think it is:</b></p>${li(causes, pn.causes)}` : '<p><b>What I think it is.</b> Not known yet. The help pages have no answer, so I will not guess.</p>'}
+      ${causes.length ? `<p><b>What I think it is:</b></p>${li(causes, pn.causes)}` : (whyOf(r) === 'money' || e.money ? '<p><b>What I think it is.</b> A billing question for you. I cannot see payments, so I will not guess the cause.</p>' : (r.handover ? '<p><b>What I think it is.</b> Not known yet. The customer gets a checked letter that hands this to you. It answers nothing, so I will not guess the cause.</p>' : '<p><b>What I think it is.</b> Not known yet. There is no checked answer for this, so I will not guess.</p>'))}
       ${(e.ruledOut || []).length ? `<p><b>What I ruled out:</b></p>${li(e.ruledOut, pn.ruledOut)}` : ''}
     </div>
     <div class="note-act"><button type="button" class="${lead ? 'btn' : 'btn-quiet'}" data-copy="sabrina">Copy the note</button><span class="copied" data-copied="sabrina" aria-live="polite"></span></div>
@@ -712,7 +728,8 @@ function verdictHTML(r, st, typed = false) {
     // A typed message gets a reply the desk has given before. Say plainly what the check covers: the reply's words.
     // What the date means is said once, at the top (practiceHTML); here only the record.
     void typed;
-    const what = `A second checker passed these exact words${at ? ` on ${esc(at)}` : ''}.`;
+    const words = f.scope === 'words' ? 'the words of this reply' : 'these exact words';
+    const what = `A second checker passed ${words}${at ? ` on ${esc(at)}` : ''}.${r.handover ? ' It is a hand-over letter: it tells the customer a person will answer, and it answers nothing itself.' : ''}`;
     return `<div class="verdict" style="--tone: var(--pass)"><p class="v1">${what}</p>${disclose('How was it checked?', `<p>${SECOND} The desk found this answer live just now. The second checker read the same words earlier.${notes ? ` It left ${notes === 1 ? 'one small note' : `${notes} small notes`}, which the engineer view shows.` : ''}</p>`)}</div>`;
   }
   if (st === 'stopped') {
@@ -761,44 +778,63 @@ function mdHTML(src) {
   close();
   return `<div class="md">${out.join('')}</div>`;
 }
+// The reason code as the engineer view shows it. "docs-silent" (an exam label) only ever meant that none of the
+// desk's saved, checked answers covers the message; the help pages were not proven silent (Nov 18, 2026).
+const SHOWN_CODES = { 'docs-silent': 'no-saved-answer', 'no-coverage': 'no-saved-answer' };
+const shownCode = (c) => SHOWN_CODES[c] || c;
+// A checker's note that asked the builders to confirm something, with what was done about it. A to-do never shows
+// on its own (Nov 18, 2026: "confirm the live fill drops the id" sat on the page as an open task).
+const RESOLVED_NOTES = [
+  [/confirm the live fill drops the id and the practice-account sentence/i, 'The letter never holds a post id or the practice-account sentence, with a live account or the practice one; both go only to the note for the team. Tests check it (test/plumbing.test.mjs, test/round2-fixes.test.mjs).'],
+  [/sample wording must never reach a real customer/i, 'The letter says only what the lookup gave. The practice-account sentence ("The real API was not called just now") goes only to the note for the team and this view. A test checks it (test/retest-fixes.test.mjs, item 10).'],
+  [/the desk should confirm those pages were read/i, 'The engineer view lists every search and the titles it found. The reply says only that the top results do not cover a test mode, and hands the question to a person.'],
+];
+function resolvedNote(x) { const hit = RESOLVED_NOTES.find(([re]) => re.test(String(x))); return hit ? hit[1] : null; }
+// What the checker really read. These exact words: the reply itself. Its words with a slot: those words, slot and
+// all, and then the reply as Copy gives it. A stopped reply: Copy is off.
+function checkedTextHTML(r, f) {
+  if (stateOf(r) === 'stopped') return `<h3>The exact text the checker read (stopped, so Copy is off)</h3><pre>${esc(r.reply)}</pre>`;
+  if (f.scope === 'words' && f.template) return `<h3>The words the checker read, with ${f.filled === 'slot' ? 'the fixed-list part' : 'the account facts'} as a slot</h3><pre>${esc(f.template)}</pre><h3>What Copy gives you (the slot filled in just now)</h3><pre>${esc(r.reply)}</pre>`;
+  return `<h3>The exact text the checker read (what Copy gives you)</h3><pre>${esc(r.reply)}</pre>`;
+}
 function techHTML(r) {
   const f = r.fresh || {};
   const calls = (r.trace || []).map(e => {
     if (e.t === 'page') return `<li><span class="what">Read <a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.url.replace('https://', ''))}</a></span><span class="meta">${e.ok ? `${e.fromCache ? 'saved copy' : 'fetched now'}, read ${esc(techTime(e.fetchedAt))}` : 'could not be read'}, ${e.ms} ms</span></li>`;
-    if (e.t === 'search') return `<li><span class="what">Searched the help pages for "${esc(e.query)}"</span><span class="meta">${e.offline ? 'skipped: this copy runs without the network, so it used its saved pages' : `${e.results} results`}, ${e.ms} ms</span></li>`;
+    if (e.t === 'search') return `<li><span class="what">${e.saved ? 'Searched the saved copies of the help pages' : 'Searched the help pages'} for "${esc(e.query)}"</span><span class="meta">${e.saved ? `no network here, so it searched its ${e.pagesSearched || ''} saved pages${e.savedAt ? ` (read ${esc(techTime(e.savedAt))})` : ''}: ${e.results} results` : e.offline ? 'not run: no network and no saved pages' : e.error ? 'could not be reached' : `${e.results} results`}, ${e.ms} ms</span></li>`;
     // In practice mode a schedule lookup gives back a copy of the real API's answer of Nov 15, 2026; every other lookup reads made-up posts.
-    if (e.t === 'call') return `<li><span class="what"><code>${esc(e.method)} ${esc(decodeURIComponent(e.path))}</code></span><span class="meta">HTTP ${esc(e.status ?? 'none')}${e.error ? `, ${esc(e.error)}` : ''}, ${e.ms} ms${r.mock ? (r.evidence?.kind === 'reproduce-schedule' && /^The practice account answers/.test(r.evidence.summary || '') ? ", practice account: a copy of the answer Blotato's real API gave to a read-only lookup on Nov 15, 2026, not a call made now" : ', practice account: made-up sample data') : ''}</span></li>`;
+    if (e.t === 'call') return `<li><span class="what"><code>${esc(e.method)} ${esc(decodeURIComponent(e.path))}</code></span><span class="meta">HTTP ${esc(e.status ?? 'none')}${e.error ? `, ${esc(e.error)}` : ''}, ${e.ms} ms${r.mock ? (r.evidence?.kind === 'reproduce-schedule' && /^The practice account answers/.test(r.evidence.technical || r.evidence.summary || '') ? ", practice account: a copy of the answer Blotato's real API gave to a read-only lookup on Nov 15, 2026, not a call made now" : ', practice account: made-up sample data') : ''}</span></li>`;
     if (e.t === 'model' && e.phase !== 'start') return `<li><span class="what">${esc({ expand: 'Model call: search words for the help pages', write: 'Model call: the writer', second: 'Model call: the second reader' }[e.kind] || `Model call: ${e.kind}`)}</span><span class="meta">${esc(String(e.model || '').replace(/^claude-/, ''))}, ${e.phase === 'error' ? 'failed, ' : ''}${e.cached ? 'answer reused from an earlier run of this exact message' : `${e.ms} ms`}</span></li>`;
     return '';
   }).join('');
   const steps = (r.steps || []).map((s, i) => {
     const c = (r.check?.citations || []).find(x => x.step === i + 1);
     const what = s.type === 'fact' ? `Quote from <a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(String(s.url).replace('https://', ''))}</a>` : s.type === 'evidence' ? (r.mock ? 'From the practice account' : 'From the account') : ({ rule: 'A rule of this desk', advice: 'Advice for the customer' }[actionKind(s.text)] || 'An action the desk takes');
-    return `<li><span class="what">Step ${i + 1}. ${what}</span><span class="meta">${s.quote ? `<code>${esc(s.quote)}</code>` : esc(s.type === 'evidence' ? cleanCall(r.evidence?.summary || '') : 'No page to quote.')}${c ? ` ${c.found ? 'Found on the page' : 'NOT found on the page'}${c.fetchedAt ? `, page read ${esc(techTime(c.fetchedAt))}` : ''}.` : ''}</span></li>`;
+    return `<li><span class="what">Step ${i + 1}. ${what}</span><span class="meta">${s.quote ? `<code>${esc(s.quote)}</code>` : esc(s.type === 'evidence' ? cleanCall(r.evidence?.summary || '') + (r.evidence?.technical && /^The practice account/.test(r.evidence.technical) ? ` (Note for the team, not in the letter: ${r.evidence.technical})` : '') : 'No page to quote.')}${c ? ` ${c.found ? 'Found on the page' : 'NOT found on the page'}${c.fetchedAt ? `, page read ${esc(techTime(c.fetchedAt))}` : ''}.` : ''}</span></li>`;
   }).join('');
   const findings = f.findings || f.notes || [];
   const ex = r.example;
-  const searched = (r.evidence?.searched || []).filter(q => !q.offline).map(q => `<li><span class="what">"${esc(q.query)}"</span><span class="meta">${q.results.slice(0, 4).map(x => esc(x.title || x.url)).join(', ') || 'no results'}</span></li>`).join('');
+  const searched = (r.evidence?.searched || []).filter(q => q.ran ?? !q.offline).map(q => `<li><span class="what">"${esc(q.query)}"</span><span class="meta">${q.results.slice(0, 4).map(x => esc(x.title || x.url)).join(', ') || 'no results'}</span></li>`).join('');
   const fstate = { passed: `Passed this exact text${f.checkedAt ? ` on ${esc(techTime(f.checkedAt))}` : ''}.`, blocked: `Stopped this exact text${f.checkedAt ? ` on ${esc(techTime(f.checkedAt))}` : ''}.`, 'passed-saved': `Passed an earlier copy${f.checkedAt ? ` on ${esc(techTime(f.checkedAt))}` : ''}. Today's account lookup changed some words, so this text has not been read.`, stale: 'Its verdict is for an older text.', 'checked-live': `Written for this message. The second reader (${esc(String(f.checker || '').replace(/^second reader \(|\)$/g, ''))}) passed this exact text${f.checkedAt ? ` on ${esc(techTime(f.checkedAt))}` : ''}. No saved verdict exists for new words.`, 'script-checked': 'Written for this message. The second read is turned off, so only the script checked it.', none: 'Not read yet.' }[f.state || 'none'] || 'Not read yet.';
   return `<section class="tech" aria-labelledby="tech-h">
     <h2 id="tech-h">The engineer view</h2>
     <dl class="kv">
       <dt>Account data</dt><dd>${r.mock ? 'Practice account, no real account connected. Its posts are made up; the one error it copies from the real API is marked where it is used.' : 'Live, read-only'}</dd>
-      ${whyOf(r) ? `<dt>Why it went to a person</dt><dd><code>${esc(whyOf(r))}</code>${r.route?.reason || r.match?.reason ? ` ${esc(String(r.route?.reason || r.match?.reason).replace(/\s*\(words: [^)]*\)/, ''))}` : ''}</dd>` : ''}
-      ${r.entry ? `<dt>A saved, checked answer for this kind of message</dt><dd>${f.state === 'passed' ? 'Yes' : 'No'}</dd>` : ''}
+      ${whyOf(r) ? `<dt>${whyOf(r) === 'nonsense' ? 'Why it asked for a clearer message' : 'Why it went to a person'}</dt><dd><code>${esc(shownCode(whyOf(r)))}</code>${r.route?.reason || r.match?.reason ? ` ${esc(String(r.route?.reason || r.match?.reason).replace(/\s*\(words: [^)]*\)/, ''))}` : ''}</dd>` : ''}
+      ${r.entry ? `<dt>${r.handover ? "A saved, checked hand-over letter for this message" : "A saved, checked answer for this kind of message"}</dt><dd>${f.state === 'passed' ? 'Yes' : 'No'}</dd>` : ''}
     </dl>
     ${ex ? `<h3>About this example</h3><p>The first reply the desk wrote to this sample message on Nov 15, rebuilt byte for byte from that day's code. On every load the server hashes this text and compares it with the second checker's saved verdict. The desk was fixed after this verdict, and today's reply to the same message passed.</p><dl class="kv"><dt>Matches the saved verdict</dt><dd>${ex.hashMatches ? 'Yes, checked by the server on this load' : 'NO'}</dd></dl>` : ''}
     <h3>Every read the desk made, in order</h3>
     ${calls ? `<ol class="calls">${calls}</ol>` : '<p>None recorded.</p>'}
-    ${searched ? `<h3>What the help-page search found</h3><ol class="calls">${searched}</ol>` : ''}
-    ${r.steps?.length ? `<h3>Each step and its source</h3><ol class="calls">${steps}</ol>` : ''}
+    ${searched ? `<h3>${searchedSaved(r) ? 'What the search of the saved help pages found' : 'What the help-page search found'}</h3><p>Closest first. A page listed here is not proof that it answers the question.</p><ol class="calls">${searched}</ol>` : ''}
+    ${r.steps?.length ? `<h3>Each step and its source</h3><ul class="calls nonum">${steps}</ul>` : ''}
     <h3>Script check</h3>
     <p>${r.entry ? (r.check.pass ? 'Passed. Every quote is on its cited page. Every account step is backed by a lookup. No line makes a promise (a refund, a date, a sure outcome).' : `Blocked: ${esc((r.check.problems || []).join(' '))}`) : 'There was no reply to check.'}</p>
     ${r.reply ? `<h3>Second checker</h3><p>${fstate}</p>
-    ${findings.length ? `<p>${f.state === 'blocked' ? 'Its findings:' : 'Its notes:'}</p><ul class="mono-list">${findings.map(x => `<li>${tq(x)}</li>`).join('')}</ul>` : ''}
-    <h3>The exact text the checker read (what Copy gives you)</h3><pre>${esc(r.reply)}</pre>` : ''}
-    ${r.escalationText ? `<h3>The note for a person, as the desk saved it</h3>${mdHTML(r.escalationText)}` : ''}
-    ${r.docEditText ? `<h3>The proposed help-page edit, as the desk saved it</h3>${mdHTML(r.docEditText)}` : ''}
+    ${findings.length ? `<p>${f.state === 'blocked' ? 'Its findings:' : f.scope === 'words' ? 'Its notes, on the words below and the one example of the slot it was shown (not the facts in this reply):' : 'Its notes:'}</p><ul class="mono-list">${findings.map(x => { const fix = f.state === 'blocked' ? null : resolvedNote(x); return `<li>${tq(x)}${fix ? `<br><b>Resolved:</b> ${tq(fix)}` : ''}</li>`; }).join('')}</ul>` : ''}
+    ${checkedTextHTML(r, f)}` : ''}
+    ${r.escalationText && whyOf(r) !== 'nonsense' ? `<h3>The note for a person, as the desk saved it</h3>${mdHTML(r.escalationText)}` : ''}
+    ${r.docEditText && !(searchSkipped(r) && !r.entry) ? `<h3>The proposed help-page edit, as the desk saved it</h3>${mdHTML(r.docEditText)}` : ''}
   </section>`;
 }
 
@@ -818,7 +854,8 @@ const VLINE = {
 function practiceHTML(r, st) {
   const at = r.fresh?.checkedAt ? ` on ${day(r.fresh.checkedAt)}` : '';
   const acct = r.mock ? 'This is a practice account with made-up customers and posts. The help pages and their sentences are real.' : '';
-  const words = st === 'checked' && r.fresh?.scope === 'words' ? `A second checker read the words of this reply${at} and passed them. The facts in step 1 come straight from the customer's own account, just now.`
+  const words = st === 'checked' && r.fresh?.scope === 'words' && r.fresh?.filled === 'slot' ? `A second checker read the words of this reply${at} and passed them. The short part that says back what went wrong is filled in by the desk, from a fixed list of words.`
+    : st === 'checked' && r.fresh?.scope === 'words' ? `A second checker read the words of this reply${at} and passed them. The facts in step ${Math.max(1, (r.steps || []).findIndex(s => s.type === 'evidence') + 1)} come straight from the ${r.mock ? 'practice account' : "customer's own account"}, just now.`
     : st === 'checked' ? `A second checker read these exact words${at} and passed them, so the same words do not need checking twice.`
     : st === 'stopped' && r.fresh?.state === 'blocked' ? `A second checker read these exact words${at} and stopped them.` : '';
   const s = [acct, words].filter(Boolean).join(' ');
@@ -827,7 +864,9 @@ function practiceHTML(r, st) {
 function shellHTML(meta, r) {
   const st = stateOf(r);
   const line = r.example ? PLAIN_STOPPED : (r.ticket?.id && PLAIN_LINES[r.ticket.id]) || null;
-  const person = st !== 'refused' && !line ? personReason(r) : null;
+  // A checked reply to a money message goes out, and its note sends the money part to a person: one line says both.
+  const moneyPart = st === 'checked' && whyOf(r) === 'money' && !!r.escalation;
+  const person = st !== 'refused' && !line && !moneyPart ? personReason(r) : null;
   // A sample message is labeled as one where it is shown (the founder's test, round 4).
   const sample = (!!meta.body?.id || !!meta.example) && !meta.demo;
   const by = `${meta.who ? `${meta.who} wrote this.` : 'The customer wrote this.'}${sample ? ' It is made up, on a practice account.' : ''}`;
@@ -840,7 +879,7 @@ function shellHTML(meta, r) {
     </div>
     ${meta.example ? '<p class="example-tag">A saved example from Nov 15: the desk\'s first reply to this message. The second checker stopped it, and the desk was fixed.</p>' : ''}
     <div class="did-row"><ol class="did" id="did" aria-label="What the desk did"></ol></div>
-    ${VLINE[st] ? `<p class="vline away" id="vline" style="--tone: ${VLINE[st][1]}">${VLINE[st][0]}</p>` : ''}
+    ${VLINE[st] ? `<p class="vline away" id="vline" style="--tone: ${VLINE[st][1]}">${moneyPart ? 'Checked. Safe to send. A person takes the money part.' : st === 'checked' && r.handover ? 'Checked. Safe to send. It hands the question to a person; it is not the answer.' : VLINE[st][0]}</p>` : ''}
     ${practiceHTML(r, st)}
     ${line ?`<p class="plainline"><b>In plain words:</b> ${esc(line)}</p>` : ''}
     ${person ? `<p class="plainline person"><b>A person on the team takes this one.</b> ${esc(person)}</p>` : ''}
@@ -868,7 +907,7 @@ function stageHTML(r) {
           <p class="rr unw" data-write>${esc(refusalReason(r))}${guessing(r) ? ' A wrong answer can hurt a customer more than a slow one.' : ''}</p>
           ${note ? '<p class="rr unw" data-write><b>Who gets it next.</b> A person on the support team. The desk wrote them a note, and it is on this page, ready to copy and pass on.</p>' : ''}
           <div class="actions refusal-actions away" data-pop><button type="button" class="${note ? 'btn-quiet' : 'btn'}" id="reword-btn">Say it another way</button></div>
-          <p class="rr unw" data-write><b>What the desk knows.</b> It can answer questions about posting, scheduling, accounts, plans and error messages.</p>
+          <p class="rr unw" data-write><b>What the desk knows.</b> This demo answers only from a set of saved, checked answers. Anything else goes to a person on the team, even when it is about something the help pages cover.</p>
           ${cands.length ? `<p class="rr unw" data-write><b>Did they mean one of these?</b></p><div class="chips away" data-pop>${cands.map(c => `<button type="button" class="chip" data-ask="${esc(c.phrasing)}">${both(dash(c.title))}</button>`).join('')}</div>` : ''}
           ${note ? `<div class="away" data-pop>${tryCard}</div>` : ''}
         </div>
@@ -876,11 +915,13 @@ function stageHTML(r) {
       <aside class="refusal-side away" data-pop>${note ? noteHTML(r, false, true) : `<section class="note try-card" aria-labelledby="try-h"><h3 id="try-h">Or try a message like this one</h3>${tryBtn}</section>`}</aside>` };
   }
   const seal = sealOf(st);
-  const stamp = seal ? `<div class="stamp-slot" aria-hidden="false"><div class="stamp away" data-tone="${seal}">${postmark(seal, { date: r.fresh?.checkedAt, label: `${STAMPS[seal].label}${r.fresh?.checkedAt ? ` Read on ${dayAt(r.fresh.checkedAt)}.` : ''}` })}</div></div>` : '';
+  const pmKind = seal === 'stopped' && stoppedBy(r) === 'script' ? 'script-stopped' : seal;
+  const pmDate = pmKind === 'script-stopped' ? null : r.fresh?.checkedAt;
+  const stamp = seal ? `<div class="stamp-slot" aria-hidden="false"><div class="stamp away" data-tone="${seal}">${postmark(pmKind, { date: pmDate, label: `${STAMPS[pmKind].label}${pmDate ? ` Read on ${dayAt(pmDate)}.` : ''}` })}</div></div>` : '';
   const { head, tail } = letterParts(r.reply);
   const steps = r.steps || [];
   const flags = r.example?.plain?.names || [];
-  const title = r.outcome === 'no-answer' ? 'Here is a reply for now' : 'Here is the answer';
+  const title = r.outcome === 'no-answer' || r.handover ? 'Here is a reply for now' : 'Here is the answer';
   const [hi, ...rest] = /^Hi\b/.test(head[0] || '') ? head : ['', ...head];
   const stepsHTML = steps.map((s, i) => {
     const fl = flags.includes(i + 1) ? ' flag' : '';
@@ -907,9 +948,13 @@ function closingHTML(r, st, typed = false) {
   const single = st === 'refused';
   const nonsense = whyOf(r) === 'nonsense';
   let actions = '';
-  if (st === 'stopped') {
+  if (st === 'stopped' && r.example) {
+    // The saved example (the first T07 reply) has a fixed reply: today's T07, for the same message.
     actions = `<button type="button" class="btn" id="fixed-btn">See the fixed reply</button>
       <p class="why-line">The desk will not let you copy a reply the checker stopped.</p>`;
+  } else if (st === 'stopped') {
+    // Any other stopped reply has no fixed version yet: no button that would show another customer's answer.
+    actions = `<p class="why-line">The desk will not let you copy a reply a check stopped. ${r.escalation ? 'The note below goes to a person on the team, who answers this one.' : 'A person on the team needs to answer this one.'}</p>`;
   } else if (!single && r.escalation && !nonsense) {
     // A reply and a note: the reply is the page's main job, so its button leads. The note has its own quiet
     // button, once, on the note itself.
@@ -1322,11 +1367,11 @@ class Moment {
     const called = trace.some(e => e.t === 'call');
     const f = r.fresh || {};
     this.texts = {
-      read: pages ? (pages === 1 ? "Read Blotato's help page" : `Read ${pages} of Blotato's help pages`) : searched ? "Looked through Blotato's help pages" : 'No help page was needed',
+      read: pages ? (pages === 1 ? "Read Blotato's help page" : `Read ${pages} of Blotato's help pages`) : searched && searchSkipped(r) ? 'Checked its saved answers' : searched && searchedSaved(r) ? 'Searched its saved help pages' : searched ? "Looked through Blotato's help pages" : 'No help page was needed',
       // on the practice account, the account is made up: the line says so where it is used
       account: r.mock ? 'Looked at the practice account' : 'Looked at their account',
       write: st === 'refused' ? (whyOf(r) === 'nonsense' ? 'Wrote no reply' : guessing(r) ? 'Wrote no reply. It will not guess.' : 'Wrote no reply') : `Wrote ${(r.steps || []).length} steps`,
-      check: whyOf(r) === 'nonsense' ? 'Asked for a clearer message' : { checked: `A second checker passed it${f.checkedAt ? `, ${day(f.checkedAt)}` : ''}`, stopped: 'A second checker stopped it', saved: 'Checked, then one line changed', composed: 'A second reader passed it', draft: 'Not read by a second checker yet', refused: 'A person on the team will take it' }[st],
+      check: whyOf(r) === 'nonsense' ? 'Asked for a clearer message' : { checked: `A second checker passed it${f.checkedAt ? `, ${day(f.checkedAt)}` : ''}`, stopped: stoppedBy(r) === 'script' ? 'The script check stopped it' : 'A second checker stopped it', saved: 'Checked, then one line changed', composed: 'A second reader passed it', draft: 'Not read by a second checker yet', refused: 'A person on the team will take it' }[st],
     };
     this.tick('read', 'pending', this.texts.read);
     if (called && st !== 'refused') this.tick('account', 'pending', this.texts.account);
@@ -1349,7 +1394,7 @@ class Moment {
     stage.classList.add('moving');
     const letter = $('#letter', stage);
     const firstFact = st === 'refused' ? -1 : steps.findIndex(s => s.type === 'fact' && s.page?.found && s.page.mark);
-    this.tick('read', 'wait', this.texts.read.replace(/^Read /, 'Reading ').replace(/^Looked through/, 'Looking through'));
+    this.tick('read', 'wait', this.texts.read.replace(/^Read /, 'Reading ').replace(/^Looked through/, 'Looking through').replace(/^Checked its/, 'Checking its'));
     say('The desk is working on the answer.');
     await this.lifting;
     this.mark('frame');

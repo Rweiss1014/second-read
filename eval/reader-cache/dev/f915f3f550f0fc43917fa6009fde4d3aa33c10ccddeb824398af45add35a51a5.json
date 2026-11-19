@@ -1,0 +1,22 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 6713,
+ "verdict": {
+  "points": [
+   {
+    "point": "Credits used by own (uploaded) photos",
+    "sentence": "Credits are only used for AI-generated images and videos."
+   },
+   {
+    "point": "Credits used by scheduling about 300 posts a month",
+    "sentence": "Credits are only used for AI-generated images and videos."
+   }
+  ],
+  "pick": "what-uses-credits",
+  "reason": "The entry says credits are only spent on AI-generated images and videos, so scheduling posts with the customer's own photos uses none."
+ },
+ "at": "2026-11-18T19:58:43.265Z"
+}

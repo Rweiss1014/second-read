@@ -1,0 +1,26 @@
+{
+ "kind": "pick",
+ "version": "pick-r2",
+ "model": "claude-sonnet-5-5",
+ "servedBy": "claude-sonnet-5-5",
+ "ms": 5405,
+ "verdict": {
+  "points": [
+   {
+    "point": "Is it still loading / why no post after adding Text context",
+    "sentence": "Adding text context does not make a post on its own."
+   },
+   {
+    "point": "What to do / check source finished loading",
+    "sentence": "First check that the source finished loading and that its checkbox is selected in Context."
+   },
+   {
+    "point": "How to get the post made",
+    "sentence": "Then type this in the AI Agent prompt box: \"Create 1 LinkedIn post from my selected context. Keep it as a draft.\" Put your own destination in place of LinkedIn."
+   }
+  ],
+  "pick": "text-context-no-post",
+  "reason": "The customer added Text context and no post appeared, and this entry states that Text context does not generate a post by itself and explains how to get one."
+ },
+ "at": "2026-11-18T19:58:36.258Z"
+}
