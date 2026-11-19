@@ -22,6 +22,11 @@ export const MONEY = /\b(?:charg(?:e|ed|es|ing)|re-?charged|refunds?|refunded|(?
 // "I don't want to be charged", "so I don't get charged", "so I won't be billed", "so I'm not billed".
 // Past tense ("I didn't want to be charged") is not here: that is money taken. Every other money word counts,
 // so "you charged me twice" later in the same message still goes to a person.
+// The skip holds only when nothing in the message says the charge already happened (fresh review, Nov 19:
+// "I don't want to get charged twice again", "You said I won't be charged after I canceled, but I was",
+// "Why are you charging me after I canceled?"). A bare "again" is not a sign on its own: "I don't want to be
+// charged again. How do I cancel?" is a cancel question.
+const PAST_CHARGE = /\b(?:twice|double|two times|three times|(?:second|third|fourth|fifth|\d+(?:st|nd|rd|th)) time|but (?:i|it|you|they|we) (?:was|were|did|still|got)|(?:it|this|that) (?:happened|went through|came out)|happened again|again (?:this|last|today|yesterday)|already (?:went through|happened|charged|billed|paid|taken|came out)|(?:bank|card|statement|account) (?:shows|says|got)|you (?:said|promised|told me)|(?:after|when|since|though|but) (?:i|we) (?:already )?(?:cancel+ed|unsubscribed|stopped)|(?:i|we) (?:already |just )?(?:cancel+ed|unsubscribed) (?:but|and|so|last|in|on|already)|still (?:being |getting )?(?:charg|bill)\w*|anyway)\b/i;
 const AHEAD = /\b(?:(?:will|would|do|does|am|is|are|can|could|should|if)\s+(?:i|we|you|it|they|my card|my account)?\s*(?:be|get|still)?|(?:stop|avoid|not|never)\s+(?:being|getting)|before (?:i'?m|i am|i get|being)|(?:don'?t|do not|won'?t|will not|never)\s+(?:want to |wish to |need to )?(?:be|get)|so (?:that )?(?:i'?m|i am|we'?re|we are|it'?s|it is) not)\s*$/i;
 // Paid, but did not get what was paid for: "I bought 2000 credits and paid, but my balance didn't go up",
 // "I paid for Agency but it still stops me at 20". And credits asked back in other words: "give back the 300
@@ -32,7 +37,7 @@ const PAID_IN_PASSING = /\b(?:i|we)\s+(?:already\s+|just\s+)?(?:paid|pay already
 function moneyTaken(text) {
   for (const m of text.matchAll(new RegExp(MONEY.source, 'gi'))) {
     const before = text.slice(Math.max(0, m.index - 25), m.index);
-    if (/^charg|^bill|^invoiced/i.test(m[0]) && AHEAD.test(before)) continue;
+    if (/^charg|^bill|^invoiced/i.test(m[0]) && AHEAD.test(before) && !PAST_CHARGE.test(text)) continue;
     return m[0];
   }
   const p = text.match(PAID_NOT_GOT) || text.match(CREDITS_BACK);
