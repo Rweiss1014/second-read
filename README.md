@@ -248,14 +248,14 @@ Keep API keys out of `.mcp.json`. Blotato's page says the same.
 Send it a support message as JSON, `{"text": "..."}`, and it asks Second Read for a checked draft:
 
 1. **Support message in** is a webhook that takes the message.
-2. **Ask Second Read** posts it to `/api/ticket`. Change the URL to wherever Second Read runs. `localhost:5610` works when n8n runs on the same computer.
-3. **Needs a person?** looks at the desk's answer. A charge, a refund or anything the help pages cannot settle goes to a person.
+2. **Ask Second Read** posts it to `/api/ticket`. Change the URL to wherever Second Read runs. `127.0.0.1:5610` works when n8n runs on the same computer. Use `127.0.0.1`, not `localhost`: newer n8n looks up `localhost` as the IPv6 address `::1`, and Second Read listens on `127.0.0.1`.
+3. **Needs a person?** looks at the desk's answer. Only a reply the fresh checker passed, word for word, comes back as a plain draft. A charge, a refund, anything the help pages cannot settle, and any draft that is blocked, composed or not yet checked goes to a person, with the hand-over note.
 4. The flow answers with the draft reply, and for a hand-over, the note for the person who decides.
 
 The flow never sends anything. A person reads the draft and sends it.
 
 `test/n8n-flow.test.mjs` checks the wiring and runs the flow's own expressions against a sample desk, for a how-to and a billing ticket.
-That proves the flow's logic and the fields it reads. It has not been run inside n8n yet.
+That proves the flow's logic and the fields it reads. It was also run inside real n8n (2.48.5, November 18, 2026): imported from this file, published, and sent eight support messages; each one took the right branch.
 
 ## The daily "what broke overnight" check
 
