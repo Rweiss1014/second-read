@@ -48,7 +48,7 @@ npm start     # opens the page with sample data at http://localhost:5610
 
 Paste a customer's message, or click one of the examples under the box.
 
-`npm test` runs the 186 checks. `npm run serve` opens the page on a real account (it needs your key). If port 5610 is busy, run `node bin/support-desk.mjs serve --mock --port 5611`.
+`npm test` runs the 217 checks. `npm run serve` opens the page on a real account (it needs your key). If port 5610 is busy, run `node bin/support-desk.mjs serve --mock --port 5611`.
 
 `--mock` means account lookups use made-up posts. The page says so at the top. The help docs are always the real ones.
 

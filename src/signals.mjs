@@ -17,8 +17,12 @@
 export const MONEY = /\b(?:charg(?:e|ed|es|ing)|re-?charged|refunds?|refunded|(?:double|over|re)-?(?:billed|charged)|billed|paid (?:twice|two times|double)|(?:double|duplicate|extra|unexpected|unauthori[sz]ed|surprise) (?:payment|charge|invoice)s?|money (?:back|was taken|taken|out of)|took (?:my )?money|taken (?:my )?money|(?:payment|money) (?:was|got) (?:taken|deducted)|deducted|chargeback|credits? back|(?:want|give me|get) (?:my|the|those) credits back|compensat(?:e|ion)|reimburs\w*|debit(?:ed)?|invoiced|invoice (?:came|arrived|showed up|went through)|receipt|(?:two|2|double|duplicate|extra) payments|(?:card|account|bank) (?:got|was) (?:hit|charged|debited)|\$\s?\d|\d+\s?(?:usd|eur|gbp|aud)|(?:\d+|one|two|three|a) months? (?:for )?free|free (?:month|months|upgrade|credits)|upgraded? [^.?!\n]{0,30}\bfor free)\b/i;
 
 // A money word asked about ahead of time ("will I be charged when the trial ends?") is a policy question,
-// not money taken. Every other money word counts.
-const AHEAD = /\b(?:(?:will|would|do|does|am|is|are|can|could|should|if)\s+(?:i|we|you|it|they|my card|my account)?\s*(?:be|get|still)?|(?:stop|avoid|not|never)\s+(?:being|getting)|before (?:i'?m|i am|i get|being))\s*$/i;
+// not money taken. So is a charge the customer wants to avoid (a live-site judge, Nov 18: "How do I cancel my
+// subscription? I don't want to be charged next month." got an apology for a charge that never happened):
+// "I don't want to be charged", "so I don't get charged", "so I won't be billed", "so I'm not billed".
+// Past tense ("I didn't want to be charged") is not here: that is money taken. Every other money word counts,
+// so "you charged me twice" later in the same message still goes to a person.
+const AHEAD = /\b(?:(?:will|would|do|does|am|is|are|can|could|should|if)\s+(?:i|we|you|it|they|my card|my account)?\s*(?:be|get|still)?|(?:stop|avoid|not|never)\s+(?:being|getting)|before (?:i'?m|i am|i get|being)|(?:don'?t|do not|won'?t|will not|never)\s+(?:want to |wish to |need to )?(?:be|get)|so (?:that )?(?:i'?m|i am|we'?re|we are|it'?s|it is) not)\s*$/i;
 // Paid, but did not get what was paid for: "I bought 2000 credits and paid, but my balance didn't go up",
 // "I paid for Agency but it still stops me at 20". And credits asked back in other words: "give back the 300
 // credits". Both are money a person has to look at.
